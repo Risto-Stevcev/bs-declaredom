@@ -1,0 +1,39 @@
+{
+  "name": "@ristostevcev/bs-callbag-html",
+  "version": "1.0.0",
+  "sources": [{
+    "dir" : ".",
+    "files" : [
+      "FFI.ml","Style.ml","Node.ml","Global.ml",
+      "Css.ml", "Util.ml"
+    ]
+  }, {
+    "dir": "./css"
+  }, {
+    "dir": "./nodes"
+  }, {
+    "dir": ".",
+    "type": "dev",
+    "files": ["Example.ml"]
+  }, {
+    "dir": "./test",
+    "type": "dev"
+  }],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": [
+    "@ristostevcev/bs-callbag",
+    "@ristostevcev/bs-callbag-basics"
+  ],
+  "bs-dev-dependencies": [
+    "bs-webapi",
+    "@ristostevcev/bs-tape"
+  ],
+  "warnings": {
+    "error" : "+101+25+8+9"
+  },
+  "refmt": 3
+}
