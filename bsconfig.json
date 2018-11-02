@@ -2,21 +2,19 @@
   "name": "@ristostevcev/bs-callbag-html",
   "version": "1.0.0",
   "sources": [{
-    "dir" : ".",
-    "files" : [
-      "FFI.ml","Style.ml","Node.ml","Global.ml",
-      "Css.ml", "Util.ml"
-    ]
+    "dir" : "src"
   }, {
-    "dir": "./css"
+    "dir": "src/css"
   }, {
-    "dir": "./nodes"
+    "dir": "src/css/property"
   }, {
-    "dir": ".",
+    "dir": "src/nodes"
+  }, {
+    "dir": "example",
     "type": "dev",
     "files": ["Example.ml"]
   }, {
-    "dir": "./test",
+    "dir": "test",
     "type": "dev"
   }],
   "package-specs": {
