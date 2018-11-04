@@ -82,6 +82,8 @@ module Percent = struct
   (** {{: https://www.w3.org/TR/css-values/#percentages } Percentages} *)
 
   type t = [ `percent ] [@@bs.deriving jsConverter]
+
+	let show = tToJs
 end
 
 type t = [ Length.t | Percent.t | Other.t ]

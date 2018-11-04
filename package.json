@@ -1,5 +1,5 @@
 {
-  "name": "@ristostevcev/bs-callbag-html",
+  "name": "@ristostevcev/bs-declaredom",
   "version": "1.0.0",
   "scripts": {
     "clean": "bsb -clean-world",

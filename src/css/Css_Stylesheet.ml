@@ -29,6 +29,9 @@ end
 module Rule = struct
   (* TODO: add @page rule
    * https://www.w3.org/TR/CSS2/page.html#page-box
+   *
+   * parameterize `media with the media type and media group
+   * https://www.w3.org/TR/CSS22/media.html#media-groups
    *)
   type t =
     [ `media of Media.t * Selector.t * Property.display list
@@ -37,17 +40,17 @@ module Rule = struct
     | FontFace.t
     ]
 
-	type ruleset = t list
+  type ruleset = t list
 
-	let style selector property =
-		`style (selector, (Property.show (property :> Property.display)))
+  let style selector property =
+    `style (selector, (Property.show (property :> Property.display)))
 
   open Css_Module;;
-	let module_ { name; declaration } =
-	  `module_
-		  { name
-		  ; declaration = declaration |> List.map (fun e -> (e :> Property.display)) 
-		  }
+  let module_ { name; declaration } =
+    `module_
+      { name
+      ; declaration = declaration |> List.map (fun e -> (e :> Property.display)) 
+      }
 end
 
 
