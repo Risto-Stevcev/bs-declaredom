@@ -1,4 +1,4 @@
-type 'a t = [> `clear of Css.Property.clear Css.Property.t ] as 'a
+type 'a t = [> Css.Property.clear ] as 'a
 
 type value =
   [ Css.Value.Keyword.t | Css.Value.Global.t ]
@@ -10,6 +10,6 @@ let valueToJs: value -> string = function
   Css.Value.Keyword.tToJs keyword
 
 external _make:
-  clear:string -> Css.Property.clear Css.Property.t = "" [@@bs.obj]
+  clear:string -> Css.Property.Type.clear Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t = `clear (_make ~clear:(valueToJs value))

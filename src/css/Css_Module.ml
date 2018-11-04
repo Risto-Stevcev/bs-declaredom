@@ -23,15 +23,15 @@
 (* Creates css modules -- scoped styles that are namespaced by it's class 
  * name
  *)
-type 'a t = { name: string; declaration: 'a array }
+type 'a t = { name: string; declaration: 'a list }
 
 external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
 
-let getClass ?(className="") ?(cssModule={name=""; declaration=[||]}) () =
+let getClass ?(className="") ?(cssModule={name=""; declaration=[]}) () =
   let {name} = cssModule in
   let separator = if className = "" || name = "" then "" else " " in
   Js.String.trim @@ className ^ separator ^ name
 
 let make declaration =
   let (s, ms) = hrtime () in
-  {name = "m" ^ (Js.Int.toString s) ^ "_" ^ (Js.Int.toString ms); declaration}
+  {name = "m"^ (Js.Int.toString s) ^"_"^ (Js.Int.toString ms); declaration}

@@ -23,16 +23,20 @@ let _ =
 
     let stl: Css.Property.block Css.Module.t =
       let open Css.Module in
-      { name="foobar"; declaration = [|
+      { name="foobar"; declaration = [
           TextAlign.make `center;
           Clear.make `both;
           Color.make @@ `color "blue";
-        |]
+        ]
       }
     in
     let stl': Css.Property.inline Css.Module.t =
       let open Css.Module in
-      { name="foobaz"; declaration = [| VerticalAlign.make `initial; |] }
+      { name="foobaz"; declaration = [ VerticalAlign.make `initial; ] }
+    in
+    let stl'': Css.Stylesheet.Rule.t = Css.Stylesheet.Rule.module_ stl
+    in
+    let stl''': Css.Stylesheet.Rule.t = Css.Stylesheet.Rule.module_ stl'
     in
 
     let z =
