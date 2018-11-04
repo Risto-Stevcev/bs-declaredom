@@ -132,8 +132,7 @@ module Percent = struct
 
   type t = [ `percent of int ]
 
-  let show (`percent amount: t): string =
-    Js.Int.toString amount ^"%"
+  let show (`percent amount: t): string = Js.Int.toString amount ^"%"
 end
 
 module Position = struct
@@ -224,4 +223,123 @@ module Unit = struct
       amount |> string_of_float |> Js.String.replaceByRe [%re "/\.$/"] ""
     in
     amount' ^ Css_Unit.show unit' 
+end
+
+module BackgroundColor = struct
+  type t = [ Global.t | Color.t | `transparent ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | ( `aliceblue | `antiquewhite | `aqua | `aquamarine | `azure | `beige
+    | `bisque | `black | `blanchedalmond | `blue | `blueviolet | `brown
+    | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
+    | `cornflowerblue | `cornsilk | `crimson | `cyan | `darkblue | `darkcyan
+    | `darkgoldenrod | `darkgray | `darkgreen | `darkgrey | `darkkhaki
+    | `darkmagenta | `darkolivegreen | `darkorange | `darkorchid | `darkred
+    | `darksalmon | `darkseagreen | `darkslateblue | `darkslategray
+    | `darkslategrey | `darkturquoise | `darkviolet | `deeppink | `deepskyblue
+    | `dimgray | `dimgrey | `dodgerblue | `firebrick | `floralwhite
+    | `forestgreen | `fuchsia | `gainsboro | `ghostwhite | `gold | `goldenrod
+    | `gray | `green | `greenyellow | `grey | `honeydew | `hotpink | `indianred
+    | `indigo | `ivory | `khaki | `lavender | `lavenderblush | `lawngreen
+    | `lemonchiffon | `lightblue | `lightcoral | `lightcyan
+    | `lightgoldenrodyellow | `lightgray | `lightgreen | `lightgrey
+    | `lightpink | `lightsalmon | `lightseagreen | `lightskyblue
+    | `lightslategray | `lightslategrey | `lightsteelblue | `lightyellow
+    | `lime | `limegreen | `linen | `magenta | `maroon | `mediumaquamarine
+    | `mediumblue | `mediumorchid | `mediumpurple | `mediumseagreen
+    | `mediumslateblue | `mediumspringgreen | `mediumturquoise
+    | `mediumvioletred | `midnightblue | `mintcream | `mistyrose | `moccasin
+    | `navajowhite | `navy | `oldlace | `olive | `olivedrab | `orange
+    | `orangered | `orchid | `palegoldenrod | `palegreen | `paleturquoise
+    | `palevioletred | `papayawhip | `peachpuff | `peru | `pink | `plum
+    | `powderblue | `purple | `red | `rosybrown | `royalblue | `saddlebrown
+    | `salmon | `sandybrown | `seagreen | `seashell | `sienna | `silver
+    | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
+    | `steelblue | `tan | `teal | `thistle | `tomato | `turquoise | `violet
+    | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
+    | `rgb _ | `rgba _ | `hsl _ | `hsla _
+    ) as color ->
+    Color.show color
+  | `transparent -> "transparent"
+end
+
+module BackgroundImage = struct
+  type t = [ Global.t | Uri.t | `none ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global -> Global.show global
+  | `uri _ as uri -> Uri.show uri
+  | `none -> "none"
+end
+
+module BackgroundRepeat = struct
+  type value =
+    [ `repeat | `repeat_x | `repeat_y | `no_repeat ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global -> Global.show global
+  | ( `repeat | `repeat_x | `repeat_y | `no_repeat ) as value ->
+    value |> valueToJs |> Util.underscore_to_dash
+end
+
+module BackgroundAttachment = struct
+  type value = [ `scroll | `fixed ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global -> Global.show global
+  | ( `scroll | `fixed ) as value -> valueToJs value
+end
+
+module BackgroundPosition = struct
+  type t = [ Global.t | Position.t ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | ( `left | `right | `top | `bottom | `center | `value2 _ | `value4 _
+    ) as position ->
+    Position.show position
+end
+
+module BorderColor = struct
+  type t = BackgroundColor.t 
+
+  let show: t -> string = BackgroundColor.show
+end
+
+module BorderWidth = struct
+  type value = [ `thin | `medium | `thick ] [@@bs.deriving jsConverter]
+  type t = [ Global.t | Length.t | `thin | `medium | `thick ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | ( `thin | `medium | `thick ) as value ->
+    valueToJs value
+  | `length _ as length -> Length.show length
+end
+
+module BorderStyle = struct
+  type value =
+    [
+    | `none | `hidden | `dotted | `dashed | `solid | `double | `groove | `ridge
+    | `inset | `outset
+    ]
+    [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | ( `none | `hidden | `dotted | `dashed | `solid | `double | `groove | `ridge
+    | `inset | `outset
+    ) as value ->
+    valueToJs value
 end

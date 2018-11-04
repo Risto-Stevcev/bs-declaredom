@@ -2,15 +2,7 @@
 
 type 'a t = [> Css.Property.background_attachment ] as 'a
 
-type _value =
-  [ `scroll | `fixed ]
-  [@@bs.deriving jsConverter]
-
-type value = [ Css_Value.Global.t | _value ]
-
-let valueToJs: value -> string = function
-| ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
-| ( `scroll | `fixed ) as value' -> _valueToJs value'
+type value = Css_Value.BackgroundAttachment.t
 
 external to_json:
   Css.Property.background_attachment Css.Property.t ->
@@ -21,4 +13,5 @@ external _make:
   Css.Property.Type.background_attachment Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  `background_attachment (_make ~backgroundAttachment:(valueToJs value))
+  let show = Css_Value.BackgroundAttachment.show in
+  `background_attachment (_make ~backgroundAttachment:(show value))

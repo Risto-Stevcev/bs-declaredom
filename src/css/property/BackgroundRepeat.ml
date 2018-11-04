@@ -2,15 +2,7 @@
 
 type 'a t = [> Css.Property.background_repeat ] as 'a
 
-type _value =
-  [ `repeat | `repeat_x | `repeat_y | `no_repeat ] [@@bs.deriving jsConverter]
-
-type value = [ Css_Value.Global.t | _value ]
-
-let valueToJs: value -> string = function
-| ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
-| ( `repeat | `repeat_x | `repeat_y | `no_repeat ) as value ->
-  value |> _valueToJs |> Util.underscore_to_dash
+type value = Css_Value.BackgroundRepeat.t
 
 external to_json:
   Css.Property.background_repeat Css.Property.t ->
@@ -21,4 +13,5 @@ external _make:
   Css.Property.Type.background_repeat Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  `background_repeat (_make ~backgroundRepeat:(valueToJs value))
+  let show = Css_Value.BackgroundRepeat.show in
+  `background_repeat (_make ~backgroundRepeat:(show value))

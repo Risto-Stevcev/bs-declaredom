@@ -1,0 +1,31 @@
+(** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top } Border Top} *)
+
+type 'a t = [> Css.Property.border_top ] as 'a
+
+module Value = struct
+  type t =
+    Css_Value.BorderWidth.t option *
+    Css_Value.BorderStyle.t option *
+    Css_Value.BorderColor.t option
+
+  let show ((width, style, color): t): string =
+    let width' =
+      Belt.Option.mapWithDefault width "" Css_Value.BorderWidth.show
+    and style' =
+      Belt.Option.mapWithDefault style "" Css_Value.BorderStyle.show
+    and color' =
+      Belt.Option.mapWithDefault color "" Css_Value.BorderColor.show
+    in
+    Util.combine_styles [| width'; style'; color' |]
+end
+
+external to_json:
+  Css.Property.border_top Css.Property.t ->
+  <borderTop: string> Js.t = "%identity"
+
+external _make:
+  borderTop:string ->
+  Css.Property.Type.border_top Css.Property.t = "" [@@bs.obj]
+
+let make ?width ?style ?color (): 'a t =
+  `border_top (_make ~borderTop:(Value.show (width, style, color)))

@@ -1,0 +1,31 @@
+(** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border } Border} *)
+
+type 'a t = [> Css.Property.border ] as 'a
+
+module Value = struct
+  type t =
+    Css_Value.BorderWidth.t option *
+    Css_Value.BorderStyle.t option *
+    Css_Value.BorderColor.t option
+
+  let show ((width, style, color): t): string =
+    let width' =
+      Belt.Option.mapWithDefault width "" Css_Value.BorderWidth.show
+    and style' =
+      Belt.Option.mapWithDefault style "" Css_Value.BorderStyle.show
+    and color' =
+      Belt.Option.mapWithDefault color "" Css_Value.BorderColor.show
+    in
+    Util.combine_styles [| width'; style'; color' |]
+end
+
+external to_json:
+  Css.Property.border Css.Property.t ->
+  <border: string> Js.t = "%identity"
+
+external _make:
+  border:string ->
+  Css.Property.Type.border Css.Property.t = "" [@@bs.obj]
+
+let make ?width ?style ?color (): 'a t =
+  `border (_make ~border:(Value.show (width, style, color)))

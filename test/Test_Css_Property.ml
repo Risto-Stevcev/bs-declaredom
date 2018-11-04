@@ -95,6 +95,135 @@ test ~name:"css property - background-repeat" @@ fun t -> begin
 end; 
 
 
+test ~name:"css property - background" @@ fun t -> begin
+  let background = Background.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (background ()) "background: inherit";
+  t |> equal (background ~color:`red ()) "background: red";
+  t |> equal (background ~color:`red ~repeat:`repeat ()) "background: red repeat";
+  t |> equal (background ~repeat:`repeat ~image:(`uri "http://foo") ())
+             "background: url(\"http://foo\") repeat";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-collapse" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BorderCollapse.make |> Css.Property.show) b
+  in
+  t |> equal `inherit_ "border-collapse: inherit";
+  t |> equal `initial "border-collapse: initial";
+  t |> equal `unset "border-collapse: unset";
+  t |> equal `collapse "border-collapse: collapse";
+  t |> equal `separate "border-collapse: separate";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-color" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BorderColor.make |> Css.Property.show) b
+  in
+  t |> equal `inherit_ "border-color: inherit";
+  t |> equal `initial "border-color: initial";
+  t |> equal `unset "border-color: unset";
+  t |> equal `red "border-color: red";
+  t |> equal `transparent "border-color: transparent";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-width" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BorderWidth.make |> Css.Property.show) b
+  in
+  t |> equal `inherit_ "border-width: inherit";
+  t |> equal `initial "border-width: initial";
+  t |> equal `unset "border-width: unset";
+  t |> equal `thin "border-width: thin";
+  t |> equal `medium "border-width: medium";
+  t |> equal `thick "border-width: thick";
+  t |> equal (`length (12.5, `px)) "border-width: 12.5px";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-style" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BorderStyle.make |> Css.Property.show) b
+  in
+  t |> equal `inherit_ "border-style: inherit";
+  t |> equal `initial "border-style: initial";
+  t |> equal `unset "border-style: unset";
+  t |> equal `dotted "border-style: dotted";
+  t |> equal `dashed "border-style: dashed";
+  t |> equal `solid "border-style: solid";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-top" @@ fun t -> begin
+  let border_top = BorderTop.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (border_top ()) "border-top: inherit";
+  t |> equal (border_top ~width:(`length (5., `px)) ()) "border-top: 5px";
+  t |> equal (border_top ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+             "border-top: 5px dashed red";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-bottom" @@ fun t -> begin
+  let border_bottom = BorderBottom.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (border_bottom ()) "border-bottom: inherit";
+  t |> equal (border_bottom ~width:(`length (5., `px)) ()) "border-bottom: 5px";
+  t |> equal (border_bottom ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+             "border-bottom: 5px dashed red";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-left" @@ fun t -> begin
+  let border_left = BorderLeft.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (border_left ()) "border-left: inherit";
+  t |> equal (border_left ~width:(`length (5., `px)) ()) "border-left: 5px";
+  t |> equal (border_left ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+             "border-left: 5px dashed red";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border-right" @@ fun t -> begin
+  let border_right = BorderRight.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (border_right ()) "border-right: inherit";
+  t |> equal (border_right ~width:(`length (5., `px)) ()) "border-right: 5px";
+  t |> equal (border_right ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+             "border-right: 5px dashed red";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - border" @@ fun t -> begin
+  let border_right = Border.make
+  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  in
+  t |> equal (border_right ()) "border: inherit";
+  t |> equal (border_right ~width:(`length (5., `px)) ()) "border: 5px";
+  t |> equal (border_right ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+             "border: 5px dashed red";
+  t |> T.end_
+end;
+
+
+
 
 
 
