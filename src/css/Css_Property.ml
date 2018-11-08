@@ -16,9 +16,14 @@ module Type = struct
    and background_image and background_position and background_repeat
    and background and border_collapse and border_color and border_style
    and border_width and border_top and border_right and border_bottom
-   and border_left and border
+   and border_left and border and bottom and clear and cursor and float_
+   and font_family and font_size and font_style and font_variant
+   and font_weight and font and height and left and letter_spacing
+   and line_height and list_style_image and list_style_position
+   and list_style_type and list_style
 
-   and clear
+   type clip
+
    and color
    and text_align
    and vertical_align
@@ -42,42 +47,73 @@ type azimuth = [ `azimuth of Type.azimuth t ]
  and border_left = [ `border_left of Type.border_left t ]
  and border_right = [ `border_right of Type.border_right t ]
  and border = [ `border of Type.border t ]
+ and bottom = [ `bottom of Type.bottom t ]
+ and clear = [ `clear of Type.clear t ]
+ and cursor = [ `cursor of Type.cursor t ]
+ and float_ = [ `float of Type.float_ t ]
+ and font_family = [ `font_family of Type.font_family t ]
+ and font_size = [ `font_size of Type.font_size t ]
+ and font_style = [ `font_style of Type.font_style t ]
+ and font_variant = [ `font_variant of Type.font_variant t ]
+ and font_weight = [ `font_weight of Type.font_weight t ]
+ and font = [ `font of Type.font t ]
+ and height = [ `height of Type.height t ]
+ and left = [ `left of Type.left t ]
+ and letter_spacing = [ `letter_spacing of Type.letter_spacing t ]
+ and line_height = [ `line_height of Type.line_height t ]
+ and list_style_image = [ `list_style_image of Type.list_style_image t ]
+ and list_style_position =
+   [ `list_style_position of Type.list_style_position t ]
+ and list_style_type = [ `list_style_type of Type.list_style_type t ]
+ and list_style = [ `list_style of Type.list_style t ]
 
 
+type clip = [ `clip of Type.clip t ]
 
-type clear = [ `clear of Type.clear t ]
  and color = [ `color of Type.color t ]
  and text_align = [ `text_align of Type.text_align t ]
  and vertical_align = [ `vertical_align of Type.vertical_align t ]
 
 
 (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
+(* TODO: wrap these in AppliesTo module *)
 
 type any =
   [
-  | color | azimuth | background_attachment | background_color
+  | azimuth | background_attachment | background_color
   | background_image | background_position | background_repeat | background
   | border_color | border_width | border_style | border_top | border_bottom
-  | border_left | border_right | border
+  | border_left | border_right | border | bottom | color | float_ | cursor
+  | font_family | font_size | font_style | font_variant | font_weight | font
+  | height | left | letter_spacing | line_height
   ]
 type block = [ text_align | clear | any ]
 type inline = [ vertical_align | any ]
+
 type table = border_collapse
 type inline_table = border_collapse
 type table_cell = [ vertical_align | any ]
-type display = [ block | inline | table | inline_table | table_cell ]
+type list_item =
+  [ list_style_image | list_style_position | list_style_type | list_style ]
+type display =
+  [ block | inline | table | inline_table | table_cell | list_item ]
+
 
 
 module MediaGroup = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media groups} *)
 
   type aural = azimuth
+  type interactive = cursor
   type visual =
     [
-    | clear | color | background_attachment | background_color
-    | background_image | background_position | background_repeat | background
-    | border_collapse | border_color | border_width | border_style
-    | border_top | border_bottom | border_left | border_right | border
+    | background_attachment | background_color | background_image
+    | background_position | background_repeat | background | border_collapse
+    | border_color | border_width | border_style | border_top | border_bottom
+    | border_left | border_right | border | bottom | clear | color | cursor
+    | font_family | font_size | font_style | font_variant | font_weight | font
+    | height | left | letter_spacing | line_height | list_style_image
+    | list_style_position | list_style_type | list_style
     ]
 end
 
@@ -101,9 +137,8 @@ module Convert = struct
     property
     |> to_dict
     |> Js.Dict.entries
-    |. Belt.Array.map (fun (key, value) -> key ^": " ^ value)
+    |. Belt.Array.map (fun (key, value) -> Util.camel_to_dash key ^": " ^ value)
     |> Js.Array.joinWith ";\n"
-    |> Util.camel_to_dash
 end
 
 
@@ -124,7 +159,24 @@ let show: display -> string = function
 | `border_left x           -> Convert.to_string x
 | `border_right x          -> Convert.to_string x
 | `border x                -> Convert.to_string x
-| `color x                 -> Convert.to_string x
+| `bottom x                -> Convert.to_string x
 | `clear x                 -> Convert.to_string x
+| `color x                 -> Convert.to_string x
+| `cursor x                -> Convert.to_string x
+| `float x                 -> Convert.to_string x
+| `font_family x           -> Convert.to_string x
+| `font_size x             -> Convert.to_string x
+| `font_style x            -> Convert.to_string x
+| `font_variant x          -> Convert.to_string x
+| `font_weight x           -> Convert.to_string x
+| `font x                  -> Convert.to_string x
+| `height x                -> Convert.to_string x
+| `left x                  -> Convert.to_string x
+| `letter_spacing x        -> Convert.to_string x
+| `line_height x           -> Convert.to_string x
+| `list_style_image x      -> Convert.to_string x
+| `list_style_position x   -> Convert.to_string x
+| `list_style_type x       -> Convert.to_string x
+| `list_style x            -> Convert.to_string x
 | `text_align x            -> Convert.to_string x
 | `vertical_align x        -> Convert.to_string x

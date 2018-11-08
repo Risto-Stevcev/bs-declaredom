@@ -1,8 +1,6 @@
-(** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-color } Background Color} *)
+(** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-color } Background color} *)
 
 type 'a t = [> Css.Property.background_color ] as 'a
-
-type value = Css_Value.BackgroundColor.t
 
 external to_json:
   Css.Property.background_color Css.Property.t ->
@@ -13,5 +11,5 @@ external _make:
   Css.Property.Type.background_color Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  let show = Css_Value.BackgroundColor.show in
+  let show = Css.Value.BackgroundColor.show in
   `background_color (_make ~backgroundColor:(show value))

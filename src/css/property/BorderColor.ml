@@ -1,8 +1,6 @@
-(** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-color } Border Color} *)
+(** {{: https://www.w3.org/TR/CSS22/box.html#border-color-properties } Border Color} *)
 
 type 'a t = [> Css.Property.border_color ] as 'a
-
-type value = Css_Value.BorderColor.t
 
 external to_json:
   Css.Property.border_color Css.Property.t ->
@@ -13,5 +11,4 @@ external _make:
   Css.Property.Type.border_color Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  let show = Css_Value.BorderColor.show in
-  `border_color (_make ~borderColor:(show value))
+  `border_color (_make ~borderColor:(Css.Value.BorderColor.show value))

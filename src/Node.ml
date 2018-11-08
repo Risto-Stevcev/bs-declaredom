@@ -2,13 +2,18 @@ type 'node t
 
 type a
  and abbr
- and audio
  and br
  and div
  and button
  and header
  and h1
  and span
+
+ (* replaced inline elements
+  * https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element
+  * https://www.w3.org/TR/CSS2/conform.html#replaced-element
+  *)
+ and audio and canvas and embed and iframe and img and object_ and video
 
 type custom
 

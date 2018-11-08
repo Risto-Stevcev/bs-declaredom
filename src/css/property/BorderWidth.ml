@@ -1,8 +1,6 @@
-(** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-width } Border Width} *)
+(** {{: https://www.w3.org/TR/CSS22/box.html#border-width-properties } Border Width} *)
 
 type 'a t = [> Css.Property.border_width ] as 'a
-
-type value = Css_Value.BorderWidth.t
 
 external to_json:
   Css.Property.border_width Css.Property.t ->
@@ -13,5 +11,4 @@ external _make:
   Css.Property.Type.border_width Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  let show = Css_Value.BorderWidth.show in
-  `border_width (_make ~borderWidth:(show value))
+  `border_width (_make ~borderWidth:(Css_Value.BorderWidth.show value))

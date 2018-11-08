@@ -1,15 +1,20 @@
+(** {{: https://www.w3.org/TR/CSS22/visuren.html#flow-control } Clear} *)
+
 type 'a t = [> Css.Property.clear ] as 'a
 
-type value =
-  [ Css.Value.Keyword.t | Css.Value.Global.t ]
+module Value = struct
+  type value = [ `left | `right | `both | `none ] [@@bs.deriving jsConverter]
 
-let valueToJs: value -> string = function
-| (`inherit_ | `initial | `unset) as value ->
-  Css.Value.Global.tToJs value
-| (`none | `left | `right | `both | `inline_start | `inline_end) as keyword -> 
-  Css.Value.Keyword.tToJs keyword
+  type t = [ Css.Value.Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Css.Value.Global.show value
+  | (`none | `left | `right | `both) as value -> 
+    valueToJs value
+end
 
 external _make:
   clear:string -> Css.Property.Type.clear Css.Property.t = "" [@@bs.obj]
 
-let make value: 'a t = `clear (_make ~clear:(valueToJs value))
+let make value: 'a t = `clear (_make ~clear:(Value.show value))

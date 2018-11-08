@@ -4,23 +4,23 @@ type 'a t = [> Css.Property.background ] as 'a
 
 module Value = struct
   type t =
-    Css_Value.BackgroundColor.t option *
-    Css_Value.BackgroundImage.t option *
-    Css_Value.BackgroundRepeat.t option *
-    Css_Value.BackgroundAttachment.t option *
-    Css_Value.BackgroundPosition.t option
+    Css.Value.BackgroundColor.t option *
+    Css.Value.BackgroundImage.t option *
+    Css.Value.BackgroundRepeat.t option *
+    Css.Value.BackgroundAttachment.t option *
+    Css.Value.BackgroundPosition.t option
 
   let show ((color, image, repeat, attachment, position): t): string =
     let color' =
-      Belt.Option.mapWithDefault color "" Css_Value.BackgroundColor.show
+      Belt.Option.mapWithDefault color "" Css.Value.BackgroundColor.show
     and image' =
-      Belt.Option.mapWithDefault image "" Css_Value.BackgroundImage.show
+      Belt.Option.mapWithDefault image "" Css.Value.BackgroundImage.show
     and repeat' =
-      Belt.Option.mapWithDefault repeat "" Css_Value.BackgroundRepeat.show
+      Belt.Option.mapWithDefault repeat "" Css.Value.BackgroundRepeat.show
     and attachment' =
-      Belt.Option.mapWithDefault attachment "" Css_Value.BackgroundAttachment.show
+      Belt.Option.mapWithDefault attachment "" Css.Value.BackgroundAttachment.show
     and position' =
-      Belt.Option.mapWithDefault position "" Css_Value.BackgroundPosition.show
+      Belt.Option.mapWithDefault position "" Css.Value.BackgroundPosition.show
     in
     Util.combine_styles [| color'; image'; repeat'; attachment'; position' |]
 end

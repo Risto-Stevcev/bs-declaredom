@@ -135,6 +135,19 @@ module Percent = struct
   let show (`percent amount: t): string = Js.Int.toString amount ^"%"
 end
 
+module LengthPercent = struct
+  type t = [ Global.t | Length.t | Percent.t | `auto ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | `length _ as length ->
+    Length.show length
+  | `percent _ as percent ->
+    Percent.show percent
+  | `auto -> "auto"
+end
+
 module Position = struct
   (** {{: https://www.w3.org/TR/css-values-3/#position } Position } *)
 
@@ -226,6 +239,8 @@ module Unit = struct
 end
 
 module BackgroundColor = struct
+  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-color } Background color} *)
+
   type t = [ Global.t | Color.t | `transparent ]
 
   let show: t -> string = function
@@ -266,6 +281,8 @@ module BackgroundColor = struct
 end
 
 module BackgroundImage = struct
+  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-image } Background image} *)
+
   type t = [ Global.t | Uri.t | `none ]
 
   let show: t -> string = function
@@ -275,6 +292,8 @@ module BackgroundImage = struct
 end
 
 module BackgroundRepeat = struct
+  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-repeat } Background repeat} *)
+
   type value =
     [ `repeat | `repeat_x | `repeat_y | `no_repeat ] [@@bs.deriving jsConverter]
 
@@ -287,6 +306,8 @@ module BackgroundRepeat = struct
 end
 
 module BackgroundAttachment = struct
+  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-attachment } Background attachment} *)
+
   type value = [ `scroll | `fixed ] [@@bs.deriving jsConverter]
 
   type t = [ Global.t | value ]
@@ -297,6 +318,8 @@ module BackgroundAttachment = struct
 end
 
 module BackgroundPosition = struct
+  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-position } Background position} *)
+
   type t = [ Global.t | Position.t ]
 
   let show: t -> string = function
@@ -308,12 +331,16 @@ module BackgroundPosition = struct
 end
 
 module BorderColor = struct
+  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-color } Border color} *)
+ 
   type t = BackgroundColor.t 
 
   let show: t -> string = BackgroundColor.show
 end
 
 module BorderWidth = struct
+  (** {{: https://www.w3.org/TR/CSS22/box.html#value-def-border-width } Border width} *)
+
   type value = [ `thin | `medium | `thick ] [@@bs.deriving jsConverter]
   type t = [ Global.t | Length.t | `thin | `medium | `thick ]
 
@@ -326,10 +353,12 @@ module BorderWidth = struct
 end
 
 module BorderStyle = struct
+  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-style } Border Style} *)
+
   type value =
     [
-    | `none | `hidden | `dotted | `dashed | `solid | `double | `groove | `ridge
-    | `inset | `outset
+    | `none   | `hidden | `dotted | `dashed | `solid
+    | `double | `groove | `ridge  | `inset  | `outset
     ]
     [@@bs.deriving jsConverter]
 
@@ -338,8 +367,184 @@ module BorderStyle = struct
   let show: t -> string = function
   | ( `inherit_ | `initial | `unset ) as global ->
     Global.show global
-  | ( `none | `hidden | `dotted | `dashed | `solid | `double | `groove | `ridge
-    | `inset | `outset
+  | ( `none   | `hidden | `dotted | `dashed | `solid
+    | `double | `groove | `ridge  | `inset  | `outset
+    ) as value ->
+    valueToJs value
+end
+
+module FontFamily = struct
+  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-family } Font family} *)
+
+  type _value =
+    [ `serif | `sans_serif | `cursive | `fantasy | `monospace ]
+    [@@bs.deriving jsConverter]
+
+  type value = [ `font_name of string | _value ]
+
+  type t =
+    [ Global.t | `font of value | `fonts of value * value list ]
+
+  let show_value: value -> string = function
+  | `font_name font_name ->
+    "\""^ font_name ^"\""
+  | (`serif | `sans_serif | `cursive | `fantasy | `monospace) as value ->
+    _valueToJs value |> Util.underscore_to_dash
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | `font font ->
+    show_value font
+  | `fonts (font, _fonts) ->
+    font :: _fonts
+    |. Belt.List.map show_value
+    |> Js.List.toVector
+    |> Js.Array.joinWith ", "
+end
+
+module FontSize = struct
+  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-size } Font size} *)
+
+  type absolute_size =
+    [ `xx_small | `x_small | `small | `medium | `large | `x_large | `xx_large ]
+    [@@bs.deriving jsConverter]
+
+  type relative_size = [ `larger | `smaller ] [@@bs.deriving jsConverter]
+
+  type t =
+    [
+    | Global.t | Length.t | Percent.t
+    | absolute_size | relative_size
+    ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | ( `xx_small | `x_small | `small | `medium | `large | `x_large | `xx_large
+    ) as value ->
+    absolute_sizeToJs value |> Util.underscore_to_dash
+  | (`larger | `smaller) as value -> 
+    relative_sizeToJs value
+  | `length _ as length ->
+    Length.show length
+  | `percent _ as percent ->
+    Percent.show percent
+end
+
+module FontStyle = struct
+  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-style } Font style} *)
+
+  type value = [ `normal | `italic | `oblique ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | (`normal | `italic | `oblique) as value -> 
+    valueToJs value
+end
+
+module FontVariant = struct
+  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-variant } Font variant} *)
+
+  type value =
+    [ `normal | `small_caps [@bs.as "small-caps"] ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | (`normal | `small_caps) as value -> 
+    valueToJs value
+end
+
+module FontWeight = struct
+  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-weight } Font Weight} *)
+
+  type value =
+    [
+    | `normal | `bold | `bolder | `lighter
+    | `w100 [@bs.as "100"] | `w200 [@bs.as "200"] | `w300 [@bs.as "300"]
+    | `w400 [@bs.as "400"] | `w500 [@bs.as "500"] | `w600 [@bs.as "600"]
+    | `w700 [@bs.as "700"] | `w800 [@bs.as "800"] | `w900 [@bs.as "900"]
+    ]
+    [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | ( `normal | `bold | `bolder | `lighter
+    | `w100 | `w200 | `w300 | `w400 | `w500 | `w600 | `w700 | `w800 | `w900
+    ) as value ->
+    valueToJs value
+end
+
+module LineHeight = struct
+  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height } Line Height} *)
+
+  (* NOTE: `<number>` is the same as using `em` so it's ommitted *)
+  type t = [ Global.t | Length.t | Percent.t | `normal ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | `length _ as length ->
+    Length.show length
+  | `percent _ as percent ->
+    Percent.show percent
+  | `normal -> "normal"
+end
+
+module ListStyleImage = struct
+  (** {{: https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-image } List-style-image} *)
+
+  type t = BackgroundImage.t
+
+  let show = BackgroundImage.show
+end
+
+module ListStylePosition = struct
+  (** {{: https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-position } List-style-position} *)
+
+  type value = [ `inside | `outside ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | (`inside | `outside) as value ->
+    valueToJs value
+end
+
+module ListStyleType = struct
+  (** {{: https://www.w3.org/TR/CSS22/generate.html#propdef-list-style-type } List-style-type} *)
+
+  type value =
+    [
+    | `disc | `circle | `square | `decimal
+    | `decimal_leading_zero [@bs.as "decimal-leading-zero"]
+    | `lower_roman [@bs.as "lower-roman"] | `upper_roman [@bs.as "upper-roman"]
+    | `lower_greek [@bs.as "lower-greek"] | `lower_latin [@bs.as "lower-latin"]
+    | `upper_latin [@bs.as "upper-latin"] | `armenian | `georgian
+    | `lower_alpha [@bs.as "lower-alpha"] | `upper_alpha [@bs.as "upper-alpha"]
+    | `none
+    ]
+    [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value ]
+
+  let show: t -> string = function
+  | (`inherit_ | `initial | `unset) as value ->
+    Global.show value
+  | ( `disc | `circle | `square | `decimal | `decimal_leading_zero
+    | `lower_roman | `upper_roman | `lower_greek | `lower_latin | `upper_latin
+    | `armenian | `georgian | `lower_alpha | `upper_alpha | `none
     ) as value ->
     valueToJs value
 end

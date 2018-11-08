@@ -2,8 +2,6 @@
 
 type 'a t = [> Css.Property.background_image ] as 'a
 
-type value = Css_Value.BackgroundImage.t
-
 external to_json:
   Css.Property.background_image Css.Property.t ->
   <backgroundImage: string> Js.t = "%identity"
@@ -13,5 +11,5 @@ external _make:
   Css.Property.Type.background_image Css.Property.t = "" [@@bs.obj]
 
 let make value: 'a t =
-  let show = Css_Value.BackgroundImage.show in
+  let show = Css.Value.BackgroundImage.show in
   `background_image (_make ~backgroundImage:(show value))
