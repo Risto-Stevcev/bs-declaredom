@@ -1,31 +1,48 @@
 type 'node t
 
-type a
- and abbr
- and br
- and div
- and button
- and header
- and h1
- and span
+module Type = struct
+  type a and audio and abbr and br and div and button and header and h1 and span
+   and canvas and embed and iframe and img and object_ and video
 
- (* replaced inline elements
-  * https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element
-  * https://www.w3.org/TR/CSS2/conform.html#replaced-element
-  *)
- and audio and canvas and embed and iframe and img and object_ and video
+  type custom and text and fragment
+end
 
-type custom
+type a = [ `a of Type.a t ]
+ and abbr = [ `abbr of Type.abbr t ]
+ and audio = [ `audio of Type.audio t ]
+ and br = [ `br of Type.br t ]
+ and button = [ `button of Type.button t ]
+ and canvas = [ `canvas of Type.canvas t ]
+ and div = [ `div of Type.div t ]
+ and embed = [ `embed of Type.embed t ]
+ and h1 = [ `h1 of Type.h1 t ]
+ and header = [ `header of Type.header t ]
+ and iframe = [ `iframe of Type.iframe t ]
+ and img = [ `img of Type.img t ]
+ and object_ = [ `object_ of Type.object_ t ]
+ and span = [ `span of Type.span t ]
+ and video = [ `video of Type.video t ]
 
-type text
- and fragment
 
-type inline = [ `a of a t | `abbr of abbr t | `span of span t ]
-type block = [ `div of div t ]
+type custom = [ `custom of custom t ]
+ and text = [ `text of text t ]
+ and fragment = [ `fragment of fragment t ]
+
+
+(**
+ * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element} 
+ * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
+ *)
+type replaced = [ audio | canvas | embed | iframe | img | object_ | video ]
+
+(** Non-replaced inline elements *)
+type non_replaced = [ a | abbr | span ]
+type inline = [ replaced | non_replaced ]
+type block = div
 type display = [ block | inline ]
 
-(* Elements with no children *)
-type empty = [ `br of br t ]
+(** Elements with no children *)
+type empty = br
 
 external generic: _ t -> unit t = "%identity"
 
@@ -52,18 +69,17 @@ type custom = ExampleCustom.custom
 
 type flow =
   [
-  | `a of a t | `div of div t | `span of span t | `br of br t
-  | `custom of custom t
+  | a | div | span | br | custom | img
   ]
-type sectioning = [ `header of header t ]
-type heading = [ `h1 of h1 t ]
+type sectioning = header
+type heading = h1
 type phrasing =
-  [ `abbr of abbr t | `span of span t | `br of br t | `custom of custom t ]
-type embedded = [ `audio of audio t ]
-type interactive = [ `a of a t ]
-type form = [ `button of button t ]
-type palpable = [ `custom of custom t ]
-type other = [ `text of text t | `fragment of fragment t ]
+  [ abbr | span | br | custom | img ]
+type embedded = [ audio | img ]
+type interactive = [ a | img ]
+type form = [ button | img ]
+type palpable = [ custom | img ]
+type other = [ text | fragment ]
 type content =
   [
   | flow     | sectioning | heading | phrasing | embedded | interactive | form
@@ -85,6 +101,7 @@ let unwrap: content -> unit t =
   | `custom custom -> generic custom
   | `text text -> generic text
   | `fragment fragment -> generic fragment
+  | `img img -> generic img
 
 external dom: unit t -> Dom.element = "%identity"
 

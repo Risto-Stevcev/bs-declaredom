@@ -1,4 +1,4 @@
-type 'a t = [> `br of Node.br Node.t ] as 'a
+type 'a t = [> Node.br ] as 'a
 
 type child = [ Node.phrasing | Node.other ]
 

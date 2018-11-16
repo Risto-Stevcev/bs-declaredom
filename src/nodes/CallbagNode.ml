@@ -1,4 +1,4 @@
-type 'a t = [> `custom of Node.custom Node.t ] as 'a
+type 'a t = [> Node.custom ] as 'a
 
 let make cb: 'a t = 
   FFI.make' "x-callbag" (Global.empty ()) ()

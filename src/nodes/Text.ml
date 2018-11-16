@@ -1,4 +1,4 @@
-type 'a t = [> `text of Node.text Node.t ] as 'a
+type 'a t = [> Node.text ] as 'a
 
 let make (text: string): 'a t =
   FFI.make' "text" (Global.empty ()) text

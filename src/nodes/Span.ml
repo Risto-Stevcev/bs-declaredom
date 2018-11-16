@@ -1,4 +1,4 @@
-type 'a t = [> `span of Node.span Node.t ] as 'a
+type 'a t = [> Node.span ] as 'a
 
 type child = [ Node.phrasing | Node.other ]
 

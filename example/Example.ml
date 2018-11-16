@@ -18,7 +18,7 @@ let _ =
       |> stream
     in
 
-    let f (_: [`span of Node.span Node.t]): unit = () in
+    let f (_: Node.span): unit = () in
     let _ = f (span [|text "hello"|]) in
 
     let stl: Css.Property.block Css.Module.t =

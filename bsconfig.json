@@ -16,6 +16,9 @@
   }, {
     "dir": "test",
     "type": "dev"
+  }, {
+    "dir": "test/nodes",
+    "type": "dev"
   }],
   "package-specs": {
     "module": "commonjs",

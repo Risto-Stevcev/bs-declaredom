@@ -3,18 +3,32 @@ type t
 module Attributes = struct
   type t
 
-  external make:
+  external _make:
     ?id:string ->
     ?className:string ->
     ?classSet:bool Js.Dict.t ->
     ?contentEditable:bool ->
-    ?dataset:'a Js.Dict.t ->
+    ?dataset:string Js.Dict.t ->
     ?draggable:bool ->
     ?tabIndex:int ->
     ?title:string ->
-    ?style:Style.t ->
+    ?style:string Js.Dict.t ->
     unit ->
     t = "" [@@bs.obj]
+
+  let make
+    ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
+    ?title ?(style = Js.Dict.empty ()) () =
+    let style = 
+      style
+      |> Js.Dict.values
+      |. Belt.Array.map
+           (fun e -> Css.Property.unwrap (e :> Css.Property.display))
+      |> Util.merge
+    in
+    _make
+      ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
+      ?title ~style ()
 end
 
 

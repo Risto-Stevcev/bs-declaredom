@@ -1,4 +1,4 @@
-type 'a t = [> `div of Node.div Node.t ] as 'a
+type 'a t = [> Node.div ] as 'a
 
 type child = [ Node.flow | Node.other ]
 

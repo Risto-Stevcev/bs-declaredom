@@ -1,4 +1,4 @@
-type 'a t = [> `fragment of Node.fragment Node.t ] as 'a
+type 'a t = [> Node.fragment ] as 'a
 
 type child = Node.content
 

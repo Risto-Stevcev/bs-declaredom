@@ -88,7 +88,16 @@ type any =
   | height | left | letter_spacing | line_height
   ]
 type block = [ text_align | clear | any ]
-type inline = [ vertical_align | any ]
+
+(**
+ * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element} 
+ * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
+ *)
+type replaced = height
+
+(** Non-replaced inline elements *)
+type non_replaced = [ vertical_align | any ]
+type inline = [ replaced | non_replaced ]
 
 type table = border_collapse
 type inline_table = border_collapse
@@ -133,50 +142,55 @@ end
 module Convert = struct
   external to_dict: 'a t -> string Js.Dict.t = "%identity"
 
-  let to_string (property: 'a t): string =
+  let to_string (property: string Js.Dict.t): string =
     property
-    |> to_dict
     |> Js.Dict.entries
     |. Belt.Array.map (fun (key, value) -> Util.camel_to_dash key ^": " ^ value)
     |> Js.Array.joinWith ";\n"
 end
 
+let unwrap: display -> string Js.Dict.t = function
+| `azimuth x               -> Convert.to_dict x
+| `background_attachment x -> Convert.to_dict x
+| `background_color x      -> Convert.to_dict x
+| `background_image x      -> Convert.to_dict x
+| `background_position x   -> Convert.to_dict x
+| `background_repeat x     -> Convert.to_dict x
+| `background x            -> Convert.to_dict x
+| `border_collapse x       -> Convert.to_dict x
+| `border_color x          -> Convert.to_dict x
+| `border_width x          -> Convert.to_dict x
+| `border_style x          -> Convert.to_dict x
+| `border_top x            -> Convert.to_dict x
+| `border_bottom x         -> Convert.to_dict x
+| `border_left x           -> Convert.to_dict x
+| `border_right x          -> Convert.to_dict x
+| `border x                -> Convert.to_dict x
+| `bottom x                -> Convert.to_dict x
+| `clear x                 -> Convert.to_dict x
+| `color x                 -> Convert.to_dict x
+| `cursor x                -> Convert.to_dict x
+| `float x                 -> Convert.to_dict x
+| `font_family x           -> Convert.to_dict x
+| `font_size x             -> Convert.to_dict x
+| `font_style x            -> Convert.to_dict x
+| `font_variant x          -> Convert.to_dict x
+| `font_weight x           -> Convert.to_dict x
+| `font x                  -> Convert.to_dict x
+| `height x                -> Convert.to_dict x
+| `left x                  -> Convert.to_dict x
+| `letter_spacing x        -> Convert.to_dict x
+| `line_height x           -> Convert.to_dict x
+| `list_style_image x      -> Convert.to_dict x
+| `list_style_position x   -> Convert.to_dict x
+| `list_style_type x       -> Convert.to_dict x
+| `list_style x            -> Convert.to_dict x
+| `text_align x            -> Convert.to_dict x
+| `vertical_align x        -> Convert.to_dict x
 
-let show: display -> string = function
-| `azimuth x               -> Convert.to_string x
-| `background_attachment x -> Convert.to_string x
-| `background_color x      -> Convert.to_string x
-| `background_image x      -> Convert.to_string x
-| `background_position x   -> Convert.to_string x
-| `background_repeat x     -> Convert.to_string x
-| `background x            -> Convert.to_string x
-| `border_collapse x       -> Convert.to_string x
-| `border_color x          -> Convert.to_string x
-| `border_width x          -> Convert.to_string x
-| `border_style x          -> Convert.to_string x
-| `border_top x            -> Convert.to_string x
-| `border_bottom x         -> Convert.to_string x
-| `border_left x           -> Convert.to_string x
-| `border_right x          -> Convert.to_string x
-| `border x                -> Convert.to_string x
-| `bottom x                -> Convert.to_string x
-| `clear x                 -> Convert.to_string x
-| `color x                 -> Convert.to_string x
-| `cursor x                -> Convert.to_string x
-| `float x                 -> Convert.to_string x
-| `font_family x           -> Convert.to_string x
-| `font_size x             -> Convert.to_string x
-| `font_style x            -> Convert.to_string x
-| `font_variant x          -> Convert.to_string x
-| `font_weight x           -> Convert.to_string x
-| `font x                  -> Convert.to_string x
-| `height x                -> Convert.to_string x
-| `left x                  -> Convert.to_string x
-| `letter_spacing x        -> Convert.to_string x
-| `line_height x           -> Convert.to_string x
-| `list_style_image x      -> Convert.to_string x
-| `list_style_position x   -> Convert.to_string x
-| `list_style_type x       -> Convert.to_string x
-| `list_style x            -> Convert.to_string x
-| `text_align x            -> Convert.to_string x
-| `vertical_align x        -> Convert.to_string x
+let unwrap_default x: string Js.Dict.t =
+  x |. Belt.Option.mapWithDefault (Js.Dict.empty ())
+                                  (fun e -> unwrap (e :> display))
+
+let show: display -> string = fun x ->
+  unwrap x |> Convert.to_string

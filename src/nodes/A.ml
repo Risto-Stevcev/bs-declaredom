@@ -1,11 +1,14 @@
-type t = [ `a of Node.a ]
+(** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#the-a-element } The [a] element *)
+
+type 'a t = [> Node.a ] as 'a
 
 type child = [ Node.flow | Node.phrasing | Node.other ]
 
 let make
-  ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title ?style
+  ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
+  ?(style:Css.Property.non_replaced Js.Dict.t option)
   ?onClick
-  (children:child array): t
+  (children:child array): 'a t
   = 
   FFI.make' "a"
     (Global.make
@@ -13,6 +16,7 @@ let make
       (Global.Events.make ?onClick ())
     )
     (children |> Js.Array.map (fun e -> Node.unwrap (e :> Node.content)))
+  |> (fun e -> `a e)
 
 
 (*
