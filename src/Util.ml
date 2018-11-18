@@ -17,7 +17,6 @@ let combine_styles styles =
   if Js.String.length value > 0 then value else "inherit"
 
 
-(* TODO: hide this internal function *)
 external _merge: _ Js.null -> 'a Js.Dict.t array -> 'a Js.Dict.t = "apply"
 [@@bs.scope ("Object", "assign")] [@@bs.val]
 

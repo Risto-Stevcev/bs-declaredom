@@ -8,7 +8,7 @@ type child =
 
 let make
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-  ?title ?(style:Css.Property.replaced Js.Dict.t option)
+  ?title ?(style:Css.Property.replaced Style.t option)
   ?onClick ?(cssModule:Css.Property.replaced Css.Module.t option)
   (): 'a t
   =

@@ -6,7 +6,7 @@ type child = [ Node.flow | Node.phrasing | Node.other ]
 
 let make
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
-  ?(style:Css.Property.non_replaced Js.Dict.t option)
+  ?(style:Css.Property.non_replaced Style.t option)
   ?onClick
   (children:child array): 'a t
   = 
