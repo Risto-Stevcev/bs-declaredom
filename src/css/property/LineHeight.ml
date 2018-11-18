@@ -2,13 +2,7 @@
 
 type 'a t = [> Css.Property.line_height ] as 'a
 
-external to_json:
-  Css.Property.line_height Css.Property.t ->
-  <line_height: string> Js.t = "%identity"
-
 external _make:
-  lineHeight:string ->
-  Css.Property.Type.line_height Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.line_height Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `line_height (_make ~lineHeight:(Css.Value.LineHeight.show value))
+let make value: 'a t = `line_height (_make @@ Css.Value.LineHeight.show value)

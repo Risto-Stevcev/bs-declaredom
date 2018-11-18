@@ -32,7 +32,6 @@ module Value = struct
     uris' ^ value' |> Js.String.trim
 end
 
-external _make:
-  cursor:string -> Css.Property.Type.cursor Css.Property.t = "" [@@bs.obj]
+external _make: string -> Css.Property.Type.cursor Css.Property.t = "%identity"
 
-let make ?(uris = []) value: 'a t = `cursor (_make ~cursor:(Value.show (uris, value)))
+let make ?(uris = []) value: 'a t = `cursor (_make @@ Value.show (uris, value))

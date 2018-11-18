@@ -25,14 +25,9 @@ module Value = struct
     Util.combine_styles [| color'; image'; repeat'; attachment'; position' |]
 end
 
-external to_json:
-  Css.Property.background Css.Property.t ->
-  <background: string> Js.t = "%identity"
-
 external _make:
-  background:string ->
-  Css.Property.Type.background Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.background Css.Property.t = "%identity"
 
 let make ?color ?image ?repeat ?attachment ?position (): 'a t =
   let value = (color, image, repeat, attachment, position) in
-  `background (_make ~background:(Value.show value))
+  `background (_make @@ Value.show value)

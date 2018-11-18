@@ -20,12 +20,7 @@ module Attributes = struct
     ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
     ?title ?style () =
     let style = 
-      style
-      |. Belt.Option.mapWithDefault (Js.Dict.empty ()) Style.to_dict 
-      |> Js.Dict.values
-      |. Belt.Array.map
-           (fun e -> Css.Property.unwrap (e :> Css.Property.display))
-      |> Util.merge
+      style |. Belt.Option.mapWithDefault (Js.Dict.empty ()) Style.show_dict 
     in
     _make
       ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex

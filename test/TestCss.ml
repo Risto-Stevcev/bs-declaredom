@@ -8,7 +8,7 @@ module Test = struct
   test ~name:"css selectors" @@ fun t -> begin
     let equal x y t = t |> T.equal (Css.Selector.show x) y in 
 
-    t |> T.equal (TextAlign.make `center |> Css.Property.show) "text-align: center";
+    t |> T.equal (TextAlign.make `center |> Css.Property.show) "center";
     t |> equal `h1 "h1";
 
     t |> equal `active ":active";

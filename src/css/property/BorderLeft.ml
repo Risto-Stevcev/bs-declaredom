@@ -19,13 +19,8 @@ module Value = struct
     Util.combine_styles [| width'; style'; color' |]
 end
 
-external to_json:
-  Css.Property.border_left Css.Property.t ->
-  <borderLeft: string> Js.t = "%identity"
-
 external _make:
-  borderLeft:string ->
-  Css.Property.Type.border_left Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.border_left Css.Property.t = "%identity"
 
 let make ?width ?style ?color (): 'a t =
-  `border_left (_make ~borderLeft:(Value.show (width, style, color)))
+  `border_left (_make @@ Value.show (width, style, color))

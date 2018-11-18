@@ -2,14 +2,8 @@
 
 type 'a t = [> Css.Property.background_repeat ] as 'a
 
-external to_json:
-  Css.Property.background_repeat Css.Property.t ->
-  <backgroundRepeat: string> Js.t = "%identity"
-
 external _make:
-  backgroundRepeat:string ->
-  Css.Property.Type.background_repeat Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.background_repeat Css.Property.t = "%identity"
 
 let make value: 'a t =
-  let show = Css.Value.BackgroundRepeat.show in
-  `background_repeat (_make ~backgroundRepeat:(show value))
+  `background_repeat (_make @@ Css.Value.BackgroundRepeat.show value)

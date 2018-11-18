@@ -14,7 +14,6 @@ module Value = struct
     valueToJs value
 end
 
-external _make:
-  clear:string -> Css.Property.Type.clear Css.Property.t = "" [@@bs.obj]
+external _make: string -> Css.Property.Type.clear Css.Property.t = "%identity"
 
-let make value: 'a t = `clear (_make ~clear:(Value.show value))
+let make value: 'a t = `clear (_make @@ Value.show value)

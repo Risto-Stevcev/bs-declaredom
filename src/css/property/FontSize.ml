@@ -3,7 +3,6 @@
 type 'a t = [> Css.Property.font_size ] as 'a
 
 external _make:
-  fontSize:string -> Css.Property.Type.font_size Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.font_size Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `font_size (_make ~fontSize:(Css.Value.FontSize.show value))
+let make value: 'a t = `font_size (_make @@ Css.Value.FontSize.show value)

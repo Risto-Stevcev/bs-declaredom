@@ -11,13 +11,7 @@ module Value = struct
   | `separate -> "separate"
 end
 
-external to_json:
-  Css.Property.border_collapse Css.Property.t ->
-  <borderCollapse: string> Js.t = "%identity"
-
 external _make:
-  borderCollapse:string ->
-  Css.Property.Type.border_collapse Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.border_collapse Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `border_collapse (_make ~borderCollapse:(Value.show value))
+let make value: 'a t = `border_collapse (_make @@ Value.show value)

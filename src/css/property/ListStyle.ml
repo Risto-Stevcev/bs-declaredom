@@ -19,13 +19,8 @@ module Value = struct
     Util.combine_styles [| type_'; position'; image' |]
 end
 
-external to_json:
-  Css.Property.list_style Css.Property.t ->
-  <list_style: string> Js.t = "%identity"
-
 external _make:
-  listStyle:string ->
-  Css.Property.Type.list_style Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.list_style Css.Property.t = "%identity"
 
 let make ?type_ ?position ?image (): 'a t =
-  `list_style (_make ~listStyle:(Value.show (type_, position, image)))
+  `list_style (_make @@ Value.show (type_, position, image))

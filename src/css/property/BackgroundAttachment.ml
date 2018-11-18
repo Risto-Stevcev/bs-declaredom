@@ -7,9 +7,9 @@ external to_json:
   <backgroundAttachment: string> Js.t = "%identity"
 
 external _make:
-  backgroundAttachment:string ->
-  Css.Property.Type.background_attachment Css.Property.t = "" [@@bs.obj]
+  string ->
+  Css.Property.Type.background_attachment Css.Property.t = "%identity"
 
 let make value: 'a t =
   let show = Css.Value.BackgroundAttachment.show in
-  `background_attachment (_make ~backgroundAttachment:(show value))
+  `background_attachment (_make @@ show value)

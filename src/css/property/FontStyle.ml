@@ -3,8 +3,6 @@
 type 'a t = [> Css.Property.font_style ] as 'a
 
 external _make:
-  fontStyle:string ->
-  Css.Property.Type.font_style Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.font_style Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `font_style (_make ~fontStyle:(Css.Value.FontStyle.show value))
+let make value: 'a t = `font_style (_make @@ Css.Value.FontStyle.show value)

@@ -12,7 +12,6 @@ module Value = struct
     valueToJs value
 end
 
-external _make:
-  float:string -> Css.Property.Type.float_ Css.Property.t = "" [@@bs.obj]
+external _make: string -> Css.Property.Type.float_ Css.Property.t = "%identity"
 
-let make value: 'a t = `float (_make ~float:(Value.show value))
+let make value: 'a t = `float (_make @@ Value.show value)

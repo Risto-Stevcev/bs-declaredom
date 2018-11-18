@@ -42,7 +42,11 @@ test ~name:"node - a" @@ fun t -> begin
   let element = Webapi.Dom.HtmlElement.ofElement a |> Js.Option.getExn in
 
   t |> T.equal (tagName a) "A";
-  t |> T.equal (outerHTML a) "<a id=\"foo\" class=\"bar baz norf\" data-fizz-buzz=\"123\" data-wuzz=\"456\" draggable=\"true\" tabindex=\"3\" title=\"some title\"></a>";
+  t |> T.equal (outerHTML a) @@
+               "<a style=\"background-attachment: scroll; background-color: "^
+               "red;\" id=\"foo\" class=\"bar baz norf\" data-fizz-buzz=\"123\" "^
+               "data-wuzz=\"456\" draggable=\"true\" tabindex=\"3\" "^
+               "title=\"some title\"></a>";
   t |> test_global element;
   t |> T.end_
 end;
@@ -89,9 +93,9 @@ test ~name:"node - img" @@ fun t -> begin
   in
   t |> T.equal (tagName element) "IMG";
   t |> T.equal (outerHTML element) @@
-               "<br id=\"foo\" class=\"bar baz norf\" data-fizz-buzz=\"123\""^
-               " data-wuzz=\"456\" draggable=\"true\" tabindex=\"3\""^
-               " title=\"some title\">";
+               "<img style=\"height: 20px;\" id=\"foo\" class=\"bar baz norf\" "^
+               "data-fizz-buzz=\"123\" data-wuzz=\"456\" draggable=\"true\" "^
+               "tabindex=\"3\" title=\"some title\">";
   t |> test_global html_element;
   t |> T.end_
 end

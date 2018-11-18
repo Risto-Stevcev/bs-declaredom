@@ -15,7 +15,7 @@ type value =
   | Css_Value.Global.t | Css_Value.Angle.t | `behind of _value option | _value
   ]
 
-let valueToJs: value -> string = function
+let show: value -> string = function
 | ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
 | `angle _ as angle -> Css_Value.Angle.show angle
 | `behind None -> "behind"
@@ -26,10 +26,6 @@ let valueToJs: value -> string = function
   ) as value' ->
   value' |> _valueToJs |> Util.underscore_to_dash
 
-external to_json:
-  Css.Property.azimuth Css.Property.t -> <azimuth: string> Js.t = "%identity"
+external _make: string -> Css.Property.Type.azimuth Css.Property.t = "%identity"
 
-external _make:
-  azimuth:string -> Css.Property.Type.azimuth Css.Property.t = "" [@@bs.obj]
-
-let make value: 'a t = `azimuth (_make ~azimuth:(valueToJs value))
+let make value: 'a t = `azimuth (_make @@ show value)

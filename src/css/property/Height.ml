@@ -2,8 +2,6 @@
 
 type 'a t = [> Css.Property.height ] as 'a
 
-external _make:
-  height:string -> Css.Property.Type.height Css.Property.t = "" [@@bs.obj]
+external _make: string -> Css.Property.Type.height Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `height (_make ~height:(Css.Value.LengthPercent.show value))
+let make value: 'a t = `height (_make @@ Css.Value.LengthPercent.show value)

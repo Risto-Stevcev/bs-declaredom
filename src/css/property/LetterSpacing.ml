@@ -14,13 +14,7 @@ module Value = struct
     "normal"
 end
 
-external to_json:
-  Css.Property.letter_spacing Css.Property.t ->
-  <letter_spacing: string> Js.t = "%identity"
-
 external _make:
-  letterSpacing:string ->
-  Css.Property.Type.letter_spacing Css.Property.t = "" [@@bs.obj]
+  string -> Css.Property.Type.letter_spacing Css.Property.t = "%identity"
 
-let make value: 'a t =
-  `letter_spacing (_make ~letterSpacing:(Value.show value))
+let make value: 'a t = `letter_spacing (_make @@ Value.show value)

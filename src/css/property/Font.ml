@@ -43,8 +43,7 @@ module Value = struct
     valueToJs value
 end
 
-external _make:
-  font:string -> Css.Property.Type.font Css.Property.t = "" [@@bs.obj]
+external _make: string -> Css.Property.Type.font Css.Property.t = "%identity"
 
 let make
   ?style ?variant ?weight ?size ?line_height
@@ -54,9 +53,9 @@ let make
   let font =
     match size with
     | Some size' ->
-      _make ~font:(Value.show @@
-                    `font ((style, variant, weight), (size', line_height)))
+      _make @@ Value.show
+            @@ `font ((style, variant, weight), (size', line_height))
     | None ->
-      _make ~font:(Value.show (value :> Value.t))
+      _make @@ Value.show (value :> Value.t)
   in
   `font font

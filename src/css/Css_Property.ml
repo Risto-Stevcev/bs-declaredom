@@ -140,57 +140,45 @@ end
 
 
 module Convert = struct
-  external to_dict: 'a t -> string Js.Dict.t = "%identity"
-
-  let to_string (property: string Js.Dict.t): string =
-    property
-    |> Js.Dict.entries
-    |. Belt.Array.map (fun (key, value) -> Util.camel_to_dash key ^": " ^ value)
-    |> Js.Array.joinWith ";\n"
+  external show: 'a t -> string = "%identity"
 end
 
-let unwrap: display -> string Js.Dict.t = function
-| `azimuth x               -> Convert.to_dict x
-| `background_attachment x -> Convert.to_dict x
-| `background_color x      -> Convert.to_dict x
-| `background_image x      -> Convert.to_dict x
-| `background_position x   -> Convert.to_dict x
-| `background_repeat x     -> Convert.to_dict x
-| `background x            -> Convert.to_dict x
-| `border_collapse x       -> Convert.to_dict x
-| `border_color x          -> Convert.to_dict x
-| `border_width x          -> Convert.to_dict x
-| `border_style x          -> Convert.to_dict x
-| `border_top x            -> Convert.to_dict x
-| `border_bottom x         -> Convert.to_dict x
-| `border_left x           -> Convert.to_dict x
-| `border_right x          -> Convert.to_dict x
-| `border x                -> Convert.to_dict x
-| `bottom x                -> Convert.to_dict x
-| `clear x                 -> Convert.to_dict x
-| `color x                 -> Convert.to_dict x
-| `cursor x                -> Convert.to_dict x
-| `float x                 -> Convert.to_dict x
-| `font_family x           -> Convert.to_dict x
-| `font_size x             -> Convert.to_dict x
-| `font_style x            -> Convert.to_dict x
-| `font_variant x          -> Convert.to_dict x
-| `font_weight x           -> Convert.to_dict x
-| `font x                  -> Convert.to_dict x
-| `height x                -> Convert.to_dict x
-| `left x                  -> Convert.to_dict x
-| `letter_spacing x        -> Convert.to_dict x
-| `line_height x           -> Convert.to_dict x
-| `list_style_image x      -> Convert.to_dict x
-| `list_style_position x   -> Convert.to_dict x
-| `list_style_type x       -> Convert.to_dict x
-| `list_style x            -> Convert.to_dict x
-| `text_align x            -> Convert.to_dict x
-| `vertical_align x        -> Convert.to_dict x
 
-let unwrap_default x: string Js.Dict.t =
-  x |. Belt.Option.mapWithDefault (Js.Dict.empty ())
-                                  (fun e -> unwrap (e :> display))
-
-let show: display -> string = fun x ->
-  unwrap x |> Convert.to_string
+let show: display -> string = function
+| `azimuth x               -> Convert.show x
+| `background_attachment x -> Convert.show x
+| `background_color x      -> Convert.show x
+| `background_image x      -> Convert.show x
+| `background_position x   -> Convert.show x
+| `background_repeat x     -> Convert.show x
+| `background x            -> Convert.show x
+| `border_collapse x       -> Convert.show x
+| `border_color x          -> Convert.show x
+| `border_width x          -> Convert.show x
+| `border_style x          -> Convert.show x
+| `border_top x            -> Convert.show x
+| `border_bottom x         -> Convert.show x
+| `border_left x           -> Convert.show x
+| `border_right x          -> Convert.show x
+| `border x                -> Convert.show x
+| `bottom x                -> Convert.show x
+| `clear x                 -> Convert.show x
+| `color x                 -> Convert.show x
+| `cursor x                -> Convert.show x
+| `float x                 -> Convert.show x
+| `font_family x           -> Convert.show x
+| `font_size x             -> Convert.show x
+| `font_style x            -> Convert.show x
+| `font_variant x          -> Convert.show x
+| `font_weight x           -> Convert.show x
+| `font x                  -> Convert.show x
+| `height x                -> Convert.show x
+| `left x                  -> Convert.show x
+| `letter_spacing x        -> Convert.show x
+| `line_height x           -> Convert.show x
+| `list_style_image x      -> Convert.show x
+| `list_style_position x   -> Convert.show x
+| `list_style_type x       -> Convert.show x
+| `list_style x            -> Convert.show x
+| `text_align x            -> Convert.show x
+| `vertical_align x        -> Convert.show x
