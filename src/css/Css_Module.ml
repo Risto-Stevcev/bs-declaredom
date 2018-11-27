@@ -23,11 +23,11 @@
 (* Creates css modules -- scoped styles that are namespaced by it's class 
  * name
  *)
-type 'a t = { name: string; declaration: 'a list }
+type 'a t = { name: string; declaration: 'a Js.Dict.t }
 
 external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
 
-let getClass ?(className="") ?(cssModule={name=""; declaration=[]}) () =
+let getClass ?(className="") ?(cssModule={name=""; declaration=Js.Dict.empty ()}) () =
   let {name} = cssModule in
   let separator = if className = "" || name = "" then "" else " " in
   Js.String.trim @@ className ^ separator ^ name

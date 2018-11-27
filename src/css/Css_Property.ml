@@ -31,90 +31,108 @@ module Type = struct
    and vertical_align
 end
 
-type azimuth = [ `azimuth of Type.azimuth t ]
- and background_attachment =
-       [ `background_attachment of Type.background_attachment t ]
- and background_color = [ `background_color of Type.background_color t ]
- and background_image = [ `background_image of Type.background_image t ]
- and background_position =
-       [ `background_position of Type.background_position t ]
- and background_repeat = [ `background_repeat of Type.background_repeat t ]
- and background = [ `background of Type.background t ]
- and border_collapse = [ `border_collapse of Type.border_collapse t ]
- and border_color = [ `border_color of Type.border_color t ]
- and border_width = [ `border_width of Type.border_width t ]
- and border_style = [ `border_style of Type.border_style t ]
- and border_top = [ `border_top of Type.border_top t ]
- and border_bottom = [ `border_bottom of Type.border_bottom t ]
- and border_left = [ `border_left of Type.border_left t ]
- and border_right = [ `border_right of Type.border_right t ]
- and border = [ `border of Type.border t ]
- and bottom = [ `bottom of Type.bottom t ]
- and clear = [ `clear of Type.clear t ]
- and cursor = [ `cursor of Type.cursor t ]
- and float_ = [ `float of Type.float_ t ]
- and font_family = [ `font_family of Type.font_family t ]
- and font_size = [ `font_size of Type.font_size t ]
- and font_style = [ `font_style of Type.font_style t ]
- and font_variant = [ `font_variant of Type.font_variant t ]
- and font_weight = [ `font_weight of Type.font_weight t ]
- and font = [ `font of Type.font t ]
- and height = [ `height of Type.height t ]
- and left = [ `left of Type.left t ]
- and letter_spacing = [ `letter_spacing of Type.letter_spacing t ]
- and line_height = [ `line_height of Type.line_height t ]
- and list_style_image = [ `list_style_image of Type.list_style_image t ]
- and list_style_position =
-   [ `list_style_position of Type.list_style_position t ]
- and list_style_type = [ `list_style_type of Type.list_style_type t ]
- and list_style = [ `list_style of Type.list_style t ]
+module Variant = struct
+  type azimuth = [ `azimuth of Type.azimuth t ]
+   and background_attachment =
+         [ `background_attachment of Type.background_attachment t ]
+   and background_color = [ `background_color of Type.background_color t ]
+   and background_image = [ `background_image of Type.background_image t ]
+   and background_position =
+         [ `background_position of Type.background_position t ]
+   and background_repeat = [ `background_repeat of Type.background_repeat t ]
+   and background = [ `background of Type.background t ]
+   and border_collapse = [ `border_collapse of Type.border_collapse t ]
+   and border_color = [ `border_color of Type.border_color t ]
+   and border_width = [ `border_width of Type.border_width t ]
+   and border_style = [ `border_style of Type.border_style t ]
+   and border_top = [ `border_top of Type.border_top t ]
+   and border_bottom = [ `border_bottom of Type.border_bottom t ]
+   and border_left = [ `border_left of Type.border_left t ]
+   and border_right = [ `border_right of Type.border_right t ]
+   and border = [ `border of Type.border t ]
+   and bottom = [ `bottom of Type.bottom t ]
+   and clear = [ `clear of Type.clear t ]
+   and cursor = [ `cursor of Type.cursor t ]
+   and float_ = [ `float of Type.float_ t ]
+   and font_family = [ `font_family of Type.font_family t ]
+   and font_size = [ `font_size of Type.font_size t ]
+   and font_style = [ `font_style of Type.font_style t ]
+   and font_variant = [ `font_variant of Type.font_variant t ]
+   and font_weight = [ `font_weight of Type.font_weight t ]
+   and font = [ `font of Type.font t ]
+   and height = [ `height of Type.height t ]
+   and left = [ `left of Type.left t ]
+   and letter_spacing = [ `letter_spacing of Type.letter_spacing t ]
+   and line_height = [ `line_height of Type.line_height t ]
+   and list_style_image = [ `list_style_image of Type.list_style_image t ]
+   and list_style_position =
+     [ `list_style_position of Type.list_style_position t ]
+   and list_style_type = [ `list_style_type of Type.list_style_type t ]
+   and list_style = [ `list_style of Type.list_style t ]
 
-type content = [ `content of Type.content t ]
+  type content = [ `content of Type.content t ]
 
-type clip = [ `clip of Type.clip t ]
+  type clip = [ `clip of Type.clip t ]
 
- and color = [ `color of Type.color t ]
- and text_align = [ `text_align of Type.text_align t ]
- and vertical_align = [ `vertical_align of Type.vertical_align t ]
+   and color = [ `color of Type.color t ]
+   and text_align = [ `text_align of Type.text_align t ]
+   and vertical_align = [ `vertical_align of Type.vertical_align t ]
+end
+
+include Variant
 
 
-(** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
-(* TODO: wrap these in AppliesTo module *)
+module AppliesTo = struct
+  (** {{: https://www.w3.org/TR/CSS22/about.html#applies-to } Applies to} *)
+  (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
-type any =
-  [
-  | azimuth | background_attachment | background_color
-  | background_image | background_position | background_repeat | background
-  | border_color | border_width | border_style | border_top | border_bottom
-  | border_left | border_right | border | bottom | color | float_ | cursor
-  | font_family | font_size | font_style | font_variant | font_weight | font
-  | height | left | letter_spacing | line_height
-  | content
-  ]
+  type any =
+    [
+    | azimuth | background_attachment | background_color
+    | background_image | background_position | background_repeat | background
+    | border_color | border_width | border_style | border_top | border_bottom
+    | border_left | border_right | border | bottom | color | float_ | cursor
+    | font_family | font_size | font_style | font_variant | font_weight | font
+    | height | left | letter_spacing | line_height
+    | content
+    ]
 
-type block = [ text_align | clear | height | any ]
+  type block = [ text_align | clear | height | any ]
 
-(**
- * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element} 
- * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
- *)
-type replaced = height
+  (**
+   * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element}
+   * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
+   *)
+  type replaced = height
 
-(** Non-replaced inline elements *)
-type non_replaced = [ vertical_align | any ]
+  (** Non-replaced inline elements *)
+  type non_replaced = [ vertical_align | any ]
 
-(** All inline elemnets (replaced and non-replaced) *)
-type inline = [ replaced | non_replaced ]
+  (** All inline elemnets (replaced and non-replaced) *)
+  type inline = [ replaced | non_replaced ]
 
-type table = [ border_collapse | height ]
-type inline_table = [ border_collapse | height ]
-type table_cell = [ vertical_align | height | any ]
-type list_item =
-  [ list_style_image | list_style_position | list_style_type | list_style
-  | height ]
-type display =
-  [ block | inline | table | inline_table | table_cell | list_item ]
+  type table = [ border_collapse | height ]
+  type inline_table = [ border_collapse | height ]
+  type table_cell = [ vertical_align | height | any ]
+  type list_item =
+    [ list_style_image | list_style_position | list_style_type | list_style
+    | height ]
+  type display =
+    [ block | inline | table | inline_table | table_cell | list_item ]
 
+
+  let to_block x = (x :> block)
+  and to_replaced x = (x :> replaced)
+  and to_non_replaced x = (x :> non_replaced)
+  and to_inline x = (x :> inline)
+  and to_table x = (x :> table)
+  and to_inline_table x = (x :> inline_table)
+  and to_table_cell x = (x :> table_cell)
+  and to_list_item x = (x :> list_item)
+  and to_display x = (x :> display)
+end
+
+include AppliesTo
 
 
 module MediaGroup = struct
@@ -133,6 +151,11 @@ module MediaGroup = struct
     | list_style_position | list_style_type | list_style
     ]
   type all = content (* TODO: add Content.make *)
+
+  let to_aural x = (x :> aural)
+  and to_interactive x = (x :> interactive)
+  and to_visual x = (x :> visual)
+  and to_all x = (x :> all)
 end
 
 
@@ -146,6 +169,21 @@ module MediaType = struct
   type speech = MediaGroup.all
   type tty = MediaGroup.visual
   type tv = MediaGroup.visual
+
+  let to_handheld x = (x :> handheld)
+  and to_print x = (x :> print)
+  and to_projection x = (x :> projection)
+  and to_screen x = (x :> screen)
+  and to_speech x = (x :> speech)
+  and to_tty x = (x :> tty)
+  and to_tv x = (x :> tv)
+
+  let print_to_display x =
+    x |> Js.Dict.map (fun [@bs] p -> ((p :> screen) :> display))
+  and screen_to_display x =
+    x |> Js.Dict.map (fun [@bs] p -> ((p :> screen) :> display))
+  and speech_to_display x =
+    x |> Js.Dict.map (fun [@bs] p -> ((p :> speech) :> display))
 end
 
 

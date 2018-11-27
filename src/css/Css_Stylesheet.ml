@@ -33,7 +33,7 @@ module Rule = struct
   type t =
     (* TODO: use a map instead of list to avoid duplicate rules *)
     [ `media of Media.t * Selector.t * Property.display Js.Dict.t
-    | `style of Selector.t * Property.display list
+    | `style of Selector.t * Property.display Js.Dict.t
     | `module_ of Property.display Css_Module.t
     | FontFace.t
     ]
@@ -51,9 +51,7 @@ module Rule = struct
       `media
         ( query
         , selector
-        , properties
-          (* TODO: add upcast helpers ie: to_print and to_display *)
-          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.print) :> Property.display))
+        , properties |> Property.MediaType.print_to_display
         )
 
     let screen ?(only=false) ?condition selector properties: t =
@@ -66,8 +64,7 @@ module Rule = struct
       `media
         ( query
         , selector
-        , properties
-          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.screen) :> Property.display))
+        , properties |> Property.MediaType.screen_to_display
         )
 
     let speech ?(only=false) ?condition selector properties: t =
@@ -80,21 +77,20 @@ module Rule = struct
       `media
         ( query
         , selector
-        , properties
-          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.speech) :> Property.display))
+        , properties |> Property.MediaType.speech_to_display
         )
   end
 
   let style selector properties: t =
     `style
       ( selector
-      , properties |. Belt.List.map (fun p -> (p :> Property.display))
+      , properties |> Js.Dict.map (fun [@bs] p -> (p :> Property.display))
       )
 
   let module_ { Css_Module.name; Css_Module.declaration }: t =
     `module_
       { Css_Module.name
-      ; declaration = declaration |> List.map (fun e -> (e :> Property.display)) 
+      ; declaration = declaration |> Js.Dict.map (fun [@bs] e -> (e :> Property.display))
       }
 
   let show: t -> string = function
@@ -111,4 +107,4 @@ module Rule = struct
   | _ -> ""
 end
 
-type t = Charset.t * Rule.t list 
+type t = Charset.t * Rule.t list

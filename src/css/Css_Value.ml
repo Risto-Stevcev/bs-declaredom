@@ -229,13 +229,13 @@ end
 
 (* TODO: is this <length> ? *)
 module Unit = struct
-  type t = float * Css_Unit.t 
+  type t = float * Css_Unit.t
 
   let show ((amount, unit'): t): string =
     let amount' =
       amount |> string_of_float |> Js.String.replaceByRe [%re "/\.$/"] ""
     in
-    amount' ^ Css_Unit.show unit' 
+    amount' ^ Css_Unit.show unit'
 end
 
 module BackgroundColor = struct

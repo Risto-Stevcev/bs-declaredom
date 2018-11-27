@@ -46,27 +46,6 @@ type empty = br
 
 external generic: _ t -> unit t = "%identity"
 
-
-(*
-(* TODO *)
-module type Custom = sig
-  type custom
-  val unwrap: custom t -> unit t
-end
-module DefaultCustom = struct
-  type custom
-  external unwrap: custom t -> unit t = "%identity"
-end
-(* TODO: this is an example *)
-module ExampleCustom = struct
-  type callbag
-  type custom = [ `callbag of callbag t ]
-  let unwrap x = match x with
-  | `callbag c -> generic c
-end
-type custom = ExampleCustom.custom
-*)
-
 type flow =
   [
   | a | div | span | br | custom | img

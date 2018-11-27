@@ -10,12 +10,12 @@
     "test:css:media": "node lib/js/test/Test_Css_Media.bs.js | tap-spec",
     "test:css:property": "node lib/js/test/Test_Css_Property.bs.js | tap-spec",
     "test:css:stylesheet": "node lib/js/test/Test_Css_Stylesheet.bs.js | tap-spec",
-    "test": "npm run test:css && npm run test:css:media",
+    "test": "npm run test:node && npm run test:css && npm run test:css:media && npm run test:css:property && npm run test:css:stylesheet",
     "graph:dot": "bs-dependency-graph | json-to-dot > graph.dot",
     "graph:image": "dot -Tpng graph.dot -o graph.png",
     "graph": "npm run graph:dot && npm run graph:image",
     "docs": "bs-odoc",
-    "example": "parcel example.html"
+    "example": "parcel example/example.html"
   },
   "keywords": [
     "BuckleScript"
