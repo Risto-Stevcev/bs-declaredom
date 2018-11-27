@@ -26,7 +26,7 @@ let _ =
       { name="foobar"; declaration = [
           TextAlign.make `center;
           Clear.make `both;
-          Color.make @@ `color "blue";
+          Color.make `blue;
         ]
       }
     in

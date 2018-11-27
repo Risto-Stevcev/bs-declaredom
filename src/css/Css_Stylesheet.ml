@@ -29,12 +29,10 @@ end
 module Rule = struct
   (* TODO: add @page rule
    * https://www.w3.org/TR/CSS2/page.html#page-box
-   *
-   * parameterize `media with the media type and media group
-   * https://www.w3.org/TR/CSS22/media.html#media-groups
    *)
   type t =
-    [ `media of Media.t * Selector.t * Property.display list
+    (* TODO: use a map instead of list to avoid duplicate rules *)
+    [ `media of Media.t * Selector.t * Property.display Js.Dict.t
     | `style of Selector.t * Property.display list
     | `module_ of Property.display Css_Module.t
     | FontFace.t
@@ -42,18 +40,75 @@ module Rule = struct
 
   type ruleset = t list
 
-  let style selector property =
-    `style (selector, (Property.show (property :> Property.display)))
+  module Media = struct
+    let print ?(only=false) ?condition selector properties: t =
+      let media_type = if only then `only `print else `print in
+      let query =
+        condition
+        |. Belt.Option.mapWithDefault [`modifier media_type]
+             (fun condition -> [`media_query (media_type, condition)])
+      in
+      `media
+        ( query
+        , selector
+        , properties
+          (* TODO: add upcast helpers ie: to_print and to_display *)
+          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.print) :> Property.display))
+        )
 
-  open Css_Module;;
-  let module_ { name; declaration } =
+    let screen ?(only=false) ?condition selector properties: t =
+      let media_type = if only then `only `screen else `screen in
+      let query =
+        condition
+        |. Belt.Option.mapWithDefault [`modifier media_type]
+             (fun condition -> [`media_query (media_type, condition)])
+      in
+      `media
+        ( query
+        , selector
+        , properties
+          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.screen) :> Property.display))
+        )
+
+    let speech ?(only=false) ?condition selector properties: t =
+      let media_type = if only then `only `speech else `speech in
+      let query =
+        condition
+        |. Belt.Option.mapWithDefault [`modifier media_type]
+             (fun condition -> [`media_query (media_type, condition)])
+      in
+      `media
+        ( query
+        , selector
+        , properties
+          |> Js.Dict.map (fun [@bs] p -> ((p :> Property.MediaType.speech) :> Property.display))
+        )
+  end
+
+  let style selector properties: t =
+    `style
+      ( selector
+      , properties |. Belt.List.map (fun p -> (p :> Property.display))
+      )
+
+  let module_ { Css_Module.name; Css_Module.declaration }: t =
     `module_
-      { name
+      { Css_Module.name
       ; declaration = declaration |> List.map (fun e -> (e :> Property.display)) 
       }
+
+  let show: t -> string = function
+  | `media (media, selector, properties) ->
+    Css_Media.show media ^ " {\n  " ^
+      Css_Selector.show selector ^ " {\n    " ^
+        (properties
+         |> Js.Dict.entries
+         |. Belt.Array.map (fun (key, value) -> Util.camel_to_dash key ^": "^ Css_Property.show value ^";")
+         |> Js.Array.joinWith "\n    "
+        ) ^"\n  "^
+      "}\n" ^
+    "}"
+  | _ -> ""
 end
 
-
-module Rules = struct end 
-
-type t = Stylesheet of Charset.t * Rule.t list 
+type t = Charset.t * Rule.t list 

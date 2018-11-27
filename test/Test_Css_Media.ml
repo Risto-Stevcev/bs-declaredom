@@ -1,6 +1,5 @@
 open BsTape
-open Css_Media.Fn
-;;
+open Css_Media.Fn;;
 
 
 Test.test ~name:"@media discrete features" @@ fun t -> begin

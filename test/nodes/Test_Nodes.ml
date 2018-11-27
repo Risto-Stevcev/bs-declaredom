@@ -32,8 +32,8 @@ test ~name:"node - a" @@ fun t -> begin
       ~title:"some title"
       ~style:(
         Style.non_replaced
-          ~backgroundAttachment:(BackgroundAttachment.make `scroll)
-          ~backgroundColor:(BackgroundColor.make `red)
+          ~backgroundAttachment:`scroll
+          ~backgroundColor:`red
           ()
       )
       [||]

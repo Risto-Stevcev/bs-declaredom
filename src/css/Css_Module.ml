@@ -34,4 +34,4 @@ let getClass ?(className="") ?(cssModule={name=""; declaration=[]}) () =
 
 let make declaration =
   let (s, ms) = hrtime () in
-  {name = "m"^ (Js.Int.toString s) ^"_"^ (Js.Int.toString ms); declaration}
+  {name = "m"^ Js.Int.toString s ^"_"^ Js.Int.toString ms; declaration}

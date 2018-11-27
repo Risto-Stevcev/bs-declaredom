@@ -22,6 +22,8 @@ module Type = struct
    and line_height and list_style_image and list_style_position
    and list_style_type and list_style
 
+   type content
+
    type clip
 
    and color
@@ -67,6 +69,7 @@ type azimuth = [ `azimuth of Type.azimuth t ]
  and list_style_type = [ `list_style_type of Type.list_style_type t ]
  and list_style = [ `list_style of Type.list_style t ]
 
+type content = [ `content of Type.content t ]
 
 type clip = [ `clip of Type.clip t ]
 
@@ -86,8 +89,10 @@ type any =
   | border_left | border_right | border | bottom | color | float_ | cursor
   | font_family | font_size | font_style | font_variant | font_weight | font
   | height | left | letter_spacing | line_height
+  | content
   ]
-type block = [ text_align | clear | any ]
+
+type block = [ text_align | clear | height | any ]
 
 (**
  * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element} 
@@ -97,13 +102,16 @@ type replaced = height
 
 (** Non-replaced inline elements *)
 type non_replaced = [ vertical_align | any ]
+
+(** All inline elemnets (replaced and non-replaced) *)
 type inline = [ replaced | non_replaced ]
 
-type table = border_collapse
-type inline_table = border_collapse
-type table_cell = [ vertical_align | any ]
+type table = [ border_collapse | height ]
+type inline_table = [ border_collapse | height ]
+type table_cell = [ vertical_align | height | any ]
 type list_item =
-  [ list_style_image | list_style_position | list_style_type | list_style ]
+  [ list_style_image | list_style_position | list_style_type | list_style
+  | height ]
 type display =
   [ block | inline | table | inline_table | table_cell | list_item ]
 
@@ -124,16 +132,18 @@ module MediaGroup = struct
     | height | left | letter_spacing | line_height | list_style_image
     | list_style_position | list_style_type | list_style
     ]
+  type all = content (* TODO: add Content.make *)
 end
 
 
 module MediaType = struct
-  (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media type} *)
+  (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media type table} *)
 
   type handheld = MediaGroup.visual
   type print = MediaGroup.visual
-  type projection = MediaGroup.visual
+  type projection = [ MediaGroup.visual | MediaGroup.interactive ]
   type screen = MediaGroup.visual
+  type speech = MediaGroup.all
   type tty = MediaGroup.visual
   type tv = MediaGroup.visual
 end
@@ -164,6 +174,7 @@ let show: display -> string = function
 | `bottom x                -> Convert.show x
 | `clear x                 -> Convert.show x
 | `color x                 -> Convert.show x
+| `content x               -> Convert.show x
 | `cursor x                -> Convert.show x
 | `float x                 -> Convert.show x
 | `font_family x           -> Convert.show x
