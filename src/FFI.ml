@@ -11,6 +11,7 @@ external element: callbag_html -> string -> ('a, 'child, 'node) fn = ""
 let make tag props children = (element callbag_html tag) props children [@bs]
 
 external make': string -> Global.t -> 'child -> 'a = "element" [@@bs.module "declaredom"]
+external make_text: (_ [@bs.as "text"]) -> string -> 'a = "element" [@@bs.module "declaredom"]
 external custom: string -> 'a Js.t -> 'child -> 'node t = "element" [@@bs.module "declaredom"]
 
 module Unsafe = struct
