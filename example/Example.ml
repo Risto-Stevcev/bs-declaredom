@@ -31,9 +31,11 @@ let _ =
       let open Css.Module in
       { name="foobaz"; declaration = Style.inline ~verticalAlign:`initial () }
     in
-    let stl'': Css.Stylesheet.Rule.t = Css.Stylesheet.Rule.module_ stl
+    let stl'': Css.Stylesheet.Rule.t =
+      (Css.Stylesheet.CssModuleRule.make stl :> Css.Stylesheet.Rule.t)
     in
-    let stl''': Css.Stylesheet.Rule.t = Css.Stylesheet.Rule.module_ stl'
+    let stl''': Css.Stylesheet.Rule.t =
+      (Css.Stylesheet.CssModuleRule.make stl' :> Css.Stylesheet.Rule.t)
     in
 
     let z =

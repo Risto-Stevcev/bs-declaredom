@@ -1,12 +1,12 @@
 (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-color } Color} *)
 
-type 'a t = [> Css.Property.color ] as 'a
+type 'a t = [> Css_Property.color ] as 'a
 
-type value = [ Css.Value.Global.t | Css.Value.Color.t ]
+type value = [ Css_Value.Global.t | Css_Value.Color.t ]
 
 let show: value -> string = function
 | ( `inherit_ | `initial | `unset ) as global ->
-  Css.Value.Global.show global
+  Css_Value.Global.show global
 | ( `aliceblue | `antiquewhite | `aqua | `aquamarine | `azure | `beige
   | `bisque | `black | `blanchedalmond | `blue | `blueviolet | `brown
   | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
@@ -37,8 +37,8 @@ let show: value -> string = function
   | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
   | `rgb _ | `rgba _ | `hsl _ | `hsla _
   ) as color ->
-  Css.Value.Color.show color
+  Css_Value.Color.show color
 
-external _make: string -> Css.Property.Type.color Css.Property.t = "%identity"
+external _make: string -> Css_Property.Type.color Css_Property.t = "%identity"
 
 let make value: 'a t = `color (_make @@ show value)

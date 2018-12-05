@@ -3,7 +3,7 @@ open Css_Media.Fn;;
 
 
 Test.test ~name:"@media discrete features" @@ fun t -> begin
-  let equal x y t = t |> T.equal (Css.Stylesheet.Media.show x) y in 
+  let equal x y t = t |> T.equal (Css.Media.show x) y in 
 
   t |> equal (media [orientation `portrait]) "@media (orientation: portrait)";
   t |> equal (media [orientation `landscape]) "@media (orientation: landscape)";
@@ -48,7 +48,7 @@ end;;
 
 
 Test.test ~name:"@media range features" @@ fun t -> begin
-  let equal x y t = t |> T.equal (Css.Stylesheet.Media.show x) y in 
+  let equal x y t = t |> T.equal (Css.Media.show x) y in 
 
   t |> equal (media [resolution 12. `dpi]) "@media (resolution: 12dpi)";
   t |> equal (media [width 1024. `px]) "@media (width: 1024px)";
@@ -74,7 +74,7 @@ end;
 
 
 Test.test ~name:"@media modifiers" @@ fun t -> begin
-  let equal x y t = t |> T.equal (Css.Stylesheet.Media.show x) y in 
+  let equal x y t = t |> T.equal (Css.Media.show x) y in 
 
   t |> equal [modifier @@ `only `screen] "@media only screen";
   t |> equal [modifier `print] "@media print";
@@ -87,7 +87,7 @@ end;
 
 
 Test.test ~name:"@media combinators" @@ fun t -> begin
-  let equal x y t = t |> T.equal (Css.Stylesheet.Media.show x) y in 
+  let equal x y t = t |> T.equal (Css.Media.show x) y in 
 
   t |> equal [modifier `print; modifier `screen] "@media print, screen";
   t |> equal [modifier `print; query @@ max_width 1024. `px]

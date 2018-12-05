@@ -13,11 +13,24 @@ test ~name:"css property - azimuth" @@ fun t -> begin
 end; 
 
 test ~name:"@media functions" @@ fun t -> begin
-  let x = Css.Stylesheet.Rule.Media.print ~condition:(Css.Media.Fn.width 1024. `px) (`class_name "foo") 
-    (Style.MediaGroup.visual
-      ~color:`red
-      ~backgroundColor:`blue ())
+  let open Css.Stylesheet in
+  let open Css.Media.Fn in
+  let open Style.MediaGroup in
+  let block = Style.block in
+
+  let x = make `utf_8
+    [
+      (MediaRule.print
+        ~condition:(width 1024. `px)
+        (`class_name "foo") 
+        (visual
+          ~color:`red
+          ~backgroundColor:`blue ()) :> Rule.t)
+    ; (StyleRule.make
+        (`class_name "bar")
+        (block ~color:`red ()) :> Rule.t)
+    ]
   in
-  Js.log (Css.Stylesheet.Rule.show x);
+  Js.log (Css.Stylesheet.show x);
   t |> T.end_
 end; 

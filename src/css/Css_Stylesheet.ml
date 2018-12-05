@@ -4,15 +4,33 @@
  *  - A `selector list` (which will be comma delimited) with a ruleset
  *  - css modules
  *)
-module Charset = Css_Charset
-
-module Media = Css_Media
-
 module Selector = Css_Selector
 
 module Property = Css_Property
 
-module FontFace = struct
+module Interface = struct
+  module type CHARSET_RULE = sig
+    type t
+    val make: Css_Charset.t -> t
+    val show: t -> string
+  end
+  
+  module type FONT_FACE_RULE = sig
+    type t
+    val make: family:string -> src:string -> t
+    val show: t -> string
+  end
+end
+
+module CharsetRule: Interface.CHARSET_RULE with type t = [ `charset of Css_Charset.t ] = struct
+  type t = [ `charset of Css_Charset.t ]
+
+  let make value: t = `charset value
+
+  let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
+end
+
+module FontFaceRule: Interface.FONT_FACE_RULE with type t = [ `font_face of string * string ] = struct
   (** {{: https://www.w3.org/TR/css-fonts-3/#font-face-rule } Font-face rule} *)
 
   type t = [ `font_face of string * string ]
@@ -26,85 +44,137 @@ module FontFace = struct
     "}"
 end
 
-module Rule = struct
-  (* TODO: add @page rule
-   * https://www.w3.org/TR/CSS2/page.html#page-box
-   *)
-  type t =
-    (* TODO: use a map instead of list to avoid duplicate rules *)
-    [ `media of Media.t * Selector.t * Property.display Js.Dict.t
-    | `style of Selector.t * Property.display Js.Dict.t
-    | `module_ of Property.display Css_Module.t
-    | FontFace.t
-    ]
+module PageRule = struct
+  (** {{: https://www.w3.org/TR/CSS22/page.html#page-box } The @page rule} *)
 
-  type ruleset = t list
+  module Selector = struct
+    (** {{: https://www.w3.org/TR/CSS22/page.html#page-selectors } Page selectors} *)
 
-  module Media = struct
-    let print ?(only=false) ?condition selector properties: t =
-      let media_type = if only then `only `print else `print in
-      let query =
-        condition
-        |. Belt.Option.mapWithDefault [`modifier media_type]
-             (fun condition -> [`media_query (media_type, condition)])
-      in
-      `media
-        ( query
-        , selector
-        , properties |> Property.MediaType.print_to_display
-        )
-
-    let screen ?(only=false) ?condition selector properties: t =
-      let media_type = if only then `only `screen else `screen in
-      let query =
-        condition
-        |. Belt.Option.mapWithDefault [`modifier media_type]
-             (fun condition -> [`media_query (media_type, condition)])
-      in
-      `media
-        ( query
-        , selector
-        , properties |> Property.MediaType.screen_to_display
-        )
-
-    let speech ?(only=false) ?condition selector properties: t =
-      let media_type = if only then `only `speech else `speech in
-      let query =
-        condition
-        |. Belt.Option.mapWithDefault [`modifier media_type]
-             (fun condition -> [`media_query (media_type, condition)])
-      in
-      `media
-        ( query
-        , selector
-        , properties |> Property.MediaType.speech_to_display
-        )
+    type t = [ `left | `right | `first ] [@@bs.deriving jsConverter]
+    let show (x: t): string = ":"^ tToJs x
   end
 
-  let style selector properties: t =
+  type t =
+    [ `page of Selector.t option * Css_Property.MediaGroup.paged Js.Dict.t ]
+
+  let make ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
+    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
+    `page
+      ( page
+      , Style.MediaGroup.paged ?margin ?marginTop ?marginRight ?marginBottom
+          ?marginLeft ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans 
+          ?widows ()
+      )
+
+  let show (`page (selector, properties): t): string =
+    let selector' = 
+      selector |. Belt.Option.mapWithDefault "" (fun e -> " "^ Selector.show e)
+    in
+    "@page" ^ selector' ^" {\n"^
+      Css_Property.show_properties ~indent:1 properties ^
+    "}"
+end
+
+module MediaRule = struct
+  type t =  [ `media of Css_Media.t * Selector.t * Property.display Js.Dict.t ]
+
+  let print ?(only=false) ?condition selector properties: t =
+    let media_type = if only then `only `print else `print in
+    let query =
+      condition
+      |. Belt.Option.mapWithDefault [`modifier media_type]
+           (fun condition -> [`media_query (media_type, condition)])
+    in
+    `media
+      ( query
+      , selector
+      , properties |> Property.MediaType.print_to_display
+      )
+
+  let screen ?(only=false) ?condition selector properties: t =
+    let media_type = if only then `only `screen else `screen in
+    let query =
+      condition
+      |. Belt.Option.mapWithDefault [`modifier media_type]
+           (fun condition -> [`media_query (media_type, condition)])
+    in
+    `media
+      ( query
+      , selector
+      , properties |> Property.MediaType.screen_to_display
+      )
+
+  let speech ?(only=false) ?condition selector properties: t =
+    let media_type = if only then `only `speech else `speech in
+    let query =
+      condition
+      |. Belt.Option.mapWithDefault [`modifier media_type]
+           (fun condition -> [`media_query (media_type, condition)])
+    in
+    `media
+      ( query
+      , selector
+      , properties |> Property.MediaType.speech_to_display
+      )
+
+  let show (`media (media, selector, properties): t): string =
+    Css_Media.show media ^" {\n"^
+      Style.show ~indent:1 selector properties ^"\n"^
+    "}"
+end
+
+module StyleRule = struct
+  type t = [ `style of Selector.t * Property.display Js.Dict.t ]
+
+  let make selector properties: t =
     `style
       ( selector
       , properties |> Js.Dict.map (fun [@bs] p -> (p :> Property.display))
       )
 
-  let module_ { Css_Module.name; Css_Module.declaration }: t =
-    `module_
-      { Css_Module.name
-      ; declaration = declaration |> Js.Dict.map (fun [@bs] e -> (e :> Property.display))
-      }
-
-  let show: t -> string = function
-  | `media (media, selector, properties) ->
-    Css_Media.show media ^ " {\n  " ^
-      Css_Selector.show selector ^ " {\n    " ^
-        (properties
-         |> Js.Dict.entries
-         |. Belt.Array.map (fun (key, value) -> Util.camel_to_dash key ^": "^ Css_Property.show value ^";")
-         |> Js.Array.joinWith "\n    "
-        ) ^"\n  "^
-      "}\n" ^
-    "}"
-  | _ -> ""
+  let show ?(indent=0) (`style (selector, properties): t) =
+    let indent' = Js.String.repeat indent "  "
+    in
+    indent' ^ Css_Selector.show selector ^" {\n"^
+      Css_Property.show_properties ~indent:(indent + 1) properties ^"\n"^
+    indent' ^"}"
 end
 
-type t = Charset.t * Rule.t list
+module CssModuleRule = struct
+  type t = [ `css_module of Property.display Css_Module.t ]
+
+  let make x: t = `css_module (Css_Module.make x)
+
+  let show (`css_module {name; declaration}: t): string = 
+    "."^ name ^"{\n"^
+      Css_Property.show_properties ~indent:1 declaration ^
+    "}"
+end
+
+module Rule = struct
+  type t =
+    [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t | FontFaceRule.t ]
+
+  type ruleset = t list
+
+  let show x: string = match (x :> t) with
+  | `media _ as media_rule ->
+    MediaRule.show media_rule
+  | `style _ as style_rule ->
+    StyleRule.show style_rule
+  | `css_module _ as css_module_rule ->
+    CssModuleRule.show css_module_rule
+  | `font_face _ as font_face_rule ->
+    FontFaceRule.show font_face_rule
+  | `page _ as page_rule ->
+    PageRule.show page_rule
+end
+
+type t = CharsetRule.t * Rule.t list
+
+let make charset rules: t =
+  (CharsetRule.make charset, rules |. Belt.List.map (fun e -> (e :> Rule.t)))
+
+let show ((charset, rules): t): string =
+  CharsetRule.show charset ^";\n\n"^
+  (rules |. Belt.List.map Rule.show |. Util.join_with "\n")

@@ -22,6 +22,10 @@ module Type = struct
    and line_height and list_style_image and list_style_position
    and list_style_type and list_style
 
+   type margin_top and margin_right and margin_bottom and margin_left and margin
+   type page_break_before and page_break_after and page_break_inside
+    and orphans and widows
+
    type content
 
    type clip
@@ -70,6 +74,18 @@ module Variant = struct
    and list_style_type = [ `list_style_type of Type.list_style_type t ]
    and list_style = [ `list_style of Type.list_style t ]
 
+  type margin_top = [ `margin_top of Type.margin_top t ]
+   and margin_right = [ `margin_right of Type.margin_right t ]
+   and margin_bottom = [ `margin_bottom of Type.margin_bottom t ]
+   and margin_left = [ `margin_left of Type.margin_left t ]
+   and margin = [ `margin of Type.margin t ]
+
+  type page_break_before = [ `page_break_before of Type.page_break_before t ]
+   and page_break_after = [ `page_break_after of Type.page_break_after t ]
+   and page_break_inside = [ `page_break_inside of Type.page_break_inside t ]
+   and orphans = [ `orphans of Type.orphans t ]
+   and widows = [ `widows of Type.widows t ]
+
   type content = [ `content of Type.content t ]
 
   type clip = [ `clip of Type.clip t ]
@@ -77,6 +93,16 @@ module Variant = struct
    and color = [ `color of Type.color t ]
    and text_align = [ `text_align of Type.text_align t ]
    and vertical_align = [ `vertical_align of Type.vertical_align t ]
+
+
+  type margins =
+    [ margin | margin_top | margin_right | margin_bottom | margin_left ]
+
+  type page_breaks =
+    [ page_break_before | page_break_after | page_break_inside ]
+
+  type page_breaks_inside =
+    [ orphans | widows ]
 end
 
 include Variant
@@ -97,26 +123,36 @@ module AppliesTo = struct
     | content
     ]
 
-  type block = [ text_align | clear | height | any ]
+  type block =
+    [ text_align | clear | height | margins | page_breaks | page_breaks_inside
+    | any ]
 
   (**
    * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element}
    * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
    *)
-  type replaced = height
+  type replaced = [ height | margins ]
 
   (** Non-replaced inline elements *)
-  type non_replaced = [ vertical_align | any ]
+  type non_replaced = [ vertical_align | margins | any ]
 
   (** All inline elemnets (replaced and non-replaced) *)
-  type inline = [ replaced | non_replaced ]
+  type inline = [ replaced | non_replaced | margins ]
 
-  type table = [ border_collapse | height ]
-  type inline_table = [ border_collapse | height ]
+  type table_caption = margins
+
+  type table =
+    [ border_collapse | height | margins ]
+
+  type inline_table =
+    [ border_collapse | height | margins ]
+
   type table_cell = [ vertical_align | height | any ]
+
   type list_item =
     [ list_style_image | list_style_position | list_style_type | list_style
-    | height ]
+    | height | margins ]
+
   type display =
     [ block | inline | table | inline_table | table_cell | list_item ]
 
@@ -149,7 +185,16 @@ module MediaGroup = struct
     | font_family | font_size | font_style | font_variant | font_weight | font
     | height | left | letter_spacing | line_height | list_style_image
     | list_style_position | list_style_type | list_style
+    | margins | page_breaks | page_breaks_inside
     ]
+
+  (**
+   {{: https://www.w3.org/TR/CSS22/page.html#page-margins } Page margins}, 
+   {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks}, and 
+   {{: https://www.w3.org/TR/CSS22/page.html#break-inside } Breaks inside elements}
+   *)
+  type paged = [ margins | page_breaks | page_breaks_inside ]
+
   type all = content (* TODO: add Content.make *)
 
   let to_aural x = (x :> aural)
@@ -229,5 +274,26 @@ let show: display -> string = function
 | `list_style_position x   -> Convert.show x
 | `list_style_type x       -> Convert.show x
 | `list_style x            -> Convert.show x
+| `margin x                -> Convert.show x
+| `margin_top x            -> Convert.show x
+| `margin_right x          -> Convert.show x
+| `margin_bottom x         -> Convert.show x
+| `margin_left x           -> Convert.show x
+| `page_break_before x     -> Convert.show x
+| `page_break_after x      -> Convert.show x
+| `page_break_inside x     -> Convert.show x
+| `orphans x               -> Convert.show x
+| `widows x                -> Convert.show x
 | `text_align x            -> Convert.show x
 | `vertical_align x        -> Convert.show x
+
+
+let show_properties ?(indent=0) properties: string =
+  let indent' = Js.String.repeat indent "  "
+  in
+  properties
+  |> Js.Dict.map (fun [@bs] e -> (e :> display))
+  |> Js.Dict.entries
+  |. Belt.Array.map (fun (key, value) ->
+       indent' ^ Util.camel_to_dash key ^": "^ show value ^";")
+  |> Js.Array.joinWith "\n"

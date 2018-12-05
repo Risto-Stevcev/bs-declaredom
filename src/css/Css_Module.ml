@@ -32,6 +32,12 @@ let getClass ?(className="") ?(cssModule={name=""; declaration=Js.Dict.empty ()}
   let separator = if className = "" || name = "" then "" else " " in
   Js.String.trim @@ className ^ separator ^ name
 
-let make declaration =
+let make { name; declaration }: _ t =
+  { name
+  ; declaration =
+      declaration |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+  }
+
+let make' declaration =
   let (s, ms) = hrtime () in
   {name = "m"^ Js.Int.toString s ^"_"^ Js.Int.toString ms; declaration}

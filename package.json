@@ -13,6 +13,7 @@
     "test": "npm run test:node && npm run test:css && npm run test:css:media && npm run test:css:property && npm run test:css:stylesheet",
     "graph:dot": "bs-dependency-graph | json-to-dot > graph.dot",
     "graph:image": "dot -Tpng graph.dot -o graph.png",
+    "graph:view": "feh graph.png",
     "graph": "npm run graph:dot && npm run graph:image",
     "docs": "bs-odoc",
     "example": "parcel example/example.html"
@@ -26,7 +27,7 @@
     "@ristostevcev/bs-callbag-basics": "^1.2.0",
     "@ristostevcev/bs-odoc": "^1.2.0",
     "@ristostevcev/bs-tape": "^0.1.0",
-    "bs-dependency-graph": "^1.2.0",
+    "bs-dependency-graph": "^2.0.0",
     "bs-platform": "^4.0.3",
     "jsdom": "^13.0.0",
     "json-to-dot": "^1.1.0",
