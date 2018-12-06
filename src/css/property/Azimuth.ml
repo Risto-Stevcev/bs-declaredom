@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-azimuth } Azimuth } *)
 
-type 'a t = [> Css.Property.azimuth ] as 'a
+type 'a t = [> Css_Property.azimuth ] as 'a
 
 type _value =
   [
@@ -26,6 +26,6 @@ let show: value -> string = function
   ) as value' ->
   value' |> _valueToJs |> Util.underscore_to_dash
 
-external _make: string -> Css.Property.Type.azimuth Css.Property.t = "%identity"
+external _make: string -> Css_Property.Type.azimuth Css_Property.t = "%identity"
 
 let make value: 'a t = `azimuth (_make @@ show value)

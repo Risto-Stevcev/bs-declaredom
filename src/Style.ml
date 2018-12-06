@@ -4,6 +4,13 @@ let show_dict (styles: 'a t): string Js.Dict.t =
   styles
   |> Js.Dict.map (fun [@bs] e -> Css_Property.show (e :> Css_Property.display))
 
+type visual = Css_Property.MediaGroup.visual t
+ and paged = Css_Property.MediaGroup.paged t
+
+type non_replaced = Css_Property.AppliesTo.non_replaced t 
+ and replaced = Css_Property.AppliesTo.replaced t 
+ and block = Css_Property.AppliesTo.block t
+ and inline = Css_Property.AppliesTo.inline t
 
 module Internal = struct
   (* TODO: populate with all group styles *)
@@ -11,7 +18,7 @@ module Internal = struct
     ?backgroundColor:Css_Property.background_color ->
     ?color:Css_Property.color ->
     unit ->
-    Css_Property.MediaGroup.visual t = "" [@@bs.obj]
+    visual = "" [@@bs.obj]
 
   external paged:
     ?margin:Css_Property.margin ->
@@ -25,32 +32,32 @@ module Internal = struct
     ?orphans:Css_Property.orphans ->
     ?widows:Css_Property.widows ->
     unit ->
-    Css_Property.MediaGroup.paged t = "" [@@bs.obj]
+    paged = "" [@@bs.obj]
 
   (* TODO: this should have all styles that apply to non-replaced elements *)
   external non_replaced:
     ?backgroundAttachment:Css_Property.background_attachment ->
     ?backgroundColor:Css_Property.background_color ->
     unit ->
-    Css_Property.non_replaced t = "" [@@bs.obj]
+    non_replaced = "" [@@bs.obj]
 
   (* TODO: this should have all styles that apply to replaced elements *)
   external replaced:
     ?height:Css_Property.height ->
     unit ->
-    Css_Property.replaced t = "" [@@bs.obj]
+    replaced = "" [@@bs.obj]
 
   external block:
     ?textAlign:Css_Property.text_align ->
     ?clear:Css_Property.clear ->
     ?color:Css_Property.color ->
     unit ->
-    Css_Property.block t = "" [@@bs.obj]
+    block = "" [@@bs.obj]
 
   external inline:
     ?verticalAlign:Css_Property.vertical_align ->
     unit ->
-    Css_Property.inline t = "" [@@bs.obj]
+    inline = "" [@@bs.obj]
 end
 
 module MediaGroup = struct

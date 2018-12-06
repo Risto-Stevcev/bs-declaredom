@@ -1,8 +1,8 @@
 (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-boldness } Font Weight} *)
 
-type 'a t = [> Css.Property.font_weight ] as 'a
+type 'a t = [> Css_Property.font_weight ] as 'a
 
 external _make:
-  string -> Css.Property.Type.font_weight Css.Property.t = "%identity"
+  string -> Css_Property.Type.font_weight Css_Property.t = "%identity"
 
-let make value: 'a t = `font_weight (_make @@ Css.Value.FontWeight.show value)
+let make value: 'a t = `font_weight (_make @@ Css_Value.FontWeight.show value)

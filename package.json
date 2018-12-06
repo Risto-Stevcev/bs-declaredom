@@ -6,7 +6,7 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "test:node": "node lib/js/test/nodes/Test_Nodes.bs.js | tap-spec",
-    "test:css": "node lib/js/test/TestCss.bs.js | tap-spec",
+    "test:css": "node lib/js/test/TestCss_bs.js | tap-spec",
     "test:css:media": "node lib/js/test/Test_Css_Media.bs.js | tap-spec",
     "test:css:property": "node lib/js/test/Test_Css_Property.bs.js | tap-spec",
     "test:css:stylesheet": "node lib/js/test/Test_Css_Stylesheet.bs.js | tap-spec",

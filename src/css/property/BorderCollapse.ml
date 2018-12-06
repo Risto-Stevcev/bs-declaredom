@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-border-collapse } Border Collapse} *)
 
-type 'a t = [> Css.Property.border_collapse ] as 'a
+type 'a t = [> Css_Property.border_collapse ] as 'a
 
 module Value = struct
   type t = [ Css_Value.Global.t | `collapse | `separate ]
@@ -12,6 +12,6 @@ module Value = struct
 end
 
 external _make:
-  string -> Css.Property.Type.border_collapse Css.Property.t = "%identity"
+  string -> Css_Property.Type.border_collapse Css_Property.t = "%identity"
 
 let make value: 'a t = `border_collapse (_make @@ Value.show value)

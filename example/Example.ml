@@ -21,21 +21,21 @@ let _ =
     let f (_: Node.span): unit = () in
     let _ = f (span [|text "hello"|]) in
 
-    let stl: Css.Property.block Css.Module.t =
-      let open Css.Module in
+    let stl: Css_Property.block Css_Module.t =
+      let open Css_Module in
       { name="foobar"
       ; declaration = Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
       }
     in
-    let stl': Css.Property.inline Css.Module.t =
-      let open Css.Module in
+    let stl': Css_Property.inline Css_Module.t =
+      let open Css_Module in
       { name="foobaz"; declaration = Style.inline ~verticalAlign:`initial () }
     in
-    let stl'': Css.Stylesheet.Rule.t =
-      (Css.Stylesheet.CssModuleRule.make stl :> Css.Stylesheet.Rule.t)
+    let stl'': Css_Stylesheet.Rule.t =
+      (Css_Stylesheet.CssModuleRule.make stl :> Css_Stylesheet.Rule.t)
     in
-    let stl''': Css.Stylesheet.Rule.t =
-      (Css.Stylesheet.CssModuleRule.make stl' :> Css.Stylesheet.Rule.t)
+    let stl''': Css_Stylesheet.Rule.t =
+      (Css_Stylesheet.CssModuleRule.make stl' :> Css_Stylesheet.Rule.t)
     in
 
     let z =

@@ -8,11 +8,11 @@ type child =
 
 let make
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-  ?title ?(style:Css.Property.replaced Style.t option)
-  ?onClick ?(cssModule:Css.Property.replaced Css.Module.t option)
+  ?title ?(style:Css_Property.replaced Style.t option)
+  ?onClick ?(cssModule:Css_Property.replaced Css_Module.t option)
   (): 'a t
   =
-  let name = Css.Module.getClass ?className ?cssModule ()
+  let name = Css_Module.getClass ?className ?cssModule ()
   in
   FFI.make'
     "img"

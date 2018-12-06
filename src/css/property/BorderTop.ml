@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top } Border Top} *)
 
-type 'a t = [> Css.Property.border_top ] as 'a
+type 'a t = [> Css_Property.border_top ] as 'a
 
 module Value = struct
   type t =
@@ -20,7 +20,7 @@ module Value = struct
 end
 
 external _make:
-  string -> Css.Property.Type.border_top Css.Property.t = "%identity"
+  string -> Css_Property.Type.border_top Css_Property.t = "%identity"
 
 let make ?width ?style ?color (): 'a t =
   `border_top (_make @@ Value.show (width, style, color))

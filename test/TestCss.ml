@@ -1,14 +1,14 @@
 open BsTape
 open Test
-open Css.Selector.Infix
+open Css_Selector.Infix
 
-type selector = Css.Selector.t
+type selector = Css_Selector.t
 
 module Test = struct
   test ~name:"css selectors" @@ fun t -> begin
-    let equal x y t = t |> T.equal (Css.Selector.show x) y in 
+    let equal x y t = t |> T.equal (Css_Selector.show x) y in 
 
-    t |> T.equal (TextAlign.make `center |> Css.Property.show) "center";
+    t |> T.equal (TextAlign.make `center |> Css_Property.show) "center";
     t |> equal `h1 "h1";
 
     t |> equal `active ":active";
@@ -19,10 +19,10 @@ module Test = struct
     t |> equal (`h2 |>. `span) "h2 > span";
 
     let s =
-      Css.Selector.Focusable.make
+      Css_Selector.Focusable.make
 				(`h2 |.. `h3 |: `active |>. `attribute (`a, `has "href"))
       |> Js.Option.andThen (fun [@bs] s -> begin
-           Some (`focus s |> Css.Selector.show)
+           Some (`focus s |> Css_Selector.show)
          end)
     in
     t |> T.equal s (Some "h2 h3:active > a[href]:focus");

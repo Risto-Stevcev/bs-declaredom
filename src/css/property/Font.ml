@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-shorthand } Font} *)
 
-type 'a t = [> Css.Property.font ] as 'a
+type 'a t = [> Css_Property.font ] as 'a
 
 module Value = struct
   type value =
@@ -11,31 +11,31 @@ module Value = struct
     ]
     [@@bs.deriving jsConverter]
 
-  type value' = [ Css.Value.Global.t | value ]
+  type value' = [ Css_Value.Global.t | value ]
 
   type font_property =
-    Css.Value.FontStyle.t option *
-    Css.Value.FontVariant.t option *
-    Css.Value.FontWeight.t option
+    Css_Value.FontStyle.t option *
+    Css_Value.FontVariant.t option *
+    Css_Value.FontWeight.t option
 
-  type font_size = Css.Value.FontSize.t * Css.Value.LineHeight.t option
+  type font_size = Css_Value.FontSize.t * Css_Value.LineHeight.t option
 
-  type t = [ Css.Value.Global.t | `font of font_property * font_size | value ]
+  type t = [ Css_Value.Global.t | `font of font_property * font_size | value ]
 
   let show: t -> string = function
   | (`inherit_ | `initial | `unset) as value ->
-    Css.Value.Global.show value
+    Css_Value.Global.show value
   | `font ((style, variant, weight), (size, line_height)) ->
     let style' =
-      Belt.Option.mapWithDefault style "" Css.Value.FontStyle.show
+      Belt.Option.mapWithDefault style "" Css_Value.FontStyle.show
     and variant' =
-      Belt.Option.mapWithDefault variant "" Css.Value.FontVariant.show
+      Belt.Option.mapWithDefault variant "" Css_Value.FontVariant.show
     and weight' =
-      Belt.Option.mapWithDefault weight "" Css.Value.FontWeight.show
-    and size' = Css.Value.FontSize.show size
+      Belt.Option.mapWithDefault weight "" Css_Value.FontWeight.show
+    and size' = Css_Value.FontSize.show size
     and line_height' =
       Belt.Option.mapWithDefault line_height ""
-        (fun l -> "/" ^ Css.Value.LineHeight.show l)
+        (fun l -> "/" ^ Css_Value.LineHeight.show l)
     in
     Util.combine_styles [| style'; variant'; weight'; size' ^ line_height' |]
   | ( `caption | `icon | `menu | `message_box | `small_caption | `status_bar
@@ -43,7 +43,7 @@ module Value = struct
     valueToJs value
 end
 
-external _make: string -> Css.Property.Type.font Css.Property.t = "%identity"
+external _make: string -> Css_Property.Type.font Css_Property.t = "%identity"
 
 let make
   ?style ?variant ?weight ?size ?line_height

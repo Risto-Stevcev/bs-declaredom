@@ -20,10 +20,10 @@ end
 
 let make
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title ?style
-  ?onClick ?(cssModule:Css.Property.block Css.Module.t option)
+  ?onClick ?(cssModule:Css_Property.block Css_Module.t option)
   (children:child array): 'a t
   =
-  let name = Css.Module.getClass ?className ?cssModule ()
+  let name = Css_Module.getClass ?className ?cssModule ()
   in
   FFI.make' "div"
     (Global.make

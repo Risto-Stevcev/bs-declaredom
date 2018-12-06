@@ -8,29 +8,15 @@ module Selector = Css_Selector
 
 module Property = Css_Property
 
-module Interface = struct
-  module type CHARSET_RULE = sig
-    type t
-    val make: Css_Charset.t -> t
-    val show: t -> string
-  end
-  
-  module type FONT_FACE_RULE = sig
-    type t
-    val make: family:string -> src:string -> t
-    val show: t -> string
-  end
+module CharsetRule = struct
+	type t = [ `charset of Css_Charset.t ]
+
+	let make value: t = `charset value
+
+	let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
 end
 
-module CharsetRule: Interface.CHARSET_RULE with type t = [ `charset of Css_Charset.t ] = struct
-  type t = [ `charset of Css_Charset.t ]
-
-  let make value: t = `charset value
-
-  let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
-end
-
-module FontFaceRule: Interface.FONT_FACE_RULE with type t = [ `font_face of string * string ] = struct
+module FontFaceRule = struct
   (** {{: https://www.w3.org/TR/css-fonts-3/#font-face-rule } Font-face rule} *)
 
   type t = [ `font_face of string * string ]
@@ -152,8 +138,7 @@ module CssModuleRule = struct
 end
 
 module Rule = struct
-  type t =
-    [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t | FontFaceRule.t ]
+  type t = [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t | FontFaceRule.t ]
 
   type ruleset = t list
 
@@ -164,17 +149,32 @@ module Rule = struct
     StyleRule.show style_rule
   | `css_module _ as css_module_rule ->
     CssModuleRule.show css_module_rule
-  | `font_face _ as font_face_rule ->
-    FontFaceRule.show font_face_rule
+  | `font_face _ as font_face ->
+    FontFaceRule.show font_face
   | `page _ as page_rule ->
     PageRule.show page_rule
 end
+
+let media_print ?only ?condition selector properties: Rule.t =
+	(MediaRule.print ?only ?condition selector properties :> Rule.t)
+and media_screen ?only ?condition selector properties: Rule.t =
+	(MediaRule.screen ?only ?condition selector properties :> Rule.t)
+and media_speech ?only ?condition selector properties: Rule.t =
+	(MediaRule.speech ?only ?condition selector properties :> Rule.t)
+and style selector properties: Rule.t =
+	(StyleRule.make selector properties :> Rule.t)
+and css_module x: Rule.t = (CssModuleRule.make x :> Rule.t)
+and font_face ~family ~src = (FontFaceRule.make ~family ~src :> Rule.t)
+and page ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
+    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows (): Rule.t =
+	(PageRule.make ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
+    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () :> Rule.t)
 
 type t = CharsetRule.t * Rule.t list
 
 let make charset rules: t =
   (CharsetRule.make charset, rules |. Belt.List.map (fun e -> (e :> Rule.t)))
-
+  
 let show ((charset, rules): t): string =
-  CharsetRule.show charset ^";\n\n"^
-  (rules |. Belt.List.map Rule.show |. Util.join_with "\n")
+	CharsetRule.show charset ^";\n\n"^
+	(rules |. Belt.List.map Rule.show |. Util.join_with "\n")

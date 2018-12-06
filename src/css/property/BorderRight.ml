@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-right } Border Right} *)
 
-type 'a t = [> Css.Property.border_right ] as 'a
+type 'a t = [> Css_Property.border_right ] as 'a
 
 module Value = struct
   type t =
@@ -20,7 +20,7 @@ module Value = struct
 end
 
 external _make:
-  string -> Css.Property.Type.border_right Css.Property.t = "%identity"
+  string -> Css_Property.Type.border_right Css_Property.t = "%identity"
 
 let make ?width ?style ?color (): 'a t =
   `border_right (_make @@ Value.show (width, style, color))

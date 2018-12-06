@@ -35,7 +35,7 @@ module Type = struct
    and vertical_align
 end
 
-module Variant = struct
+module Style = struct
   type azimuth = [ `azimuth of Type.azimuth t ]
    and background_attachment =
          [ `background_attachment of Type.background_attachment t ]
@@ -105,7 +105,7 @@ module Variant = struct
     [ orphans | widows ]
 end
 
-include Variant
+include Style
 
 
 module AppliesTo = struct
@@ -155,7 +155,6 @@ module AppliesTo = struct
 
   type display =
     [ block | inline | table | inline_table | table_cell | list_item ]
-
 
   let to_block x = (x :> block)
   and to_replaced x = (x :> replaced)

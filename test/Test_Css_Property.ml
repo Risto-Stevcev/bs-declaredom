@@ -2,7 +2,7 @@ open BsTape
 open Test;;
 
 test ~name:"css property - azimuth" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Azimuth.make |> Css.Property.show) b in
+  let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
@@ -28,7 +28,7 @@ end;
 
 test ~name:"css property - background-attachment" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BackgroundAttachment.make |> Css.Property.show) b
+    t |> T.equal (a |> BackgroundAttachment.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -41,7 +41,7 @@ end;
 
 test ~name:"css property - background-image" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BackgroundImage.make |> Css.Property.show) b
+    t |> T.equal (a |> BackgroundImage.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -55,7 +55,7 @@ end;
 
 test ~name:"css property - background-position" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BackgroundPosition.make |> Css.Property.show) b
+    t |> T.equal (a |> BackgroundPosition.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -81,7 +81,7 @@ end;
 
 test ~name:"css property - background-repeat" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BackgroundRepeat.make |> Css.Property.show) b
+    t |> T.equal (a |> BackgroundRepeat.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -96,7 +96,7 @@ end;
 
 test ~name:"css property - background" @@ fun t -> begin
   let background = Background.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (background ()) "inherit";
   t |> equal (background ~color:`red ()) "red";
@@ -109,7 +109,7 @@ end;
 
 test ~name:"css property - border-collapse" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BorderCollapse.make |> Css.Property.show) b
+    t |> T.equal (a |> BorderCollapse.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -122,7 +122,7 @@ end;
 
 test ~name:"css property - border-color" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BorderColor.make |> Css.Property.show) b
+    t |> T.equal (a |> BorderColor.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -135,7 +135,7 @@ end;
 
 test ~name:"css property - border-width" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BorderWidth.make |> Css.Property.show) b
+    t |> T.equal (a |> BorderWidth.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -150,7 +150,7 @@ end;
 
 test ~name:"css property - border-style" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> BorderStyle.make |> Css.Property.show) b
+    t |> T.equal (a |> BorderStyle.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -164,7 +164,7 @@ end;
 
 test ~name:"css property - border-top" @@ fun t -> begin
   let border_top = BorderTop.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_top ()) "inherit";
   t |> equal (border_top ~width:(`length (5., `px)) ()) "5px";
@@ -176,7 +176,7 @@ end;
 
 test ~name:"css property - border-bottom" @@ fun t -> begin
   let border_bottom = BorderBottom.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_bottom ()) "inherit";
   t |> equal (border_bottom ~width:(`length (5., `px)) ()) "5px";
@@ -188,7 +188,7 @@ end;
 
 test ~name:"css property - border-left" @@ fun t -> begin
   let border_left = BorderLeft.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_left ()) "inherit";
   t |> equal (border_left ~width:(`length (5., `px)) ()) "5px";
@@ -200,7 +200,7 @@ end;
 
 test ~name:"css property - border-right" @@ fun t -> begin
   let border_right = BorderRight.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_right ()) "inherit";
   t |> equal (border_right ~width:(`length (5., `px)) ()) "5px";
@@ -212,7 +212,7 @@ end;
 
 test ~name:"css property - border" @@ fun t -> begin
   let border_right = Border.make
-  and equal a b t = t |> T.equal (a |> Css.Property.show) b
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_right ()) "inherit";
   t |> equal (border_right ~width:(`length (5., `px)) ()) "5px";
@@ -224,7 +224,7 @@ end;
 
 test ~name:"css property - bottom" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Bottom.make |> Css.Property.show) b
+    t |> T.equal (a |> Bottom.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -237,7 +237,7 @@ end;
 
 test ~name:"css property - clear" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Clear.make |> Css.Property.show) b
+    t |> T.equal (a |> Clear.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -252,7 +252,7 @@ end;
 
 test ~name:"css property - cursor" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Cursor.make |> Css.Property.show) b
+    t |> T.equal (a |> Cursor.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -274,11 +274,11 @@ test ~name:"css property - cursor" @@ fun t -> begin
   t |> equal `wait "wait";
   t |> equal `help "help";
   t |> equal `progress "progress";
-  t |> T.equal (Cursor.make ~uris:[`uri "http://foo"] `auto |> Css.Property.show)
+  t |> T.equal (Cursor.make ~uris:[`uri "http://foo"] `auto |> Css_Property.show)
                "url(\"http://foo\"), auto";
 
   t |> T.equal (  Cursor.make ~uris:[`uri "http://foo"; `uri "bar"] `auto
-               |> Css.Property.show
+               |> Css_Property.show
                )
                "url(\"http://foo\"), url(\"bar\"), auto";
   t |> T.end_
@@ -287,7 +287,7 @@ end;
 
 test ~name:"css property - float" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Float.make |> Css.Property.show) b
+    t |> T.equal (a |> Float.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -301,7 +301,7 @@ end;
 
 test ~name:"css property - font-family" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> FontFamily.make |> Css.Property.show) b
+    t |> T.equal (a |> FontFamily.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -319,7 +319,7 @@ end;
 
 test ~name:"css property - font-size" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> FontSize.make |> Css.Property.show) b
+    t |> T.equal (a |> FontSize.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -342,7 +342,7 @@ end;
 
 test ~name:"css property - font-style" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> FontStyle.make |> Css.Property.show) b
+    t |> T.equal (a |> FontStyle.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -356,7 +356,7 @@ end;
 
 test ~name:"css property - font-variant" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> FontVariant.make |> Css.Property.show) b
+    t |> T.equal (a |> FontVariant.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -369,7 +369,7 @@ end;
 
 test ~name:"css property - font-weight" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> FontWeight.make |> Css.Property.show) b
+    t |> T.equal (a |> FontWeight.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -392,7 +392,7 @@ end;
 
 
 test ~name:"css property - font" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Css.Property.show) b in
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b in
   t |> equal (Font.make ~value:`inherit_ ()) "inherit";
   t |> equal (Font.make ~value:`initial ()) "initial";
   t |> equal (Font.make ~value:`unset ()) "unset";
@@ -411,7 +411,7 @@ end;
 
 test ~name:"css property - height" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Height.make |> Css.Property.show) b
+    t |> T.equal (a |> Height.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -424,7 +424,7 @@ end;
 
 test ~name:"css property - left" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Left.make |> Css.Property.show) b
+    t |> T.equal (a |> Left.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -437,7 +437,7 @@ end;
 
 test ~name:"css property - letter-spacing" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> LetterSpacing.make |> Css.Property.show) b
+    t |> T.equal (a |> LetterSpacing.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -449,7 +449,7 @@ end;
 
 test ~name:"css property - line-height" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> LineHeight.make |> Css.Property.show) b
+    t |> T.equal (a |> LineHeight.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -462,7 +462,7 @@ end;
 
 test ~name:"css property - list-style-image" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> ListStyleImage.make |> Css.Property.show) b
+    t |> T.equal (a |> ListStyleImage.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -475,7 +475,7 @@ end;
 
 test ~name:"css property - list-style-position" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> ListStylePosition.make |> Css.Property.show) b
+    t |> T.equal (a |> ListStylePosition.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -488,7 +488,7 @@ end;
 
 test ~name:"css property - list-style-type" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> ListStyleType.make |> Css.Property.show) b
+    t |> T.equal (a |> ListStyleType.make |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -513,7 +513,7 @@ end;
 
 test ~name:"css property - list-style" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Css.Property.show) b
+    t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (ListStyle.make ()) "inherit";
   t |> equal (ListStyle.make ~type_:`circle ()) "circle";
@@ -532,7 +532,7 @@ end;
 
 
 test ~name:"css property - textAlign" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Clear.make |> Css.Property.show) b in
+  let equal a b t = t |> T.equal (a |> Clear.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
@@ -544,7 +544,7 @@ test ~name:"css property - textAlign" @@ fun t -> begin
 end;
 
 test ~name:"css property - textAlign" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> TextAlign.make |> Css.Property.show) b in
+  let equal a b t = t |> T.equal (a |> TextAlign.make |> Css_Property.show) b in
   t |> equal `left "left";
   t |> equal `right "right";
   t |> equal `center "center";

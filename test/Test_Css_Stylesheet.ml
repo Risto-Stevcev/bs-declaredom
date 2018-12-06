@@ -2,7 +2,7 @@ open BsTape
 open Test;;
 
 test ~name:"css property - azimuth" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Azimuth.make |> Css.Property.show) b in
+  let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
@@ -13,24 +13,25 @@ test ~name:"css property - azimuth" @@ fun t -> begin
 end; 
 
 test ~name:"@media functions" @@ fun t -> begin
-  let open Css.Stylesheet in
-  let open Css.Media.Fn in
-  let open Style.MediaGroup in
-  let block = Style.block in
+  let open Css_Stylesheet in
+  let width = Css_Media.Fn.width
+  and visual = Style.MediaGroup.visual
+  and block = Style.block
+	in
 
   let x = make `utf_8
     [
-      (MediaRule.print
+      media_print
         ~condition:(width 1024. `px)
         (`class_name "foo") 
         (visual
           ~color:`red
-          ~backgroundColor:`blue ()) :> Rule.t)
-    ; (StyleRule.make
+          ~backgroundColor:`blue ())
+    ; style
         (`class_name "bar")
-        (block ~color:`red ()) :> Rule.t)
+        (block ~color:`red ())
     ]
   in
-  Js.log (Css.Stylesheet.show x);
+  Js.log (Css_Stylesheet.show x);
   t |> T.end_
 end; 

@@ -1,6 +1,6 @@
 (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border } Border} *)
 
-type 'a t = [> Css.Property.border ] as 'a
+type 'a t = [> Css_Property.border ] as 'a
 
 module Value = struct
   type t =
@@ -19,7 +19,7 @@ module Value = struct
     Util.combine_styles [| width'; style'; color' |]
 end
 
-external _make: string -> Css.Property.Type.border Css.Property.t = "%identity"
+external _make: string -> Css_Property.Type.border Css_Property.t = "%identity"
 
 let make ?width ?style ?color (): 'a t =
   `border (_make @@ Value.show (width, style, color))
