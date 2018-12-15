@@ -4,6 +4,7 @@
  {{: https://encoding.spec.whatwg.org/#names-and-labels } List of encodings }
  *)
 
+(* TODO: add all encodings *)
 type t = 
   [
   | `big5 | `euc_kr | `iso_8859_1 | `iso_8859_2 | `iso_8859_3 | `iso_8859_4

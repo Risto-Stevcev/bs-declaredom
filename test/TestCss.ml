@@ -1,6 +1,7 @@
 open BsTape
 open Test
 open Css_Selector.Infix
+open Css_Properties
 
 type selector = Css_Selector.t
 

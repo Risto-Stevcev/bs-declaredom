@@ -119,7 +119,7 @@ module AppliesTo = struct
     | border_color | border_width | border_style | border_top | border_bottom
     | border_left | border_right | border | bottom | color | float_ | cursor
     | font_family | font_size | font_style | font_variant | font_weight | font
-    | height | left | letter_spacing | line_height
+    | left | letter_spacing | line_height
     | content
     ]
 
@@ -139,7 +139,8 @@ module AppliesTo = struct
   (** All inline elemnets (replaced and non-replaced) *)
   type inline = [ replaced | non_replaced | margins ]
 
-  type table_caption = margins
+  (* TODO: double check `height` *)
+  type table_caption = [ height | margins ]
 
   type table =
     [ border_collapse | height | margins ]

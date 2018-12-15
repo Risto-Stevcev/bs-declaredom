@@ -1,5 +1,7 @@
 open BsTape
-open Test;;
+open Test
+open Css_Properties
+;;
 
 test ~name:"css property - azimuth" @@ fun t -> begin
   let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in

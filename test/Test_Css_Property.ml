@@ -1,5 +1,7 @@
 open BsTape
-open Test;;
+open Test
+open Css_Properties
+;;
 
 test ~name:"css property - azimuth" @@ fun t -> begin
   let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
@@ -35,6 +37,20 @@ test ~name:"css property - background-attachment" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal `scroll "scroll";
   t |> equal `fixed "fixed";
+  t |> T.end_
+end; 
+
+
+test ~name:"css property - background-image" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BackgroundColor.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `red "red";
+  t |> equal (`rgb (122, 231, 255)) "rgb(122, 231, 255)";
+  t |> equal `transparent "transparent";
   t |> T.end_
 end; 
 
@@ -246,6 +262,19 @@ test ~name:"css property - clear" @@ fun t -> begin
   t |> equal `left "left";
   t |> equal `right "right";
   t |> equal `both "both";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - color" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Color.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `red "red";
+  t |> equal (`rgb (122, 231, 255)) "rgb(122, 231, 255)";
   t |> T.end_
 end;
 
@@ -527,23 +556,162 @@ test ~name:"css property - list-style" @@ fun t -> begin
 end;
 
 
-
-
-
-
-test ~name:"css property - textAlign" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Clear.make |> Css_Property.show) b in
+test ~name:"css property - margin" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Margin.make |> Css_Property.show) b
+  in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal `none "none";
-  t |> equal `left "left";
-  t |> equal `right "right";
-  t |> equal `both "both";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 21) "21%";
   t |> T.end_
 end;
 
-test ~name:"css property - textAlign" @@ fun t -> begin
+
+test ~name:"css property - margin-top" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> MarginTop.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 21) "21%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - margin-right" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> MarginRight.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 21) "21%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - margin-bottom" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> MarginBottom.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 21) "21%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - margin-left" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> MarginLeft.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 21) "21%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - page-break-after" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> PageBreakAfter.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `auto "auto";
+  t |> equal `always "always";
+  t |> equal `avoid "avoid";
+  t |> equal `left "left";
+  t |> equal `right "right";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - page-break-before" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> PageBreakBefore.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `auto "auto";
+  t |> equal `always "always";
+  t |> equal `avoid "avoid";
+  t |> equal `left "left";
+  t |> equal `right "right";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - page-break-inside" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> PageBreakInside.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `auto "auto";
+  t |> equal `always "always";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - orphans" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Orphans.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`lines 3) "3";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - widows" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Widows.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`lines 3) "3";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - vertical-align" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> VerticalAlign.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `baseline "baseline";
+  t |> equal `sub "sub";
+  t |> equal `super "super";
+  t |> equal `text_top "text-top";
+  t |> equal `text_bottom "text-bottom";
+  t |> equal `middle "middle";
+  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`percent 12) "12%";
+  t |> equal `top "top";
+  t |> equal `bottom "bottom";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - text-align" @@ fun t -> begin
   let equal a b t = t |> T.equal (a |> TextAlign.make |> Css_Property.show) b in
   t |> equal `left "left";
   t |> equal `right "right";

@@ -1,3 +1,5 @@
+open Css_Properties
+
 type 'a t = 'a Js.Dict.t
 
 let show_dict (styles: 'a t): string Js.Dict.t =
@@ -70,16 +72,16 @@ module MediaGroup = struct
   let paged ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
     Internal.paged
-      ?margin:(Belt.Option.map margin Margin.margin)
-      ?marginTop:(Belt.Option.map marginTop Margin.margin_top)
-      ?marginRight:(Belt.Option.map marginRight Margin.margin_right)
-      ?marginBottom:(Belt.Option.map marginBottom Margin.margin_bottom)
-      ?marginLeft:(Belt.Option.map marginLeft Margin.margin_left)
-      ?pageBreakBefore:(Belt.Option.map pageBreakBefore PageBreak.before)
-      ?pageBreakAfter:(Belt.Option.map pageBreakAfter PageBreak.after)
-      ?pageBreakInside:(Belt.Option.map pageBreakInside PageBreak.inside)
-      ?orphans:(Belt.Option.map orphans PageBreakInside.orphans)
-      ?widows:(Belt.Option.map widows PageBreakInside.widows)
+      ?margin:(Belt.Option.map margin Margin.make)
+      ?marginTop:(Belt.Option.map marginTop MarginTop.make)
+      ?marginRight:(Belt.Option.map marginRight MarginRight.make)
+      ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
+      ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
+      ?pageBreakBefore:(Belt.Option.map pageBreakBefore PageBreakBefore.make)
+      ?pageBreakAfter:(Belt.Option.map pageBreakAfter PageBreakAfter.make)
+      ?pageBreakInside:(Belt.Option.map pageBreakInside PageBreakInside.make)
+      ?orphans:(Belt.Option.map orphans Orphans.make)
+      ?widows:(Belt.Option.map widows Widows.make)
       ()
 end
 

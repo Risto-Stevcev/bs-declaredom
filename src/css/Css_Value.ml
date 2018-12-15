@@ -20,7 +20,7 @@ module Color = struct
 
   type basic_color =
     [
-    | `aqua | `black | `blue | `fuchsia | `gray | `green | `lime | `maroon 
+    | `aqua | `black | `blue | `fuchsia | `gray | `green | `lime | `maroon
     | `navy | `olive | `purple | `red | `silver | `teal | `white | `yellow
     ]
     [@@bs.deriving jsConverter]
@@ -54,7 +54,7 @@ module Color = struct
     | `salmon | `sandybrown | `seagreen | `seashell | `sienna | `silver
     | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
     | `steelblue | `tan | `teal | `thistle | `tomato | `turquoise | `violet
-    | `wheat | `white | `whitesmoke | `yellow | `yellowgreen 
+    | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
     ]
     [@@bs.deriving jsConverter]
 
@@ -64,7 +64,7 @@ module Color = struct
   type t = [ basic_color | extended_color | rgb | hsl ]
 
   let show: t -> string = function
-  | ( `aqua | `black | `blue | `fuchsia | `gray | `green | `lime | `maroon 
+  | ( `aqua | `black | `blue | `fuchsia | `gray | `green | `lime | `maroon
     | `navy | `olive | `purple | `red | `silver | `teal | `white | `yellow
     ) as basic_color ->
     basic_colorToJs basic_color
@@ -95,7 +95,7 @@ module Color = struct
     | `salmon | `sandybrown | `seagreen | `seashell | `sienna
     | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
     | `steelblue | `tan | `thistle | `tomato | `turquoise | `violet
-    | `wheat | `whitesmoke | `yellowgreen  
+    | `wheat | `whitesmoke | `yellowgreen
     ) as extended_color ->
     extended_colorToJs extended_color
   | `rgb (r, g, b) ->
@@ -210,14 +210,14 @@ module ParentRelative = struct
   type t =
     [
     | `baseline | `sub | `super | `text_top | `text_bottom | `middle
-    | `length of Css_Unit.Length.t | `percent of Css_Unit.Percent.t
+    | Length.t | Percent.t
     ]
 
   let show: t -> string = function
   | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle ) as t ->
     Convert.tToJs t
-  | `length distance -> Css_Unit.Length.show distance
-  | `percent percent -> Css_Unit.Percent.tToJs percent
+  | `length _ as length -> Length.show length
+  | `percent _ as percent -> Percent.show percent
 end
 
 (* TODO: remove *)
@@ -225,6 +225,8 @@ module LineRelative = struct
   (** {{: https://www.w3.org/TR/CSS22/propidx.html } Property table} *)
 
   type t = [ `top | `bottom ] [@@bs.deriving jsConverter]
+
+	let show = tToJs
 end
 
 (* TODO: is this <length> ? *)
@@ -332,8 +334,8 @@ end
 
 module BorderColor = struct
   (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-color } Border color} *)
- 
-  type t = BackgroundColor.t 
+
+  type t = BackgroundColor.t
 
   let show: t -> string = BackgroundColor.show
 end
@@ -547,4 +549,35 @@ module ListStyleType = struct
     | `armenian | `georgian | `lower_alpha | `upper_alpha | `none
     ) as value ->
     valueToJs value
+end
+
+
+module PageBreak = struct
+	(** {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks} *)
+
+	type value =
+		[ `auto | `always | `avoid | `left | `right ] [@@bs.deriving jsConverter]
+
+	type inside = [ Global.t | `auto | `always ]
+
+	type t = [ Global.t | value ]
+
+	let show: t -> string = function
+	| ( `inherit_ | `initial | `unset ) as global ->
+		Global.show global
+	| ( `auto | `always | `avoid | `left | `right ) as value ->
+		valueToJs value
+end
+
+
+module BreakInside = struct
+	(** {{: https://www.w3.org/TR/CSS22/page.html#break-inside } Break inside elements} *)
+
+  type t = [ Global.t | `lines of int ]
+
+  let show: t -> string = function
+  | ( `inherit_ | `initial | `unset ) as global ->
+    Global.show global
+  | `lines lines ->
+    string_of_int lines
 end
