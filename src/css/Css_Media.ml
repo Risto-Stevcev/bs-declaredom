@@ -116,13 +116,13 @@ module Range = struct
     let value = match range with
     | `resolution resolution ->
       "resolution" ^
-      compareToJs c ^ Css_Value.Unit.show (resolution :> Css_Value.Unit.t)
+      compareToJs c ^ Css_Value.Other.show (resolution :> Css_Value.Other.t)
     | `width width ->
       "width" ^
-      compareToJs c ^ Css_Value.Unit.show (width :> Css_Value.Unit.t)
+      compareToJs c ^ Css_Value.Length.show (`length width)
     | `height height ->
       "height" ^
-      compareToJs c ^ Css_Value.Unit.show (height :> Css_Value.Unit.t)
+      compareToJs c ^ Css_Value.Length.show (`length height)
     | `aspect_ratio (a, b) ->
       "aspect-ratio" ^ compareToJs c ^ string_of_int a ^"/"^ string_of_int b
     | `color color ->
@@ -133,10 +133,10 @@ module Range = struct
       "monochrome" ^ compareToJs c ^ string_of_int monochrome
     | `device_width device_width ->
       "device-width" ^
-      compareToJs c ^ Css_Value.Unit.show (device_width :> Css_Value.Unit.t)
+      compareToJs c ^ Css_Value.Length.show (`length device_width)
     | `device_height device_height ->
       "device-height" ^
-      compareToJs c ^ Css_Value.Unit.show (device_height :> Css_Value.Unit.t)
+      compareToJs c ^ Css_Value.Length.show (`length device_height)
     in
     let min_max' =
       min_max |. Belt.Option.mapWithDefault "" (fun m -> min_maxToJs m ^ "-")

@@ -54,12 +54,16 @@ module Duration = struct
   (** {{: https://www.w3.org/TR/css-values/#time } Duration Units} *)
 
   type t = [ `s | `ms ] [@@bs.deriving jsConverter]
+
+  let show = tToJs
 end
 
 module Frequency = struct
   (** {{: https://www.w3.org/TR/css-values/#frequency } Frequency Units} *)
 
   type t = [ `Hz | `kHz ] [@@bs.deriving jsConverter]
+
+  let show = tToJs
 end
 
 module Resolution = struct

@@ -14,25 +14,31 @@ type 'style t
 module Type = struct
   type azimuth and background_attachment and background_color
    and background_image and background_position and background_repeat
-   and background and border_collapse and border_color and border_style
-   and border_width and border_top and border_right and border_bottom
-   and border_left and border and bottom and clear and cursor and float_
-   and font_family and font_size and font_style and font_variant
-   and font_weight and font and height and left and letter_spacing
-   and line_height and list_style_image and list_style_position
-   and list_style_type and list_style
-
-   type margin_top and margin_right and margin_bottom and margin_left and margin
-   type page_break_before and page_break_after and page_break_inside
-    and orphans and widows
-
-   type content
-
-   type clip
-
-   and color
-   and text_align
-   and vertical_align
+   and background and border_collapse and border_color and border_spacing
+	 and border_style and border_width and border_top and border_right
+ 	 and border_bottom and border_left and border and border_top_color
+	 and border_right_color and border_bottom_color and border_left_color
+	 and border_top_style and border_right_style and border_bottom_style
+	 and border_left_style and border_top_width and border_right_width
+	 and border_bottom_width and border_left_width and bottom and caption_side
+	 and clear and clip and color (*and content and counter_increment and counter_reset*)
+   and cue_after and cue_before and cue and cursor and direction and elevation
+   and empty_cells and float_ and font_family and font_size and font_style
+   and font_variant and font_weight and font and height and left
+   and letter_spacing and line_height and list_style_image
+   and list_style_position and list_style_type and list_style and margin_top
+   and margin_right and margin_bottom and margin_left and margin
+   and max_height and max_width and min_height and min_width and orphans
+   and outline_color and outline_style and outline_width and outline
+   and overflow and padding_top and padding_right and padding_bottom
+   and padding_left and padding and page_break_after and page_break_before
+   and page_break_inside and pause_after and pause_before and pause
+   and pitch_range and pitch and play_during and position (*and quotes*)
+   and richness and speak_header and speak_numeral and speak_punctuation
+   and speak and speech_rate and stress and table_layout and text_align
+   and text_decoration and text_indent and text_transform
+   and unicode_bidi and vertical_align and visibility and voice_family
+   and volume and white_space and widows and width and word_spacing and z_index
 end
 
 module Style = struct
@@ -47,6 +53,7 @@ module Style = struct
    and background = [ `background of Type.background t ]
    and border_collapse = [ `border_collapse of Type.border_collapse t ]
    and border_color = [ `border_color of Type.border_color t ]
+   and border_spacing = [ `border_spacing of Type.border_spacing t ]
    and border_width = [ `border_width of Type.border_width t ]
    and border_style = [ `border_style of Type.border_style t ]
    and border_top = [ `border_top of Type.border_top t ]
@@ -54,9 +61,30 @@ module Style = struct
    and border_left = [ `border_left of Type.border_left t ]
    and border_right = [ `border_right of Type.border_right t ]
    and border = [ `border of Type.border t ]
+   and border_top_color = [ `border_top_color of Type.border_top_color t ]
+   and border_right_color = [ `border_right_color of Type.border_right_color t ]
+   and border_bottom_color = [ `border_bottom_color of Type.border_bottom_color t ]
+   and border_left_color = [ `border_left_color of Type.border_left_color t ]
+   and border_top_style = [ `border_top_style of Type.border_top_style t ]
+   and border_right_style = [ `border_right_style of Type.border_right_style t ]
+   and border_bottom_style = [ `border_bottom_style of Type.border_bottom_style t ]
+   and border_left_style = [ `border_left_style of Type.border_left_style t ]
+   and border_top_width = [ `border_top_width of Type.border_top_width t ]
+   and border_right_width = [ `border_right_width of Type.border_right_width t ]
+   and border_bottom_width = [ `border_bottom_width of Type.border_bottom_width t ]
+   and border_left_width = [ `border_left_width of Type.border_left_width t ]
    and bottom = [ `bottom of Type.bottom t ]
+   and caption_side = [ `caption_side of Type.caption_side t ]
    and clear = [ `clear of Type.clear t ]
+   and clip = [ `clip of Type.clip t ]
+   and color = [ `color of Type.color t ]
+   and cue_after = [ `cue_after of Type.cue_after t ]
+   and cue_before = [ `cue_before of Type.cue_before t ]
+   and cue = [ `cue of Type.cue t ]
    and cursor = [ `cursor of Type.cursor t ]
+   and direction = [ `direction of Type.direction t ]
+   and elevation = [ `elevation of Type.elevation t ]
+   and empty_cells = [ `empty_cells of Type.empty_cells t ]
    and float_ = [ `float of Type.float_ t ]
    and font_family = [ `font_family of Type.font_family t ]
    and font_size = [ `font_size of Type.font_size t ]
@@ -73,27 +101,61 @@ module Style = struct
      [ `list_style_position of Type.list_style_position t ]
    and list_style_type = [ `list_style_type of Type.list_style_type t ]
    and list_style = [ `list_style of Type.list_style t ]
-
-  type margin_top = [ `margin_top of Type.margin_top t ]
+   and margin_top = [ `margin_top of Type.margin_top t ]
    and margin_right = [ `margin_right of Type.margin_right t ]
    and margin_bottom = [ `margin_bottom of Type.margin_bottom t ]
    and margin_left = [ `margin_left of Type.margin_left t ]
    and margin = [ `margin of Type.margin t ]
-
-  type page_break_before = [ `page_break_before of Type.page_break_before t ]
-   and page_break_after = [ `page_break_after of Type.page_break_after t ]
-   and page_break_inside = [ `page_break_inside of Type.page_break_inside t ]
+   and max_height = [ `max_height of Type.max_height t ]
+   and max_width = [ `max_width of Type.max_width t ]
+   and min_height = [ `min_height of Type.min_height t ]
+   and min_width = [ `min_width of Type.min_width t ]
    and orphans = [ `orphans of Type.orphans t ]
-   and widows = [ `widows of Type.widows t ]
-
-  type content = [ `content of Type.content t ]
-
-  type clip = [ `clip of Type.clip t ]
-
-   and color = [ `color of Type.color t ]
+   and outline_color = [ `outline_color of Type.outline_color t ]
+   and outline_style = [ `outline_style of Type.outline_style t ]
+   and outline_width = [ `outline_width of Type.outline_width t ]
+   and outline = [ `outline of Type.outline t ]
+   and overflow = [ `overflow of Type.overflow t ]
+   and padding_top = [ `padding_top of Type.padding_top t ]
+   and padding_right = [ `padding_right of Type.padding_right t ]
+   and padding_bottom = [ `padding_bottom of Type.padding_bottom t ]
+   and padding_left = [ `padding_left of Type.padding_left t ]
+   and padding = [ `padding of Type.padding t ]
+   and page_break_after = [ `page_break_after of Type.page_break_after t ]
+   and page_break_before = [ `page_break_before of Type.page_break_before t ]
+   and page_break_inside = [ `page_break_inside of Type.page_break_inside t ]
+   and pause_after = [ `pause_after of Type.pause_after t ]
+   and pause_before = [ `pause_before of Type.pause_before t ]
+   and pause = [ `pause of Type.pause t ]
+   and pitch_range = [ `pitch_range of Type.pitch_range t ]
+   and pitch = [ `pitch of Type.pitch t ]
+   and play_during = [ `play_during of Type.play_during t ]
+   and position = [ `position of Type.position t ]
+   and richness = [ `richness of Type.richness t ]
+   and speak_header = [ `speak_header of Type.speak_header t ]
+   and speak_numeral = [ `speak_numeral of Type.speak_numeral t ]
+   and speak_punctuation = [ `speak_punctuation of Type.speak_punctuation t ]
+   and speak = [ `speak of Type.speak t ]
+   and speech_rate = [ `speech_rate of Type.speech_rate t ]
+   and stress = [ `stress of Type.stress t ]
+   and table_layout = [ `table_layout of Type.table_layout t ]
    and text_align = [ `text_align of Type.text_align t ]
+   and text_decoration = [ `text_decoration of Type.text_decoration t ]
+   and text_indent = [ `text_indent of Type.text_indent t ]
+   and text_transform = [ `text_transform of Type.text_transform t ]
+   and unicode_bidi = [ `unicode_bidi of Type.unicode_bidi t ]
+   and visibility = [ `visibility of Type.visibility t ]
    and vertical_align = [ `vertical_align of Type.vertical_align t ]
+   and voice_family = [ `voice_family of Type.voice_family t ]
+   and volume = [ `volume of Type.volume t ]
+   and white_space = [ `white_space of Type.white_space t ]
+   and widows = [ `widows of Type.widows t ]
+   and width = [ `width of Type.width t ]
+   and word_spacing = [ `word_spacing of Type.word_spacing t ]
+   and z_index = [ `z_index of Type.z_index t ]
 
+  type paddings =
+    [ padding | padding_top | padding_right | padding_bottom | padding_left ]
 
   type margins =
     [ margin | margin_top | margin_right | margin_bottom | margin_left ]
@@ -114,48 +176,85 @@ module AppliesTo = struct
 
   type any =
     [
-    | azimuth | background_attachment | background_color
-    | background_image | background_position | background_repeat | background
-    | border_color | border_width | border_style | border_top | border_bottom
-    | border_left | border_right | border | bottom | color | float_ | cursor
-    | font_family | font_size | font_style | font_variant | font_weight | font
-    | left | letter_spacing | line_height
-    | content
+    | azimuth | background_attachment | background_color | background_image
+		| background_position | background_repeat | background | border_color
+		| border_spacing | border_width | border_style | border_top	| border_bottom
+    | border_left | border_right | border | border_top_color
+		| border_right_color | border_bottom_color | border_left_color
+		| border_top_style | border_right_style | border_bottom_style
+		| border_left_style | border_top_width | border_right_width
+		| border_bottom_width | border_left_width	| bottom | caption_side | clear
+		| color | clip | cue_after | cue_before | cue | direction | elevation
+		| float_
+		| cursor | font_family | font_size | font_style | font_variant
+		| font_weight | font | left | letter_spacing | line_height
+    | outline_color | outline_style | outline_width | outline
+    | pause_after | pause_before | pause | pitch_range | pitch | play_during
+    | position | richness | speak_numeral | speak_punctuation | speak
+    | speech_rate | stress | text_decoration | text_transform | unicode_bidi
+    | visibility | voice_family | volume | white_space | word_spacing
     ]
 
   type block =
-    [ text_align | clear | height | margins | page_breaks | page_breaks_inside
+    [ clear | height | margins | max_height | max_width | min_height
+    | min_width | page_breaks
+    | page_breaks_inside | text_align | overflow
+    | paddings | text_indent | width
     | any ]
 
   (**
    * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element}
    * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
    *)
-  type replaced = [ height | margins ]
+  type replaced =
+    [ height | margins | max_height | max_width | min_height | min_width
+    | paddings | width
+    ]
 
   (** Non-replaced inline elements *)
-  type non_replaced = [ vertical_align | margins | any ]
+  type non_replaced = [ vertical_align | margins | paddings | any ]
 
   (** All inline elemnets (replaced and non-replaced) *)
-  type inline = [ replaced | non_replaced | margins ]
+  type inline = [ replaced | non_replaced ]
 
   (* TODO: double check `height` *)
-  type table_caption = [ height | margins ]
+  type table_header_group = [ height | speak_header | width | any ]
+  type table_footer_group = [ height | width | any ]
+
+  type table_caption =
+    [ height | margins | max_height | max_width | min_height | min_width
+    | paddings | width
+    | caption_side ]
 
   type table =
-    [ border_collapse | height | margins ]
+    [ border_collapse | height | margins | max_height | max_width | min_height
+    | min_width | paddings | speak_header | table_layout | width ]
 
   type inline_table =
-    [ border_collapse | height | margins ]
+    [ border_collapse | height | margins | max_height | max_width | min_height
+    | min_width | paddings | table_layout | width ]
 
-  type table_cell = [ vertical_align | height | any ]
+  type table_cell =
+    [ vertical_align | height | any | empty_cells | max_height | max_width
+    | min_height | min_width | paddings | speak_header | width ]
+
+  type table_column = [ max_width | min_width | width | any ]
+
+  type table_column_group = [ max_width | min_width | width | any ]
+
+  type table_row = [ max_height | min_height | any ]
+
+  type table_row_group = [ max_height | min_height | any ]
 
   type list_item =
     [ list_style_image | list_style_position | list_style_type | list_style
-    | height | margins ]
+    | max_height | max_width | min_height | min_width
+    | height | margins | paddings | width ]
 
   type display =
-    [ block | inline | table | inline_table | table_cell | list_item ]
+    [ block | inline | table | inline_table | table_cell | list_item
+    | table_column | table_column_group | table_header_group
+    | table_footer_group ]
 
   let to_block x = (x :> block)
   and to_replaced x = (x :> replaced)
@@ -174,18 +273,34 @@ include AppliesTo
 module MediaGroup = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media groups} *)
 
-  type aural = azimuth
-  type interactive = cursor
+  type aural =
+    [ azimuth | cue_after | cue_before | cue | elevation | pause_after
+    | pause_before | pause | pitch_range | pitch | play_during | richness
+    | speak_header | speak_numeral | speak_punctuation | speak | speech_rate
+    | stress | voice_family | volume ]
+
+  type interactive =
+    [ cursor | outline_color | outline_style | outline_width | outline ]
+
   type visual =
     [
     | background_attachment | background_color | background_image
     | background_position | background_repeat | background | border_collapse
-    | border_color | border_width | border_style | border_top | border_bottom
-    | border_left | border_right | border | bottom | clear | color | cursor
+    | border_color | border_spacing | border_style | border_top | border_right
+		| border_bottom | border_left | border_top_color | border_right_color
+		| border_bottom_color | border_left_color | border_top_style
+		| border_right_style | border_bottom_style | border_right_style
+		| border_top_width | border_right_width | border_bottom_width
+		| border_left_width | border_width | border | bottom | caption_side
+		| clear | color | clip | cursor | direction | empty_cells
     | font_family | font_size | font_style | font_variant | font_weight | font
     | height | left | letter_spacing | line_height | list_style_image
     | list_style_position | list_style_type | list_style
-    | margins | page_breaks | page_breaks_inside
+    | margins | max_height | max_width | min_height | min_width | page_breaks
+    | page_breaks_inside
+    | outline_color | outline_style | outline_width | outline | overflow
+    | position | table_layout | text_decoration | text_transform | text_indent
+    | unicode_bidi | visibility | white_space
     ]
 
   (**
@@ -195,12 +310,9 @@ module MediaGroup = struct
    *)
   type paged = [ margins | page_breaks | page_breaks_inside ]
 
-  type all = content (* TODO: add Content.make *)
-
   let to_aural x = (x :> aural)
   and to_interactive x = (x :> interactive)
   and to_visual x = (x :> visual)
-  and to_all x = (x :> all)
 end
 
 
@@ -211,7 +323,7 @@ module MediaType = struct
   type print = MediaGroup.visual
   type projection = [ MediaGroup.visual | MediaGroup.interactive ]
   type screen = MediaGroup.visual
-  type speech = MediaGroup.all
+  type speech = [ MediaGroup.visual | MediaGroup.aural | MediaGroup.interactive ]
   type tty = MediaGroup.visual
   type tv = MediaGroup.visual
 
@@ -247,6 +359,7 @@ let show: display -> string = function
 | `background x            -> Convert.show x
 | `border_collapse x       -> Convert.show x
 | `border_color x          -> Convert.show x
+| `border_spacing x        -> Convert.show x
 | `border_width x          -> Convert.show x
 | `border_style x          -> Convert.show x
 | `border_top x            -> Convert.show x
@@ -254,11 +367,30 @@ let show: display -> string = function
 | `border_left x           -> Convert.show x
 | `border_right x          -> Convert.show x
 | `border x                -> Convert.show x
+| `border_top_color x      -> Convert.show x
+| `border_right_color x    -> Convert.show x
+| `border_bottom_color x   -> Convert.show x
+| `border_left_color x     -> Convert.show x
+| `border_top_style x      -> Convert.show x
+| `border_right_style x    -> Convert.show x
+| `border_bottom_style x   -> Convert.show x
+| `border_left_style x     -> Convert.show x
+| `border_top_width x      -> Convert.show x
+| `border_right_width x    -> Convert.show x
+| `border_bottom_width x   -> Convert.show x
+| `border_left_width x     -> Convert.show x
 | `bottom x                -> Convert.show x
+| `caption_side x 				 -> Convert.show x
 | `clear x                 -> Convert.show x
+| `clip x                  -> Convert.show x
+| `cue_after x             -> Convert.show x
+| `cue_before x            -> Convert.show x
+| `cue x                   -> Convert.show x
 | `color x                 -> Convert.show x
-| `content x               -> Convert.show x
 | `cursor x                -> Convert.show x
+| `direction x             -> Convert.show x
+| `elevation x             -> Convert.show x
+| `empty_cells x           -> Convert.show x
 | `float x                 -> Convert.show x
 | `font_family x           -> Convert.show x
 | `font_size x             -> Convert.show x
@@ -279,13 +411,52 @@ let show: display -> string = function
 | `margin_right x          -> Convert.show x
 | `margin_bottom x         -> Convert.show x
 | `margin_left x           -> Convert.show x
+| `max_height x            -> Convert.show x
+| `max_width x             -> Convert.show x
+| `min_height x            -> Convert.show x
+| `min_width x             -> Convert.show x
+| `orphans x               -> Convert.show x
+| `outline_color x         -> Convert.show x
+| `outline_style x         -> Convert.show x
+| `outline_width x         -> Convert.show x
+| `outline x               -> Convert.show x
+| `overflow x              -> Convert.show x
+| `padding_top x           -> Convert.show x
+| `padding_right x         -> Convert.show x
+| `padding_bottom x        -> Convert.show x
+| `padding_left x          -> Convert.show x
+| `padding x               -> Convert.show x
 | `page_break_before x     -> Convert.show x
 | `page_break_after x      -> Convert.show x
 | `page_break_inside x     -> Convert.show x
-| `orphans x               -> Convert.show x
-| `widows x                -> Convert.show x
+| `pause_after x           -> Convert.show x
+| `pause_before x          -> Convert.show x
+| `pause x                 -> Convert.show x
+| `pitch_range x           -> Convert.show x
+| `pitch x                 -> Convert.show x
+| `play_during x           -> Convert.show x
+| `position x              -> Convert.show x
+| `richness x              -> Convert.show x
+| `speak_header x          -> Convert.show x
+| `speak_numeral x         -> Convert.show x
+| `speak_punctuation x     -> Convert.show x
+| `speak x                 -> Convert.show x
+| `speech_rate x           -> Convert.show x
+| `stress x                -> Convert.show x
+| `table_layout x          -> Convert.show x
 | `text_align x            -> Convert.show x
+| `text_decoration x       -> Convert.show x
+| `text_indent x           -> Convert.show x
+| `text_transform x        -> Convert.show x
+| `unicode_bidi x          -> Convert.show x
 | `vertical_align x        -> Convert.show x
+| `visibility x            -> Convert.show x
+| `voice_family x          -> Convert.show x
+| `volume x                -> Convert.show x
+| `white_space x           -> Convert.show x
+| `widows x                -> Convert.show x
+| `width x                 -> Convert.show x
+| `word_spacing x          -> Convert.show x
 
 
 let show_properties ?(indent=0) properties: string =
