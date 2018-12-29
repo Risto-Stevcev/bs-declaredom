@@ -3,6 +3,56 @@ open Test
 open Css_Properties
 ;;
 
+
+test ~name:"css property - align-content" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AlignContent.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `flex_start "flex-start";
+  t |> equal `flex_end "flex-end";
+  t |> equal `space_around "space-around";
+  t |> equal `space_between "space-between";
+  t |> equal `stretch "stretch";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - align-items" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AlignItems.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `flex_start "flex-start";
+  t |> equal `flex_end "flex-end";
+  t |> equal `center "center";
+  t |> equal `baseline "baseline";
+  t |> equal `stretch "stretch";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - align-self" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AlignSelf.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `auto "auto";
+  t |> equal `flex_start "flex-start";
+  t |> equal `flex_end "flex-end";
+  t |> equal `center "center";
+  t |> equal `baseline "baseline";
+  t |> equal `stretch "stretch";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - azimuth" @@ fun t -> begin
   let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";
@@ -603,6 +653,98 @@ test ~name:"css property - empty-cells" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - flex" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Flex.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `none "none";
+  t |> equal (`basis (`percent 20)) "20%";
+  t |> equal (`basis (`length (20.5, `px))) "20.5px";
+  t |> equal (`flex (0, Some 1, Some (`length (20.5, `px)))) "0 1 20.5px";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-basis" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexBasis.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`percent 20) "20%";
+  t |> equal (`length (20.5, `px)) "20.5px";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-direction" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexDirection.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `row "row";
+  t |> equal `row_reverse "row-reverse";
+  t |> equal `column "column";
+  t |> equal `column_reverse "column-reverse";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-grow" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexGrow.make |> Css_Property.show) b
+  in
+  t |> equal 0 "0";
+  t |> equal 1 "1";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-wrap" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexWrap.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `nowrap "nowrap";
+  t |> equal `wrap "wrap";
+  t |> equal `wrap_reverse "wrap-reverse";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-flow" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexFlow.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`flow (`row, `nowrap)) "row nowrap";
+  t |> equal (`flow (`row_reverse, `wrap)) "row-reverse wrap";
+  t |> equal (`flow (`column, `wrap_reverse)) "column wrap-reverse";
+  t |> equal (`flow (`column_reverse, `wrap_reverse)) "column-reverse wrap-reverse";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - flex-shrink" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> FlexShrink.make |> Css_Property.show) b
+  in
+  t |> equal 0 "0";
+  t |> equal 1 "1";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - float" @@ fun t -> begin
   let equal a b t =
     t |> T.equal (a |> Float.make |> Css_Property.show) b
@@ -736,6 +878,22 @@ test ~name:"css property - height" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`length (20., `px)) "20px";
   t |> equal (`percent 80) "80%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - justify-content" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> JustifyContent.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `flex_start "flex-start";
+  t |> equal `flex_end "flex-end";
+  t |> equal `center "center";
+  t |> equal `space_between "space-between";
+  t |> equal `space_around "space-around";
   t |> T.end_
 end;
 
@@ -960,6 +1118,16 @@ test ~name:"css property - min-width" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`length (12.5, `px)) "12.5px";
   t |> equal (`percent 21) "21%";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - order" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Order.make |> Css_Property.show) b
+  in
+  t |> equal 0 "0";
+  t |> equal 1 "1";
   t |> T.end_
 end;
 
@@ -1237,21 +1405,6 @@ test ~name:"css property - play-during" @@ fun t -> begin
   t |> equal (`uri "http://wikipedia.org") "url(\"http://wikipedia.org\")";
   t |> equal (`sound ((`uri "http://wikipedia.org"), `mix))
              "url(\"http://wikipedia.org\") mix";
-  t |> T.end_
-end;
-
-
-test ~name:"css property - position" @@ fun t -> begin
-  let equal a b t =
-    t |> T.equal (a |> Position.make |> Css_Property.show) b
-  in
-  t |> equal `inherit_ "inherit";
-  t |> equal `initial "initial";
-  t |> equal `unset "unset";
-  t |> equal `static "static";
-  t |> equal `relative "relative";
-  t |> equal `absolute "absolute";
-  t |> equal `fixed "fixed";
   t |> T.end_
 end;
 

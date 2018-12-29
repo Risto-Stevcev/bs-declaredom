@@ -1,9 +1,85 @@
 (** {{: https://www.w3.org/TR/CSS22/propidx.html } Full property table} *)
+(** {{: https://www.w3.org/TR/css-values-4/#component-combinators } Component combinators *)
 
 (* TODO: hide this *)
 module Internal = struct
   external make:
     string -> _ Css_Property.t = "%identity"
+end
+
+
+module AlignContent = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-content-property} Align-content} *)
+
+  type 'a t = [> Css_Property.align_content ] as 'a
+
+  module Value = struct
+    type value =
+      [ `flex_start [@bs.as "flex-start"] | `flex_end [@bs.as "flex-end"]
+      | `center | `space_between [@bs.as "space-between"]
+      | `space_around [@bs.as "space-around"] | `stretch
+      ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | ( `flex_start | `flex_end | `center | `space_between
+      | `space_around | `stretch ) as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = `align_content (Internal.make @@ Value.show value)
+end
+
+
+module AlignItems = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-items-property} Align-items} *)
+
+  type 'a t = [> Css_Property.align_items ] as 'a
+
+  module Value = struct
+    type value =
+      [ `flex_start [@bs.as "flex-start"] | `flex_end [@bs.as "flex-end"]
+      | `center | `baseline | `stretch
+      ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | ( `flex_start | `flex_end | `center | `baseline | `stretch ) as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = `align_items (Internal.make @@ Value.show value)
+end
+
+
+module AlignSelf = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-items-property} Align-self} *)
+
+  type 'a t = [> Css_Property.align_self ] as 'a
+
+  module Value = struct
+    type value =
+      [ `auto | `flex_start [@bs.as "flex-start"]
+      | `flex_end [@bs.as "flex-end"] | `center | `baseline | `stretch
+      ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | ( `auto | `flex_start | `flex_end | `center | `baseline | `stretch
+      ) as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = `align_self (Internal.make @@ Value.show value)
 end
 
 
@@ -141,7 +217,8 @@ module BorderCollapse = struct
     type t = [ Css_Value.Global.t | `collapse | `separate ]
 
     let show: t -> string = function
-    | ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
     | `collapse -> "collapse"
     | `separate -> "separate"
   end
@@ -731,6 +808,106 @@ module EmptyCells = struct
 end
 
 
+module Flex = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-property} Flex} *)
+
+  type 'a t = [> Css_Property.flex' ] as 'a
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t | `none
+      | `basis of Css_Value.LengthPercent.t
+      | `flex of int * int option * Css_Value.LengthPercent.t option ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | `none -> "none"
+    | `basis basis ->
+      Css_Value.LengthPercent.show basis
+    | `flex (grow, shrink, basis) ->
+      Js.Int.toString grow ^
+      (shrink
+      |. Belt.Option.mapWithDefault "" (fun e -> " "^ Js.Int.toString e)) ^
+      (basis
+      |. Belt.Option.mapWithDefault ""
+         (fun e -> " "^ Css_Value.LengthPercent.show e))
+  end
+
+  let make value: 'a t = `flex (Internal.make @@ Value.show value)
+end
+
+
+module FlexBasis = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-basis-property} Flex-basis} *)
+
+  type 'a t = [> Css_Property.flex_basis ] as 'a
+
+  let make value: 'a t =
+    `flex_basis (Internal.make @@ Css_Value.LengthPercent.show value)
+end
+
+
+module FlexDirection = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-direction-property} Flex-direction} *)
+
+  type 'a t = [> Css_Property.flex_direction ] as 'a
+
+  let make value: 'a t =
+    `flex_direction (Internal.make @@ Css_Value.Flex.Direction.show value)
+end
+
+
+module FlexFlow = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-flow-property} Flex-flow} *)
+
+  type 'a t = [> Css_Property.flex_flow ] as 'a
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | `flow of Css_Value.Flex.Direction.t * Css_Value.Flex.Wrap.t ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | `flow (direction, wrap) ->
+      Css_Value.Flex.Direction.show direction ^" "^
+      Css_Value.Flex.Wrap.show wrap
+  end
+
+  let make value: 'a t = `flex_flow (Internal.make @@ Value.show value)
+end
+
+
+module FlexGrow = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-grow-property} Flex-grow} *)
+
+  type 'a t = [> Css_Property.flex_grow ] as 'a
+
+  let make value: 'a t = `flex_grow (Internal.make @@ Js.Int.toString value)
+end
+
+
+module FlexShrink = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property} Flex-shrink} *)
+
+  type 'a t = [> Css_Property.flex_shrink ] as 'a
+
+  let make value: 'a t = `flex_shrink (Internal.make @@ Js.Int.toString value)
+end
+
+
+module FlexWrap = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property} Flex-wrap} *)
+
+  type 'a t = [> Css_Property.flex_wrap ] as 'a
+
+  let make value: 'a t =
+    `flex_wrap (Internal.make @@ Css_Value.Flex.Wrap.show value)
+end
+
+
 module Float = struct
   (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-float} Float} *)
 
@@ -872,6 +1049,32 @@ module Height = struct
 
   let make value: 'a t =
     `height (Internal.make @@ Css_Value.LengthPercent.show value)
+end
+
+
+module JustifyContent = struct
+  (** {{: https://www.w3.org/TR/css-flexbox-1/#justify-content-property} Justify-content} *)
+
+  type 'a t = [> Css_Property.justify_content ] as 'a
+
+  module Value = struct
+    type value =
+      [ `flex_start [@bs.as "flex-start"] | `flex_end [@bs.as "flex-end"]
+      | `center | `space_between [@bs.as "space-between"]
+      | `space_around [@bs.as "space-around"]
+      ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | ( `flex_start | `flex_end | `center | `space_between | `space_around
+      ) as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = `justify_content (Internal.make @@ Value.show value)
 end
 
 
@@ -1078,6 +1281,15 @@ module MinWidth = struct
 
   let make value: 'a t =
     `min_width (Internal.make @@ Css_Value.LengthPercent.show value)
+end
+
+
+module Order = struct
+  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-order } Order} *)
+
+  type 'a t = [> Css_Property.order ] as 'a
+
+  let make value: 'a t = `order (Internal.make @@ Js.Int.toString value)
 end
 
 
@@ -1375,29 +1587,6 @@ module PlayDuring = struct
       Css_Value.Uri.show uri ^" "^ valueToJs value
     | `auto -> "auto"
     | `none -> "none"
-  end
-
-  let make value: 'a t = `play_during (Internal.make @@ Value.show value)
-end
-
-
-(* TODO: set this in the media, style, and module rules instead, ie `absoulte(top, right, bottom, left) *)
-module Position = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-position} Position} *)
-
-  type 'a t = [> Css_Property.position ] as 'a
-
-  module Value = struct
-    type value =
-      [ `static | `relative | `absolute | `fixed ] [@@bs.deriving jsConverter]
-
-    type t = [ Css_Value.Global.t | value ]
-
-    let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
-      Css_Value.Global.show global
-    | (`static | `relative | `absolute | `fixed) as value ->
-      valueToJs value
   end
 
   let make value: 'a t = `play_during (Internal.make @@ Value.show value)

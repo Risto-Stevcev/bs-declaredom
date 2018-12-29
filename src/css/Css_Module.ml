@@ -7,11 +7,11 @@
   - The HTML itself should be dealing with these kinds of relationships,
     not CSS
   - What's worse if that these are weak references. If something in the HTML
-    structure changes, it can break the CSS. If an element changes from a 
+    structure changes, it can break the CSS. If an element changes from a
     block to an inline element, it can prevent styles from rendering.
-  - Theming should be handled at the application/component level like 
+  - Theming should be handled at the application/component level like
     css-modules, to avoid these weak references
- 
+
   - modules
     - takes a list of \@media scoped rulesets
     - does not support css that's coupled with html, such as

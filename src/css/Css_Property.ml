@@ -12,37 +12,42 @@
 type 'style t
 
 module Type = struct
-  type azimuth and background_attachment and background_color
-   and background_image and background_position and background_repeat
-   and background and border_collapse and border_color and border_spacing
-	 and border_style and border_width and border_top and border_right
- 	 and border_bottom and border_left and border and border_top_color
-	 and border_right_color and border_bottom_color and border_left_color
-	 and border_top_style and border_right_style and border_bottom_style
-	 and border_left_style and border_top_width and border_right_width
-	 and border_bottom_width and border_left_width and bottom and caption_side
-	 and clear and clip and color (*and content and counter_increment and counter_reset*)
+  type align_content and align_items and align_self and azimuth
+   and background_attachment and background_color and background_image
+   and background_position and background_repeat and background
+   and border_collapse and border_color and border_spacing and border_style
+   and border_width and border_top and border_right and border_bottom
+   and border_left and border and border_top_color and border_right_color
+   and border_bottom_color and border_left_color and border_top_style
+   and border_right_style and border_bottom_style and border_left_style
+   and border_top_width and border_right_width and border_bottom_width
+   and border_left_width and bottom and caption_side and clear and clip
+   and color (*and content and counter_increment and counter_reset*)
    and cue_after and cue_before and cue and cursor and direction and elevation
-   and empty_cells and float_ and font_family and font_size and font_style
-   and font_variant and font_weight and font and height and left
-   and letter_spacing and line_height and list_style_image
-   and list_style_position and list_style_type and list_style and margin_top
-   and margin_right and margin_bottom and margin_left and margin
-   and max_height and max_width and min_height and min_width and orphans
-   and outline_color and outline_style and outline_width and outline
-   and overflow and padding_top and padding_right and padding_bottom
-   and padding_left and padding and page_break_after and page_break_before
-   and page_break_inside and pause_after and pause_before and pause
-   and pitch_range and pitch and play_during and position (*and quotes*)
+   and empty_cells and flex' and flex_basis and flex_direction and flex_flow
+   and flex_grow and flex_shrink and flex_wrap and float_ and font_family
+   and font_size and font_style and font_variant and font_weight and font
+   and height and justify_content and left and letter_spacing and line_height
+   and list_style_image and list_style_position and list_style_type
+   and list_style and margin_top and margin_right and margin_bottom
+   and margin_left and margin and max_height and max_width and min_height
+   and min_width and order and orphans and outline_color and outline_style
+   and outline_width and outline and overflow and padding_top and padding_right
+   and padding_bottom and padding_left and padding and page_break_after
+   and page_break_before and page_break_inside and pause_after and pause_before
+   and pause and pitch_range and pitch and play_during (*and position and quotes*)
    and richness and speak_header and speak_numeral and speak_punctuation
    and speak and speech_rate and stress and table_layout and text_align
-   and text_decoration and text_indent and text_transform
-   and unicode_bidi and vertical_align and visibility and voice_family
-   and volume and white_space and widows and width and word_spacing and z_index
+   and text_decoration and text_indent and text_transform and unicode_bidi
+   and vertical_align and visibility and voice_family and volume and white_space
+   and widows and width and word_spacing (* and z_index *)
 end
 
 module Style = struct
-  type azimuth = [ `azimuth of Type.azimuth t ]
+  type align_content = [ `align_content of Type.align_content t ]
+   and align_items = [ `align_items of Type.align_items t ]
+   and align_self = [ `align_self of Type.align_self t ]
+   and azimuth = [ `azimuth of Type.azimuth t ]
    and background_attachment =
          [ `background_attachment of Type.background_attachment t ]
    and background_color = [ `background_color of Type.background_color t ]
@@ -85,6 +90,13 @@ module Style = struct
    and direction = [ `direction of Type.direction t ]
    and elevation = [ `elevation of Type.elevation t ]
    and empty_cells = [ `empty_cells of Type.empty_cells t ]
+   and flex' = [ `flex of Type.flex' t ]
+   and flex_basis = [ `flex_basis of Type.flex_basis t ]
+   and flex_direction = [ `flex_direction of Type.flex_direction t ]
+   and flex_flow = [ `flex_flow of Type.flex_flow t ]
+   and flex_grow = [ `flex_grow of Type.flex_grow t ]
+   and flex_shrink = [ `flex_shrink of Type.flex_shrink t ]
+   and flex_wrap = [ `flex_wrap of Type.flex_wrap t ]
    and float_ = [ `float of Type.float_ t ]
    and font_family = [ `font_family of Type.font_family t ]
    and font_size = [ `font_size of Type.font_size t ]
@@ -93,6 +105,7 @@ module Style = struct
    and font_weight = [ `font_weight of Type.font_weight t ]
    and font = [ `font of Type.font t ]
    and height = [ `height of Type.height t ]
+   and justify_content = [ `justify_content of Type.justify_content t ]
    and left = [ `left of Type.left t ]
    and letter_spacing = [ `letter_spacing of Type.letter_spacing t ]
    and line_height = [ `line_height of Type.line_height t ]
@@ -110,6 +123,7 @@ module Style = struct
    and max_width = [ `max_width of Type.max_width t ]
    and min_height = [ `min_height of Type.min_height t ]
    and min_width = [ `min_width of Type.min_width t ]
+   and order = [ `order of Type.order t ]
    and orphans = [ `orphans of Type.orphans t ]
    and outline_color = [ `outline_color of Type.outline_color t ]
    and outline_style = [ `outline_style of Type.outline_style t ]
@@ -130,7 +144,6 @@ module Style = struct
    and pitch_range = [ `pitch_range of Type.pitch_range t ]
    and pitch = [ `pitch of Type.pitch t ]
    and play_during = [ `play_during of Type.play_during t ]
-   and position = [ `position of Type.position t ]
    and richness = [ `richness of Type.richness t ]
    and speak_header = [ `speak_header of Type.speak_header t ]
    and speak_numeral = [ `speak_numeral of Type.speak_numeral t ]
@@ -152,7 +165,6 @@ module Style = struct
    and widows = [ `widows of Type.widows t ]
    and width = [ `width of Type.width t ]
    and word_spacing = [ `word_spacing of Type.word_spacing t ]
-   and z_index = [ `z_index of Type.z_index t ]
 
   type paddings =
     [ padding | padding_top | padding_right | padding_bottom | padding_left ]
@@ -190,7 +202,7 @@ module AppliesTo = struct
 		| font_weight | font | left | letter_spacing | line_height
     | outline_color | outline_style | outline_width | outline
     | pause_after | pause_before | pause | pitch_range | pitch | play_during
-    | position | richness | speak_numeral | speak_punctuation | speak
+    | richness | speak_numeral | speak_punctuation | speak
     | speech_rate | stress | text_decoration | text_transform | unicode_bidi
     | visibility | voice_family | volume | white_space | word_spacing
     ]
@@ -201,6 +213,12 @@ module AppliesTo = struct
     | page_breaks_inside | text_align | overflow
     | paddings | text_indent | width
     | any ]
+
+  type flex =
+    [ align_content | align_items | align_self | flex' | flex_basis
+    | flex_direction | flex_flow | flex_grow | flex_shrink | flex_wrap
+    | justify_content | order
+    ]
 
   (**
    * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element}
@@ -252,7 +270,7 @@ module AppliesTo = struct
     | height | margins | paddings | width ]
 
   type display =
-    [ block | inline | table | inline_table | table_cell | list_item
+    [ block | flex | inline | table | inline_table | table_cell | list_item
     | table_column | table_column_group | table_header_group
     | table_footer_group ]
 
@@ -299,7 +317,7 @@ module MediaGroup = struct
     | margins | max_height | max_width | min_height | min_width | page_breaks
     | page_breaks_inside
     | outline_color | outline_style | outline_width | outline | overflow
-    | position | table_layout | text_decoration | text_transform | text_indent
+    | table_layout | text_decoration | text_transform | text_indent
     | unicode_bidi | visibility | white_space
     ]
 
@@ -350,6 +368,9 @@ end
 
 
 let show: display -> string = function
+| `align_content x         -> Convert.show x
+| `align_items x           -> Convert.show x
+| `align_self x            -> Convert.show x
 | `azimuth x               -> Convert.show x
 | `background_attachment x -> Convert.show x
 | `background_color x      -> Convert.show x
@@ -391,6 +412,13 @@ let show: display -> string = function
 | `direction x             -> Convert.show x
 | `elevation x             -> Convert.show x
 | `empty_cells x           -> Convert.show x
+| `flex x                  -> Convert.show x
+| `flex_basis x            -> Convert.show x
+| `flex_direction x        -> Convert.show x
+| `flex_flow x             -> Convert.show x
+| `flex_grow x             -> Convert.show x
+| `flex_shrink x           -> Convert.show x
+| `flex_wrap x             -> Convert.show x
 | `float x                 -> Convert.show x
 | `font_family x           -> Convert.show x
 | `font_size x             -> Convert.show x
@@ -399,6 +427,7 @@ let show: display -> string = function
 | `font_weight x           -> Convert.show x
 | `font x                  -> Convert.show x
 | `height x                -> Convert.show x
+| `justify_content x       -> Convert.show x
 | `left x                  -> Convert.show x
 | `letter_spacing x        -> Convert.show x
 | `line_height x           -> Convert.show x
@@ -415,6 +444,7 @@ let show: display -> string = function
 | `max_width x             -> Convert.show x
 | `min_height x            -> Convert.show x
 | `min_width x             -> Convert.show x
+| `order x                 -> Convert.show x
 | `orphans x               -> Convert.show x
 | `outline_color x         -> Convert.show x
 | `outline_style x         -> Convert.show x
@@ -435,7 +465,6 @@ let show: display -> string = function
 | `pitch_range x           -> Convert.show x
 | `pitch x                 -> Convert.show x
 | `play_during x           -> Convert.show x
-| `position x              -> Convert.show x
 | `richness x              -> Convert.show x
 | `speak_header x          -> Convert.show x
 | `speak_numeral x         -> Convert.show x

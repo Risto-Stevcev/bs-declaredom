@@ -2,9 +2,13 @@ open Css_Properties
 
 type 'a t = 'a Js.Dict.t
 
-let show_dict (styles: 'a t): string Js.Dict.t =
+let show_dict (styles: 'a t): string t =
   styles
   |> Js.Dict.map (fun [@bs] e -> Css_Property.show (e :> Css_Property.display))
+
+let to_display styles: Css_Property.display t =
+  styles
+  |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
 
 type visual = Css_Property.MediaGroup.visual t
  and paged = Css_Property.MediaGroup.paged t

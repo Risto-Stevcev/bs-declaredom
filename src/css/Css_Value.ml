@@ -620,3 +620,35 @@ module BreakInside = struct
   | `lines lines ->
     string_of_int lines
 end
+
+
+module Flex = struct
+  module Direction = struct
+    type value =
+      [ `row | `row_reverse [@bs.as "row-reverse"]
+      | `column | `column_reverse [@bs.as "column-reverse"] ]
+      [@@bs.deriving jsConverter]
+
+    type t = [ Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Global.show global
+    | (`row | `row_reverse | `column | `column_reverse) as value ->
+      valueToJs value
+  end
+
+  module Wrap = struct
+    type value =
+      [ `nowrap | `wrap | `wrap_reverse [@bs.as "wrap-reverse"] ]
+      [@@bs.deriving jsConverter]
+
+    type t = [ Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Global.show global
+    | (`nowrap | `wrap | `wrap_reverse) as value ->
+      valueToJs value
+  end
+end
