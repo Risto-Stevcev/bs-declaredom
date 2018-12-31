@@ -35,12 +35,12 @@ module Type = struct
    and outline_width and outline and overflow and padding_top and padding_right
    and padding_bottom and padding_left and padding and page_break_after
    and page_break_before and page_break_inside and pause_after and pause_before
-   and pause and pitch_range and pitch and play_during (*and position and quotes*)
-   and richness and speak_header and speak_numeral and speak_punctuation
-   and speak and speech_rate and stress and table_layout and text_align
-   and text_decoration and text_indent and text_transform and unicode_bidi
-   and vertical_align and visibility and voice_family and volume and white_space
-   and widows and width and word_spacing (* and z_index *)
+   and pause and pitch_range and pitch and play_during and position (*and quotes*)
+   and richness and right and speak_header and speak_numeral
+   and speak_punctuation and speak and speech_rate and stress and table_layout
+   and text_align and text_decoration and text_indent and text_transform and top
+   and unicode_bidi and vertical_align and visibility and voice_family
+   and volume and white_space and widows and width and word_spacing and z_index
 end
 
 module Style = struct
@@ -144,7 +144,9 @@ module Style = struct
    and pitch_range = [ `pitch_range of Type.pitch_range t ]
    and pitch = [ `pitch of Type.pitch t ]
    and play_during = [ `play_during of Type.play_during t ]
+   and position = [ `position of Type.position t ]
    and richness = [ `richness of Type.richness t ]
+   and right = [ `right of Type.right t ]
    and speak_header = [ `speak_header of Type.speak_header t ]
    and speak_numeral = [ `speak_numeral of Type.speak_numeral t ]
    and speak_punctuation = [ `speak_punctuation of Type.speak_punctuation t ]
@@ -156,6 +158,7 @@ module Style = struct
    and text_decoration = [ `text_decoration of Type.text_decoration t ]
    and text_indent = [ `text_indent of Type.text_indent t ]
    and text_transform = [ `text_transform of Type.text_transform t ]
+   and top = [ `top of Type.top t ]
    and unicode_bidi = [ `unicode_bidi of Type.unicode_bidi t ]
    and visibility = [ `visibility of Type.visibility t ]
    and vertical_align = [ `vertical_align of Type.vertical_align t ]
@@ -165,6 +168,7 @@ module Style = struct
    and widows = [ `widows of Type.widows t ]
    and width = [ `width of Type.width t ]
    and word_spacing = [ `word_spacing of Type.word_spacing t ]
+   and z_index = [ `z_index of Type.z_index t ]
 
   type paddings =
     [ padding | padding_top | padding_right | padding_bottom | padding_left ]
@@ -202,9 +206,11 @@ module AppliesTo = struct
 		| font_weight | font | left | letter_spacing | line_height
     | outline_color | outline_style | outline_width | outline
     | pause_after | pause_before | pause | pitch_range | pitch | play_during
-    | richness | speak_numeral | speak_punctuation | speak
-    | speech_rate | stress | text_decoration | text_transform | unicode_bidi
-    | visibility | voice_family | volume | white_space | word_spacing
+    | position
+    | richness | right | speak_numeral | speak_punctuation | speak
+    | speech_rate | stress | text_decoration | text_transform | top
+    | unicode_bidi | visibility | voice_family | volume | white_space
+    | word_spacing | z_index
     ]
 
   type block =
@@ -286,6 +292,20 @@ module AppliesTo = struct
 end
 
 include AppliesTo
+
+
+module Position = struct
+  module Type = struct
+    type static and relative and absolute and fixed
+  end
+
+  type static = [ `static of Type.static ]
+   and relative = [ `relative of Type.relative ]
+   and absolute = [ `absolute of Type.absolute ]
+   and fixed = [ `fixed of Type.fixed ]
+
+  type t = [ static | relative | absolute | fixed ]
+end
 
 
 module MediaGroup = struct
@@ -465,7 +485,9 @@ let show: display -> string = function
 | `pitch_range x           -> Convert.show x
 | `pitch x                 -> Convert.show x
 | `play_during x           -> Convert.show x
+| `position x              -> Convert.show x
 | `richness x              -> Convert.show x
+| `right x                 -> Convert.show x
 | `speak_header x          -> Convert.show x
 | `speak_numeral x         -> Convert.show x
 | `speak_punctuation x     -> Convert.show x
@@ -477,6 +499,7 @@ let show: display -> string = function
 | `text_decoration x       -> Convert.show x
 | `text_indent x           -> Convert.show x
 | `text_transform x        -> Convert.show x
+| `top x                   -> Convert.show x
 | `unicode_bidi x          -> Convert.show x
 | `vertical_align x        -> Convert.show x
 | `visibility x            -> Convert.show x
@@ -486,6 +509,7 @@ let show: display -> string = function
 | `widows x                -> Convert.show x
 | `width x                 -> Convert.show x
 | `word_spacing x          -> Convert.show x
+| `z_index x               -> Convert.show x
 
 
 let show_properties ?(indent=0) properties: string =

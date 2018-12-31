@@ -31,6 +31,7 @@ let make
  * {{: https://www.w3.org/TR/CSS22/visuren.html#inline-boxes} Inline-boxes}
  * The element will create an inline-level box but is not an inline-box
  *)
+(* TODO: add display: inline-block *)
 let inline_block
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
   ?(style:Css_Property.any Style.t option)
@@ -42,6 +43,7 @@ let inline_block
     ?title ?style:(Belt.Option.map style Style.to_display)
     ?onClick ?cssModule:(Belt.Option.map cssModule Css_Module.make) children
 
+(* TODO: add display: flex *)
 let flex
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
   ?(style:Css_Property.flex Style.t option)
@@ -53,6 +55,7 @@ let flex
     ?title ?style:(Belt.Option.map style Style.to_display)
     ?onClick ?cssModule:(Belt.Option.map cssModule Css_Module.make) children
 
+(* TODO: add display: inline-flex *)
 let inline_flex
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
   ?(style:Css_Property.flex Style.t option)

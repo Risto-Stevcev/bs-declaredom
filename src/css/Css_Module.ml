@@ -20,9 +20,7 @@
 
 (* https://www.w3.org/TR/2011/REC-css3-selectors-20110929/ *)
 
-(* Creates css modules -- scoped styles that are namespaced by it's class 
- * name
- *)
+(* Creates css modules -- scoped styles that are namespaced by it's class name *)
 type 'a t = { name: string; declaration: 'a Js.Dict.t }
 
 external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
@@ -32,10 +30,22 @@ let getClass ?(className="") ?(cssModule={name=""; declaration=Js.Dict.empty ()}
   let separator = if className = "" || name = "" then "" else " " in
   Js.String.trim @@ className ^ separator ^ name
 
-let make { name; declaration }: _ t =
+let to_display ({ name; declaration }: [< Css_Property.display ] t) =
   { name
   ; declaration =
       declaration |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+  }
+
+let make
+  ?position:(
+    position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
+  )
+  { name; declaration }: [< Css_Property.display ] t =
+  { name
+  ; declaration =
+      declaration
+      |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+      |> Util.merge (Css_Properties.Position.Convert.display position)
   }
 
 let make' declaration =

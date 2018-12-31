@@ -3,8 +3,23 @@
 
 (* TODO: hide this *)
 module Internal = struct
-  external make:
-    string -> _ Css_Property.t = "%identity"
+  external make: string -> _ Css_Property.t = "%identity"
+
+  external static:
+    Css_Property.display Js.Dict.t ->
+    Css_Property.Position.Type.static = "%identity"
+
+  external absolute:
+    Css_Property.display Js.Dict.t ->
+    Css_Property.Position.Type.absolute = "%identity"
+
+  external relative:
+    Css_Property.display Js.Dict.t ->
+    Css_Property.Position.Type.relative = "%identity"
+
+  external fixed:
+    Css_Property.display Js.Dict.t ->
+    Css_Property.Position.Type.fixed = "%identity"
 end
 
 
@@ -532,6 +547,7 @@ module BorderLeftWidth = struct
 end
 
 
+(* TODO: hide *)
 module Bottom = struct
   (** {{: https://www.w3.org/TR/CSS22/visuren.html#position-props } Box offsets} *)
 
@@ -1078,6 +1094,7 @@ module JustifyContent = struct
 end
 
 
+(* TODO: hide *)
 module Left = struct
   (** {{: https://www.w3.org/TR/CSS22/visuren.html#position-props } Box offsets} *)
 
@@ -1612,6 +1629,17 @@ module Richness = struct
 end
 
 
+(* TODO: hide *)
+module Right = struct
+  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-right} Right} *)
+
+  type 'a t = [> Css_Property.right ] as 'a
+
+  let make value: 'a t =
+    `right (Internal.make @@ Css_Value.LengthPercent.show value)
+end
+
+
 module SpeakHeader = struct
   (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak-header} Speak header} *)
 
@@ -1834,6 +1862,17 @@ module TextTransform = struct
 end
 
 
+(* TODO: hide *)
+module Top = struct
+  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-top} Top} *)
+
+  type 'a t = [> Css_Property.top ] as 'a
+
+  let make value: 'a t =
+    `top (Internal.make @@ Css_Value.LengthPercent.show value)
+end
+
+
 module UnicodeBidi = struct
   (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-unicode-bidi} Unicode bidi} *)
 
@@ -2032,3 +2071,126 @@ module Width = struct
   let make value: 'a t =
     `width (Internal.make @@ Css_Value.LengthPercent.show value)
 end
+
+
+(* TODO: hide *)
+module ZIndex = struct
+  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-z-index} Z-index} *)
+
+  type 'a t = [> Css_Property.z_index ] as 'a
+
+  let make value: 'a t = `z_index (Internal.make @@ Js.Int.toString value)
+end
+
+
+module Position = struct
+  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-position} Position}
+   *
+   * - Position is treated specially, the values it takes are rules that apply
+   *   only to that position type.
+   * - A few rules apply only to positions that aren't fixed (default)
+   * - The position is independent of the display type
+   *)
+
+  type 'a t = [> Css_Property.position ] as 'a
+
+  module Value = struct
+    type value =
+      [ `static | `absolute | `relative | `fixed ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | (`static | `absolute | `relative | `fixed) as value ->
+      valueToJs value
+  end
+
+  (* TODO: hide *)
+  let make value: 'a t = `position (Internal.make @@ Value.show value)
+
+  module Convert = struct
+    let display: Css_Property.Position.t -> Css_Property.display Js.Dict.t =
+    function
+    | `static static     -> Obj.magic static
+    | `absolute absolute -> Obj.magic absolute
+    | `relative relative -> Obj.magic relative
+    | `fixed fixed       -> Obj.magic fixed
+
+    let styles top right bottom left z_index: Css_Property.display Js.Dict.t =
+      let styles' =
+        [ ("top", Belt.Option.map top Top.make)
+        ; ("right", Belt.Option.map right Right.make)
+        ; ("bottom", Belt.Option.map bottom Bottom.make)
+        ; ("left", Belt.Option.map left Left.make) ]
+        |. Belt.List.keep (fun (_, v) -> Js.Option.isSome v)
+        |. Belt.List.map (fun (k, v) -> (k, Js.Option.getExn v))
+        |> Js.Dict.fromList
+      in
+      match z_index with
+      | Some z_index ->
+        Js.Dict.set styles' "z-index" (ZIndex.make z_index);
+        styles'
+      | _ -> styles'
+  end
+
+  module Static = struct
+    type 'a t = [> Css_Property.Position.static ] as 'a
+
+    let make (): 'a t =
+      `static ([("position", make `static)] |> Js.Dict.fromList |> Internal.static)
+  end
+
+  module Absolute = struct
+    type 'a t = [> Css_Property.Position.absolute ] as 'a
+
+    let make
+      ?(top: Css_Value.LengthPercent.t option)
+      ?(right: Css_Value.LengthPercent.t option)
+      ?(bottom: Css_Value.LengthPercent.t option)
+      ?(left: Css_Value.LengthPercent.t option)
+      ?(z_index: int option) (): 'a t =
+      `absolute (
+        Util.merge
+          (Js.Dict.fromList [("position", make `absolute)])
+          (Convert.styles top right bottom left z_index)
+        |> Internal.absolute
+      )
+  end
+
+  module Relative = struct
+    type 'a t = [> Css_Property.Position.relative ] as 'a
+
+    let make
+      ?(top: Css_Value.LengthPercent.t option)
+      ?(right: Css_Value.LengthPercent.t option)
+      ?(bottom: Css_Value.LengthPercent.t option)
+      ?(left: Css_Value.LengthPercent.t option)
+      ?(z_index: int option) (): 'a t =
+      `relative (
+        Util.merge
+          (Js.Dict.fromList [("position", make `relative)])
+          (Convert.styles top right bottom left z_index)
+        |> Internal.relative
+      )
+  end
+
+  module Fixed = struct
+    type 'a t = [> Css_Property.Position.fixed ] as 'a
+
+    let make
+      ?(top: Css_Value.LengthPercent.t option)
+      ?(right: Css_Value.LengthPercent.t option)
+      ?(bottom: Css_Value.LengthPercent.t option)
+      ?(left: Css_Value.LengthPercent.t option)
+      ?(z_index: int option) (): 'a t =
+      `fixed (
+        Util.merge
+          (Js.Dict.fromList [("position", make `fixed)])
+          (Convert.styles top right bottom left z_index)
+        |> Internal.fixed
+      )
+  end
+end
+
