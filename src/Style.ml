@@ -13,10 +13,11 @@ let to_display styles: Css_Property.display t =
 type visual = Css_Property.MediaGroup.visual t
  and paged = Css_Property.MediaGroup.paged t
 
-type non_replaced = Css_Property.AppliesTo.non_replaced t 
- and replaced = Css_Property.AppliesTo.replaced t 
- and block = Css_Property.AppliesTo.block t
- and inline = Css_Property.AppliesTo.inline t
+type non_replaced = Css_Property.non_replaced t 
+ and replaced = Css_Property.replaced t 
+ and block = Css_Property.block t
+ and flex = Css_Property.flex t
+ and inline = Css_Property.inline t
 
 module Internal = struct
   (* TODO: populate with all group styles *)
@@ -59,6 +60,12 @@ module Internal = struct
     ?color:Css_Property.color ->
     unit ->
     block = "" [@@bs.obj]
+
+  external flex:
+    ?clear:Css_Property.clear ->
+    ?color:Css_Property.color ->
+    unit ->
+    flex = "" [@@bs.obj]
 
   external inline:
     ?verticalAlign:Css_Property.vertical_align ->
@@ -103,6 +110,12 @@ let replaced ?height () =
 let block ?textAlign ?clear ?color () =
   Internal.block
     ?textAlign:(Belt.Option.map textAlign TextAlign.make)
+    ?clear:(Belt.Option.map clear Clear.make)
+    ?color:(Belt.Option.map color Color.make)
+    ()
+
+let flex ?clear ?color () =
+  Internal.flex
     ?clear:(Belt.Option.map clear Clear.make)
     ?color:(Belt.Option.map color Color.make)
     ()

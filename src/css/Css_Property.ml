@@ -23,22 +23,23 @@ module Type = struct
    and border_top_width and border_right_width and border_bottom_width
    and border_left_width and bottom and caption_side and clear and clip
    and color (*and content and counter_increment and counter_reset*)
-   and cue_after and cue_before and cue and cursor and direction and elevation
-   and empty_cells and flex' and flex_basis and flex_direction and flex_flow
-   and flex_grow and flex_shrink and flex_wrap and float_ and font_family
-   and font_size and font_style and font_variant and font_weight and font
-   and height and justify_content and left and letter_spacing and line_height
-   and list_style_image and list_style_position and list_style_type
-   and list_style and margin_top and margin_right and margin_bottom
-   and margin_left and margin and max_height and max_width and min_height
-   and min_width and order and orphans and outline_color and outline_style
-   and outline_width and outline and overflow and padding_top and padding_right
-   and padding_bottom and padding_left and padding and page_break_after
-   and page_break_before and page_break_inside and pause_after and pause_before
-   and pause and pitch_range and pitch and play_during and position (*and quotes*)
-   and richness and right and speak_header and speak_numeral
-   and speak_punctuation and speak and speech_rate and stress and table_layout
-   and text_align and text_decoration and text_indent and text_transform and top
+   and cue_after and cue_before and cue and cursor and direction and display 
+   and elevation and empty_cells and flex' and flex_basis and flex_direction
+   and flex_flow and flex_grow and flex_shrink and flex_wrap and float_
+   and font_family and font_size and font_style and font_variant and font_weight
+   and font and height and justify_content and left and letter_spacing
+   and line_height and list_style_image and list_style_position
+   and list_style_type and list_style and margin_top and margin_right
+   and margin_bottom and margin_left and margin and max_height and max_width
+   and min_height and min_width and order and orphans and outline_color
+   and outline_style and outline_width and outline and overflow and padding_top
+   and padding_right and padding_bottom and padding_left and padding
+   and page_break_after and page_break_before and page_break_inside
+   and pause_after and pause_before and pause and pitch_range and pitch
+   and play_during and position (*and quotes*) and richness and right
+   and speak_header and speak_numeral and speak_punctuation and speak
+   and speech_rate and stress and table_layout and text_align
+   and text_decoration and text_indent and text_transform and top
    and unicode_bidi and vertical_align and visibility and voice_family
    and volume and white_space and widows and width and word_spacing and z_index
 end
@@ -88,6 +89,7 @@ module Style = struct
    and cue = [ `cue of Type.cue t ]
    and cursor = [ `cursor of Type.cursor t ]
    and direction = [ `direction of Type.direction t ]
+   and display' = [ `display of Type.display t ]
    and elevation = [ `elevation of Type.elevation t ]
    and empty_cells = [ `empty_cells of Type.empty_cells t ]
    and flex' = [ `flex of Type.flex' t ]
@@ -200,8 +202,8 @@ module AppliesTo = struct
 		| border_top_style | border_right_style | border_bottom_style
 		| border_left_style | border_top_width | border_right_width
 		| border_bottom_width | border_left_width	| bottom | caption_side | clear
-		| color | clip | cue_after | cue_before | cue | direction | elevation
-		| float_
+		| color | clip | cue_after | cue_before | cue | direction | display'
+    | elevation	| float_
 		| cursor | font_family | font_size | font_style | font_variant
 		| font_weight | font | left | letter_spacing | line_height
     | outline_color | outline_style | outline_width | outline
@@ -430,6 +432,7 @@ let show: display -> string = function
 | `color x                 -> Convert.show x
 | `cursor x                -> Convert.show x
 | `direction x             -> Convert.show x
+| `display x               -> Convert.show x
 | `elevation x             -> Convert.show x
 | `empty_cells x           -> Convert.show x
 | `flex x                  -> Convert.show x
