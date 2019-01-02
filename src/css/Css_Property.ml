@@ -16,12 +16,12 @@ module Type = struct
    and background_attachment and background_color and background_image
    and background_position and background_repeat and background
    and border_collapse and border_color and border_spacing and border_style
-   and border_width and border_top and border_right and border_bottom
-   and border_left and border and border_top_color and border_right_color
-   and border_bottom_color and border_left_color and border_top_style
-   and border_right_style and border_bottom_style and border_left_style
-   and border_top_width and border_right_width and border_bottom_width
-   and border_left_width and bottom and caption_side and clear and clip
+   and border_top and border_right and border_bottom and border_left
+   and border_top_color and border_right_color and border_bottom_color
+   and border_left_color and border_top_style and border_right_style
+   and border_bottom_style and border_left_style and border_top_width
+   and border_right_width and border_bottom_width and border_left_width
+   and border_width and border and bottom and caption_side and clear and clip
    and color (*and content and counter_increment and counter_reset*)
    and cue_after and cue_before and cue and cursor and direction and display 
    and elevation and empty_cells and flex' and flex_basis and flex_direction
@@ -60,30 +60,34 @@ module Style = struct
    and border_collapse = [ `border_collapse of Type.border_collapse t ]
    and border_color = [ `border_color of Type.border_color t ]
    and border_spacing = [ `border_spacing of Type.border_spacing t ]
-   and border_width = [ `border_width of Type.border_width t ]
    and border_style = [ `border_style of Type.border_style t ]
    and border_top = [ `border_top of Type.border_top t ]
+   and border_right = [ `border_right of Type.border_right t ]
    and border_bottom = [ `border_bottom of Type.border_bottom t ]
    and border_left = [ `border_left of Type.border_left t ]
-   and border_right = [ `border_right of Type.border_right t ]
-   and border = [ `border of Type.border t ]
    and border_top_color = [ `border_top_color of Type.border_top_color t ]
    and border_right_color = [ `border_right_color of Type.border_right_color t ]
-   and border_bottom_color = [ `border_bottom_color of Type.border_bottom_color t ]
+   and border_bottom_color =
+     [ `border_bottom_color of Type.border_bottom_color t ]
    and border_left_color = [ `border_left_color of Type.border_left_color t ]
    and border_top_style = [ `border_top_style of Type.border_top_style t ]
    and border_right_style = [ `border_right_style of Type.border_right_style t ]
-   and border_bottom_style = [ `border_bottom_style of Type.border_bottom_style t ]
+   and border_bottom_style =
+     [ `border_bottom_style of Type.border_bottom_style t ]
    and border_left_style = [ `border_left_style of Type.border_left_style t ]
    and border_top_width = [ `border_top_width of Type.border_top_width t ]
    and border_right_width = [ `border_right_width of Type.border_right_width t ]
-   and border_bottom_width = [ `border_bottom_width of Type.border_bottom_width t ]
+   and border_bottom_width =
+     [ `border_bottom_width of Type.border_bottom_width t ]
    and border_left_width = [ `border_left_width of Type.border_left_width t ]
+   and border_width = [ `border_width of Type.border_width t ]
+   and border = [ `border of Type.border t ]
    and bottom = [ `bottom of Type.bottom t ]
    and caption_side = [ `caption_side of Type.caption_side t ]
    and clear = [ `clear of Type.clear t ]
    and clip = [ `clip of Type.clip t ]
    and color = [ `color of Type.color t ]
+   (*and content and counter_increment and counter_reset*)
    and cue_after = [ `cue_after of Type.cue_after t ]
    and cue_before = [ `cue_before of Type.cue_before t ]
    and cue = [ `cue of Type.cue t ]
@@ -147,6 +151,7 @@ module Style = struct
    and pitch = [ `pitch of Type.pitch t ]
    and play_during = [ `play_during of Type.play_during t ]
    and position = [ `position of Type.position t ]
+   (*and quotes*)
    and richness = [ `richness of Type.richness t ]
    and right = [ `right of Type.right t ]
    and speak_header = [ `speak_header of Type.speak_header t ]
@@ -162,8 +167,8 @@ module Style = struct
    and text_transform = [ `text_transform of Type.text_transform t ]
    and top = [ `top of Type.top t ]
    and unicode_bidi = [ `unicode_bidi of Type.unicode_bidi t ]
-   and visibility = [ `visibility of Type.visibility t ]
    and vertical_align = [ `vertical_align of Type.vertical_align t ]
+   and visibility = [ `visibility of Type.visibility t ]
    and voice_family = [ `voice_family of Type.voice_family t ]
    and volume = [ `volume of Type.volume t ]
    and white_space = [ `white_space of Type.white_space t ]
@@ -177,6 +182,27 @@ module Style = struct
 
   type margins =
     [ margin | margin_top | margin_right | margin_bottom | margin_left ]
+
+  type heights =
+    [ height | max_height | min_height ]
+
+  type widths =
+    [ width | max_width | min_width ]
+
+  type borders =
+    [ border_top | border_right | border_bottom | border_left | border ]
+
+  type border_colors =
+    [ border_top_color  | border_right_color | border_bottom_color
+    | border_left_color | border_color ]
+
+  type border_styles =
+    [ border_top_style | border_right_style | border_bottom_style
+    | border_left_style | border_style ]
+
+  type border_widths =
+    [ border_top_width | border_right_width | border_bottom_width
+    | border_left_width | border_width ]
 
   type page_breaks =
     [ page_break_before | page_break_after | page_break_inside ]
@@ -193,37 +219,41 @@ module AppliesTo = struct
   (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
   type any =
-    [
-    | azimuth | background_attachment | background_color | background_image
-		| background_position | background_repeat | background | border_color
-		| border_spacing | border_width | border_style | border_top	| border_bottom
-    | border_left | border_right | border | border_top_color
-		| border_right_color | border_bottom_color | border_left_color
-		| border_top_style | border_right_style | border_bottom_style
-		| border_left_style | border_top_width | border_right_width
-		| border_bottom_width | border_left_width	| bottom | caption_side | clear
-		| color | clip | cue_after | cue_before | cue | direction | display'
-    | elevation	| float_
-		| cursor | font_family | font_size | font_style | font_variant
-		| font_weight | font | left | letter_spacing | line_height
-    | outline_color | outline_style | outline_width | outline
+    [ azimuth | background_attachment | background_color | background_image
+    | background_position | background_repeat | background | border_color
+    | border_style | border_top | border_right | border_bottom
+    | border_left | border_top_color  | border_right_color | border_bottom_color
+    | border_left_color | border_top_style | border_right_style
+    | border_bottom_style  | border_left_style | border_top_width
+    | border_right_width | border_bottom_width | border_left_width
+    | border_width | border | color | cue_after | cue_before | cue | cursor
+    | direction | display' | elevation | float_ | font_family | font_size
+    | font_style | font_variant | font_weight | font | letter_spacing
+    | line_height | outline_color | outline_style | outline_width | outline
     | pause_after | pause_before | pause | pitch_range | pitch | play_during
-    | position
-    | richness | right | speak_numeral | speak_punctuation | speak
-    | speech_rate | stress | text_decoration | text_transform | top
-    | unicode_bidi | visibility | voice_family | volume | white_space
-    | word_spacing | z_index
-    ]
+    | position | richness | speak_numeral | speak_punctuation | speak
+    | speech_rate | stress | text_decoration | text_transform | unicode_bidi
+    | visibility | voice_family | volume | white_space | word_spacing ]
 
   type block =
-    [ clear | height | margins | max_height | max_width | min_height
-    | min_width | page_breaks
-    | page_breaks_inside | text_align | overflow
-    | paddings | text_indent | width
+    [ clear
+    | heights
+    | margins
+    | widths
+    | page_breaks_inside 
+    | overflow
+    | paddings 
+    | page_breaks
+    | text_align 
+    | text_indent
     | any ]
 
   type flex =
-    [ align_content | align_items | align_self | flex' | flex_basis
+    [ heights
+    | margins
+    | widths
+    | paddings
+    | align_content | align_items | align_self | flex' | flex_basis
     | flex_direction | flex_flow | flex_grow | flex_shrink | flex_wrap
     | justify_content | order | any
     ]
@@ -233,12 +263,17 @@ module AppliesTo = struct
    * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
    *)
   type replaced =
-    [ height | margins | max_height | max_width | min_height | min_width
-    | paddings | width
+    [ heights
+    | margins
+    | widths
+    | paddings
     ]
 
   (** Non-replaced inline elements *)
-  type non_replaced = [ vertical_align | margins | paddings | any ]
+  type non_replaced =
+    [ margins
+    | paddings
+    | vertical_align | any ]
 
   (** All inline elemnets (replaced and non-replaced) *)
   type inline = [ replaced | non_replaced ]
@@ -247,44 +282,101 @@ module AppliesTo = struct
 
   type inline_flex = [ inline | flex ]
 
-  (* TODO: double check `height` *)
-  type table_header_group = [ height | speak_header | width | any ]
-  type table_footer_group = [ height | width | any ]
+  type positioned =
+    [ bottom
+    | clip
+    | heights
+    | left
+    | margins
+    | widths
+    | paddings
+    | right 
+    | top
+    | z_index
+    ]
+
+  type table_header_group =
+    [ heights
+    | widths
+    | speak_header | any ]
+
+  type table_footer_group =
+    [ heights
+    | widths
+    
+    | any ]
 
   type table_caption =
-    [ height | margins | max_height | max_width | min_height | min_width
-    | paddings | width
-    | caption_side ]
+    [ caption_side
+    | heights
+    | margins
+    | widths
+
+    | paddings
+    ]
 
   type table =
-    [ border_collapse | height | margins | max_height | max_width | min_height
-    | min_width | paddings | speak_header | table_layout | width ]
+    [ border_collapse
+    | border_spacing
+    | heights
+    | margins
+    | widths
+    | paddings
+    | table_layout 
+
+    | speak_header ]
 
   type inline_table =
-    [ border_collapse | height | margins | max_height | max_width | min_height
-    | min_width | paddings | table_layout | width ]
+    [ border_collapse
+    | border_spacing
+    | heights
+    | margins
+    | widths
+    | paddings
+    | table_layout ]
 
   type table_cell =
-    [ vertical_align | height | any | empty_cells | max_height | max_width
-    | min_height | min_width | paddings | speak_header | width ]
+    [ empty_cells
+    | heights
+    | widths
+    | paddings 
 
-  type table_column = [ max_width | min_width | width | any ]
+    | any
+    | speak_header | vertical_align
+    ]
 
-  type table_column_group = [ max_width | min_width | width | any ]
+  type table_column =
+    [ widths
+    
+    | any ]
 
-  type table_row = [ max_height | min_height | any ]
+  type table_column_group =
+    [ widths
+    
+    | any ]
 
-  type table_row_group = [ max_height | min_height | any ]
+  type table_row =
+    [ heights
+    | any ]
+
+  type table_row_group =
+    [ heights
+    | any ]
 
   type list_item =
-    [ list_style_image | list_style_position | list_style_type | list_style
-    | max_height | max_width | min_height | min_width
-    | height | margins | paddings | width ]
+    [ heights
+    | list_style_image
+    | list_style_position
+    | list_style_type
+    | list_style
+    | margins 
+    | widths
+    | paddings ]
 
   type display =
     [ block | flex | inline | table | inline_table | table_cell | list_item
-    | table_column | table_column_group | table_header_group
-    | table_footer_group ]
+    | table_caption | table_column | table_column_group | table_header_group
+    | table_footer_group | positioned ]
 
   let to_block x = (x :> block)
   and to_replaced x = (x :> replaced)
