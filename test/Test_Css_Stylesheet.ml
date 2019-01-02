@@ -35,8 +35,8 @@ test ~name:"@media functions" @@ fun t -> begin
         (block ~color:`red ())
     ; css_module @@ Css_Module.make
         ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21) ())
-        { name="foobar"
-        ; declaration = Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
+        { name = "foobar"
+        ; declaration = Style.flex ~color:`blue ()
         }
     ]
   in

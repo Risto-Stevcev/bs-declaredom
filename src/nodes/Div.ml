@@ -38,6 +38,10 @@ module Display = struct
     let css_module {Css_Module.declaration} = style declaration
   end
 
+  (**
+   * Sets the display rule in case it's not set in the style attribute or
+   * css module
+   *)
   let set_display display style css_module =
   match (style, css_module) with
   | (style, Some css_module) when IsSet.css_module css_module ->

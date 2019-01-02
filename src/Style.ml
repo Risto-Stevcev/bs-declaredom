@@ -7,17 +7,8 @@ let show_dict (styles: 'a t): string t =
   |> Js.Dict.map (fun [@bs] e -> Css_Property.show (e :> Css_Property.display))
 
 let to_display styles: Css_Property.display t =
-  styles
-  |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+  styles |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
 
-type visual = Css_Property.MediaGroup.visual t
- and paged = Css_Property.MediaGroup.paged t
-
-type non_replaced = Css_Property.non_replaced t 
- and replaced = Css_Property.replaced t 
- and block = Css_Property.block t
- and flex = Css_Property.flex t
- and inline = Css_Property.inline t
 
 module Internal = struct
   (* TODO: populate with all group styles *)
@@ -25,7 +16,7 @@ module Internal = struct
     ?backgroundColor:Css_Property.background_color ->
     ?color:Css_Property.color ->
     unit ->
-    visual = "" [@@bs.obj]
+    Css_Property.MediaGroup.visual t = "" [@@bs.obj]
 
   external paged:
     ?margin:Css_Property.margin ->
@@ -39,38 +30,38 @@ module Internal = struct
     ?orphans:Css_Property.orphans ->
     ?widows:Css_Property.widows ->
     unit ->
-    paged = "" [@@bs.obj]
+    Css_Property.MediaGroup.paged t = "" [@@bs.obj]
 
   (* TODO: this should have all styles that apply to non-replaced elements *)
   external non_replaced:
     ?backgroundAttachment:Css_Property.background_attachment ->
     ?backgroundColor:Css_Property.background_color ->
     unit ->
-    non_replaced = "" [@@bs.obj]
+    Css_Property.non_replaced t = "" [@@bs.obj]
 
   (* TODO: this should have all styles that apply to replaced elements *)
   external replaced:
     ?height:Css_Property.height ->
     unit ->
-    replaced = "" [@@bs.obj]
+    Css_Property.replaced t = "" [@@bs.obj]
 
   external block:
     ?textAlign:Css_Property.text_align ->
     ?clear:Css_Property.clear ->
     ?color:Css_Property.color ->
     unit ->
-    block = "" [@@bs.obj]
+    Css_Property.block t = "" [@@bs.obj]
 
   external flex:
     ?clear:Css_Property.clear ->
     ?color:Css_Property.color ->
     unit ->
-    flex = "" [@@bs.obj]
+    Css_Property.flex t = "" [@@bs.obj]
 
   external inline:
     ?verticalAlign:Css_Property.vertical_align ->
     unit ->
-    inline = "" [@@bs.obj]
+    Css_Property.inline t = "" [@@bs.obj]
 end
 
 module MediaGroup = struct
@@ -114,12 +105,12 @@ let block ?textAlign ?clear ?color () =
     ?color:(Belt.Option.map color Color.make)
     ()
 
-(* TODO: this should add "display: flex" as well *)
 let flex ?clear ?color () =
   Internal.flex
     ?clear:(Belt.Option.map clear Clear.make)
     ?color:(Belt.Option.map color Color.make)
     ()
+  |> Util.merge (Js.Dict.fromList [("display", `display (Obj.magic "flex"))])
 
 let inline ?verticalAlign () =
   Internal.inline
