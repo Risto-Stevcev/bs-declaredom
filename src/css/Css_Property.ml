@@ -177,17 +177,13 @@ module Style = struct
    and word_spacing = [ `word_spacing of Type.word_spacing t ]
    and z_index = [ `z_index of Type.z_index t ]
 
-  type paddings =
-    [ padding | padding_top | padding_right | padding_bottom | padding_left ]
 
-  type margins =
-    [ margin | margin_top | margin_right | margin_bottom | margin_left ]
+  type aligns =
+    [ align_content | align_items | align_self ]
 
-  type heights =
-    [ height | max_height | min_height ]
-
-  type widths =
-    [ width | max_width | min_width ]
+  type backgrounds =
+    [ background_attachment | background_color | background_image
+    | background_position | background_repeat | background ]
 
   type borders =
     [ border_top | border_right | border_bottom | border_left | border ]
@@ -204,11 +200,51 @@ module Style = struct
     [ border_top_width | border_right_width | border_bottom_width
     | border_left_width | border_width ]
 
+  type heights =
+    [ height | max_height | min_height ]
+
+  type cues =
+    [ cue_after | cue_before | cue ]
+
+  type flexs =
+    [ flex' | flex_basis | flex_direction | flex_flow | flex_grow
+    | flex_shrink | flex_wrap ]
+
+  type fonts =
+    [ font_family | font_size | font_style | font_variant | font_weight | font ]
+
+  type margins =
+    [ margin | margin_top | margin_right | margin_bottom | margin_left ]
+
+  type paddings =
+    [ padding | padding_top | padding_right | padding_bottom | padding_left ]
+
+  type list_styles =
+    [ list_style_image | list_style_position | list_style_type | list_style ]
+
+  type outlines =
+    [ outline_color | outline_style | outline_width | outline ]
+
   type page_breaks =
     [ page_break_before | page_break_after | page_break_inside ]
 
   type page_breaks_inside =
     [ orphans | widows ]
+
+  type pauses =
+    [ pause_after | pause_before | pause ]
+
+  type positions =
+    [ top | right | bottom | left ]
+
+  type speaks =
+    [ speak_header | speak_numeral | speak_punctuation | speak ]
+
+  type texts =
+    [ text_decoration | text_transform | text_align | text_indent ]
+
+  type widths =
+    [ width | max_width | min_width ]
 end
 
 include Style
@@ -219,159 +255,81 @@ module AppliesTo = struct
   (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
   type any =
-    [ azimuth | background_attachment | background_color | background_image
-    | background_position | background_repeat | background | border_color
-    | border_style | border_top | border_right | border_bottom
-    | border_left | border_top_color  | border_right_color | border_bottom_color
-    | border_left_color | border_top_style | border_right_style
-    | border_bottom_style  | border_left_style | border_top_width
-    | border_right_width | border_bottom_width | border_left_width
-    | border_width | border | color | cue_after | cue_before | cue | cursor
-    | direction | display' | elevation | float_ | font_family | font_size
-    | font_style | font_variant | font_weight | font | letter_spacing
-    | line_height | outline_color | outline_style | outline_width | outline
-    | pause_after | pause_before | pause | pitch_range | pitch | play_during
-    | position | richness | speak_numeral | speak_punctuation | speak
-    | speech_rate | stress | text_decoration | text_transform | unicode_bidi
-    | visibility | voice_family | volume | white_space | word_spacing ]
+    [ azimuth | backgrounds | border_colors | border_styles | border_widths
+    | borders | color | cues | cursor | direction | display' | elevation
+    | float_ | fonts | letter_spacing | line_height | outlines | pauses
+    | pitch_range | pitch | play_during | position | richness
+    | speak_numeral | speak_punctuation | speak | speech_rate | stress
+    | text_decoration | text_transform | unicode_bidi | visibility
+    | voice_family | volume | white_space | word_spacing ]
 
   type block =
-    [ clear
-    | heights
-    | margins
-    | widths
-    | page_breaks_inside 
-    | overflow
-    | paddings 
-    | page_breaks
-    | text_align 
-    | text_indent
-    | any ]
+    [ clear | heights | margins | overflow | paddings | page_breaks
+    | page_breaks_inside | text_align | text_indent | widths | any ]
 
   type flex =
-    [ heights
-    | margins
-    | widths
-    | paddings
-    | align_content | align_items | align_self | flex' | flex_basis
-    | flex_direction | flex_flow | flex_grow | flex_shrink | flex_wrap
-    | justify_content | order | any
-    ]
+    [ aligns | flexs | heights | justify_content | margins | order | paddings
+    | widths | any ]
+
+  type list_item =
+    [ heights | list_styles | margins | paddings | widths | any ]
+
+  type positioned =
+    [ clip | heights | margins | paddings | positions | widths | z_index | any ]
 
   (**
-   * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced element}
+   * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced inline elements}
    * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
    *)
   type replaced =
-    [ heights
-    | margins
-    | widths
-    | paddings
-    ]
+    [ heights | margins | paddings | vertical_align | widths | any ]
 
   (** Non-replaced inline elements *)
   type non_replaced =
-    [ margins
-    | paddings
-    | vertical_align | any ]
+    [ margins | paddings | vertical_align | any ]
 
-  (** All inline elemnets (replaced and non-replaced) *)
-  type inline = [ replaced | non_replaced ]
+  module Combined = struct
+    type inline = [ replaced | non_replaced ]
 
-  type inline_block = [ inline | block ]
+    type inline_block = [ inline | block ]
 
-  type inline_flex = [ inline | flex ]
+    type inline_flex = [ inline | flex ]
+  end
 
-  type positioned =
-    [ bottom
-    | clip
-    | heights
-    | left
-    | margins
-    | widths
-    | paddings
-    | right 
-    | top
-    | z_index
-    ]
+  include Combined
 
   type table_header_group =
-    [ heights
-    | widths
-    | speak_header | any ]
+    [ heights | speak_header | widths | any ]
 
   type table_footer_group =
-    [ heights
-    | widths
-    
-    | any ]
+    [ heights | widths | any ]
 
   type table_caption =
-    [ caption_side
-    | heights
-    | margins
-    | widths
-
-    | paddings
-    ]
+    [ caption_side | heights | margins | paddings | widths | any ]
 
   type table =
-    [ border_collapse
-    | border_spacing
-    | heights
-    | margins
-    | widths
-    | paddings
-    | table_layout 
-
-    | speak_header ]
+    [ border_collapse | border_spacing | heights | margins | paddings
+    | speak_header | table_layout | widths | any ]
 
   type inline_table =
-    [ border_collapse
-    | border_spacing
-    | heights
-    | margins
-    | widths
-    | paddings
-    | table_layout ]
+    [ border_collapse | border_spacing | heights | margins | paddings
+    | table_layout | widths | any ]
 
   type table_cell =
-    [ empty_cells
-    | heights
-    | widths
-    | paddings 
-
-    | any
-    | speak_header | vertical_align
-    ]
+    [ empty_cells | heights | paddings | speak_header | vertical_align
+    | widths | any ]
 
   type table_column =
-    [ widths
-    
-    | any ]
+    [ widths | any ]
 
   type table_column_group =
-    [ widths
-    
-    | any ]
+    [ widths | any ]
 
   type table_row =
-    [ heights
-    | any ]
+    [ heights | any ]
 
   type table_row_group =
-    [ heights
-    | any ]
-
-  type list_item =
-    [ heights
-    | list_style_image
-    | list_style_position
-    | list_style_type
-    | list_style
-    | margins 
-    | widths
-    | paddings ]
+    [ heights | any ]
 
   type display =
     [ block | flex | inline | table | inline_table | table_cell | list_item
