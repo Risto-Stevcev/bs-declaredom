@@ -25,20 +25,33 @@ module Display = struct
 
   let make value: 'a t = `display (Obj.magic @@ Value.show value)
 
-  let css_module display css_module' =
-    let {Css_Module.name; declaration} = Css_Module.make css_module'
-    in
-    { Css_Module.name
-    ; declaration =
+  module Set = struct
+    let style display declaration =
       Util.merge
         (Js.Dict.fromList [("display", make display)])
-        declaration
-    }
+        (Style.to_display declaration)
+  end
 
-  let style display style' =
-    Util.merge
-      (Js.Dict.fromList [("display", make display)])
-      (Style.to_display style')
+  module IsSet = struct
+    let style declaration = Js.Dict.get declaration "display" <> None
+
+    let css_module {Css_Module.declaration} = style declaration
+  end
+
+  let set_display display style css_module =
+  match (style, css_module) with
+  | (style, Some css_module) when IsSet.css_module css_module ->
+    ( style |. Belt.Option.map Style.to_display
+    , css_module |. Css_Module.make |. Some )
+  | (Some style, css_module) when IsSet.style style ->
+    ( style |. Style.to_display |. Some
+    , css_module |. Belt.Option.map Css_Module.make )
+  | (Some style, css_module) ->
+    ( style |. Style.to_display |> Set.style display |. Some
+    , css_module |. Belt.Option.map Css_Module.make )
+  | (None, css_module) ->
+    ( Set.style display (Js.Dict.empty ()) |. Some
+    , css_module |. Belt.Option.map Css_Module.make )
 end
 
 
@@ -52,7 +65,8 @@ let _make
   in
   FFI.make' "div"
     (Global.make
-      (Global.Attributes.make ?id ~className:name ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title ?style ())
+      (Global.Attributes.make ?id ~className:name ?classSet ?contentEditable
+        ?dataset ?draggable ?tabIndex ?title ?style ())
       (Global.Events.make ?onClick ())
     )
     (children |> Js.Array.map (fun e -> Node.unwrap (e :> Node.content)))
@@ -72,23 +86,20 @@ let make
 (**
  * Inline-block: 
  * {{: https://www.w3.org/TR/CSS22/visuren.html#inline-boxes} Inline-boxes}
- * the element will create an inline-level box but is not an inline-box
- *)
-(* TODO: for css_modules, it should allow creating `Css_Property.flex Css_module.t`,
- * so it `Css_Property.display` needs to split into `Css_Property.display_flex`, etc
- * and include that in the `type flex = ` group
+ * The element will create an inline-level box but is not an inline-box.
+ * Both inline and block specific rules apply.
  *)
 let inline_block
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
-  ?(style:Css_Property.any Style.t option)
-  ?onClick ?(cssModule:Css_Property.any Css_Module.t option)
+  ?(style:Css_Property.inline_block Style.t option)
+  ?onClick ?(cssModule:Css_Property.inline_block Css_Module.t option)
   (children:child array): 'a t
   =
+  let (style, cssModule) = Display.set_display `inline_block style cssModule
+  in
   _make
     ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-    ?title ?style:(Belt.Option.map style (Display.style `inline_block))
-    ?onClick ?cssModule:(Belt.Option.map cssModule (Display.css_module `inline_block))
-    children
+    ?title ?style ?onClick ?cssModule children
 
 let flex
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
@@ -96,20 +107,20 @@ let flex
   ?onClick ?(cssModule:Css_Property.flex Css_Module.t option)
   (children:child array): 'a t
   =
+  let (style, cssModule) = Display.set_display `flex style cssModule
+  in
   _make
     ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-    ?title ?style:(Belt.Option.map style (Display.style `flex))
-    ?onClick ?cssModule:(Belt.Option.map cssModule (Display.css_module `flex))
-    children
+    ?title ?style ?onClick ?cssModule children
 
 let inline_flex
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex ?title
   ?(style:Css_Property.flex Style.t option)
-  ?onClick ?(cssModule:Css_Property.flex Css_Module.t option)
+  ?onClick ?(cssModule:Css_Property.inline_flex Css_Module.t option)
   (children:child array): 'a t
   =
+  let (style, cssModule) = Display.set_display `inline_flex style cssModule
+  in
   _make
     ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-    ?title ?style:(Belt.Option.map style (Display.style `inline_flex))
-    ?onClick ?cssModule:(Belt.Option.map cssModule (Display.css_module `inline_flex))
-    children
+    ?title ?style ?onClick ?cssModule children

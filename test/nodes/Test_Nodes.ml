@@ -97,18 +97,45 @@ test ~name:"node - div" @@ fun t -> begin
 end;
 
 
+(* TODO: test flex with no styles, flex with some styles added, flex with a 
+ * css_module, and flex with a css_module that has the display prop set
+ *)
 test ~name:"node - div (inline-block)" @@ fun t -> begin
   let node =
-    Div.flex ~id:"foo"
-            ~className:"bar baz"
-            ~classSet:(Js.Dict.fromList [("norf", true); ("worble", false)])
-            ~contentEditable:true
-            ~dataset:(Js.Dict.fromList [("fizzBuzz", "123"); ("wuzz", "456")])
-            ~draggable:true
-            ~tabIndex:3
-            ~style:(Style.flex ~color:`red ())
-            ~title:"some title"
-            [||]
+    Div.inline_block
+      ~id:"foo"
+      ~className:"bar baz"
+      ~classSet:(Js.Dict.fromList [("norf", true); ("worble", false)])
+      ~contentEditable:true
+      ~dataset:(Js.Dict.fromList [("fizzBuzz", "123"); ("wuzz", "456")])
+      ~draggable:true
+      ~tabIndex:3
+      ~title:"some title"
+      [||]
+    |> Node.to_dom
+  in
+  let element = Webapi.Dom.HtmlElement.ofElement node |> Js.Option.getExn in
+
+  t |> T.equal (tagName node) "DIV";
+  t |> T.equal (outerHTML node) "<div style=\"display: inline-block;\" id=\"foo\" class=\"bar baz norf\" data-fizz-buzz=\"123\" data-wuzz=\"456\" draggable=\"true\" tabindex=\"3\" title=\"some title\"></div>";
+  t |> test_global element;
+  t |> T.end_
+end;
+
+
+test ~name:"node - div (flex)" @@ fun t -> begin
+  let node =
+    Div.flex
+      ~id:"foo"
+      ~className:"bar baz"
+      ~classSet:(Js.Dict.fromList [("norf", true); ("worble", false)])
+      ~contentEditable:true
+      ~dataset:(Js.Dict.fromList [("fizzBuzz", "123"); ("wuzz", "456")])
+      ~draggable:true
+      ~tabIndex:3
+      ~style:(Style.flex ~color:`red ())
+      ~title:"some title"
+      [||]
     |> Node.to_dom
   in
   let element = Webapi.Dom.HtmlElement.ofElement node |> Js.Option.getExn in
@@ -118,7 +145,6 @@ test ~name:"node - div (inline-block)" @@ fun t -> begin
   t |> test_global element;
   t |> T.end_
 end;
-
 
 
 test ~name:"node - img" @@ fun t -> begin

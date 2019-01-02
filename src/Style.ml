@@ -114,6 +114,7 @@ let block ?textAlign ?clear ?color () =
     ?color:(Belt.Option.map color Color.make)
     ()
 
+(* TODO: this should add "display: flex" as well *)
 let flex ?clear ?color () =
   Internal.flex
     ?clear:(Belt.Option.map clear Clear.make)

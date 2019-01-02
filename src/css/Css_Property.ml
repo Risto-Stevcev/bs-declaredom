@@ -225,7 +225,7 @@ module AppliesTo = struct
   type flex =
     [ align_content | align_items | align_self | flex' | flex_basis
     | flex_direction | flex_flow | flex_grow | flex_shrink | flex_wrap
-    | justify_content | order
+    | justify_content | order | any
     ]
 
   (**
@@ -242,6 +242,10 @@ module AppliesTo = struct
 
   (** All inline elemnets (replaced and non-replaced) *)
   type inline = [ replaced | non_replaced ]
+
+  type inline_block = [ inline | block ]
+
+  type inline_flex = [ inline | flex ]
 
   (* TODO: double check `height` *)
   type table_header_group = [ height | speak_header | width | any ]

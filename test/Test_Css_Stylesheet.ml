@@ -33,12 +33,11 @@ test ~name:"@media functions" @@ fun t -> begin
         ~position:(Css_Properties.Position.Fixed.make ())
         (`class_name "bar")
         (block ~color:`red ())
-    ; css_module @@
-        Css_Module.make
-          ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21) ())
-          { name="foobar"
-          ; declaration = Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
-          }
+    ; css_module @@ Css_Module.make
+        ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21) ())
+        { name="foobar"
+        ; declaration = Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
+        }
     ]
   in
   Js.log (Css_Stylesheet.show x);
