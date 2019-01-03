@@ -2072,6 +2072,25 @@ module Width = struct
     `width (Internal.make @@ Css_Value.LengthPercent.show value)
 end
 
+module WordSpacing = struct
+  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-word-spacing} Word-spacing} *)
+
+  type 'a t = [> Css_Property.word_spacing ] as 'a
+
+  module Value = struct
+    type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
+
+    let show: t -> string = function
+    | (`inherit_ | `initial | `unset) as global ->
+      Css_Value.Global.show global
+    | `length _ as length ->
+      Css_Value.Length.show length
+    | `normal -> "normal"
+  end
+
+  let make value: 'a t = `word_spacing (Internal.make @@ Value.show value)
+end
+
 
 (* TODO: hide *)
 module ZIndex = struct

@@ -367,7 +367,7 @@ end
 module MediaGroup = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media groups} *)
 
-  type any = display
+  type any = display'
 
   type aural =
     [ azimuth | cues | elevation | pauses | pitch_range | pitch | play_during

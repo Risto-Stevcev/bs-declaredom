@@ -10,27 +10,342 @@ let to_display styles: Css_Property.display t =
   styles |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
 
 
+(* TODO: hide *)
 module Internal = struct
-  (* TODO: populate with all group styles *)
-  external visual:
-    ?backgroundColor:Css_Property.background_color ->
-    ?color:Css_Property.color ->
-    unit ->
-    Css_Property.MediaGroup.visual t = "" [@@bs.obj]
+  module Groups = struct
+    external aligns:
+      ?alignContent:Css_Property.align_content ->
+      ?alignItems:Css_Property.align_items ->
+      ?alignSelf:Css_Property.align_self ->
+      unit ->
+      Css_Property.aligns t = "" [@@bs.obj]
 
-  external paged:
-    ?margin:Css_Property.margin ->
-    ?marginTop:Css_Property.margin_top ->
-    ?marginRight:Css_Property.margin_right ->
-    ?marginBottom:Css_Property.margin_bottom ->
-    ?marginLeft:Css_Property.margin_left ->
-    ?pageBreakBefore:Css_Property.page_break_before ->
-    ?pageBreakAfter:Css_Property.page_break_after ->
-    ?pageBreakInside:Css_Property.page_break_inside ->
-    ?orphans:Css_Property.orphans ->
-    ?widows:Css_Property.widows ->
-    unit ->
-    Css_Property.MediaGroup.paged t = "" [@@bs.obj]
+    external backgrounds:
+      ?backgroundAttachment:Css_Property.background_attachment ->
+      ?backgroundColor:Css_Property.background_color ->
+      ?backgroundImage:Css_Property.background_image ->
+      ?backgroundPosition:Css_Property.background_position ->
+      ?backgroundRepeat:Css_Property.background_repeat ->
+      ?background:Css_Property.background ->
+      unit ->
+      Css_Property.backgrounds t = "" [@@bs.obj]
+
+    external borders:
+      ?borderTop:Css_Property.border_top ->
+      ?borderRight:Css_Property.border_right ->
+      ?borderBottom:Css_Property.border_bottom ->
+      ?borderLeft:Css_Property.border_left ->
+      ?border:Css_Property.border ->
+      unit ->
+      Css_Property.borders t = "" [@@bs.obj]
+
+    external border_colors:
+      ?borderTopColor:Css_Property.border_top_color ->
+      ?borderRightColor:Css_Property.border_right_color ->
+      ?borderBottomColor:Css_Property.border_bottom_color ->
+      ?borderLeftColor:Css_Property.border_left_color ->
+      ?borderColor:Css_Property.border_color ->
+      unit ->
+      Css_Property.border_colors t = "" [@@bs.obj]
+
+    external border_styles:
+      ?borderTopStyle:Css_Property.border_top_style ->
+      ?borderRightStyle:Css_Property.border_right_style ->
+      ?borderBottomStyle:Css_Property.border_bottom_style ->
+      ?borderLeftStyle:Css_Property.border_left_style ->
+      ?borderStyle:Css_Property.border_style ->
+      unit ->
+      Css_Property.border_styles t = "" [@@bs.obj]
+
+    external border_widths:
+      ?borderTopWidth:Css_Property.border_top_width ->
+      ?borderRightWidth:Css_Property.border_right_width ->
+      ?borderBottomWidth:Css_Property.border_bottom_width ->
+      ?borderLeftWidth:Css_Property.border_left_width ->
+      ?borderWidth:Css_Property.border_width ->
+      unit ->
+      Css_Property.border_widths t = "" [@@bs.obj]
+
+    external heights:
+      ?height:Css_Property.height ->
+      ?minHeight:Css_Property.min_height ->
+      ?maxHeight:Css_Property.max_height ->
+      unit ->
+      Css_Property.heights t = "" [@@bs.obj]
+
+    external cues:
+      ?cueAfter:Css_Property.cue_after ->
+      ?cueBefore:Css_Property.cue_before ->
+      ?cue:Css_Property.cue ->
+      unit ->
+      Css_Property.cues t = "" [@@bs.obj]
+
+    external flexs:
+      ?flex:Css_Property.flex' ->
+      ?flexBasis:Css_Property.flex_basis ->
+      ?flexDirection:Css_Property.flex_direction ->
+      ?flexFlow:Css_Property.flex_flow ->
+      ?flexGrow:Css_Property.flex_grow ->
+      ?flexShrink:Css_Property.flex_shrink ->
+      ?flexWrap:Css_Property.flex_wrap ->
+      unit ->
+      Css_Property.flexs t = "" [@@bs.obj]
+
+    external fonts:
+      ?fontFamily:Css_Property.font_family ->
+      ?fontSize:Css_Property.font_size ->
+      ?fontStyle:Css_Property.font_style ->
+      ?fontVariant:Css_Property.font_variant ->
+      ?fontWeight:Css_Property.font_weight ->
+      ?font:Css_Property.font ->
+      unit ->
+      Css_Property.fonts t = "" [@@bs.obj]
+
+    external margins:
+      ?margin:Css_Property.margin ->
+      ?marginTop:Css_Property.margin_top ->
+      ?marginRight:Css_Property.margin_right ->
+      ?marginBottom:Css_Property.margin_bottom ->
+      ?marginLeft:Css_Property.margin_left ->
+      unit ->
+      Css_Property.margins t = "" [@@bs.obj]
+
+    external paddings:
+      ?padding:Css_Property.padding ->
+      ?paddingTop:Css_Property.padding_top ->
+      ?paddingRight:Css_Property.padding_right ->
+      ?paddingBottom:Css_Property.padding_bottom ->
+      ?paddingLeft:Css_Property.padding_left ->
+      unit ->
+      Css_Property.paddings t = "" [@@bs.obj]
+
+    external list_styles:
+      ?listStyleImage:Css_Property.list_style_image ->
+      ?listStylePosition:Css_Property.list_style_position ->
+      ?listStyleType:Css_Property.list_style_type ->
+      ?listStyle:Css_Property.list_style ->
+      unit ->
+      Css_Property.list_styles t = "" [@@bs.obj]
+
+    external outlines:
+      ?outlineColor:Css_Property.outline_color ->
+      ?outlineStyle:Css_Property.outline_style ->
+      ?outlineWidth:Css_Property.outline_width ->
+      ?outline:Css_Property.outline ->
+      unit ->
+      Css_Property.outlines t = "" [@@bs.obj]
+
+    external page_breaks:
+      ?pageBreakBefore:Css_Property.page_break_before ->
+      ?pageBreakAfter:Css_Property.page_break_after ->
+      ?pageBreakInside:Css_Property.page_break_inside ->
+      unit ->
+      Css_Property.page_breaks t = "" [@@bs.obj]
+
+    external page_breaks_inside:
+      ?orphans:Css_Property.orphans ->
+      ?widows:Css_Property.widows ->
+      unit ->
+      Css_Property.page_break_inside t = "" [@@bs.obj]
+
+    external pauses:
+      ?pauseAfter:Css_Property.pause_after ->
+      ?pauseBefore:Css_Property.pause_before ->
+      ?pause:Css_Property.pause ->
+      unit ->
+      Css_Property.pauses t = "" [@@bs.obj]
+
+    external positions:
+      ?top:Css_Property.top ->
+      ?right:Css_Property.right ->
+      ?bottom:Css_Property.bottom ->
+      ?left:Css_Property.left ->
+      unit ->
+      Css_Property.positions t = "" [@@bs.obj]
+
+    external speaks:
+      ?speakHeader:Css_Property.speak_header ->
+      ?speakNumeral:Css_Property.speak_numeral ->
+      ?speakPunctuation:Css_Property.speak_punctuation ->
+      ?speak:Css_Property.speak ->
+      unit ->
+      Css_Property.speaks t = "" [@@bs.obj]
+
+    external texts:
+      ?textDecoration:Css_Property.text_decoration ->
+      ?textTransform:Css_Property.text_transform ->
+      ?textAlign:Css_Property.text_align ->
+      ?textIndent:Css_Property.text_indent ->
+      unit ->
+      Css_Property.texts t = "" [@@bs.obj]
+
+    external widths:
+      ?width:Css_Property.width ->
+      ?minWidth:Css_Property.min_width ->
+      ?maxWidth:Css_Property.max_width ->
+      unit ->
+      Css_Property.widths t = "" [@@bs.obj]
+  end
+
+
+  module MediaGroup = struct
+    external aural:
+      ?azimuth:Css_Property.azimuth ->
+      ?cueAfter:Css_Property.cue_after ->
+      ?cueBefore:Css_Property.cue_before ->
+      ?cue:Css_Property.cue ->
+      ?elevation:Css_Property.elevation ->
+      ?pauseAfter:Css_Property.pause_after ->
+      ?pauseBefore:Css_Property.pause_before ->
+      ?pause:Css_Property.pause ->
+      ?pitchRange:Css_Property.pitch_range ->
+      ?pitch:Css_Property.pitch ->
+      ?playDuring:Css_Property.play_during ->
+      ?richness:Css_Property.richness ->
+      ?speakHeader:Css_Property.speak_header ->
+      ?speakNumeral:Css_Property.speak_numeral ->
+      ?speakPunctuation:Css_Property.speak_punctuation ->
+      ?speak:Css_Property.speak ->
+      ?speechRate:Css_Property.speech_rate ->
+      ?stress:Css_Property.stress ->
+      ?voiceFamily:Css_Property.voice_family ->
+      ?volume:Css_Property.volume ->
+      unit ->
+      Css_Property.MediaGroup.aural t = "" [@@bs.obj]
+
+    external interactive:
+      ?cursor:Css_Property.cursor ->
+      ?outlineColor:Css_Property.outline_color ->
+      ?outlineStyle:Css_Property.outline_style ->
+      ?outlineWidth:Css_Property.outline_width ->
+      ?outline:Css_Property.outline ->
+      unit ->
+      Css_Property.MediaGroup.interactive t = "" [@@bs.obj]
+
+    external visual:
+      ?alignContent:Css_Property.align_content ->
+      ?alignItems:Css_Property.align_items ->
+      ?alignSelf:Css_Property.align_self ->
+      ?backgroundAttachment:Css_Property.background_attachment ->
+      ?backgroundColor:Css_Property.background_color ->
+      ?backgroundImage:Css_Property.background_image ->
+      ?backgroundPosition:Css_Property.background_position ->
+      ?backgroundRepeat:Css_Property.background_repeat ->
+      ?background:Css_Property.background ->
+      ?borderCollapse:Css_Property.border_collapse ->
+      ?borderTopColor:Css_Property.border_top_color ->
+      ?borderRightColor:Css_Property.border_right_color ->
+      ?borderBottomColor:Css_Property.border_bottom_color ->
+      ?borderLeftColor:Css_Property.border_left_color ->
+      ?borderColor:Css_Property.border_color ->
+      ?borderSpacing:Css_Property.border_spacing ->
+      ?borderTopStyle:Css_Property.border_top_style ->
+      ?borderRightStyle:Css_Property.border_right_style ->
+      ?borderBottomStyle:Css_Property.border_bottom_style ->
+      ?borderLeftStyle:Css_Property.border_left_style ->
+      ?borderStyle:Css_Property.border_style ->
+      ?borderTopWidth:Css_Property.border_top_width ->
+      ?borderRightWidth:Css_Property.border_right_width ->
+      ?borderBottomWidth:Css_Property.border_bottom_width ->
+      ?borderLeftWidth:Css_Property.border_left_width ->
+      ?borderWidth:Css_Property.border_width ->
+      ?borderTop:Css_Property.border_top ->
+      ?borderRight:Css_Property.border_right ->
+      ?borderBottom:Css_Property.border_bottom ->
+      ?borderLeft:Css_Property.border_left ->
+      ?border:Css_Property.border ->
+      ?captionSide:Css_Property.caption_side ->
+      ?clear:Css_Property.clear ->
+      ?clip:Css_Property.clip ->
+      ?color:Css_Property.color ->
+      ?cursor:Css_Property.cursor ->
+      ?direction:Css_Property.direction ->
+      ?emptyCells:Css_Property.empty_cells ->
+      ?flex:Css_Property.flex' ->
+      ?flexBasis:Css_Property.flex_basis ->
+      ?flexDirection:Css_Property.flex_direction ->
+      ?flexFlow:Css_Property.flex_flow ->
+      ?flexGrow:Css_Property.flex_grow ->
+      ?flexShrink:Css_Property.flex_shrink ->
+      ?flexWrap:Css_Property.flex_wrap ->
+      ?float:Css_Property.float_ ->
+      ?fontFamily:Css_Property.font_family ->
+      ?fontSize:Css_Property.font_size ->
+      ?fontStyle:Css_Property.font_style ->
+      ?fontVariant:Css_Property.font_variant ->
+      ?fontWeight:Css_Property.font_weight ->
+      ?font:Css_Property.font ->
+      ?height:Css_Property.height ->
+      ?minHeight:Css_Property.min_height ->
+      ?maxHeight:Css_Property.max_height ->
+      ?justifyContent:Css_Property.justify_content ->
+      ?letterSpacing:Css_Property.letter_spacing ->
+      ?lineHeight:Css_Property.line_height ->
+      ?listStyleImage:Css_Property.list_style_image ->
+      ?listStylePosition:Css_Property.list_style_position ->
+      ?listStyleType:Css_Property.list_style_type ->
+      ?listStyle:Css_Property.list_style ->
+      ?margin:Css_Property.margin ->
+      ?marginTop:Css_Property.margin_top ->
+      ?marginRight:Css_Property.margin_right ->
+      ?marginBottom:Css_Property.margin_bottom ->
+      ?marginLeft:Css_Property.margin_left ->
+      ?order:Css_Property.order ->
+      ?outlineColor:Css_Property.outline_color ->
+      ?outlineStyle:Css_Property.outline_style ->
+      ?outlineWidth:Css_Property.outline_width ->
+      ?outline:Css_Property.outline ->
+      ?overflow:Css_Property.overflow ->
+      ?padding:Css_Property.padding ->
+      ?paddingTop:Css_Property.padding_top ->
+      ?paddingRight:Css_Property.padding_right ->
+      ?paddingBottom:Css_Property.padding_bottom ->
+      ?paddingLeft:Css_Property.padding_left ->
+      ?pageBreakBefore:Css_Property.page_break_before ->
+      ?pageBreakAfter:Css_Property.page_break_after ->
+      ?pageBreakInside:Css_Property.page_break_inside ->
+      ?orphans:Css_Property.orphans ->
+      ?widows:Css_Property.widows ->
+      ?top:Css_Property.top ->
+      ?right:Css_Property.right ->
+      ?bottom:Css_Property.bottom ->
+      ?left:Css_Property.left ->
+      ?tableLayout:Css_Property.table_layout ->
+      ?textDecoration:Css_Property.text_decoration ->
+      ?textTransform:Css_Property.text_transform ->
+      ?textAlign:Css_Property.text_align ->
+      ?textIndent:Css_Property.text_indent ->
+      ?unicodeBidi:Css_Property.unicode_bidi ->
+      ?verticalAlign:Css_Property.vertical_align ->
+      ?visibility:Css_Property.visibility ->
+      ?whiteSpace:Css_Property.white_space ->
+      ?width:Css_Property.width ->
+      ?minWidth:Css_Property.min_width ->
+      ?maxWidth:Css_Property.max_width ->
+      ?wordSpacing:Css_Property.word_spacing ->
+      ?zIndex:Css_Property.z_index ->
+      unit ->
+      Css_Property.MediaGroup.visual t = "" [@@bs.obj]
+
+    external paged:
+      ?margin:Css_Property.margin ->
+      ?marginTop:Css_Property.margin_top ->
+      ?marginRight:Css_Property.margin_right ->
+      ?marginBottom:Css_Property.margin_bottom ->
+      ?marginLeft:Css_Property.margin_left ->
+      ?pageBreakBefore:Css_Property.page_break_before ->
+      ?pageBreakAfter:Css_Property.page_break_after ->
+      ?pageBreakInside:Css_Property.page_break_inside ->
+      ?orphans:Css_Property.orphans ->
+      ?widows:Css_Property.widows ->
+      unit ->
+      Css_Property.MediaGroup.paged t = "" [@@bs.obj]
+  end
+
+
+  module AppliesTo = struct
+  end
+
 
   (* TODO: this should have all styles that apply to non-replaced elements *)
   external non_replaced:
@@ -64,16 +379,368 @@ module Internal = struct
     Css_Property.inline t = "" [@@bs.obj]
 end
 
-module MediaGroup = struct
-  let visual ?backgroundColor ?color () =
-    Internal.visual
+
+module Groups = struct
+  let aligns ?alignContent ?alignItems ?alignSelf () =
+    Internal.Groups.aligns
+      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
+      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
+      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
+      ()
+
+  let backgrounds ?backgroundAttachment ?backgroundColor ?backgroundImage
+    ?backgroundPosition ?backgroundRepeat ?background () =
+    Internal.Groups.backgrounds
+      ?backgroundAttachment:
+        (Belt.Option.map backgroundAttachment BackgroundAttachment.make)
       ?backgroundColor:(Belt.Option.map backgroundColor BackgroundColor.make)
+      ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
+      ?backgroundPosition:
+        (Belt.Option.map backgroundPosition BackgroundPosition.make)
+      ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
+      ?background:(Belt.Option.map background Background.make)
+      ()
+
+  let borders ?borderTop ?borderRight ?borderBottom ?borderLeft ?border () =
+    Internal.Groups.borders
+      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
+      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
+      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
+      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
+      ?border:(Belt.Option.map border Border.make)
+      ()
+
+  let border_colors ?borderTopColor ?borderRightColor ?borderBottomColor
+    ?borderLeftColor ?borderColor () =
+    Internal.Groups.border_colors
+      ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
+      ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
+      ?borderBottomColor:
+        (Belt.Option.map borderBottomColor BorderBottomColor.make)
+      ?borderLeftColor:(Belt.Option.map borderLeftColor BorderLeftColor.make)
+      ?borderColor:(Belt.Option.map borderColor BorderColor.make)
+      ()
+
+  let border_styles ?borderTopStyle ?borderRightStyle ?borderBottomStyle
+    ?borderLeftStyle ?borderStyle () =
+    Internal.Groups.border_styles
+      ?borderTopStyle:(Belt.Option.map borderTopStyle BorderTopStyle.make)
+      ?borderRightStyle:(Belt.Option.map borderRightStyle BorderRightStyle.make)
+      ?borderBottomStyle:
+        (Belt.Option.map borderBottomStyle BorderBottomStyle.make)
+      ?borderLeftStyle:(Belt.Option.map borderLeftStyle BorderLeftStyle.make)
+      ?borderStyle:(Belt.Option.map borderStyle BorderStyle.make)
+      ()
+
+  let border_widths ?borderTopWidth ?borderRightWidth ?borderBottomWidth
+    ?borderLeftWidth ?borderWidth () =
+    Internal.Groups.border_widths
+      ?borderTopWidth:(Belt.Option.map borderTopWidth BorderTopWidth.make)
+      ?borderRightWidth:(Belt.Option.map borderRightWidth BorderRightWidth.make)
+      ?borderBottomWidth:
+        (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
+      ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
+      ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
+      ()
+
+
+  let heights ?height ?minHeight ?maxHeight () =
+    Internal.Groups.heights
+      ?height:(Belt.Option.map height Height.make)
+      ?minHeight:(Belt.Option.map minHeight MinHeight.make)
+      ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
+      ()
+
+  let cues ?cueAfter ?cueBefore ?cue () =
+    Internal.Groups.cues
+      ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
+      ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
+      ?cue:(Belt.Option.map cue Cue.make)
+      ()
+
+  let flexs ?flex ?flexBasis ?flexDirection ?flexFlow ?flexGrow ?flexShrink
+    ?flexWrap () =
+    Internal.Groups.flexs
+      ?flex:(Belt.Option.map flex Flex.make)
+      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
+      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
+      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
+      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
+      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
+      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ()
+
+  let fonts ?fontFamily ?fontSize ?fontStyle ?fontVariant ?fontWeight ?font
+    () =
+    Internal.Groups.fonts
+      ?fontFamily:(Belt.Option.map fontFamily FontFamily.make)
+      ?fontSize:(Belt.Option.map fontSize FontSize.make)
+      ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
+      ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
+      ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
+      ?font:(Belt.Option.map font Font.make)
+      ()
+
+  let margins ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft () =
+    Internal.Groups.margins
+      ?margin:(Belt.Option.map margin Margin.make)
+      ?marginTop:(Belt.Option.map marginTop MarginTop.make)
+      ?marginRight:(Belt.Option.map marginRight MarginRight.make)
+      ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
+      ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
+      ()
+
+  let paddings ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft 
+    () =
+    Internal.Groups.paddings
+      ?padding:(Belt.Option.map padding Padding.make)
+      ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
+      ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
+      ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
+      ?paddingLeft:(Belt.Option.map paddingLeft PaddingLeft.make)
+      ()
+
+  let list_styles ?listStyleImage ?listStylePosition ?listStyleType ?listStyle 
+    () =
+    Internal.Groups.list_styles
+      ?listStyleImage:(Belt.Option.map listStyleImage ListStyleImage.make)
+      ?listStylePosition:
+        (Belt.Option.map listStylePosition ListStylePosition.make)
+      ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
+      ?listStyle:(Belt.Option.map listStyle ListStyle.make)
+      ()
+
+  let outlines ?outlineColor ?outlineStyle ?outlineWidth ?outline () =
+    Internal.Groups.outlines
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline:(Belt.Option.map outline Outline.make)
+      ()
+
+  let page_breaks ?pageBreakBefore ?pageBreakAfter ?pageBreakInside () =
+    Internal.Groups.page_breaks
+      ?pageBreakBefore:(Belt.Option.map pageBreakBefore PageBreakBefore.make)
+      ?pageBreakAfter:(Belt.Option.map pageBreakAfter PageBreakAfter.make)
+      ?pageBreakInside:(Belt.Option.map pageBreakInside PageBreakInside.make)
+      ()
+
+  let page_breaks_inside ?orphans ?widows () =
+    Internal.Groups.page_breaks_inside
+      ?orphans:(Belt.Option.map orphans Orphans.make)
+      ?widows:(Belt.Option.map widows Widows.make)
+      ()
+
+  let pauses ?pauseAfter ?pauseBefore ?pause () =
+    Internal.Groups.pauses
+      ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
+      ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
+      ?pause:(Belt.Option.map pause Pause.make)
+      ()
+
+  let positions ?top ?right ?bottom ?left () =
+    Internal.Groups.positions
+      ?top:(Belt.Option.map top Top.make)
+      ?right:(Belt.Option.map right Right.make)
+      ?bottom:(Belt.Option.map bottom Bottom.make)
+      ?left:(Belt.Option.map left Left.make)
+      ()
+
+  let speaks ?speakHeader ?speakNumeral ?speakPunctuation ?speak () =
+    Internal.Groups.speaks
+      ?speakHeader:(Belt.Option.map speakHeader SpeakHeader.make)
+      ?speakNumeral:(Belt.Option.map speakNumeral SpeakNumeral.make)
+      ?speakPunctuation:(Belt.Option.map speakPunctuation SpeakPunctuation.make)
+      ?speak:(Belt.Option.map speak Speak.make)
+      ()
+
+  let texts ?textDecoration ?textTransform ?textAlign ?textIndent () =
+    Internal.Groups.texts
+      ?textDecoration:(Belt.Option.map textDecoration TextDecoration.make)
+      ?textTransform:(Belt.Option.map textTransform TextTransform.make)
+      ?textAlign:(Belt.Option.map textAlign TextAlign.make)
+      ?textIndent:(Belt.Option.map textIndent TextIndent.make)
+      ()
+
+  let widths ?width ?minWidth ?maxWidth () =
+    Internal.Groups.widths
+      ?width:(Belt.Option.map width Width.make)
+      ?minWidth:(Belt.Option.map minWidth MinWidth.make)
+      ?maxWidth:(Belt.Option.map maxWidth MaxWidth.make)
+      ()
+end
+
+
+module MediaGroup = struct
+  let aural ?azimuth ?cueAfter ?cueBefore ?cue ?elevation ?pauseAfter
+    ?pauseBefore ?pause ?pitchRange ?pitch ?playDuring ?richness ?speakHeader
+    ?speakNumeral ?speakPunctuation ?speak ?speechRate ?stress ?voiceFamily
+    ?volume () =
+    Internal.MediaGroup.aural
+      ?azimuth:(Belt.Option.map azimuth Azimuth.make)
+      ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
+      ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
+      ?cue:(Belt.Option.map cue Cue.make)
+      ?elevation:(Belt.Option.map elevation Elevation.make)
+      ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
+      ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
+      ?pause:(Belt.Option.map pause Pause.make)
+      ?pitchRange:(Belt.Option.map pitchRange PitchRange.make)
+      ?pitch:(Belt.Option.map pitch Pitch.make)
+      ?playDuring:(Belt.Option.map playDuring PlayDuring.make)
+      ?richness:(Belt.Option.map richness Richness.make)
+      ?speakHeader:(Belt.Option.map speakHeader SpeakHeader.make)
+      ?speakNumeral:(Belt.Option.map speakNumeral SpeakNumeral.make)
+      ?speakPunctuation:(Belt.Option.map speakPunctuation SpeakPunctuation.make)
+      ?speak:(Belt.Option.map speak Speak.make)
+      ?speechRate:(Belt.Option.map speechRate SpeechRate.make)
+      ?stress:(Belt.Option.map stress Stress.make)
+      ?voiceFamily:(Belt.Option.map voiceFamily VoiceFamily.make)
+      ?volume:(Belt.Option.map volume Volume.make)
+      ()
+
+  let interactive ?cursor ?outlineColor ?outlineStyle ?outlineWidth ?outline
+    () =
+    Internal.MediaGroup.interactive
+      ?cursor:(Belt.Option.map cursor Cursor.make)
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline:(Belt.Option.map outline Outline.make)
+      ()
+
+  let visual ?alignContent ?alignItems ?alignSelf ?backgroundAttachment
+    ?backgroundColor ?backgroundImage ?backgroundPosition ?backgroundRepeat
+    ?background ?borderCollapse ?borderTopColor ?borderRightColor
+    ?borderBottomColor ?borderLeftColor ?borderColor ?borderSpacing
+    ?borderTopStyle ?borderRightStyle ?borderBottomStyle ?borderLeftStyle
+    ?borderStyle ?borderTopWidth ?borderRightWidth ?borderBottomWidth
+    ?borderLeftWidth ?borderWidth ?borderTop ?borderRight ?borderBottom
+    ?borderLeft ?border ?captionSide ?clear ?clip ?color ?cursor ?direction
+    ?emptyCells ?flex ?flexBasis ?flexDirection ?flexFlow ?flexGrow
+    ?flexShrink ?flexWrap ?float ?fontFamily ?fontSize ?fontStyle ?fontVariant
+    ?fontWeight ?font ?height ?minHeight ?maxHeight ?justifyContent
+    ?letterSpacing ?lineHeight ?listStyleImage ?listStylePosition
+    ?listStyleType ?listStyle ?margin ?marginTop ?marginRight ?marginBottom
+    ?marginLeft ?order ?outlineColor ?outlineStyle ?outlineWidth ?outline
+    ?overflow ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft
+    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows ?top
+    ?right ?bottom ?left ?tableLayout ?textDecoration ?textTransform ?textAlign
+    ?textIndent ?unicodeBidi ?verticalAlign ?visibility ?whiteSpace ?width
+    ?minWidth ?maxWidth ?wordSpacing ?zIndex () =
+    Internal.MediaGroup.visual
+      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
+      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
+      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
+      ?backgroundAttachment:
+        (Belt.Option.map backgroundAttachment BackgroundAttachment.make)
+      ?backgroundColor:(Belt.Option.map backgroundColor BackgroundColor.make)
+      ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
+      ?backgroundPosition:
+        (Belt.Option.map backgroundPosition BackgroundPosition.make)
+      ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
+      ?background:(Belt.Option.map background Background.make)
+      ?borderCollapse:(Belt.Option.map borderCollapse BorderCollapse.make)
+      ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
+      ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
+      ?borderBottomColor:
+        (Belt.Option.map borderBottomColor BorderBottomColor.make)
+      ?borderLeftColor:(Belt.Option.map borderLeftColor BorderLeftColor.make)
+      ?borderColor:(Belt.Option.map borderColor BorderColor.make)
+      ?borderSpacing:(Belt.Option.map borderSpacing BorderSpacing.make)
+      ?borderTopStyle:(Belt.Option.map borderTopStyle BorderTopStyle.make)
+      ?borderRightStyle:(Belt.Option.map borderRightStyle BorderRightStyle.make)
+      ?borderBottomStyle:
+        (Belt.Option.map borderBottomStyle BorderBottomStyle.make)
+      ?borderLeftStyle:(Belt.Option.map borderLeftStyle BorderLeftStyle.make)
+      ?borderStyle:(Belt.Option.map borderStyle BorderStyle.make)
+      ?borderTopWidth:(Belt.Option.map borderTopWidth BorderTopWidth.make)
+      ?borderRightWidth:(Belt.Option.map borderRightWidth BorderRightWidth.make)
+      ?borderBottomWidth:
+        (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
+      ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
+      ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
+      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
+      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
+      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
+      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
+      ?border:(Belt.Option.map border Border.make)
+      ?captionSide:(Belt.Option.map captionSide CaptionSide.make)
+      ?clear:(Belt.Option.map clear Clear.make)
+      ?clip:(Belt.Option.map clip Clip.make)
       ?color:(Belt.Option.map color Color.make)
+      ?cursor:(Belt.Option.map cursor Cursor.make)
+      ?direction:(Belt.Option.map direction Direction.make)
+      ?emptyCells:(Belt.Option.map emptyCells EmptyCells.make)
+      ?flex:(Belt.Option.map flex Flex.make)
+      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
+      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
+      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
+      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
+      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
+      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ?float:(Belt.Option.map float Float.make)
+      ?fontFamily:(Belt.Option.map fontFamily FontFamily.make)
+      ?fontSize:(Belt.Option.map fontSize FontSize.make)
+      ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
+      ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
+      ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
+      ?font:(Belt.Option.map font Font.make)
+      ?height:(Belt.Option.map height Height.make)
+      ?minHeight:(Belt.Option.map minHeight MinHeight.make)
+      ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
+      ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
+      ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
+      ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
+      ?listStyleImage:(Belt.Option.map listStyleImage ListStyleImage.make)
+      ?listStylePosition:
+        (Belt.Option.map listStylePosition ListStylePosition.make)
+      ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
+      ?listStyle:(Belt.Option.map listStyle ListStyle.make)
+      ?margin:(Belt.Option.map margin Margin.make)
+      ?marginTop:(Belt.Option.map marginTop MarginTop.make)
+      ?marginRight:(Belt.Option.map marginRight MarginRight.make)
+      ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
+      ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
+      ?order:(Belt.Option.map order Order.make)
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline:(Belt.Option.map outline Outline.make)
+      ?overflow:(Belt.Option.map overflow Overflow.make)
+      ?padding:(Belt.Option.map padding Padding.make)
+      ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
+      ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
+      ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
+      ?paddingLeft:(Belt.Option.map paddingLeft PaddingLeft.make)
+      ?pageBreakBefore:(Belt.Option.map pageBreakBefore PageBreakBefore.make)
+      ?pageBreakAfter:(Belt.Option.map pageBreakAfter PageBreakAfter.make)
+      ?pageBreakInside:(Belt.Option.map pageBreakInside PageBreakInside.make)
+      ?orphans:(Belt.Option.map orphans Orphans.make)
+      ?widows:(Belt.Option.map widows Widows.make)
+      ?top:(Belt.Option.map top Top.make)
+      ?right:(Belt.Option.map right Right.make)
+      ?bottom:(Belt.Option.map bottom Bottom.make)
+      ?left:(Belt.Option.map left Left.make)
+      ?tableLayout:(Belt.Option.map tableLayout TableLayout.make)
+      ?textDecoration:(Belt.Option.map textDecoration TextDecoration.make)
+      ?textTransform:(Belt.Option.map textTransform TextTransform.make)
+      ?textAlign:(Belt.Option.map textAlign TextAlign.make)
+      ?textIndent:(Belt.Option.map textIndent TextIndent.make)
+      ?unicodeBidi:(Belt.Option.map unicodeBidi UnicodeBidi.make)
+      ?verticalAlign:(Belt.Option.map verticalAlign VerticalAlign.make)
+      ?visibility:(Belt.Option.map visibility Visibility.make)
+      ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
+      ?width:(Belt.Option.map width Width.make)
+      ?minWidth:(Belt.Option.map minWidth MinWidth.make)
+      ?maxWidth:(Belt.Option.map maxWidth MaxWidth.make)
+      ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make)
+      ?zIndex:(Belt.Option.map zIndex ZIndex.make)
       ()
 
   let paged ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
-    Internal.paged
+    Internal.MediaGroup.paged
       ?margin:(Belt.Option.map margin Margin.make)
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
