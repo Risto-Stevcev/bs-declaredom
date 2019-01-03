@@ -58,9 +58,9 @@ test ~name:"css property - azimuth" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`angle (90., `deg)) "90deg";
-  t |> equal (`angle (180., `rad)) "180rad";
-  t |> equal (`angle (60.5, `grad)) "60.5grad";
+  t |> equal (`deg 90.) "90deg";
+  t |> equal (`rad 180.) "180rad";
+  t |> equal (`grad 60.5) "60.5grad";
   t |> equal `left_side "left-side";
   t |> equal `far_left "far-left";
   t |> equal `left "left";
@@ -131,15 +131,15 @@ test ~name:"css property - background-position" @@ fun t -> begin
   t |> equal `top "top";
   t |> equal `bottom "bottom";
   t |> equal `center "center";
-  t |> equal (`value2 (`percent 0, `percent 0)) "0% 0%";
-  t |> equal (`value2 (`percent 50, `top)) "50% top";
+  t |> equal (`value2 (`percent 0., `percent 0.)) "0% 0%";
+  t |> equal (`value2 (`percent 50., `top)) "50% top";
   t |> equal (`value2 (`left, `top)) "left top";
   t |> equal (`value2 (`left, `bottom)) "left bottom";
-  t |> equal (`value2 (`right, `percent 25)) "right 25%";
+  t |> equal (`value2 (`right, `percent 25.)) "right 25%";
   t |> equal (`value2 (`right, `top)) "right top";
   t |> equal (`value2 (`right, `bottom)) "right bottom";
   t |> equal (`value2 (`center, `bottom)) "center bottom";
-  t |> equal (`value4 (`left, `percent 10, `top, `percent 50))
+  t |> equal (`value4 (`left, `percent 10., `top, `percent 50.))
              "left 10% top 50%";
   t |> T.end_
 end; 
@@ -209,7 +209,7 @@ test ~name:"css property - border-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -221,7 +221,7 @@ test ~name:"css property - border-spacing" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -245,8 +245,8 @@ test ~name:"css property - border-top" @@ fun t -> begin
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_top ()) "inherit";
-  t |> equal (border_top ~width:(`length (5., `px)) ()) "5px";
-  t |> equal (border_top ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+  t |> equal (border_top ~width:(`px 5.) ()) "5px";
+  t |> equal (border_top ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -257,8 +257,8 @@ test ~name:"css property - border-bottom" @@ fun t -> begin
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_bottom ()) "inherit";
-  t |> equal (border_bottom ~width:(`length (5., `px)) ()) "5px";
-  t |> equal (border_bottom ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+  t |> equal (border_bottom ~width:(`px 5.) ()) "5px";
+  t |> equal (border_bottom ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -269,8 +269,8 @@ test ~name:"css property - border-left" @@ fun t -> begin
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_left ()) "inherit";
-  t |> equal (border_left ~width:(`length (5., `px)) ()) "5px";
-  t |> equal (border_left ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+  t |> equal (border_left ~width:(`px 5.) ()) "5px";
+  t |> equal (border_left ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -281,8 +281,8 @@ test ~name:"css property - border-right" @@ fun t -> begin
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_right ()) "inherit";
-  t |> equal (border_right ~width:(`length (5., `px)) ()) "5px";
-  t |> equal (border_right ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+  t |> equal (border_right ~width:(`px 5.) ()) "5px";
+  t |> equal (border_right ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -293,8 +293,8 @@ test ~name:"css property - border" @@ fun t -> begin
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal (border_right ()) "inherit";
-  t |> equal (border_right ~width:(`length (5., `px)) ()) "5px";
-  t |> equal (border_right ~width:(`length (5., `px)) ~color:`red ~style:`dashed ())
+  t |> equal (border_right ~width:(`px 5.) ()) "5px";
+  t |> equal (border_right ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -418,7 +418,7 @@ test ~name:"css property - border-top-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -433,7 +433,7 @@ test ~name:"css property - border-right-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -448,7 +448,7 @@ test ~name:"css property - border-bottom-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -463,7 +463,7 @@ test ~name:"css property - border-left-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -475,8 +475,8 @@ test ~name:"css property - bottom" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
 
@@ -516,7 +516,7 @@ test ~name:"css property - clip" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`rect (`length (20., `px), `auto, `auto, `auto)) "rect(20px, auto, auto, auto)";
+  t |> equal (`rect (`px 20., `auto, `auto, `auto)) "rect(20px, auto, auto, auto)";
   t |> T.end_
 end;
 
@@ -633,9 +633,9 @@ test ~name:"css property - elevation" @@ fun t -> begin
   t |> equal `above "above";
   t |> equal `higher "higher";
   t |> equal `lower "lower";
-  t |> equal (`angle (90., `deg)) "90deg";
-  t |> equal (`angle (180., `rad)) "180rad";
-  t |> equal (`angle (60.5, `grad)) "60.5grad";
+  t |> equal (`deg 90.) "90deg";
+  t |> equal (`rad 180.) "180rad";
+  t |> equal (`grad 60.5) "60.5grad";
   t |> T.end_
 end;
 
@@ -661,9 +661,9 @@ test ~name:"css property - flex" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal `none "none";
-  t |> equal (`basis (`percent 20)) "20%";
-  t |> equal (`basis (`length (20.5, `px))) "20.5px";
-  t |> equal (`flex (0, Some 1, Some (`length (20.5, `px)))) "0 1 20.5px";
+  t |> equal (`basis (`percent 20.)) "20%";
+  t |> equal (`basis (`px 20.5)) "20.5px";
+  t |> equal (`flex (0, Some 1, Some (`px 20.5))) "0 1 20.5px";
   t |> T.end_
 end;
 
@@ -675,8 +675,8 @@ test ~name:"css property - flex-basis" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`percent 20) "20%";
-  t |> equal (`length (20.5, `px)) "20.5px";
+  t |> equal (`percent 20.) "20%";
+  t |> equal (`px 20.5) "20.5px";
   t |> T.end_
 end;
 
@@ -793,9 +793,9 @@ test ~name:"css property - font-size" @@ fun t -> begin
   t |> equal `xx_large "xx-large";
   t |> equal `larger "larger";
   t |> equal `smaller "smaller";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`length (0.8, `rem)) "0.8rem";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`rem 0.8) "0.8rem";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
 
@@ -858,12 +858,12 @@ test ~name:"css property - font" @@ fun t -> begin
   t |> equal (Font.make ~value:`unset ()) "unset";
   t |> equal (Font.make ~style:`italic
                         ~variant:`small_caps
-                        ~size:(`length (1.2, `em)) ())
+                        ~size:(`em 1.2) ())
              "italic small-caps 1.2em";
   t |> equal (Font.make ~style:`italic
                         ~weight:`bold
-                        ~size:(`length (1.2, `em))
-                        ~line_height:(`percent 120) ())
+                        ~size:(`em 1.2)
+                        ~line_height:(`percent 120.) ())
              "italic bold 1.2em/120%";
   t |> T.end_
 end;
@@ -876,8 +876,8 @@ test ~name:"css property - height" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
 
@@ -905,8 +905,8 @@ test ~name:"css property - left" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
 
@@ -918,7 +918,7 @@ test ~name:"css property - letter-spacing" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
+  t |> equal (`px 20.) "20px";
   t |> T.end_
 end;
 
@@ -930,8 +930,8 @@ test ~name:"css property - line-height" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
 
@@ -1010,9 +1010,9 @@ test ~name:"css property - margin" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
-  t |> equal (`margin (`percent 21, `percent 0, `percent 10, `percent 15))
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
+  t |> equal (`margin (`percent 21., `percent 0., `percent 10., `percent 15.))
              "21% 0% 10% 15%";
   t |> T.end_
 end;
@@ -1025,8 +1025,8 @@ test ~name:"css property - margin-top" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1038,8 +1038,8 @@ test ~name:"css property - margin-right" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1051,8 +1051,8 @@ test ~name:"css property - margin-bottom" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1064,8 +1064,8 @@ test ~name:"css property - margin-left" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1077,8 +1077,8 @@ test ~name:"css property - max-height" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1090,8 +1090,8 @@ test ~name:"css property - max-width" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1103,8 +1103,8 @@ test ~name:"css property - min-height" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1116,8 +1116,8 @@ test ~name:"css property - min-width" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1182,7 +1182,7 @@ test ~name:"css property - outline-width" @@ fun t -> begin
   t |> equal `thin "thin";
   t |> equal `medium "medium";
   t |> equal `thick "thick";
-  t |> equal (`length (12.5, `px)) "12.5px";
+  t |> equal (`px 12.5) "12.5px";
   t |> T.end_
 end;
 
@@ -1221,8 +1221,8 @@ test ~name:"css property - padding-top" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1234,8 +1234,8 @@ test ~name:"css property - padding-right" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1247,8 +1247,8 @@ test ~name:"css property - padding-bottom" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1260,8 +1260,8 @@ test ~name:"css property - padding-left" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
   t |> T.end_
 end;
 
@@ -1273,9 +1273,9 @@ test ~name:"css property - padding" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 21) "21%";
-  t |> equal (`padding (`percent 21, `percent 0, `percent 10, `percent 15))
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 21.) "21%";
+  t |> equal (`padding (`percent 21., `percent 0., `percent 10., `percent 15.))
              "21% 0% 10% 15%";
   t |> T.end_
 end;
@@ -1333,8 +1333,8 @@ test ~name:"css property - pause-after" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`time (125, `ms)) "125ms";
-  t |> equal (`time (5, `s)) "5s";
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
   t |> T.end_
 end;
 
@@ -1346,8 +1346,8 @@ test ~name:"css property - pause-before" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`time (125, `ms)) "125ms";
-  t |> equal (`time (5, `s)) "5s";
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
   t |> T.end_
 end;
 
@@ -1359,7 +1359,7 @@ test ~name:"css property - pause" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`pause (`time (125, `ms), `time (5, `s))) "125ms 5s";
+  t |> equal (`pause (`ms 125., `s 5.)) "125ms 5s";
   t |> T.end_
 end;
 
@@ -1388,7 +1388,7 @@ test ~name:"css property - pitch" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `high "high";
   t |> equal `x_high "x-high";
-  t |> equal (`frequency (105., `Hz)) "105Hz";
+  t |> equal (`Hz 105.) "105Hz";
   t |> T.end_
 end;
 
@@ -1554,8 +1554,8 @@ test ~name:"css property - text-indent" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 12) "12%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 12.) "12%";
   t |> T.end_
 end;
 
@@ -1602,8 +1602,8 @@ test ~name:"css property - vertical-align" @@ fun t -> begin
   t |> equal `text_top "text-top";
   t |> equal `text_bottom "text-bottom";
   t |> equal `middle "middle";
-  t |> equal (`length (12.5, `px)) "12.5px";
-  t |> equal (`percent 12) "12%";
+  t |> equal (`px 12.5) "12.5px";
+  t |> equal (`percent 12.) "12%";
   t |> equal `top "top";
   t |> equal `bottom "bottom";
   t |> T.end_
@@ -1653,7 +1653,7 @@ test ~name:"css property - volume" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `loud "loud";
   t |> equal `x_loud "x-loud";
-  t |> equal (`percent 20) "20%";
+  t |> equal (`percent 20.) "20%";
   t |> equal (`volume 25.) "25";
   t |> T.end_
 end;
@@ -1694,7 +1694,7 @@ test ~name:"css property - width" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`length (20., `px)) "20px";
-  t |> equal (`percent 80) "80%";
+  t |> equal (`px 20.) "20px";
+  t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;

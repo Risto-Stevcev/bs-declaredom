@@ -118,7 +118,8 @@ module Azimuth = struct
 
   let show: value -> string = function
   | ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
-  | `angle _ as angle -> Css_Value.Angle.show angle
+  | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
+    Css_Value.Angle.show angle
   | `behind None -> "behind"
   | `behind (Some value') -> 
     "behind " ^ (value' |> _valueToJs |> Util.underscore_to_dash)
@@ -263,7 +264,10 @@ module BorderSpacing = struct
     let show: t -> string = function
     | (`inherit_ | `initial | `unset) as value ->
       Css_Value.Global.show value
-    | `length _ as length ->
+    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
+      ) as length ->
       Css_Value.Length.show length
   end
 
@@ -606,7 +610,10 @@ module Clip = struct
     type value = [ Css_Value.Length.t | `auto ]
 
     let show_value: value -> string = function
-    | `length _ as length ->
+    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
+      ) as length ->
       Css_Value.Length.show length
     | `auto -> "auto"
 
@@ -795,7 +802,7 @@ module Elevation = struct
     let show: t -> string = function
     | (`inherit_ | `initial | `unset) as global ->
       Css_Value.Global.show global
-    | `angle _ as angle ->
+    | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
       Css_Value.Angle.show angle
     | (`below | `level | `above | `higher | `lower) as value ->
       valueToJs value
@@ -1116,10 +1123,12 @@ module LetterSpacing = struct
     let show: t -> string = function
     | (`inherit_ | `initial | `unset) as value ->
       Css_Value.Global.show value
-    | `length _ as length ->
+    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
+      ) as length ->
       Css_Value.Length.show length
-    | `normal ->
-      "normal"
+    | `normal -> "normal"
   end
 
   let make value: 'a t = `letter_spacing (Internal.make @@ Value.show value)
@@ -1208,7 +1217,10 @@ module Margin = struct
 
     let show: t -> string = function
     | ( `inherit_ | `initial   | `unset
-      | `length _ | `percent _ | `auto ) as value ->
+      | `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
+      | `percent _ | `auto ) as value ->
       Css_Value.LengthPercent.show value
     | `margin (top, right, bottom, left) ->
       Css_Value.LengthPercent.show top    ^" "^
@@ -1453,7 +1465,10 @@ module Padding = struct
 
     let show: t -> string = function
     | ( `inherit_ | `initial   | `unset
-      | `length _ | `percent _ | `auto ) as value ->
+      | `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
+      | `percent _ | `auto ) as value ->
       Css_Value.LengthPercent.show value
     | `padding (top, right, bottom, left) ->
       Css_Value.LengthPercent.show top    ^" "^
@@ -1573,7 +1588,7 @@ module Pitch = struct
     let show: t -> string = function
     | (`inherit_ | `initial | `unset) as global ->
       Css_Value.Global.show global
-    | `frequency _ as frequency ->
+    | ( `Hz _ | `kHz _ ) as frequency ->
       Css_Value.Frequency.show frequency
     | (`x_low | `low | `medium | `high | `x_high) as value ->
       valueToJs value
@@ -1923,8 +1938,13 @@ module VerticalAlign = struct
       let show: t -> string = function
       | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle ) as t ->
         valueToJs t
-      | `length _ as length -> Css_Value.Length.show length
-      | `percent _ as percent -> Css_Value.Percent.show percent
+      | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+        | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+        | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+        ) as length ->
+        Css_Value.Length.show length
+      | `percent _ as percent ->
+        Css_Value.Percent.show percent
     end
 
     module LineRelative = struct
@@ -1940,8 +1960,10 @@ module VerticalAlign = struct
     [ Css_Value.Global.t | Value.ParentRelative.t | Value.LineRelative.t ]
 
   let show: value -> string = function
-  | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle | `length _
-    | `percent _
+  | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle
+    | `cm _ | `mm _  | `Q _  | `in_ _  | `pt _   | `pc _ | `px _  | `em _
+    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _  | `ih _ | `rlh _ | `vw _
+    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _ | `percent _
     ) as parent_relative ->
     Value.ParentRelative.show parent_relative
   | ( `top | `bottom ) as line_relative ->
@@ -2072,6 +2094,7 @@ module Width = struct
     `width (Internal.make @@ Css_Value.LengthPercent.show value)
 end
 
+
 module WordSpacing = struct
   (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-word-spacing} Word-spacing} *)
 
@@ -2083,7 +2106,10 @@ module WordSpacing = struct
     let show: t -> string = function
     | (`inherit_ | `initial | `unset) as global ->
       Css_Value.Global.show global
-    | `length _ as length ->
+    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+      ) as length ->
       Css_Value.Length.show length
     | `normal -> "normal"
   end

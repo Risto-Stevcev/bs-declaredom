@@ -9,12 +9,12 @@ module Global = struct
 end
 
 
-module Angle = struct
-  type t = [ `angle of float * Css_Unit.Angle.t ]
-
-  let show (`angle (amount, unit_): t): string =
-    Js.Float.toString amount ^ Css_Unit.Angle.tToJs unit_
-end
+module Angle = Css_Unit.Angle
+module Time = Css_Unit.Time
+module Frequency = Css_Unit.Frequency
+module Length = Css_Unit.Length
+module Percent = Css_Unit.Percent
+module Other = Css_Unit.Other
 
 
 module Color = struct
@@ -179,53 +179,17 @@ module UriOrNone = struct
 end
 
 
-module Time = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#value-def-time} Time} *)
-
-  type t = [ `time of int * Css_Unit.Duration.t ]
-
-  let show (`time (amount, unit_): t): string =
-    Js.Int.toString amount ^ Css_Unit.Duration.show unit_
-end
-
-
-module Frequency = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#value-def-frequency} Frequency} *)
-
-  type t = [ `frequency of float * Css_Unit.Frequency.t ]
-
-  let show (`frequency (amount, unit_): t): string =
-    Js.Float.toString amount ^ Css_Unit.Frequency.show unit_
-end
-
-
-module Length = struct
-  (** {{: https://www.w3.org/TR/css-values-3/#lengths } Length} *)
-
-  type t = [ `length of float * Css_Unit.Length.t ]
-
-  let show (`length (amount, unit_): t): string =
-    Js.Float.toString amount ^ Css_Unit.Length.show unit_
-end
-
-
-module Percent = struct
-  (** {{: https://www.w3.org/TR/css-values-3/#percentages } Percent} *)
-
-  type t = [ `percent of int ]
-
-  let show (`percent amount: t): string = Js.Int.toString amount ^"%"
-end
-
-
 module LengthPercent = struct
   type t = [ Global.t | Length.t | Percent.t | `auto ]
 
   let show: t -> string = function
   | ( `inherit_ | `initial | `unset ) as global ->
     Global.show global
-  | `length _ as length ->
-    Length.show length
+  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+    ) as distance ->
+    Length.show distance
   | `percent _ as percent ->
     Percent.show percent
   | `auto -> "auto"
@@ -238,10 +202,10 @@ module TimePercent = struct
   let show: t -> string = function
   | ( `inherit_ | `initial | `unset ) as global ->
     Global.show global
+  | ( `s _ | `ms _ ) as time ->
+    Time.show time
   | `percent _ as percent ->
     Percent.show percent
-  | `time _ as duration ->
-    Time.show duration
 end
 
 
@@ -260,8 +224,14 @@ module Position = struct
 
   let anyToJs: any -> string = function
   | `left -> "left" | `right -> "right" | `top -> "top" | `bottom -> "bottom"
-  | `center -> "center" | `length _ as length -> Length.show length
-  | `percent _ as percent -> Percent.show percent
+  | `center -> "center"
+  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+    ) as length ->
+    Length.show length
+  | `percent _ as percent ->
+    Percent.show percent
 
   type t =
     [
@@ -280,15 +250,6 @@ module Position = struct
   | `value4 (h1, h2, v1, v2) ->
     anyToJs (h1 :> any) ^" "^ anyToJs (h2 :> any) ^" "^
     anyToJs (v1 :> any) ^" "^ anyToJs (v2 :> any)
-end
-
-
-(* TODO: is this <length> ? *)
-module Other = struct
-  type t = float * Css_Unit.Other.t
-
-  let show ((amount, unit_): t): string =
-    Js.Float.toString amount ^ Css_Unit.Other.show unit_
 end
 
 
@@ -340,7 +301,11 @@ module Border = struct
 			Global.show global
 		| ( `thin | `medium | `thick ) as value ->
 			valueToJs value
-		| `length _ as length -> Length.show length
+    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+      ) as length ->
+      Length.show length
 	end
 
 
@@ -421,8 +386,11 @@ module Font = struct
 			absolute_sizeToJs value |> Util.underscore_to_dash
 		| (`larger | `smaller) as value ->
 			relative_sizeToJs value
-		| `length _ as length ->
-			Length.show length
+    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+      ) as length ->
+      Length.show length
 		| `percent _ as percent ->
 			Percent.show percent
 	end
@@ -490,7 +458,10 @@ module LineHeight = struct
   let show: t -> string = function
   | (`inherit_ | `initial | `unset) as value ->
     Global.show value
-  | `length _ as length ->
+  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
+    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
+    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
+    ) as length ->
     Length.show length
   | `percent _ as percent ->
     Percent.show percent

@@ -50,24 +50,24 @@ end;;
 Test.test ~name:"@media range features" @@ fun t -> begin
   let equal x y t = t |> T.equal (Css_Media.show x) y in 
 
-  t |> equal (media [resolution 12. `dpi]) "@media (resolution: 12dpi)";
-  t |> equal (media [width 1024. `px]) "@media (width: 1024px)";
-  t |> equal (media [height 768. `px]) "@media (height: 768px)";
+  t |> equal (media [resolution @@ `dpi 12.]) "@media (resolution: 12dpi)";
+  t |> equal (media [width @@ `px 1024.]) "@media (width: 1024px)";
+  t |> equal (media [height @@ `px 768.]) "@media (height: 768px)";
   t |> equal (media [aspect_ratio 4 3]) "@media (aspect-ratio: 4/3)";
   t |> equal (media [color 1]) "@media (color: 1)";
   t |> equal (media [color_index 1]) "@media (color-index: 1)";
   t |> equal (media [monochrome 1]) "@media (monochrome: 1)";
-  t |> equal (media [device_width 1024. `px]) "@media (device-width: 1024px)";
-  t |> equal (media [device_height 768. `px]) "@media (device-height: 768px)";
+  t |> equal (media [device_width @@ `px 1024.]) "@media (device-width: 1024px)";
+  t |> equal (media [device_height @@ `px 768.]) "@media (device-height: 768px)";
 
-  t |> equal (media [min_width 1024. `px]) "@media (min-width: 1024px)";
-  t |> equal (media [max_width 1024. `px]) "@media (max-width: 1024px)";
+  t |> equal (media [min_width @@ `px 1024.]) "@media (min-width: 1024px)";
+  t |> equal (media [max_width @@ `px 1024.]) "@media (max-width: 1024px)";
 
-  t |> equal (media [width ~t:`lt 1024. `px]) "@media (width < 1024px)";
-  t |> equal (media [width ~t:`le 1024. `px]) "@media (width <= 1024px)";
-  t |> equal (media [width ~t:`eq 1024. `px]) "@media (width = 1024px)";
-  t |> equal (media [width ~t:`ge 1024. `px]) "@media (width >= 1024px)";
-  t |> equal (media [width ~t:`gt 1024. `px]) "@media (width > 1024px)";
+  t |> equal (media [width ~t:`lt @@ `px 1024.]) "@media (width < 1024px)";
+  t |> equal (media [width ~t:`le @@ `px 1024.]) "@media (width <= 1024px)";
+  t |> equal (media [width ~t:`eq @@ `px 1024.]) "@media (width = 1024px)";
+  t |> equal (media [width ~t:`ge @@ `px 1024.]) "@media (width >= 1024px)";
+  t |> equal (media [width ~t:`gt @@ `px 1024.]) "@media (width > 1024px)";
 
   t |> T.end_
 end;
@@ -79,7 +79,7 @@ Test.test ~name:"@media modifiers" @@ fun t -> begin
   t |> equal [modifier @@ `only `screen] "@media only screen";
   t |> equal [modifier `print] "@media print";
   t |> equal [modifier @@ `not `print] "@media not print";
-  t |> equal [query ~t:(`only `screen) @@ width 3. `px]
+  t |> equal [query ~t:(`only `screen) @@ width @@ `px 3.]
              "@media only screen and (width: 3px)";
 
   t |> T.end_
@@ -90,7 +90,7 @@ Test.test ~name:"@media combinators" @@ fun t -> begin
   let equal x y t = t |> T.equal (Css_Media.show x) y in 
 
   t |> equal [modifier `print; modifier `screen] "@media print, screen";
-  t |> equal [modifier `print; query @@ max_width 1024. `px]
+  t |> equal [modifier `print; query @@ max_width @@ `px 1024.]
              "@media print, (max-width: 1024px)";
 
   t |> T.end_

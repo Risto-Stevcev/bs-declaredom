@@ -2,104 +2,164 @@ module Font = struct
   (** {{: https://www.w3.org/TR/css-values/#font-relative-lengths } Font-relative lengths} *)
 
   type t =
-    [ `em | `ex | `cap | `ch | `ic | `rem | `ih | `rlh ]
-    [@@bs.deriving jsConverter]
+    [ `em of float  | `ex of float | `cap of float | `ch of float | `ic of float
+    | `rem of float | `ih of float | `rlh of float ]
+
+  let show: t -> string = function
+  | `em  value -> Js.Float.toString value ^"em"
+  | `ex  value -> Js.Float.toString value ^"ex"
+  | `cap value -> Js.Float.toString value ^"cap"
+  | `ch  value -> Js.Float.toString value ^"ch"
+  | `ic  value -> Js.Float.toString value ^"ic"
+  | `rem value -> Js.Float.toString value ^"rem"
+  | `ih  value -> Js.Float.toString value ^"ih"
+  | `rlh value -> Js.Float.toString value ^"rlh"
 end
+
 
 module Viewport = struct
   (** {{: https://www.w3.org/TR/css-values/#viewport-relative-lengths } Viewport-percentage lengths} *)
 
   type t =
-    [ `vw | `vh | `vi | `vb | `vmin | `vmax ]
-    [@@bs.deriving jsConverter]
+    [ `vw of float   | `vh of float   | `vi of float | `vb of float
+    | `vmin of float | `vmax of float ]
+
+  let show: t -> string = function
+  | `vw   value -> Js.Float.toString value ^"vw"
+  | `vh   value -> Js.Float.toString value ^"vh"
+  | `vi   value -> Js.Float.toString value ^"vi"
+  | `vb   value -> Js.Float.toString value ^"vb"
+  | `vmin value -> Js.Float.toString value ^"vmin"
+  | `vmax value -> Js.Float.toString value ^"vmax"
 end
+
 
 module Absolute = struct
   (** {{: https://www.w3.org/TR/css-values/#absolute-lengths } Absolute lengths} *)
 
   type t =
-    [ `cm | `mm | `Q | `in_ [@bs.as "in"] | `pt | `pc | `px ]
-    [@@bs.deriving jsConverter]
+    [ `cm of float | `mm of float | `Q of float | `in_ of float | `pt of float
+    | `pc of float | `px of float ]
+
+  let show: t -> string = function
+  | `cm  value -> Js.Float.toString value ^"cm"
+  | `mm  value -> Js.Float.toString value ^"mm"
+  | `Q   value -> Js.Float.toString value ^"Q"
+  | `in_ value -> Js.Float.toString value ^"in"
+  | `pt  value -> Js.Float.toString value ^"pt"
+  | `pc  value -> Js.Float.toString value ^"pc"
+  | `px  value -> Js.Float.toString value ^"px"
 end
+
 
 module Relative = struct
   type t = [ Font.t | Viewport.t ]
 
   let show: t -> string = function
-  | ( `em | `ex | `cap | `ch | `ic | `rem | `ih | `rlh ) as font ->
-    Font.tToJs font
-  | ( `vw | `vh | `vi | `vb | `vmin | `vmax ) as viewport ->
-    Viewport.tToJs viewport
+  | ( `em _ | `ex _ | `cap _ | `ch _ | `ic _ | `rem _ | `ih _ | `rlh _
+    ) as font ->
+    Font.show font
+  | ( `vw _ | `vh _ | `vi _ | `vb _ | `vmin _ | `vmax _ ) as viewport ->
+    Viewport.show viewport
 end
+
 
 module Length = struct
   type t = [ Absolute.t | Relative.t ]
 
   let show: t -> string = function
-  | ( `cm | `mm | `Q | `in_ | `pt | `pc | `px ) as absolute ->
-    Absolute.tToJs absolute
-  | ( `em | `ex | `cap | `ch | `ic   | `rem  | `ih | `rlh
-    | `vw | `vh | `vi  | `vb | `vmin | `vmax 
+  | ( `cm _ | `mm _ | `Q _ | `in_ _ | `pt _ | `pc _ | `px _ ) as absolute ->
+    Absolute.show absolute
+  | ( `em _ | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _
+    | `vw _ | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _ 
     ) as relative ->
     Relative.show relative
 end
 
+
 module Angle = struct
   (** {{: https://www.w3.org/TR/css-values/#angles } Angle Units} *)
 
-  type t = [ `deg | `grad | `rad | `turn ] [@@bs.deriving jsConverter]
+  type t = [ `deg of float | `grad of float | `rad of float | `turn of float ]
+
+  let show: t -> string = function
+  | `deg  value -> Js.Float.toString value ^"deg"
+  | `grad value -> Js.Float.toString value ^"grad"
+  | `rad  value -> Js.Float.toString value ^"rad"
+  | `turn value -> Js.Float.toString value ^"turn"
 end
 
-module Duration = struct
-  (** {{: https://www.w3.org/TR/css-values/#time } Duration Units} *)
 
-  type t = [ `s | `ms ] [@@bs.deriving jsConverter]
+module Time = struct
+  (** {{: https://www.w3.org/TR/css-values/#time } Time Units} *)
 
-  let show = tToJs
+  type t = [ `s of float | `ms of float ]
+
+  let show: t -> string = function
+  | `s  value -> Js.Float.toString value ^"s"
+  | `ms value -> Js.Float.toString value ^"ms"
 end
+
 
 module Frequency = struct
   (** {{: https://www.w3.org/TR/css-values/#frequency } Frequency Units} *)
 
-  type t = [ `Hz | `kHz ] [@@bs.deriving jsConverter]
+  type t = [ `Hz of float | `kHz of float ]
 
-  let show = tToJs
+  let show: t -> string = function
+  | `Hz value -> Js.Float.toString value ^"Hz"
+  | `kHz value -> Js.Float.toString value ^"kHz"
 end
+
 
 module Resolution = struct
   (** {{: https://www.w3.org/TR/css-values/#resolution } Resolution Units} *)
 
-  type t = [ `dpi | `dpcm | `dppx ] [@@bs.deriving jsConverter]
-end
-
-module Other = struct
-  type t = [ Angle.t | Duration.t | Frequency.t | Resolution.t ]
+  type t = [ `dpi of float | `dpcm of float | `dppx of float ]
 
   let show: t -> string = function
-  | ( `deg | `grad | `rad | `turn ) as angle -> Angle.tToJs angle
-  | ( `s | `ms ) as duration -> Duration.tToJs duration
-  | ( `Hz | `kHz ) as frequency -> Frequency.tToJs frequency
-  | ( `dpi | `dpcm | `dppx ) as resolution -> Resolution.tToJs resolution
+  | `dpi  value -> Js.Float.toString value ^"dpi"
+  | `dpcm value -> Js.Float.toString value ^"dpcm"
+  | `dppx value -> Js.Float.toString value ^"dppx"
 end
+
+
+module Other = struct
+  type t = [ Angle.t | Time.t | Frequency.t | Resolution.t ]
+
+  let show: t -> string = function
+  | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
+    Angle.show angle
+  | ( `s _ | `ms _ ) as time ->
+    Time.show time
+  | ( `Hz _ | `kHz _ ) as frequency ->
+    Frequency.show frequency
+  | ( `dpi _ | `dpcm _ | `dppx _ ) as resolution ->
+    Resolution.show resolution
+end
+
 
 module Percent = struct
   (** {{: https://www.w3.org/TR/css-values/#percentages } Percentages} *)
 
-  type t = [ `percent ] [@@bs.deriving jsConverter]
+  type t = [ `percent of float ]
 
-	let show = tToJs
+	let show: t -> string = function
+  | `percent value -> Js.Float.toString value ^"%"
 end
+
 
 type t = [ Length.t | Percent.t | Other.t ]
 
 let show: t -> string = function
-| ( `cm  | `mm  | `Q  | `in_ | `pt | `pc | `px | `em | `ex   | `cap  | `ch 
-  | `ic  | `rem | `ih | `rlh | `vw | `vh | `vi | `vb | `vmin | `vmax
-  ) as distance ->
-  Length.show distance
-| `percent as percent ->
-  Percent.tToJs percent
-| ( `deg  | `grad | `rad | `turn | `s | `ms | `Hz | `kHz | `dpi | `dpcm
-  | `dppx
+| ( `cm _  | `mm _   | `Q _   | `in_ _ | `pt _ | `pc _  | `px _ | `em _ | `ex _
+  | `cap _ | `ch _   | `ic _  | `rem _ | `ih _ | `rlh _ | `vw _ | `vh _ | `vi _
+  | `vb _  | `vmin _ | `vmax _
+  ) as length ->
+  Length.show length
+| `percent _ as percent ->
+  Percent.show percent
+| ( `deg _ | `grad _ | `rad _ | `turn _ | `s _ | `ms _ | `Hz _ | `kHz _
+  | `dpi _ | `dpcm _ | `dppx _
   ) as other ->
   Other.show other

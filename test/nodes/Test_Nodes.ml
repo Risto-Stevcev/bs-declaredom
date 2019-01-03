@@ -158,7 +158,7 @@ test ~name:"node - img" @@ fun t -> begin
       ~draggable:true
       ~tabIndex:3
       ~title:"some title"
-      ~style:(Style.replaced ~height:(`length (20., `px)) ())
+      ~style:(Style.replaced ~height:(`px 20.) ())
       ()
     |> Node.to_dom
   in

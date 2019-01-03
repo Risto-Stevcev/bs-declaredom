@@ -8,9 +8,9 @@ test ~name:"css property - azimuth" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`angle (90., `deg)) "90deg";
-  t |> equal (`angle (180., `rad)) "180rad";
-  t |> equal (`angle (60.5, `grad)) "60.5grad";
+  t |> equal (`deg 90.) "90deg";
+  t |> equal (`rad 180.) "180rad";
+  t |> equal (`grad 60.5) "60.5grad";
   t |> T.end_
 end; 
 
@@ -23,8 +23,8 @@ test ~name:"@media functions" @@ fun t -> begin
   let x = make `utf_8
     [
       media_print
-        ~position:(Css_Properties.Position.Relative.make ~bottom:(`percent 5) ~left:(`percent 10) ())
-        ~condition:(width 1024. `px)
+        ~position:(Css_Properties.Position.Relative.make ~bottom:(`percent 5.) ~left:(`percent 10.) ())
+        ~condition:(width @@ `px 1024.)
         (`class_name "foo") 
         (visual
           ~color:`red
@@ -34,7 +34,7 @@ test ~name:"@media functions" @@ fun t -> begin
         (`class_name "bar")
         (block ~color:`red ())
     ; css_module @@ Css_Module.make
-        ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21) ())
+        ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21.) ())
         { name = "foobar"
         ; declaration = Style.flex ~color:`blue ()
         }

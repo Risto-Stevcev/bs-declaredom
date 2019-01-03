@@ -82,15 +82,15 @@ end
 module Range = struct
   (** {{: https://www.w3.org/TR/mediaqueries-4/#mq-range-context } Range Context} *)
 
-  type resolution    = [ `resolution of float * Css_Unit.Resolution.t ]
-  type width         = [ `width of float * Css_Unit.Length.t ]
-  type height        = [ `height of float * Css_Unit.Length.t ]
+  type resolution    = [ `resolution of Css_Unit.Resolution.t ]
+  type width         = [ `width of Css_Unit.Length.t ]
+  type height        = [ `height of Css_Unit.Length.t ]
   type aspect_ratio  = [ `aspect_ratio of int * int ]
   type color         = [ `color of int ]
   type color_index   = [ `color_index of int ]
   type monochrome    = [ `monochrome of int ]
-  type device_width  = [ `device_width of float * Css_Unit.Length.t ]
-  type device_height = [ `device_height of float * Css_Unit.Length.t ]
+  type device_width  = [ `device_width of Css_Unit.Length.t ]
+  type device_height = [ `device_height of Css_Unit.Length.t ]
 
   type min_max = [ `min | `max ] [@@bs.deriving jsConverter]
 
@@ -115,14 +115,11 @@ module Range = struct
   let show (`range (min_max, c, range): t): string =
     let value = match range with
     | `resolution resolution ->
-      "resolution" ^
-      compareToJs c ^ Css_Value.Other.show (resolution :> Css_Value.Other.t)
+      "resolution" ^ compareToJs c ^ Css_Unit.Resolution.show resolution
     | `width width ->
-      "width" ^
-      compareToJs c ^ Css_Value.Length.show (`length width)
+      "width" ^ compareToJs c ^ Css_Value.Length.show width
     | `height height ->
-      "height" ^
-      compareToJs c ^ Css_Value.Length.show (`length height)
+      "height" ^ compareToJs c ^ Css_Value.Length.show height
     | `aspect_ratio (a, b) ->
       "aspect-ratio" ^ compareToJs c ^ string_of_int a ^"/"^ string_of_int b
     | `color color ->
@@ -133,10 +130,10 @@ module Range = struct
       "monochrome" ^ compareToJs c ^ string_of_int monochrome
     | `device_width device_width ->
       "device-width" ^
-      compareToJs c ^ Css_Value.Length.show (`length device_width)
+      compareToJs c ^ Css_Value.Length.show device_width
     | `device_height device_height ->
       "device-height" ^
-      compareToJs c ^ Css_Value.Length.show (`length device_height)
+      compareToJs c ^ Css_Value.Length.show device_height
     in
     let min_max' =
       min_max |. Belt.Option.mapWithDefault "" (fun m -> min_maxToJs m ^ "-")
@@ -363,26 +360,26 @@ module Fn = struct
   let hover value: MediaCondition.t = `hover value
   let any_hover value: MediaCondition.t = `any_hover value
 
-  let resolution amount unit_: MediaCondition.t =
-    `range (None, `none, `resolution (amount, unit_))
-  let min_resolution amount unit_: MediaCondition.t =
-    `range (Some `min, `none, `resolution (amount, unit_))
-  let max_resolution amount unit_: MediaCondition.t =
-    `range (Some `max, `none, `resolution (amount, unit_))
+  let resolution value: MediaCondition.t =
+    `range (None, `none, `resolution value)
+  let min_resolution value: MediaCondition.t =
+    `range (Some `min, `none, `resolution value)
+  let max_resolution value: MediaCondition.t =
+    `range (Some `max, `none, `resolution value)
 
-  let width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (None, t, `width (amount, unit_))
-  let min_width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `min, t, `width (amount, unit_))
-  let max_width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `max, t, `width (amount, unit_))
+  let width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (None, t, `width value)
+  let min_width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `min, t, `width value)
+  let max_width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `max, t, `width value)
 
-  let height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (None, t, `height (amount, unit_))
-  let min_height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `min, t, `height (amount, unit_))
-  let max_height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `max, t, `height (amount, unit_))
+  let height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (None, t, `height value)
+  let min_height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `min, t, `height value)
+  let max_height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `max, t, `height value)
 
   let aspect_ratio ?(t: Range.compare = `none) a b: MediaCondition.t =
     `range (None, t, `aspect_ratio (a, b))
@@ -412,19 +409,19 @@ module Fn = struct
   let max_monochrome ?(t: Range.compare = `none)  n: MediaCondition.t =
     `range (Some `max, t, `monochrome n)
 
-  let device_width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (None, t, `device_width (amount, unit_))
-  let min_device_width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `min, t, `device_width (amount, unit_))
-  let max_device_width ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `max, t, `device_width (amount, unit_))
+  let device_width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (None, t, `device_width value)
+  let min_device_width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `min, t, `device_width value)
+  let max_device_width ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `max, t, `device_width value)
 
-  let device_height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (None, t, `device_height (amount, unit_))
-  let min_device_height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `min, t, `device_height (amount, unit_))
-  let max_device_height ?(t: Range.compare = `none) amount unit_: MediaCondition.t =
-    `range (Some `max, t, `device_height (amount, unit_))
+  let device_height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (None, t, `device_height value)
+  let min_device_height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `min, t, `device_height value)
+  let max_device_height ?(t: Range.compare = `none) value: MediaCondition.t =
+    `range (Some `max, t, `device_height value)
 end
 
 
