@@ -367,42 +367,32 @@ end
 module MediaGroup = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media groups} *)
 
+  type any = display
+
   type aural =
-    [ azimuth | cue_after | cue_before | cue | elevation | pause_after
-    | pause_before | pause | pitch_range | pitch | play_during | richness
-    | speak_header | speak_numeral | speak_punctuation | speak | speech_rate
-    | stress | voice_family | volume ]
+    [ azimuth | cues | elevation | pauses | pitch_range | pitch | play_during
+    | richness | speak_header | speak_numeral | speak_punctuation | speak
+    | speech_rate | stress | voice_family | volume | any ]
 
   type interactive =
-    [ cursor | outline_color | outline_style | outline_width | outline ]
+    [ cursor | outlines | any ]
 
   type visual =
-    [
-    | background_attachment | background_color | background_image
-    | background_position | background_repeat | background | border_collapse
-    | border_color | border_spacing | border_style | border_top | border_right
-		| border_bottom | border_left | border_top_color | border_right_color
-		| border_bottom_color | border_left_color | border_top_style
-		| border_right_style | border_bottom_style | border_right_style
-		| border_top_width | border_right_width | border_bottom_width
-		| border_left_width | border_width | border | bottom | caption_side
-		| clear | color | clip | cursor | direction | empty_cells
-    | font_family | font_size | font_style | font_variant | font_weight | font
-    | height | left | letter_spacing | line_height | list_style_image
-    | list_style_position | list_style_type | list_style
-    | margins | max_height | max_width | min_height | min_width | page_breaks
-    | page_breaks_inside
-    | outline_color | outline_style | outline_width | outline | overflow
-    | table_layout | text_decoration | text_transform | text_indent
-    | unicode_bidi | visibility | white_space
-    ]
+    [ aligns | backgrounds | border_collapse | border_colors | border_spacing
+    | border_styles | border_widths | borders | caption_side | clear | clip
+    | color | cursor | direction | empty_cells | flexs | float_ | fonts
+    | heights | justify_content | letter_spacing | line_height | list_styles
+    | margins | order | outlines | overflow | paddings | page_breaks
+    | page_breaks_inside | positions | table_layout | texts | unicode_bidi
+    | vertical_align | visibility | white_space | widths | word_spacing
+    | z_index | any ]
 
   (**
    {{: https://www.w3.org/TR/CSS22/page.html#page-margins } Page margins}, 
    {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks}, and 
    {{: https://www.w3.org/TR/CSS22/page.html#break-inside } Breaks inside elements}
    *)
-  type paged = [ margins | page_breaks | page_breaks_inside ]
+  type paged = [ margins | page_breaks | page_breaks_inside | any ]
 
   let to_aural x = (x :> aural)
   and to_interactive x = (x :> interactive)
@@ -413,13 +403,24 @@ end
 module MediaType = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media type table} *)
 
-  type handheld = MediaGroup.visual
-  type print = MediaGroup.visual
-  type projection = [ MediaGroup.visual | MediaGroup.interactive ]
-  type screen = MediaGroup.visual
-  type speech = [ MediaGroup.visual | MediaGroup.aural | MediaGroup.interactive ]
-  type tty = MediaGroup.visual
-  type tv = MediaGroup.visual
+  type braille = MediaGroup.interactive
+  type embossed = MediaGroup.paged
+  type handheld =
+    [ MediaGroup.aural | MediaGroup.paged | MediaGroup.interactive
+    | MediaGroup.visual ]
+  type print =
+    [ MediaGroup.paged | MediaGroup.visual ]
+  type projection =
+    [ MediaGroup.paged | MediaGroup.interactive | MediaGroup.visual ]
+  type screen =
+    [ MediaGroup.aural | MediaGroup.interactive | MediaGroup.visual ]
+  type speech =
+    [ MediaGroup.aural | MediaGroup.interactive ]
+  type tty =
+    [ MediaGroup.visual | MediaGroup.interactive ]
+  type tv =
+    [ MediaGroup.aural | MediaGroup.paged | MediaGroup.visual
+    | MediaGroup.interactive ]
 
   let to_handheld x = (x :> handheld)
   and to_print x = (x :> print)
