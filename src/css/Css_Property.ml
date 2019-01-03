@@ -281,15 +281,15 @@ module AppliesTo = struct
    * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced inline elements}
    * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
    *)
-  type replaced =
+  type replaced_inline =
     [ heights | margins | paddings | vertical_align | widths | any ]
 
   (** Non-replaced inline elements *)
-  type non_replaced =
+  type non_replaced_inline =
     [ margins | paddings | vertical_align | any ]
 
   module Combined = struct
-    type inline = [ replaced | non_replaced ]
+    type inline = [ replaced_inline | non_replaced_inline ]
 
     type inline_block = [ inline | block ]
 
@@ -337,8 +337,8 @@ module AppliesTo = struct
     | table_footer_group | positioned ]
 
   let to_block x = (x :> block)
-  and to_replaced x = (x :> replaced)
-  and to_non_replaced x = (x :> non_replaced)
+  and to_replaced_inline x = (x :> replaced_inline)
+  and to_non_replaced_inline x = (x :> non_replaced_inline)
   and to_inline x = (x :> inline)
   and to_table x = (x :> table)
   and to_inline_table x = (x :> inline_table)

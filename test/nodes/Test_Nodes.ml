@@ -31,7 +31,7 @@ test ~name:"node - a" @@ fun t -> begin
       ~tabIndex:3
       ~title:"some title"
       ~style:(
-        Style.non_replaced
+        Style.non_replaced_inline
           ~backgroundAttachment:`scroll
           ~backgroundColor:`red
           ()
@@ -158,7 +158,7 @@ test ~name:"node - img" @@ fun t -> begin
       ~draggable:true
       ~tabIndex:3
       ~title:"some title"
-      ~style:(Style.replaced ~height:(`px 20.) ())
+      ~style:(Style.replaced_inline ~height:(`px 20.) ())
       ()
     |> Node.to_dom
   in

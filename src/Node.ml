@@ -65,6 +65,12 @@ type content =
   | palpable | other
   ]
 
+(**
+ * NOTE: transparent is treated like content because there's no way to inherit
+ * the content model of parent -- the callee does not know about the caller
+ *)
+type transparent = content
+
 
 let unwrap: content -> unit t =
   function

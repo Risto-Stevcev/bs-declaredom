@@ -8,8 +8,8 @@ type child =
 
 let make
   ?id ?className ?classSet ?contentEditable ?dataset ?draggable ?tabIndex
-  ?title ?(style:Css_Property.replaced Style.t option)
-  ?onClick ?(cssModule:Css_Property.replaced Css_Module.t option)
+  ?title ?(style:Css_Property.replaced_inline Style.t option)
+  ?onClick ?(cssModule:Css_Property.replaced_inline Css_Module.t option)
   (): 'a t
   =
   let name = Css_Module.getClass ?className ?cssModule ()

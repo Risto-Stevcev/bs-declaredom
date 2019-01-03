@@ -799,7 +799,7 @@ module Internal = struct
       Css_Property.positioned t = "" [@@bs.obj]
 
 
-    external replaced:
+    external replaced_inline:
       ?height:Css_Property.height ->
       ?minHeight:Css_Property.min_height ->
       ?maxHeight:Css_Property.max_height ->
@@ -885,10 +885,10 @@ module Internal = struct
       ?whiteSpace:Css_Property.white_space ->
       ?wordSpacing:Css_Property.word_spacing -> 
       unit ->
-      Css_Property.replaced t = "" [@@bs.obj]
+      Css_Property.replaced_inline t = "" [@@bs.obj]
 
 
-    external non_replaced:
+    external non_replaced_inline:
       ?margin:Css_Property.margin ->
       ?marginTop:Css_Property.margin_top ->
       ?marginRight:Css_Property.margin_right ->
@@ -968,7 +968,7 @@ module Internal = struct
       ?whiteSpace:Css_Property.white_space ->
       ?wordSpacing:Css_Property.word_spacing -> 
       unit ->
-      Css_Property.non_replaced t = "" [@@bs.obj]
+      Css_Property.non_replaced_inline t = "" [@@bs.obj]
 
 
     external inline:
@@ -2822,8 +2822,8 @@ module AppliesTo = struct
       ()
 
 
-  let replaced ?height ?minHeight ?maxHeight ?margin ?marginTop ?marginRight
-    ?marginBottom ?marginLeft ?padding ?paddingTop ?paddingRight
+  let replaced_inline ?height ?minHeight ?maxHeight ?margin ?marginTop
+    ?marginRight ?marginBottom ?marginLeft ?padding ?paddingTop ?paddingRight
     ?paddingBottom ?paddingLeft ?verticalAlign ?width ?minWidth ?maxWidth
     ?azimuth ?backgroundAttachment ?backgroundColor ?backgroundImage
     ?backgroundPosition ?backgroundRepeat ?background ?borderTopColor
@@ -2838,7 +2838,7 @@ module AppliesTo = struct
     ?pitch ?playDuring ?richness ?speakNumeral ?speakPunctuation ?speak
     ?speechRate ?stress ?textDecoration ?textTransform ?unicodeBidi
     ?visibility ?voiceFamily ?volume ?whiteSpace ?wordSpacing () =
-    Internal.AppliesTo.replaced
+    Internal.AppliesTo.replaced_inline
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
@@ -2936,7 +2936,7 @@ module AppliesTo = struct
       ()
 
 
-  let non_replaced ?margin ?marginTop ?marginRight ?marginBottom
+  let non_replaced_inline ?margin ?marginTop ?marginRight ?marginBottom
     ?marginLeft ?padding ?paddingTop ?paddingRight ?paddingBottom
     ?paddingLeft ?verticalAlign 
     ?azimuth ?backgroundAttachment ?backgroundColor ?backgroundImage
@@ -2952,7 +2952,7 @@ module AppliesTo = struct
     ?pitch ?playDuring ?richness ?speakNumeral ?speakPunctuation ?speak
     ?speechRate ?stress ?textDecoration ?textTransform ?unicodeBidi
     ?visibility ?voiceFamily ?volume ?whiteSpace ?wordSpacing () =
-    Internal.AppliesTo.non_replaced
+    Internal.AppliesTo.non_replaced_inline
       ?margin:(Belt.Option.map margin Margin.make)
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
