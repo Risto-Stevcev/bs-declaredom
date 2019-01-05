@@ -25,6 +25,15 @@ type 'a t = { name: string; declaration: 'a Js.Dict.t }
 
 external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
 
+
+let getClass' ?className ?cssModule () =
+  match (className, cssModule) with
+  | (Some className', Some {name}) -> className' ^" "^ name |. Some
+  | (Some _, None) -> className
+  | (None, Some {name}) -> Some name
+  | _ -> None
+
+(* TODO: remove *)
 let getClass ?(className="") ?(cssModule={name=""; declaration=Js.Dict.empty ()}) () =
   let {name} = cssModule in
   let separator = if className = "" || name = "" then "" else " " in
