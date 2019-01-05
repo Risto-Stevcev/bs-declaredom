@@ -74,13 +74,11 @@ module A = struct
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting 
- 
+    ?onToggle ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
-
     (children:child array): 'a t
-    = 
+    =
     let className = Css_Module.getClass' ?className ?cssModule ()
     in
     Declaredom.make "a"
@@ -111,4 +109,186 @@ module A = struct
       |])
       (children |> Js.Array.map Html_Node.to_dom_node)
     |> (fun e -> `a (Internal.make e))
+end
+
+
+module Div = struct
+  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-div} Div} *)
+
+  type 'a t = [> Html_Node.div ] as 'a
+
+  type child = Html_Node.flow
+
+  let make
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+    ?onToggle ?onVolumeChange ?onWaiting
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:child array): 'a t
+    =
+    let className = Css_Module.getClass' ?className ?cssModule ()
+    in
+    Declaredom.make "div"
+      (Util.merge_all [|
+        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
+          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
+          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
+          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
+          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
+          ?aria_roledescription ();
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
+          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_dom_node)
+    |> (fun e -> `div (Internal.make e))
+end
+
+
+module Span = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-span} Span} *)
+
+  type 'a t = [> Html_Node.span ] as 'a
+
+  type child = Html_Node.phrasing
+
+  let make
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+    ?onToggle ?onVolumeChange ?onWaiting
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:child array): 'a t
+    =
+    let className = Css_Module.getClass' ?className ?cssModule ()
+    in
+    Declaredom.make "span"
+      (Util.merge_all [|
+        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
+          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
+          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
+          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
+          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
+          ?aria_roledescription ();
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
+          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_dom_node)
+    |> (fun e -> `span (Internal.make e))
+end
+
+
+module Br = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} Br} *)
+
+  type 'a t = [> Html_Node.br ] as 'a
+
+  let make
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+    ?onToggle ?onVolumeChange ?onWaiting
+    (): 'a t
+    =
+    Declaredom.make_empty "br"
+      (Util.merge_all [|
+        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
+          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
+          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
+          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
+          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
+          ?aria_roledescription ();
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
+          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      ()
+    |> (fun e -> `br (Internal.make e))
+end
+
+
+module Text = struct
+  (** {{: https://www.w3.org/TR/dom/#interface-text} Text node} *)
+
+  type 'a t = [> Html_Node.text ] as 'a
+
+  let make (text: string): 'a t =
+    FFI.make_text text
+    |> (fun e -> `text e)
 end

@@ -47,19 +47,19 @@ module ContentCategory = struct
   (** Elements with no children *)
   type empty = br
 
+  type other = [ text | fragment ]
   type flow =
     [
-    | a | div | span | br | custom | img
+    | a | div | span | br | custom | img | other
     ]
-  type sectioning = header
-  type heading = h1
+  type sectioning = [ header | other ]
+  type heading = [ h1 | other ]
   type phrasing =
-    [ abbr | span | br | custom | img ]
-  type embedded = [ audio | img ]
-  type interactive = [ a | img ]
-  type form = [ button | img ]
-  type palpable = [ custom | img ]
-  type other = [ text | fragment ]
+    [ abbr | span | br | custom | img | other ]
+  type embedded = [ audio | img | other ]
+  type interactive = [ a | img | other ]
+  type form = [ button | img | other ]
+  type palpable = [ custom | img | other ]
   type content =
     [
     | flow     | sectioning | heading | phrasing | embedded | interactive | form
