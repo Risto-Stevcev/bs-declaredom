@@ -19,7 +19,6 @@ module UIEvent = struct
       ?onError:(Dom.uiEvent -> unit) ->
       ?onSelect:(Dom.uiEvent -> unit) ->
       ?onScroll:(Dom.uiEvent -> unit) ->
-      ?onShow:(Dom.uiEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -261,8 +260,8 @@ module Global = struct
     ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting () =
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting () =
     Util.merge_all [|
       Details.make ?onToggle ();
       Dialog.make ?onCancel ?onClose ();

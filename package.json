@@ -5,7 +5,6 @@
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "test:node": "node lib/js/test/nodes/Test_Nodes.bs.js | tap-spec",
     "test:html:node": "node lib/js/test/nodes/Test_Html_Node.bs.js | tap-spec",
     "test:css": "node lib/js/test/TestCss.bs.js | tap-spec",
     "test:css:media": "node lib/js/test/Test_Css_Media.bs.js | tap-spec",

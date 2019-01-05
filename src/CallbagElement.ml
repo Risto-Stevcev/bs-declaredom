@@ -23,8 +23,8 @@ let make
   ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
   ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
   ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-  ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-  ?onToggle ?onVolumeChange ?onWaiting
+  ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+  ?onVolumeChange ?onWaiting
   callbag: 'a t
   =
   let callbag_element =
@@ -48,8 +48,8 @@ let make
         ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
         ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
         ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
-        ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+        ?onToggle ?onVolumeChange ?onWaiting ()
     |])
     ()
   in

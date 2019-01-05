@@ -1,6 +1,7 @@
 (** {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} Elements} *)
 (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Events} *)
 
+(* TODO: hide *)
 module Internal = struct
   external make: Dom.node -> _ Html_Node.t = "%identity"
 end
@@ -73,8 +74,8 @@ module A = struct
     ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:child array): 'a t
@@ -104,8 +105,8 @@ module A = struct
           ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
           ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
           ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
-          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `a (Internal.make e))
@@ -135,9 +136,8 @@ module Div = struct
     ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting
-    ?(style:Css_Property.block Style.t option)
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:child array): 'a t
     =
@@ -163,8 +163,8 @@ module Div = struct
           ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
           ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
           ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
-          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `div (Internal.make e))
@@ -194,8 +194,8 @@ module Span = struct
     ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:child array): 'a t
@@ -222,8 +222,8 @@ module Span = struct
           ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
           ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
           ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
-          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `span (Internal.make e))
@@ -251,8 +251,8 @@ module Br = struct
     ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-    ?onToggle ?onVolumeChange ?onWaiting
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
     (): 'a t
     =
     Declaredom.make_empty "br"
@@ -275,8 +275,8 @@ module Br = struct
           ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
           ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
           ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
-          ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       ()
     |> (fun e -> `br (Internal.make e))
@@ -291,4 +291,19 @@ module Text = struct
   let make (text: string): 'a t =
     Declaredom.make_text text
     |> (fun e -> `text e)
+end
+
+
+module Fragment = struct
+  (*
+type 'a t = [> Node.fragment ] as 'a
+
+type child = Node.content
+
+let make (children:child array): 'a t = 
+  FFI.make' "fragment"
+    (Js.Obj.empty () |> Obj.magic)
+    (children |> Js.Array.map (fun e -> Node.unwrap (e :> Node.content)))
+  |> (fun e -> `fragment e)
+   *)
 end
