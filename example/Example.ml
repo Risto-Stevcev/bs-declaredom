@@ -10,15 +10,15 @@ let _ =
   in
 
   let example' =
-    let open Common in
+    let open Node in
 
     let clock =
       interval 1000
       |> map (fun _ -> span [|text @@ Js.Date.toString (Js.Date.make ())|])
-      |> stream
+      |> CallbagElement.make
     in
 
-    let f (_: Node.span): unit = () in
+    let f (_: Html_Node.span): unit = () in
     let _ = f (span [|text "hello"|]) in
 
     let stl: Css_Property.block Css_Module.t =
@@ -51,4 +51,4 @@ let _ =
     z
   in
 
-  Webapi.Dom.Element.appendChild (Node.to_dom example') body
+  Webapi.Dom.Element.appendChild (Html_Node.to_node example') body

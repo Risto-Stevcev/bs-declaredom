@@ -10,7 +10,7 @@ let (tagName, outerHTML, ofNode) =
 
 let to_element x =
   x
-  |> Html_Node.to_dom_node
+  |> Html_Node.to_node
   |> ofNode
   |> Js.Option.getExn;;
 

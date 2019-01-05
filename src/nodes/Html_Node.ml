@@ -82,7 +82,7 @@ end
 
 
 
-let to_dom_node: [< content] -> Dom.node = function
+let to_node: [< content] -> Dom.node = function
 | `a x          -> Convert.node x
 | `br x         -> Convert.node x
 | `div x        -> Convert.node x

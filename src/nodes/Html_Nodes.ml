@@ -107,7 +107,7 @@ module A = struct
           ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
           ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
       |])
-      (children |> Js.Array.map Html_Node.to_dom_node)
+      (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `a (Internal.make e))
 end
 
@@ -166,7 +166,7 @@ module Div = struct
           ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
           ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
       |])
-      (children |> Js.Array.map Html_Node.to_dom_node)
+      (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `div (Internal.make e))
 end
 
@@ -225,7 +225,7 @@ module Span = struct
           ?onSeeking ?onSelect ?onShow ?onStalled ?onSubmit ?onSuspend
           ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting ()
       |])
-      (children |> Js.Array.map Html_Node.to_dom_node)
+      (children |> Js.Array.map Html_Node.to_node)
     |> (fun e -> `span (Internal.make e))
 end
 
@@ -289,6 +289,6 @@ module Text = struct
   type 'a t = [> Html_Node.text ] as 'a
 
   let make (text: string): 'a t =
-    FFI.make_text text
+    Declaredom.make_text text
     |> (fun e -> `text e)
 end
