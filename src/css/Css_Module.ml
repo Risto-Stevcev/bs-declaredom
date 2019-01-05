@@ -25,6 +25,14 @@ type 'a t = { name: string; declaration: 'a Js.Dict.t }
 
 external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
 
+(* TODO:
+ * Avoid giving users the ability to provide a module name, since this is no
+ * different from className
+ * Instead, just use a fast hashing algorithm on the stringified declaration to get
+ * a unique name. If it uses java's hashmap algo collisions will be rare, and
+ * if the styles are the same it won't make any real difference to the end code
+ *)
+
 
 let getClass' ?className ?cssModule () =
   match (className, cssModule) with

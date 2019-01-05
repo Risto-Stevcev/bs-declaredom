@@ -37,24 +37,26 @@ module A = struct
       ?rel:string ->
       ?rev:string ->
       ?hreflang:string ->
-      ?type_:string ->
+      ?_type:string ->
       ?referrerpolicy:string ->
       unit ->
       Html_Attributes.t = "" [@@bs.obj]
 
-    let make ?href ?target ?download ?rel ?rev ?hreflang ?type_ ?referrerpolicy
+    let make ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
       () =
       _make ?href
         ?target:(Belt.Option.map target Target.show)
         ?download:(Belt.Option.map download Util.string_of_unit)
         ?rel:(Belt.Option.map rel Html_Attributes.LinkType.Hyperlink.show)
         ?rev:(Belt.Option.map rev Html_Attributes.LinkType.Hyperlink.show)
-        ?hreflang ?type_ ?referrerpolicy
+        ?hreflang ?_type
+        ?referrerpolicy:
+          (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
         ()
   end
 
   let make
-    ?href ?target ?download ?rel ?rev ?hreflang ?type_ ?referrerpolicy
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
     ?aria_expanded
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
     ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -83,7 +85,7 @@ module A = struct
     in
     Declaredom.make "a"
       (Util.merge_all [|
-        Attributes.make ?href ?target ?download ?rel ?rev ?hreflang ?type_
+        Attributes.make ?href ?target ?download ?rel ?rev ?hreflang ?_type
           ?referrerpolicy ();
         Html_Attributes.Aria.Expanded.make ?aria_expanded ();
         Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls

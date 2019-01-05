@@ -26,6 +26,25 @@ module LinkType = struct
 end
 
 
+module ReferrerPolicy = struct
+  (** {{: https://www.w3.org/TR/referrer-policy/#referrer-policies} Referrer policies} *)
+
+  type t =
+    [ `no_referrer [@bs.as "no-referrer"]
+    | `no_referrer_when_downgrade [@bs.as "no-referrer-when-downgrade"]
+    | `same_origin [@bs.as "same-origin"]
+    | `origin
+    | `strict_origin [@bs.as "strict-origin"]
+    | `origin_when_cross_origin [@bs.as "origin-when-cross-origin"]
+    | `strict_origin_when_cross_origin [@bs.as "strict-origin-when-cross-origin"]
+    | `unsafe_url [@bs.as "unsafe-url"]
+    ]
+    [@@bs.deriving jsConverter]
+
+  let show = tToJs
+end
+
+
 module Aria = struct
   (** {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria roles} *)
 
