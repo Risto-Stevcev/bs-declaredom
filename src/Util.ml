@@ -7,7 +7,7 @@ let camel_to_dash str =
   |> Js.String.replaceByRe [%re "/([a-z]{1})([A-Z]{1})/g"] "$1-$2"
   |> Js.String.toLowerCase
 
-let single_whitespace = Js.String.replaceByRe [%re "/\s+/g"] " "
+let single_whitespace = Js.String.replaceByRe [%re "/\\s+/g"] " "
 
 let combine_styles styles =
   let value =
@@ -19,7 +19,8 @@ let combine_styles styles =
   if Js.String.length value > 0 then value else "inherit"
 
 let join_with xs separator =
-  xs |. Belt.List.reduce "" (fun acc e -> if acc = "" then e else acc ^ separator ^ e)
+  xs
+  |. Belt.List.reduce "" (fun acc e -> if acc="" then e else acc ^separator^ e)
 
 let string_of_unit () = ""
 

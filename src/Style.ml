@@ -2451,6 +2451,89 @@ end
 
 
 module AppliesTo = struct
+  let any ?azimuth ?backgroundAttachment ?backgroundColor ?backgroundImage
+    ?backgroundPosition ?backgroundRepeat ?background ?borderTopColor
+    ?borderRightColor ?borderBottomColor ?borderLeftColor ?borderColor
+    ?borderTopStyle ?borderRightStyle ?borderBottomStyle ?borderLeftStyle
+    ?borderStyle ?borderTopWidth ?borderRightWidth ?borderBottomWidth
+    ?borderLeftWidth ?borderWidth ?borderTop ?borderRight ?borderBottom
+    ?borderLeft ?border ?color ?cueAfter ?cueBefore ?cue ?cursor ?direction
+    ?elevation ?float ?fontFamily ?fontSize ?fontStyle ?fontVariant ?fontWeight
+    ?font ?letterSpacing ?lineHeight ?outlineColor ?outlineStyle ?outlineWidth
+    ?outline ?pauseAfter ?pauseBefore ?pause ?pitchRange ?pitch ?playDuring
+    ?richness ?speakNumeral ?speakPunctuation ?speak ?speechRate ?stress
+    ?textDecoration ?textTransform ?unicodeBidi ?visibility ?voiceFamily
+    ?volume ?whiteSpace ?wordSpacing () =
+    Internal.AppliesTo.any
+      ?azimuth:(Belt.Option.map azimuth Azimuth.make)
+      ?backgroundAttachment:(Belt.Option.map backgroundAttachment BackgroundAttachment.make)
+      ?backgroundColor:(Belt.Option.map backgroundColor BackgroundColor.make)
+      ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
+      ?backgroundPosition:(Belt.Option.map backgroundPosition BackgroundPosition.make)
+      ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
+      ?background:(Belt.Option.map background Background.make)
+      ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
+      ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
+      ?borderBottomColor:(Belt.Option.map borderBottomColor BorderBottomColor.make)
+      ?borderLeftColor:(Belt.Option.map borderLeftColor BorderLeftColor.make)
+      ?borderColor:(Belt.Option.map borderColor BorderColor.make)
+      ?borderTopStyle:(Belt.Option.map borderTopStyle BorderTopStyle.make)
+      ?borderRightStyle:(Belt.Option.map borderRightStyle BorderRightStyle.make)
+      ?borderBottomStyle:(Belt.Option.map borderBottomStyle BorderBottomStyle.make)
+      ?borderLeftStyle:(Belt.Option.map borderLeftStyle BorderLeftStyle.make)
+      ?borderStyle:(Belt.Option.map borderStyle BorderStyle.make)
+      ?borderTopWidth:(Belt.Option.map borderTopWidth BorderTopWidth.make)
+      ?borderRightWidth:(Belt.Option.map borderRightWidth BorderRightWidth.make)
+      ?borderBottomWidth:(Belt.Option.map borderBottomWidth BorderBottomWidth.make)
+      ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
+      ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
+      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
+      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
+      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
+      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
+      ?border:(Belt.Option.map border Border.make)
+      ?color:(Belt.Option.map color Color.make)
+      ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
+      ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
+      ?cue:(Belt.Option.map cue Cue.make)
+      ?cursor:(Belt.Option.map cursor Cursor.make)
+      ?direction:(Belt.Option.map direction Direction.make)
+      ?elevation:(Belt.Option.map elevation Elevation.make)
+      ?float:(Belt.Option.map float Float.make)
+      ?fontFamily:(Belt.Option.map fontFamily FontFamily.make)
+      ?fontSize:(Belt.Option.map fontSize FontSize.make)
+      ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
+      ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
+      ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
+      ?font:(Belt.Option.map font Font.make)
+      ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
+      ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline:(Belt.Option.map outline Outline.make)
+      ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
+      ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
+      ?pause:(Belt.Option.map pause Pause.make)
+      ?pitchRange:(Belt.Option.map pitchRange PitchRange.make)
+      ?pitch:(Belt.Option.map pitch Pitch.make)
+      ?playDuring:(Belt.Option.map playDuring PlayDuring.make)
+      ?richness:(Belt.Option.map richness Richness.make)
+      ?speakNumeral:(Belt.Option.map speakNumeral SpeakNumeral.make)
+      ?speakPunctuation:(Belt.Option.map speakPunctuation SpeakPunctuation.make)
+      ?speak:(Belt.Option.map speak Speak.make)
+      ?speechRate:(Belt.Option.map speechRate SpeechRate.make)
+      ?stress:(Belt.Option.map stress Stress.make)
+      ?textDecoration:(Belt.Option.map textDecoration TextDecoration.make)
+      ?textTransform:(Belt.Option.map textTransform TextTransform.make)
+      ?unicodeBidi:(Belt.Option.map unicodeBidi UnicodeBidi.make)
+      ?visibility:(Belt.Option.map visibility Visibility.make)
+      ?voiceFamily:(Belt.Option.map voiceFamily VoiceFamily.make)
+      ?volume:(Belt.Option.map volume Volume.make)
+      ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
+      ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make)
+      ()
+
   let block ?clear ?height ?minHeight ?maxHeight ?margin ?marginTop
     ?marginRight ?marginBottom ?marginLeft ?overflow ?padding ?paddingTop
     ?paddingRight ?paddingBottom ?paddingLeft ?pageBreakBefore
@@ -2699,6 +2782,115 @@ module AppliesTo = struct
       ?volume:(Belt.Option.map volume Volume.make)
       ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
       ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make) 
+      ()
+
+
+  let positioned ?clip ?height ?minHeight ?maxHeight ?margin ?marginTop
+    ?marginRight ?marginBottom ?marginLeft ?padding ?paddingTop ?paddingRight
+    ?paddingBottom ?paddingLeft ?top ?right ?bottom ?left ?width ?minWidth
+    ?maxWidth ?zIndex ?azimuth ?backgroundAttachment ?backgroundColor
+    ?backgroundImage ?backgroundPosition ?backgroundRepeat ?background
+    ?borderTopColor ?borderRightColor ?borderBottomColor ?borderLeftColor
+    ?borderColor ?borderTopStyle ?borderRightStyle ?borderBottomStyle
+    ?borderLeftStyle ?borderStyle ?borderTopWidth ?borderRightWidth
+    ?borderBottomWidth ?borderLeftWidth ?borderWidth ?borderTop
+    ?borderRight ?borderBottom ?borderLeft ?border ?color ?cueAfter
+    ?cueBefore ?cue ?cursor ?direction ?elevation ?float ?fontFamily ?fontSize
+    ?fontStyle ?fontVariant ?fontWeight ?font ?letterSpacing ?lineHeight
+    ?outlineColor ?outlineStyle ?outlineWidth ?outline ?pauseAfter ?pauseBefore
+    ?pause ?pitchRange ?pitch ?playDuring ?richness ?speakNumeral
+    ?speakPunctuation ?speak ?speechRate ?stress ?textDecoration ?textTransform
+    ?unicodeBidi ?visibility ?voiceFamily ?volume ?whiteSpace ?wordSpacing () =
+    Internal.AppliesTo.positioned
+      ?clip:(Belt.Option.map clip Clip.make)
+      ?height:(Belt.Option.map height Height.make)
+      ?minHeight:(Belt.Option.map minHeight MinHeight.make)
+      ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
+      ?margin:(Belt.Option.map margin Margin.make)
+      ?marginTop:(Belt.Option.map marginTop MarginTop.make)
+      ?marginRight:(Belt.Option.map marginRight MarginRight.make)
+      ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
+      ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
+      ?padding:(Belt.Option.map padding Padding.make)
+      ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
+      ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
+      ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
+      ?paddingLeft:(Belt.Option.map paddingLeft PaddingLeft.make)
+      ?top:(Belt.Option.map top Top.make)
+      ?right:(Belt.Option.map right Right.make)
+      ?bottom:(Belt.Option.map bottom Bottom.make)
+      ?left:(Belt.Option.map left Left.make)
+      ?width:(Belt.Option.map width Width.make)
+      ?minWidth:(Belt.Option.map minWidth MinWidth.make)
+      ?maxWidth:(Belt.Option.map maxWidth MaxWidth.make)
+      ?zIndex:(Belt.Option.map zIndex ZIndex.make)
+      ?azimuth:(Belt.Option.map azimuth Azimuth.make)
+      ?backgroundAttachment:(Belt.Option.map backgroundAttachment BackgroundAttachment.make)
+      ?backgroundColor:(Belt.Option.map backgroundColor BackgroundColor.make)
+      ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
+      ?backgroundPosition:(Belt.Option.map backgroundPosition BackgroundPosition.make)
+      ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
+      ?background:(Belt.Option.map background Background.make)
+      ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
+      ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
+      ?borderBottomColor:(Belt.Option.map borderBottomColor BorderBottomColor.make)
+      ?borderLeftColor:(Belt.Option.map borderLeftColor BorderLeftColor.make)
+      ?borderColor:(Belt.Option.map borderColor BorderColor.make)
+      ?borderTopStyle:(Belt.Option.map borderTopStyle BorderTopStyle.make)
+      ?borderRightStyle:(Belt.Option.map borderRightStyle BorderRightStyle.make)
+      ?borderBottomStyle:(Belt.Option.map borderBottomStyle BorderBottomStyle.make)
+      ?borderLeftStyle:(Belt.Option.map borderLeftStyle BorderLeftStyle.make)
+      ?borderStyle:(Belt.Option.map borderStyle BorderStyle.make)
+      ?borderTopWidth:(Belt.Option.map borderTopWidth BorderTopWidth.make)
+      ?borderRightWidth:(Belt.Option.map borderRightWidth BorderRightWidth.make)
+      ?borderBottomWidth:(Belt.Option.map borderBottomWidth BorderBottomWidth.make)
+      ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
+      ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
+      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
+      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
+      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
+      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
+      ?border:(Belt.Option.map border Border.make)
+      ?color:(Belt.Option.map color Color.make)
+      ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
+      ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
+      ?cue:(Belt.Option.map cue Cue.make)
+      ?cursor:(Belt.Option.map cursor Cursor.make)
+      ?direction:(Belt.Option.map direction Direction.make)
+      ?elevation:(Belt.Option.map elevation Elevation.make)
+      ?float:(Belt.Option.map float Float.make)
+      ?fontFamily:(Belt.Option.map fontFamily FontFamily.make)
+      ?fontSize:(Belt.Option.map fontSize FontSize.make)
+      ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
+      ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
+      ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
+      ?font:(Belt.Option.map font Font.make)
+      ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
+      ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline:(Belt.Option.map outline Outline.make)
+      ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
+      ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
+      ?pause:(Belt.Option.map pause Pause.make)
+      ?pitchRange:(Belt.Option.map pitchRange PitchRange.make)
+      ?pitch:(Belt.Option.map pitch Pitch.make)
+      ?playDuring:(Belt.Option.map playDuring PlayDuring.make)
+      ?richness:(Belt.Option.map richness Richness.make)
+      ?speakNumeral:(Belt.Option.map speakNumeral SpeakNumeral.make)
+      ?speakPunctuation:(Belt.Option.map speakPunctuation SpeakPunctuation.make)
+      ?speak:(Belt.Option.map speak Speak.make)
+      ?speechRate:(Belt.Option.map speechRate SpeechRate.make)
+      ?stress:(Belt.Option.map stress Stress.make)
+      ?textDecoration:(Belt.Option.map textDecoration TextDecoration.make)
+      ?textTransform:(Belt.Option.map textTransform TextTransform.make)
+      ?unicodeBidi:(Belt.Option.map unicodeBidi UnicodeBidi.make)
+      ?visibility:(Belt.Option.map visibility Visibility.make)
+      ?voiceFamily:(Belt.Option.map voiceFamily VoiceFamily.make)
+      ?volume:(Belt.Option.map volume Volume.make)
+      ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
+      ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make)
       ()
 
 
