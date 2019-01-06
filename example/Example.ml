@@ -1,3 +1,23 @@
+module Css_Module = struct
+  let container = Css_Module.make @@
+    Style.block ~textAlign:`center ~clear:`both ~color:`darkcyan ()
+
+  let title = Css_Module.make @@
+    Style.inline ~verticalAlign:`initial ~color:`black ()
+end
+
+let stylesheet = Css_Stylesheet.make `utf_8
+    [ Css_Stylesheet.css_module Css_Module.container
+    ; Css_Stylesheet.css_module Css_Module.title ]
+
+let style =
+  let open Webapi.Dom in
+  let style =
+    document |> Document.createElement "style"
+  in
+  Element.setInnerHTML style (Css_Stylesheet.show stylesheet);
+  style
+
 let _ =
   let open CallbagBasics in
 
@@ -9,7 +29,11 @@ let _ =
     |> Js.Option.getExn
   in
 
-  let example' =
+  let _ =
+    Webapi.Dom.Element.appendChild style body
+  in
+
+  let example =
     let open Node in
 
     let clock =
@@ -18,40 +42,15 @@ let _ =
       |> CallbagElement.make
     in
 
+    (* Make functions that only take a specific kind of element or element group *)
     let f (_: Html_Node.span): unit = () in
     let _ = f (span [|text "hello"|]) in
 
-    let stl: Css_Property.block Css_Module.t =
-      Css_Module.make @@
-        Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
-    in
-    let stl': Css_Property.inline Css_Module.t =
-      Css_Module.make @@
-        Style.inline ~verticalAlign:`initial ()
-    in
-    let stl'': Css_Stylesheet.Rule.t =
-      (Css_Stylesheet.CssModuleRule.make stl :> Css_Stylesheet.Rule.t)
-    in
-    let stl''': Css_Stylesheet.Rule.t =
-      (Css_Stylesheet.CssModuleRule.make stl' :> Css_Stylesheet.Rule.t)
-    in
-
-    Js.log2 "cssmodule div:\n"
-      @@ Css_Stylesheet.CssModuleRule.show
-      @@ Css_Stylesheet.CssModuleRule.make
-      stl;
-
-    let z =
-      div ~cssModule:stl [|
-        span ~cssModule:stl' [|text "The time is:"|];
-        br ();
-        clock;
-      |]
-
-    in
-
-
-    z
+    div ~cssModule:Css_Module.container [|
+      span ~cssModule:Css_Module.title [|text "The time is:"|];
+      br ();
+      clock;
+    |]
   in
 
-  Webapi.Dom.Element.appendChild (Html_Node.to_node example') body
+  Webapi.Dom.Element.appendChild (Html_Node.to_node example) body
