@@ -155,9 +155,9 @@ module CssModuleRule = struct
 
   let make x: t = `css_module (Css_Module.to_display x)
 
-  let show (`css_module {name; declaration}: t): string = 
-    "."^ name ^" {\n"^
-      Css_Property.show_properties ~indent:1 declaration ^"\n"^
+  let show (`css_module css_module: t): string =
+    "."^ Css_Module.class_name css_module ^" {\n"^
+      Css_Module.show ~indent:1 css_module ^"\n"^
     "}"
 end
 

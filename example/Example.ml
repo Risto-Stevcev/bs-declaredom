@@ -22,14 +22,12 @@ let _ =
     let _ = f (span [|text "hello"|]) in
 
     let stl: Css_Property.block Css_Module.t =
-      let open Css_Module in
-      { name="foobar"
-      ; declaration = Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
-      }
+      Css_Module.make @@
+        Style.block ~textAlign:`center ~clear:`both ~color:`blue ()
     in
     let stl': Css_Property.inline Css_Module.t =
-      let open Css_Module in
-      { name="foobaz"; declaration = Style.inline ~verticalAlign:`initial () }
+      Css_Module.make @@
+        Style.inline ~verticalAlign:`initial ()
     in
     let stl'': Css_Stylesheet.Rule.t =
       (Css_Stylesheet.CssModuleRule.make stl :> Css_Stylesheet.Rule.t)
@@ -37,6 +35,11 @@ let _ =
     let stl''': Css_Stylesheet.Rule.t =
       (Css_Stylesheet.CssModuleRule.make stl' :> Css_Stylesheet.Rule.t)
     in
+
+    Js.log2 "cssmodule div:\n"
+      @@ Css_Stylesheet.CssModuleRule.show
+      @@ Css_Stylesheet.CssModuleRule.make
+      stl;
 
     let z =
       div ~cssModule:stl [|

@@ -21,50 +21,67 @@
 (* https://www.w3.org/TR/2011/REC-css3-selectors-20110929/ *)
 
 (* Creates css modules -- scoped styles that are namespaced by it's class name *)
-type 'a t = { name: string; declaration: 'a Js.Dict.t }
+type 'a t
 
-external hrtime: unit -> int * int = "" [@@bs.scope "process"] [@@bs.val]
+(* TODO: hide *)
+module Internal = struct
+  type 'a value = { name: string; declaration: 'a Js.Dict.t }
 
-(* TODO:
- * Avoid giving users the ability to provide a module name, since this is no
- * different from className
- * Instead, just use a fast hashing algorithm on the stringified declaration to get
- * a unique name. If it uses java's hashmap algo collisions will be rare, and
- * if the styles are the same it won't make any real difference to the end code
- *)
+  module Convert = struct
+    external to_module: 'a value -> 'a t = "%identity"
+    external to_value: 'a t -> 'a value = "%identity"
 
+    let position:
+      Css_Property.Position.t -> [< Css_Property.display] Js.Dict.t =
+    function
+    | `static static     -> Obj.magic static
+    | `absolute absolute -> Obj.magic absolute
+    | `relative relative -> Obj.magic relative
+    | `fixed fixed       -> Obj.magic fixed
+  end
+end
 
-let getClass' ?className ?cssModule () =
-  match (className, cssModule) with
+(** Gets a class name from the className and/or cssModule if provided *)
+let get_class ?className ?cssModule () =
+  match (className, Belt.Option.map cssModule Internal.Convert.to_value) with
   | (Some className', Some {name}) -> className' ^" "^ name |. Some
   | (Some _, None) -> className
   | (None, Some {name}) -> Some name
   | _ -> None
 
-(* TODO: remove *)
-let getClass ?(className="") ?(cssModule={name=""; declaration=Js.Dict.empty ()}) () =
-  let {name} = cssModule in
-  let separator = if className = "" || name = "" then "" else " " in
-  Js.String.trim @@ className ^ separator ^ name
+let map fn css_module =
+  css_module
+  |> Internal.Convert.to_value
+  |> fn
+  |> Internal.Convert.to_module
 
-let to_display ({ name; declaration }: [< Css_Property.display ] t) =
-  { name
-  ; declaration =
-      declaration |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
-  }
+let to_display css_module =
+  css_module
+  |> map @@ fun { name; declaration } -> begin
+    { name
+    ; declaration =
+        declaration |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+    }
+  end
 
 let make
-  ?position:(
-    position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
-  )
-  { name; declaration }: [< Css_Property.display ] t =
-  { name
-  ; declaration =
-      declaration
-      |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
-      |> Util.merge (Css_Properties.Position.Convert.display position)
-  }
+  ?(position:Css_Property.Position.t option)
+  declaration: [< Css_Property.display] t =
+  Internal.Convert.to_module
+    { name = "m"^ MD5.make @@ Css_Property.show_properties declaration
+    ; declaration = match position with
+      | Some position' ->
+        Util.merge (Internal.Convert.position position') declaration
+      | None ->
+        declaration
+    }
 
-let make' declaration =
-  let (s, ms) = hrtime () in
-  {name = "m"^ Js.Int.toString s ^"_"^ Js.Int.toString ms; declaration}
+let class_name css_module =
+  let {Internal.name} = Internal.Convert.to_value css_module
+  in
+  name
+
+let show ?indent css_module =
+  let {Internal.declaration} = Internal.Convert.to_value css_module
+  in
+  Css_Property.show_properties ?indent declaration

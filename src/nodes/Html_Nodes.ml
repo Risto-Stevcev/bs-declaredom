@@ -80,7 +80,7 @@ module A = struct
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:child array): 'a t
     =
-    let className = Css_Module.getClass' ?className ?cssModule ()
+    let className = Css_Module.get_class ?className ?cssModule ()
     in
     Declaredom.make "a"
       (Util.merge_all [|
@@ -141,7 +141,7 @@ module Div = struct
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:child array): 'a t
     =
-    let className = Css_Module.getClass' ?className ?cssModule ()
+    let className = Css_Module.get_class ?className ?cssModule ()
     in
     Declaredom.make "div"
       (Util.merge_all [|
@@ -200,7 +200,7 @@ module Span = struct
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:child array): 'a t
     =
-    let className = Css_Module.getClass' ?className ?cssModule ()
+    let className = Css_Module.get_class ?className ?cssModule ()
     in
     Declaredom.make "span"
       (Util.merge_all [|
