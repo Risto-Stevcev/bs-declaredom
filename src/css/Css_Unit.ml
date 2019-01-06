@@ -1,5 +1,7 @@
+(** CSS Unit Values *)
+
 module Font = struct
-  (** {{: https://www.w3.org/TR/css-values/#font-relative-lengths } Font-relative lengths} *)
+  (** {{: https://www.w3.org/TR/css-values/#font-relative-lengths } Font-Relative Lengths} *)
 
   type t =
     [ `em of float  | `ex of float | `cap of float | `ch of float | `ic of float
@@ -18,7 +20,7 @@ end
 
 
 module Viewport = struct
-  (** {{: https://www.w3.org/TR/css-values/#viewport-relative-lengths } Viewport-percentage lengths} *)
+  (** {{: https://www.w3.org/TR/css-values/#viewport-relative-lengths } Viewport-Relative Lengths} *)
 
   type t =
     [ `vw of float   | `vh of float   | `vi of float | `vb of float
@@ -35,7 +37,7 @@ end
 
 
 module Absolute = struct
-  (** {{: https://www.w3.org/TR/css-values/#absolute-lengths } Absolute lengths} *)
+  (** {{: https://www.w3.org/TR/css-values/#absolute-lengths } Absolute Lengths} *)
 
   type t =
     [ `cm of float | `mm of float | `Q of float | `in_ of float | `pt of float
@@ -53,6 +55,8 @@ end
 
 
 module Relative = struct
+  (** {{: https://www.w3.org/TR/css-values/#relative-lengths } Relative Lengths} *)
+
   type t = [ Font.t | Viewport.t ]
 
   let show: t -> string = function
@@ -65,6 +69,8 @@ end
 
 
 module Length = struct
+  (** {{: https://www.w3.org/TR/css-values/#lengths } Lengths} *)
+
   type t = [ Absolute.t | Relative.t ]
 
   let show: t -> string = function
@@ -125,6 +131,8 @@ end
 
 
 module Other = struct
+  (** {{: https://www.w3.org/TR/css-values/#other-units } Other} *)
+
   type t = [ Angle.t | Time.t | Frequency.t | Resolution.t ]
 
   let show: t -> string = function

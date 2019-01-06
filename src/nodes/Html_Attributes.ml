@@ -1,8 +1,9 @@
+(** HTML Attributes *)
+
 type t = Declaredom.property Js.Dict.t
 
-
 module LinkType = struct
-  (** {{: https://www.w3.org/TR/html52/links.html#sec-link-types} Link types} *)
+  (** {{: https://www.w3.org/TR/html52/links.html#sec-link-types} Link Types} *)
 
   module Link = struct
     type t =
@@ -27,7 +28,7 @@ end
 
 
 module ReferrerPolicy = struct
-  (** {{: https://www.w3.org/TR/referrer-policy/#referrer-policies} Referrer policies} *)
+  (** {{: https://www.w3.org/TR/referrer-policy/#referrer-policies} Referrer Policies} *)
 
   type t =
     [ `no_referrer [@bs.as "no-referrer"]
@@ -46,7 +47,7 @@ end
 
 
 module Aria = struct
-  (** {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria roles} *)
+  (** {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria Roles} *)
 
   module Expanded = struct
     external _make: ?aria_expanded:string -> unit -> t = "" [@@bs.obj]

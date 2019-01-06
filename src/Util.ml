@@ -1,3 +1,5 @@
+(** Utitily functions for declaredom *)
+
 let underscore_to_dash = Js.String.replaceByRe [%re "/_/g"] "-"
 
 let camel_to_dash str =

@@ -1,12 +1,4 @@
-(* TODO:
- * stylesheet takes a list of:
- *  - directives ie @charset or @font-face
- *  - A `selector list` (which will be comma delimited) with a ruleset
- *  - css modules
- *)
-module Selector = Css_Selector
-
-module Property = Css_Property
+(** CSS Stylesheets *)
 
 module CharsetRule = struct
 	type t = [ `charset of Css_Charset.t ]
@@ -31,7 +23,7 @@ module FontFaceRule = struct
 end
 
 module PageRule = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#page-box } The @page rule} *)
+  (** {{: https://www.w3.org/TR/CSS22/page.html#page-box } The \@page rule} *)
 
   module Selector = struct
     (** {{: https://www.w3.org/TR/CSS22/page.html#page-selectors } Page selectors} *)
@@ -62,7 +54,8 @@ module PageRule = struct
 end
 
 module MediaRule = struct
-  type t =  [ `media of Css_Media.t * Selector.t * Property.display Js.Dict.t ]
+  type t =
+    [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Js.Dict.t ]
 
   let print
     ?position:(
@@ -79,7 +72,7 @@ module MediaRule = struct
       ( query
       , selector
       , properties
-        |> Property.MediaType.print_to_display
+        |> Css_Property.MediaType.print_to_display
         |> Util.merge (Css_Properties.Position.Convert.display position)
       )
 
@@ -98,7 +91,7 @@ module MediaRule = struct
       ( query
       , selector
       , properties
-        |> Property.MediaType.screen_to_display
+        |> Css_Property.MediaType.screen_to_display
         |> Util.merge (Css_Properties.Position.Convert.display position)
       )
 
@@ -117,7 +110,7 @@ module MediaRule = struct
       ( query
       , selector
       , properties
-        |> Property.MediaType.speech_to_display
+        |> Css_Property.MediaType.speech_to_display
         |> Util.merge (Css_Properties.Position.Convert.display position)
       )
 
@@ -128,7 +121,7 @@ module MediaRule = struct
 end
 
 module StyleRule = struct
-  type t = [ `style of Selector.t * Property.display Js.Dict.t ]
+  type t = [ `style of Css_Selector.t * Css_Property.display Js.Dict.t ]
 
   let make
     ?position:(
@@ -138,7 +131,7 @@ module StyleRule = struct
     `style
       ( selector
       , properties
-        |> Js.Dict.map (fun [@bs] p -> (p :> Property.display))
+        |> Js.Dict.map (fun [@bs] p -> (p :> Css_Property.display))
         |> Util.merge (Css_Properties.Position.Convert.display position)
       )
 
@@ -151,7 +144,7 @@ module StyleRule = struct
 end
 
 module CssModuleRule = struct
-  type t = [ `css_module of Property.display Css_Module.t ]
+  type t = [ `css_module of Css_Property.display Css_Module.t ]
 
   let make x: t = `css_module (Css_Module.to_display x)
 

@@ -10,7 +10,6 @@ let to_display styles: Css_Property.display t =
   styles |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
 
 
-(* TODO: hide *)
 module Internal = struct
   module Group = struct
     external aligns:

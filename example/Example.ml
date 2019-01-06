@@ -4,6 +4,17 @@ module Css_Module = struct
 
   let title = Css_Module.make @@
     Style.inline ~verticalAlign:`initial ~color:`black ()
+
+  (* You can use `map` on a css module. Here it's just upcasting the type, so
+   * the actual implementation hasn't changed and the module name will stay the
+   * same.
+   * But if you modify the underlying styles then the module name also updates.
+   *)
+  let foo =
+    container
+    |> Css_Module.map @@ fun e -> begin
+         e |> Js.Dict.map @@ fun [@bs] a -> (a :> Css_Property.display)
+       end
 end
 
 let stylesheet = Css_Stylesheet.make `utf_8

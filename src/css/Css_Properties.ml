@@ -1,7 +1,3 @@
-(** {{: https://www.w3.org/TR/CSS22/propidx.html } Full property table} *)
-(** {{: https://www.w3.org/TR/css-values-4/#component-combinators } Component combinators *)
-
-(* TODO: hide this *)
 module Internal = struct
   external make: string -> _ Css_Property.t = "%identity"
 
@@ -24,8 +20,6 @@ end
 
 
 module AlignContent = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-content-property} Align-content} *)
-
   type 'a t = [> Css_Property.align_content ] as 'a
 
   module Value = struct
@@ -50,8 +44,6 @@ end
 
 
 module AlignItems = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-items-property} Align-items} *)
-
   type 'a t = [> Css_Property.align_items ] as 'a
 
   module Value = struct
@@ -74,8 +66,6 @@ end
 
 
 module AlignSelf = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#align-items-property} Align-self} *)
-
   type 'a t = [> Css_Property.align_self ] as 'a
 
   module Value = struct
@@ -99,8 +89,6 @@ end
 
 
 module Azimuth = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-azimuth } Azimuth} *)
-
   type 'a t = [> Css_Property.azimuth ] as 'a
 
   type _value =
@@ -110,7 +98,6 @@ module Azimuth = struct
     ]
     [@@bs.deriving jsConverter]
 
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#value-def-angle } Angle} *)
   type value =
     [
     | Css_Value.Global.t | Css_Value.Angle.t | `behind of _value option | _value
@@ -133,8 +120,6 @@ end
 
 
 module BackgroundAttachment = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-attachment } Background Attachment} *)
-
   type 'a t = [> Css_Property.background_attachment ] as 'a
 
   external to_json:
@@ -148,8 +133,6 @@ end
 
 
 module BackgroundColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-color } Background color} *)
-
   type 'a t = [> Css_Property.background_color ] as 'a
 
   let make value: 'a t =
@@ -158,8 +141,6 @@ end
 
 
 module BackgroundImage = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-image } Background Image} *)
-
   type 'a t = [> Css_Property.background_image ] as 'a
 
   let make value: 'a t =
@@ -168,8 +149,6 @@ end
 
 
 module BackgroundPosition = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#background-properties } Background Position} *)
-
   type 'a t = [> Css_Property.background_position ] as 'a
 
   let make value: 'a t =
@@ -179,8 +158,6 @@ end
 
 
 module BackgroundRepeat = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-repeat } Background Repeat} *)
-
   type 'a t = [> Css_Property.background_repeat ] as 'a
 
   let make value: 'a t =
@@ -189,8 +166,6 @@ end
 
 
 module Background = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background } Background} *)
-
   type 'a t = [> Css_Property.background ] as 'a
 
   module Value = struct
@@ -225,8 +200,6 @@ end
 
 
 module BorderCollapse = struct
-  (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-border-collapse } Border Collapse} *)
-
   type 'a t = [> Css_Property.border_collapse ] as 'a
 
   module Value = struct
@@ -244,8 +217,6 @@ end
 
 
 module BorderColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#border-color-properties } Border Color} *)
-
   type 'a t = [> Css_Property.border_color ] as 'a
 
   let make value: 'a t =
@@ -254,8 +225,6 @@ end
 
 
 module BorderSpacing = struct
-  (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-border-spacing } Border Spacing} *)
-
   type 'a t = [> Css_Property.border_spacing ] as 'a
 
   module Value = struct
@@ -277,8 +246,6 @@ end
 
 
 module BorderWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#border-width-properties } Border Width} *)
-
   type 'a t = [> Css_Property.border_width ] as 'a
 
   let make value: 'a t =
@@ -287,8 +254,6 @@ end
 
 
 module BorderStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#border-style-properties } Border Style} *)
-
   type 'a t = [> Css_Property.border_style ] as 'a
 
   let make value: 'a t =
@@ -297,8 +262,6 @@ end
 
 
 module BorderTop = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top } Border Top} *)
-
   type 'a t = [> Css_Property.border_top ] as 'a
 
   module Value = struct
@@ -324,8 +287,6 @@ end
 
 
 module BorderBottom = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom } Border Bottom} *)
-
   type 'a t = [> Css_Property.border_bottom ] as 'a
 
   module Value = struct
@@ -351,8 +312,6 @@ end
 
 
 module BorderLeft = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left } Border Left} *)
-
   type 'a t = [> Css_Property.border_left ] as 'a
 
   module Value = struct
@@ -378,8 +337,6 @@ end
 
 
 module BorderRight = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-right } Border Right} *)
-
   type 'a t = [> Css_Property.border_right ] as 'a
 
   module Value = struct
@@ -405,8 +362,6 @@ end
 
 
 module Border = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border } Border} *)
-
   type 'a t = [> Css_Property.border ] as 'a
 
   module Value = struct
@@ -432,8 +387,6 @@ end
 
 
 module BorderTopColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top-color } Border top color} *)
-
   type 'a t = [> Css_Property.border_top_color ] as 'a
 
   let make value: 'a t =
@@ -442,8 +395,6 @@ end
 
 
 module BorderRightColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-right-color } Border right color} *)
-
   type 'a t = [> Css_Property.border_right_color ] as 'a
 
   let make value: 'a t =
@@ -452,8 +403,6 @@ end
 
 
 module BorderBottomColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-color } Border bottom color} *)
-
   type 'a t = [> Css_Property.border_bottom_color ] as 'a
 
   let make value: 'a t =
@@ -462,8 +411,6 @@ end
 
 
 module BorderLeftColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left-color } Border left color} *)
-
   type 'a t = [> Css_Property.border_left_color ] as 'a
 
   let make value: 'a t =
@@ -472,8 +419,6 @@ end
 
 
 module BorderTopStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top-style } Border top style} *)
-
   type 'a t = [> Css_Property.border_top_style ] as 'a
 
   let make value: 'a t =
@@ -482,8 +427,6 @@ end
 
 
 module BorderRightStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-right-style } Border right style} *)
-
   type 'a t = [> Css_Property.border_right_style ] as 'a
 
   let make value: 'a t =
@@ -492,8 +435,6 @@ end
 
 
 module BorderBottomStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-style } Border bottom style} *)
-
   type 'a t = [> Css_Property.border_bottom_style ] as 'a
 
   let make value: 'a t =
@@ -502,8 +443,6 @@ end
 
 
 module BorderLeftStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left-style } Border left style} *)
-
   type 'a t = [> Css_Property.border_left_style ] as 'a
 
   let make value: 'a t =
@@ -512,8 +451,6 @@ end
 
 
 module BorderTopWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-top-width } Border top width} *)
-
   type 'a t = [> Css_Property.border_top_width ] as 'a
 
   let make value: 'a t =
@@ -522,8 +459,6 @@ end
 
 
 module BorderRightWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-right-width } Border right width} *)
-
   type 'a t = [> Css_Property.border_right_width ] as 'a
 
   let make value: 'a t =
@@ -532,8 +467,6 @@ end
 
 
 module BorderBottomWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom-width } Border bottom width} *)
-
   type 'a t = [> Css_Property.border_bottom_width ] as 'a
 
   let make value: 'a t =
@@ -542,8 +475,6 @@ end
 
 
 module BorderLeftWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left-width } Border left width} *)
-
   type 'a t = [> Css_Property.border_left_width ] as 'a
 
   let make value: 'a t =
@@ -551,10 +482,7 @@ module BorderLeftWidth = struct
 end
 
 
-(* TODO: hide *)
 module Bottom = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#position-props } Box offsets} *)
-
   type 'a t = [> Css_Property.bottom ] as 'a
 
   let make value: 'a t =
@@ -563,8 +491,6 @@ end
 
 
 module CaptionSide = struct
-  (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-caption-side } Caption side} *)
-
   type 'a t = [> Css_Property.caption_side ] as 'a
 
   module Value = struct
@@ -583,8 +509,6 @@ end
 
 
 module Clear = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#flow-control } Clear} *)
-
   type 'a t = [> Css_Property.clear ] as 'a
 
   module Value = struct
@@ -636,8 +560,6 @@ end
 
 
 module Color = struct
-  (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-color } Color} *)
-
   type 'a t = [> Css_Property.color ] as 'a
 
   module Value = struct
@@ -684,8 +606,6 @@ end
 
 
 module CueAfter = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-cue-after } Cue after} *)
-
   type 'a t = [> Css_Property.cue_after ] as 'a
 
   let make value: 'a t =
@@ -694,8 +614,6 @@ end
 
 
 module CueBefore = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-cue-before } Cue before} *)
-
   type 'a t = [> Css_Property.cue_before ] as 'a
 
   let make value: 'a t =
@@ -704,8 +622,6 @@ end
 
 
 module Cue = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-cue } Cue} *)
-
   type 'a t = [> Css_Property.cue ] as 'a
 
   module Value = struct
@@ -727,8 +643,6 @@ end
 
 
 module Cursor = struct
-  (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-cursor} Cursor} *)
-
   type 'a t = [> Css_Property.cursor ] as 'a
 
   module Value = struct
@@ -769,8 +683,6 @@ end
 
 
 module Direction = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-direction} Direction} *)
-
   type 'a t = [> Css_Property.direction ] as 'a
 
   module Value = struct
@@ -788,8 +700,6 @@ end
 
 
 module Elevation = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-elevation} Elevation} *)
-
   type 'a t = [> Css_Property.elevation ] as 'a
 
   module Value = struct
@@ -813,8 +723,6 @@ end
 
 
 module EmptyCells = struct
-  (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-empty-cells} Empty cells} *)
-
   type 'a t = [> Css_Property.empty_cells ] as 'a
 
   module Value = struct
@@ -832,8 +740,6 @@ end
 
 
 module Flex = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-property} Flex} *)
-
   type 'a t = [> Css_Property.flex' ] as 'a
 
   module Value = struct
@@ -862,8 +768,6 @@ end
 
 
 module FlexBasis = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-basis-property} Flex-basis} *)
-
   type 'a t = [> Css_Property.flex_basis ] as 'a
 
   let make value: 'a t =
@@ -872,8 +776,6 @@ end
 
 
 module FlexDirection = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-direction-property} Flex-direction} *)
-
   type 'a t = [> Css_Property.flex_direction ] as 'a
 
   let make value: 'a t =
@@ -882,8 +784,6 @@ end
 
 
 module FlexFlow = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-flow-property} Flex-flow} *)
-
   type 'a t = [> Css_Property.flex_flow ] as 'a
 
   module Value = struct
@@ -904,8 +804,6 @@ end
 
 
 module FlexGrow = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-grow-property} Flex-grow} *)
-
   type 'a t = [> Css_Property.flex_grow ] as 'a
 
   let make value: 'a t = `flex_grow (Internal.make @@ Js.Int.toString value)
@@ -913,8 +811,6 @@ end
 
 
 module FlexShrink = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property} Flex-shrink} *)
-
   type 'a t = [> Css_Property.flex_shrink ] as 'a
 
   let make value: 'a t = `flex_shrink (Internal.make @@ Js.Int.toString value)
@@ -922,8 +818,6 @@ end
 
 
 module FlexWrap = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property} Flex-wrap} *)
-
   type 'a t = [> Css_Property.flex_wrap ] as 'a
 
   let make value: 'a t =
@@ -932,8 +826,6 @@ end
 
 
 module Float = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-float} Float} *)
-
   type 'a t = [> Css_Property.float_ ] as 'a
 
   module Value = struct
@@ -953,8 +845,6 @@ end
 
 
 module FontFamily = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-family } Font family} *)
-
   type 'a t = [> Css_Property.font_family ] as 'a
 
   let make value: 'a t =
@@ -963,8 +853,6 @@ end
 
 
 module FontSize = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-size-props } Font size} *)
-
   type 'a t = [> Css_Property.font_size ] as 'a
 
   let make value: 'a t =
@@ -973,8 +861,6 @@ end
 
 
 module FontStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-styling } Font style} *)
-
   type 'a t = [> Css_Property.font_style ] as 'a
 
   let make value: 'a t =
@@ -983,8 +869,6 @@ end
 
 
 module FontVariant = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#small-caps } Font variant} *)
-
   type 'a t = [> Css_Property.font_variant ] as 'a
 
   let make value: 'a t =
@@ -993,8 +877,6 @@ end
 
 
 module FontWeight = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-boldness } Font Weight} *)
-
   type 'a t = [> Css_Property.font_weight ] as 'a
 
   let make value: 'a t =
@@ -1003,8 +885,6 @@ end
 
 
 module Font = struct
-  (** {{: https://www.w3.org/TR/CSS22/fonts.html#font-shorthand } Font} *)
-
   type 'a t = [> Css_Property.font ] as 'a
 
   module Value = struct
@@ -1066,8 +946,6 @@ end
 
 
 module Height = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#the-height-property } Height} *)
-
   type 'a t = [> Css_Property.height ] as 'a
 
   let make value: 'a t =
@@ -1076,8 +954,6 @@ end
 
 
 module JustifyContent = struct
-  (** {{: https://www.w3.org/TR/css-flexbox-1/#justify-content-property} Justify-content} *)
-
   type 'a t = [> Css_Property.justify_content ] as 'a
 
   module Value = struct
@@ -1101,10 +977,7 @@ module JustifyContent = struct
 end
 
 
-(* TODO: hide *)
 module Left = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#position-props } Box offsets} *)
-
   type 'a t = [> Css_Property.left ] as 'a
 
   let make value: 'a t =
@@ -1113,8 +986,6 @@ end
 
 
 module LetterSpacing = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#spacing-props } Letter spacing} *)
-
   type 'a t = [> Css_Property.letter_spacing ] as 'a
 
   module Value = struct
@@ -1136,8 +1007,6 @@ end
 
 
 module LineHeight = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#leading } Leading} *)
-
   type 'a t = [> Css_Property.line_height ] as 'a
 
   let make value: 'a t =
@@ -1146,8 +1015,6 @@ end
 
 
 module ListStyleImage = struct
-  (** {{: https://www.w3.org/TR/CSS22/generate.html#list-style } List-style-image} *)
-
   type 'a t = [> Css_Property.list_style_image ] as 'a
 
   let make value: 'a t =
@@ -1156,8 +1023,6 @@ end
 
 
 module ListStylePosition = struct
-  (** {{: https://www.w3.org/TR/CSS22/generate.html#list-style } List-style-position} *)
-
   type 'a t = [> Css_Property.list_style_position ] as 'a
 
   let make value: 'a t =
@@ -1166,8 +1031,6 @@ end
 
 
 module ListStyleType = struct
-  (** {{: https://www.w3.org/TR/CSS22/generate.html#list-style } List-style-type} *)
-
   type 'a t = [> Css_Property.list_style_type ] as 'a
 
   let make value: 'a t =
@@ -1176,8 +1039,6 @@ end
 
 
 module ListStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/generate.html#list_style } List style} *)
-
   type 'a t = [> Css_Property.list_style ] as 'a
 
   module Value = struct
@@ -1203,8 +1064,6 @@ end
 
 
 module Margin = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-margin } Margin} *)
-
   type 'a t = [> Css_Property.margin ] as 'a
 
   module Value = struct
@@ -1234,8 +1093,6 @@ end
 
 
 module MarginTop = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-margin-top } Margin-top} *)
-
   type 'a t = [> Css_Property.margin_top ] as 'a
 
   let make value: 'a t =
@@ -1244,8 +1101,6 @@ end
 
 
 module MarginRight = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-margin-right } Margin-right} *)
-
   type 'a t = [> Css_Property.margin_right ] as 'a
 
   let make value: 'a t =
@@ -1254,8 +1109,6 @@ end
 
 
 module MarginBottom = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-margin-bottom } Margin-bottom} *)
-
   type 'a t = [> Css_Property.margin_bottom ] as 'a
 
   let make value: 'a t =
@@ -1264,8 +1117,6 @@ end
 
 
 module MarginLeft = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-margin-left } Margin-left} *)
-
   type 'a t = [> Css_Property.margin_left ] as 'a
 
   let make value: 'a t =
@@ -1274,8 +1125,6 @@ end
 
 
 module MaxHeight = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-max-height} Max-height} *)
-
   type 'a t = [> Css_Property.max_height ] as 'a
 
   let make value: 'a t =
@@ -1284,8 +1133,6 @@ end
 
 
 module MaxWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-max-width} Max-width} *)
-
   type 'a t = [> Css_Property.max_width ] as 'a
 
   let make value: 'a t =
@@ -1294,8 +1141,6 @@ end
 
 
 module MinHeight = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height} Min-height} *)
-
   type 'a t = [> Css_Property.min_height ] as 'a
 
   let make value: 'a t =
@@ -1304,8 +1149,6 @@ end
 
 
 module MinWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width} Min-width} *)
-
   type 'a t = [> Css_Property.min_width ] as 'a
 
   let make value: 'a t =
@@ -1314,8 +1157,6 @@ end
 
 
 module Order = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-order } Order} *)
-
   type 'a t = [> Css_Property.order ] as 'a
 
   let make value: 'a t = `order (Internal.make @@ Js.Int.toString value)
@@ -1323,8 +1164,6 @@ end
 
 
 module Orphans = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-orphans } Orphans} *)
-
   type 'a t = [> Css_Property.orphans ] as 'a
 
   let make value: 'a t =
@@ -1333,8 +1172,6 @@ end
 
 
 module OutlineColor = struct
-  (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-outline-color} Outline color} *)
-
   type 'a t = [> Css_Property.outline_color ] as 'a
 
   let make value: 'a t =
@@ -1343,8 +1180,6 @@ end
 
 
 module OutlineStyle = struct
-  (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-outline-style} Outline style} *)
-
   type 'a t = [> Css_Property.outline_style ] as 'a
 
   let make value: 'a t =
@@ -1353,8 +1188,6 @@ end
 
 
 module OutlineWidth = struct
-  (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-outline-width} Outline width} *)
-
   type 'a t = [> Css_Property.outline_width ] as 'a
 
   let make value: 'a t =
@@ -1363,8 +1196,6 @@ end
 
 
 module Outline = struct
-  (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-outline} Outline} *)
-
   type 'a t = [> Css_Property.outline ] as 'a
 
   module Value = struct
@@ -1389,8 +1220,6 @@ end
 
 
 module Overflow = struct
-  (** {{: https://www.w3.org/TR/CSS22/visufx.html#propdef-overflow} Overflow} *)
-
   type 'a t = [> Css_Property.overflow ] as 'a
 
   module Value = struct
@@ -1411,8 +1240,6 @@ end
 
 
 module PaddingTop = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-padding-top} Padding-top} *)
-
   type 'a t = [> Css_Property.padding_top ] as 'a
 
   let make value: 'a t =
@@ -1421,8 +1248,6 @@ end
 
 
 module PaddingRight = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-padding-right} Padding-right} *)
-
   type 'a t = [> Css_Property.padding_right ] as 'a
 
   let make value: 'a t =
@@ -1431,8 +1256,6 @@ end
 
 
 module PaddingBottom = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-padding-bottom} Padding-bottom} *)
-
   type 'a t = [> Css_Property.padding_bottom ] as 'a
 
   let make value: 'a t =
@@ -1441,8 +1264,6 @@ end
 
 
 module PaddingLeft = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-padding-left} Padding-left} *)
-
   type 'a t = [> Css_Property.padding_left ] as 'a
 
   let make value: 'a t =
@@ -1451,8 +1272,6 @@ end
 
 
 module Padding = struct
-  (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-padding } Padding} *)
-
   type 'a t = [> Css_Property.padding ] as 'a
 
   module Value = struct
@@ -1482,8 +1301,6 @@ end
 
 
 module PageBreakAfter = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-page-break-after } Page break after} *)
-
   type 'a t = [> Css_Property.page_break_after ] as 'a
 
   let make value: 'a t =
@@ -1492,8 +1309,6 @@ end
 
 
 module PageBreakBefore = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-page-break-before } Page break before} *)
-
   type 'a t = [> Css_Property.page_break_before ] as 'a
 
   let make value: 'a t =
@@ -1502,8 +1317,6 @@ end
 
 
 module PageBreakInside = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-page-break-inside } Page break inside} *)
-
   type 'a t = [> Css_Property.page_break_inside ] as 'a
 
   let make (value: Css_Value.PageBreak.inside): 'a t =
@@ -1513,8 +1326,6 @@ end
 
 
 module PauseAfter = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-pause-after} Pause after} *)
-
   type 'a t = [> Css_Property.pause_after ] as 'a
 
   let make value: 'a t =
@@ -1523,8 +1334,6 @@ end
 
 
 module PauseBefore = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-pause-before} Pause before} *)
-
   type 'a t = [> Css_Property.pause_before ] as 'a
 
   let make value: 'a t =
@@ -1533,8 +1342,6 @@ end
 
 
 module Pause = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-pause} Pause} *)
-
   type 'a t = [> Css_Property.pause ] as 'a
 
   module Value = struct
@@ -1555,8 +1362,6 @@ end
 
 
 module PitchRange = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-pitch-range} Pitch range} *)
-
   type 'a t = [> Css_Property.pitch_range ] as 'a
 
   module Value = struct
@@ -1574,8 +1379,6 @@ end
 
 
 module Pitch = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-pitch} Pitch} *)
-
   type 'a t = [> Css_Property.pitch ] as 'a
 
   module Value = struct
@@ -1599,8 +1402,6 @@ end
 
 
 module PlayDuring = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-play-during} Play during} *)
-
   type 'a t = [> Css_Property.play_during ] as 'a
 
   module Value = struct
@@ -1626,8 +1427,6 @@ end
 
 
 module Richness = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-richness} Richness} *)
-
   type 'a t = [> Css_Property.richness ] as 'a
 
   module Value = struct
@@ -1644,10 +1443,7 @@ module Richness = struct
 end
 
 
-(* TODO: hide *)
 module Right = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-right} Right} *)
-
   type 'a t = [> Css_Property.right ] as 'a
 
   let make value: 'a t =
@@ -1656,8 +1452,6 @@ end
 
 
 module SpeakHeader = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak-header} Speak header} *)
-
   type 'a t = [> Css_Property.speak_header ] as 'a
 
   module Value = struct
@@ -1675,8 +1469,6 @@ end
 
 
 module SpeakNumeral = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak-numeral} Speak numeral} *)
-
   type 'a t = [> Css_Property.speak_numeral ] as 'a
 
   module Value = struct
@@ -1694,8 +1486,6 @@ end
 
 
 module SpeakPunctuation = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak-punctuation} Speak punctuation} *)
-
   type 'a t = [> Css_Property.speak_punctuation ] as 'a
 
   module Value = struct
@@ -1713,8 +1503,6 @@ end
 
 
 module Speak = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak} Speak} *)
-
   type 'a t = [> Css_Property.speak ] as 'a
 
   module Value = struct
@@ -1736,8 +1524,6 @@ end
 
 
 module SpeechRate = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speech-rate} Speech rate} *)
-
   type 'a t = [> Css_Property.speech_rate ] as 'a
 
   module Value = struct
@@ -1762,8 +1548,6 @@ end
 
 
 module Stress = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-stress} Stress} *)
-
   type 'a t = [> Css_Property.stress ] as 'a
 
   module Value = struct
@@ -1781,8 +1565,6 @@ end
 
 
 module TableLayout = struct
-  (** {{: https://www.w3.org/TR/CSS22/tables.html#propdef-table-layout} Table layout} *)
-
   type 'a t = [> Css_Property.table_layout ] as 'a
 
   module Value = struct
@@ -1800,8 +1582,6 @@ end
 
 
 module TextAlign = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#alignment-prop } Text-align } *)
-
   type 'a t = [> Css_Property.text_align ] as 'a
 
   module Value = struct
@@ -1822,8 +1602,6 @@ end
 
 
 module TextDecoration = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-text-decoration} Text decoration} *)
-
   type 'a t = [> Css_Property.text_decoration ] as 'a
 
   module Value = struct
@@ -1845,8 +1623,6 @@ end
 
 
 module TextIndent = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-text-indent} Text indent} *)
-
   type 'a t = [> Css_Property.text_indent ] as 'a
 
   let make value: 'a t =
@@ -1855,8 +1631,6 @@ end
 
 
 module TextTransform = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-text-transform} Text transform} *)
-
   type 'a t = [> Css_Property.text_transform ] as 'a
 
   module Value = struct
@@ -1877,10 +1651,7 @@ module TextTransform = struct
 end
 
 
-(* TODO: hide *)
 module Top = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-top} Top} *)
-
   type 'a t = [> Css_Property.top ] as 'a
 
   let make value: 'a t =
@@ -1889,8 +1660,6 @@ end
 
 
 module UnicodeBidi = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-unicode-bidi} Unicode bidi} *)
-
   type 'a t = [> Css_Property.unicode_bidi ] as 'a
 
   module Value = struct
@@ -1912,16 +1681,10 @@ end
 
 
 module VerticalAlign = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#line-height } Vertical-align} *)
-
   type 'a t = [> Css_Property.vertical_align ] as 'a
 
   module Value = struct
-    (** {{: https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#Values_for_inline_elements } Values} *)
-
     module ParentRelative = struct
-      (** These values vertically align the element relative to its parent element *)
-
       type value =
         [
         | `baseline | `sub | `super | `text_top [@bs.as "text-top"]
@@ -1948,8 +1711,6 @@ module VerticalAlign = struct
     end
 
     module LineRelative = struct
-      (** The following values vertically align the element relative to the entire line *)
-
       type t = [ `top | `bottom ] [@@bs.deriving jsConverter]
 
       let show = tToJs
@@ -1976,8 +1737,6 @@ end
 
 
 module Visibility = struct
-  (** {{: https://www.w3.org/TR/CSS22/visufx.html#propdef-visibility} Visibility} *)
-
   type 'a t = [> Css_Property.visibility ] as 'a
 
   module Value = struct
@@ -1998,8 +1757,6 @@ end
 
 
 module VoiceFamily = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-voice-family} Voice family} *)
-
   type 'a t = [> Css_Property.voice_family ] as 'a
 
   module Value = struct
@@ -2023,8 +1780,6 @@ end
 
 
 module Volume = struct
-  (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-volume} Volume} *)
-
   type 'a t = [> Css_Property.volume ] as 'a
 
   module Value = struct
@@ -2052,8 +1807,6 @@ end
 
 
 module WhiteSpace = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-white-space} White space} *)
-
   type 'a t = [> Css_Property.white_space ] as 'a
 
   module Value = struct
@@ -2076,8 +1829,6 @@ end
 
 
 module Widows = struct
-  (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-widows } Widows} *)
-
   type 'a t = [> Css_Property.widows ] as 'a
 
   let make value: 'a t =
@@ -2086,8 +1837,6 @@ end
 
 
 module Width = struct
-  (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-width} Width} *)
-
   type 'a t = [> Css_Property.width ] as 'a
 
   let make value: 'a t =
@@ -2096,8 +1845,6 @@ end
 
 
 module WordSpacing = struct
-  (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-word-spacing} Word-spacing} *)
-
   type 'a t = [> Css_Property.word_spacing ] as 'a
 
   module Value = struct
@@ -2118,10 +1865,7 @@ module WordSpacing = struct
 end
 
 
-(* TODO: hide *)
 module ZIndex = struct
-  (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-z-index} Z-index} *)
-
   type 'a t = [> Css_Property.z_index ] as 'a
 
   let make value: 'a t = `z_index (Internal.make @@ Js.Int.toString value)
@@ -2135,6 +1879,27 @@ module Position = struct
    *   only to that position type.
    * - A few rules apply only to positions that aren't fixed (default)
    * - The position is independent of the display type
+   *)
+
+  (* TODO: this way of implementing `position` is too rigid, should be able to
+   * use it like other styles. Change it to:
+   * - Postion.make takes a value of:
+   *   [ `static
+   *   | `absolute of Css_Property.positioned Js.Dict.t
+   *   | `relative of Css_Property.positioned Js.Dict.t
+   *   | `fixed of Css_Property.positioned Js.Dict.t
+   *   ]
+   *   and returns a  `[< Css_Property.display ] Js.Dict.t` the includes the `position` style
+   * - Move `positions` out of `Css_Property.positioned` to `display`
+   * - Get rid of the Css_Property.Position module and the Obj.magic hacks to convert it
+   *
+   * This same logic should work with display:
+   * - Display.make takes values of:
+   *   [ `inline of Css_Property.inline Js.Dict.t
+   *   | `block of Css_Property.block Js.Dict.t
+   *   | ...
+   *   ]
+   *   and returns `[< Css_Property.display ] Js.Dict.t`
    *)
 
   type 'a t = [> Css_Property.position ] as 'a

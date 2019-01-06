@@ -1,12 +1,11 @@
 (**
- * This module defines the CSS properties
- *
- * The types correspond to the {{: https://www.w3.org/TR/CSS2/about.html#applies-to } applies to} 
- * description for styles for which display property is required for it to render
- *
- * See the {{: https://www.w3.org/TR/CSS22/propidx.html } CSS 2.2 full property table} for reference, and the
- *
- * {{: https://www.w3.org/TR/CSS22/sample.html } Default styles}
+ This module defines the CSS properties
+
+ The types correspond to the {{: https://www.w3.org/TR/CSS2/about.html#applies-to } applies to} 
+ description for styles for which display property is required for it to render.
+
+ See the {{: https://www.w3.org/TR/CSS22/propidx.html } CSS 2.2 full property table} for reference, and 
+ the {{: https://www.w3.org/TR/CSS22/sample.html } default styles}.
  *)
 
 type 'style t

@@ -1,7 +1,9 @@
+(** {{: https://www.w3.org/TR/selectors-3} CSS Selectors} *)
+
 module Element = struct
   (**
    {{: https://www.w3.org/TR/selectors-3/#type-selectors } Type}, and
-   {{: https://www.w3.org/TR/selectors-3/#universal-selector } Universal} selectors
+   {{: https://www.w3.org/TR/selectors-3/#universal-selector } Universal} Selectors
    *)
 
   type t =
@@ -17,7 +19,7 @@ module Element = struct
 end
 
 module Attribute = struct
-  (** {{: https://www.w3.org/TR/selectors-3/#attribute-selectors } Attribute selectors} *)
+  (** {{: https://www.w3.org/TR/selectors-3/#attribute-selectors } Attribute Selectors} *)
 
   type t =
     [
@@ -33,14 +35,14 @@ module Attribute = struct
 end
 
 module Class = struct
-  (** {{: https://www.w3.org/TR/selectors-3/#class-html } Class selector} *)
+  (** {{: https://www.w3.org/TR/selectors-3/#class-html } Class Selector} *)
 
   type t = [ `class_name of string ]
   let show (`class_name class_name: t): string = "." ^ class_name
 end
 
 module Id = struct
-  (** {{: https://www.w3.org/TR/selectors-3/#id-selectors } ID selector} *)
+  (** {{: https://www.w3.org/TR/selectors-3/#id-selectors } ID Selector} *)
 
   type t = [ `id of string ]
 
@@ -63,10 +65,10 @@ end
 
 module PseudoClass = struct
   (**
-   {{: https://www.w3.org/TR/selectors-3/#the-user-action-pseudo-classes-hover-act } User action}, 
+   {{: https://www.w3.org/TR/selectors-3/#the-user-action-pseudo-classes-hover-act } User Action}, 
    {{: https://www.w3.org/TR/selectors-3/#target-pseudo } Target}, 
    {{: https://www.w3.org/TR/selectors-3/#lang-pseudo } Lang}, and
-   {{: https://www.w3.org/TR/selectors-3/#UIstates } UI state} pseudo-classes
+   {{: https://www.w3.org/TR/selectors-3/#UIstates } UI State} Pseudo-Classes
    *)
 
   type pseudo_class =
@@ -83,7 +85,7 @@ module PseudoClass = struct
 end
 
 module StructuralPseudoClass = struct
-  (** {{: https://www.w3.org/TR/selectors-3/#structural-pseudos } Structural pseudo-classes} *)
+  (** {{: https://www.w3.org/TR/selectors-3/#structural-pseudos } Structural Pseudo-Classes} *)
 
   type nth_pseudo_class =
     [

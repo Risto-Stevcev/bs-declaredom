@@ -8,6 +8,7 @@ module Global = struct
   let show = tToJs
 end
 
+(** CSS unit values (re-exports) *)
 
 module Angle = Css_Unit.Angle
 module Time = Css_Unit.Time
@@ -15,6 +16,9 @@ module Frequency = Css_Unit.Frequency
 module Length = Css_Unit.Length
 module Percent = Css_Unit.Percent
 module Other = Css_Unit.Other
+
+
+(** Common value types for rules *)
 
 
 module Color = struct

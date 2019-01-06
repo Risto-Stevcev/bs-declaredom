@@ -1,10 +1,12 @@
+(** HTML Events *)
+
 type t = Declaredom.property Js.Dict.t
 
 module UIEvent = struct
-  (** {{: https://www.w3.org/TR/uievents/} UI Events *)
+  (** {{: https://www.w3.org/TR/uievents/} UI Events} *)
 
   module UI = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-uievent-types} UI Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-uievent-types} UI Events} *)
     (**
      * - onScroll has not been described in the WD yet, see this older
      *   {{: https://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#interface-UIEvent} spec}
@@ -25,7 +27,7 @@ module UIEvent = struct
 
 
   module Focus = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-focus-types} Focus Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-focus-types} Focus Events} *)
 
     external make:
       ?onBlur:(Dom.focusEvent -> unit) ->
@@ -38,7 +40,7 @@ module UIEvent = struct
 
 
   module Mouse = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-mouseevents} Mouse Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-mouseevents} Mouse Events} *)
 
     external make:
       ?onAuxClick:(Dom.mouseEvent -> unit) ->
@@ -57,7 +59,7 @@ module UIEvent = struct
 
 
   module Wheel = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-wheelevents} Wheel Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-wheelevents} Wheel Events} *)
 
     external make:
       ?onWheel:(Dom.wheelEvent -> unit) ->
@@ -67,7 +69,7 @@ module UIEvent = struct
 
 
   module Input = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-inputevents} Input Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-inputevents} Input Events} *)
 
     external make:
       ?onBeforeInput:(Dom.inputEvent -> unit) ->
@@ -78,7 +80,7 @@ module UIEvent = struct
 
 
   module Keyboard = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-keyboardevents} Keyboard Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-keyboardevents} Keyboard Events} *)
 
     external make:
       ?onKeyDown:(Dom.keyboardEvent -> unit) ->
@@ -90,7 +92,7 @@ module UIEvent = struct
 
 
   module Composition = struct
-    (** {{: https://www.w3.org/TR/uievents/#events-compositionevents} Composition Events *)
+    (** {{: https://www.w3.org/TR/uievents/#events-compositionevents} Composition Events} *)
 
     external make:
       ?onCompositionStart:(Dom.compositionEvent -> unit) ->
@@ -103,7 +105,7 @@ end
 
 
 module Media = struct
-  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#media-elements-event-summary} Media Events *)
+  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#media-elements-event-summary} Media Events} *)
   (** ({{: https://dev.w3.org/html5/pf-summary/video.html} additional info}) *)
 
   external make:
@@ -136,7 +138,7 @@ end
 
 
 module Clipboard = struct
-  (** {{: https://www.w3.org/TR/clipboard-apis/#clipboard-event-definitions} Clipboard Events *)
+  (** {{: https://www.w3.org/TR/clipboard-apis/#clipboard-event-definitions} Clipboard Events} *)
 
   external make:
     ?onClipboardChange:(Dom.clipboardEvent -> unit) ->
@@ -149,7 +151,7 @@ end
 
 
 module Script = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Script Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Script Events} *)
 
   external make:
     ?onAfterScriptExecute:(Dom.event -> unit) ->
@@ -160,7 +162,7 @@ end
 
 
 module Dialog = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Dialog Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Dialog Events} *)
 
   external make:
     ?onCancel:(Dom.event -> unit) ->
@@ -171,7 +173,7 @@ end
 
 
 module Form = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events} *)
 
   external make:
     ?onReset:(Dom.event -> unit) ->
@@ -182,7 +184,7 @@ end
 
 
 module Img = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Img Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Img Events} *)
 
   external make:
     ?onLoadStart:(Dom.progressEvent -> unit) ->
@@ -194,7 +196,7 @@ end
 
 
 module Details = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Details Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Details Events} *)
 
   external make:
     ?onToggle:(Dom.event -> unit) ->
@@ -204,7 +206,7 @@ end
 
 
 module FormControls = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Control Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Control Events} *)
 
   external make:
     ?onChange:(Dom.event -> unit) ->
@@ -217,7 +219,7 @@ end
 
 
 module TextTrack = struct
-  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#event-handlers-for-objects-of-the-text-track-apis} Text Track Events *)
+  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#event-handlers-for-objects-of-the-text-track-apis} Text Track Events} *)
 
   external make:
     ?onChange:(Dom.event -> unit) ->
@@ -232,7 +234,7 @@ end
 
 
 module Drag = struct
-  (** {{: https://www.w3.org/TR/html52/editing.html#events-summary} Drag Events *)
+  (** {{: https://www.w3.org/TR/html52/editing.html#events-summary} Drag Events} *)
 
   external make:
     ?onDragStart:(Dom.dragEvent -> unit) ->
@@ -249,7 +251,7 @@ end
 
 
 module Global = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Global Events *)
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Global Events} *)
   (* TODO: Some of these events are only meaningful for certain elements *)
 
   let make ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough

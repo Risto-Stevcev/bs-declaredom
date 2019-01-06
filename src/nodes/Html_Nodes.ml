@@ -1,5 +1,13 @@
-(** {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} Elements} *)
-(** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Events} *)
+(**
+ HTML Elements
+ 
+ Includes nodes like text nodes and fragments.
+
+ See the {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} full element table} 
+ and {{: https://www.w3.org/TR/html52/fullindex.html#events-table} events table} 
+ for reference.
+ *)
+
 
 (* TODO: hide *)
 module Internal = struct

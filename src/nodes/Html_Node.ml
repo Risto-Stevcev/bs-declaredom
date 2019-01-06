@@ -1,10 +1,10 @@
 (**
- * This module defines HTML nodes
- *
- * The types correspond to the {{: https://www.w3.org/TR/html52/fullindex.html#element-content-categories} content categories}
- * so that only valid children are around for an element
- *
- * See the {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} HTML 5.2 elements table} for reference
+ This module defines HTML nodes
+
+ The types correspond to the {{: https://www.w3.org/TR/html52/fullindex.html#element-content-categories} content categories}
+ so that only valid children are around for an element.
+
+ See the {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} HTML 5.2 elements table} for reference.
  *)
 
 type 'node t
@@ -67,8 +67,8 @@ module ContentCategory = struct
     ]
 
   (**
-   * NOTE: transparent is treated like content because there's no way to inherit
-   * the content model of parent -- the callee does not know about the caller
+   {e NOTE}: transparent is treated like content because there's no way to inherit
+   the content model of parent -- the callee does not know about the caller
    *)
   type transparent = content
 end
