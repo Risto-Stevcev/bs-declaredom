@@ -330,19 +330,62 @@ module AppliesTo = struct
   type table_row_group =
     [ heights | any ]
 
+  module DisplayOverride = struct
+    (** Display overrides (for the [display] css property) *)
+
+    type override_block = [ block | any ]
+    type override_flex = [ flex | any ]
+    type override_list_item = [ list_item | any ]
+    type override_inline = [ inline | any ]
+    type override_inline_block = [ inline_block | any ]
+    type override_inline_flex = [ inline_flex | any ]
+    type override_table_header_group = [ table_header_group | any ]
+    type override_table_footer_group = [ table_footer_group | any ]
+    type override_table_caption = [ table_caption | any ]
+    type override_table = [ table | any ]
+    type override_inline_table = [ inline_table | any ]
+    type override_table_cell = [ table_cell | any ]
+    type override_table_column = [ table_column | any ]
+    type override_table_column_group = [ table_column_group | any ]
+    type override_table_row = [ table_row | any ]
+    type override_table_row_group = [ table_row_group | any ]
+  end
+
+  include DisplayOverride
+
   type display =
-    [ block | flex | inline | table | inline_table | table_cell | list_item
-    | table_caption | table_column | table_column_group | table_header_group
-    | table_footer_group | positioned ]
+    [ block | flex | list_item | positioned | inline | inline_block
+    | inline_flex | table_header_group | table_footer_group | table_caption
+    | table | inline_table | table_cell | table_column | table_column_group
+    | table_row | table_row_group
+
+    | override_block | override_flex | override_list_item | override_inline
+    | override_inline_block | override_inline_flex | override_table_header_group
+    | override_table_footer_group | override_table_caption | override_table
+    | override_inline_table | override_table_cell | override_table_column
+    | override_table_column_group | override_table_row
+    | override_table_row_group ]
+
 
   let to_block x = (x :> block)
+  and to_flex x = (x :> flex)
+  and to_list_item x = (x :> list_item)
+  and to_positioned x = (x :> positioned)
   and to_replaced_inline x = (x :> replaced_inline)
   and to_non_replaced_inline x = (x :> non_replaced_inline)
   and to_inline x = (x :> inline)
+  and to_inline_block x = (x :> inline_block)
+  and to_inline_flex x = (x :> inline_flex)
+  and to_table_header_group x = (x :> table_header_group)
+  and to_table_footer_group x = (x :> table_footer_group)
+  and to_table_caption x = (x :> table_caption)
   and to_table x = (x :> table)
   and to_inline_table x = (x :> inline_table)
   and to_table_cell x = (x :> table_cell)
-  and to_list_item x = (x :> list_item)
+  and to_table_column x = (x :> table_column)
+  and to_table_column_group x = (x :> table_column_group)
+  and to_table_row x = (x :> table_row)
+  and to_table_row_group x = (x :> table_row_group)
   and to_display x = (x :> display)
 end
 

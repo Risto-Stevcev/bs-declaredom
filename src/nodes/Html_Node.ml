@@ -77,22 +77,21 @@ include ContentCategory
 
 
 module Convert = struct
-  external node: 'a t -> Dom.node = "%identity"
+  external node: content -> Dom.node = "%identity"
 end
 
 
-
 let to_node: [< content] -> Dom.node = function
-| `a x          -> Convert.node x
-| `br x         -> Convert.node x
-| `div x        -> Convert.node x
-| `header x     -> Convert.node x
-| `h1 x         -> Convert.node x
-| `abbr x       -> Convert.node x
-| `audio x      -> Convert.node x
-| `button x     -> Convert.node x
-| `span x       -> Convert.node x
-| `custom x     -> Convert.node x
-| `text x       -> Convert.node x
-| `fragment x   -> Convert.node x
-| `img x        -> Convert.node x
+| `a _ as x         -> Convert.node (x :> content)
+| `br _ as x        -> Convert.node (x :> content)
+| `div _ as x       -> Convert.node (x :> content)
+| `header _ as x    -> Convert.node (x :> content)
+| `h1 _ as x        -> Convert.node (x :> content)
+| `abbr _ as x      -> Convert.node (x :> content)
+| `audio _ as x     -> Convert.node (x :> content)
+| `button _ as x    -> Convert.node (x :> content)
+| `span _ as x      -> Convert.node (x :> content)
+| `custom _ as x    -> Convert.node (x :> content)
+| `text _ as x      -> Convert.node (x :> content)
+| `fragment _ as x  -> Convert.node (x :> content)
+| `img _ as x       -> Convert.node (x :> content)

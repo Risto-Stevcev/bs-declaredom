@@ -683,6 +683,122 @@ module Direction = struct
 end
 
 
+module Display = struct
+  type 'a t = [> Css_Property.display' ] as 'a
+
+  module Internal = struct
+    (* You shouldn't be able to create a display property directly *)
+
+    module Value = struct
+      type value =
+        [ `none | `block | `flex | `list_item [@bs.as "list-item"]
+        | `inline
+        | `inline_block [@bs.as "inline-block"]
+        | `inline_flex [@bs.as "inline-flex"]
+        | `table_header_group [@bs.as "table-header-group"]
+        | `table_footer_group [@bs.as "table-footer-group"]
+        | `table_caption [@bs.as "table-caption"]
+        | `table | `inline_table [@bs.as "inline-table"]
+        | `table_cell [@bs.as "table-cell"]
+        | `table_column [@bs.as "table-column"]
+        | `table_column_group [@bs.as "table-column-group"]
+        | `table_row [@bs.as "table-row"]
+        | `table_row_group [@bs.as "table-row-group"]
+        ] [@@bs.deriving jsConverter]
+
+      type t = [ Css_Value.Global.t | value ]
+
+      let show: t -> string = function
+      | (`inherit_ | `initial | `unset) as global ->
+        Css_Value.Global.show global
+      | ( `none | `block | `flex | `list_item | `inline | `inline_block
+        | `inline_flex | `table_header_group | `table_footer_group
+        | `table_caption | `table | `inline_table | `table_cell | `table_column
+        | `table_column_group | `table_row | `table_row_group ) as value ->
+        valueToJs value
+    end
+
+    let make value: 'a t = `display (Internal.make @@ Value.show value)
+  end
+
+  let none (): [> Css_Property.display' ] = Internal.make `none
+
+  let block (value: Css_Property.block Js.Dict.t):
+    Css_Property.override_block Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `block)] |> Util.merge value
+
+  let flex (value: Css_Property.flex Js.Dict.t):
+    Css_Property.override_flex Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `flex)] |> Util.merge value
+
+  let list_item (value: Css_Property.list_item Js.Dict.t):
+    Css_Property.override_list_item Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `list_item)] |> Util.merge value
+
+  let inline (value: Css_Property.inline Js.Dict.t):
+    Css_Property.override_inline Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `inline)] |> Util.merge value
+
+  let inline_block (value: Css_Property.inline_block Js.Dict.t):
+    Css_Property.override_inline_block Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `inline_block)]
+    |> Util.merge value
+
+  let inline_flex (value: Css_Property.inline_flex Js.Dict.t):
+    Css_Property.override_inline_flex Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `inline_flex)]
+    |> Util.merge value
+
+  let table_header_group (value: Css_Property.table_header_group Js.Dict.t):
+    Css_Property.override_table_header_group Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_header_group)]
+    |> Util.merge value
+
+  let table_footer_group (value: Css_Property.table_footer_group Js.Dict.t):
+    Css_Property.override_table_footer_group Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_footer_group)]
+    |> Util.merge value
+
+  let table_caption (value: Css_Property.table_caption Js.Dict.t):
+    Css_Property.override_table_caption Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_caption)]
+    |> Util.merge value
+
+  let table (value: Css_Property.table Js.Dict.t):
+    Css_Property.override_table Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table)] |> Util.merge value
+
+  let inline_table (value: Css_Property.inline_table Js.Dict.t):
+    Css_Property.override_inline_table Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `inline_table)]
+    |> Util.merge value
+
+  let table_cell (value: Css_Property.table_cell Js.Dict.t):
+    Css_Property.override_table_cell Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_cell)]
+    |> Util.merge value
+
+  let table_column (value: Css_Property.table_column Js.Dict.t):
+    Css_Property.override_table_column Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_column)]
+    |> Util.merge value
+
+  let table_column_group (value: Css_Property.table_column_group Js.Dict.t):
+    Css_Property.override_table_column_group Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_column_group)]
+    |> Util.merge value
+
+  let table_row (value: Css_Property.table_row Js.Dict.t):
+    Css_Property.override_table_row Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_row)] |> Util.merge value
+
+  let table_row_group (value: Css_Property.table_row_group Js.Dict.t):
+    Css_Property.override_table_row_group Js.Dict.t =
+    Js.Dict.fromList [("display", Internal.make `table_row_group)]
+    |> Util.merge value
+end
+
+
 module Elevation = struct
   type 'a t = [> Css_Property.elevation ] as 'a
 

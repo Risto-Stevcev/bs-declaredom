@@ -29,6 +29,13 @@ test ~name:"@media functions" @@ fun t -> begin
     ; style
         (`class_name "bar")
         (Style.block ~color:`red ())
+        (*
+    ; style
+        (`class_name "display-override-test")
+        (`block (Style.block ~color:`blue ())
+        |> Css_Properties.Display.make 
+        |> Css_Properties.Display.to_display)
+        *)
     ; Css_Module.make @@
       Style.positioned ~top:(`px 40.) ~zIndex:3 ()
       |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)

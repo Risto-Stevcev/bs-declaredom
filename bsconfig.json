@@ -9,8 +9,7 @@
     "dir": "src/nodes"
   }, {
     "dir": "example",
-    "type": "dev",
-    "files": ["Example.ml"]
+    "type": "dev"
   }, {
     "dir": "test",
     "type": "dev"
