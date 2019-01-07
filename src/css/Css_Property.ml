@@ -349,20 +349,6 @@ end
 include AppliesTo
 
 
-module Position = struct
-  module Type = struct
-    type static and relative and absolute and fixed
-  end
-
-  type static = [ `static of Type.static ]
-   and relative = [ `relative of Type.relative ]
-   and absolute = [ `absolute of Type.absolute ]
-   and fixed = [ `fixed of Type.fixed ]
-
-  type t = [ static | relative | absolute | fixed ]
-end
-
-
 module MediaGroup = struct
   (** {{: https://www.w3.org/TR/CSS22/media.html#media-groups } Media groups} *)
 

@@ -17,25 +17,25 @@ end;
 test ~name:"@media functions" @@ fun t -> begin
   let open Css_Stylesheet in
   let width = Css_Media.Fn.width
-  and visual = Style.MediaGroup.visual
-  and block = Style.block
-	in
+  in
   let x = make `utf_8
     [
       media_print
-        ~position:(Css_Properties.Position.Relative.make ~bottom:(`percent 5.) ~left:(`percent 10.) ())
         ~condition:(width @@ `px 1024.)
         (`class_name "foo") 
-        (visual
+        (Style.MediaGroup.visual
           ~color:`red
           ~backgroundColor:`blue ())
     ; style
-        ~position:(Css_Properties.Position.Fixed.make ())
         (`class_name "bar")
-        (block ~color:`red ())
-    ; css_module @@ Css_Module.make
-        ~position:(Css_Properties.Position.Absolute.make ~z_index:3 ~top:(`percent 21.) ())
-        (Style.flex ~color:`blue ())
+        (Style.block ~color:`red ())
+    ; Css_Module.make @@
+      Style.positioned ~top:(`px 40.) ~zIndex:3 ()
+      |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)
+      |> Css_Module.merge (Css_Module.make @@ Style.block ~color:`red ())
+      |> css_module
+    ; css_module @@ Css_Module.make @@
+        Style.flex ~color:`blue ()
     ]
   in
   Js.log (Css_Stylesheet.show x);

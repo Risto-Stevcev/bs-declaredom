@@ -58,9 +58,6 @@ module MediaRule = struct
     [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Js.Dict.t ]
 
   let print
-    ?position:(
-      position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
-    )
     ?(only=false) ?condition selector properties: t =
     let media_type = if only then `only `print else `print in
     let query =
@@ -71,15 +68,10 @@ module MediaRule = struct
     `media
       ( query
       , selector
-      , properties
-        |> Css_Property.MediaType.print_to_display
-        |> Util.merge (Css_Properties.Position.Convert.display position)
+      , properties |> Css_Property.MediaType.print_to_display
       )
 
   let screen
-    ?position:(
-      position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
-    )
     ?(only=false) ?condition selector properties: t =
     let media_type = if only then `only `screen else `screen in
     let query =
@@ -90,15 +82,10 @@ module MediaRule = struct
     `media
       ( query
       , selector
-      , properties
-        |> Css_Property.MediaType.screen_to_display
-        |> Util.merge (Css_Properties.Position.Convert.display position)
+      , properties |> Css_Property.MediaType.screen_to_display
       )
 
   let speech
-    ?position:(
-      position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
-    )
     ?(only=false) ?condition selector properties: t =
     let media_type = if only then `only `speech else `speech in
     let query =
@@ -109,9 +96,7 @@ module MediaRule = struct
     `media
       ( query
       , selector
-      , properties
-        |> Css_Property.MediaType.speech_to_display
-        |> Util.merge (Css_Properties.Position.Convert.display position)
+      , properties |> Css_Property.MediaType.speech_to_display
       )
 
   let show (`media (media, selector, properties): t): string =
@@ -124,15 +109,10 @@ module StyleRule = struct
   type t = [ `style of Css_Selector.t * Css_Property.display Js.Dict.t ]
 
   let make
-    ?position:(
-      position:Css_Property.Position.t = Css_Properties.Position.Static.make ()
-    )
     selector properties: t =
     `style
       ( selector
-      , properties
-        |> Js.Dict.map (fun [@bs] p -> (p :> Css_Property.display))
-        |> Util.merge (Css_Properties.Position.Convert.display position)
+      , properties |> Js.Dict.map (fun [@bs] p -> (p :> Css_Property.display))
       )
 
   let show ?(indent=0) (`style (selector, properties): t) =
@@ -172,14 +152,14 @@ module Rule = struct
     PageRule.show page_rule
 end
 
-let media_print ?position ?only ?condition selector properties: Rule.t =
-	(MediaRule.print ?position ?only ?condition selector properties :> Rule.t)
-and media_screen ?position ?only ?condition selector properties: Rule.t =
-	(MediaRule.screen ?position ?only ?condition selector properties :> Rule.t)
-and media_speech ?position ?only ?condition selector properties: Rule.t =
-	(MediaRule.speech ?position ?only ?condition selector properties :> Rule.t)
-and style ?position selector properties: Rule.t =
-	(StyleRule.make ?position selector properties :> Rule.t)
+let media_print ?only ?condition selector properties: Rule.t =
+	(MediaRule.print ?only ?condition selector properties :> Rule.t)
+and media_screen ?only ?condition selector properties: Rule.t =
+	(MediaRule.screen ?only ?condition selector properties :> Rule.t)
+and media_speech ?only ?condition selector properties: Rule.t =
+	(MediaRule.speech ?only ?condition selector properties :> Rule.t)
+and style selector properties: Rule.t =
+	(StyleRule.make selector properties :> Rule.t)
 and css_module x: Rule.t = (CssModuleRule.make x :> Rule.t)
 and font_face ~family ~src = (FontFaceRule.make ~family ~src :> Rule.t)
 and page ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft

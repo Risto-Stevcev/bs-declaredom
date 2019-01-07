@@ -1490,6 +1490,33 @@ module PlayDuring :
       end
     val make : Value.t -> [> Css_Property.play_during ] t
   end
+module Position :
+  sig
+    (**
+     {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-position} Position}
+
+     [Css_Property.positioned] properties only makes sense in the context of 
+     elements that are not statically positioned. For example, in CSS if you 
+     applied  the [top] style to a statically positioned element nothing would 
+     happen, it would silently fail. We can avoid that with Ocaml's type system.
+
+     Due to this, in order to provide some type safety [Position.make] takes a 
+     [Css_Property.positioned] ruleset for non-statically positioned values 
+     and returns a [\[< Css_Property.display\]] ruleset.
+     *)
+
+    type 'a t = 'a Js.Dict.t constraint 'a = [< Css_Property.display ]
+    module Value :
+      sig
+        type t =
+            [ `absolute of Css_Property.positioned Js.Dict.t
+            | `fixed of Css_Property.positioned Js.Dict.t
+            | `relative of Css_Property.positioned Js.Dict.t
+            | `static ]
+        val make : t -> [> Css_Property.position ]
+      end
+    val make : Value.t -> [< Css_Property.display ] t
+  end
 module Richness :
   sig
     (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-richness} Richness} *)
@@ -1960,70 +1987,4 @@ module ZIndex :
 
     type 'a t = 'a constraint 'a = [> Css_Property.z_index ]
     val make : int -> [> Css_Property.z_index ] t
-  end
-module Position :
-  sig
-    type 'a t = 'a constraint 'a = [> Css_Property.position ]
-    module Value :
-      sig
-        type value = [ `absolute | `fixed | `relative | `static ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
-        type t =
-            [ `absolute
-            | `fixed
-            | `inherit_
-            | `initial
-            | `relative
-            | `static
-            | `unset ]
-        val show : t -> string
-      end
-    val make : Value.t -> [> Css_Property.position ] t
-    module Convert :
-      sig
-        val display :
-          Css_Property.Position.t -> Css_Property.display Js.Dict.t
-        val styles :
-          Css_Value.LengthPercent.t option ->
-          Css_Value.LengthPercent.t option ->
-          Css_Value.LengthPercent.t option ->
-          Css_Value.LengthPercent.t option ->
-          int option -> Css_Property.display Js.Dict.t
-      end
-    module Static :
-      sig
-        type 'a t = 'a constraint 'a = [> Css_Property.Position.static ]
-        val make : unit -> [> Css_Property.Position.static ] t
-      end
-    module Absolute :
-      sig
-        type 'a t = 'a constraint 'a = [> Css_Property.Position.absolute ]
-        val make :
-          ?top:Css_Value.LengthPercent.t ->
-          ?right:Css_Value.LengthPercent.t ->
-          ?bottom:Css_Value.LengthPercent.t ->
-          ?left:Css_Value.LengthPercent.t ->
-          ?z_index:int -> unit -> [> Css_Property.Position.absolute ] t
-      end
-    module Relative :
-      sig
-        type 'a t = 'a constraint 'a = [> Css_Property.Position.relative ]
-        val make :
-          ?top:Css_Value.LengthPercent.t ->
-          ?right:Css_Value.LengthPercent.t ->
-          ?bottom:Css_Value.LengthPercent.t ->
-          ?left:Css_Value.LengthPercent.t ->
-          ?z_index:int -> unit -> [> Css_Property.Position.relative ] t
-      end
-    module Fixed :
-      sig
-        type 'a t = 'a constraint 'a = [> Css_Property.Position.fixed ]
-        val make :
-          ?top:Css_Value.LengthPercent.t ->
-          ?right:Css_Value.LengthPercent.t ->
-          ?bottom:Css_Value.LengthPercent.t ->
-          ?left:Css_Value.LengthPercent.t ->
-          ?z_index:int -> unit -> [> Css_Property.Position.fixed ] t
-      end
   end

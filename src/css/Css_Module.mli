@@ -22,9 +22,7 @@ val merge :
 
 val to_display : [< Css_Property.display ] t -> Css_Property.display t
 
-val make :
-  ?position:Css_Property.Position.t ->
-  ([< Css_Property.display ] as 'a) Js.Dict.t -> 'a t
+val make : ([< Css_Property.display ] as 'a) Js.Dict.t -> 'a t
 
 val class_name : 'a t -> string
 

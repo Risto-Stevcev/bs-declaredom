@@ -11,14 +11,6 @@ module Internal = struct
   module Convert = struct
     external to_module: 'a value -> 'a t = "%identity"
     external to_value: 'a t -> 'a value = "%identity"
-
-    let position:
-      Css_Property.Position.t -> [< Css_Property.display] Js.Dict.t =
-    function
-    | `static static     -> Obj.magic static
-    | `absolute absolute -> Obj.magic absolute
-    | `relative relative -> Obj.magic relative
-    | `fixed fixed       -> Obj.magic fixed
   end
 
   let make_name declaration =
@@ -48,16 +40,10 @@ let to_display css_module =
     }
   end
 
-let make
-  ?(position:Css_Property.Position.t option)
-  declaration: [< Css_Property.display] t =
+let make declaration: [< Css_Property.display] t =
   Internal.Convert.to_module
     { name = Internal.make_name declaration
-    ; declaration = match position with
-      | Some position' ->
-        Util.merge (Internal.Convert.position position') declaration
-      | None ->
-        declaration
+    ; declaration
     }
 
 let map f css_module =
