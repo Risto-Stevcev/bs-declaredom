@@ -12,12 +12,11 @@
  
  For example:
 
- {C
+ {[
  let hello: Html_Node.div = Node.div ~id:"foo" [|
    Node.span [|Node.text "Hello World!"|]
  |]
- }
- 
+ ]}
  *)
 
 
@@ -75,6 +74,7 @@ module A = struct
           (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
         ()
   end
+
 
   let make
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
@@ -422,7 +422,42 @@ module Br = struct
       ()
     |> (fun e -> `br (Internal.make e))
 
-  let jsx = make
+  let jsx
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?children:_ () =
+    make
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ()
 end
 
 
@@ -434,6 +469,9 @@ module Text = struct
   let make (text: string): 'a t =
     Declaredom.make_text text
     |> (fun e -> `text e)
+
+  let jsx ?(children=[]) () =
+    make @@ List.fold_left (fun acc e -> acc ^ e) "" children
 end
 
 

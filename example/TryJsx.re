@@ -1,6 +1,9 @@
-let foo = {
+let foo: [> Html_Node.div] = {
   open Node.Jsx;
-  let x = <div></div>;
-  Js.log("ho");
+  <div>
+    <span style=Style.inline(~color=`green, ())>
+      <text>"Hello, world!"</text>
+    </span>
+    <br/>
+  </div>
 };
-

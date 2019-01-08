@@ -58,6 +58,7 @@ let _ =
     let _ = f (span [|text "hello"|]) in
 
     div ~cssModule:Css_Module.container [|
+      TryJsx.foo;
       span ~cssModule:Css_Module.title [|text "The time is:"|];
       br ();
       clock;

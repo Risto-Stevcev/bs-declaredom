@@ -15,6 +15,7 @@ module Jsx = struct
   let br = Html_Nodes.Br.jsx
   let div = Html_Nodes.Div.jsx
   let span = Html_Nodes.Span.jsx
+  let text = Html_Nodes.Text.jsx
 
   (* Override nodes *)
   let div' = Html_Overrides.Div.jsx
