@@ -7,7 +7,7 @@ let span = Html_Nodes.Span.make
 let text = Html_Nodes.Text.make
 
 (* Override nodes *)
-let a' = Html_Overrides.Div.make
+let div' = Html_Overrides.Div.make
 
 
 module Jsx = struct

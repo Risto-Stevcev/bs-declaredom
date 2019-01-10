@@ -2075,6 +2075,20 @@ module Internal = struct
 end
 
 
+module Shorthand = struct
+  let background = Css_Properties.Background.make
+  let borderTop = Css_Properties.BorderTop.make
+  let borderRight = Css_Properties.BorderRight.make
+  let borderBottom = Css_Properties.BorderBottom.make
+  let borderLeft = Css_Properties.BorderLeft.make
+  let border = Css_Properties.Border.make
+  let font = Css_Properties.Font.make
+  let listStyle = Css_Properties.ListStyle.make
+end
+
+include Shorthand
+
+
 module Group = struct
   let aligns ?alignContent ?alignItems ?alignSelf () =
     Internal.Group.aligns
@@ -2093,16 +2107,16 @@ module Group = struct
       ?backgroundPosition:
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ()
 
   let borders ?borderTop ?borderRight ?borderBottom ?borderLeft ?border () =
     Internal.Group.borders
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ()
 
   let border_colors ?borderTopColor ?borderRightColor ?borderBottomColor
@@ -2173,7 +2187,7 @@ module Group = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ()
 
   let margins ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft () =
@@ -2202,7 +2216,7 @@ module Group = struct
       ?listStylePosition:
         (Belt.Option.map listStylePosition ListStylePosition.make)
       ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
-      ?listStyle:(Belt.Option.map listStyle ListStyle.make)
+      ?listStyle
       ()
 
   let outlines ?outlineColor ?outlineStyle ?outlineWidth ?outline () =
@@ -2334,7 +2348,7 @@ module MediaGroup = struct
       ?backgroundPosition:
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderCollapse:(Belt.Option.map borderCollapse BorderCollapse.make)
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
@@ -2355,11 +2369,11 @@ module MediaGroup = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?captionSide:(Belt.Option.map captionSide CaptionSide.make)
       ?clear:(Belt.Option.map clear Clear.make)
       ?clip:(Belt.Option.map clip Clip.make)
@@ -2380,7 +2394,7 @@ module MediaGroup = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
@@ -2391,7 +2405,7 @@ module MediaGroup = struct
       ?listStylePosition:
         (Belt.Option.map listStylePosition ListStylePosition.make)
       ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
-      ?listStyle:(Belt.Option.map listStyle ListStyle.make)
+      ?listStyle
       ?margin:(Belt.Option.map margin Margin.make)
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
@@ -2471,7 +2485,7 @@ module AppliesTo = struct
       ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
       ?backgroundPosition:(Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
       ?borderBottomColor:(Belt.Option.map borderBottomColor BorderBottomColor.make)
@@ -2487,11 +2501,11 @@ module AppliesTo = struct
       ?borderBottomWidth:(Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -2505,7 +2519,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -2587,7 +2601,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -2609,11 +2623,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -2627,7 +2641,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -2714,7 +2728,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -2736,11 +2750,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -2754,7 +2768,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -2830,7 +2844,7 @@ module AppliesTo = struct
       ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
       ?backgroundPosition:(Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:(Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:(Belt.Option.map borderRightColor BorderRightColor.make)
       ?borderBottomColor:(Belt.Option.map borderBottomColor BorderBottomColor.make)
@@ -2846,11 +2860,11 @@ module AppliesTo = struct
       ?borderBottomWidth:(Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -2864,7 +2878,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -2919,7 +2933,7 @@ module AppliesTo = struct
       ?listStylePosition:
         (Belt.Option.map listStylePosition ListStylePosition.make)
       ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
-      ?listStyle:(Belt.Option.map listStyle ListStyle.make)
+      ?listStyle
       ?margin:(Belt.Option.map margin Margin.make)
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
@@ -2942,7 +2956,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -2964,11 +2978,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -2982,7 +2996,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3056,7 +3070,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3078,11 +3092,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3096,7 +3110,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3164,7 +3178,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3186,11 +3200,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3204,7 +3218,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3278,7 +3292,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3300,11 +3314,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3318,7 +3332,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3406,7 +3420,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3428,11 +3442,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3446,7 +3460,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3531,7 +3545,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3553,11 +3567,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3571,7 +3585,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3634,7 +3648,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3656,11 +3670,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3674,7 +3688,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3736,7 +3750,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3758,11 +3772,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3776,7 +3790,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3850,7 +3864,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3872,11 +3886,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -3890,7 +3904,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -3968,7 +3982,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -3990,11 +4004,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4008,7 +4022,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4085,7 +4099,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4107,11 +4121,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4125,7 +4139,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4196,7 +4210,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4218,11 +4232,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4236,7 +4250,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4294,7 +4308,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4316,11 +4330,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4334,7 +4348,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4392,7 +4406,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4414,11 +4428,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4432,7 +4446,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4490,7 +4504,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4512,11 +4526,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4530,7 +4544,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
@@ -4588,7 +4602,7 @@ module AppliesTo = struct
         (Belt.Option.map backgroundPosition BackgroundPosition.make)
       ?backgroundRepeat:
         (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
-      ?background:(Belt.Option.map background Background.make)
+      ?background
       ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
       ?borderRightColor:
         (Belt.Option.map borderRightColor BorderRightColor.make)
@@ -4610,11 +4624,11 @@ module AppliesTo = struct
         (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
       ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
       ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
-      ?borderTop:(Belt.Option.map borderTop BorderTop.make)
-      ?borderRight:(Belt.Option.map borderRight BorderRight.make)
-      ?borderBottom:(Belt.Option.map borderBottom BorderBottom.make)
-      ?borderLeft:(Belt.Option.map borderLeft BorderLeft.make)
-      ?border:(Belt.Option.map border Border.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
       ?color:(Belt.Option.map color Color.make)
       ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
       ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
@@ -4628,7 +4642,7 @@ module AppliesTo = struct
       ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
       ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
       ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
-      ?font:(Belt.Option.map font Font.make)
+      ?font
       ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
       ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)

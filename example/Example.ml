@@ -5,6 +5,11 @@ module Css_Module = struct
   let title = Css_Module.make @@
     Style.inline ~verticalAlign:`initial ~color:`black ()
 
+  let flex = Css_Module.make @@ Css_Properties.Display.flex @@
+    Style.flex ~flexDirection:`column ~color:`coral
+      ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
+
+
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the
    * same.
@@ -19,7 +24,8 @@ end
 
 let stylesheet = Css_Stylesheet.make `utf_8
     [ Css_Stylesheet.css_module Css_Module.container
-    ; Css_Stylesheet.css_module Css_Module.title ]
+    ; Css_Stylesheet.css_module Css_Module.title
+    ; Css_Stylesheet.css_module Css_Module.flex ]
 
 let style =
   let open Webapi.Dom in
@@ -59,6 +65,11 @@ let _ =
 
     div ~cssModule:Css_Module.container [|
       TryJsx.foo;
+      div' ~cssModule:(`flex Css_Module.flex) [|
+        span [|text "this"|];
+        span [|text "is"|];
+        span [|text "flexbox"|];
+      |];
       span ~cssModule:Css_Module.title [|text "The time is:"|];
       br ();
       clock;

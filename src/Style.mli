@@ -9,6 +9,53 @@ val show_dict : [< Css_Property.display ] t -> string t
 val to_display :
   [< Css_Property.display ] Js.Dict.t -> Css_Property.display t
 
+
+val background :
+  ?color:Css_Value.Background.Color.t ->
+  ?image:Css_Value.Background.Image.t ->
+  ?repeat:Css_Value.Background.Repeat.t ->
+  ?attachment:Css_Value.Background.Attachment.t ->
+  ?position:Css_Value.Background.Position.t ->
+  unit -> [> Css_Property.background ] Css_Properties.Background.t
+val borderTop :
+  ?width:Css_Value.Border.Width.t ->
+  ?style:Css_Value.Border.Style.t ->
+  ?color:Css_Value.Border.Color.t ->
+  unit -> [> Css_Property.border_top ] Css_Properties.BorderTop.t
+val borderRight :
+  ?width:Css_Value.Border.Width.t ->
+  ?style:Css_Value.Border.Style.t ->
+  ?color:Css_Value.Border.Color.t ->
+  unit -> [> Css_Property.border_right ] Css_Properties.BorderRight.t
+val borderBottom :
+  ?width:Css_Value.Border.Width.t ->
+  ?style:Css_Value.Border.Style.t ->
+  ?color:Css_Value.Border.Color.t ->
+  unit -> [> Css_Property.border_bottom ] Css_Properties.BorderBottom.t
+val borderLeft :
+  ?width:Css_Value.Border.Width.t ->
+  ?style:Css_Value.Border.Style.t ->
+  ?color:Css_Value.Border.Color.t ->
+  unit -> [> Css_Property.border_left ] Css_Properties.BorderLeft.t
+val border :
+  ?width:Css_Value.Border.Width.t ->
+  ?style:Css_Value.Border.Style.t ->
+  ?color:Css_Value.Border.Color.t ->
+  unit -> [> Css_Property.border ] Css_Properties.Border.t
+val font :
+  ?style:Css_Value.Font.Style.t ->
+  ?variant:Css_Value.Font.Variant.t ->
+  ?weight:Css_Value.Font.Weight.t ->
+  ?size:Css_Value.Font.Size.t ->
+  ?line_height:Css_Value.LineHeight.t ->
+  ?value:Css_Properties.Font.Value.value' ->
+  unit -> [> Css_Property.font ] Css_Properties.Font.t
+val listStyle :
+  ?type_:Css_Value.ListStyle.Type.t ->
+  ?position:Css_Value.ListStyle.Position.t ->
+  ?image:Css_Value.ListStyle.Image.t ->
+  unit -> [> Css_Property.list_style ] Css_Properties.ListStyle.t
+
 module Group :
   sig
     val aligns :
@@ -22,12 +69,12 @@ module Group :
       ?backgroundImage:Css_Value.Background.Image.t ->
       ?backgroundPosition:Css_Value.Background.Position.t ->
       ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-      ?background:unit -> unit -> Css_Property.backgrounds t
+      ?background:Css_Property.background -> unit -> Css_Property.backgrounds t
     val borders :
-      ?borderTop:unit ->
-      ?borderRight:unit ->
-      ?borderBottom:unit ->
-      ?borderLeft:unit -> ?border:unit -> unit -> Css_Property.borders t
+      ?borderTop:Css_Property.border_top ->
+      ?borderRight:Css_Property.border_right ->
+      ?borderBottom:Css_Property.border_bottom ->
+      ?borderLeft:Css_Property.border_left -> ?border:Css_Property.border -> unit -> Css_Property.borders t
     val border_colors :
       ?borderTopColor:Css_Value.Border.Color.t ->
       ?borderRightColor:Css_Value.Border.Color.t ->
@@ -71,7 +118,7 @@ module Group :
       ?fontStyle:Css_Value.Font.Style.t ->
       ?fontVariant:Css_Value.Font.Variant.t ->
       ?fontWeight:Css_Value.Font.Weight.t ->
-      ?font:unit -> unit -> Css_Property.fonts t
+      ?font:Css_Property.font -> unit -> Css_Property.fonts t
     val margins :
       ?margin:Css_Properties.Margin.Value.t ->
       ?marginTop:Css_Value.LengthPercent.t ->
@@ -89,7 +136,7 @@ module Group :
       ?listStyleImage:Css_Value.ListStyle.Image.t ->
       ?listStylePosition:Css_Value.ListStyle.Position.t ->
       ?listStyleType:Css_Value.ListStyle.Type.t ->
-      ?listStyle:unit -> unit -> Css_Property.list_styles t
+      ?listStyle:Css_Property.list_style -> unit -> Css_Property.list_styles t
     val outlines :
       ?outlineColor:Css_Value.Outline.Color.t ->
       ?outlineStyle:Css_Value.Outline.Style.t ->
@@ -169,7 +216,7 @@ module MediaGroup :
       ?backgroundImage:Css_Value.Background.Image.t ->
       ?backgroundPosition:Css_Value.Background.Position.t ->
       ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-      ?background:unit ->
+      ?background:Css_Property.background ->
       ?borderCollapse:Css_Properties.BorderCollapse.Value.t ->
       ?borderTopColor:Css_Value.Border.Color.t ->
       ?borderRightColor:Css_Value.Border.Color.t ->
@@ -187,11 +234,11 @@ module MediaGroup :
       ?borderBottomWidth:Css_Value.Border.Width.t ->
       ?borderLeftWidth:Css_Value.Border.Width.t ->
       ?borderWidth:Css_Value.Border.Width.t ->
-      ?borderTop:unit ->
-      ?borderRight:unit ->
-      ?borderBottom:unit ->
-      ?borderLeft:unit ->
-      ?border:unit ->
+      ?borderTop:Css_Property.border_top ->
+      ?borderRight:Css_Property.border_right ->
+      ?borderBottom:Css_Property.border_bottom ->
+      ?borderLeft:Css_Property.border_left ->
+      ?border:Css_Property.border ->
       ?captionSide:Css_Properties.CaptionSide.Value.t ->
       ?clear:Css_Properties.Clear.Value.t ->
       ?clip:Css_Properties.Clip.Value.t ->
@@ -212,7 +259,7 @@ module MediaGroup :
       ?fontStyle:Css_Value.Font.Style.t ->
       ?fontVariant:Css_Value.Font.Variant.t ->
       ?fontWeight:Css_Value.Font.Weight.t ->
-      ?font:unit ->
+      ?font:Css_Property.font ->
       ?height:Css_Value.LengthPercent.t ->
       ?minHeight:Css_Value.LengthPercent.t ->
       ?maxHeight:Css_Value.LengthPercent.t ->
@@ -222,7 +269,7 @@ module MediaGroup :
       ?listStyleImage:Css_Value.ListStyle.Image.t ->
       ?listStylePosition:Css_Value.ListStyle.Position.t ->
       ?listStyleType:Css_Value.ListStyle.Type.t ->
-      ?listStyle:unit ->
+      ?listStyle:Css_Property.list_style ->
       ?margin:Css_Properties.Margin.Value.t ->
       ?marginTop:Css_Value.LengthPercent.t ->
       ?marginRight:Css_Value.LengthPercent.t ->
@@ -283,7 +330,7 @@ val any :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -299,11 +346,11 @@ val any :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -317,7 +364,7 @@ val any :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -377,7 +424,7 @@ val block :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -393,11 +440,11 @@ val block :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -411,7 +458,7 @@ val block :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -474,7 +521,7 @@ val flex :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -490,11 +537,11 @@ val flex :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -508,7 +555,7 @@ val flex :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -565,7 +612,7 @@ val positioned :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -581,11 +628,11 @@ val positioned :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -599,7 +646,7 @@ val positioned :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -634,7 +681,7 @@ val list_item :
   ?listStyleImage:Css_Value.ListStyle.Image.t ->
   ?listStylePosition:Css_Value.ListStyle.Position.t ->
   ?listStyleType:Css_Value.ListStyle.Type.t ->
-  ?listStyle:unit ->
+  ?listStyle:Css_Property.list_style ->
   ?margin:Css_Properties.Margin.Value.t ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
@@ -654,7 +701,7 @@ val list_item :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -670,11 +717,11 @@ val list_item :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -688,7 +735,7 @@ val list_item :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -740,7 +787,7 @@ val replaced_inline :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -756,11 +803,11 @@ val replaced_inline :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -774,7 +821,7 @@ val replaced_inline :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -820,7 +867,7 @@ val non_replaced_inline :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -836,11 +883,11 @@ val non_replaced_inline :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -854,7 +901,7 @@ val non_replaced_inline :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -906,7 +953,7 @@ val inline :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -922,11 +969,11 @@ val inline :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -940,7 +987,7 @@ val inline :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1004,7 +1051,7 @@ val inline_flex :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1020,11 +1067,11 @@ val inline_flex :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1038,7 +1085,7 @@ val inline_flex :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1099,7 +1146,7 @@ val inline_block :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1115,11 +1162,11 @@ val inline_block :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1133,7 +1180,7 @@ val inline_block :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1175,7 +1222,7 @@ val table_header_group :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1191,11 +1238,11 @@ val table_header_group :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1209,7 +1256,7 @@ val table_header_group :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1250,7 +1297,7 @@ val table_footer_group :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1266,11 +1313,11 @@ val table_footer_group :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1284,7 +1331,7 @@ val table_footer_group :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1336,7 +1383,7 @@ val table_caption :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1352,11 +1399,11 @@ val table_caption :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1370,7 +1417,7 @@ val table_caption :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1425,7 +1472,7 @@ val table :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1441,11 +1488,11 @@ val table :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1459,7 +1506,7 @@ val table :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1513,7 +1560,7 @@ val inline_table :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1529,11 +1576,11 @@ val inline_table :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1547,7 +1594,7 @@ val inline_table :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1596,7 +1643,7 @@ val table_cell :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1612,11 +1659,11 @@ val table_cell :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1630,7 +1677,7 @@ val table_cell :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1668,7 +1715,7 @@ val table_column :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1684,11 +1731,11 @@ val table_column :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1702,7 +1749,7 @@ val table_column :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1740,7 +1787,7 @@ val table_column_group :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1756,11 +1803,11 @@ val table_column_group :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1774,7 +1821,7 @@ val table_column_group :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1812,7 +1859,7 @@ val table_row :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1828,11 +1875,11 @@ val table_row :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1846,7 +1893,7 @@ val table_row :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
@@ -1884,7 +1931,7 @@ val table_row_group :
   ?backgroundImage:Css_Value.Background.Image.t ->
   ?backgroundPosition:Css_Value.Background.Position.t ->
   ?backgroundRepeat:Css_Value.Background.Repeat.t ->
-  ?background:unit ->
+  ?background:Css_Property.background ->
   ?borderTopColor:Css_Value.Border.Color.t ->
   ?borderRightColor:Css_Value.Border.Color.t ->
   ?borderBottomColor:Css_Value.Border.Color.t ->
@@ -1900,11 +1947,11 @@ val table_row_group :
   ?borderBottomWidth:Css_Value.Border.Width.t ->
   ?borderLeftWidth:Css_Value.Border.Width.t ->
   ?borderWidth:Css_Value.Border.Width.t ->
-  ?borderTop:unit ->
-  ?borderRight:unit ->
-  ?borderBottom:unit ->
-  ?borderLeft:unit ->
-  ?border:unit ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
   ?color:Css_Properties.Color.Value.t ->
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
@@ -1918,7 +1965,7 @@ val table_row_group :
   ?fontStyle:Css_Value.Font.Style.t ->
   ?fontVariant:Css_Value.Font.Variant.t ->
   ?fontWeight:Css_Value.Font.Weight.t ->
-  ?font:unit ->
+  ?font:Css_Property.font ->
   ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
   ?lineHeight:Css_Value.LineHeight.t ->
   ?outlineColor:Css_Value.Outline.Color.t ->
