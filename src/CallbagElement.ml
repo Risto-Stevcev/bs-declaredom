@@ -56,7 +56,6 @@ let make
   `custom (Obj.magic callbag_element)
 
 
-(* TODO: add to mli *)
 let jsx
   ?aria_atomic ?aria_busy ?aria_controls ?aria_current
   ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
