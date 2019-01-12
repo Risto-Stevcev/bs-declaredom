@@ -16,10 +16,9 @@ module AlignContent = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `flex_start | `flex_end | `center | `space_between
-      | `space_around | `stretch ) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -39,9 +38,9 @@ module AlignItems = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `flex_start | `flex_end | `center | `baseline | `stretch ) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -61,10 +60,9 @@ module AlignSelf = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `auto | `flex_start | `flex_end | `center | `baseline | `stretch
-      ) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -75,40 +73,36 @@ end
 module Azimuth = struct
   type 'a t = [> Css_Property.azimuth ] as 'a
 
-  type _value =
-    [
-    | `left_side | `far_left | `left | `center_left | `center | `center_right
-    | `right | `far_right | `right_side | `leftwards | `rightwards
-    ]
-    [@@bs.deriving jsConverter]
+  module Value = struct
+    type value =
+      [ `left_side [@bs.as "left-side"] | `far_left [@bs.as "far-left"]
+      | `left | `center_left [@bs.as "center-left"] | `center
+      | `center_right [@bs.as "center-right"] | `right
+      | `far_right [@bs.as "far-right"] | `right_side [@bs.as "right-side"]
+      | `leftwards | `rightwards ]
+      [@@bs.deriving jsConverter]
 
-  type value =
-    [
-    | Css_Value.Global.t | Css_Value.Angle.t | `behind of _value option | _value
-    ]
+    type t =
+      [ Css_Value.Global.t | Css_Value.Angle.t | `behind' | `behind of value
+      | value ]
 
-  let show: value -> string = function
-  | ( `inherit_ | `initial | `unset ) as global -> Css_Value.Global.show global
-  | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
-    Css_Value.Angle.show angle
-  | `behind None -> "behind"
-  | `behind (Some value') -> 
-    "behind " ^ (value' |> _valueToJs |> Util.underscore_to_dash)
-  | ( `left_side | `far_left | `left | `center_left | `center | `center_right
-    | `right | `far_right | `right_side | `leftwards | `rightwards
-    ) as value' ->
-    value' |> _valueToJs |> Util.underscore_to_dash
+    let show: t -> string = function
+    | #Css_Value.Global.t as global -> Css_Value.Global.show global
+    | #Css_Value.Angle.t as angle ->
+      Css_Value.Angle.show angle
+    | `behind' -> "behind"
+    | `behind value -> 
+      "behind " ^ valueToJs value
+    | #value as value ->
+      valueToJs value
+  end
 
-  let make value: 'a t = `azimuth (Internal.make @@ show value)
+  let make value: 'a t = `azimuth (Internal.make @@ Value.show value)
 end
 
 
 module BackgroundAttachment = struct
   type 'a t = [> Css_Property.background_attachment ] as 'a
-
-  external to_json:
-    Css_Property.background_attachment Css_Property.t ->
-    <backgroundAttachment: string> Js.t = "%identity"
 
   let make value: 'a t =
     let show = Css_Value.Background.Attachment.show in
@@ -154,32 +148,33 @@ module Background = struct
 
   module Value = struct
     type t =
-      Css_Value.Background.Color.t option *
-      Css_Value.Background.Image.t option *
-      Css_Value.Background.Repeat.t option *
-      Css_Value.Background.Attachment.t option *
-      Css_Value.Background.Position.t option
+      [ Css_Value.Global.t
+      | `background of
+          Css_Value.Background.Color.t option *
+          Css_Value.Background.Image.t option *
+          Css_Value.Background.Repeat.t option *
+          Css_Value.Background.Attachment.t option *
+          Css_Value.Background.Position.t option ]
 
-    let show ((color, image, repeat, attachment, position): t): string =
-      let color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Background.Color.show
-      and image' =
-        Belt.Option.mapWithDefault image "" Css_Value.Background.Image.show
-      and repeat' =
-        Belt.Option.mapWithDefault repeat "" Css_Value.Background.Repeat.show
-      and attachment' =
-        Belt.Option.mapWithDefault
-          attachment "" Css_Value.Background.Attachment.show
-      and position' =
-        Belt.Option.mapWithDefault
-          position "" Css_Value.Background.Position.show
-      in
-      Util.combine_styles [| color'; image'; repeat'; attachment'; position' |]
+    let show: t -> string = function 
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `background (color, image, repeat, attachment, position) ->
+      Util.combine_styles [|
+        Belt.Option.map color Css_Value.Background.Color.show;
+        Belt.Option.map image Css_Value.Background.Image.show;
+        Belt.Option.map repeat Css_Value.Background.Repeat.show;
+        Belt.Option.map attachment Css_Value.Background.Attachment.show;
+        Belt.Option.map position Css_Value.Background.Position.show
+      |]
   end
 
   let make ?color ?image ?repeat ?attachment ?position (): 'a t =
     let value = (color, image, repeat, attachment, position) in
-    `background (Internal.make @@ Value.show value)
+    `background (Internal.make @@ Value.show (`background value))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `background (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -190,7 +185,7 @@ module BorderCollapse = struct
     type t = [ Css_Value.Global.t | `collapse | `separate ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `collapse -> "collapse"
     | `separate -> "separate"
@@ -215,12 +210,9 @@ module BorderSpacing = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Css_Value.Length.t as length ->
       Css_Value.Length.show length
   end
 
@@ -250,73 +242,29 @@ module BorderTop = struct
 
   module Value = struct
     type t =
-      Css_Value.Border.Width.t option *
-      Css_Value.Border.Style.t option *
-      Css_Value.Border.Color.t option
+      [ Css_Value.Global.t
+      | `border_top of
+          Css_Value.Border.Width.t option *
+          Css_Value.Border.Style.t option *
+          Css_Value.Border.Color.t option ]
 
-    let show ((width, style, color): t): string =
-      let width' =
-        Belt.Option.mapWithDefault width "" Css_Value.Border.Width.show
-      and style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Border.Style.show
-      and color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Border.Color.show
-      in
-      Util.combine_styles [| width'; style'; color' |]
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `border_top (width, style, color) ->
+      Util.combine_styles [|
+        Belt.Option.map width Css_Value.Border.Width.show;
+        Belt.Option.map style Css_Value.Border.Style.show;
+        Belt.Option.map color Css_Value.Border.Color.show;
+      |]
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_top (Internal.make @@ Value.show (width, style, color))
-end
+    `border_top (Internal.make @@ Value.show
+      (`border_top (width, style, color)))
 
-
-module BorderBottom = struct
-  type 'a t = [> Css_Property.border_bottom ] as 'a
-
-  module Value = struct
-    type t =
-      Css_Value.Border.Width.t option *
-      Css_Value.Border.Style.t option *
-      Css_Value.Border.Color.t option
-
-    let show ((width, style, color): t): string =
-      let width' =
-        Belt.Option.mapWithDefault width "" Css_Value.Border.Width.show
-      and style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Border.Style.show
-      and color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Border.Color.show
-      in
-      Util.combine_styles [| width'; style'; color' |]
-  end
-
-  let make ?width ?style ?color (): 'a t =
-    `border_bottom (Internal.make @@ Value.show (width, style, color))
-end
-
-
-module BorderLeft = struct
-  type 'a t = [> Css_Property.border_left ] as 'a
-
-  module Value = struct
-    type t =
-      Css_Value.Border.Width.t option *
-      Css_Value.Border.Style.t option *
-      Css_Value.Border.Color.t option
-
-    let show ((width, style, color): t): string =
-      let width' =
-        Belt.Option.mapWithDefault width "" Css_Value.Border.Width.show
-      and style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Border.Style.show
-      and color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Border.Color.show
-      in
-      Util.combine_styles [| width'; style'; color' |]
-  end
-
-  let make ?width ?style ?color (): 'a t =
-    `border_left (Internal.make @@ Value.show (width, style, color))
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `border_top (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -325,23 +273,91 @@ module BorderRight = struct
 
   module Value = struct
     type t =
-      Css_Value.Border.Width.t option *
-      Css_Value.Border.Style.t option *
-      Css_Value.Border.Color.t option
+      [ Css_Value.Global.t
+      | `border_right of
+          Css_Value.Border.Width.t option *
+          Css_Value.Border.Style.t option *
+          Css_Value.Border.Color.t option ]
 
-    let show ((width, style, color): t): string =
-      let width' =
-        Belt.Option.mapWithDefault width "" Css_Value.Border.Width.show
-      and style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Border.Style.show
-      and color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Border.Color.show
-      in
-      Util.combine_styles [| width'; style'; color' |]
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `border_right (width, style, color) ->
+      Util.combine_styles [|
+        Belt.Option.map width Css_Value.Border.Width.show;
+        Belt.Option.map style Css_Value.Border.Style.show;
+        Belt.Option.map color Css_Value.Border.Color.show;
+      |]
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_right (Internal.make @@ Value.show (width, style, color))
+    `border_right (Internal.make @@ Value.show
+      (`border_right (width, style, color)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `border_right (Internal.make @@ Value.show (value :> Value.t))
+end
+
+
+module BorderBottom = struct
+  type 'a t = [> Css_Property.border_bottom ] as 'a
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | `border_bottom of
+          Css_Value.Border.Width.t option *
+          Css_Value.Border.Style.t option *
+          Css_Value.Border.Color.t option ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `border_bottom (width, style, color) ->
+      Util.combine_styles [|
+        Belt.Option.map width Css_Value.Border.Width.show;
+        Belt.Option.map style Css_Value.Border.Style.show;
+        Belt.Option.map color Css_Value.Border.Color.show;
+      |]
+  end
+
+  let make ?width ?style ?color (): 'a t =
+    `border_bottom (Internal.make @@ Value.show
+      (`border_bottom (width, style, color)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `border_bottom (Internal.make @@ Value.show (value :> Value.t))
+end
+
+
+module BorderLeft = struct
+  type 'a t = [> Css_Property.border_left ] as 'a
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | `border_left of
+          Css_Value.Border.Width.t option *
+          Css_Value.Border.Style.t option *
+          Css_Value.Border.Color.t option ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `border_left (width, style, color) ->
+      Util.combine_styles [|
+        Belt.Option.map width Css_Value.Border.Width.show;
+        Belt.Option.map style Css_Value.Border.Style.show;
+        Belt.Option.map color Css_Value.Border.Color.show;
+      |]
+  end
+
+  let make ?width ?style ?color (): 'a t =
+    `border_left (Internal.make @@ Value.show
+      (`border_left (width, style, color)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `border_left (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -350,23 +366,28 @@ module Border = struct
 
   module Value = struct
     type t =
-      Css_Value.Border.Width.t option *
-      Css_Value.Border.Style.t option *
-      Css_Value.Border.Color.t option
+      [ Css_Value.Global.t
+      | `border of
+          Css_Value.Border.Width.t option *
+          Css_Value.Border.Style.t option *
+          Css_Value.Border.Color.t option ]
 
-    let show ((width, style, color): t): string =
-      let width' =
-        Belt.Option.mapWithDefault width "" Css_Value.Border.Width.show
-      and style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Border.Style.show
-      and color' =
-        Belt.Option.mapWithDefault color "" Css_Value.Border.Color.show
-      in
-      Util.combine_styles [| width'; style'; color' |]
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `border (width, style, color) ->
+      Util.combine_styles [|
+        Belt.Option.map width Css_Value.Border.Width.show;
+        Belt.Option.map style Css_Value.Border.Style.show;
+        Belt.Option.map color Css_Value.Border.Color.show;
+      |]
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border (Internal.make @@ Value.show (width, style, color))
+    `border (Internal.make @@ Value.show (`border (width, style, color)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `border (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -481,7 +502,7 @@ module CaptionSide = struct
     type t = [ Css_Value.Global.t | `top | `bottom ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
     | `top -> "top"
     | `bottom -> "bottom"
@@ -501,9 +522,9 @@ module Clear = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | (`none | `left | `right | `both) as value -> 
+    | #value as value -> 
       valueToJs value
   end
 
@@ -518,17 +539,14 @@ module Clip = struct
     type value = [ Css_Value.Length.t | `auto ]
 
     let show_value: value -> string = function
-    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Css_Value.Length.t as length ->
       Css_Value.Length.show length
     | `auto -> "auto"
 
     type t = [ Css_Value.Global.t | `rect of value * value * value * value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `rect (top, right, bottom, left) ->
       "rect("^
@@ -550,38 +568,9 @@ module Color = struct
     type t = [ Css_Value.Global.t | Css_Value.Color.t ]
 
     let show: t -> string = function
-    | ( `inherit_ | `initial | `unset ) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `aliceblue | `antiquewhite | `aqua | `aquamarine | `azure | `beige
-      | `bisque | `black | `blanchedalmond | `blue | `blueviolet | `brown
-      | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
-      | `cornflowerblue | `cornsilk | `crimson | `cyan | `darkblue | `darkcyan
-      | `darkgoldenrod | `darkgray | `darkgreen | `darkgrey | `darkkhaki
-      | `darkmagenta | `darkolivegreen | `darkorange | `darkorchid | `darkred
-      | `darksalmon | `darkseagreen | `darkslateblue | `darkslategray
-      | `darkslategrey | `darkturquoise | `darkviolet | `deeppink | `deepskyblue
-      | `dimgray | `dimgrey | `dodgerblue | `firebrick | `floralwhite
-      | `forestgreen | `fuchsia | `gainsboro | `ghostwhite | `gold | `goldenrod
-      | `gray | `green | `greenyellow | `grey | `honeydew | `hotpink | `indianred
-      | `indigo | `ivory | `khaki | `lavender | `lavenderblush | `lawngreen
-      | `lemonchiffon | `lightblue | `lightcoral | `lightcyan
-      | `lightgoldenrodyellow | `lightgray | `lightgreen | `lightgrey
-      | `lightpink | `lightsalmon | `lightseagreen | `lightskyblue
-      | `lightslategray | `lightslategrey | `lightsteelblue | `lightyellow
-      | `lime | `limegreen | `linen | `magenta | `maroon | `mediumaquamarine
-      | `mediumblue | `mediumorchid | `mediumpurple | `mediumseagreen
-      | `mediumslateblue | `mediumspringgreen | `mediumturquoise
-      | `mediumvioletred | `midnightblue | `mintcream | `mistyrose | `moccasin
-      | `navajowhite | `navy | `oldlace | `olive | `olivedrab | `orange
-      | `orangered | `orchid | `palegoldenrod | `palegreen | `paleturquoise
-      | `palevioletred | `papayawhip | `peachpuff | `peru | `pink | `plum
-      | `powderblue | `purple | `red | `rosybrown | `royalblue | `saddlebrown
-      | `salmon | `sandybrown | `seagreen | `seashell | `sienna | `silver
-      | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
-      | `steelblue | `tan | `teal | `thistle | `tomato | `turquoise | `violet
-      | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
-      | `rgb _ | `rgba _ | `hsl _ | `hsla _
-      ) as color ->
+    | #Css_Value.Color.t as color ->
       Css_Value.Color.show color
   end
 
@@ -614,7 +603,7 @@ module Cue = struct
       | `cue of Css_Value.UriOrNone.t * Css_Value.UriOrNone.t ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `cue (cue_before, cue_after) ->
       Css_Value.UriOrNone.show cue_before ^" "^
@@ -630,39 +619,34 @@ module Cursor = struct
   type 'a t = [> Css_Property.cursor ] as 'a
 
   module Value = struct
-    type value' =
-      [
-      | `auto | `crosshair | `default | `pointer | `move | `e_resize | `ne_resize
-      | `nw_resize | `n_resize | `se_resize | `sw_resize | `s_resize | `w_resize
-      | `text | `wait | `help | `progress
-      ]
-      [@@bs.deriving jsConverter]
+    type value =
+      [ `auto | `crosshair | `default | `pointer | `move
+      | `e_resize [@bs.as "e-resize"] | `ne_resize [@bs.as "ne-resize"]
+      | `nw_resize [@bs.as "nw-resize"] | `n_resize [@bs.as "n-resize"]
+      | `se_resize [@bs.as "se-resize"] | `sw_resize [@bs.as "sw-resize"]
+      | `s_resize [@bs.as "s-resize"] | `w_resize [@bs.as "w-resize"]
+      | `text | `wait | `help | `progress ] [@@bs.deriving jsConverter]
 
-    type value = [ Css_Value.Global.t | value' ]
+    type t =
+      [ Css_Value.Global.t
+      | `cursor_uri of Css_Value.Uri.t list * value | value ]
 
-    type t = Css_Value.Uri.t list * value 
-
-    let show ((uris, value): t): string =
-      let value' =
-        match value with
-        | ( `inherit_ | `initial | `unset ) as value ->
-          Css_Value.Global.show value
-        | ( `auto | `crosshair | `default | `pointer | `move | `e_resize | `ne_resize
-          | `nw_resize | `n_resize | `se_resize | `sw_resize | `s_resize | `w_resize
-          | `text | `wait | `help | `progress
-          ) as value ->
-          value'ToJs value |> Util.underscore_to_dash
-      and uris' =
+    let show: t -> string = function
+    | #Css_Value.Global.t as value ->
+      Css_Value.Global.show value
+    | `cursor_uri (uris, value) ->
+      let uris' =
         uris
         |. Belt.List.map (fun e -> Css_Value.Uri.show e ^", ")
         |> Js.List.toVector
         |> Js.Array.joinWith ""
       in
-      uris' ^ value' |> Js.String.trim
+      uris' ^ valueToJs value |> Js.String.trim
+    | #value as value ->
+      valueToJs value
   end
 
-  let make ?(uris = []) value: 'a t =
-    `cursor (Internal.make @@ Value.show (uris, value))
+  let make value: 'a t = `cursor (Internal.make @@ Value.show value)
 end
 
 
@@ -673,7 +657,7 @@ module Direction = struct
     type t = [ Css_Value.Global.t | `rtl | `ltr ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `rtl -> "rtl"
     | `ltr -> "ltr"
@@ -709,12 +693,9 @@ module Display = struct
       type t = [ Css_Value.Global.t | value ]
 
       let show: t -> string = function
-      | (`inherit_ | `initial | `unset) as global ->
+      | #Css_Value.Global.t as global ->
         Css_Value.Global.show global
-      | ( `none | `block | `flex | `list_item | `inline | `inline_block
-        | `inline_flex | `table_header_group | `table_footer_group
-        | `table_caption | `table | `inline_table | `table_cell | `table_column
-        | `table_column_group | `table_row | `table_row_group ) as value ->
+      | #value as value ->
         valueToJs value
     end
 
@@ -810,11 +791,11 @@ module Elevation = struct
     type t = [ Css_Value.Global.t | Css_Value.Angle.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
+    | #Css_Value.Angle.t as angle ->
       Css_Value.Angle.show angle
-    | (`below | `level | `above | `higher | `lower) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -829,7 +810,7 @@ module EmptyCells = struct
     type t = [ Css_Value.Global.t | `show | `hide ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `show -> "show"
     | `hide -> "hide"
@@ -844,26 +825,29 @@ module Flex = struct
 
   module Value = struct
     type t =
-      [ Css_Value.Global.t | `none
-      | `basis of Css_Value.LengthPercent.t
-      | `flex of int * int option * Css_Value.LengthPercent.t option ]
+      [ Css_Value.Global.t
+      | `none
+      | `flex of float option * float option * Css_Value.LengthPercent.t option ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `none -> "none"
-    | `basis basis ->
-      Css_Value.LengthPercent.show basis
     | `flex (grow, shrink, basis) ->
-      Js.Int.toString grow ^
-      (shrink
-      |. Belt.Option.mapWithDefault "" (fun e -> " "^ Js.Int.toString e)) ^
-      (basis
-      |. Belt.Option.mapWithDefault ""
-         (fun e -> " "^ Css_Value.LengthPercent.show e))
+      let flex = Util.combine_styles [|
+        Belt.Option.map grow Js.Float.toString;
+        Belt.Option.map shrink Js.Float.toString;
+        Belt.Option.map basis Css_Value.LengthPercent.show;
+      |]
+      in
+      if flex = "" then Css_Value.Global.show `initial else flex
   end
 
-  let make value: 'a t = `flex (Internal.make @@ Value.show value)
+  let make ?grow ?shrink ?basis (): 'a t =
+    `flex (Internal.make @@ Value.show (`flex (grow, shrink, basis)))
+
+  let make_value (value: [ Css_Value.Global.t | `none ]): 'a t =
+    `flex (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -892,7 +876,7 @@ module FlexFlow = struct
       | `flow of Css_Value.Flex.Direction.t * Css_Value.Flex.Wrap.t ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `flow (direction, wrap) ->
       Css_Value.Flex.Direction.show direction ^" "^
@@ -906,14 +890,14 @@ end
 module FlexGrow = struct
   type 'a t = [> Css_Property.flex_grow ] as 'a
 
-  let make value: 'a t = `flex_grow (Internal.make @@ Js.Int.toString value)
+  let make value: 'a t = `flex_grow (Internal.make @@ Js.Float.toString value)
 end
 
 
 module FlexShrink = struct
   type 'a t = [> Css_Property.flex_shrink ] as 'a
 
-  let make value: 'a t = `flex_shrink (Internal.make @@ Js.Int.toString value)
+  let make value: 'a t = `flex_shrink (Internal.make @@ Js.Float.toString value)
 end
 
 
@@ -934,9 +918,9 @@ module Float = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | (`none | `left | `right ) as value -> 
+    | #value as value -> 
       valueToJs value
   end
 
@@ -996,52 +980,40 @@ module Font = struct
       ]
       [@@bs.deriving jsConverter]
 
-    type value' = [ Css_Value.Global.t | value ]
-
-    type font_property =
+    type font =
       Css_Value.Font.Style.t option *
       Css_Value.Font.Variant.t option *
-      Css_Value.Font.Weight.t option
+      Css_Value.Font.Weight.t option *
+      Css_Value.Font.Size.t *
+      Css_Value.LineHeight.t option *
+      Css_Value.Font.Family.t
 
-    type font_size = Css_Value.Font.Size.t * Css_Value.LineHeight.t option
-
-    type t = [ Css_Value.Global.t | `font of font_property * font_size | value ]
+    type t = [ Css_Value.Global.t | `font of font | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | `font ((style, variant, weight), (size, line_height)) ->
-      let style' =
-        Belt.Option.mapWithDefault style "" Css_Value.Font.Style.show
-      and variant' =
-        Belt.Option.mapWithDefault variant "" Css_Value.Font.Variant.show
-      and weight' =
-        Belt.Option.mapWithDefault weight "" Css_Value.Font.Weight.show
-      and size' = Css_Value.Font.Size.show size
-      and line_height' =
-        Belt.Option.mapWithDefault line_height ""
-          (fun l -> "/" ^ Css_Value.LineHeight.show l)
+    | `font (style, variant, weight, size, line_height, family) ->
+      let font = Util.combine_styles [|
+        Belt.Option.map style Css_Value.Font.Style.show;
+        Belt.Option.map variant Css_Value.Font.Variant.show;
+        Belt.Option.map weight Css_Value.Font.Weight.show;
+        Css_Value.Font.Size.show size |. Some;
+        Belt.Option.map line_height (fun l -> "/"^ Css_Value.LineHeight.show l);
+        Css_Value.Font.Family.show family |. Some;
+      |]
       in
-      Util.combine_styles [| style'; variant'; weight'; size' ^ line_height' |]
-    | ( `caption | `icon | `menu | `message_box | `small_caption | `status_bar
-      ) as value ->
+      if font = "" then Css_Value.Global.show `initial else font
+    | #value as value ->
       valueToJs value
   end
 
-  let make
-    ?style ?variant ?weight ?size ?line_height
-    ?(value:Value.value' = `inherit_)
-    (): 'a t =
+  let make ?style ?variant ?weight ?line_height size family =
+    `font (Internal.make @@ Value.show @@
+      `font (style, variant, weight, size, line_height, family))
 
-    let font =
-      match size with
-      | Some size' ->
-        Internal.make @@ Value.show
-              @@ `font ((style, variant, weight), (size', line_height))
-      | None ->
-        Internal.make @@ Value.show (value :> Value.t)
-    in
-    `font font
+  let make_value (value: [ Css_Value.Global.t | Value.value ]): 'a t =
+    `font (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -1066,10 +1038,9 @@ module JustifyContent = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `flex_start | `flex_end | `center | `space_between | `space_around
-      ) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1092,12 +1063,9 @@ module LetterSpacing = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as value ->
+    | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | ( `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Css_Value.Length.t as length ->
       Css_Value.Length.show length
     | `normal -> "normal"
   end
@@ -1143,23 +1111,31 @@ module ListStyle = struct
 
   module Value = struct
     type t =
-      Css_Value.ListStyle.Type.t option *
-      Css_Value.ListStyle.Position.t option *
-      Css_Value.ListStyle.Image.t option
+      [ Css_Value.Global.t
+      | `list_style of
+          Css_Value.ListStyle.Type.t option *
+          Css_Value.ListStyle.Position.t option *
+          Css_Value.ListStyle.Image.t option ]
 
-    let show ((type_, position, image): t): string =
-      let type_' =
-        Belt.Option.mapWithDefault type_ "" Css_Value.ListStyle.Type.show
-      and position' =
-        Belt.Option.mapWithDefault position "" Css_Value.ListStyle.Position.show
-      and image' =
-        Belt.Option.mapWithDefault image "" Css_Value.ListStyle.Image.show
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `list_style (type_, position, image) ->
+      let list_style = Util.combine_styles [|
+        Belt.Option.map type_ Css_Value.ListStyle.Type.show;
+        Belt.Option.map position Css_Value.ListStyle.Position.show;
+        Belt.Option.map image Css_Value.ListStyle.Image.show;
+      |]
       in
-      Util.combine_styles [| type_'; position'; image' |]
+      if list_style = "" then Css_Value.Global.show `initial else list_style
   end
 
   let make ?type_ ?position ?image (): 'a t =
-    `list_style (Internal.make @@ Value.show (type_, position, image))
+    `list_style (Internal.make @@ Value.show
+      (`list_style (type_, position, image)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `list_style (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -1168,27 +1144,32 @@ module Margin = struct
 
   module Value = struct
     type t =
-      [ Css_Value.LengthPercent.t
-      | `margin of Css_Value.LengthPercent.t *
-                   Css_Value.LengthPercent.t *
-                   Css_Value.LengthPercent.t *
-                   Css_Value.LengthPercent.t ]
+      [ Css_Value.Global.t
+      | Css_Value.LengthPercent.t
+      | `margin of
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t ]
 
     let show: t -> string = function
-    | ( `inherit_ | `initial   | `unset
-      | `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
-      | `percent _ | `auto ) as value ->
-      Css_Value.LengthPercent.show value
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.LengthPercent.t as length ->
+      Css_Value.LengthPercent.show length
     | `margin (top, right, bottom, left) ->
-      Css_Value.LengthPercent.show top    ^" "^
-      Css_Value.LengthPercent.show right  ^" "^
+      Css_Value.LengthPercent.show top ^" "^
+      Css_Value.LengthPercent.show right ^" "^
       Css_Value.LengthPercent.show bottom ^" "^
       Css_Value.LengthPercent.show left
   end
 
-  let make value: 'a t = `margin (Internal.make @@ Value.show value)
+  let make ~top ~right ~bottom ~left : 'a t =
+    `margin (Internal.make @@ Value.show (`margin (top, right, bottom, left)))
+
+  let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
+    'a t =
+    `margin (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -1301,21 +1282,27 @@ module Outline = struct
   module Value = struct
     type t =
       [ Css_Value.Global.t
-      | `outline of Css_Value.Outline.Color.t *
-                    Css_Value.Outline.Style.t *
-                    Css_Value.Outline.Width.t
+      | `outline of Css_Value.Outline.Color.t option *
+                    Css_Value.Outline.Style.t option *
+                    Css_Value.Outline.Width.t option
       ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `outline (color, style, width) ->
-      Css_Value.Outline.Color.show color ^" "^
-      Css_Value.Outline.Style.show style ^" "^
-      Css_Value.Outline.Width.show width
+      Util.combine_styles [|
+        Belt.Option.map color Css_Value.Outline.Color.show;
+        Belt.Option.map style Css_Value.Outline.Style.show;
+        Belt.Option.map width Css_Value.Outline.Width.show
+      |]
   end
 
-  let make value: 'a t = `outline (Internal.make @@ Value.show value)
+  let make ?color ?style ?width (): 'a t =
+    `outline (Internal.make @@ Value.show (`outline (color, style, width)))
+
+  let make_value (value: Css_Value.Global.t): 'a t =
+    `outline (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -1329,9 +1316,9 @@ module Overflow = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`visible | `hidden | `scroll | `auto) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1376,27 +1363,32 @@ module Padding = struct
 
   module Value = struct
     type t =
-      [ Css_Value.LengthPercent.t
-      | `padding of Css_Value.LengthPercent.t *
-                    Css_Value.LengthPercent.t *
-                    Css_Value.LengthPercent.t *
-                    Css_Value.LengthPercent.t ]
+      [ Css_Value.Global.t
+      | Css_Value.LengthPercent.t
+      | `padding of
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t ]
 
     let show: t -> string = function
-    | ( `inherit_ | `initial   | `unset
-      | `cm _  | `mm _   | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _  | `cap _  | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _  | `vi _   | `vb _ | `vmin _ | `vmax _
-      | `percent _ | `auto ) as value ->
-      Css_Value.LengthPercent.show value
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.LengthPercent.t as length ->
+      Css_Value.LengthPercent.show length
     | `padding (top, right, bottom, left) ->
-      Css_Value.LengthPercent.show top    ^" "^
-      Css_Value.LengthPercent.show right  ^" "^
+      Css_Value.LengthPercent.show top ^" "^
+      Css_Value.LengthPercent.show right ^" "^
       Css_Value.LengthPercent.show bottom ^" "^
       Css_Value.LengthPercent.show left
   end
 
-  let make value: 'a t = `padding (Internal.make @@ Value.show value)
+  let make ~top ~right ~bottom ~left : 'a t =
+    `padding (Internal.make @@ Value.show (`padding (top, right, bottom, left)))
+
+  let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
+    'a t =
+    `padding (Internal.make @@ Value.show (value :> Value.t))
 end
 
 
@@ -1450,7 +1442,7 @@ module Pause = struct
       | `pause of Css_Value.TimePercent.t * Css_Value.TimePercent.t ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `pause (pause_before, pause_after) ->
       Css_Value.TimePercent.show pause_before ^" "^
@@ -1468,7 +1460,7 @@ module PitchRange = struct
     type t = [ Css_Value.Global.t | `range of float ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `range range ->
       Js.Float.toString range
@@ -1489,11 +1481,11 @@ module Pitch = struct
     type t = [ Css_Value.Global.t | Css_Value.Frequency.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `Hz _ | `kHz _ ) as frequency ->
+    | #Css_Value.Frequency.t as frequency ->
       Css_Value.Frequency.show frequency
-    | (`x_low | `low | `medium | `high | `x_high) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1512,9 +1504,9 @@ module PlayDuring = struct
       | `auto | `none ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | `uri _ as uri ->
+    | #Css_Value.Uri.t as uri ->
       Css_Value.Uri.show uri
     | `sound (uri, value) ->
       Css_Value.Uri.show uri ^" "^ valueToJs value
@@ -1539,9 +1531,9 @@ module Position = struct
       type t = [ Css_Value.Global.t | value ]
 
       let show: t -> string = function
-      | (`inherit_ | `initial | `unset) as global ->
+      | #Css_Value.Global.t as global ->
         Css_Value.Global.show global
-      | (`static | `absolute | `relative | `fixed) as value ->
+      | #value as value ->
         valueToJs value
     end
 
@@ -1584,7 +1576,7 @@ module Richness = struct
     type t = [ Css_Value.Global.t | `richness of float ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `richness value ->
       Js.Float.toString value
@@ -1609,7 +1601,7 @@ module SpeakHeader = struct
     type t = [ Css_Value.Global.t | `once | `always ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `once -> "once"
     | `always -> "always"
@@ -1626,7 +1618,7 @@ module SpeakNumeral = struct
     type t = [ Css_Value.Global.t | `digits | `continuous ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `digits -> "digits"
     | `continuous -> "continuous"
@@ -1643,7 +1635,7 @@ module SpeakPunctuation = struct
     type t = [ Css_Value.Global.t | `code | `none ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `code -> "code"
     | `none -> "none"
@@ -1664,9 +1656,9 @@ module Speak = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`normal | `none | `spell_out) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1686,9 +1678,9 @@ module SpeechRate = struct
     type t = [ Css_Value.Global.t | value | `rate of float ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`x_slow | `slow | `medium | `fast | `x_fast | `faster | `slower) as value ->
+    | #value as value ->
       valueToJs value
     | `rate rate ->
       Js.Float.toString rate
@@ -1705,7 +1697,7 @@ module Stress = struct
     type t = [ Css_Value.Global.t | `stress of float ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `stress stress ->
       Js.Float.toString stress
@@ -1722,7 +1714,7 @@ module TableLayout = struct
     type t = [ Css_Value.Global.t | `auto | `fixed ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `auto -> "auto"
     | `fixed -> "fixed"
@@ -1742,7 +1734,7 @@ module TextAlign = struct
     type t = [ Css_Value.Global.t | value ]
      
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | (`left | `right | `center | `justify) as value ->
       valueToJs value
@@ -1761,11 +1753,11 @@ module TextDecoration = struct
       | `blink ] [@@bs.deriving jsConverter]
 
     type t = [ Css_Value.Global.t | value ]
-     
+ 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`none | `underline | `overline | `line_through | `blink) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1792,9 +1784,9 @@ module TextTransform = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`capitalize | `uppercase | `lowercase | `none) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1821,9 +1813,9 @@ module UnicodeBidi = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`normal | `embed | `bidi_override) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1844,21 +1836,15 @@ module VerticalAlign = struct
         [@@bs.deriving jsConverter]
 
       type t =
-        [
-        | `baseline | `sub | `super | `text_top | `text_bottom | `middle
-        | Css_Value.Length.t | Css_Value.Percent.t
-        ]
+        [ Css_Value.Length.t | Css_Value.Percent.t | value ]
 
       let show: t -> string = function
-      | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle ) as t ->
-        valueToJs t
-      | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-        | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-        | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-        ) as length ->
+      | #Css_Value.Length.t as length ->
         Css_Value.Length.show length
-      | `percent _ as percent ->
+      | #Css_Value.Percent.t as percent ->
         Css_Value.Percent.show percent
+      | #value as value ->
+        valueToJs value
     end
 
     module LineRelative = struct
@@ -1866,24 +1852,20 @@ module VerticalAlign = struct
 
       let show = tToJs
     end
+
+    type t =
+      [ Css_Value.Global.t | ParentRelative.t | LineRelative.t ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #ParentRelative.t as parent_relative ->
+      ParentRelative.show parent_relative
+    | #LineRelative.t as line_relative ->
+      LineRelative.show line_relative
   end
 
-  type value =
-    [ Css_Value.Global.t | Value.ParentRelative.t | Value.LineRelative.t ]
-
-  let show: value -> string = function
-  | ( `baseline | `sub | `super | `text_top | `text_bottom | `middle
-    | `cm _ | `mm _  | `Q _  | `in_ _  | `pt _   | `pc _ | `px _  | `em _
-    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _  | `ih _ | `rlh _ | `vw _
-    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _ | `percent _
-    ) as parent_relative ->
-    Value.ParentRelative.show parent_relative
-  | ( `top | `bottom ) as line_relative ->
-    Value.LineRelative.show line_relative
-  | ( `inherit_ | `initial | `unset ) as global ->
-    Css_Value.Global.show global
-
-  let make value: 'a t = `vertical_align (Internal.make @@ show value)
+  let make value: 'a t = `vertical_align (Internal.make @@ Value.show value)
 end
 
 
@@ -1897,9 +1879,9 @@ module Visibility = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`visible | `hidden | `collapse) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -1916,12 +1898,12 @@ module VoiceFamily = struct
     type t = [ Css_Value.Global.t | generic | `specific of string ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`male | `female | `child) as generic ->
+    | #generic as generic ->
       genericToJs generic
     | `specific value when value = "" ->
-      "inherit"
+      "initial"
     | `specific value ->
       Js.Json.stringifyAny value |> Js.Option.getExn
   end
@@ -1943,12 +1925,12 @@ module Volume = struct
       [ Css_Value.Global.t | Css_Value.Percent.t | `volume of float | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`silent | `x_soft | `soft | `medium | `loud | `x_loud) as value ->
-      valueToJs value
-    | `percent _ as percent ->
+    | #Css_Value.Percent.t as percent ->
       Css_Value.Percent.show percent
+    | #value as value ->
+      valueToJs value
     | `volume value ->
       Js.Float.toString value
   end
@@ -1969,9 +1951,9 @@ module WhiteSpace = struct
     type t = [ Css_Value.Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`normal | `pre | `nowrap | `pre_wrap | `pre_line) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -2002,12 +1984,9 @@ module WordSpacing = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Css_Value.Length.t as length ->
       Css_Value.Length.show length
     | `normal -> "normal"
   end

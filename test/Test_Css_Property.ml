@@ -70,8 +70,8 @@ test ~name:"css property - azimuth" @@ fun t -> begin
   t |> equal `right "right";
   t |> equal `far_right "far-right";
   t |> equal `right_side "right-side";
-  t |> equal (`behind (Some `far_right)) "behind far-right";
-  t |> equal (`behind None) "behind";
+  t |> equal (`behind `far_right) "behind far-right";
+  t |> equal (`behind') "behind";
   t |> equal `leftwards "leftwards";
   t |> equal `rightwards "rightwards";
   t |> T.end_
@@ -131,16 +131,15 @@ test ~name:"css property - background-position" @@ fun t -> begin
   t |> equal `top "top";
   t |> equal `bottom "bottom";
   t |> equal `center "center";
-  t |> equal (`value2 (`percent 0., `percent 0.)) "0% 0%";
-  t |> equal (`value2 (`percent 50., `top)) "50% top";
-  t |> equal (`value2 (`left, `top)) "left top";
-  t |> equal (`value2 (`left, `bottom)) "left bottom";
-  t |> equal (`value2 (`right, `percent 25.)) "right 25%";
-  t |> equal (`value2 (`right, `top)) "right top";
-  t |> equal (`value2 (`right, `bottom)) "right bottom";
-  t |> equal (`value2 (`center, `bottom)) "center bottom";
-  t |> equal (`value4 (`left, `percent 10., `top, `percent 50.))
-             "left 10% top 50%";
+  t |> equal (`px 24.) "24px";
+  t |> equal (`position (`percent 0., `percent 0.)) "0% 0%";
+  t |> equal (`position (`percent 50., `top)) "50% top";
+  t |> equal (`position (`left, `top)) "left top";
+  t |> equal (`position (`left, `bottom)) "left bottom";
+  t |> equal (`position (`right, `percent 25.)) "right 25%";
+  t |> equal (`position (`right, `top)) "right top";
+  t |> equal (`position (`right, `bottom)) "right bottom";
+  t |> equal (`position (`center, `bottom)) "center bottom";
   t |> T.end_
 end; 
 
@@ -164,7 +163,7 @@ test ~name:"css property - background" @@ fun t -> begin
   let background = Background.make
   and equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (background ()) "inherit";
+  t |> equal (background ()) "initial";
   t |> equal (background ~color:`red ()) "red";
   t |> equal (background ~color:`red ~repeat:`repeat ()) "red repeat";
   t |> equal (background ~repeat:`repeat ~image:(`uri "http://foo") ())
@@ -241,60 +240,55 @@ end;
 
 
 test ~name:"css property - border-top" @@ fun t -> begin
-  let border_top = BorderTop.make
-  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (border_top ()) "inherit";
-  t |> equal (border_top ~width:(`px 5.) ()) "5px";
-  t |> equal (border_top ~width:(`px 5.) ~color:`red ~style:`dashed ())
+  t |> equal (BorderTop.make ()) "initial";
+  t |> equal (BorderTop.make ~width:(`px 5.) ()) "5px";
+  t |> equal (BorderTop.make ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-bottom" @@ fun t -> begin
-  let border_bottom = BorderBottom.make
-  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (border_bottom ()) "inherit";
-  t |> equal (border_bottom ~width:(`px 5.) ()) "5px";
-  t |> equal (border_bottom ~width:(`px 5.) ~color:`red ~style:`dashed ())
+  t |> equal (BorderBottom.make ()) "initial";
+  t |> equal (BorderBottom.make ~width:(`px 5.) ()) "5px";
+  t |> equal (BorderBottom.make ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-left" @@ fun t -> begin
-  let border_left = BorderLeft.make
-  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (border_left ()) "inherit";
-  t |> equal (border_left ~width:(`px 5.) ()) "5px";
-  t |> equal (border_left ~width:(`px 5.) ~color:`red ~style:`dashed ())
+  t |> equal (BorderLeft.make ()) "initial";
+  t |> equal (BorderLeft.make ~width:(`px 5.) ()) "5px";
+  t |> equal (BorderLeft.make ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-right" @@ fun t -> begin
-  let border_right = BorderRight.make
-  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (border_right ()) "inherit";
-  t |> equal (border_right ~width:(`px 5.) ()) "5px";
-  t |> equal (border_right ~width:(`px 5.) ~color:`red ~style:`dashed ())
+  t |> equal (BorderRight.make ()) "initial";
+  t |> equal (BorderRight.make ~width:(`px 5.) ()) "5px";
+  t |> equal (BorderRight.make ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border" @@ fun t -> begin
-  let border_right = Border.make
-  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  let equal a b t = t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (border_right ()) "inherit";
-  t |> equal (border_right ~width:(`px 5.) ()) "5px";
-  t |> equal (border_right ~width:(`px 5.) ~color:`red ~style:`dashed ())
+  t |> equal (Border.make ()) "initial";
+  t |> equal (Border.make ~width:(`px 5.) ()) "5px";
+  t |> equal (Border.make ~width:(`px 5.) ~color:`red ~style:`dashed ())
              "5px dashed red";
   t |> T.end_
 end;
@@ -597,13 +591,10 @@ test ~name:"css property - cursor" @@ fun t -> begin
   t |> equal `wait "wait";
   t |> equal `help "help";
   t |> equal `progress "progress";
-  t |> T.equal (Cursor.make ~uris:[`uri "http://foo"] `auto |> Css_Property.show)
-               "url(\"http://foo\"), auto";
-
-  t |> T.equal (  Cursor.make ~uris:[`uri "http://foo"; `uri "bar"] `auto
-               |> Css_Property.show
-               )
-               "url(\"http://foo\"), url(\"bar\"), auto";
+  t |> equal (`cursor_uri ([`uri "http://foo"], `auto))
+             "url(\"http://foo\"), auto";
+  t |> equal (`cursor_uri ([`uri "http://foo"; `uri "bar"], `auto))
+             "url(\"http://foo\"), url(\"bar\"), auto";
   t |> T.end_
 end;
 
@@ -655,15 +646,18 @@ end;
 
 test ~name:"css property - flex" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Flex.make |> Css_Property.show) b
+    t |> T.equal (a |> Flex.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal `none "none";
-  t |> equal (`basis (`percent 20.)) "20%";
-  t |> equal (`basis (`px 20.5)) "20.5px";
-  t |> equal (`flex (0, Some 1, Some (`px 20.5))) "0 1 20.5px";
+  t |> equal' (Flex.make ~basis:(`percent 20.) ()) "20%";
+  t |> equal' (Flex.make ~grow:2. ~shrink:3. ()) "2 3";
+  t |> equal' (Flex.make ~grow:1. ~shrink:1. ~basis:(`px 400.) ()) "1 1 400px";
+  t |> equal' (Flex.make ()) "initial";
   t |> T.end_
 end;
 
@@ -700,8 +694,8 @@ test ~name:"css property - flex-grow" @@ fun t -> begin
   let equal a b t =
     t |> T.equal (a |> FlexGrow.make |> Css_Property.show) b
   in
-  t |> equal 0 "0";
-  t |> equal 1 "1";
+  t |> equal 0. "0";
+  t |> equal 1. "1";
   t |> T.end_
 end;
 
@@ -739,8 +733,9 @@ test ~name:"css property - flex-shrink" @@ fun t -> begin
   let equal a b t =
     t |> T.equal (a |> FlexShrink.make |> Css_Property.show) b
   in
-  t |> equal 0 "0";
-  t |> equal 1 "1";
+  t |> equal 0. "0";
+  t |> equal 0.5 "0.5";
+  t |> equal 1. "1";
   t |> T.end_
 end;
 
@@ -766,11 +761,12 @@ test ~name:"css property - font-family" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`font `serif) "serif";
-  t |> equal (`font `sans_serif) "sans-serif";
-  t |> equal (`font `cursive) "cursive";
-  t |> equal (`font `fantasy) "fantasy";
-  t |> equal (`font `monospace) "monospace";
+  t |> equal `serif "serif";
+  t |> equal `sans_serif "sans-serif";
+  t |> equal `cursive "cursive";
+  t |> equal `fantasy "fantasy";
+  t |> equal `monospace "monospace";
+  t |> equal (`font_name "Helvetica Neue") "\"Helvetica Neue\"";
   t |> equal (`fonts (`font_name "Helvetica", [`serif]))
              "\"Helvetica\", serif";
   t |> T.end_
@@ -852,19 +848,29 @@ end;
 
 
 test ~name:"css property - font" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Css_Property.show) b in
-  t |> equal (Font.make ~value:`inherit_ ()) "inherit";
-  t |> equal (Font.make ~value:`initial ()) "initial";
-  t |> equal (Font.make ~value:`unset ()) "unset";
-  t |> equal (Font.make ~style:`italic
-                        ~variant:`small_caps
-                        ~size:(`em 1.2) ())
-             "italic small-caps 1.2em";
-  t |> equal (Font.make ~style:`italic
-                        ~weight:`bold
-                        ~size:(`em 1.2)
-                        ~line_height:(`percent 120.) ())
-             "italic bold 1.2em/120%";
+  let equal a b t =
+    t |> T.equal (a |> Font.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `caption "caption";
+  t |> equal `icon "icon";
+  t |> equal `menu "menu";
+  t |> equal `message_box "message-box";
+  t |> equal `small_caption "small-caption";
+  t |> equal `status_bar "status-bar";
+  t |> equal' (Font.make ~style:`italic
+                         ~variant:`small_caps
+                         (`em 1.2) `serif)
+              "italic small-caps 1.2em serif";
+  t |> equal' (Font.make ~style:`italic
+                         ~weight:`bold
+                         ~line_height:(`percent 120.)
+                         (`em 1.2) `sans_serif)
+              "italic bold 1.2em /120% sans-serif";
   t |> T.end_
 end;
 
@@ -989,31 +995,40 @@ end;
 
 test ~name:"css property - list-style" @@ fun t -> begin
   let equal a b t =
+    t |> T.equal (a |> ListStyle.make_value |> Css_Property.show) b
+  and equal' a b t =
     t |> T.equal (a |> Css_Property.show) b
   in
-  t |> equal (ListStyle.make ()) "inherit";
-  t |> equal (ListStyle.make ~type_:`circle ()) "circle";
-  t |> equal (ListStyle.make ~position:`inside ~type_:`circle ())
-             "circle inside";
-  t |> equal (ListStyle.make ~image:(`uri "http://foo")
-                             ~position:`inside
-                             ~type_:`circle ())
-             "circle inside url(\"http://foo\")";
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal' (ListStyle.make ()) "initial";
+  t |> equal' (ListStyle.make ~type_:`circle ()) "circle";
+  t |> equal' (ListStyle.make ~position:`inside ~type_:`circle ())
+              "circle inside";
+  t |> equal' (ListStyle.make ~image:(`uri "http://foo")
+                              ~position:`inside
+                              ~type_:`circle ())
+              "circle inside url(\"http://foo\")";
   t |> T.end_
 end;
 
 
 test ~name:"css property - margin" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Margin.make |> Css_Property.show) b
+    t |> T.equal (a |> Margin.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`px 12.5) "12.5px";
-  t |> equal (`percent 21.) "21%";
-  t |> equal (`margin (`percent 21., `percent 0., `percent 10., `percent 15.))
-             "21% 0% 10% 15%";
+  t |> equal (`px 12.) "12px";
+  t |> equal' (Margin.make ~top:(`px 12.5)
+                           ~right:`auto
+                           ~bottom:(`px 14.)
+                           ~left:`auto)
+              "12.5px auto 14px auto";
   t |> T.end_
 end;
 
@@ -1189,12 +1204,16 @@ end;
 
 test ~name:"css property - outline" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Outline.make |> Css_Property.show) b
+    t |> T.equal (a |> Outline.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`outline (`red, `dotted, `thick)) "red dotted thick";
+  t |> equal' (Outline.make ()) "initial";
+  t |> equal' (Outline.make ~color:`red ~style:`dotted ~width:`thick ())
+              "red dotted thick";
   t |> T.end_
 end;
 
@@ -1268,15 +1287,19 @@ end;
 
 test ~name:"css property - padding" @@ fun t -> begin
   let equal a b t =
-    t |> T.equal (a |> Padding.make |> Css_Property.show) b
+    t |> T.equal (a |> Padding.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
   in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal (`px 12.5) "12.5px";
-  t |> equal (`percent 21.) "21%";
-  t |> equal (`padding (`percent 21., `percent 0., `percent 10., `percent 15.))
-             "21% 0% 10% 15%";
+  t |> equal (`px 12.) "12px";
+  t |> equal' (Padding.make ~top:(`px 12.5)
+                            ~right:`auto
+                            ~bottom:(`px 14.)
+                            ~left:`auto)
+              "12.5px auto 14px auto";
   t |> T.end_
 end;
 
@@ -1634,7 +1657,7 @@ test ~name:"css property - voice-family" @@ fun t -> begin
   t |> equal `male "male";
   t |> equal `female "female";
   t |> equal `child "child";
-  t |> equal (`specific "") "inherit";
+  t |> equal (`specific "") "initial";
   t |> equal (`specific "sexy robot") "\"sexy robot\"";
   t |> T.end_
 end;

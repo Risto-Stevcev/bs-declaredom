@@ -512,7 +512,7 @@ module Internal = struct
       Css_Property.block t = "" [@@bs.obj]
 
 
-    external flex:
+    external flexbox:
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
       ?alignSelf:Css_Property.align_self ->
@@ -2083,7 +2083,11 @@ module Shorthand = struct
   let borderLeft = Css_Properties.BorderLeft.make
   let border = Css_Properties.Border.make
   let font = Css_Properties.Font.make
+  let flex = Css_Properties.Flex.make
   let listStyle = Css_Properties.ListStyle.make
+  let margin = Css_Properties.Margin.make
+  let outline = Css_Properties.Outline.make
+  let padding = Css_Properties.Padding.make
 end
 
 include Shorthand
@@ -2170,7 +2174,7 @@ module Group = struct
   let flexs ?flex ?flexBasis ?flexDirection ?flexFlow ?flexGrow ?flexShrink
     ?flexWrap () =
     Internal.Group.flexs
-      ?flex:(Belt.Option.map flex Flex.make)
+      ?flex
       ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
@@ -2192,7 +2196,7 @@ module Group = struct
 
   let margins ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft () =
     Internal.Group.margins
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
@@ -2202,7 +2206,7 @@ module Group = struct
   let paddings ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft 
     () =
     Internal.Group.paddings
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -2224,7 +2228,7 @@ module Group = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ()
 
   let page_breaks ?pageBreakBefore ?pageBreakAfter ?pageBreakInside () =
@@ -2315,7 +2319,7 @@ module MediaGroup = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ()
 
   let visual ?alignContent ?alignItems ?alignSelf ?backgroundAttachment
@@ -2381,7 +2385,7 @@ module MediaGroup = struct
       ?cursor:(Belt.Option.map cursor Cursor.make)
       ?direction:(Belt.Option.map direction Direction.make)
       ?emptyCells:(Belt.Option.map emptyCells EmptyCells.make)
-      ?flex:(Belt.Option.map flex Flex.make)
+      ?flex
       ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
@@ -2406,7 +2410,7 @@ module MediaGroup = struct
         (Belt.Option.map listStylePosition ListStylePosition.make)
       ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
       ?listStyle
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
@@ -2415,9 +2419,9 @@ module MediaGroup = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?overflow:(Belt.Option.map overflow Overflow.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -2450,7 +2454,7 @@ module MediaGroup = struct
   let paged ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
     Internal.MediaGroup.paged
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
@@ -2525,7 +2529,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -2571,13 +2575,13 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
       ?overflow:(Belt.Option.map overflow Overflow.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -2647,7 +2651,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -2672,8 +2676,8 @@ module AppliesTo = struct
       ()
 
 
-  let flex ?alignContent ?alignItems ?alignSelf ?flex ?flexBasis ?flexDirection
-    ?flexFlow ?flexGrow ?flexShrink ?flexWrap ?height ?minHeight ?maxHeight
+  let flexbox ?alignContent ?alignItems ?alignSelf ?flex ?flexDirection
+    ?flexFlow ?flexWrap ?height ?minHeight ?maxHeight
     ?justifyContent ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?order ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft
     ?width ?minWidth ?maxWidth ?azimuth ?backgroundAttachment ?backgroundColor
@@ -2690,28 +2694,25 @@ module AppliesTo = struct
     ?speakPunctuation ?speak ?speechRate ?stress ?textDecoration
     ?textTransform ?unicodeBidi ?visibility ?voiceFamily ?volume
     ?whiteSpace ?wordSpacing () =
-    Internal.AppliesTo.flex
+    Internal.AppliesTo.flexbox
       ?alignContent:(Belt.Option.map alignContent AlignContent.make)
       ?alignItems:(Belt.Option.map alignItems AlignItems.make)
       ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
-      ?flex:(Belt.Option.map flex Flex.make)
-      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
+      ?flex
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
-      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
       ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
       ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
       ?order:(Belt.Option.map order Order.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -2774,7 +2775,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -2820,12 +2821,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -2884,7 +2885,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -2934,12 +2935,12 @@ module AppliesTo = struct
         (Belt.Option.map listStylePosition ListStylePosition.make)
       ?listStyleType:(Belt.Option.map listStyleType ListStyleType.make)
       ?listStyle
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3002,7 +3003,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3047,12 +3048,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3116,7 +3117,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3158,12 +3159,12 @@ module AppliesTo = struct
     ?speechRate ?stress ?textDecoration ?textTransform ?unicodeBidi
     ?visibility ?voiceFamily ?volume ?whiteSpace ?wordSpacing () =
     Internal.AppliesTo.non_replaced_inline
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3224,7 +3225,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3269,12 +3270,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3338,7 +3339,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3363,8 +3364,8 @@ module AppliesTo = struct
       ()
 
 
-  let inline_flex ?alignContent ?alignItems ?alignSelf ?flex ?flexBasis
-    ?flexDirection ?flexFlow ?flexGrow ?flexShrink ?flexWrap ?height
+  let inline_flex ?alignContent ?alignItems ?alignSelf ?flex ?flexDirection
+    ?flexFlow ?flexWrap ?height
     ?minHeight ?maxHeight ?justifyContent ?margin ?marginTop ?marginRight
     ?marginBottom ?marginLeft ?order ?padding ?paddingTop ?paddingRight
     ?paddingBottom ?paddingLeft ?width ?minWidth ?maxWidth ?verticalAlign 
@@ -3385,24 +3386,21 @@ module AppliesTo = struct
       ?alignContent:(Belt.Option.map alignContent AlignContent.make)
       ?alignItems:(Belt.Option.map alignItems AlignItems.make)
       ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
-      ?flex:(Belt.Option.map flex Flex.make)
-      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
+      ?flex
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
-      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
       ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
       ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
       ?order:(Belt.Option.map order Order.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3466,7 +3464,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3514,13 +3512,13 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
       ?overflow:(Belt.Option.map overflow Overflow.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3591,7 +3589,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3694,7 +3692,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3796,7 +3794,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3842,12 +3840,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -3910,7 +3908,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -3958,12 +3956,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -4028,7 +4026,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4076,12 +4074,12 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?margin:(Belt.Option.map margin Margin.make)
+      ?margin
       ?marginTop:(Belt.Option.map marginTop MarginTop.make)
       ?marginRight:(Belt.Option.map marginRight MarginRight.make)
       ?marginBottom:(Belt.Option.map marginBottom MarginBottom.make)
       ?marginLeft:(Belt.Option.map marginLeft MarginLeft.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -4145,7 +4143,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4191,7 +4189,7 @@ module AppliesTo = struct
       ?height:(Belt.Option.map height Height.make)
       ?minHeight:(Belt.Option.map minHeight MinHeight.make)
       ?maxHeight:(Belt.Option.map maxHeight MaxHeight.make)
-      ?padding:(Belt.Option.map padding Padding.make)
+      ?padding
       ?paddingTop:(Belt.Option.map paddingTop PaddingTop.make)
       ?paddingRight:(Belt.Option.map paddingRight PaddingRight.make)
       ?paddingBottom:(Belt.Option.map paddingBottom PaddingBottom.make)
@@ -4256,7 +4254,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4354,7 +4352,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4452,7 +4450,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4550,7 +4548,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)
@@ -4648,7 +4646,7 @@ module AppliesTo = struct
       ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
       ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
       ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
-      ?outline:(Belt.Option.map outline Outline.make)
+      ?outline
       ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
       ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
       ?pause:(Belt.Option.map pause Pause.make)

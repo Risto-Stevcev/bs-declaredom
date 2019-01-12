@@ -10,13 +10,13 @@ let camel_to_dash str =
 let single_whitespace = Js.String.replaceByRe [%re "/\\s+/g"] " "
 
 let combine_styles styles =
-  let value =
+  let styles' =
     styles
+    |> Js.Array.filter Js.Option.isSome 
+    |> Js.Array.map Js.Option.getExn
     |> Js.Array.joinWith " "
-    |> single_whitespace
-    |> Js.String.trim
   in
-  if Js.String.length value > 0 then value else "inherit"
+  if styles' = "" then "initial" else styles'
 
 let join_with xs separator =
   xs

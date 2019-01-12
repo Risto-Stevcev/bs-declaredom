@@ -38,7 +38,7 @@ test ~name:"@media functions" @@ fun t -> begin
       |> Css_Module.merge (Css_Module.make @@ Style.block ~color:`red ())
       |> css_module
     ; css_module @@ Css_Module.make @@
-        Style.flex ~color:`blue ()
+        Style.flexbox ~color:`blue ()
     ]
   in
   Js.log (Css_Stylesheet.show x);

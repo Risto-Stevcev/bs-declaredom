@@ -11,6 +11,7 @@ type 'node t
 
 module Type = struct
   type a and audio and abbr and br and div and button and header and h1 and span
+   and tbody
    and canvas and embed and iframe and img and object_ and video
 
   type custom and text and fragment
@@ -33,6 +34,7 @@ module Node = struct
    and object_ = [ `object_ of Type.object_ t ]
    and span = [ `span of Type.span t ]
    and video = [ `video of Type.video t ]
+   and tbody = [ `tbody of Type.tbody t ]
 
    and text = [ `text of Type.text t ]
    and fragment = [ `fragment of Type.fragment t ]
@@ -47,6 +49,8 @@ module ContentCategory = struct
   (** Elements with no children *)
   type empty = br
 
+  type none = tbody
+  type script_supporting (* = [ script | template ] *)
   type other = [ text | fragment ]
   type flow =
     [
@@ -63,7 +67,7 @@ module ContentCategory = struct
   type content =
     [
     | flow     | sectioning | heading | phrasing | embedded | interactive | form
-    | palpable | other
+    | palpable | other | none
     ]
 
   (**
@@ -92,6 +96,7 @@ match (value :> content) with
 | `audio x     -> Convert.node x
 | `button x    -> Convert.node x
 | `span x      -> Convert.node x
+| `tbody x     -> Convert.node x
 | `custom x    -> Convert.node x
 | `text x      -> Convert.node x
 | `fragment x  -> Convert.node x

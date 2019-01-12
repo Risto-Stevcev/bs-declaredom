@@ -6,7 +6,7 @@ module Css_Module = struct
     Style.inline ~verticalAlign:`initial ~color:`black ()
 
   let flex = Css_Module.make @@ Css_Properties.Display.flex @@
-    Style.flex ~flexDirection:`column ~color:`coral
+    Style.flexbox ~flexDirection:`column ~color:`coral
       ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
 
@@ -69,6 +69,12 @@ let _ =
         span [|text "this"|];
         span [|text "is"|];
         span [|text "flexbox"|];
+      |];
+      fragment [|
+        span [|text "foo"|];
+        br ();
+        span [|text "bar"|];
+        br ();
       |];
       span ~cssModule:Css_Module.title [|text "The time is:"|];
       br ();

@@ -16,45 +16,64 @@ val background :
   ?repeat:Css_Value.Background.Repeat.t ->
   ?attachment:Css_Value.Background.Attachment.t ->
   ?position:Css_Value.Background.Position.t ->
-  unit -> [> Css_Property.background ] Css_Properties.Background.t
+  unit -> [> Css_Property.background ]
 val borderTop :
   ?width:Css_Value.Border.Width.t ->
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
-  unit -> [> Css_Property.border_top ] Css_Properties.BorderTop.t
+  unit -> [> Css_Property.border_top ]
 val borderRight :
   ?width:Css_Value.Border.Width.t ->
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
-  unit -> [> Css_Property.border_right ] Css_Properties.BorderRight.t
+  unit -> [> Css_Property.border_right ]
 val borderBottom :
   ?width:Css_Value.Border.Width.t ->
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
-  unit -> [> Css_Property.border_bottom ] Css_Properties.BorderBottom.t
+  unit -> [> Css_Property.border_bottom ]
 val borderLeft :
   ?width:Css_Value.Border.Width.t ->
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
-  unit -> [> Css_Property.border_left ] Css_Properties.BorderLeft.t
+  unit -> [> Css_Property.border_left ]
 val border :
   ?width:Css_Value.Border.Width.t ->
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
-  unit -> [> Css_Property.border ] Css_Properties.Border.t
+  unit -> [> Css_Property.border ]
 val font :
   ?style:Css_Value.Font.Style.t ->
   ?variant:Css_Value.Font.Variant.t ->
   ?weight:Css_Value.Font.Weight.t ->
-  ?size:Css_Value.Font.Size.t ->
   ?line_height:Css_Value.LineHeight.t ->
-  ?value:Css_Properties.Font.Value.value' ->
-  unit -> [> Css_Property.font ] Css_Properties.Font.t
+  Css_Value.Font.Size.t ->
+  Css_Value.Font.Family.t -> [> Css_Property.font ]
+val flex :
+  ?grow:float ->
+  ?shrink:float ->
+  ?basis:Css_Value.LengthPercent.t ->
+  unit -> [> Css_Property.flex' ]
 val listStyle :
   ?type_:Css_Value.ListStyle.Type.t ->
   ?position:Css_Value.ListStyle.Position.t ->
   ?image:Css_Value.ListStyle.Image.t ->
-  unit -> [> Css_Property.list_style ] Css_Properties.ListStyle.t
+  unit -> [> Css_Property.list_style ]
+val margin :
+  top:Css_Value.LengthPercent.t ->
+  right:Css_Value.LengthPercent.t ->
+  bottom:Css_Value.LengthPercent.t ->
+  left:Css_Value.LengthPercent.t -> [> Css_Property.margin ]
+val outline :
+  ?color:Css_Value.Outline.Color.t ->
+  ?style:Css_Value.Outline.Style.t ->
+  ?width:Css_Value.Outline.Width.t -> unit -> [> Css_Property.outline ]
+val padding :
+  top:Css_Value.LengthPercent.t ->
+  right:Css_Value.LengthPercent.t ->
+  bottom:Css_Value.LengthPercent.t ->
+  left:Css_Value.LengthPercent.t -> [> Css_Property.padding ]
+
 
 module Group :
   sig
@@ -105,12 +124,12 @@ module Group :
       ?cueBefore:Css_Value.UriOrNone.t ->
       ?cue:Css_Properties.Cue.Value.t -> unit -> Css_Property.cues t
     val flexs :
-      ?flex:Css_Properties.Flex.Value.t ->
+      ?flex:Css_Property.flex' ->
       ?flexBasis:Css_Value.LengthPercent.t ->
       ?flexDirection:Css_Value.Flex.Direction.t ->
       ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-      ?flexGrow:int ->
-      ?flexShrink:int ->
+      ?flexGrow:float ->
+      ?flexShrink:float ->
       ?flexWrap:Css_Value.Flex.Wrap.t -> unit -> Css_Property.flexs t
     val fonts :
       ?fontFamily:Css_Value.Font.Family.t ->
@@ -120,13 +139,13 @@ module Group :
       ?fontWeight:Css_Value.Font.Weight.t ->
       ?font:Css_Property.font -> unit -> Css_Property.fonts t
     val margins :
-      ?margin:Css_Properties.Margin.Value.t ->
+      ?margin:Css_Property.margin ->
       ?marginTop:Css_Value.LengthPercent.t ->
       ?marginRight:Css_Value.LengthPercent.t ->
       ?marginBottom:Css_Value.LengthPercent.t ->
       ?marginLeft:Css_Value.LengthPercent.t -> unit -> Css_Property.margins t
     val paddings :
-      ?padding:Css_Properties.Padding.Value.t ->
+      ?padding:Css_Property.padding ->
       ?paddingTop:Css_Value.LengthPercent.t ->
       ?paddingRight:Css_Value.LengthPercent.t ->
       ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -141,7 +160,7 @@ module Group :
       ?outlineColor:Css_Value.Outline.Color.t ->
       ?outlineStyle:Css_Value.Outline.Style.t ->
       ?outlineWidth:Css_Value.Outline.Width.t ->
-      ?outline:Css_Properties.Outline.Value.t ->
+      ?outline:Css_Property.outline ->
       unit -> Css_Property.outlines t
     val page_breaks :
       ?pageBreakBefore:Css_Value.PageBreak.t ->
@@ -179,7 +198,7 @@ module Group :
 module MediaGroup :
   sig
     val aural :
-      ?azimuth:Css_Properties.Azimuth.value ->
+      ?azimuth:Css_Properties.Azimuth.Value.t ->
       ?cueAfter:Css_Value.UriOrNone.t ->
       ?cueBefore:Css_Value.UriOrNone.t ->
       ?cue:Css_Properties.Cue.Value.t ->
@@ -201,11 +220,11 @@ module MediaGroup :
       ?volume:Css_Properties.Volume.Value.t ->
       unit -> Css_Property.MediaGroup.aural t
     val interactive :
-      ?cursor:Css_Properties.Cursor.Value.value ->
+      ?cursor:Css_Properties.Cursor.Value.t ->
       ?outlineColor:Css_Value.Outline.Color.t ->
       ?outlineStyle:Css_Value.Outline.Style.t ->
       ?outlineWidth:Css_Value.Outline.Width.t ->
-      ?outline:Css_Properties.Outline.Value.t ->
+      ?outline:Css_Property.outline ->
       unit -> Css_Property.MediaGroup.interactive t
     val visual :
       ?alignContent:Css_Properties.AlignContent.Value.t ->
@@ -243,15 +262,15 @@ module MediaGroup :
       ?clear:Css_Properties.Clear.Value.t ->
       ?clip:Css_Properties.Clip.Value.t ->
       ?color:Css_Properties.Color.Value.t ->
-      ?cursor:Css_Properties.Cursor.Value.value ->
+      ?cursor:Css_Properties.Cursor.Value.t ->
       ?direction:Css_Properties.Direction.Value.t ->
       ?emptyCells:Css_Properties.EmptyCells.Value.t ->
-      ?flex:Css_Properties.Flex.Value.t ->
+      ?flex:Css_Property.flex' ->
       ?flexBasis:Css_Value.LengthPercent.t ->
       ?flexDirection:Css_Value.Flex.Direction.t ->
       ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-      ?flexGrow:int ->
-      ?flexShrink:int ->
+      ?flexGrow:float ->
+      ?flexShrink:float ->
       ?flexWrap:Css_Value.Flex.Wrap.t ->
       ?float:Css_Properties.Float.Value.t ->
       ?fontFamily:Css_Value.Font.Family.t ->
@@ -270,7 +289,7 @@ module MediaGroup :
       ?listStylePosition:Css_Value.ListStyle.Position.t ->
       ?listStyleType:Css_Value.ListStyle.Type.t ->
       ?listStyle:Css_Property.list_style ->
-      ?margin:Css_Properties.Margin.Value.t ->
+      ?margin:Css_Property.margin ->
       ?marginTop:Css_Value.LengthPercent.t ->
       ?marginRight:Css_Value.LengthPercent.t ->
       ?marginBottom:Css_Value.LengthPercent.t ->
@@ -279,9 +298,9 @@ module MediaGroup :
       ?outlineColor:Css_Value.Outline.Color.t ->
       ?outlineStyle:Css_Value.Outline.Style.t ->
       ?outlineWidth:Css_Value.Outline.Width.t ->
-      ?outline:Css_Properties.Outline.Value.t ->
+      ?outline:Css_Property.outline ->
       ?overflow:Css_Properties.Overflow.Value.t ->
-      ?padding:Css_Properties.Padding.Value.t ->
+      ?padding:Css_Property.padding ->
       ?paddingTop:Css_Value.LengthPercent.t ->
       ?paddingRight:Css_Value.LengthPercent.t ->
       ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -301,7 +320,7 @@ module MediaGroup :
       ?textAlign:Css_Properties.TextAlign.Value.t ->
       ?textIndent:Css_Value.LengthPercent.t ->
       ?unicodeBidi:Css_Properties.UnicodeBidi.Value.t ->
-      ?verticalAlign:Css_Properties.VerticalAlign.value ->
+      ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
       ?visibility:Css_Properties.Visibility.Value.t ->
       ?whiteSpace:Css_Properties.WhiteSpace.Value.t ->
       ?width:Css_Value.LengthPercent.t ->
@@ -310,7 +329,7 @@ module MediaGroup :
       ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
       ?zIndex:int -> unit -> Css_Property.MediaGroup.visual t
     val paged :
-      ?margin:Css_Properties.Margin.Value.t ->
+      ?margin:Css_Property.margin ->
       ?marginTop:Css_Value.LengthPercent.t ->
       ?marginRight:Css_Value.LengthPercent.t ->
       ?marginBottom:Css_Value.LengthPercent.t ->
@@ -324,7 +343,7 @@ module MediaGroup :
   end
 
 val any :
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -355,7 +374,7 @@ val any :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -370,7 +389,7 @@ val any :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -397,13 +416,13 @@ val block :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
   ?overflow:Css_Properties.Overflow.Value.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -418,7 +437,7 @@ val block :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -449,7 +468,7 @@ val block :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -464,7 +483,7 @@ val block :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -486,28 +505,25 @@ val block :
   ?whiteSpace:Css_Properties.WhiteSpace.Value.t ->
   ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.block t
-val flex :
+val flexbox :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
   ?alignSelf:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Properties.Flex.Value.t ->
-  ?flexBasis:Css_Value.LengthPercent.t ->
+  ?flex:Css_Property.flex' ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-  ?flexGrow:int ->
-  ?flexShrink:int ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
   ?justifyContent:Css_Properties.JustifyContent.Value.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
   ?order:int ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -515,7 +531,7 @@ val flex :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -546,7 +562,7 @@ val flex :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -561,7 +577,7 @@ val flex :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -588,12 +604,12 @@ val positioned :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -606,7 +622,7 @@ val positioned :
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
   ?zIndex:int ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -637,7 +653,7 @@ val positioned :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -652,7 +668,7 @@ val positioned :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -682,12 +698,12 @@ val list_item :
   ?listStylePosition:Css_Value.ListStyle.Position.t ->
   ?listStyleType:Css_Value.ListStyle.Type.t ->
   ?listStyle:Css_Property.list_style ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -695,7 +711,7 @@ val list_item :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -726,7 +742,7 @@ val list_item :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -741,7 +757,7 @@ val list_item :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -767,21 +783,21 @@ val replaced_inline :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
   ?paddingLeft:Css_Value.LengthPercent.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -812,7 +828,7 @@ val replaced_inline :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -827,7 +843,7 @@ val replaced_inline :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -850,18 +866,18 @@ val replaced_inline :
   ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.replaced_inline t
 val non_replaced_inline :
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
   ?paddingLeft:Css_Value.LengthPercent.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -892,7 +908,7 @@ val non_replaced_inline :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -907,7 +923,7 @@ val non_replaced_inline :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -933,21 +949,21 @@ val inline :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
   ?paddingLeft:Css_Value.LengthPercent.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -978,7 +994,7 @@ val inline :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -993,7 +1009,7 @@ val inline :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1019,24 +1035,21 @@ val inline_flex :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
   ?alignSelf:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Properties.Flex.Value.t ->
-  ?flexBasis:Css_Value.LengthPercent.t ->
+  ?flex:Css_Property.flex' ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-  ?flexGrow:int ->
-  ?flexShrink:int ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
   ?justifyContent:Css_Properties.JustifyContent.Value.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
   ?order:int ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -1044,8 +1057,8 @@ val inline_flex :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1076,7 +1089,7 @@ val inline_flex :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1091,7 +1104,7 @@ val inline_flex :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1118,13 +1131,13 @@ val inline_block :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
   ?overflow:Css_Properties.Overflow.Value.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -1139,8 +1152,8 @@ val inline_block :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1171,7 +1184,7 @@ val inline_block :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1186,7 +1199,7 @@ val inline_block :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1216,7 +1229,7 @@ val table_header_group :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1247,7 +1260,7 @@ val table_header_group :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1262,7 +1275,7 @@ val table_header_group :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1291,7 +1304,7 @@ val table_footer_group :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1322,7 +1335,7 @@ val table_footer_group :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1337,7 +1350,7 @@ val table_footer_group :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1364,12 +1377,12 @@ val table_caption :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -1377,7 +1390,7 @@ val table_caption :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1408,7 +1421,7 @@ val table_caption :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1423,7 +1436,7 @@ val table_caption :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1451,12 +1464,12 @@ val table :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -1466,7 +1479,7 @@ val table :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1497,7 +1510,7 @@ val table :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1512,7 +1525,7 @@ val table :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1540,12 +1553,12 @@ val inline_table :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?margin:Css_Properties.Margin.Value.t ->
+  ?margin:Css_Property.margin ->
   ?marginTop:Css_Value.LengthPercent.t ->
   ?marginRight:Css_Value.LengthPercent.t ->
   ?marginBottom:Css_Value.LengthPercent.t ->
   ?marginLeft:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
@@ -1554,7 +1567,7 @@ val inline_table :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1585,7 +1598,7 @@ val inline_table :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1600,7 +1613,7 @@ val inline_table :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1627,17 +1640,17 @@ val table_cell :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?padding:Css_Properties.Padding.Value.t ->
+  ?padding:Css_Property.padding ->
   ?paddingTop:Css_Value.LengthPercent.t ->
   ?paddingRight:Css_Value.LengthPercent.t ->
   ?paddingBottom:Css_Value.LengthPercent.t ->
   ?paddingLeft:Css_Value.LengthPercent.t ->
   ?speakHeader:Css_Properties.SpeakHeader.Value.t ->
-  ?verticalAlign:Css_Properties.VerticalAlign.value ->
+  ?verticalAlign:Css_Properties.VerticalAlign.Value.t ->
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1668,7 +1681,7 @@ val table_cell :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1683,7 +1696,7 @@ val table_cell :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1709,7 +1722,7 @@ val table_column :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1740,7 +1753,7 @@ val table_column :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1755,7 +1768,7 @@ val table_column :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1781,7 +1794,7 @@ val table_column_group :
   ?width:Css_Value.LengthPercent.t ->
   ?minWidth:Css_Value.LengthPercent.t ->
   ?maxWidth:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1812,7 +1825,7 @@ val table_column_group :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1827,7 +1840,7 @@ val table_column_group :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1853,7 +1866,7 @@ val table_row :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1884,7 +1897,7 @@ val table_row :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1899,7 +1912,7 @@ val table_row :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->
@@ -1925,7 +1938,7 @@ val table_row_group :
   ?height:Css_Value.LengthPercent.t ->
   ?minHeight:Css_Value.LengthPercent.t ->
   ?maxHeight:Css_Value.LengthPercent.t ->
-  ?azimuth:Css_Properties.Azimuth.value ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?backgroundAttachment:Css_Value.Background.Attachment.t ->
   ?backgroundColor:Css_Value.Background.Color.t ->
   ?backgroundImage:Css_Value.Background.Image.t ->
@@ -1956,7 +1969,7 @@ val table_row_group :
   ?cueAfter:Css_Value.UriOrNone.t ->
   ?cueBefore:Css_Value.UriOrNone.t ->
   ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.value ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
@@ -1971,7 +1984,7 @@ val table_row_group :
   ?outlineColor:Css_Value.Outline.Color.t ->
   ?outlineStyle:Css_Value.Outline.Style.t ->
   ?outlineWidth:Css_Value.Outline.Width.t ->
-  ?outline:Css_Properties.Outline.Value.t ->
+  ?outline:Css_Property.outline ->
   ?pauseAfter:Css_Value.TimePercent.t ->
   ?pauseBefore:Css_Value.TimePercent.t ->
   ?pause:Css_Properties.Pause.Value.t ->

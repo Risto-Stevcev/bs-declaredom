@@ -70,41 +70,11 @@ module Color = struct
   type t = [ Global.t | basic_color | extended_color | rgb | hsl ]
 
   let show: t -> string = function
-	| ( `initial | `unset | `inherit_ ) as global ->
+  | #Global.t as global ->
 		Global.show global
-  | ( `aqua | `black | `blue | `fuchsia | `gray | `green | `lime | `maroon
-    | `navy | `olive | `purple | `red | `silver | `teal | `white | `yellow
-    ) as basic_color ->
+  | #basic_color as basic_color ->
     basic_colorToJs basic_color
-  | ( `aliceblue | `antiquewhite | `aquamarine | `azure | `beige
-    | `bisque | `blanchedalmond | `blueviolet | `brown
-    | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
-    | `cornflowerblue | `cornsilk | `crimson | `cyan | `darkblue | `darkcyan
-    | `darkgoldenrod | `darkgray | `darkgreen | `darkgrey | `darkkhaki
-    | `darkmagenta | `darkolivegreen | `darkorange | `darkorchid | `darkred
-    | `darksalmon | `darkseagreen | `darkslateblue | `darkslategray
-    | `darkslategrey | `darkturquoise | `darkviolet | `deeppink | `deepskyblue
-    | `dimgray | `dimgrey | `dodgerblue | `firebrick | `floralwhite
-    | `forestgreen | `gainsboro | `ghostwhite | `gold | `goldenrod
-    | `greenyellow | `grey | `honeydew | `hotpink | `indianred
-    | `indigo | `ivory | `khaki | `lavender | `lavenderblush | `lawngreen
-    | `lemonchiffon | `lightblue | `lightcoral | `lightcyan
-    | `lightgoldenrodyellow | `lightgray | `lightgreen | `lightgrey
-    | `lightpink | `lightsalmon | `lightseagreen | `lightskyblue
-    | `lightslategray | `lightslategrey | `lightsteelblue | `lightyellow
-    | `limegreen | `linen | `magenta | `mediumaquamarine
-    | `mediumblue | `mediumorchid | `mediumpurple | `mediumseagreen
-    | `mediumslateblue | `mediumspringgreen | `mediumturquoise
-    | `mediumvioletred | `midnightblue | `mintcream | `mistyrose | `moccasin
-    | `navajowhite | `oldlace | `olivedrab | `orange
-    | `orangered | `orchid | `palegoldenrod | `palegreen | `paleturquoise
-    | `palevioletred | `papayawhip | `peachpuff | `peru | `pink | `plum
-    | `powderblue | `rosybrown | `royalblue | `saddlebrown
-    | `salmon | `sandybrown | `seagreen | `seashell | `sienna
-    | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
-    | `steelblue | `tan | `thistle | `tomato | `turquoise | `violet
-    | `wheat | `whitesmoke | `yellowgreen
-    ) as extended_color ->
+  | #extended_color as extended_color ->
     extended_colorToJs extended_color
   | `rgb (r, g, b) ->
     "rgb("^ string_of_int r ^", "^ string_of_int g ^", "^ string_of_int b ^")"
@@ -125,37 +95,7 @@ module ColorOrTransparent = struct
   type t = [ Color.t | `transparent ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset
-		| `aliceblue | `antiquewhite | `aqua | `aquamarine | `azure | `beige
-    | `bisque | `black | `blanchedalmond | `blue | `blueviolet | `brown
-    | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
-    | `cornflowerblue | `cornsilk | `crimson | `cyan | `darkblue | `darkcyan
-    | `darkgoldenrod | `darkgray | `darkgreen | `darkgrey | `darkkhaki
-    | `darkmagenta | `darkolivegreen | `darkorange | `darkorchid | `darkred
-    | `darksalmon | `darkseagreen | `darkslateblue | `darkslategray
-    | `darkslategrey | `darkturquoise | `darkviolet | `deeppink | `deepskyblue
-    | `dimgray | `dimgrey | `dodgerblue | `firebrick | `floralwhite
-    | `forestgreen | `fuchsia | `gainsboro | `ghostwhite | `gold | `goldenrod
-    | `gray | `green | `greenyellow | `grey | `honeydew | `hotpink | `indianred
-    | `indigo | `ivory | `khaki | `lavender | `lavenderblush | `lawngreen
-    | `lemonchiffon | `lightblue | `lightcoral | `lightcyan
-    | `lightgoldenrodyellow | `lightgray | `lightgreen | `lightgrey
-    | `lightpink | `lightsalmon | `lightseagreen | `lightskyblue
-    | `lightslategray | `lightslategrey | `lightsteelblue | `lightyellow
-    | `lime | `limegreen | `linen | `magenta | `maroon | `mediumaquamarine
-    | `mediumblue | `mediumorchid | `mediumpurple | `mediumseagreen
-    | `mediumslateblue | `mediumspringgreen | `mediumturquoise
-    | `mediumvioletred | `midnightblue | `mintcream | `mistyrose | `moccasin
-    | `navajowhite | `navy | `oldlace | `olive | `olivedrab | `orange
-    | `orangered | `orchid | `palegoldenrod | `palegreen | `paleturquoise
-    | `palevioletred | `papayawhip | `peachpuff | `peru | `pink | `plum
-    | `powderblue | `purple | `red | `rosybrown | `royalblue | `saddlebrown
-    | `salmon | `sandybrown | `seagreen | `seashell | `sienna | `silver
-    | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
-    | `steelblue | `tan | `teal | `thistle | `tomato | `turquoise | `violet
-    | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
-    | `rgb _ | `rgba _ | `hsl _ | `hsla _
-    ) as color ->
+  | #Color.t as color ->
     Color.show color
   | `transparent -> "transparent"
 end
@@ -167,8 +107,10 @@ module Uri = struct
   type t = [ Global.t | `uri of string ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global ->
+  | #Global.t as global ->
 		Global.show global
+  | `uri uri when uri = "" ->
+    "initial"
   | `uri uri -> "url(\""^ uri ^"\")"
 end
 
@@ -177,7 +119,7 @@ module UriOrNone = struct
   type t = [ Global.t | Uri.t | `none ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global -> Global.show global
+  | #Global.t as global -> Global.show global
   | `uri _ as uri -> Uri.show uri
   | `none -> "none"
 end
@@ -187,14 +129,11 @@ module LengthPercent = struct
   type t = [ Global.t | Length.t | Percent.t | `auto ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global ->
+  | #Global.t as global ->
     Global.show global
-  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-    ) as distance ->
+  | #Length.t as distance ->
     Length.show distance
-  | `percent _ as percent ->
+  | #Percent.t as percent ->
     Percent.show percent
   | `auto -> "auto"
 end
@@ -204,76 +143,61 @@ module TimePercent = struct
   type t = [ Global.t | Time.t | Percent.t ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global ->
+  | #Global.t as global ->
     Global.show global
-  | ( `s _ | `ms _ ) as time ->
+  | #Time.t as time ->
     Time.show time
-  | `percent _ as percent ->
+  | #Percent.t as percent ->
     Percent.show percent
-end
-
-
-module Position = struct
-  (** {{: https://www.w3.org/TR/css-values-3/#position } Position } *)
-
-  type length_percent = [ Length.t | Percent.t ]
-
-  type horizontal = [ `left | `right ] [@@bs.deriving jsConverter]
-  type vertical = [ `top | `bottom ] [@@bs.deriving jsConverter]
-
-  type horizontal2 = [ horizontal | `center | length_percent ]
-  type vertical2 = [ vertical | `center | length_percent ]
-
-  type any = [ horizontal | vertical | `center | length_percent ]
-
-  let anyToJs: any -> string = function
-  | `left -> "left" | `right -> "right" | `top -> "top" | `bottom -> "bottom"
-  | `center -> "center"
-  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-    ) as length ->
-    Length.show length
-  | `percent _ as percent ->
-    Percent.show percent
-
-  type t =
-    [
-		| Global.t
-    | horizontal | vertical | `center | `value2 of horizontal2 * vertical2
-    | `value4 of horizontal * length_percent * vertical * length_percent
-    ]
-
-  let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global ->
-    Global.show global
-  | ( `left | `right | `top | `bottom | `center ) as value ->
-    anyToJs value
-  | `value2 (h, v) ->
-    anyToJs (h :> any) ^" "^ anyToJs (v :> any)
-  | `value4 (h1, h2, v1, v2) ->
-    anyToJs (h1 :> any) ^" "^ anyToJs (h2 :> any) ^" "^
-    anyToJs (v1 :> any) ^" "^ anyToJs (v2 :> any)
 end
 
 
 module Background = struct
 	module Color = ColorOrTransparent
 	module Image = UriOrNone
-	module Position = Position
+
+  module Position = struct
+    (** {{: https://www.w3.org/TR/css-values-3/#position } Position } *)
+
+    type horizontal = [ `left | `center | `right ] [@@bs.deriving jsConverter]
+    type vertical = [ `top | `center | `bottom ] [@@bs.deriving jsConverter]
+
+    type t =
+      [ Global.t | Length.t | Percent.t | horizontal | vertical
+      | `position of
+          [ Length.t | Percent.t | horizontal ] *
+          [ Length.t | Percent.t | vertical ] ]
+
+    let rec show: t -> string = function
+    | #Global.t as global ->
+      Global.show global
+    | #Length.t as length ->
+      Length.show length
+    | #Percent.t as percent ->
+      Percent.show percent
+    | #horizontal as horizontal ->
+      horizontalToJs horizontal
+    | #vertical as vertical ->
+      verticalToJs vertical
+    | `position (horizontal, vertical) ->
+      show (horizontal :> t) ^" "^ show (vertical :> t)
+  end
+
 
 	module Repeat = struct
 		(** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-repeat } Background repeat} *)
 
 		type value =
-			[ `repeat | `repeat_x | `repeat_y | `no_repeat ] [@@bs.deriving jsConverter]
+      [ `repeat | `repeat_x [@bs.as "repeat-x"] | `repeat_y [@bs.as "repeat-y"]
+      | `no_repeat [@bs.as "no-repeat"] ] [@@bs.deriving jsConverter]
 
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| ( `inherit_ | `initial | `unset ) as global -> Global.show global
-		| ( `repeat | `repeat_x | `repeat_y | `no_repeat ) as value ->
-			value |> valueToJs |> Util.underscore_to_dash
+		| #Global.t as global ->
+      Global.show global
+		| #value as value ->
+			valueToJs value
 	end
 
 
@@ -285,8 +209,10 @@ module Background = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| ( `inherit_ | `initial | `unset ) as global -> Global.show global
-		| ( `scroll | `fixed ) as value -> valueToJs value
+		| #Global.t as global ->
+      Global.show global
+		| #value as value ->
+      valueToJs value
 	end
 end
 
@@ -301,15 +227,12 @@ module Border = struct
 		type t = [ Global.t | Length.t | `thin | `medium | `thick ]
 
 		let show: t -> string = function
-		| ( `inherit_ | `initial | `unset ) as global ->
+		| #Global.t as global ->
 			Global.show global
-		| ( `thin | `medium | `thick ) as value ->
-			valueToJs value
-    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Length.t as length ->
       Length.show length
+		| #value as value ->
+			valueToJs value
 	end
 
 
@@ -326,11 +249,9 @@ module Border = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| ( `inherit_ | `initial | `unset ) as global ->
+		| #Global.t as global ->
 			Global.show global
-		| ( `none   | `hidden | `dotted | `dashed | `solid
-			| `double | `groove | `ridge  | `inset  | `outset
-			) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 end
@@ -340,25 +261,26 @@ module Font = struct
 	module Family = struct
 		(** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-family } Font family} *)
 
-		type _value =
-			[ `serif | `sans_serif | `cursive | `fantasy | `monospace ]
-			[@@bs.deriving jsConverter]
+		type value =
+      [ `serif | `sans_serif [@bs.as "sans-serif"]
+      | `cursive | `fantasy | `monospace ] [@@bs.deriving jsConverter]
 
-		type value = [ `font_name of string | _value ]
+		type font = [ `font_name of string | value ]
 
-		type t =
-			[ Global.t | `font of value | `fonts of value * value list ]
+		type t = [ Global.t | font | `fonts of font * font list ]
 
-		let show_value: value -> string = function
+		let show_value: font -> string = function
+		| `font_name font_name when font_name = "" ->
+      "initial"
 		| `font_name font_name ->
-			"\""^ font_name ^"\""
-		| (`serif | `sans_serif | `cursive | `fantasy | `monospace) as value ->
-			_valueToJs value |> Util.underscore_to_dash
+      Js.Json.stringifyAny font_name |> Js.Option.getExn
+		| #value as value ->
+			valueToJs value
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| `font font ->
+		| #font as font ->
 			show_value font
 		| `fonts (font, _fonts) ->
 			font :: _fonts
@@ -371,32 +293,25 @@ module Font = struct
 		(** {{: https://www.w3.org/TR/CSS22/fonts.html#propdef-font-size } Font size} *)
 
 		type absolute_size =
-			[ `xx_small | `x_small | `small | `medium | `large | `x_large | `xx_large ]
-			[@@bs.deriving jsConverter]
+			[ `xx_small | `x_small | `small | `medium | `large | `x_large
+      | `xx_large ]	[@@bs.deriving jsConverter]
 
 		type relative_size = [ `larger | `smaller ] [@@bs.deriving jsConverter]
 
 		type t =
-			[
-			| Global.t | Length.t | Percent.t
-			| absolute_size | relative_size
-			]
+			[ Global.t | Length.t | Percent.t | absolute_size | relative_size ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| ( `xx_small | `x_small | `small | `medium | `large | `x_large | `xx_large
-			) as value ->
-			absolute_sizeToJs value |> Util.underscore_to_dash
-		| (`larger | `smaller) as value ->
-			relative_sizeToJs value
-    | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-      | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-      | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-      ) as length ->
+    | #Length.t as length ->
       Length.show length
-		| `percent _ as percent ->
+		| #Percent.t as percent ->
 			Percent.show percent
+		| #absolute_size as value ->
+			absolute_sizeToJs value |> Util.underscore_to_dash
+		| #relative_size as value ->
+			relative_sizeToJs value
 	end
 
 	module Style = struct
@@ -407,9 +322,9 @@ module Font = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| (`normal | `italic | `oblique) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 
@@ -422,9 +337,9 @@ module Font = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| (`normal | `small_caps) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 
@@ -443,11 +358,9 @@ module Font = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| ( `normal | `bold | `bolder | `lighter
-			| `w100 | `w200 | `w300 | `w400 | `w500 | `w600 | `w700 | `w800 | `w900
-			) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 end
@@ -460,14 +373,11 @@ module LineHeight = struct
   type t = [ Global.t | Length.t | Percent.t | `normal ]
 
   let show: t -> string = function
-  | (`inherit_ | `initial | `unset) as value ->
+  | #Global.t as value ->
     Global.show value
-  | ( `cm _ | `mm _  | `Q _  | `in_ _  | `pt _  | `pc _ | `px _  | `em _
-    | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _ | `vw _
-    | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _
-    ) as length ->
+  | #Length.t as length ->
     Length.show length
-  | `percent _ as percent ->
+  | #Percent.t as percent ->
     Percent.show percent
   | `normal -> "normal"
 end
@@ -484,9 +394,9 @@ module ListStyle = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| (`inside | `outside) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 
@@ -508,12 +418,9 @@ module ListStyle = struct
 		type t = [ Global.t | value ]
 
 		let show: t -> string = function
-		| (`inherit_ | `initial | `unset) as value ->
+		| #Global.t as value ->
 			Global.show value
-		| ( `disc | `circle | `square | `decimal | `decimal_leading_zero
-			| `lower_roman | `upper_roman | `lower_greek | `lower_latin | `upper_latin
-			| `armenian | `georgian | `lower_alpha | `upper_alpha | `none
-			) as value ->
+		| #value as value ->
 			valueToJs value
 	end
 end
@@ -524,44 +431,14 @@ module Outline = struct
     type t = [ Color.t | `invert ]
 
     let show: t -> string = function
-    | ( `inherit_ | `initial | `unset ) as global ->
+    | #Global.t as global ->
       Global.show global
-    | ( `aliceblue | `antiquewhite | `aqua | `aquamarine | `azure | `beige
-      | `bisque | `black | `blanchedalmond | `blue | `blueviolet | `brown
-      | `burlywood | `cadetblue | `chartreuse | `chocolate | `coral
-      | `cornflowerblue | `cornsilk | `crimson | `cyan | `darkblue | `darkcyan
-      | `darkgoldenrod | `darkgray | `darkgreen | `darkgrey | `darkkhaki
-      | `darkmagenta | `darkolivegreen | `darkorange | `darkorchid | `darkred
-      | `darksalmon | `darkseagreen | `darkslateblue | `darkslategray
-      | `darkslategrey | `darkturquoise | `darkviolet | `deeppink | `deepskyblue
-      | `dimgray | `dimgrey | `dodgerblue | `firebrick | `floralwhite
-      | `forestgreen | `fuchsia | `gainsboro | `ghostwhite | `gold | `goldenrod
-      | `gray | `green | `greenyellow | `grey | `honeydew | `hotpink | `indianred
-      | `indigo | `ivory | `khaki | `lavender | `lavenderblush | `lawngreen
-      | `lemonchiffon | `lightblue | `lightcoral | `lightcyan
-      | `lightgoldenrodyellow | `lightgray | `lightgreen | `lightgrey
-      | `lightpink | `lightsalmon | `lightseagreen | `lightskyblue
-      | `lightslategray | `lightslategrey | `lightsteelblue | `lightyellow
-      | `lime | `limegreen | `linen | `magenta | `maroon | `mediumaquamarine
-      | `mediumblue | `mediumorchid | `mediumpurple | `mediumseagreen
-      | `mediumslateblue | `mediumspringgreen | `mediumturquoise
-      | `mediumvioletred | `midnightblue | `mintcream | `mistyrose | `moccasin
-      | `navajowhite | `navy | `oldlace | `olive | `olivedrab | `orange
-      | `orangered | `orchid | `palegoldenrod | `palegreen | `paleturquoise
-      | `palevioletred | `papayawhip | `peachpuff | `peru | `pink | `plum
-      | `powderblue | `purple | `red | `rosybrown | `royalblue | `saddlebrown
-      | `salmon | `sandybrown | `seagreen | `seashell | `sienna | `silver
-      | `skyblue | `slateblue | `slategray | `slategrey | `snow | `springgreen
-      | `steelblue | `tan | `teal | `thistle | `tomato | `turquoise | `violet
-      | `wheat | `white | `whitesmoke | `yellow | `yellowgreen
-      | `rgb _ | `rgba _ | `hsl _ | `hsla _
-      ) as color ->
+    | #Color.t as color ->
       Color.show color
     | `invert -> "invert"
   end
 
   module Style = Border.Style
-
   module Width = Border.Width
 end
 
@@ -577,9 +454,9 @@ module PageBreak = struct
 	type t = [ Global.t | value ]
 
 	let show: t -> string = function
-	| ( `inherit_ | `initial | `unset ) as global ->
+	| #Global.t as global ->
 		Global.show global
-	| ( `auto | `always | `avoid | `left | `right ) as value ->
+	| #value as value ->
 		valueToJs value
 end
 
@@ -590,7 +467,7 @@ module BreakInside = struct
   type t = [ Global.t | `lines of int ]
 
   let show: t -> string = function
-  | ( `inherit_ | `initial | `unset ) as global ->
+  | #Global.t as global ->
     Global.show global
   | `lines lines ->
     string_of_int lines
@@ -607,9 +484,9 @@ module Flex = struct
     type t = [ Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Global.t as global ->
       Global.show global
-    | (`row | `row_reverse | `column | `column_reverse) as value ->
+    | #value as value ->
       valueToJs value
   end
 
@@ -621,9 +498,9 @@ module Flex = struct
     type t = [ Global.t | value ]
 
     let show: t -> string = function
-    | (`inherit_ | `initial | `unset) as global ->
+    | #Global.t as global ->
       Global.show global
-    | (`nowrap | `wrap | `wrap_reverse) as value ->
+    | #value as value ->
       valueToJs value
   end
 end

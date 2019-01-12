@@ -113,6 +113,95 @@ module Override = struct
 end
 
 
+module A = struct
+  let make
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+    ?aria_expanded
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule children =
+    Html_Nodes.A.make
+      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+      ?aria_expanded
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting
+      ?style:(Belt.Option.map style Override.Style.to_display)
+      ?cssModule:(Belt.Option.map cssModule Override.CssModule.to_display)
+      children
+
+  let jsx 
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+    ?aria_expanded
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make
+      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+      ?aria_expanded
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
 module Div = struct
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -191,5 +280,87 @@ module Div = struct
       ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ?style ?cssModule 
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Span = struct
+  let make
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule children =
+    Html_Nodes.Span.make
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting
+      ?style:(Belt.Option.map style Override.Style.to_display)
+      ?cssModule:(Belt.Option.map cssModule Override.CssModule.to_display)
+      children
+
+
+  let jsx
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end

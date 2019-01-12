@@ -22,16 +22,7 @@ module AlignContent :
             | `stretch ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `center
-            | `flex_end
-            | `flex_start
-            | `inherit_
-            | `initial
-            | `space_around
-            | `space_between
-            | `stretch
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.align_content ] t
@@ -47,15 +38,7 @@ module AlignItems :
             [ `baseline | `center | `flex_end | `flex_start | `stretch ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `baseline
-            | `center
-            | `flex_end
-            | `flex_start
-            | `inherit_
-            | `initial
-            | `stretch
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.align_items ] t
@@ -76,16 +59,7 @@ module AlignSelf :
             | `stretch ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `auto
-            | `baseline
-            | `center
-            | `flex_end
-            | `flex_start
-            | `inherit_
-            | `initial
-            | `stretch
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.align_self ] t
@@ -95,53 +69,34 @@ module Azimuth :
     (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-azimuth } Azimuth} *)
 
     type 'a t = 'a constraint 'a = [> Css_Property.azimuth ]
-    type _value =
-        [ `center
-        | `center_left
-        | `center_right
-        | `far_left
-        | `far_right
-        | `left
-        | `left_side
-        | `leftwards
-        | `right
-        | `right_side
-        | `rightwards ]
-    val _valueToJs : _value -> string
-    val _valueFromJs : string -> _value option
-
-    (** {{: https://www.w3.org/TR/CSS22/aural.html#value-def-angle } Angle} *)
-    type value =
-        [ `behind of _value option
-        | `center
-        | `center_left
-        | `center_right
-        | `deg of float
-        | `far_left
-        | `far_right
-        | `grad of float
-        | `inherit_
-        | `initial
-        | `left
-        | `left_side
-        | `leftwards
-        | `rad of float
-        | `right
-        | `right_side
-        | `rightwards
-        | `turn of float
-        | `unset ]
-    val show : value -> string
-    val make : value -> [> Css_Property.azimuth ] t
+    module Value :
+      sig
+        type value =
+            [ `center
+            | `center_left
+            | `center_right
+            | `far_left
+            | `far_right
+            | `left
+            | `left_side
+            | `leftwards
+            | `right
+            | `right_side
+            | `rightwards ]
+        val valueToJs : value -> string
+        val valueFromJs : string -> value option
+        type t =
+          [ Css_Value.Global.t | Css_Value.Angle.t | `behind' | `behind of value
+          | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.azimuth ] t
   end
 module BackgroundAttachment :
   sig
     (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background-attachment } Background Attachment} *)
 
     type 'a t = 'a constraint 'a = [> Css_Property.background_attachment ]
-    external to_json :
-      Css_Property.background_attachment Css_Property.t ->
-      < backgroundAttachment : string > Js.t = "%identity"
     val make :
       Css_Value.Background.Attachment.t ->
       [> Css_Property.background_attachment ] t
@@ -187,11 +142,13 @@ module Background :
     module Value :
       sig
         type t =
-            Css_Value.Background.Color.t option *
-            Css_Value.Background.Image.t option *
-            Css_Value.Background.Repeat.t option *
-            Css_Value.Background.Attachment.t option *
-            Css_Value.Background.Position.t option
+          [ Css_Value.Global.t
+          | `background of
+              Css_Value.Background.Color.t option *
+              Css_Value.Background.Image.t option *
+              Css_Value.Background.Repeat.t option *
+              Css_Value.Background.Attachment.t option *
+              Css_Value.Background.Position.t option ]
         val show : t -> string
       end
     val make :
@@ -201,6 +158,7 @@ module Background :
       ?attachment:Css_Value.Background.Attachment.t ->
       ?position:Css_Value.Background.Position.t ->
       unit -> [> Css_Property.background ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.background ] t
   end
 module BorderCollapse :
   sig
@@ -209,7 +167,7 @@ module BorderCollapse :
     type 'a t = 'a constraint 'a = [> Css_Property.border_collapse ]
     module Value :
       sig
-        type t = [ `collapse | `inherit_ | `initial | `separate | `unset ]
+        type t = [ Css_Value.Global.t | `collapse | `separate ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.border_collapse ] t
@@ -228,31 +186,7 @@ module BorderSpacing :
     type 'a t = 'a constraint 'a = [> Css_Property.border_spacing ]
     module Value :
       sig
-        type t =
-            [ `Q of float
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `inherit_
-            | `initial
-            | `mm of float
-            | `pc of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `unset
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+        type t = [ Css_Value.Global.t | Css_Value.Length.t ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.border_spacing ] t
@@ -279,8 +213,11 @@ module BorderTop :
     module Value :
       sig
         type t =
-            Css_Value.Border.Width.t option *
-            Css_Value.Border.Style.t option * Css_Value.Border.Color.t option
+          [ Css_Value.Global.t
+          | `border_top of
+              Css_Value.Border.Width.t option *
+              Css_Value.Border.Style.t option *
+              Css_Value.Border.Color.t option ]
         val show : t -> string
       end
     val make :
@@ -288,42 +225,7 @@ module BorderTop :
       ?style:Css_Value.Border.Style.t ->
       ?color:Css_Value.Border.Color.t ->
       unit -> [> Css_Property.border_top ] t
-  end
-module BorderBottom :
-  sig
-    (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom } Border Bottom} *)
-
-    type 'a t = 'a constraint 'a = [> Css_Property.border_bottom ]
-    module Value :
-      sig
-        type t =
-            Css_Value.Border.Width.t option *
-            Css_Value.Border.Style.t option * Css_Value.Border.Color.t option
-        val show : t -> string
-      end
-    val make :
-      ?width:Css_Value.Border.Width.t ->
-      ?style:Css_Value.Border.Style.t ->
-      ?color:Css_Value.Border.Color.t ->
-      unit -> [> Css_Property.border_bottom ] t
-  end
-module BorderLeft :
-  sig
-    (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left } Border Left} *)
-
-    type 'a t = 'a constraint 'a = [> Css_Property.border_left ]
-    module Value :
-      sig
-        type t =
-            Css_Value.Border.Width.t option *
-            Css_Value.Border.Style.t option * Css_Value.Border.Color.t option
-        val show : t -> string
-      end
-    val make :
-      ?width:Css_Value.Border.Width.t ->
-      ?style:Css_Value.Border.Style.t ->
-      ?color:Css_Value.Border.Color.t ->
-      unit -> [> Css_Property.border_left ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.border_top ]
   end
 module BorderRight :
   sig
@@ -333,8 +235,11 @@ module BorderRight :
     module Value :
       sig
         type t =
-            Css_Value.Border.Width.t option *
-            Css_Value.Border.Style.t option * Css_Value.Border.Color.t option
+          [ Css_Value.Global.t
+          | `border_right of
+              Css_Value.Border.Width.t option *
+              Css_Value.Border.Style.t option *
+              Css_Value.Border.Color.t option ]
         val show : t -> string
       end
     val make :
@@ -342,6 +247,51 @@ module BorderRight :
       ?style:Css_Value.Border.Style.t ->
       ?color:Css_Value.Border.Color.t ->
       unit -> [> Css_Property.border_right ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.border_right ]
+  end
+module BorderBottom :
+  sig
+    (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-bottom } Border Bottom} *)
+
+    type 'a t = 'a constraint 'a = [> Css_Property.border_bottom ]
+    module Value :
+      sig
+        type t =
+          [ Css_Value.Global.t
+          | `border_bottom of
+              Css_Value.Border.Width.t option *
+              Css_Value.Border.Style.t option *
+              Css_Value.Border.Color.t option ]
+        val show : t -> string
+      end
+    val make :
+      ?width:Css_Value.Border.Width.t ->
+      ?style:Css_Value.Border.Style.t ->
+      ?color:Css_Value.Border.Color.t ->
+      unit -> [> Css_Property.border_bottom ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.border_bottom ]
+  end
+module BorderLeft :
+  sig
+    (** {{: https://www.w3.org/TR/CSS22/box.html#propdef-border-left } Border Left} *)
+
+    type 'a t = 'a constraint 'a = [> Css_Property.border_left ]
+    module Value :
+      sig
+        type t =
+          [ Css_Value.Global.t
+          | `border_left of
+              Css_Value.Border.Width.t option *
+              Css_Value.Border.Style.t option *
+              Css_Value.Border.Color.t option ]
+        val show : t -> string
+      end
+    val make :
+      ?width:Css_Value.Border.Width.t ->
+      ?style:Css_Value.Border.Style.t ->
+      ?color:Css_Value.Border.Color.t ->
+      unit -> [> Css_Property.border_left ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.border_left ]
   end
 module Border :
   sig
@@ -351,14 +301,18 @@ module Border :
     module Value :
       sig
         type t =
-            Css_Value.Border.Width.t option *
-            Css_Value.Border.Style.t option * Css_Value.Border.Color.t option
+          [ Css_Value.Global.t
+          | `border of
+              Css_Value.Border.Width.t option *
+              Css_Value.Border.Style.t option *
+              Css_Value.Border.Color.t option ]
         val show : t -> string
       end
     val make :
       ?width:Css_Value.Border.Width.t ->
       ?style:Css_Value.Border.Style.t ->
-      ?color:Css_Value.Border.Color.t -> unit -> [> Css_Property.border ] t
+      ?color:Css_Value.Border.Color.t -> unit -> [> Css_Property.border ]
+    val make_value : Css_Value.Global.t -> [> Css_Property.border ]
   end
 module BorderTopColor :
   sig
@@ -485,8 +439,7 @@ module Clear :
         type value = [ `both | `left | `none | `right ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `both | `inherit_ | `initial | `left | `none | `right | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.clear ] t
@@ -498,35 +451,9 @@ module Clip :
     type 'a t = 'a constraint 'a = [> Css_Property.clip ]
     module Value :
       sig
-        type value =
-            [ `Q of float
-            | `auto
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `mm of float
-            | `pc of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+        type value = [ Css_Value.Length.t | `auto ]
         val show_value : value -> string
-        type t =
-            [ `inherit_
-            | `initial
-            | `rect of value * value * value * value
-            | `unset ]
+        type t = [ Css_Value.Global.t | `rect of value * value * value * value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.clip ] t
@@ -538,161 +465,7 @@ module Color :
     type 'a t = 'a constraint 'a = [> Css_Property.color ]
     module Value :
       sig
-        type t =
-            [ `aliceblue
-            | `antiquewhite
-            | `aqua
-            | `aquamarine
-            | `azure
-            | `beige
-            | `bisque
-            | `black
-            | `blanchedalmond
-            | `blue
-            | `blueviolet
-            | `brown
-            | `burlywood
-            | `cadetblue
-            | `chartreuse
-            | `chocolate
-            | `coral
-            | `cornflowerblue
-            | `cornsilk
-            | `crimson
-            | `cyan
-            | `darkblue
-            | `darkcyan
-            | `darkgoldenrod
-            | `darkgray
-            | `darkgreen
-            | `darkgrey
-            | `darkkhaki
-            | `darkmagenta
-            | `darkolivegreen
-            | `darkorange
-            | `darkorchid
-            | `darkred
-            | `darksalmon
-            | `darkseagreen
-            | `darkslateblue
-            | `darkslategray
-            | `darkslategrey
-            | `darkturquoise
-            | `darkviolet
-            | `deeppink
-            | `deepskyblue
-            | `dimgray
-            | `dimgrey
-            | `dodgerblue
-            | `firebrick
-            | `floralwhite
-            | `forestgreen
-            | `fuchsia
-            | `gainsboro
-            | `ghostwhite
-            | `gold
-            | `goldenrod
-            | `gray
-            | `green
-            | `greenyellow
-            | `grey
-            | `honeydew
-            | `hotpink
-            | `hsl of int * int * int
-            | `hsla of int * int * int * float
-            | `indianred
-            | `indigo
-            | `inherit_
-            | `initial
-            | `ivory
-            | `khaki
-            | `lavender
-            | `lavenderblush
-            | `lawngreen
-            | `lemonchiffon
-            | `lightblue
-            | `lightcoral
-            | `lightcyan
-            | `lightgoldenrodyellow
-            | `lightgray
-            | `lightgreen
-            | `lightgrey
-            | `lightpink
-            | `lightsalmon
-            | `lightseagreen
-            | `lightskyblue
-            | `lightslategray
-            | `lightslategrey
-            | `lightsteelblue
-            | `lightyellow
-            | `lime
-            | `limegreen
-            | `linen
-            | `magenta
-            | `maroon
-            | `mediumaquamarine
-            | `mediumblue
-            | `mediumorchid
-            | `mediumpurple
-            | `mediumseagreen
-            | `mediumslateblue
-            | `mediumspringgreen
-            | `mediumturquoise
-            | `mediumvioletred
-            | `midnightblue
-            | `mintcream
-            | `mistyrose
-            | `moccasin
-            | `navajowhite
-            | `navy
-            | `oldlace
-            | `olive
-            | `olivedrab
-            | `orange
-            | `orangered
-            | `orchid
-            | `palegoldenrod
-            | `palegreen
-            | `paleturquoise
-            | `palevioletred
-            | `papayawhip
-            | `peachpuff
-            | `peru
-            | `pink
-            | `plum
-            | `powderblue
-            | `purple
-            | `red
-            | `rgb of int * int * int
-            | `rgba of int * int * int * float
-            | `rosybrown
-            | `royalblue
-            | `saddlebrown
-            | `salmon
-            | `sandybrown
-            | `seagreen
-            | `seashell
-            | `sienna
-            | `silver
-            | `skyblue
-            | `slateblue
-            | `slategray
-            | `slategrey
-            | `snow
-            | `springgreen
-            | `steelblue
-            | `tan
-            | `teal
-            | `thistle
-            | `tomato
-            | `turquoise
-            | `unset
-            | `violet
-            | `wheat
-            | `white
-            | `whitesmoke
-            | `yellow
-            | `yellowgreen ]
+        type t = [ Css_Value.Global.t | Css_Value.Color.t ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.color ] t
@@ -719,10 +492,8 @@ module Cue :
     module Value :
       sig
         type t =
-            [ `cue of Css_Value.UriOrNone.t * Css_Value.UriOrNone.t
-            | `inherit_
-            | `initial
-            | `unset ]
+          [ Css_Value.Global.t
+          | `cue of Css_Value.UriOrNone.t * Css_Value.UriOrNone.t ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.cue ] t
@@ -734,34 +505,12 @@ module Cursor :
     type 'a t = 'a constraint 'a = [> Css_Property.cursor ]
     module Value :
       sig
-        type value' =
-            [ `auto
-            | `crosshair
-            | `default
-            | `e_resize
-            | `help
-            | `move
-            | `n_resize
-            | `ne_resize
-            | `nw_resize
-            | `pointer
-            | `progress
-            | `s_resize
-            | `se_resize
-            | `sw_resize
-            | `text
-            | `w_resize
-            | `wait ]
-        val value'ToJs : value' -> string
-        val value'FromJs : string -> value' option
         type value =
             [ `auto
             | `crosshair
             | `default
             | `e_resize
             | `help
-            | `inherit_
-            | `initial
             | `move
             | `n_resize
             | `ne_resize
@@ -772,14 +521,16 @@ module Cursor :
             | `se_resize
             | `sw_resize
             | `text
-            | `unset
             | `w_resize
             | `wait ]
-        type t = Css_Value.Uri.t list * value
+        val valueToJs : value -> string
+        val valueFromJs : string -> value option
+        type t =
+          [ Css_Value.Global.t
+          | `cursor_uri of Css_Value.Uri.t list * value | value ]
         val show : t -> string
       end
-    val make :
-      ?uris:Css_Value.Uri.t list -> Value.value -> [> Css_Property.cursor ] t
+    val make : Value.t -> [> Css_Property.cursor ] t
   end
 module Direction :
   sig
@@ -788,7 +539,7 @@ module Direction :
     type 'a t = 'a constraint 'a = [> Css_Property.direction ]
     module Value :
       sig
-        type t = [ `inherit_ | `initial | `ltr | `rtl | `unset ]
+        type t = [ Css_Value.Global.t | `rtl | `ltr ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.direction ] t
@@ -871,19 +622,7 @@ module Elevation :
         type value = [ `above | `below | `higher | `level | `lower ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `above
-            | `below
-            | `deg of float
-            | `grad of float
-            | `higher
-            | `inherit_
-            | `initial
-            | `level
-            | `lower
-            | `rad of float
-            | `turn of float
-            | `unset ]
+        type t = [ Css_Value.Global.t | Css_Value.Angle.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.elevation ] t
@@ -895,11 +634,12 @@ module EmptyCells :
     type 'a t = 'a constraint 'a = [> Css_Property.empty_cells ]
     module Value :
       sig
-        type t = [ `hide | `inherit_ | `initial | `show | `unset ]
+        type t = [ Css_Value.Global.t | `show | `hide ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.empty_cells ] t
   end
+
 module Flex :
   sig
     (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-property} Flex} *)
@@ -908,15 +648,18 @@ module Flex :
     module Value :
       sig
         type t =
-            [ `basis of Css_Value.LengthPercent.t
-            | `flex of int * int option * Css_Value.LengthPercent.t option
-            | `inherit_
-            | `initial
-            | `none
-            | `unset ]
+          [ Css_Value.Global.t
+          | `none
+          | `flex of
+              float option * float option * Css_Value.LengthPercent.t option ]
         val show : t -> string
       end
-    val make : Value.t -> [> Css_Property.flex' ] t
+    val make :
+      ?grow:float ->
+      ?shrink:float ->
+      ?basis:Css_Value.LengthPercent.t -> unit -> [> Css_Property.flex' ] t
+    val make_value :
+      [ Css_Value.Global.t | `none ] -> [> Css_Property.flex' ] t
   end
 module FlexBasis :
   sig
@@ -941,10 +684,8 @@ module FlexFlow :
     module Value :
       sig
         type t =
-            [ `flow of Css_Value.Flex.Direction.t * Css_Value.Flex.Wrap.t
-            | `inherit_
-            | `initial
-            | `unset ]
+          [ Css_Value.Global.t
+          | `flow of Css_Value.Flex.Direction.t * Css_Value.Flex.Wrap.t ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.flex_flow ] t
@@ -954,14 +695,14 @@ module FlexGrow :
     (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-grow-property} Flex Grow} *)
 
     type 'a t = 'a constraint 'a = [> Css_Property.flex_grow ]
-    val make : int -> [> Css_Property.flex_grow ] t
+    val make : float -> [> Css_Property.flex_grow ] t
   end
 module FlexShrink :
   sig
     (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property} Flex Shrink} *)
 
     type 'a t = 'a constraint 'a = [> Css_Property.flex_shrink ]
-    val make : int -> [> Css_Property.flex_shrink ] t
+    val make : float -> [> Css_Property.flex_shrink ] t
   end
 module FlexWrap :
   sig
@@ -980,7 +721,7 @@ module Float :
         type value = [ `left | `none | `right ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t = [ `inherit_ | `initial | `left | `none | `right | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.float_ ] t
@@ -1036,41 +777,22 @@ module Font :
             | `status_bar ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type value' =
-            [ `caption
-            | `icon
-            | `inherit_
-            | `initial
-            | `menu
-            | `message_box
-            | `small_caption
-            | `status_bar
-            | `unset ]
-        type font_property =
+        type font =
             Css_Value.Font.Style.t option * Css_Value.Font.Variant.t option *
-            Css_Value.Font.Weight.t option
-        type font_size =
-            Css_Value.Font.Size.t * Css_Value.LineHeight.t option
-        type t =
-            [ `caption
-            | `font of font_property * font_size
-            | `icon
-            | `inherit_
-            | `initial
-            | `menu
-            | `message_box
-            | `small_caption
-            | `status_bar
-            | `unset ]
+            Css_Value.Font.Weight.t option * Css_Value.Font.Size.t *
+            Css_Value.LineHeight.t option * Css_Value.Font.Family.t
+        type t = [ Css_Value.Global.t | `font of font | value ]
         val show : t -> string
       end
     val make :
       ?style:Css_Value.Font.Style.t ->
       ?variant:Css_Value.Font.Variant.t ->
       ?weight:Css_Value.Font.Weight.t ->
-      ?size:Css_Value.Font.Size.t ->
       ?line_height:Css_Value.LineHeight.t ->
-      ?value:Value.value' -> unit -> [> Css_Property.font ] t
+      Css_Value.Font.Size.t ->
+      Css_Value.Font.Family.t -> [> `font of 'a Css_Property.t ]
+    val make_value :
+      [ Css_Value.Global.t | Value.value ] -> [> Css_Property.font ] t
   end
 module Height :
   sig
@@ -1094,15 +816,7 @@ module JustifyContent :
             | `space_between ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `center
-            | `flex_end
-            | `flex_start
-            | `inherit_
-            | `initial
-            | `space_around
-            | `space_between
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.justify_content ] t
@@ -1121,32 +835,7 @@ module LetterSpacing :
     type 'a t = 'a constraint 'a = [> Css_Property.letter_spacing ]
     module Value :
       sig
-        type t =
-            [ `Q of float
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `inherit_
-            | `initial
-            | `mm of float
-            | `normal
-            | `pc of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `unset
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+        type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.letter_spacing ] t
@@ -1194,9 +883,11 @@ module ListStyle :
     module Value :
       sig
         type t =
-            Css_Value.ListStyle.Type.t option *
-            Css_Value.ListStyle.Position.t option *
-            Css_Value.ListStyle.Image.t option
+          [ Css_Value.Global.t
+          | `list_style of
+              Css_Value.ListStyle.Type.t option *
+              Css_Value.ListStyle.Position.t option *
+              Css_Value.ListStyle.Image.t option ]
         val show : t -> string
       end
     val make :
@@ -1204,6 +895,7 @@ module ListStyle :
       ?position:Css_Value.ListStyle.Position.t ->
       ?image:Css_Value.ListStyle.Image.t ->
       unit -> [> Css_Property.list_style ] t
+    val make_value : Css_Value.Global.t -> [> Css_Property.list_style]
   end
 module Margin :
   sig
@@ -1213,38 +905,23 @@ module Margin :
     module Value :
       sig
         type t =
-            [ `Q of float
-            | `auto
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `inherit_
-            | `initial
-            | `margin of
-                Css_Value.LengthPercent.t * Css_Value.LengthPercent.t *
-                Css_Value.LengthPercent.t * Css_Value.LengthPercent.t
-            | `mm of float
-            | `pc of float
-            | `percent of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `unset
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+          [ Css_Value.Global.t
+          | Css_Value.LengthPercent.t
+          | `margin of
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t ]
         val show : t -> string
       end
-    val make : Value.t -> [> Css_Property.margin ] t
+
+    val make :
+      top:Css_Value.LengthPercent.t ->
+      right:Css_Value.LengthPercent.t ->
+      bottom:Css_Value.LengthPercent.t ->
+      left:Css_Value.LengthPercent.t -> [> Css_Property.margin ]
+    val make_value : [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
+      [> Css_Property.margin ]
   end
 module MarginTop :
   sig
@@ -1337,6 +1014,7 @@ module OutlineWidth :
     type 'a t = 'a constraint 'a = [> Css_Property.outline_width ]
     val make : Css_Value.Outline.Width.t -> [> Css_Property.outline_width ] t
   end
+
 module Outline :
   sig
     (** {{: https://www.w3.org/TR/CSS22/ui.html#propdef-outline} Outline} *)
@@ -1345,15 +1023,18 @@ module Outline :
     module Value :
       sig
         type t =
-            [ `inherit_
-            | `initial
+            [ Css_Value.Global.t
             | `outline of
-                Css_Value.Outline.Color.t * Css_Value.Outline.Style.t *
-                Css_Value.Outline.Width.t
-            | `unset ]
+                Css_Value.Outline.Color.t option *
+                Css_Value.Outline.Style.t option *
+                Css_Value.Outline.Width.t option ]
         val show : t -> string
       end
-    val make : Value.t -> [> Css_Property.outline ] t
+    val make :
+      ?color:Css_Value.Outline.Color.t ->
+      ?style:Css_Value.Outline.Style.t ->
+      ?width:Css_Value.Outline.Width.t -> unit -> [> Css_Property.outline ]
+    val make_value : Css_Value.Global.t -> [> Css_Property.outline ]
   end
 module Overflow :
   sig
@@ -1365,14 +1046,7 @@ module Overflow :
         type value = [ `auto | `hidden | `scroll | `visible ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `auto
-            | `hidden
-            | `inherit_
-            | `initial
-            | `scroll
-            | `unset
-            | `visible ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.overflow ] t
@@ -1414,38 +1088,23 @@ module Padding :
     module Value :
       sig
         type t =
-            [ `Q of float
-            | `auto
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `inherit_
-            | `initial
-            | `mm of float
-            | `padding of
-                Css_Value.LengthPercent.t * Css_Value.LengthPercent.t *
-                Css_Value.LengthPercent.t * Css_Value.LengthPercent.t
-            | `pc of float
-            | `percent of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `unset
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+          [ Css_Value.Global.t
+          | Css_Value.LengthPercent.t
+          | `padding of
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t ]
         val show : t -> string
       end
-    val make : Value.t -> [> Css_Property.padding ] t
+
+    val make :
+      top:Css_Value.LengthPercent.t ->
+      right:Css_Value.LengthPercent.t ->
+      bottom:Css_Value.LengthPercent.t ->
+      left:Css_Value.LengthPercent.t -> [> Css_Property.padding ]
+    val make_value : [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
+      [> Css_Property.padding ]
   end
 module PageBreakAfter :
   sig
@@ -1491,10 +1150,8 @@ module Pause :
     module Value :
       sig
         type t =
-            [ `inherit_
-            | `initial
-            | `pause of Css_Value.TimePercent.t * Css_Value.TimePercent.t
-            | `unset ]
+          [ Css_Value.Global.t
+          | `pause of Css_Value.TimePercent.t * Css_Value.TimePercent.t ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.pause ] t
@@ -1506,7 +1163,7 @@ module PitchRange :
     type 'a t = 'a constraint 'a = [> Css_Property.pitch_range ]
     module Value :
       sig
-        type t = [ `inherit_ | `initial | `range of float | `unset ]
+        type t = [ Css_Value.Global.t | `range of float ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.pitch_range ] t
@@ -1521,17 +1178,7 @@ module Pitch :
         type value = [ `high | `low | `medium | `x_high | `x_low ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `Hz of float
-            | `high
-            | `inherit_
-            | `initial
-            | `kHz of float
-            | `low
-            | `medium
-            | `unset
-            | `x_high
-            | `x_low ]
+        type t = [ Css_Value.Global.t | Css_Value.Frequency.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.pitch ] t
@@ -1547,13 +1194,8 @@ module PlayDuring :
         val valueToJs : value -> string
         val valueFromJs : string -> value option
         type t =
-            [ `auto
-            | `inherit_
-            | `initial
-            | `none
-            | `sound of Css_Value.Uri.t * value
-            | `unset
-            | `uri of string ]
+          [ Css_Value.Global.t | Css_Value.Uri.t | `sound of Css_Value.Uri.t * value
+          | `auto | `none ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.play_during ] t
@@ -1592,7 +1234,7 @@ module Richness :
     type 'a t = 'a constraint 'a = [> Css_Property.richness ]
     module Value :
       sig
-        type t = [ `inherit_ | `initial | `richness of float | `unset ]
+        type t = [ Css_Value.Global.t | `richness of float ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.richness ] t
@@ -1611,7 +1253,7 @@ module SpeakHeader :
     type 'a t = 'a constraint 'a = [> Css_Property.speak_header ]
     module Value :
       sig
-        type t = [ `always | `inherit_ | `initial | `once | `unset ]
+        type t = [ Css_Value.Global.t | `once | `always ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.speak_header ] t
@@ -1623,7 +1265,7 @@ module SpeakNumeral :
     type 'a t = 'a constraint 'a = [> Css_Property.speak_numeral ]
     module Value :
       sig
-        type t = [ `continuous | `digits | `inherit_ | `initial | `unset ]
+        type t = [ Css_Value.Global.t | `digits | `continuous ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.speak_numeral ] t
@@ -1635,7 +1277,7 @@ module SpeakPunctuation :
     type 'a t = 'a constraint 'a = [> Css_Property.speak_punctuation ]
     module Value :
       sig
-        type t = [ `code | `inherit_ | `initial | `none | `unset ]
+        type t = [ Css_Value.Global.t | `code | `none ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.speak_punctuation ] t
@@ -1650,8 +1292,7 @@ module Speak :
         type value = [ `none | `normal | `spell_out ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `inherit_ | `initial | `none | `normal | `spell_out | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.speak ] t
@@ -1667,18 +1308,7 @@ module SpeechRate :
             [ `fast | `faster | `medium | `slow | `slower | `x_fast | `x_slow ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `fast
-            | `faster
-            | `inherit_
-            | `initial
-            | `medium
-            | `rate of float
-            | `slow
-            | `slower
-            | `unset
-            | `x_fast
-            | `x_slow ]
+        type t = [ Css_Value.Global.t | value | `rate of float ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.speech_rate ] t
@@ -1690,7 +1320,7 @@ module Stress :
     type 'a t = 'a constraint 'a = [> Css_Property.stress ]
     module Value :
       sig
-        type t = [ `inherit_ | `initial | `stress of float | `unset ]
+        type t = [ Css_Value.Global.t | `stress of float ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.stress ] t
@@ -1702,7 +1332,7 @@ module TableLayout :
     type 'a t = 'a constraint 'a = [> Css_Property.table_layout ]
     module Value :
       sig
-        type t = [ `auto | `fixed | `inherit_ | `initial | `unset ]
+        type t = [ Css_Value.Global.t | `auto | `fixed ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.table_layout ] t
@@ -1717,14 +1347,7 @@ module TextAlign :
         type value = [ `center | `justify | `left | `right ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `center
-            | `inherit_
-            | `initial
-            | `justify
-            | `left
-            | `right
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.text_align ] t
@@ -1740,15 +1363,7 @@ module TextDecoration :
             [ `blink | `line_through | `none | `overline | `underline ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `blink
-            | `inherit_
-            | `initial
-            | `line_through
-            | `none
-            | `overline
-            | `underline
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.text_decoration ] t
@@ -1770,14 +1385,7 @@ module TextTransform :
         type value = [ `capitalize | `lowercase | `none | `uppercase ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `capitalize
-            | `inherit_
-            | `initial
-            | `lowercase
-            | `none
-            | `unset
-            | `uppercase ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.text_transform ] t
@@ -1799,30 +1407,22 @@ module UnicodeBidi :
         type value = [ `bidi_override | `embed | `normal ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `bidi_override
-            | `embed
-            | `inherit_
-            | `initial
-            | `normal
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.unicode_bidi ] t
   end
+
 module VerticalAlign :
   sig
     (** {{: https://www.w3.org/TR/CSS22/visudet.html#line-height } Vertical Align} *)
 
     type 'a t = 'a constraint 'a = [> Css_Property.vertical_align ]
+
     module Value :
       sig
-        (** {{: https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#Values_for_inline_elements } Values} *)
-
         module ParentRelative :
           sig
-            (** These values vertically align the element relative to its parent element *)
-
             type value =
                 [ `baseline
                 | `middle
@@ -1833,82 +1433,21 @@ module VerticalAlign :
             val valueToJs : value -> string
             val valueFromJs : string -> value option
             type t =
-                [ `Q of float
-                | `baseline
-                | `cap of float
-                | `ch of float
-                | `cm of float
-                | `em of float
-                | `ex of float
-                | `ic of float
-                | `ih of float
-                | `in_ of float
-                | `middle
-                | `mm of float
-                | `pc of float
-                | `percent of float
-                | `pt of float
-                | `px of float
-                | `rem of float
-                | `rlh of float
-                | `sub
-                | `super
-                | `text_bottom
-                | `text_top
-                | `vb of float
-                | `vh of float
-                | `vi of float
-                | `vmax of float
-                | `vmin of float
-                | `vw of float ]
+              [ Css_Value.Length.t | Css_Value.Percent.t | value ]
             val show : t -> string
           end
         module LineRelative :
           sig
-            (** The following values vertically align the element relative to the entire line *)
-
             type t = [ `bottom | `top ]
             val tToJs : t -> string
             val tFromJs : string -> t option
             val show : t -> string
           end
+        type t =
+          [ Css_Value.Global.t | ParentRelative.t | LineRelative.t ]
+        val show : t -> string
       end
-    type value =
-        [ `Q of float
-        | `baseline
-        | `bottom
-        | `cap of float
-        | `ch of float
-        | `cm of float
-        | `em of float
-        | `ex of float
-        | `ic of float
-        | `ih of float
-        | `in_ of float
-        | `inherit_
-        | `initial
-        | `middle
-        | `mm of float
-        | `pc of float
-        | `percent of float
-        | `pt of float
-        | `px of float
-        | `rem of float
-        | `rlh of float
-        | `sub
-        | `super
-        | `text_bottom
-        | `text_top
-        | `top
-        | `unset
-        | `vb of float
-        | `vh of float
-        | `vi of float
-        | `vmax of float
-        | `vmin of float
-        | `vw of float ]
-    val show : value -> string
-    val make : value -> [> Css_Property.vertical_align ] t
+    val make : Value.t -> [> Css_Property.vertical_align ] t
   end
 module Visibility :
   sig
@@ -1920,8 +1459,7 @@ module Visibility :
         type value = [ `collapse | `hidden | `visible ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `collapse | `hidden | `inherit_ | `initial | `unset | `visible ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.visibility ] t
@@ -1936,14 +1474,7 @@ module VoiceFamily :
         type generic = [ `child | `female | `male ]
         val genericToJs : generic -> string
         val genericFromJs : string -> generic option
-        type t =
-            [ `child
-            | `female
-            | `inherit_
-            | `initial
-            | `male
-            | `specific of string
-            | `unset ]
+        type t = [ Css_Value.Global.t | generic | `specific of string ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.voice_family ] t
@@ -1960,17 +1491,8 @@ module Volume :
         val valueToJs : value -> string
         val valueFromJs : string -> value option
         type t =
-            [ `inherit_
-            | `initial
-            | `loud
-            | `medium
-            | `percent of float
-            | `silent
-            | `soft
-            | `unset
-            | `volume of float
-            | `x_loud
-            | `x_soft ]
+          [ Css_Value.Global.t | Css_Value.Percent.t | `volume of float
+          | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.volume ] t
@@ -1985,15 +1507,7 @@ module WhiteSpace :
         type value = [ `normal | `nowrap | `pre | `pre_line | `pre_wrap ]
         val valueToJs : value -> string
         val valueFromJs : string -> value option
-        type t =
-            [ `inherit_
-            | `initial
-            | `normal
-            | `nowrap
-            | `pre
-            | `pre_line
-            | `pre_wrap
-            | `unset ]
+        type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.white_space ] t
@@ -2019,32 +1533,7 @@ module WordSpacing :
     type 'a t = 'a constraint 'a = [> Css_Property.word_spacing ]
     module Value :
       sig
-        type t =
-            [ `Q of float
-            | `cap of float
-            | `ch of float
-            | `cm of float
-            | `em of float
-            | `ex of float
-            | `ic of float
-            | `ih of float
-            | `in_ of float
-            | `inherit_
-            | `initial
-            | `mm of float
-            | `normal
-            | `pc of float
-            | `pt of float
-            | `px of float
-            | `rem of float
-            | `rlh of float
-            | `unset
-            | `vb of float
-            | `vh of float
-            | `vi of float
-            | `vmax of float
-            | `vmin of float
-            | `vw of float ]
+        type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.word_spacing ] t
