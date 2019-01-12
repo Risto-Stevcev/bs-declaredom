@@ -708,7 +708,7 @@ module Display = struct
     Css_Property.override_block Js.Dict.t =
     Js.Dict.fromList [("display", Internal.make `block)] |> Util.merge value
 
-  let flex (value: Css_Property.flex Js.Dict.t):
+  let flex (value: Css_Property.flexbox Js.Dict.t):
     Css_Property.override_flex Js.Dict.t =
     Js.Dict.fromList [("display", Internal.make `flex)] |> Util.merge value
 
@@ -821,7 +821,7 @@ end
 
 
 module Flex = struct
-  type 'a t = [> Css_Property.flex' ] as 'a
+  type 'a t = [> Css_Property.flex ] as 'a
 
   module Value = struct
     type t =

@@ -23,7 +23,7 @@ module Type = struct
    and border_width and border and bottom and caption_side and clear and clip
    and color (*and content and counter_increment and counter_reset*)
    and cue_after and cue_before and cue and cursor and direction and display 
-   and elevation and empty_cells and flex' and flex_basis and flex_direction
+   and elevation and empty_cells and flex and flex_basis and flex_direction
    and flex_flow and flex_grow and flex_shrink and flex_wrap and float_
    and font_family and font_size and font_style and font_variant and font_weight
    and font and height and justify_content and left and letter_spacing
@@ -95,7 +95,7 @@ module Style = struct
    and display' = [ `display of Type.display t ]
    and elevation = [ `elevation of Type.elevation t ]
    and empty_cells = [ `empty_cells of Type.empty_cells t ]
-   and flex' = [ `flex of Type.flex' t ]
+   and flex = [ `flex of Type.flex t ]
    and flex_basis = [ `flex_basis of Type.flex_basis t ]
    and flex_direction = [ `flex_direction of Type.flex_direction t ]
    and flex_flow = [ `flex_flow of Type.flex_flow t ]
@@ -206,7 +206,7 @@ module Style = struct
     [ cue_after | cue_before | cue ]
 
   type flexs =
-    [ flex' | flex_basis | flex_direction | flex_flow | flex_grow
+    [ flex | flex_basis | flex_direction | flex_flow | flex_grow
     | flex_shrink | flex_wrap ]
 
   type fonts =
@@ -266,7 +266,7 @@ module AppliesTo = struct
     [ clear | heights | margins | overflow | paddings | page_breaks
     | page_breaks_inside | text_align | text_indent | widths | any ]
 
-  type flex =
+  type flexbox =
     [ aligns | flexs | heights | justify_content | margins | order | paddings
     | widths | any ]
 
@@ -292,7 +292,7 @@ module AppliesTo = struct
 
     type inline_block = [ inline | block ]
 
-    type inline_flex = [ inline | flex ]
+    type inline_flex = [ inline | flexbox ]
   end
 
   include Combined
@@ -334,7 +334,7 @@ module AppliesTo = struct
     (** Display overrides (for the [display] css property) *)
 
     type override_block = [ block | any ]
-    type override_flex = [ flex | any ]
+    type override_flex = [ flexbox | any ]
     type override_list_item = [ list_item | any ]
     type override_inline = [ inline | any ]
     type override_inline_block = [ inline_block | any ]
@@ -354,7 +354,7 @@ module AppliesTo = struct
   include DisplayOverride
 
   type display =
-    [ block | flex | list_item | positioned | inline | inline_block
+    [ block | flexbox | list_item | positioned | inline | inline_block
     | inline_flex | table_header_group | table_footer_group | table_caption
     | table | inline_table | table_cell | table_column | table_column_group
     | table_row | table_row_group
@@ -368,7 +368,7 @@ module AppliesTo = struct
 
 
   let to_block x = (x :> block)
-  and to_flex x = (x :> flex)
+  and to_flex x = (x :> flexbox)
   and to_list_item x = (x :> list_item)
   and to_positioned x = (x :> positioned)
   and to_replaced_inline x = (x :> replaced_inline)

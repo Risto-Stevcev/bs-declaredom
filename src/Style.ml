@@ -73,7 +73,7 @@ module Internal = struct
       Css_Property.cues t = "" [@@bs.obj]
 
     external flexs:
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->
@@ -260,7 +260,7 @@ module Internal = struct
       ?cursor:Css_Property.cursor ->
       ?direction:Css_Property.direction ->
       ?emptyCells:Css_Property.empty_cells ->
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->
@@ -516,7 +516,7 @@ module Internal = struct
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
       ?alignSelf:Css_Property.align_self ->
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->
@@ -609,7 +609,7 @@ module Internal = struct
       ?whiteSpace:Css_Property.white_space ->
       ?wordSpacing:Css_Property.word_spacing -> 
       unit ->
-      Css_Property.flex t = "" [@@bs.obj]
+      Css_Property.flexbox t = "" [@@bs.obj]
 
 
     external list_item:
@@ -1063,7 +1063,7 @@ module Internal = struct
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
       ?alignSelf:Css_Property.align_self ->
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->

@@ -53,7 +53,7 @@ val flex :
   ?grow:float ->
   ?shrink:float ->
   ?basis:Css_Value.LengthPercent.t ->
-  unit -> [> Css_Property.flex' ]
+  unit -> [> Css_Property.flex ]
 val listStyle :
   ?type_:Css_Value.ListStyle.Type.t ->
   ?position:Css_Value.ListStyle.Position.t ->
@@ -124,7 +124,7 @@ module Group :
       ?cueBefore:Css_Value.UriOrNone.t ->
       ?cue:Css_Properties.Cue.Value.t -> unit -> Css_Property.cues t
     val flexs :
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Value.LengthPercent.t ->
       ?flexDirection:Css_Value.Flex.Direction.t ->
       ?flexFlow:Css_Properties.FlexFlow.Value.t ->
@@ -265,7 +265,7 @@ module MediaGroup :
       ?cursor:Css_Properties.Cursor.Value.t ->
       ?direction:Css_Properties.Direction.Value.t ->
       ?emptyCells:Css_Properties.EmptyCells.Value.t ->
-      ?flex:Css_Property.flex' ->
+      ?flex:Css_Property.flex ->
       ?flexBasis:Css_Value.LengthPercent.t ->
       ?flexDirection:Css_Value.Flex.Direction.t ->
       ?flexFlow:Css_Properties.FlexFlow.Value.t ->
@@ -509,7 +509,7 @@ val flexbox :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
   ?alignSelf:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Property.flex' ->
+  ?flex:Css_Property.flex ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
@@ -598,7 +598,7 @@ val flexbox :
   ?volume:Css_Properties.Volume.Value.t ->
   ?whiteSpace:Css_Properties.WhiteSpace.Value.t ->
   ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
-  unit -> Css_Property.flex t
+  unit -> Css_Property.flexbox t
 val positioned :
   ?clip:Css_Properties.Clip.Value.t ->
   ?height:Css_Value.LengthPercent.t ->
@@ -1035,7 +1035,7 @@ val inline_flex :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
   ?alignSelf:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Property.flex' ->
+  ?flex:Css_Property.flex ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
