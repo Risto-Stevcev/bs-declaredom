@@ -516,12 +516,8 @@ module Internal = struct
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
       ?alignSelf:Css_Property.align_self ->
-      ?flex:Css_Property.flex ->
-      ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->
-      ?flexGrow:Css_Property.flex_grow ->
-      ?flexShrink:Css_Property.flex_shrink ->
       ?flexWrap:Css_Property.flex_wrap ->
       ?height:Css_Property.height ->
       ?minHeight:Css_Property.min_height ->
@@ -610,6 +606,82 @@ module Internal = struct
       ?wordSpacing:Css_Property.word_spacing -> 
       unit ->
       Css_Property.flexbox t = "" [@@bs.obj]
+
+
+    external flex_item:
+      ?flex:Css_Property.flex ->
+      ?flexBasis:Css_Property.flex_basis ->
+      ?flexGrow:Css_Property.flex_grow ->
+      ?flexShrink:Css_Property.flex_shrink ->
+      ?azimuth:Css_Property.azimuth ->
+      ?backgroundAttachment:Css_Property.background_attachment ->
+      ?backgroundColor:Css_Property.background_color ->
+      ?backgroundImage:Css_Property.background_image ->
+      ?backgroundPosition:Css_Property.background_position ->
+      ?backgroundRepeat:Css_Property.background_repeat ->
+      ?background:Css_Property.background ->
+      ?borderTopColor:Css_Property.border_top_color ->
+      ?borderRightColor:Css_Property.border_right_color ->
+      ?borderBottomColor:Css_Property.border_bottom_color ->
+      ?borderLeftColor:Css_Property.border_left_color ->
+      ?borderColor:Css_Property.border_color ->
+      ?borderTopStyle:Css_Property.border_top_style ->
+      ?borderRightStyle:Css_Property.border_right_style ->
+      ?borderBottomStyle:Css_Property.border_bottom_style ->
+      ?borderLeftStyle:Css_Property.border_left_style ->
+      ?borderStyle:Css_Property.border_style ->
+      ?borderTopWidth:Css_Property.border_top_width ->
+      ?borderRightWidth:Css_Property.border_right_width ->
+      ?borderBottomWidth:Css_Property.border_bottom_width ->
+      ?borderLeftWidth:Css_Property.border_left_width ->
+      ?borderWidth:Css_Property.border_width ->
+      ?borderTop:Css_Property.border_top ->
+      ?borderRight:Css_Property.border_right ->
+      ?borderBottom:Css_Property.border_bottom ->
+      ?borderLeft:Css_Property.border_left ->
+      ?border:Css_Property.border ->
+      ?color:Css_Property.color ->
+      ?cueAfter:Css_Property.cue_after ->
+      ?cueBefore:Css_Property.cue_before ->
+      ?cue:Css_Property.cue ->
+      ?cursor:Css_Property.cursor ->
+      ?direction:Css_Property.direction ->
+      ?elevation:Css_Property.elevation ->
+      ?float:Css_Property.float_ ->
+      ?fontFamily:Css_Property.font_family ->
+      ?fontSize:Css_Property.font_size ->
+      ?fontStyle:Css_Property.font_style ->
+      ?fontVariant:Css_Property.font_variant ->
+      ?fontWeight:Css_Property.font_weight ->
+      ?font:Css_Property.font ->
+      ?letterSpacing:Css_Property.letter_spacing ->
+      ?lineHeight:Css_Property.line_height ->
+      ?outlineColor:Css_Property.outline_color ->
+      ?outlineStyle:Css_Property.outline_style ->
+      ?outlineWidth:Css_Property.outline_width ->
+      ?outline:Css_Property.outline ->
+      ?pauseAfter:Css_Property.pause_after ->
+      ?pauseBefore:Css_Property.pause_before ->
+      ?pause:Css_Property.pause ->
+      ?pitchRange:Css_Property.pitch_range ->
+      ?pitch:Css_Property.pitch ->
+      ?playDuring:Css_Property.play_during ->
+      ?richness:Css_Property.richness ->
+      ?speakNumeral:Css_Property.speak_numeral ->
+      ?speakPunctuation:Css_Property.speak_punctuation ->
+      ?speak:Css_Property.speak ->
+      ?speechRate:Css_Property.speech_rate ->
+      ?stress:Css_Property.stress ->
+      ?textDecoration:Css_Property.text_decoration ->
+      ?textTransform:Css_Property.text_transform ->
+      ?unicodeBidi:Css_Property.unicode_bidi ->
+      ?visibility:Css_Property.visibility ->
+      ?voiceFamily:Css_Property.voice_family ->
+      ?volume:Css_Property.volume ->
+      ?whiteSpace:Css_Property.white_space ->
+      ?wordSpacing:Css_Property.word_spacing -> 
+      unit ->
+      Css_Property.flex_item t = "" [@@bs.obj]
 
 
     external list_item:
@@ -2676,8 +2748,8 @@ module AppliesTo = struct
       ()
 
 
-  let flexbox ?alignContent ?alignItems ?alignSelf ?flex ?flexDirection
-    ?flexFlow ?flexWrap ?height ?minHeight ?maxHeight
+  let flexbox ?alignContent ?alignItems ?alignSelf ?flexDirection ?flexFlow
+    ?flexWrap ?height ?minHeight ?maxHeight
     ?justifyContent ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?order ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft
     ?width ?minWidth ?maxWidth ?azimuth ?backgroundAttachment ?backgroundColor
@@ -2698,7 +2770,6 @@ module AppliesTo = struct
       ?alignContent:(Belt.Option.map alignContent AlignContent.make)
       ?alignItems:(Belt.Option.map alignItems AlignItems.make)
       ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
-      ?flex
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
       ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
@@ -2798,6 +2869,108 @@ module AppliesTo = struct
       ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
       ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make) 
       ()
+
+
+  let flex_item ?flex ?flexBasis ?flexGrow ?flexShrink
+    ?azimuth ?backgroundAttachment ?backgroundColor
+    ?backgroundImage ?backgroundPosition ?backgroundRepeat ?background
+    ?borderTopColor ?borderRightColor ?borderBottomColor ?borderLeftColor
+    ?borderColor ?borderTopStyle ?borderRightStyle ?borderBottomStyle
+    ?borderLeftStyle ?borderStyle ?borderTopWidth ?borderRightWidth
+    ?borderBottomWidth ?borderLeftWidth ?borderWidth ?borderTop ?borderRight
+    ?borderBottom ?borderLeft ?border ?color ?cueAfter ?cueBefore ?cue ?cursor
+    ?direction ?elevation ?float ?fontFamily ?fontSize ?fontStyle ?fontVariant
+    ?fontWeight ?font ?letterSpacing ?lineHeight ?outlineColor
+    ?outlineStyle ?outlineWidth ?outline ?pauseAfter ?pauseBefore ?pause
+    ?pitchRange ?pitch ?playDuring ?richness ?speakNumeral
+    ?speakPunctuation ?speak ?speechRate ?stress ?textDecoration
+    ?textTransform ?unicodeBidi ?visibility ?voiceFamily ?volume
+    ?whiteSpace ?wordSpacing () =
+    Internal.AppliesTo.flex_item
+      ?flex
+      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
+      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
+      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
+      ?azimuth:(Belt.Option.map azimuth Azimuth.make)
+      ?backgroundAttachment:
+        (Belt.Option.map backgroundAttachment BackgroundAttachment.make)
+      ?backgroundColor:(Belt.Option.map backgroundColor BackgroundColor.make)
+      ?backgroundImage:(Belt.Option.map backgroundImage BackgroundImage.make)
+      ?backgroundPosition:
+        (Belt.Option.map backgroundPosition BackgroundPosition.make)
+      ?backgroundRepeat:
+        (Belt.Option.map backgroundRepeat BackgroundRepeat.make)
+      ?background
+      ?borderTopColor:(Belt.Option.map borderTopColor BorderTopColor.make)
+      ?borderRightColor:
+        (Belt.Option.map borderRightColor BorderRightColor.make)
+      ?borderBottomColor:
+        (Belt.Option.map borderBottomColor BorderBottomColor.make)
+      ?borderLeftColor:(Belt.Option.map borderLeftColor BorderLeftColor.make)
+      ?borderColor:(Belt.Option.map borderColor BorderColor.make)
+      ?borderTopStyle:(Belt.Option.map borderTopStyle BorderTopStyle.make)
+      ?borderRightStyle:
+        (Belt.Option.map borderRightStyle BorderRightStyle.make)
+      ?borderBottomStyle:
+        (Belt.Option.map borderBottomStyle BorderBottomStyle.make)
+      ?borderLeftStyle:(Belt.Option.map borderLeftStyle BorderLeftStyle.make)
+      ?borderStyle:(Belt.Option.map borderStyle BorderStyle.make)
+      ?borderTopWidth:(Belt.Option.map borderTopWidth BorderTopWidth.make)
+      ?borderRightWidth:
+        (Belt.Option.map borderRightWidth BorderRightWidth.make)
+      ?borderBottomWidth:
+        (Belt.Option.map borderBottomWidth BorderBottomWidth.make)
+      ?borderLeftWidth:(Belt.Option.map borderLeftWidth BorderLeftWidth.make)
+      ?borderWidth:(Belt.Option.map borderWidth BorderWidth.make)
+      ?borderTop
+      ?borderRight
+      ?borderBottom
+      ?borderLeft
+      ?border
+      ?color:(Belt.Option.map color Color.make)
+      ?cueAfter:(Belt.Option.map cueAfter CueAfter.make)
+      ?cueBefore:(Belt.Option.map cueBefore CueBefore.make)
+      ?cue:(Belt.Option.map cue Cue.make)
+      ?cursor:(Belt.Option.map cursor Cursor.make)
+      ?direction:(Belt.Option.map direction Direction.make)
+      ?elevation:(Belt.Option.map elevation Elevation.make)
+      ?float:(Belt.Option.map float Float.make)
+      ?fontFamily:(Belt.Option.map fontFamily FontFamily.make)
+      ?fontSize:(Belt.Option.map fontSize FontSize.make)
+      ?fontStyle:(Belt.Option.map fontStyle FontStyle.make)
+      ?fontVariant:(Belt.Option.map fontVariant FontVariant.make)
+      ?fontWeight:(Belt.Option.map fontWeight FontWeight.make)
+      ?font
+      ?letterSpacing:(Belt.Option.map letterSpacing LetterSpacing.make)
+      ?lineHeight:(Belt.Option.map lineHeight LineHeight.make)
+      ?outlineColor:(Belt.Option.map outlineColor OutlineColor.make)
+      ?outlineStyle:(Belt.Option.map outlineStyle OutlineStyle.make)
+      ?outlineWidth:(Belt.Option.map outlineWidth OutlineWidth.make)
+      ?outline
+      ?pauseAfter:(Belt.Option.map pauseAfter PauseAfter.make)
+      ?pauseBefore:(Belt.Option.map pauseBefore PauseBefore.make)
+      ?pause:(Belt.Option.map pause Pause.make)
+      ?pitchRange:(Belt.Option.map pitchRange PitchRange.make)
+      ?pitch:(Belt.Option.map pitch Pitch.make)
+      ?playDuring:(Belt.Option.map playDuring PlayDuring.make)
+      ?richness:(Belt.Option.map richness Richness.make)
+      ?speakNumeral:(Belt.Option.map speakNumeral SpeakNumeral.make)
+      ?speakPunctuation:
+        (Belt.Option.map speakPunctuation SpeakPunctuation.make)
+      ?speak:(Belt.Option.map speak Speak.make)
+      ?speechRate:(Belt.Option.map speechRate SpeechRate.make)
+      ?stress:(Belt.Option.map stress Stress.make)
+      ?textDecoration:(Belt.Option.map textDecoration TextDecoration.make)
+      ?textTransform:(Belt.Option.map textTransform TextTransform.make)
+      ?unicodeBidi:(Belt.Option.map unicodeBidi UnicodeBidi.make)
+      ?visibility:(Belt.Option.map visibility Visibility.make)
+      ?voiceFamily:(Belt.Option.map voiceFamily VoiceFamily.make)
+      ?volume:(Belt.Option.map volume Volume.make)
+      ?whiteSpace:(Belt.Option.map whiteSpace WhiteSpace.make)
+      ?wordSpacing:(Belt.Option.map wordSpacing WordSpacing.make) 
+      ()
+
+
 
 
   let positioned ?clip ?height ?minHeight ?maxHeight ?margin ?marginTop

@@ -509,7 +509,6 @@ val flexbox :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
   ?alignSelf:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Property.flex ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
@@ -599,6 +598,79 @@ val flexbox :
   ?whiteSpace:Css_Properties.WhiteSpace.Value.t ->
   ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.flexbox t
+val flex_item :
+  ?flex:Css_Property.flex ->
+  ?flexBasis:Css_Value.LengthPercent.t ->
+  ?flexGrow:float ->
+  ?flexShrink:float ->
+  ?azimuth:Css_Properties.Azimuth.Value.t ->
+  ?backgroundAttachment:Css_Value.Background.Attachment.t ->
+  ?backgroundColor:Css_Value.Background.Color.t ->
+  ?backgroundImage:Css_Value.Background.Image.t ->
+  ?backgroundPosition:Css_Value.Background.Position.t ->
+  ?backgroundRepeat:Css_Value.Background.Repeat.t ->
+  ?background:Css_Property.background ->
+  ?borderTopColor:Css_Value.Border.Color.t ->
+  ?borderRightColor:Css_Value.Border.Color.t ->
+  ?borderBottomColor:Css_Value.Border.Color.t ->
+  ?borderLeftColor:Css_Value.Border.Color.t ->
+  ?borderColor:Css_Value.Border.Color.t ->
+  ?borderTopStyle:Css_Value.Border.Style.t ->
+  ?borderRightStyle:Css_Value.Border.Style.t ->
+  ?borderBottomStyle:Css_Value.Border.Style.t ->
+  ?borderLeftStyle:Css_Value.Border.Style.t ->
+  ?borderStyle:Css_Value.Border.Style.t ->
+  ?borderTopWidth:Css_Value.Border.Width.t ->
+  ?borderRightWidth:Css_Value.Border.Width.t ->
+  ?borderBottomWidth:Css_Value.Border.Width.t ->
+  ?borderLeftWidth:Css_Value.Border.Width.t ->
+  ?borderWidth:Css_Value.Border.Width.t ->
+  ?borderTop:Css_Property.border_top ->
+  ?borderRight:Css_Property.border_right ->
+  ?borderBottom:Css_Property.border_bottom ->
+  ?borderLeft:Css_Property.border_left ->
+  ?border:Css_Property.border ->
+  ?color:Css_Properties.Color.Value.t ->
+  ?cueAfter:Css_Value.UriOrNone.t ->
+  ?cueBefore:Css_Value.UriOrNone.t ->
+  ?cue:Css_Properties.Cue.Value.t ->
+  ?cursor:Css_Properties.Cursor.Value.t ->
+  ?direction:Css_Properties.Direction.Value.t ->
+  ?elevation:Css_Properties.Elevation.Value.t ->
+  ?float:Css_Properties.Float.Value.t ->
+  ?fontFamily:Css_Value.Font.Family.t ->
+  ?fontSize:Css_Value.Font.Size.t ->
+  ?fontStyle:Css_Value.Font.Style.t ->
+  ?fontVariant:Css_Value.Font.Variant.t ->
+  ?fontWeight:Css_Value.Font.Weight.t ->
+  ?font:Css_Property.font ->
+  ?letterSpacing:Css_Properties.LetterSpacing.Value.t ->
+  ?lineHeight:Css_Value.LineHeight.t ->
+  ?outlineColor:Css_Value.Outline.Color.t ->
+  ?outlineStyle:Css_Value.Outline.Style.t ->
+  ?outlineWidth:Css_Value.Outline.Width.t ->
+  ?outline:Css_Property.outline ->
+  ?pauseAfter:Css_Value.TimePercent.t ->
+  ?pauseBefore:Css_Value.TimePercent.t ->
+  ?pause:Css_Properties.Pause.Value.t ->
+  ?pitchRange:Css_Properties.PitchRange.Value.t ->
+  ?pitch:Css_Properties.Pitch.Value.t ->
+  ?playDuring:Css_Properties.PlayDuring.Value.t ->
+  ?richness:Css_Properties.Richness.Value.t ->
+  ?speakNumeral:Css_Properties.SpeakNumeral.Value.t ->
+  ?speakPunctuation:Css_Properties.SpeakPunctuation.Value.t ->
+  ?speak:Css_Properties.Speak.Value.t ->
+  ?speechRate:Css_Properties.SpeechRate.Value.t ->
+  ?stress:Css_Properties.Stress.Value.t ->
+  ?textDecoration:Css_Properties.TextDecoration.Value.t ->
+  ?textTransform:Css_Properties.TextTransform.Value.t ->
+  ?unicodeBidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?visibility:Css_Properties.Visibility.Value.t ->
+  ?voiceFamily:Css_Properties.VoiceFamily.Value.t ->
+  ?volume:Css_Properties.Volume.Value.t ->
+  ?whiteSpace:Css_Properties.WhiteSpace.Value.t ->
+  ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
+  unit -> Css_Property.flex_item t
 val positioned :
   ?clip:Css_Properties.Clip.Value.t ->
   ?height:Css_Value.LengthPercent.t ->

@@ -267,8 +267,11 @@ module AppliesTo = struct
     | page_breaks_inside | text_align | text_indent | widths | any ]
 
   type flexbox =
-    [ aligns | flexs | heights | justify_content | margins | order | paddings
-    | widths | any ]
+    [ aligns | flex_direction | flex_flow | flex_wrap | heights
+    | justify_content | margins | order | paddings | widths | any ]
+
+  type flex_item =
+    [ flex | flex_basis | flex_grow | flex_shrink | any ]
 
   type list_item =
     [ heights | list_styles | margins | paddings | widths | any ]
@@ -354,10 +357,10 @@ module AppliesTo = struct
   include DisplayOverride
 
   type display =
-    [ block | flexbox | list_item | positioned | inline | inline_block
-    | inline_flex | table_header_group | table_footer_group | table_caption
-    | table | inline_table | table_cell | table_column | table_column_group
-    | table_row | table_row_group
+    [ block | flexbox | flex_item | list_item | positioned | inline
+    | inline_block | inline_flex | table_header_group | table_footer_group
+    | table_caption | table | inline_table | table_cell | table_column
+    | table_column_group | table_row | table_row_group
 
     | override_block | override_flex | override_list_item | override_inline
     | override_inline_block | override_inline_flex | override_table_header_group
