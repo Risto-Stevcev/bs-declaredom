@@ -21,6 +21,12 @@ module Internal = struct
 end
 
 
+(* TODO:
+ * - Document motivation for why overrides are only offered for generic elements
+ * - Add the generic sectioning element <section>, offer same overrides as <div>
+ *)
+
+
 module Div = struct
   let flex
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current

@@ -79,6 +79,12 @@ let _ =
         span [|text "foo"|];
         br ();
         span [|text "bar"|];
+        fragment [|
+          span [|text "baz"|];
+          (* this correctly fails because <title> is metadata content:
+           * title "foo";
+           *)
+        |];
         br ();
       |];
       span ~cssModule:Modules.title [|text "The time is:"|];

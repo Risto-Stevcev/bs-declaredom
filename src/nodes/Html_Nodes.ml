@@ -461,6 +461,100 @@ module Span = struct
 end
 
 
+module Title = struct
+  (** {{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-title} Title} *)
+
+  type 'a t = [> Html_Node.title ] as 'a
+
+  type child = Html_Node.text
+
+  let make
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
+    child: 'a t
+    =
+    Declaredom.make "title"
+      (Util.merge_all [|
+        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
+          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
+          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
+          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
+          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
+          ?aria_roledescription ();
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (Declaredom.make_text child)
+    |> (fun e -> `title (Internal.make e))
+
+
+  let jsx
+    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(children=[]) () =
+    make
+      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
+      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
+      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
+      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
+      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting
+      (List.fold_left (fun acc e -> acc ^ e) "" children)
+end
+
+
 module Text = struct
   (** {{: https://www.w3.org/TR/dom/#interface-text} Text node} *)
 

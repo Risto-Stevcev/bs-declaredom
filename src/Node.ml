@@ -5,6 +5,7 @@ let br = Html_Nodes.Br.make
 let div = Html_Nodes.Div.make
 let span = Html_Nodes.Span.make
 let text = Html_Nodes.Text.make
+let title = Html_Nodes.Title.make
 let fragment = Html_Nodes.Fragment.make
 
 (* Override nodes *)

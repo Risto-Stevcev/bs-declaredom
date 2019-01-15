@@ -11,7 +11,7 @@ type 'node t
 
 module Type = struct
   type a and audio and abbr and br and button and div and header and h1 and span
-   and tbody
+   and tbody and title
    and canvas and embed and iframe and img and object_ and video
 
   type custom and text and fragment
@@ -35,6 +35,7 @@ module Node = struct
    and span = [ `span of Type.span t ]
    and video = [ `video of Type.video t ]
    and tbody = [ `tbody of Type.tbody t ]
+   and title = [ `title of Type.title t ]
 
    and text = [ `text of Type.text t ]
    and fragment = [ `fragment of Type.fragment t ]
@@ -52,6 +53,7 @@ include Node
 
 module ContentCategory = struct
   type none = tbody
+  type metadata = title
   type script_supporting (* = [ script | template ] *)
   type flow =
     [ a | div | span | br | custom | img | fragment ]
@@ -66,12 +68,12 @@ module ContentCategory = struct
 
   type content =
     [ flow     | sectioning | heading | phrasing | embedded | interactive | form
-    | palpable | other | none ]
+    | palpable | metadata | other | none ]
 
   module FlexItem = struct
     type flex_item =
       [ flow     | sectioning | heading | phrasing | embedded | interactive | form
-      | palpable | other ]
+      | palpable | metadata | text | none ]
   end
 
   include FlexItem
@@ -103,6 +105,7 @@ match (value :> content) with
 | `button x    -> Convert.node x
 | `span x      -> Convert.node x
 | `tbody x     -> Convert.node x
+| `title x     -> Convert.node x
 | `custom x    -> Convert.node x
 | `text x      -> Convert.node x
 | `fragment x  -> Convert.node x
