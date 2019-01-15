@@ -567,50 +567,14 @@ module Display :
     type 'a t = 'a constraint 'a = [> Css_Property.display' ]
 
     val none : unit -> [> Css_Property.display' ]
-    val block :
-      Css_Property.block Js.Dict.t -> Css_Property.override_block Js.Dict.t
     val flex :
-      Css_Property.flexbox Js.Dict.t -> Css_Property.override_flex Js.Dict.t
-    val list_item :
-      Css_Property.list_item Js.Dict.t ->
-      Css_Property.override_list_item Js.Dict.t
-    val inline :
-      Css_Property.inline Js.Dict.t -> Css_Property.override_inline Js.Dict.t
+      Css_Property.flexbox Js.Dict.t -> Css_Property.Override.flex Js.Dict.t
     val inline_block :
       Css_Property.inline_block Js.Dict.t ->
-      Css_Property.override_inline_block Js.Dict.t
+      Css_Property.Override.inline_block Js.Dict.t
     val inline_flex :
       Css_Property.inline_flex Js.Dict.t ->
-      Css_Property.override_inline_flex Js.Dict.t
-    val table_header_group :
-      Css_Property.table_header_group Js.Dict.t ->
-      Css_Property.override_table_header_group Js.Dict.t
-    val table_footer_group :
-      Css_Property.table_footer_group Js.Dict.t ->
-      Css_Property.override_table_footer_group Js.Dict.t
-    val table_caption :
-      Css_Property.table_caption Js.Dict.t ->
-      Css_Property.override_table_caption Js.Dict.t
-    val table :
-      Css_Property.table Js.Dict.t -> Css_Property.override_table Js.Dict.t
-    val inline_table :
-      Css_Property.inline_table Js.Dict.t ->
-      Css_Property.override_inline_table Js.Dict.t
-    val table_cell :
-      Css_Property.table_cell Js.Dict.t ->
-      Css_Property.override_table_cell Js.Dict.t
-    val table_column :
-      Css_Property.table_column Js.Dict.t ->
-      Css_Property.override_table_column Js.Dict.t
-    val table_column_group :
-      Css_Property.table_column_group Js.Dict.t ->
-      Css_Property.override_table_column_group Js.Dict.t
-    val table_row :
-      Css_Property.table_row Js.Dict.t ->
-      Css_Property.override_table_row Js.Dict.t
-    val table_row_group :
-      Css_Property.table_row_group Js.Dict.t ->
-      Css_Property.override_table_row_group Js.Dict.t
+      Css_Property.Override.inline_flex Js.Dict.t
   end
 module Elevation :
   sig

@@ -10,7 +10,7 @@
 type 'node t
 
 module Type = struct
-  type a and audio and abbr and br and div and button and header and h1 and span
+  type a and audio and abbr and br and button and div and header and h1 and span
    and tbody
    and canvas and embed and iframe and img and object_ and video
 
@@ -39,6 +39,11 @@ module Node = struct
    and text = [ `text of Type.text t ]
    and fragment = [ `fragment of Type.fragment t ]
    and custom = [ `custom of Type.custom t ]
+
+  (** Elements with no children *)
+  type empty = br
+
+  type other = [ text | fragment ]
 end
 
 include Node
@@ -46,29 +51,30 @@ include Node
 
 
 module ContentCategory = struct
-  (** Elements with no children *)
-  type empty = br
-
   type none = tbody
   type script_supporting (* = [ script | template ] *)
-  type other = [ text | fragment ]
   type flow =
-    [
-    | a | div | span | br | custom | img | other
-    ]
-  type sectioning = [ header | other ]
-  type heading = [ h1 | other ]
+    [ a | div | span | br | custom | img | fragment ]
+  type sectioning = [ header | fragment ]
+  type heading = [ h1 | fragment ]
   type phrasing =
     [ abbr | span | br | custom | img | other ]
-  type embedded = [ audio | img | other ]
-  type interactive = [ a | img | other ]
-  type form = [ button | img | other ]
-  type palpable = [ custom | img | other ]
+  type embedded = [ audio | img | fragment ]
+  type interactive = [ a | img | fragment ]
+  type form = [ button | img | fragment ]
+  type palpable = [ custom | img | fragment ]
+
   type content =
-    [
-    | flow     | sectioning | heading | phrasing | embedded | interactive | form
-    | palpable | other | none
-    ]
+    [ flow     | sectioning | heading | phrasing | embedded | interactive | form
+    | palpable | other | none ]
+
+  module FlexItem = struct
+    type flex_item =
+      [ flow     | sectioning | heading | phrasing | embedded | interactive | form
+      | palpable | other ]
+  end
+
+  include FlexItem
 
   (**
    {e NOTE}: transparent is treated like content because there's no way to inherit

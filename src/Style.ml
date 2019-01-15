@@ -515,7 +515,6 @@ module Internal = struct
     external flexbox:
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
-      ?alignSelf:Css_Property.align_self ->
       ?flexDirection:Css_Property.flex_direction ->
       ?flexFlow:Css_Property.flex_flow ->
       ?flexWrap:Css_Property.flex_wrap ->
@@ -609,6 +608,7 @@ module Internal = struct
 
 
     external flex_item:
+      ?alignSelf:Css_Property.align_self ->
       ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexGrow:Css_Property.flex_grow ->
@@ -1134,7 +1134,6 @@ module Internal = struct
     external inline_flex:
       ?alignContent:Css_Property.align_content ->
       ?alignItems:Css_Property.align_items ->
-      ?alignSelf:Css_Property.align_self ->
       ?flex:Css_Property.flex ->
       ?flexBasis:Css_Property.flex_basis ->
       ?flexDirection:Css_Property.flex_direction ->
@@ -2748,7 +2747,7 @@ module AppliesTo = struct
       ()
 
 
-  let flexbox ?alignContent ?alignItems ?alignSelf ?flexDirection ?flexFlow
+  let flexbox ?alignContent ?alignItems ?flexDirection ?flexFlow
     ?flexWrap ?height ?minHeight ?maxHeight
     ?justifyContent ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?order ?padding ?paddingTop ?paddingRight ?paddingBottom ?paddingLeft
@@ -2769,7 +2768,6 @@ module AppliesTo = struct
     Internal.AppliesTo.flexbox
       ?alignContent:(Belt.Option.map alignContent AlignContent.make)
       ?alignItems:(Belt.Option.map alignItems AlignItems.make)
-      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
       ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
@@ -2871,7 +2869,7 @@ module AppliesTo = struct
       ()
 
 
-  let flex_item ?flex ?flexBasis ?flexGrow ?flexShrink
+  let flex_item ?alignSelf ?flex ?flexBasis ?flexGrow ?flexShrink
     ?azimuth ?backgroundAttachment ?backgroundColor
     ?backgroundImage ?backgroundPosition ?backgroundRepeat ?background
     ?borderTopColor ?borderRightColor ?borderBottomColor ?borderLeftColor
@@ -2887,6 +2885,7 @@ module AppliesTo = struct
     ?textTransform ?unicodeBidi ?visibility ?voiceFamily ?volume
     ?whiteSpace ?wordSpacing () =
     Internal.AppliesTo.flex_item
+      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
       ?flex
       ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
       ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
@@ -3537,7 +3536,7 @@ module AppliesTo = struct
       ()
 
 
-  let inline_flex ?alignContent ?alignItems ?alignSelf ?flex ?flexDirection
+  let inline_flex ?alignContent ?alignItems ?flex ?flexDirection
     ?flexFlow ?flexWrap ?height
     ?minHeight ?maxHeight ?justifyContent ?margin ?marginTop ?marginRight
     ?marginBottom ?marginLeft ?order ?padding ?paddingTop ?paddingRight
@@ -3558,7 +3557,6 @@ module AppliesTo = struct
     Internal.AppliesTo.inline_flex
       ?alignContent:(Belt.Option.map alignContent AlignContent.make)
       ?alignItems:(Belt.Option.map alignItems AlignItems.make)
-      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
       ?flex
       ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
       ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)

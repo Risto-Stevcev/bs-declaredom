@@ -1,4 +1,4 @@
-module Css_Module = struct
+module Modules = struct
   let container = Css_Module.make @@
     Style.block ~textAlign:`center ~clear:`both ~color:`darkcyan ()
 
@@ -9,6 +9,8 @@ module Css_Module = struct
     Style.flexbox ~flexDirection:`column ~color:`coral
       ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
+  let flex_item = Css_Module.make @@
+    Style.flex_item ~alignSelf:`flex_start ~color:`red ()
 
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the
@@ -22,10 +24,13 @@ module Css_Module = struct
        end
 end
 
-let stylesheet = Css_Stylesheet.make `utf_8
-    [ Css_Stylesheet.css_module Css_Module.container
-    ; Css_Stylesheet.css_module Css_Module.title
-    ; Css_Stylesheet.css_module Css_Module.flex ]
+let stylesheet =
+  let open Css_Stylesheet in
+  make `utf_8
+    [ css_module Modules.container
+    ; css_module Modules.title
+    ; css_module Modules.flex
+    ; css_module Modules.flex_item ]
 
 let style =
   let open Webapi.Dom in
@@ -63,10 +68,10 @@ let _ =
     let f (_: Html_Node.span): unit = () in
     let _ = f (span [|text "hello"|]) in
 
-    div ~cssModule:Css_Module.container [|
+    div ~cssModule:Modules.container [|
       TryJsx.foo;
-      div' ~cssModule:(`flex Css_Module.flex) [|
-        span [|text "this"|];
+      Div.flex ~cssModule:Modules.flex [|
+        span [|text "this"|] |> Html_Overrides.flex_module Modules.flex_item;
         span [|text "is"|];
         span [|text "flexbox"|];
       |];
@@ -76,7 +81,7 @@ let _ =
         span [|text "bar"|];
         br ();
       |];
-      span ~cssModule:Css_Module.title [|text "The time is:"|];
+      span ~cssModule:Modules.title [|text "The time is:"|];
       br ();
       clock;
     |]

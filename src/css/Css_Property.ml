@@ -262,112 +262,118 @@ module AppliesTo = struct
     | text_decoration | text_transform | unicode_bidi | visibility
     | voice_family | volume | white_space | word_spacing ]
 
-  type block =
-    [ clear | heights | margins | overflow | paddings | page_breaks
-    | page_breaks_inside | text_align | text_indent | widths | any ]
+  module Display = struct
+    type block =
+      [ clear | heights | margins | overflow | paddings | page_breaks
+      | page_breaks_inside | text_align | text_indent | widths | any ]
 
-  type flexbox =
-    [ aligns | flex_direction | flex_flow | flex_wrap | heights
-    | justify_content | margins | order | paddings | widths | any ]
+    type flexbox =
+      [ align_content | align_items | flex_direction | flex_flow | flex_wrap
+      | heights | justify_content | margins | order | paddings | widths | any ]
 
-  type flex_item =
-    [ flex | flex_basis | flex_grow | flex_shrink | any ]
+    type list_item =
+      [ heights | list_styles | margins | paddings | widths | any ]
 
-  type list_item =
-    [ heights | list_styles | margins | paddings | widths | any ]
+    type positioned =
+      [ clip | heights | margins | paddings | positions | widths | z_index | any ]
 
-  type positioned =
-    [ clip | heights | margins | paddings | positions | widths | z_index | any ]
+    (**
+     * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced inline elements}
+     * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
+     *)
+    type replaced_inline =
+      [ heights | margins | paddings | vertical_align | widths | any ]
 
-  (**
-   * {{: https://www.w3.org/TR/css-display-3/#replaced-element } Replaced inline elements}
-   * ({{: https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element } see list})
-   *)
-  type replaced_inline =
-    [ heights | margins | paddings | vertical_align | widths | any ]
+    (** Non-replaced inline elements *)
+    type non_replaced_inline =
+      [ margins | paddings | vertical_align | any ]
 
-  (** Non-replaced inline elements *)
-  type non_replaced_inline =
-    [ margins | paddings | vertical_align | any ]
-
-  module Combined = struct
     type inline = [ replaced_inline | non_replaced_inline ]
 
     type inline_block = [ inline | block ]
 
     type inline_flex = [ inline | flexbox ]
+
+    type table_header_group =
+      [ heights | speak_header | widths | any ]
+
+    type table_footer_group =
+      [ heights | widths | any ]
+
+    type table_caption =
+      [ caption_side | heights | margins | paddings | widths | any ]
+
+    type table =
+      [ border_collapse | border_spacing | heights | margins | paddings
+      | speak_header | table_layout | widths | any ]
+
+    type inline_table =
+      [ border_collapse | border_spacing | heights | margins | paddings
+      | table_layout | widths | any ]
+
+    type table_cell =
+      [ empty_cells | heights | paddings | speak_header | vertical_align
+      | widths | any ]
+
+    type table_column =
+      [ widths | any ]
+
+    type table_column_group =
+      [ widths | any ]
+
+    type table_row =
+      [ heights | any ]
+
+    type table_row_group =
+      [ heights | any ]
   end
 
-  include Combined
+  include Display
 
-  type table_header_group =
-    [ heights | speak_header | widths | any ]
-
-  type table_footer_group =
-    [ heights | widths | any ]
-
-  type table_caption =
-    [ caption_side | heights | margins | paddings | widths | any ]
-
-  type table =
-    [ border_collapse | border_spacing | heights | margins | paddings
-    | speak_header | table_layout | widths | any ]
-
-  type inline_table =
-    [ border_collapse | border_spacing | heights | margins | paddings
-    | table_layout | widths | any ]
-
-  type table_cell =
-    [ empty_cells | heights | paddings | speak_header | vertical_align
-    | widths | any ]
-
-  type table_column =
-    [ widths | any ]
-
-  type table_column_group =
-    [ widths | any ]
-
-  type table_row =
-    [ heights | any ]
-
-  type table_row_group =
-    [ heights | any ]
-
-  module DisplayOverride = struct
+  module Override = struct
     (** Display overrides (for the [display] css property) *)
 
-    type override_block = [ block | any ]
-    type override_flex = [ flexbox | any ]
-    type override_list_item = [ list_item | any ]
-    type override_inline = [ inline | any ]
-    type override_inline_block = [ inline_block | any ]
-    type override_inline_flex = [ inline_flex | any ]
-    type override_table_header_group = [ table_header_group | any ]
-    type override_table_footer_group = [ table_footer_group | any ]
-    type override_table_caption = [ table_caption | any ]
-    type override_table = [ table | any ]
-    type override_inline_table = [ inline_table | any ]
-    type override_table_cell = [ table_cell | any ]
-    type override_table_column = [ table_column | any ]
-    type override_table_column_group = [ table_column_group | any ]
-    type override_table_row = [ table_row | any ]
-    type override_table_row_group = [ table_row_group | any ]
+    type block = [ Display.block | any ]
+    type flex = [ Display.flexbox | any ]
+    type list_item = [ Display.list_item | any ]
+    type inline = [ Display.inline | any ]
+    type inline_block = [ Display.inline_block | any ]
+    type inline_flex = [ Display.inline_flex | any ]
+    type table_header_group = [ Display.table_header_group | any ]
+    type table_footer_group = [ Display.table_footer_group | any ]
+    type table_caption = [ Display.table_caption | any ]
+    type table = [ Display.table | any ]
+    type inline_table = [ Display.inline_table | any ]
+    type table_cell = [ Display.table_cell | any ]
+    type table_column = [ Display.table_column | any ]
+    type table_column_group = [ Display.table_column_group | any ]
+    type table_row = [ Display.table_row | any ]
+    type table_row_group = [ Display.table_row_group | any ]
   end
 
-  include DisplayOverride
+  type overrides =
+    [ Override.block | Override.flex | Override.list_item | Override.inline
+    | Override.inline_block | Override.inline_flex | Override.table_header_group
+    | Override.table_footer_group | Override.table_caption | Override.table
+    | Override.inline_table | Override.table_cell | Override.table_column
+    | Override.table_column_group | Override.table_row
+    | Override.table_row_group ]
 
-  type display =
-    [ block | flexbox | flex_item | list_item | positioned | inline
+  type displays =
+    [ block | flexbox | list_item | positioned | inline
     | inline_block | inline_flex | table_header_group | table_footer_group
     | table_caption | table | inline_table | table_cell | table_column
-    | table_column_group | table_row | table_row_group
+    | table_column_group | table_row | table_row_group ]
 
-    | override_block | override_flex | override_list_item | override_inline
-    | override_inline_block | override_inline_flex | override_table_header_group
-    | override_table_footer_group | override_table_caption | override_table
-    | override_inline_table | override_table_cell | override_table_column
-    | override_table_column_group | override_table_row
-    | override_table_row_group ]
+  (**
+   A flex item is defined as a child of a flex container ([display: flex]), it 
+   can have any display type.
+   *)
+  type flex_item =
+    [ align_self | flex | flex_basis | flex_grow | flex_shrink | displays ]
+
+  type display =
+    [ displays | overrides | flex_item ]
 
 
   let to_block x = (x :> block)

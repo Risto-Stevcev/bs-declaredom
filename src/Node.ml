@@ -8,9 +8,15 @@ let text = Html_Nodes.Text.make
 let fragment = Html_Nodes.Fragment.make
 
 (* Override nodes *)
-let a' = Html_Overrides.A.make
-let div' = Html_Overrides.Div.make
-let span' = Html_Overrides.Span.make
+module Div = struct
+  let flex = Html_Overrides.Div.flex
+  let inline_flex = Html_Overrides.Div.inline_flex
+  let inline_block = Html_Overrides.Div.inline_block
+end
+
+module Span = struct
+  let inline_block = Html_Overrides.Span.inline_block
+end
 
 
 module Jsx = struct
@@ -22,7 +28,13 @@ module Jsx = struct
   let fragment = Html_Nodes.Fragment.jsx
 
   (* Override nodes *)
-  let a' = Html_Overrides.A.jsx
-  let div' = Html_Overrides.Div.jsx
-  let span' = Html_Overrides.Span.jsx
+  module Div = struct
+    let flex = Html_Overrides.Div.Jsx.flex
+    let inline_flex = Html_Overrides.Div.Jsx.inline_flex
+    let inline_block = Html_Overrides.Div.Jsx.inline_block
+  end
+
+  module Span = struct
+    let inline_block = Html_Overrides.Span.Jsx.inline_block
+  end
 end

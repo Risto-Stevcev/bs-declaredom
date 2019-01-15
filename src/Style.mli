@@ -508,7 +508,6 @@ val block :
 val flexbox :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
-  ?alignSelf:Css_Properties.AlignSelf.Value.t ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
   ?flexWrap:Css_Value.Flex.Wrap.t ->
@@ -599,6 +598,7 @@ val flexbox :
   ?wordSpacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.flexbox t
 val flex_item :
+  ?alignSelf:Css_Properties.AlignSelf.Value.t ->
   ?flex:Css_Property.flex ->
   ?flexBasis:Css_Value.LengthPercent.t ->
   ?flexGrow:float ->
@@ -1106,7 +1106,6 @@ val inline :
 val inline_flex :
   ?alignContent:Css_Properties.AlignContent.Value.t ->
   ?alignItems:Css_Properties.AlignItems.Value.t ->
-  ?alignSelf:Css_Properties.AlignSelf.Value.t ->
   ?flex:Css_Property.flex ->
   ?flexDirection:Css_Value.Flex.Direction.t ->
   ?flexFlow:Css_Properties.FlexFlow.Value.t ->
