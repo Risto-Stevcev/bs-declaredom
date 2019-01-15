@@ -31,7 +31,7 @@
     "@ristostevcev/bs-tape"
   ],
   "warnings": {
-    "error" : "+101+25+8+9"
+    "error" : "+101+25+8+9+27"
   },
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3

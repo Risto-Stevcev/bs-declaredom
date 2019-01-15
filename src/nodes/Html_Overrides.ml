@@ -1,12 +1,3 @@
-(**
- HTML Node Overrides
-
- This module provides from {!module:Html_Nodes} that take display override 
- styles
- *)
-
-
-(* TODO: hide *)
 module Internal = struct
   (* Erases type information *)
 
@@ -27,8 +18,6 @@ module Internal = struct
       [< Html_Node.content] array ->
       [> Html_Node.fragment] array = "%identity"
   end
-
-  external make: Dom.node -> _ Html_Node.t = "%identity"
 end
 
 
@@ -303,7 +292,10 @@ module Span = struct
     ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule children =
+    ?onVolumeChange ?onWaiting
+    ?(style:Css_Property.Override.inline_block Style.t option)
+    ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
+    children =
     Html_Nodes.Span.make
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect

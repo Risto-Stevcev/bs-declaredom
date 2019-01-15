@@ -9,6 +9,9 @@ let show_dict (styles: 'a t): string t =
 let to_display styles: Css_Property.display t =
   styles |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
 
+let merge (style_a: [< Css_Property.display] t) style_b =
+  Util.merge_all [|Js.Dict.empty (); style_a; style_b|]
+
 
 module Internal = struct
   module Group = struct

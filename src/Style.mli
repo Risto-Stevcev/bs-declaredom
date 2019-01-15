@@ -9,6 +9,11 @@ val show_dict : [< Css_Property.display ] t -> string t
 val to_display :
   [< Css_Property.display ] Js.Dict.t -> Css_Property.display t
 
+val merge :
+  ([< Css_Property.display ] as 'a) t ->
+  ([< Css_Property.display ] as 'a) t ->
+  ([< Css_Property.display ] as 'a) t
+
 
 val background :
   ?color:Css_Value.Background.Color.t ->
