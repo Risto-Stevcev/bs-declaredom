@@ -60,10 +60,9 @@ module Relative = struct
   type t = [ Font.t | Viewport.t ]
 
   let show: t -> string = function
-  | ( `em _ | `ex _ | `cap _ | `ch _ | `ic _ | `rem _ | `ih _ | `rlh _
-    ) as font ->
+  | #Font.t as font ->
     Font.show font
-  | ( `vw _ | `vh _ | `vi _ | `vb _ | `vmin _ | `vmax _ ) as viewport ->
+  | #Viewport.t as viewport ->
     Viewport.show viewport
 end
 
@@ -74,11 +73,9 @@ module Length = struct
   type t = [ Absolute.t | Relative.t ]
 
   let show: t -> string = function
-  | ( `cm _ | `mm _ | `Q _ | `in_ _ | `pt _ | `pc _ | `px _ ) as absolute ->
+  | #Absolute.t as absolute ->
     Absolute.show absolute
-  | ( `em _ | `ex _ | `cap _ | `ch _ | `ic _   | `rem _ | `ih _ | `rlh _
-    | `vw _ | `vh _ | `vi _  | `vb _ | `vmin _ | `vmax _ 
-    ) as relative ->
+  | #Relative.t as relative ->
     Relative.show relative
 end
 
@@ -136,13 +133,13 @@ module Other = struct
   type t = [ Angle.t | Time.t | Frequency.t | Resolution.t ]
 
   let show: t -> string = function
-  | ( `deg _ | `grad _ | `rad _ | `turn _ ) as angle ->
+  | #Angle.t as angle ->
     Angle.show angle
-  | ( `s _ | `ms _ ) as time ->
+  | #Time.t as time ->
     Time.show time
-  | ( `Hz _ | `kHz _ ) as frequency ->
+  | #Frequency.t as frequency ->
     Frequency.show frequency
-  | ( `dpi _ | `dpcm _ | `dppx _ ) as resolution ->
+  | #Resolution.t as resolution ->
     Resolution.show resolution
 end
 
@@ -160,14 +157,9 @@ end
 type t = [ Length.t | Percent.t | Other.t ]
 
 let show: t -> string = function
-| ( `cm _  | `mm _   | `Q _   | `in_ _ | `pt _ | `pc _  | `px _ | `em _ | `ex _
-  | `cap _ | `ch _   | `ic _  | `rem _ | `ih _ | `rlh _ | `vw _ | `vh _ | `vi _
-  | `vb _  | `vmin _ | `vmax _
-  ) as length ->
+| #Length.t as length ->
   Length.show length
-| `percent _ as percent ->
+| #Percent.t as percent ->
   Percent.show percent
-| ( `deg _ | `grad _ | `rad _ | `turn _ | `s _ | `ms _ | `Hz _ | `kHz _
-  | `dpi _ | `dpcm _ | `dppx _
-  ) as other ->
+| #Other.t as other ->
   Other.show other

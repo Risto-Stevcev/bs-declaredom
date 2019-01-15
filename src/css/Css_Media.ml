@@ -176,11 +176,9 @@ module MediaFeature = struct
   type t = [ Discrete.t | Range.t ]
 
   let show: t -> string = function
-  | ( `orientation _ | `scan _ | `grid | `bitmap | `update _
-    | `overflow_block _ | `overflow_inline _ | `color_gamut _
-    | `pointer _ | `any_pointer _ | `hover _ | `any_hover _ ) as discrete ->
+  | #Discrete.t as discrete ->
     Discrete.show discrete
-  | `range _ as range ->
+  | #Range.t as range ->
     Range.show range
 end
 
@@ -195,10 +193,7 @@ module MediaCondition = struct
     ]
 
   let rec show: t -> string = function
-  | ( `orientation _ | `scan _ | `grid | `bitmap | `update _
-    | `overflow_block _ | `overflow_inline _ | `color_gamut _
-    | `pointer _ | `any_pointer _ | `hover _ | `any_hover _ | `range _
-    ) as media_feature ->
+  | #MediaFeature.t as media_feature ->
     "("^ MediaFeature.show media_feature ^")"
   | `not condition -> "not "^ show condition
   | `and_ xs ->
@@ -306,9 +301,7 @@ module Modifier = struct
   let show: t -> string = function
   | `not media_type -> "not " ^ MediaType.show media_type
   | `only media_type -> "only " ^ MediaType.show media_type
-  | ( `all        | `braille | `embossed | `handheld | `print
-    | `projection | `screen  | `speech   | `tty      | `tv
-    ) as media_type ->
+  | #MediaType.t as media_type ->
     MediaType.show media_type
 end
 
@@ -327,11 +320,7 @@ module MediaQuery = struct
     Modifier.show modifier ^" and "^ MediaCondition.show media_condition
   | `modifier modifier ->
     Modifier.show modifier
-  | ( `orientation _ | `scan _ | `grid | `bitmap | `update _
-    | `overflow_block _ | `overflow_inline _ | `color_gamut _
-    | `pointer _ | `any_pointer _ | `hover _ | `any_hover _ | `range _
-    | `not _ | `and_ _  | `or_ _  | `group _ 
-    ) as media_condition ->
+  | #MediaCondition.t as media_condition ->
     MediaCondition.show media_condition
 end
 

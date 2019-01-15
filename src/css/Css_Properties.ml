@@ -1676,7 +1676,7 @@ module TextAlign = struct
     let show: t -> string = function
     | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | (`left | `right | `center | `justify) as value ->
+    | #value as value ->
       valueToJs value
   end
 

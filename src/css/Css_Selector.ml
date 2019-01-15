@@ -53,13 +53,9 @@ module Target = struct
   type t = [ Element.t | Class.t | Id.t ]
 
   let show: t -> string = function
-  | `class_name _ as class_name -> Class.show class_name
-  | `id _ as id -> Id.show id
-  | ( `a | `area | `input | `select | `textarea | `button | `iframe
-    | `h1 | `h2 | `h3 | `h4 | `h5
-    | `span | `div
-    | `any
-    ) as element ->
+  | #Class.t as class_name -> Class.show class_name
+  | #Id.t as id -> Id.show id
+  | #Element.t as element ->
     Element.show element
 end
 
@@ -78,8 +74,7 @@ module PseudoClass = struct
   type t = [ pseudo_class | `lang of string ]
 
   let show: t -> string = function
-  | ( `hover | `active | `target | `enabled | `disabled | `checked )
-    as pseudo_class ->
+  | #pseudo_class as pseudo_class ->
     ":" ^ pseudo_classToJs pseudo_class
   | `lang language -> ":lang("^ language ^")"
 end
@@ -109,9 +104,7 @@ module StructuralPseudoClass = struct
     ":nth-of-type("^ Js.Int.toString n ^"n + "^ Js.Int.toString m ^")"
   | `nth_last_of_type (n, m) ->
     ":nth-last-of-type("^ Js.Int.toString n ^"n + "^ Js.Int.toString m ^")"
-  | ( `root         | `first_child | `last_child   | `first_of_type
-    | `last_of_type | `only_child  | `only_of_type | `empty
-    ) as pseudo_class ->
+  | #structural_pseudo_class as pseudo_class ->
     Util.underscore_to_dash @@ ":"^ structural_pseudo_classToJs pseudo_class
 end
 
@@ -206,30 +199,21 @@ module rec Selector: Selector with type anchor    = Anchor.t
     ]
 
   let rec show: t -> string = function
-  | ( `a | `area | `input | `select | `textarea | `button | `iframe
-    | `h1 | `h2 | `h3 | `h4 | `h5
-    | `span | `div | `any
-    | `class_name _ | `id _ 
-    ) as target ->
+  | #Target.t as target ->
     Target.show target
 
   | `not s -> ":not("^ show s ^")"
 
-  | ( `has _ | `equals _ | `starts_with _ | `ends_with _ ) as attribute ->
+  | #Attribute.t as attribute ->
     Attribute.show attribute
 
-  | ( `hover | `active | `target | `enabled | `disabled | `checked
-    | `lang _
-    ) as pseudo_class ->
+  | #PseudoClass.t as pseudo_class ->
     PseudoClass.show pseudo_class
   
-  | ( `nth_child _ | `nth_of_type _ | `nth_last_of_type _ 
-    | `root         | `first_child | `last_child   | `first_of_type
-    | `last_of_type | `only_child  | `only_of_type | `empty
-    ) as pseudo_class ->
+  | #StructuralPseudoClass.t as pseudo_class ->
     StructuralPseudoClass.show pseudo_class
 
-  | ( `first_line | `first_letter | `before | `after ) as pseudo_element ->
+  | #PseudoElement.t as pseudo_element ->
     PseudoElement.show pseudo_element
 
   | `attribute (s, attribute) ->
@@ -354,14 +338,9 @@ module Infix = struct
   (** Pseudo-class operator (ie: [a:hover]) *)
   let (|:) (s: Selector.t) (c: pseudo_class): Selector.t =
     match c with
-    | ( `lang _ | `hover | `active | `target | `enabled | `disabled
-      | `checked
-      ) as pseudo_class ->
+    | #PseudoClass.t as pseudo_class ->
       `pseudo_class (s, pseudo_class)
-    | ( `nth_child _ | `nth_of_type _ | `nth_last_of_type _ | `root
-      | `first_child | `last_child    | `first_of_type      | `last_of_type
-      | `only_child  | `only_of_type  | `empty
-      ) as structural_pseudo_class ->
+    | #StructuralPseudoClass.t as structural_pseudo_class ->
       `structural_pseudo_class (s, structural_pseudo_class)
     | `not s' -> `not' (s, s')
 

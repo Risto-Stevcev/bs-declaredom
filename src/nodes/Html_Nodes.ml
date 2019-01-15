@@ -44,7 +44,7 @@ module A = struct
       type t = [ value | `browsing_context of string ]
 
       let show: t -> string = function
-      | (`blank | `self | `parent | `top) as value ->
+      | #value as value ->
         valueToJs value
       | `browsing_context name ->
         name
