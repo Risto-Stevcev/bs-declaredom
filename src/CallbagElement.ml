@@ -2,7 +2,7 @@ module Internal = struct
   external source: Dom.node -> Dom.node Callbag.t -> unit = "source" [@@bs.send]
 end
 
-type 'a t = [> Html_Node.custom ] as 'a
+type +'a t = ([> Html_Node.custom ] as 'a) Html_Node.t
 
 let make
   ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -22,7 +22,7 @@ let make
   ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
   ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
   ?onVolumeChange ?onWaiting
-  callbag: 'a t
+  callbag: _ t
   =
   let callbag_element =
     Declaredom.make_empty "x-callbag"
@@ -53,7 +53,7 @@ let make
   callbag
   |> (CallbagBasics.map Html_Node.to_node)
   |> Internal.source callbag_element;
-  `custom (Obj.magic callbag_element)
+  Obj.magic callbag_element
 
 
 let jsx

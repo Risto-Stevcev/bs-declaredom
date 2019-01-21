@@ -30,9 +30,9 @@ module A = struct
   (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-a} A} *)
   (** ({{: https://www.w3.org/TR/wai-aria-1.1/#link} aria}) *)
 
-  type 'a t = [> Html_Node.a ] as 'a
+  type +'a t = ([> Html_Node.a ] as 'a) Html_Node.t
 
-  type child = Html_Node.transparent
+  type child = Html_Node.transparent Html_Node.t
 
   module Attributes = struct
     module Target = struct
@@ -98,7 +98,7 @@ module A = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
-    (children:child array): 'a t
+    (children:child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -129,7 +129,7 @@ module A = struct
           ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
-    |> (fun e -> `a (Internal.make e))
+    |> Internal.make
 
 
   let jsx
@@ -179,7 +179,7 @@ end
 module Br = struct
   (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} Br} *)
 
-  type 'a t = [> Html_Node.br ] as 'a
+  type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -199,7 +199,7 @@ module Br = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting
-    (): 'a t
+    (): _ t
     =
     Declaredom.make_empty "br"
       (Util.merge_all [|
@@ -225,7 +225,7 @@ module Br = struct
           ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       ()
-    |> (fun e -> `br (Internal.make e))
+    |> Internal.make
 
   let jsx
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -269,9 +269,9 @@ end
 module Div = struct
   (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-div} Div} *)
 
-  type 'a t = [> Html_Node.div ] as 'a
+  type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
 
-  type child = Html_Node.flow
+  type child = Html_Node.flow Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -292,7 +292,7 @@ module Div = struct
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
-    (children:child array): 'a t
+    (children:child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -320,7 +320,7 @@ module Div = struct
           ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
-    |> (fun e -> `div (Internal.make e))
+    |> Internal.make
 
 
   let jsx
@@ -366,9 +366,9 @@ end
 module Span = struct
   (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-span} Span} *)
 
-  type 'a t = [> Html_Node.span ] as 'a
+  type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
-  type child = Html_Node.phrasing
+  type child = Html_Node.phrasing Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -390,7 +390,7 @@ module Span = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
-    (children:child array): 'a t
+    (children:child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -418,7 +418,7 @@ module Span = struct
           ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
-    |> (fun e -> `span (Internal.make e))
+    |> Internal.make
 
 
   let jsx
@@ -464,9 +464,9 @@ end
 module Title = struct
   (** {{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-title} Title} *)
 
-  type 'a t = [> Html_Node.title ] as 'a
+  type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
-  type child = Html_Node.text
+  type child = Html_Node.text Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -486,7 +486,7 @@ module Title = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting
-    child: 'a t
+    child: _ t
     =
     Declaredom.make "title"
       (Util.merge_all [|
@@ -512,7 +512,7 @@ module Title = struct
           ?onToggle ?onVolumeChange ?onWaiting ()
       |])
       (Declaredom.make_text child)
-    |> (fun e -> `title (Internal.make e))
+    |> Internal.make
 
 
   let jsx
@@ -558,28 +558,25 @@ end
 module Text = struct
   (** {{: https://www.w3.org/TR/dom/#interface-text} Text node} *)
 
-  type 'a t = [> Html_Node.text ] as 'a
+  type +'a t = ([> Html_Node.text ] as 'a) Html_Node.t
 
-  let make (text: string): 'a t =
-    Declaredom.make_text text
-    |> (fun e -> `text e)
+  let make (text: string): _ t = Declaredom.make_text text
 
-  let jsx ?(children=[]) () =
-    make @@ List.fold_left (fun acc e -> acc ^ e) "" children
+  let jsx ?(children=[]) () = make @@ List.fold_left (^) "" children
 end
 
 
 module Fragment = struct
-  type 'a t = [> Html_Node.fragment ] as 'a
+  type +'a t = ([> Html_Node.fragment ] as 'a) Html_Node.t
 
-  type 'a child = [< Html_Node.content > `fragment ] as 'a
+  type +'a child =
+    ([< Html_Node.content > `fragment ] as 'a) Html_Node.t
 
-  (* TODO: double check that this generates the right type *)
   let make (children:'a child array): 'a child = 
     Declaredom.make "fragment"
       (Js.Obj.empty () |> Obj.magic)
       (children |> Js.Array.map Html_Node.to_node)
-    |> (fun e -> `fragment (Internal.make e))
+    |> Internal.make
 
   let jsx ?children () =
     make @@ Belt.Option.mapWithDefault children [||] Js.List.toVector

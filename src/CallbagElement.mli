@@ -1,6 +1,6 @@
 (** A wrapper for callbag-element *)
 
-type 'a t = 'a constraint 'a = [> Html_Node.custom ]
+type +'a t = ([> Html_Node.custom ] as 'a) Html_Node.t
 
 val make :
   ?aria_atomic:string ->
@@ -98,7 +98,7 @@ val make :
   ?onToggle:(Dom.event -> unit) ->
   ?onVolumeChange:(Dom.event -> unit) ->
   ?onWaiting:(Dom.event -> unit) ->
-  [< Html_Node.content ] Callbag.t -> 'a t
+  [< Html_Node.content] Html_Node.t Callbag.t -> _ t
 
 val jsx :
   ?aria_atomic:string ->
@@ -196,5 +196,5 @@ val jsx :
   ?onToggle:(Dom.event -> unit) ->
   ?onVolumeChange:(Dom.event -> unit) ->
   ?onWaiting:(Dom.event -> unit) ->
-  ?callbag:[< Html_Node.content ] Callbag.t ->
-  unit -> [> Html_Node.custom ] t
+  ?callbag:[< Html_Node.content] Html_Node.t Callbag.t ->
+  unit -> _ t

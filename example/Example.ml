@@ -65,7 +65,7 @@ let _ =
     in
 
     (* Make functions that only take a specific kind of element or element group *)
-    let f (_: Html_Node.span): unit = () in
+    let f (_: Html_Node.span Html_Node.t): unit = () in
     let _ = f (span [|text "hello"|]) in
 
     div ~cssModule:Modules.container [|
