@@ -4,7 +4,7 @@ end
 
 
 module AlignContent = struct
-  type 'a t = [> Css_Property.align_content ] as 'a
+  type +'a t = ([> Css_Property.align_content ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -22,12 +22,12 @@ module AlignContent = struct
       valueToJs value
   end
 
-  let make value: 'a t = `align_content (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module AlignItems = struct
-  type 'a t = [> Css_Property.align_items ] as 'a
+  type +'a t = ([> Css_Property.align_items ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -44,12 +44,12 @@ module AlignItems = struct
       valueToJs value
   end
 
-  let make value: 'a t = `align_items (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module AlignSelf = struct
-  type 'a t = [> Css_Property.align_self ] as 'a
+  type +'a t = ([> Css_Property.align_self ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -66,12 +66,12 @@ module AlignSelf = struct
       valueToJs value
   end
 
-  let make value: 'a t = `align_self (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Azimuth = struct
-  type 'a t = [> Css_Property.azimuth ] as 'a
+  type +'a t = ([> Css_Property.azimuth ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -97,54 +97,49 @@ module Azimuth = struct
       valueToJs value
   end
 
-  let make value: 'a t = `azimuth (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module BackgroundAttachment = struct
-  type 'a t = [> Css_Property.background_attachment ] as 'a
+  type +'a t = ([> Css_Property.background_attachment ] as 'a) Css_Property.t
 
   let make value: 'a t =
-    let show = Css_Value.Background.Attachment.show in
-    `background_attachment (Internal.make @@ show value)
+    Internal.make @@ Css_Value.Background.Attachment.show value
 end
 
 
 module BackgroundColor = struct
-  type 'a t = [> Css_Property.background_color ] as 'a
+  type +'a t = ([> Css_Property.background_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `background_color (Internal.make @@ Css_Value.Background.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Background.Color.show value
 end
 
 
 module BackgroundImage = struct
-  type 'a t = [> Css_Property.background_image ] as 'a
+  type +'a t = ([> Css_Property.background_image ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `background_image (Internal.make @@ Css_Value.Background.Image.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Background.Image.show value
 end
 
 
 module BackgroundPosition = struct
-  type 'a t = [> Css_Property.background_position ] as 'a
+  type +'a t = ([> Css_Property.background_position ] as 'a) Css_Property.t
 
   let make value: 'a t =
-    `background_position
-      (Internal.make @@ Css_Value.Background.Position.show value)
+    Internal.make @@ Css_Value.Background.Position.show value
 end
 
 
 module BackgroundRepeat = struct
-  type 'a t = [> Css_Property.background_repeat ] as 'a
+  type +'a t = ([> Css_Property.background_repeat ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `background_repeat (Internal.make @@ Css_Value.Background.Repeat.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Background.Repeat.show value
 end
 
 
 module Background = struct
-  type 'a t = [> Css_Property.background ] as 'a
+  type +'a t = ([> Css_Property.background ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -171,15 +166,15 @@ module Background = struct
 
   let make ?color ?image ?repeat ?attachment ?position (): 'a t =
     let value = (color, image, repeat, attachment, position) in
-    `background (Internal.make @@ Value.show (`background value))
+    Internal.make @@ Value.show (`background value)
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `background (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module BorderCollapse = struct
-  type 'a t = [> Css_Property.border_collapse ] as 'a
+  type +'a t = ([> Css_Property.border_collapse ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `collapse | `separate ]
@@ -191,20 +186,19 @@ module BorderCollapse = struct
     | `separate -> "separate"
   end
 
-  let make value: 'a t = `border_collapse (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module BorderColor = struct
-  type 'a t = [> Css_Property.border_color ] as 'a
+  type +'a t = ([> Css_Property.border_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_color (Internal.make @@ Css_Value.Border.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Color.show value
 end
 
 
 module BorderSpacing = struct
-  type 'a t = [> Css_Property.border_spacing ] as 'a
+  type +'a t = ([> Css_Property.border_spacing ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t ]
@@ -216,29 +210,26 @@ module BorderSpacing = struct
       Css_Value.Length.show length
   end
 
-  let make value: 'a t =
-    `border_spacing (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module BorderWidth = struct
-  type 'a t = [> Css_Property.border_width ] as 'a
+  type +'a t = ([> Css_Property.border_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_width (Internal.make @@ Css_Value.Border.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Width.show value
 end
 
 
 module BorderStyle = struct
-  type 'a t = [> Css_Property.border_style ] as 'a
+  type +'a t = ([> Css_Property.border_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_style (Internal.make @@ Css_Value.Border.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Style.show value
 end
 
 
 module BorderTop = struct
-  type 'a t = [> Css_Property.border_top ] as 'a
+  type +'a t = ([> Css_Property.border_top ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -260,16 +251,15 @@ module BorderTop = struct
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_top (Internal.make @@ Value.show
-      (`border_top (width, style, color)))
+    Internal.make @@ Value.show (`border_top (width, style, color))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `border_top (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module BorderRight = struct
-  type 'a t = [> Css_Property.border_right ] as 'a
+  type +'a t = ([> Css_Property.border_right ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -291,16 +281,15 @@ module BorderRight = struct
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_right (Internal.make @@ Value.show
-      (`border_right (width, style, color)))
+    Internal.make @@ Value.show (`border_right (width, style, color))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `border_right (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module BorderBottom = struct
-  type 'a t = [> Css_Property.border_bottom ] as 'a
+  type +'a t = ([> Css_Property.border_bottom ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -322,16 +311,15 @@ module BorderBottom = struct
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_bottom (Internal.make @@ Value.show
-      (`border_bottom (width, style, color)))
+    Internal.make @@ Value.show (`border_bottom (width, style, color))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `border_bottom (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module BorderLeft = struct
-  type 'a t = [> Css_Property.border_left ] as 'a
+  type +'a t = ([> Css_Property.border_left ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -353,16 +341,15 @@ module BorderLeft = struct
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border_left (Internal.make @@ Value.show
-      (`border_left (width, style, color)))
+    Internal.make @@ Value.show (`border_left (width, style, color))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `border_left (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module Border = struct
-  type 'a t = [> Css_Property.border ] as 'a
+  type +'a t = ([> Css_Property.border ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -384,119 +371,106 @@ module Border = struct
   end
 
   let make ?width ?style ?color (): 'a t =
-    `border (Internal.make @@ Value.show (`border (width, style, color)))
+    Internal.make @@ Value.show (`border (width, style, color))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `border (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module BorderTopColor = struct
-  type 'a t = [> Css_Property.border_top_color ] as 'a
+  type +'a t = ([> Css_Property.border_top_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_top_color (Internal.make @@ Css_Value.Border.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Color.show value
 end
 
 
 module BorderRightColor = struct
-  type 'a t = [> Css_Property.border_right_color ] as 'a
+  type +'a t = ([> Css_Property.border_right_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_right_color (Internal.make @@ Css_Value.Border.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Color.show value
 end
 
 
 module BorderBottomColor = struct
-  type 'a t = [> Css_Property.border_bottom_color ] as 'a
+  type +'a t = ([> Css_Property.border_bottom_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_bottom_color (Internal.make @@ Css_Value.Border.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Color.show value
 end
 
 
 module BorderLeftColor = struct
-  type 'a t = [> Css_Property.border_left_color ] as 'a
+  type +'a t = ([> Css_Property.border_left_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_left_color (Internal.make @@ Css_Value.Border.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Color.show value
 end
 
 
 module BorderTopStyle = struct
-  type 'a t = [> Css_Property.border_top_style ] as 'a
+  type +'a t = ([> Css_Property.border_top_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_top_style (Internal.make @@ Css_Value.Border.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Style.show value
 end
 
 
 module BorderRightStyle = struct
-  type 'a t = [> Css_Property.border_right_style ] as 'a
+  type +'a t = ([> Css_Property.border_right_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_right_style (Internal.make @@ Css_Value.Border.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Style.show value
 end
 
 
 module BorderBottomStyle = struct
-  type 'a t = [> Css_Property.border_bottom_style ] as 'a
+  type +'a t = ([> Css_Property.border_bottom_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_bottom_style (Internal.make @@ Css_Value.Border.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Style.show value
 end
 
 
 module BorderLeftStyle = struct
-  type 'a t = [> Css_Property.border_left_style ] as 'a
+  type +'a t = ([> Css_Property.border_left_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_left_style (Internal.make @@ Css_Value.Border.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Style.show value
 end
 
 
 module BorderTopWidth = struct
-  type 'a t = [> Css_Property.border_top_width ] as 'a
+  type +'a t = ([> Css_Property.border_top_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_top_width (Internal.make @@ Css_Value.Border.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Width.show value
 end
 
 
 module BorderRightWidth = struct
-  type 'a t = [> Css_Property.border_right_width ] as 'a
+  type +'a t = ([> Css_Property.border_right_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_right_width (Internal.make @@ Css_Value.Border.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Width.show value
 end
 
 
 module BorderBottomWidth = struct
-  type 'a t = [> Css_Property.border_bottom_width ] as 'a
+  type +'a t = ([> Css_Property.border_bottom_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_bottom_width (Internal.make @@ Css_Value.Border.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Width.show value
 end
 
 
 module BorderLeftWidth = struct
-  type 'a t = [> Css_Property.border_left_width ] as 'a
+  type +'a t = ([> Css_Property.border_left_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `border_left_width (Internal.make @@ Css_Value.Border.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Border.Width.show value
 end
 
 
 module Bottom = struct
-  type 'a t = [> Css_Property.bottom ] as 'a
+  type +'a t = ([> Css_Property.bottom ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `bottom (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module CaptionSide = struct
-  type 'a t = [> Css_Property.caption_side ] as 'a
+  type +'a t = ([> Css_Property.caption_side ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `top | `bottom ]
@@ -508,13 +482,12 @@ module CaptionSide = struct
     | `bottom -> "bottom"
   end
 
-  let make value: 'a t =
-    `caption_side (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Clear = struct
-  type 'a t = [> Css_Property.clear ] as 'a
+  type +'a t = ([> Css_Property.clear ] as 'a) Css_Property.t
 
   module Value = struct
     type value = [ `left | `right | `both | `none ] [@@bs.deriving jsConverter]
@@ -528,12 +501,12 @@ module Clear = struct
       valueToJs value
   end
 
-  let make value: 'a t = `clear (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Clip = struct
-  type 'a t = [> Css_Property.clip ] as 'a
+  type +'a t = ([> Css_Property.clip ] as 'a) Css_Property.t
 
   module Value = struct
     type value = [ Css_Value.Length.t | `auto ]
@@ -557,12 +530,12 @@ module Clip = struct
       ")"
   end
 
-  let make value: 'a t = `clip (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Color = struct
-  type 'a t = [> Css_Property.color ] as 'a
+  type +'a t = ([> Css_Property.color ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | Css_Value.Color.t ]
@@ -574,28 +547,26 @@ module Color = struct
       Css_Value.Color.show color
   end
 
-  let make value: 'a t = `color (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module CueAfter = struct
-  type 'a t = [> Css_Property.cue_after ] as 'a
+  type +'a t = ([> Css_Property.cue_after ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `cue_after (Internal.make @@ Css_Value.UriOrNone.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.UriOrNone.show value
 end
 
 
 module CueBefore = struct
-  type 'a t = [> Css_Property.cue_before ] as 'a
+  type +'a t = ([> Css_Property.cue_before ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `cue_before (Internal.make @@ Css_Value.UriOrNone.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.UriOrNone.show value
 end
 
 
 module Cue = struct
-  type 'a t = [> Css_Property.cue ] as 'a
+  type +'a t = ([> Css_Property.cue ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -610,13 +581,12 @@ module Cue = struct
       Css_Value.UriOrNone.show cue_after
   end
 
-  let make value: 'a t =
-    `cue (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Cursor = struct
-  type 'a t = [> Css_Property.cursor ] as 'a
+  type +'a t = ([> Css_Property.cursor ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -646,12 +616,12 @@ module Cursor = struct
       valueToJs value
   end
 
-  let make value: 'a t = `cursor (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Direction = struct
-  type 'a t = [> Css_Property.direction ] as 'a
+  type +'a t = ([> Css_Property.direction ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `rtl | `ltr ]
@@ -663,12 +633,12 @@ module Direction = struct
     | `ltr -> "ltr"
   end
 
-  let make value: 'a t = `direction (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Display = struct
-  type 'a t = [> Css_Property.display' ] as 'a
+  type +'a t = ([> Css_Property.display' ] as 'a) Css_Property.t
 
   module Internal = struct
     (* You shouldn't be able to create a display property directly *)
@@ -699,29 +669,29 @@ module Display = struct
         valueToJs value
     end
 
-    let make value: 'a t = `display (Internal.make @@ Value.show value)
+    let make value: 'a t = Internal.make @@ Value.show value
   end
 
-  let none (): [> Css_Property.display' ] = Internal.make `none
+  let none (): [> Css_Property.display'] Css_Property.t = Internal.make `none
 
-  let flex (value: Css_Property.flexbox Js.Dict.t):
-    Css_Property.Override.flex Js.Dict.t =
+  let flex (value: Css_Property.flexbox Css_Property.t Js.Dict.t):
+    Css_Property.Override.flex Css_Property.t Js.Dict.t =
     Js.Dict.fromList [("display", Internal.make `flex)] |> Util.merge value
 
-  let inline_block (value: Css_Property.inline_block Js.Dict.t):
-    Css_Property.Override.inline_block Js.Dict.t =
+  let inline_block (value: Css_Property.inline_block Css_Property.t Js.Dict.t):
+    Css_Property.Override.inline_block Css_Property.t Js.Dict.t =
     Js.Dict.fromList [("display", Internal.make `inline_block)]
     |> Util.merge value
 
-  let inline_flex (value: Css_Property.inline_flex Js.Dict.t):
-    Css_Property.Override.inline_flex Js.Dict.t =
+  let inline_flex (value: Css_Property.inline_flex Css_Property.t Js.Dict.t):
+    Css_Property.Override.inline_flex Css_Property.t Js.Dict.t =
     Js.Dict.fromList [("display", Internal.make `inline_flex)]
     |> Util.merge value
 end
 
 
 module Elevation = struct
-  type 'a t = [> Css_Property.elevation ] as 'a
+  type +'a t = ([> Css_Property.elevation ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -739,12 +709,12 @@ module Elevation = struct
       valueToJs value
   end
 
-  let make value: 'a t = `elevation (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module EmptyCells = struct
-  type 'a t = [> Css_Property.empty_cells ] as 'a
+  type +'a t = ([> Css_Property.empty_cells ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `show | `hide ]
@@ -756,12 +726,12 @@ module EmptyCells = struct
     | `hide -> "hide"
   end
 
-  let make value: 'a t = `empty_cells (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Flex = struct
-  type 'a t = [> Css_Property.flex ] as 'a
+  type +'a t = ([> Css_Property.flex ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -784,31 +754,29 @@ module Flex = struct
   end
 
   let make ?grow ?shrink ?basis (): 'a t =
-    `flex (Internal.make @@ Value.show (`flex (grow, shrink, basis)))
+    Internal.make @@ Value.show (`flex (grow, shrink, basis))
 
   let make_value (value: [ Css_Value.Global.t | `none ]): 'a t =
-    `flex (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module FlexBasis = struct
-  type 'a t = [> Css_Property.flex_basis ] as 'a
+  type +'a t = ([> Css_Property.flex_basis ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `flex_basis (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module FlexDirection = struct
-  type 'a t = [> Css_Property.flex_direction ] as 'a
+  type +'a t = ([> Css_Property.flex_direction ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `flex_direction (Internal.make @@ Css_Value.Flex.Direction.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Flex.Direction.show value
 end
 
 
 module FlexFlow = struct
-  type 'a t = [> Css_Property.flex_flow ] as 'a
+  type +'a t = ([> Css_Property.flex_flow ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -823,34 +791,33 @@ module FlexFlow = struct
       Css_Value.Flex.Wrap.show wrap
   end
 
-  let make value: 'a t = `flex_flow (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module FlexGrow = struct
-  type 'a t = [> Css_Property.flex_grow ] as 'a
+  type +'a t = ([> Css_Property.flex_grow ] as 'a) Css_Property.t
 
-  let make value: 'a t = `flex_grow (Internal.make @@ Js.Float.toString value)
+  let make value: 'a t = Internal.make @@ Js.Float.toString value
 end
 
 
 module FlexShrink = struct
-  type 'a t = [> Css_Property.flex_shrink ] as 'a
+  type +'a t = ([> Css_Property.flex_shrink ] as 'a) Css_Property.t
 
-  let make value: 'a t = `flex_shrink (Internal.make @@ Js.Float.toString value)
+  let make value: 'a t = Internal.make @@ Js.Float.toString value
 end
 
 
 module FlexWrap = struct
-  type 'a t = [> Css_Property.flex_wrap ] as 'a
+  type +'a t = ([> Css_Property.flex_wrap ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `flex_wrap (Internal.make @@ Css_Value.Flex.Wrap.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Flex.Wrap.show value
 end
 
 
 module Float = struct
-  type 'a t = [> Css_Property.float_ ] as 'a
+  type +'a t = ([> Css_Property.float_ ] as 'a) Css_Property.t
 
   module Value = struct
     type value = [ `left | `right | `none ] [@@bs.deriving jsConverter]
@@ -864,52 +831,47 @@ module Float = struct
       valueToJs value
   end
 
-  let make value: 'a t = `float (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module FontFamily = struct
-  type 'a t = [> Css_Property.font_family ] as 'a
+  type +'a t = ([> Css_Property.font_family ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `font_family (Internal.make @@ Css_Value.Font.Family.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Font.Family.show value
 end
 
 
 module FontSize = struct
-  type 'a t = [> Css_Property.font_size ] as 'a
+  type +'a t = ([> Css_Property.font_size ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `font_size (Internal.make @@ Css_Value.Font.Size.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Font.Size.show value
 end
 
 
 module FontStyle = struct
-  type 'a t = [> Css_Property.font_style ] as 'a
+  type +'a t = ([> Css_Property.font_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `font_style (Internal.make @@ Css_Value.Font.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Font.Style.show value
 end
 
 
 module FontVariant = struct
-  type 'a t = [> Css_Property.font_variant ] as 'a
+  type +'a t = ([> Css_Property.font_variant ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `font_variant (Internal.make @@ Css_Value.Font.Variant.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Font.Variant.show value
 end
 
 
 module FontWeight = struct
-  type 'a t = [> Css_Property.font_weight ] as 'a
+  type +'a t = ([> Css_Property.font_weight ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `font_weight (Internal.make @@ Css_Value.Font.Weight.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Font.Weight.show value
 end
 
 
 module Font = struct
-  type 'a t = [> Css_Property.font ] as 'a
+  type +'a t = ([> Css_Property.font ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -948,25 +910,24 @@ module Font = struct
       valueToJs value
   end
 
-  let make ?style ?variant ?weight ?line_height size family =
-    `font (Internal.make @@ Value.show @@
-      `font (style, variant, weight, size, line_height, family))
+  let make ?style ?variant ?weight ?line_height size family: 'a t =
+    Internal.make @@ Value.show @@
+      `font (style, variant, weight, size, line_height, family)
 
   let make_value (value: [ Css_Value.Global.t | Value.value ]): 'a t =
-    `font (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module Height = struct
-  type 'a t = [> Css_Property.height ] as 'a
+  type +'a t = ([> Css_Property.height ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `height (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module JustifyContent = struct
-  type 'a t = [> Css_Property.justify_content ] as 'a
+  type +'a t = ([> Css_Property.justify_content ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -984,20 +945,19 @@ module JustifyContent = struct
       valueToJs value
   end
 
-  let make value: 'a t = `justify_content (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Left = struct
-  type 'a t = [> Css_Property.left ] as 'a
+  type +'a t = ([> Css_Property.left ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `left (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module LetterSpacing = struct
-  type 'a t = [> Css_Property.letter_spacing ] as 'a
+  type +'a t = ([> Css_Property.letter_spacing ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
@@ -1010,44 +970,41 @@ module LetterSpacing = struct
     | `normal -> "normal"
   end
 
-  let make value: 'a t = `letter_spacing (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module LineHeight = struct
-  type 'a t = [> Css_Property.line_height ] as 'a
+  type +'a t = ([> Css_Property.line_height ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `line_height (Internal.make @@ Css_Value.LineHeight.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LineHeight.show value
 end
 
 
 module ListStyleImage = struct
-  type 'a t = [> Css_Property.list_style_image ] as 'a
+  type +'a t = ([> Css_Property.list_style_image ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `list_style_image (Internal.make @@ Css_Value.ListStyle.Image.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.ListStyle.Image.show value
 end
 
 
 module ListStylePosition = struct
-  type 'a t = [> Css_Property.list_style_position ] as 'a
+  type +'a t = ([> Css_Property.list_style_position ] as 'a) Css_Property.t
 
   let make value: 'a t =
-    `list_style_position (Internal.make @@ Css_Value.ListStyle.Position.show value)
+    Internal.make @@ Css_Value.ListStyle.Position.show value
 end
 
 
 module ListStyleType = struct
-  type 'a t = [> Css_Property.list_style_type ] as 'a
+  type +'a t = ([> Css_Property.list_style_type ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `list_style_type (Internal.make @@ Css_Value.ListStyle.Type.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.ListStyle.Type.show value
 end
 
 
 module ListStyle = struct
-  type 'a t = [> Css_Property.list_style ] as 'a
+  type +'a t = ([> Css_Property.list_style ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -1071,16 +1028,15 @@ module ListStyle = struct
   end
 
   let make ?type_ ?position ?image (): 'a t =
-    `list_style (Internal.make @@ Value.show
-      (`list_style (type_, position, image)))
+    Internal.make @@ Value.show (`list_style (type_, position, image))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `list_style (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module Margin = struct
-  type 'a t = [> Css_Property.margin ] as 'a
+  type +'a t = ([> Css_Property.margin ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -1105,119 +1061,107 @@ module Margin = struct
   end
 
   let make ~top ~right ~bottom ~left : 'a t =
-    `margin (Internal.make @@ Value.show (`margin (top, right, bottom, left)))
+    Internal.make @@ Value.show (`margin (top, right, bottom, left))
 
   let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
     'a t =
-    `margin (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module MarginTop = struct
-  type 'a t = [> Css_Property.margin_top ] as 'a
+  type +'a t = ([> Css_Property.margin_top ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `margin_top (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MarginRight = struct
-  type 'a t = [> Css_Property.margin_right ] as 'a
+  type +'a t = ([> Css_Property.margin_right ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `margin_right (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MarginBottom = struct
-  type 'a t = [> Css_Property.margin_bottom ] as 'a
+  type +'a t = ([> Css_Property.margin_bottom ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `margin_bottom (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MarginLeft = struct
-  type 'a t = [> Css_Property.margin_left ] as 'a
+  type +'a t = ([> Css_Property.margin_left ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `margin_left (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MaxHeight = struct
-  type 'a t = [> Css_Property.max_height ] as 'a
+  type +'a t = ([> Css_Property.max_height ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `max_height (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MaxWidth = struct
-  type 'a t = [> Css_Property.max_width ] as 'a
+  type +'a t = ([> Css_Property.max_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `max_width (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MinHeight = struct
-  type 'a t = [> Css_Property.min_height ] as 'a
+  type +'a t = ([> Css_Property.min_height ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `min_height (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module MinWidth = struct
-  type 'a t = [> Css_Property.min_width ] as 'a
+  type +'a t = ([> Css_Property.min_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `min_width (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module Order = struct
-  type 'a t = [> Css_Property.order ] as 'a
+  type +'a t = ([> Css_Property.order ] as 'a) Css_Property.t
 
-  let make value: 'a t = `order (Internal.make @@ Js.Int.toString value)
+  let make value: 'a t = Internal.make @@ Js.Int.toString value
 end
 
 
 module Orphans = struct
-  type 'a t = [> Css_Property.orphans ] as 'a
+  type +'a t = ([> Css_Property.orphans ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `orphans (Internal.make @@ Css_Value.BreakInside.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.BreakInside.show value
 end
 
 
 module OutlineColor = struct
-  type 'a t = [> Css_Property.outline_color ] as 'a
+  type +'a t = ([> Css_Property.outline_color ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `outline_color (Internal.make @@ Css_Value.Outline.Color.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Outline.Color.show value
 end
 
 
 module OutlineStyle = struct
-  type 'a t = [> Css_Property.outline_style ] as 'a
+  type +'a t = ([> Css_Property.outline_style ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `outline_style (Internal.make @@ Css_Value.Outline.Style.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Outline.Style.show value
 end
 
 
 module OutlineWidth = struct
-  type 'a t = [> Css_Property.outline_width ] as 'a
+  type +'a t = ([> Css_Property.outline_width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `outline_width (Internal.make @@ Css_Value.Outline.Width.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.Outline.Width.show value
 end
 
 
 module Outline = struct
-  type 'a t = [> Css_Property.outline ] as 'a
+  type +'a t = ([> Css_Property.outline ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -1239,15 +1183,15 @@ module Outline = struct
   end
 
   let make ?color ?style ?width (): 'a t =
-    `outline (Internal.make @@ Value.show (`outline (color, style, width)))
+    Internal.make @@ Value.show (`outline (color, style, width))
 
   let make_value (value: Css_Value.Global.t): 'a t =
-    `outline (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module Overflow = struct
-  type 'a t = [> Css_Property.overflow ] as 'a
+  type +'a t = ([> Css_Property.overflow ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1262,44 +1206,40 @@ module Overflow = struct
       valueToJs value
   end
 
-  let make value: 'a t = `overflow (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module PaddingTop = struct
-  type 'a t = [> Css_Property.padding_top ] as 'a
+  type +'a t = ([> Css_Property.padding_top ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `padding_top (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module PaddingRight = struct
-  type 'a t = [> Css_Property.padding_right ] as 'a
+  type +'a t = ([> Css_Property.padding_right ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `padding_right (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module PaddingBottom = struct
-  type 'a t = [> Css_Property.padding_bottom ] as 'a
+  type +'a t = ([> Css_Property.padding_bottom ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `padding_bottom (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module PaddingLeft = struct
-  type 'a t = [> Css_Property.padding_left ] as 'a
+  type +'a t = ([> Css_Property.padding_left ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `padding_left (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module Padding = struct
-  type 'a t = [> Css_Property.padding ] as 'a
+  type +'a t = ([> Css_Property.padding ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -1324,57 +1264,52 @@ module Padding = struct
   end
 
   let make ~top ~right ~bottom ~left : 'a t =
-    `padding (Internal.make @@ Value.show (`padding (top, right, bottom, left)))
+    Internal.make @@ Value.show (`padding (top, right, bottom, left))
 
   let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
     'a t =
-    `padding (Internal.make @@ Value.show (value :> Value.t))
+    Internal.make @@ Value.show (value :> Value.t)
 end
 
 
 module PageBreakAfter = struct
-  type 'a t = [> Css_Property.page_break_after ] as 'a
+  type +'a t = ([> Css_Property.page_break_after ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `page_break_after (Internal.make @@ Css_Value.PageBreak.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.PageBreak.show value
 end
 
 
 module PageBreakBefore = struct
-  type 'a t = [> Css_Property.page_break_before ] as 'a
+  type +'a t = ([> Css_Property.page_break_before ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `page_break_before (Internal.make @@ Css_Value.PageBreak.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.PageBreak.show value
 end
 
 
 module PageBreakInside = struct
-  type 'a t = [> Css_Property.page_break_inside ] as 'a
+  type +'a t = ([> Css_Property.page_break_inside ] as 'a) Css_Property.t
 
   let make (value: Css_Value.PageBreak.inside): 'a t =
-    `page_break_inside
-    (Internal.make @@ Css_Value.PageBreak.show  (value :> Css_Value.PageBreak.t))
+    Internal.make @@ Css_Value.PageBreak.show (value :> Css_Value.PageBreak.t)
 end
 
 
 module PauseAfter = struct
-  type 'a t = [> Css_Property.pause_after ] as 'a
+  type +'a t = ([> Css_Property.pause_after ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `pause_after (Internal.make @@ Css_Value.TimePercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.TimePercent.show value
 end
 
 
 module PauseBefore = struct
-  type 'a t = [> Css_Property.pause_before ] as 'a
+  type +'a t = ([> Css_Property.pause_before ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `pause_before (Internal.make @@ Css_Value.TimePercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.TimePercent.show value
 end
 
 
 module Pause = struct
-  type 'a t = [> Css_Property.pause ] as 'a
+  type +'a t = ([> Css_Property.pause ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
@@ -1389,12 +1324,12 @@ module Pause = struct
       Css_Value.TimePercent.show pause_after
   end
 
-  let make value: 'a t = `pause (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module PitchRange = struct
-  type 'a t = [> Css_Property.pitch_range ] as 'a
+  type +'a t = ([> Css_Property.pitch_range ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `range of float ]
@@ -1406,12 +1341,12 @@ module PitchRange = struct
       Js.Float.toString range
   end
 
-  let make value: 'a t = `pitch_range (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Pitch = struct
-  type 'a t = [> Css_Property.pitch ] as 'a
+  type +'a t = ([> Css_Property.pitch ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1429,12 +1364,12 @@ module Pitch = struct
       valueToJs value
   end
 
-  let make value: 'a t = `pitch (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module PlayDuring = struct
-  type 'a t = [> Css_Property.play_during ] as 'a
+  type +'a t = ([> Css_Property.play_during ] as 'a) Css_Property.t
 
   module Value = struct
     type value = [ `mix | `repeat ] [@@bs.deriving jsConverter]
@@ -1454,15 +1389,15 @@ module PlayDuring = struct
     | `none -> "none"
   end
 
-  let make value: 'a t = `play_during (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Position = struct
-  type 'a t = ([< Css_Property.display ] as 'a) Js.Dict.t
+  type 'a t = ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t
 
   module Internal = struct
-    type 'a t = [> Css_Property.position ] as 'a
+    type +'a t = ([> Css_Property.position ] as 'a) Css_Property.t
 
     module Value = struct
       type value =
@@ -1478,18 +1413,18 @@ module Position = struct
     end
 
     external to_display:
-      Css_Property.positioned Js.Dict.t ->
-      [< Css_Property.display] Js.Dict.t = "%identity"
+      Css_Property.positioned Css_Property.t Js.Dict.t ->
+      [< Css_Property.display] Css_Property.t Js.Dict.t = "%identity"
 
-    let make value: 'a t = `position (Internal.make @@ Value.show value)
+    let make value: 'a t = Internal.make @@ Value.show value
   end
 
   module Value = struct
     type t =
       [ `static
-      | `absolute of Css_Property.positioned Js.Dict.t
-      | `relative of Css_Property.positioned Js.Dict.t
-      | `fixed    of Css_Property.positioned Js.Dict.t
+      | `absolute of Css_Property.positioned Css_Property.t Js.Dict.t
+      | `relative of Css_Property.positioned Css_Property.t Js.Dict.t
+      | `fixed    of Css_Property.positioned Css_Property.t Js.Dict.t
       ]
 
     let make: t -> 'a Internal.t = function
@@ -1510,7 +1445,7 @@ end
 
 
 module Richness = struct
-  type 'a t = [> Css_Property.richness ] as 'a
+  type +'a t = ([> Css_Property.richness ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `richness of float ]
@@ -1522,20 +1457,19 @@ module Richness = struct
       Js.Float.toString value
   end
 
-  let make value: 'a t = `richness (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Right = struct
-  type 'a t = [> Css_Property.right ] as 'a
+  type +'a t = ([> Css_Property.right ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `right (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module SpeakHeader = struct
-  type 'a t = [> Css_Property.speak_header ] as 'a
+  type +'a t = ([> Css_Property.speak_header ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `once | `always ]
@@ -1547,12 +1481,12 @@ module SpeakHeader = struct
     | `always -> "always"
   end
 
-  let make value: 'a t = `speak_header (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module SpeakNumeral = struct
-  type 'a t = [> Css_Property.speak_numeral ] as 'a
+  type +'a t = ([> Css_Property.speak_numeral ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `digits | `continuous ]
@@ -1564,12 +1498,12 @@ module SpeakNumeral = struct
     | `continuous -> "continuous"
   end
 
-  let make value: 'a t = `speak_numeral (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module SpeakPunctuation = struct
-  type 'a t = [> Css_Property.speak_punctuation ] as 'a
+  type +'a t = ([> Css_Property.speak_punctuation ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `code | `none ]
@@ -1581,12 +1515,12 @@ module SpeakPunctuation = struct
     | `none -> "none"
   end
 
-  let make value: 'a t = `speak_punctuation (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Speak = struct
-  type 'a t = [> Css_Property.speak ] as 'a
+  type +'a t = ([> Css_Property.speak ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1602,12 +1536,12 @@ module Speak = struct
       valueToJs value
   end
 
-  let make value: 'a t = `speak (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module SpeechRate = struct
-  type 'a t = [> Css_Property.speech_rate ] as 'a
+  type +'a t = ([> Css_Property.speech_rate ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1626,12 +1560,12 @@ module SpeechRate = struct
       Js.Float.toString rate
   end
 
-  let make value: 'a t = `speech_rate (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Stress = struct
-  type 'a t = [> Css_Property.stress ] as 'a
+  type +'a t = ([> Css_Property.stress ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `stress of float ]
@@ -1643,12 +1577,12 @@ module Stress = struct
       Js.Float.toString stress
   end
 
-  let make value: 'a t = `stress (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module TableLayout = struct
-  type 'a t = [> Css_Property.table_layout ] as 'a
+  type +'a t = ([> Css_Property.table_layout ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | `auto | `fixed ]
@@ -1660,12 +1594,12 @@ module TableLayout = struct
     | `fixed -> "fixed"
   end
 
-  let make value: 'a t = `table_layout (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module TextAlign = struct
-  type 'a t = [> Css_Property.text_align ] as 'a
+  type +'a t = ([> Css_Property.text_align ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1680,12 +1614,12 @@ module TextAlign = struct
       valueToJs value
   end
 
-  let make value: 'a t = `text_align (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module TextDecoration = struct
-  type 'a t = [> Css_Property.text_decoration ] as 'a
+  type +'a t = ([> Css_Property.text_decoration ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1701,20 +1635,19 @@ module TextDecoration = struct
       valueToJs value
   end
 
-  let make value: 'a t = `text_decoration (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module TextIndent = struct
-  type 'a t = [> Css_Property.text_indent ] as 'a
+  type +'a t = ([> Css_Property.text_indent ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `text_indent (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module TextTransform = struct
-  type 'a t = [> Css_Property.text_transform ] as 'a
+  type +'a t = ([> Css_Property.text_transform ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1730,20 +1663,19 @@ module TextTransform = struct
       valueToJs value
   end
 
-  let make value: 'a t = `text_transform (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Top = struct
-  type 'a t = [> Css_Property.top ] as 'a
+  type +'a t = ([> Css_Property.top ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `top (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module UnicodeBidi = struct
-  type 'a t = [> Css_Property.unicode_bidi ] as 'a
+  type +'a t = ([> Css_Property.unicode_bidi ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1759,12 +1691,12 @@ module UnicodeBidi = struct
       valueToJs value
   end
 
-  let make value: 'a t = `unicode_bidi (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module VerticalAlign = struct
-  type 'a t = [> Css_Property.vertical_align ] as 'a
+  type +'a t = ([> Css_Property.vertical_align ] as 'a) Css_Property.t
 
   module Value = struct
     module ParentRelative = struct
@@ -1805,12 +1737,12 @@ module VerticalAlign = struct
       LineRelative.show line_relative
   end
 
-  let make value: 'a t = `vertical_align (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Visibility = struct
-  type 'a t = [> Css_Property.visibility ] as 'a
+  type +'a t = ([> Css_Property.visibility ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1825,12 +1757,12 @@ module Visibility = struct
       valueToJs value
   end
 
-  let make value: 'a t = `visibility (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module VoiceFamily = struct
-  type 'a t = [> Css_Property.voice_family ] as 'a
+  type +'a t = ([> Css_Property.voice_family ] as 'a) Css_Property.t
 
   module Value = struct
     type generic = [ `male | `female | `child ] [@@bs.deriving jsConverter]
@@ -1848,12 +1780,12 @@ module VoiceFamily = struct
       Js.Json.stringifyAny value |> Js.Option.getExn
   end
 
-  let make value: 'a t = `voice_family (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Volume = struct
-  type 'a t = [> Css_Property.volume ] as 'a
+  type +'a t = ([> Css_Property.volume ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1875,12 +1807,12 @@ module Volume = struct
       Js.Float.toString value
   end
 
-  let make value: 'a t = `volume (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module WhiteSpace = struct
-  type 'a t = [> Css_Property.white_space ] as 'a
+  type +'a t = ([> Css_Property.white_space ] as 'a) Css_Property.t
 
   module Value = struct
     type value =
@@ -1897,28 +1829,26 @@ module WhiteSpace = struct
       valueToJs value
   end
 
-  let make value: 'a t = `white_space (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module Widows = struct
-  type 'a t = [> Css_Property.widows ] as 'a
+  type +'a t = ([> Css_Property.widows ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `widows (Internal.make @@ Css_Value.BreakInside.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.BreakInside.show value
 end
 
 
 module Width = struct
-  type 'a t = [> Css_Property.width ] as 'a
+  type +'a t = ([> Css_Property.width ] as 'a) Css_Property.t
 
-  let make value: 'a t =
-    `width (Internal.make @@ Css_Value.LengthPercent.show value)
+  let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
 
 module WordSpacing = struct
-  type 'a t = [> Css_Property.word_spacing ] as 'a
+  type +'a t = ([> Css_Property.word_spacing ] as 'a) Css_Property.t
 
   module Value = struct
     type t = [ Css_Value.Global.t | Css_Value.Length.t | `normal ]
@@ -1931,12 +1861,12 @@ module WordSpacing = struct
     | `normal -> "normal"
   end
 
-  let make value: 'a t = `word_spacing (Internal.make @@ Value.show value)
+  let make value: 'a t = Internal.make @@ Value.show value
 end
 
 
 module ZIndex = struct
-  type 'a t = [> Css_Property.z_index ] as 'a
+  type +'a t = ([> Css_Property.z_index ] as 'a) Css_Property.t
 
-  let make value: 'a t = `z_index (Internal.make @@ Js.Int.toString value)
+  let make value: 'a t = Internal.make @@ Js.Int.toString value
 end

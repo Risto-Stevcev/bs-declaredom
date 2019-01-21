@@ -11,8 +11,8 @@ type 'a t
 val get_class : ?className:string -> ?cssModule:'a t -> unit -> string option
 
 val map : 
-  ( ([< Css_Property.display ] as 'a) Js.Dict.t ->
-    ([< Css_Property.display ] as 'b) Js.Dict.t
+  ( ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t ->
+    ([< Css_Property.display ] as 'b) Css_Property.t Js.Dict.t
   ) -> 'a t -> 'b t
 
 val merge :
@@ -22,7 +22,7 @@ val merge :
 
 val to_display : [< Css_Property.display ] t -> Css_Property.display t
 
-val make : ([< Css_Property.display ] as 'a) Js.Dict.t -> 'a t
+val make : ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t -> 'a t
 
 val class_name : 'a t -> string
 

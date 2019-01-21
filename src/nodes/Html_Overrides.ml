@@ -3,8 +3,8 @@ module Internal = struct
 
   module Style = struct
     external to_any:
-      [< Css_Property.display] Js.Dict.t ->
-      [> Css_Property.any] Js.Dict.t = "%identity"
+      [< Css_Property.display] Style.t ->
+      [> Css_Property.any] Style.t = "%identity"
   end
 
   module CssModule = struct

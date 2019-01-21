@@ -1,13 +1,14 @@
 open Css_Properties
 
-type 'a t = 'a Js.Dict.t
+type 'a t = 'a Css_Property.t Js.Dict.t
 
-let show_dict (styles: 'a t): string t =
+let show_dict (styles: 'a t): string Js.Dict.t =
   styles
-  |> Js.Dict.map (fun [@bs] e -> Css_Property.show (e :> Css_Property.display))
+  |> Js.Dict.map (fun [@bs] e -> Css_Property.show e)
 
 let to_display styles: Css_Property.display t =
-  styles |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+  styles
+  |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display Css_Property.t))
 
 let merge (style_a: [< Css_Property.display] t) style_b =
   Util.merge_all [|Js.Dict.empty (); style_a; style_b|]
@@ -16,175 +17,175 @@ let merge (style_a: [< Css_Property.display] t) style_b =
 module Internal = struct
   module Group = struct
     external aligns:
-      ?alignContent:Css_Property.align_content ->
-      ?alignItems:Css_Property.align_items ->
-      ?alignSelf:Css_Property.align_self ->
+      ?alignContent:Css_Property.align_content Css_Property.t ->
+      ?alignItems:Css_Property.align_items Css_Property.t ->
+      ?alignSelf:Css_Property.align_self Css_Property.t ->
       unit ->
       Css_Property.aligns t = "" [@@bs.obj]
 
     external backgrounds:
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
       unit ->
       Css_Property.backgrounds t = "" [@@bs.obj]
 
     external borders:
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
       unit ->
       Css_Property.borders t = "" [@@bs.obj]
 
     external border_colors:
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
       unit ->
       Css_Property.border_colors t = "" [@@bs.obj]
 
     external border_styles:
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
       unit ->
       Css_Property.border_styles t = "" [@@bs.obj]
 
     external border_widths:
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
       unit ->
       Css_Property.border_widths t = "" [@@bs.obj]
 
     external cues:
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
       unit ->
       Css_Property.cues t = "" [@@bs.obj]
 
     external flexs:
-      ?flex:Css_Property.flex ->
-      ?flexBasis:Css_Property.flex_basis ->
-      ?flexDirection:Css_Property.flex_direction ->
-      ?flexFlow:Css_Property.flex_flow ->
-      ?flexGrow:Css_Property.flex_grow ->
-      ?flexShrink:Css_Property.flex_shrink ->
-      ?flexWrap:Css_Property.flex_wrap ->
+      ?flex:Css_Property.flex Css_Property.t ->
+      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
+      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
+      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
+      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
+      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
       unit ->
       Css_Property.flexs t = "" [@@bs.obj]
 
     external fonts:
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
       unit ->
       Css_Property.fonts t = "" [@@bs.obj]
 
     external heights:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
       unit ->
       Css_Property.heights t = "" [@@bs.obj]
 
     external margins:
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
       unit ->
       Css_Property.margins t = "" [@@bs.obj]
 
     external paddings:
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
       unit ->
       Css_Property.paddings t = "" [@@bs.obj]
 
     external list_styles:
-      ?listStyleImage:Css_Property.list_style_image ->
-      ?listStylePosition:Css_Property.list_style_position ->
-      ?listStyleType:Css_Property.list_style_type ->
-      ?listStyle:Css_Property.list_style ->
+      ?listStyleImage:Css_Property.list_style_image Css_Property.t ->
+      ?listStylePosition:Css_Property.list_style_position Css_Property.t ->
+      ?listStyleType:Css_Property.list_style_type Css_Property.t ->
+      ?listStyle:Css_Property.list_style Css_Property.t ->
       unit ->
       Css_Property.list_styles t = "" [@@bs.obj]
 
     external outlines:
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
       unit ->
       Css_Property.outlines t = "" [@@bs.obj]
 
     external page_breaks:
-      ?pageBreakBefore:Css_Property.page_break_before ->
-      ?pageBreakAfter:Css_Property.page_break_after ->
-      ?pageBreakInside:Css_Property.page_break_inside ->
+      ?pageBreakBefore:Css_Property.page_break_before Css_Property.t ->
+      ?pageBreakAfter:Css_Property.page_break_after Css_Property.t ->
+      ?pageBreakInside:Css_Property.page_break_inside Css_Property.t ->
       unit ->
       Css_Property.page_breaks t = "" [@@bs.obj]
 
     external page_breaks_inside:
-      ?orphans:Css_Property.orphans ->
-      ?widows:Css_Property.widows ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
       unit ->
       Css_Property.page_break_inside t = "" [@@bs.obj]
 
     external pauses:
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
       unit ->
       Css_Property.pauses t = "" [@@bs.obj]
 
     external positions:
-      ?top:Css_Property.top ->
-      ?right:Css_Property.right ->
-      ?bottom:Css_Property.bottom ->
-      ?left:Css_Property.left ->
+      ?top:Css_Property.top Css_Property.t ->
+      ?right:Css_Property.right Css_Property.t ->
+      ?bottom:Css_Property.bottom Css_Property.t ->
+      ?left:Css_Property.left Css_Property.t ->
       unit ->
       Css_Property.positions t = "" [@@bs.obj]
 
     external speaks:
-      ?speakHeader:Css_Property.speak_header ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
+      ?speakHeader:Css_Property.speak_header Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
       unit ->
       Css_Property.speaks t = "" [@@bs.obj]
 
     external texts:
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?textAlign:Css_Property.text_align ->
-      ?textIndent:Css_Property.text_indent ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?textAlign:Css_Property.text_align Css_Property.t ->
+      ?textIndent:Css_Property.text_indent Css_Property.t ->
       unit ->
       Css_Property.texts t = "" [@@bs.obj]
 
     external widths:
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
       unit ->
       Css_Property.widths t = "" [@@bs.obj]
   end
@@ -192,154 +193,154 @@ module Internal = struct
 
   module MediaGroup = struct
     external aural:
-      ?azimuth:Css_Property.azimuth ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?elevation:Css_Property.elevation ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakHeader:Css_Property.speak_header ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakHeader:Css_Property.speak_header Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
       unit ->
       Css_Property.MediaGroup.aural t = "" [@@bs.obj]
 
     external interactive:
-      ?cursor:Css_Property.cursor ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
       unit ->
       Css_Property.MediaGroup.interactive t = "" [@@bs.obj]
 
     external visual:
-      ?alignContent:Css_Property.align_content ->
-      ?alignItems:Css_Property.align_items ->
-      ?alignSelf:Css_Property.align_self ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderCollapse:Css_Property.border_collapse ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderSpacing:Css_Property.border_spacing ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?captionSide:Css_Property.caption_side ->
-      ?clear:Css_Property.clear ->
-      ?clip:Css_Property.clip ->
-      ?color:Css_Property.color ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?emptyCells:Css_Property.empty_cells ->
-      ?flex:Css_Property.flex ->
-      ?flexBasis:Css_Property.flex_basis ->
-      ?flexDirection:Css_Property.flex_direction ->
-      ?flexFlow:Css_Property.flex_flow ->
-      ?flexGrow:Css_Property.flex_grow ->
-      ?flexShrink:Css_Property.flex_shrink ->
-      ?flexWrap:Css_Property.flex_wrap ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?justifyContent:Css_Property.justify_content ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?listStyleImage:Css_Property.list_style_image ->
-      ?listStylePosition:Css_Property.list_style_position ->
-      ?listStyleType:Css_Property.list_style_type ->
-      ?listStyle:Css_Property.list_style ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?order:Css_Property.order ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?overflow:Css_Property.overflow ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?pageBreakBefore:Css_Property.page_break_before ->
-      ?pageBreakAfter:Css_Property.page_break_after ->
-      ?pageBreakInside:Css_Property.page_break_inside ->
-      ?orphans:Css_Property.orphans ->
-      ?widows:Css_Property.widows ->
-      ?top:Css_Property.top ->
-      ?right:Css_Property.right ->
-      ?bottom:Css_Property.bottom ->
-      ?left:Css_Property.left ->
-      ?tableLayout:Css_Property.table_layout ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?textAlign:Css_Property.text_align ->
-      ?textIndent:Css_Property.text_indent ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?visibility:Css_Property.visibility ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?wordSpacing:Css_Property.word_spacing ->
-      ?zIndex:Css_Property.z_index ->
+      ?alignContent:Css_Property.align_content Css_Property.t ->
+      ?alignItems:Css_Property.align_items Css_Property.t ->
+      ?alignSelf:Css_Property.align_self Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderCollapse:Css_Property.border_collapse Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderSpacing:Css_Property.border_spacing Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?captionSide:Css_Property.caption_side Css_Property.t ->
+      ?clear:Css_Property.clear Css_Property.t ->
+      ?clip:Css_Property.clip Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?emptyCells:Css_Property.empty_cells Css_Property.t ->
+      ?flex:Css_Property.flex Css_Property.t ->
+      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
+      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
+      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
+      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
+      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?listStyleImage:Css_Property.list_style_image Css_Property.t ->
+      ?listStylePosition:Css_Property.list_style_position Css_Property.t ->
+      ?listStyleType:Css_Property.list_style_type Css_Property.t ->
+      ?listStyle:Css_Property.list_style Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?order:Css_Property.order Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?overflow:Css_Property.overflow Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?pageBreakBefore:Css_Property.page_break_before Css_Property.t ->
+      ?pageBreakAfter:Css_Property.page_break_after Css_Property.t ->
+      ?pageBreakInside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
+      ?top:Css_Property.top Css_Property.t ->
+      ?right:Css_Property.right Css_Property.t ->
+      ?bottom:Css_Property.bottom Css_Property.t ->
+      ?left:Css_Property.left Css_Property.t ->
+      ?tableLayout:Css_Property.table_layout Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?textAlign:Css_Property.text_align Css_Property.t ->
+      ?textIndent:Css_Property.text_indent Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t ->
+      ?zIndex:Css_Property.z_index Css_Property.t ->
       unit ->
       Css_Property.MediaGroup.visual t = "" [@@bs.obj]
 
     external paged:
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?pageBreakBefore:Css_Property.page_break_before ->
-      ?pageBreakAfter:Css_Property.page_break_after ->
-      ?pageBreakInside:Css_Property.page_break_inside ->
-      ?orphans:Css_Property.orphans ->
-      ?widows:Css_Property.widows ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?pageBreakBefore:Css_Property.page_break_before Css_Property.t ->
+      ?pageBreakAfter:Css_Property.page_break_after Css_Property.t ->
+      ?pageBreakInside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
       unit ->
       Css_Property.MediaGroup.paged t = "" [@@bs.obj]
   end
@@ -347,1802 +348,1802 @@ module Internal = struct
 
   module AppliesTo = struct
     external any:
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.any t = "" [@@bs.obj]
 
 
     external block:
-      ?clear:Css_Property.clear ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?overflow:Css_Property.overflow ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?pageBreakBefore:Css_Property.page_break_before ->
-      ?pageBreakAfter:Css_Property.page_break_after ->
-      ?pageBreakInside:Css_Property.page_break_inside ->
-      ?orphans:Css_Property.orphans ->
-      ?widows:Css_Property.widows ->
-      ?textAlign:Css_Property.text_align ->
-      ?textIndent:Css_Property.text_indent ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?clear:Css_Property.clear Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?overflow:Css_Property.overflow Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?pageBreakBefore:Css_Property.page_break_before Css_Property.t ->
+      ?pageBreakAfter:Css_Property.page_break_after Css_Property.t ->
+      ?pageBreakInside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
+      ?textAlign:Css_Property.text_align Css_Property.t ->
+      ?textIndent:Css_Property.text_indent Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.block t = "" [@@bs.obj]
 
 
     external flexbox:
-      ?alignContent:Css_Property.align_content ->
-      ?alignItems:Css_Property.align_items ->
-      ?flexDirection:Css_Property.flex_direction ->
-      ?flexFlow:Css_Property.flex_flow ->
-      ?flexWrap:Css_Property.flex_wrap ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?justifyContent:Css_Property.justify_content ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?order:Css_Property.order ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?alignContent:Css_Property.align_content Css_Property.t ->
+      ?alignItems:Css_Property.align_items Css_Property.t ->
+      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
+      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
+      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?order:Css_Property.order Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.flexbox t = "" [@@bs.obj]
 
 
     external flex_item:
-      ?alignSelf:Css_Property.align_self ->
-      ?flex:Css_Property.flex ->
-      ?flexBasis:Css_Property.flex_basis ->
-      ?flexGrow:Css_Property.flex_grow ->
-      ?flexShrink:Css_Property.flex_shrink ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?alignSelf:Css_Property.align_self Css_Property.t ->
+      ?flex:Css_Property.flex Css_Property.t ->
+      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
+      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
+      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.flex_item t = "" [@@bs.obj]
 
 
     external list_item:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?listStyleImage:Css_Property.list_style_image ->
-      ?listStylePosition:Css_Property.list_style_position ->
-      ?listStyleType:Css_Property.list_style_type ->
-      ?listStyle:Css_Property.list_style ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?listStyleImage:Css_Property.list_style_image Css_Property.t ->
+      ?listStylePosition:Css_Property.list_style_position Css_Property.t ->
+      ?listStyleType:Css_Property.list_style_type Css_Property.t ->
+      ?listStyle:Css_Property.list_style Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.list_item t = "" [@@bs.obj]
 
 
     external positioned:
-      ?clip:Css_Property.clip ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?top:Css_Property.top ->
-      ?right:Css_Property.right ->
-      ?bottom:Css_Property.bottom ->
-      ?left:Css_Property.left ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?zIndex:Css_Property.z_index ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?clip:Css_Property.clip Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?top:Css_Property.top Css_Property.t ->
+      ?right:Css_Property.right Css_Property.t ->
+      ?bottom:Css_Property.bottom Css_Property.t ->
+      ?left:Css_Property.left Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?zIndex:Css_Property.z_index Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.positioned t = "" [@@bs.obj]
 
 
     external replaced_inline:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.replaced_inline t = "" [@@bs.obj]
 
 
     external non_replaced_inline:
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.non_replaced_inline t = "" [@@bs.obj]
 
 
     external inline:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.inline t = "" [@@bs.obj]
 
 
     external inline_flex:
-      ?alignContent:Css_Property.align_content ->
-      ?alignItems:Css_Property.align_items ->
-      ?flex:Css_Property.flex ->
-      ?flexBasis:Css_Property.flex_basis ->
-      ?flexDirection:Css_Property.flex_direction ->
-      ?flexFlow:Css_Property.flex_flow ->
-      ?flexGrow:Css_Property.flex_grow ->
-      ?flexShrink:Css_Property.flex_shrink ->
-      ?flexWrap:Css_Property.flex_wrap ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?justifyContent:Css_Property.justify_content ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?order:Css_Property.order ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?alignContent:Css_Property.align_content Css_Property.t ->
+      ?alignItems:Css_Property.align_items Css_Property.t ->
+      ?flex:Css_Property.flex Css_Property.t ->
+      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
+      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
+      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
+      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
+      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?order:Css_Property.order Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.inline_flex t = "" [@@bs.obj]
 
 
     external inline_block:
-      ?clear:Css_Property.clear ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?overflow:Css_Property.overflow ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?pageBreakBefore:Css_Property.page_break_before ->
-      ?pageBreakAfter:Css_Property.page_break_after ->
-      ?pageBreakInside:Css_Property.page_break_inside ->
-      ?orphans:Css_Property.orphans ->
-      ?widows:Css_Property.widows ->
-      ?textAlign:Css_Property.text_align ->
-      ?textIndent:Css_Property.text_indent ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?clear:Css_Property.clear Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?overflow:Css_Property.overflow Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?pageBreakBefore:Css_Property.page_break_before Css_Property.t ->
+      ?pageBreakAfter:Css_Property.page_break_after Css_Property.t ->
+      ?pageBreakInside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
+      ?textAlign:Css_Property.text_align Css_Property.t ->
+      ?textIndent:Css_Property.text_indent Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.inline_block t = "" [@@bs.obj]
 
 
     external table_header_group:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?speakHeader:Css_Property.speak_header ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?speakHeader:Css_Property.speak_header Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_header_group t = "" [@@bs.obj]
 
 
     external table_footer_group:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_footer_group t = "" [@@bs.obj]
 
 
     external table_caption:
-      ?captionSide:Css_Property.caption_side ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?captionSide:Css_Property.caption_side Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_caption t = "" [@@bs.obj]
  
 
     external table:
-      ?borderCollapse:Css_Property.border_collapse ->
-      ?borderSpacing:Css_Property.border_spacing ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?speakHeader:Css_Property.speak_header ->
-      ?tableLayout:Css_Property.table_layout ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?borderCollapse:Css_Property.border_collapse Css_Property.t ->
+      ?borderSpacing:Css_Property.border_spacing Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?speakHeader:Css_Property.speak_header Css_Property.t ->
+      ?tableLayout:Css_Property.table_layout Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table t = "" [@@bs.obj]
 
 
     external inline_table:
-      ?borderCollapse:Css_Property.border_collapse ->
-      ?borderSpacing:Css_Property.border_spacing ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?margin:Css_Property.margin ->
-      ?marginTop:Css_Property.margin_top ->
-      ?marginRight:Css_Property.margin_right ->
-      ?marginBottom:Css_Property.margin_bottom ->
-      ?marginLeft:Css_Property.margin_left ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?tableLayout:Css_Property.table_layout ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?borderCollapse:Css_Property.border_collapse Css_Property.t ->
+      ?borderSpacing:Css_Property.border_spacing Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?margin:Css_Property.margin Css_Property.t ->
+      ?marginTop:Css_Property.margin_top Css_Property.t ->
+      ?marginRight:Css_Property.margin_right Css_Property.t ->
+      ?marginBottom:Css_Property.margin_bottom Css_Property.t ->
+      ?marginLeft:Css_Property.margin_left Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?tableLayout:Css_Property.table_layout Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.inline_table t = "" [@@bs.obj]
 
 
     external table_cell:
-      ?emptyCells:Css_Property.empty_cells ->
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?padding:Css_Property.padding ->
-      ?paddingTop:Css_Property.padding_top ->
-      ?paddingRight:Css_Property.padding_right ->
-      ?paddingBottom:Css_Property.padding_bottom ->
-      ?paddingLeft:Css_Property.padding_left ->
-      ?speakHeader:Css_Property.speak_header ->
-      ?verticalAlign:Css_Property.vertical_align ->
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?emptyCells:Css_Property.empty_cells Css_Property.t ->
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?padding:Css_Property.padding Css_Property.t ->
+      ?paddingTop:Css_Property.padding_top Css_Property.t ->
+      ?paddingRight:Css_Property.padding_right Css_Property.t ->
+      ?paddingBottom:Css_Property.padding_bottom Css_Property.t ->
+      ?paddingLeft:Css_Property.padding_left Css_Property.t ->
+      ?speakHeader:Css_Property.speak_header Css_Property.t ->
+      ?verticalAlign:Css_Property.vertical_align Css_Property.t ->
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_cell t = "" [@@bs.obj]
 
 
     external table_column:
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_column t = "" [@@bs.obj]
 
 
     external table_column_group:
-      ?width:Css_Property.width ->
-      ?minWidth:Css_Property.min_width ->
-      ?maxWidth:Css_Property.max_width ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?width:Css_Property.width Css_Property.t ->
+      ?minWidth:Css_Property.min_width Css_Property.t ->
+      ?maxWidth:Css_Property.max_width Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_column_group t = "" [@@bs.obj]
 
 
     external table_row:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_row t = "" [@@bs.obj]
 
 
     external table_row_group:
-      ?height:Css_Property.height ->
-      ?minHeight:Css_Property.min_height ->
-      ?maxHeight:Css_Property.max_height ->
-      ?azimuth:Css_Property.azimuth ->
-      ?backgroundAttachment:Css_Property.background_attachment ->
-      ?backgroundColor:Css_Property.background_color ->
-      ?backgroundImage:Css_Property.background_image ->
-      ?backgroundPosition:Css_Property.background_position ->
-      ?backgroundRepeat:Css_Property.background_repeat ->
-      ?background:Css_Property.background ->
-      ?borderTopColor:Css_Property.border_top_color ->
-      ?borderRightColor:Css_Property.border_right_color ->
-      ?borderBottomColor:Css_Property.border_bottom_color ->
-      ?borderLeftColor:Css_Property.border_left_color ->
-      ?borderColor:Css_Property.border_color ->
-      ?borderTopStyle:Css_Property.border_top_style ->
-      ?borderRightStyle:Css_Property.border_right_style ->
-      ?borderBottomStyle:Css_Property.border_bottom_style ->
-      ?borderLeftStyle:Css_Property.border_left_style ->
-      ?borderStyle:Css_Property.border_style ->
-      ?borderTopWidth:Css_Property.border_top_width ->
-      ?borderRightWidth:Css_Property.border_right_width ->
-      ?borderBottomWidth:Css_Property.border_bottom_width ->
-      ?borderLeftWidth:Css_Property.border_left_width ->
-      ?borderWidth:Css_Property.border_width ->
-      ?borderTop:Css_Property.border_top ->
-      ?borderRight:Css_Property.border_right ->
-      ?borderBottom:Css_Property.border_bottom ->
-      ?borderLeft:Css_Property.border_left ->
-      ?border:Css_Property.border ->
-      ?color:Css_Property.color ->
-      ?cueAfter:Css_Property.cue_after ->
-      ?cueBefore:Css_Property.cue_before ->
-      ?cue:Css_Property.cue ->
-      ?cursor:Css_Property.cursor ->
-      ?direction:Css_Property.direction ->
-      ?elevation:Css_Property.elevation ->
-      ?float:Css_Property.float_ ->
-      ?fontFamily:Css_Property.font_family ->
-      ?fontSize:Css_Property.font_size ->
-      ?fontStyle:Css_Property.font_style ->
-      ?fontVariant:Css_Property.font_variant ->
-      ?fontWeight:Css_Property.font_weight ->
-      ?font:Css_Property.font ->
-      ?letterSpacing:Css_Property.letter_spacing ->
-      ?lineHeight:Css_Property.line_height ->
-      ?outlineColor:Css_Property.outline_color ->
-      ?outlineStyle:Css_Property.outline_style ->
-      ?outlineWidth:Css_Property.outline_width ->
-      ?outline:Css_Property.outline ->
-      ?pauseAfter:Css_Property.pause_after ->
-      ?pauseBefore:Css_Property.pause_before ->
-      ?pause:Css_Property.pause ->
-      ?pitchRange:Css_Property.pitch_range ->
-      ?pitch:Css_Property.pitch ->
-      ?playDuring:Css_Property.play_during ->
-      ?richness:Css_Property.richness ->
-      ?speakNumeral:Css_Property.speak_numeral ->
-      ?speakPunctuation:Css_Property.speak_punctuation ->
-      ?speak:Css_Property.speak ->
-      ?speechRate:Css_Property.speech_rate ->
-      ?stress:Css_Property.stress ->
-      ?textDecoration:Css_Property.text_decoration ->
-      ?textTransform:Css_Property.text_transform ->
-      ?unicodeBidi:Css_Property.unicode_bidi ->
-      ?visibility:Css_Property.visibility ->
-      ?voiceFamily:Css_Property.voice_family ->
-      ?volume:Css_Property.volume ->
-      ?whiteSpace:Css_Property.white_space ->
-      ?wordSpacing:Css_Property.word_spacing -> 
+      ?height:Css_Property.height Css_Property.t ->
+      ?minHeight:Css_Property.min_height Css_Property.t ->
+      ?maxHeight:Css_Property.max_height Css_Property.t ->
+      ?azimuth:Css_Property.azimuth Css_Property.t ->
+      ?backgroundAttachment:Css_Property.background_attachment Css_Property.t ->
+      ?backgroundColor:Css_Property.background_color Css_Property.t ->
+      ?backgroundImage:Css_Property.background_image Css_Property.t ->
+      ?backgroundPosition:Css_Property.background_position Css_Property.t ->
+      ?backgroundRepeat:Css_Property.background_repeat Css_Property.t ->
+      ?background:Css_Property.background Css_Property.t ->
+      ?borderTopColor:Css_Property.border_top_color Css_Property.t ->
+      ?borderRightColor:Css_Property.border_right_color Css_Property.t ->
+      ?borderBottomColor:Css_Property.border_bottom_color Css_Property.t ->
+      ?borderLeftColor:Css_Property.border_left_color Css_Property.t ->
+      ?borderColor:Css_Property.border_color Css_Property.t ->
+      ?borderTopStyle:Css_Property.border_top_style Css_Property.t ->
+      ?borderRightStyle:Css_Property.border_right_style Css_Property.t ->
+      ?borderBottomStyle:Css_Property.border_bottom_style Css_Property.t ->
+      ?borderLeftStyle:Css_Property.border_left_style Css_Property.t ->
+      ?borderStyle:Css_Property.border_style Css_Property.t ->
+      ?borderTopWidth:Css_Property.border_top_width Css_Property.t ->
+      ?borderRightWidth:Css_Property.border_right_width Css_Property.t ->
+      ?borderBottomWidth:Css_Property.border_bottom_width Css_Property.t ->
+      ?borderLeftWidth:Css_Property.border_left_width Css_Property.t ->
+      ?borderWidth:Css_Property.border_width Css_Property.t ->
+      ?borderTop:Css_Property.border_top Css_Property.t ->
+      ?borderRight:Css_Property.border_right Css_Property.t ->
+      ?borderBottom:Css_Property.border_bottom Css_Property.t ->
+      ?borderLeft:Css_Property.border_left Css_Property.t ->
+      ?border:Css_Property.border Css_Property.t ->
+      ?color:Css_Property.color Css_Property.t ->
+      ?cueAfter:Css_Property.cue_after Css_Property.t ->
+      ?cueBefore:Css_Property.cue_before Css_Property.t ->
+      ?cue:Css_Property.cue Css_Property.t ->
+      ?cursor:Css_Property.cursor Css_Property.t ->
+      ?direction:Css_Property.direction Css_Property.t ->
+      ?elevation:Css_Property.elevation Css_Property.t ->
+      ?float:Css_Property.float_ Css_Property.t ->
+      ?fontFamily:Css_Property.font_family Css_Property.t ->
+      ?fontSize:Css_Property.font_size Css_Property.t ->
+      ?fontStyle:Css_Property.font_style Css_Property.t ->
+      ?fontVariant:Css_Property.font_variant Css_Property.t ->
+      ?fontWeight:Css_Property.font_weight Css_Property.t ->
+      ?font:Css_Property.font Css_Property.t ->
+      ?letterSpacing:Css_Property.letter_spacing Css_Property.t ->
+      ?lineHeight:Css_Property.line_height Css_Property.t ->
+      ?outlineColor:Css_Property.outline_color Css_Property.t ->
+      ?outlineStyle:Css_Property.outline_style Css_Property.t ->
+      ?outlineWidth:Css_Property.outline_width Css_Property.t ->
+      ?outline:Css_Property.outline Css_Property.t ->
+      ?pauseAfter:Css_Property.pause_after Css_Property.t ->
+      ?pauseBefore:Css_Property.pause_before Css_Property.t ->
+      ?pause:Css_Property.pause Css_Property.t ->
+      ?pitchRange:Css_Property.pitch_range Css_Property.t ->
+      ?pitch:Css_Property.pitch Css_Property.t ->
+      ?playDuring:Css_Property.play_during Css_Property.t ->
+      ?richness:Css_Property.richness Css_Property.t ->
+      ?speakNumeral:Css_Property.speak_numeral Css_Property.t ->
+      ?speakPunctuation:Css_Property.speak_punctuation Css_Property.t ->
+      ?speak:Css_Property.speak Css_Property.t ->
+      ?speechRate:Css_Property.speech_rate Css_Property.t ->
+      ?stress:Css_Property.stress Css_Property.t ->
+      ?textDecoration:Css_Property.text_decoration Css_Property.t ->
+      ?textTransform:Css_Property.text_transform Css_Property.t ->
+      ?unicodeBidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?visibility:Css_Property.visibility Css_Property.t ->
+      ?voiceFamily:Css_Property.voice_family Css_Property.t ->
+      ?volume:Css_Property.volume Css_Property.t ->
+      ?whiteSpace:Css_Property.white_space Css_Property.t ->
+      ?wordSpacing:Css_Property.word_spacing Css_Property.t -> 
       unit ->
       Css_Property.table_row_group t = "" [@@bs.obj]
   end

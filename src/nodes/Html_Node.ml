@@ -61,4 +61,4 @@ end
 include ContentCategory
 
 
-external to_node: _ t -> Dom.node = "%identity"
+external to_node: [< _ content] t -> Dom.node = "%identity"

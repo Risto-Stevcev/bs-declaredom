@@ -33,7 +33,7 @@ module PageRule = struct
   end
 
   type t =
-    [ `page of Selector.t option * Css_Property.MediaGroup.paged Js.Dict.t ]
+    [ `page of Selector.t option * Css_Property.MediaGroup.paged Style.t ]
 
   let make ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
     ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
@@ -55,7 +55,7 @@ end
 
 module MediaRule = struct
   type t =
-    [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Js.Dict.t ]
+    [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Style.t ]
 
   let print
     ?(only=false) ?condition selector properties: t =
@@ -106,13 +106,15 @@ module MediaRule = struct
 end
 
 module StyleRule = struct
-  type t = [ `style of Css_Selector.t * Css_Property.display Js.Dict.t ]
+  type t = [ `style of Css_Selector.t * Css_Property.display Style.t ]
 
   let make
     selector properties: t =
     `style
       ( selector
-      , properties |> Js.Dict.map (fun [@bs] p -> (p :> Css_Property.display))
+      , properties
+        |> Js.Dict.map
+          (fun [@bs] p -> (p :> Css_Property.display Css_Property.t))
       )
 
   let show ?(indent=0) (`style (selector, properties): t) =
@@ -135,7 +137,9 @@ module CssModuleRule = struct
 end
 
 module Rule = struct
-  type t = [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t | FontFaceRule.t ]
+  type t =
+    [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t
+    | FontFaceRule.t ]
 
   type ruleset = t list
 

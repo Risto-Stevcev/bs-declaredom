@@ -19,9 +19,8 @@ module Modules = struct
    *)
   let foo =
     container
-    |> Css_Module.map @@ fun e -> begin
-         e |> Js.Dict.map @@ fun [@bs] a -> (a :> Css_Property.display)
-       end
+    |> Css_Module.map @@
+       Js.Dict.map @@ fun [@bs] a -> (a :> Css_Property.display Css_Property.t)
 end
 
 let stylesheet =

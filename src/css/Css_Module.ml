@@ -6,7 +6,7 @@
 type 'a t
 
 module Internal = struct
-  type 'a value = { name: string; declaration: 'a Js.Dict.t }
+  type 'a value = { name: string; declaration: 'a Css_Property.t Js.Dict.t }
 
   module Convert = struct
     external to_module: 'a value -> 'a t = "%identity"
@@ -35,8 +35,8 @@ let to_display css_module =
   css_module
   |> Internal.map @@ fun { name; declaration } -> begin
     { name
-    ; declaration =
-        declaration |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display))
+    ; declaration = declaration
+      |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display Css_Property.t))
     }
   end
 
