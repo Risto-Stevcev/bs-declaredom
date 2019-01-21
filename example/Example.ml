@@ -68,6 +68,21 @@ let _ =
     let f (_: Html_Node.span Html_Node.t): unit = () in
     let _ = f (span [|text "hello"|]) in
 
+    (* Add custom types. Here the children are parameterized by `callbag and `foo *)
+    let custom_foo: [> [> `foo] Html_Node.custom] Html_Node.t = Obj.magic () in
+    let _: [`callbag | `foo] Html_Nodes.Div.child array = [|
+      span ~cssModule:Modules.title [|text "The time is:"|];
+      br ();
+      custom_foo;
+      clock;
+    |]
+    in
+
+    (* You can also typecheck based on your custom type *)
+    let f' (_: [`foo] Html_Node.custom Html_Node.t): unit = () in
+    let _ = f' custom_foo
+    in
+
     div ~cssModule:Modules.container [|
       TryJsx.foo;
       Div.flex ~cssModule:Modules.flex [|

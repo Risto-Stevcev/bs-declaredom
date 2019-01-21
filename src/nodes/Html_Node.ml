@@ -19,7 +19,7 @@ module Node = struct
 
    and text = [ `text ]
    and fragment = [ `fragment ]
-   and custom = [ `custom ]
+   and +'a custom = [ `custom of 'a ]
 
   (** Elements with no children *)
   type empty = br
@@ -34,28 +34,28 @@ include Node
 module ContentCategory = struct
   type metadata = title
   type script_supporting (* = [ script | template ] *)
-  type flow =
-    [ a | div | span | br | custom | fragment ]
+  type 'a flow =
+    [ a | div | span | br | 'a custom | fragment ]
   type sectioning = fragment
   type heading = fragment
-  type phrasing =
-    [ span | br | custom  | other ]
+  type 'a phrasing =
+    [ span | br | 'a custom  | other ]
   type embedded = fragment
   type interactive = [ a | fragment ]
   type form = fragment
-  type palpable = [ custom | fragment ]
+  type palpable = fragment
 
-  type content =
-    [ flow | sectioning | heading | phrasing | embedded
+  type 'a content =
+    [ 'a flow | sectioning | heading | 'a phrasing | embedded
     | interactive | form | palpable | metadata | other ]
 
-  type flex_item = content
+  type 'a flex_item = 'a content
 
   (**
    {e NOTE}: transparent is treated like content because there's no way to inherit
    the content model of parent -- the callee does not know about the caller
    *)
-  type transparent = content
+  type +'a transparent = 'a content
 end
 
 include ContentCategory

@@ -106,7 +106,7 @@ module Div :
       ?onWaiting:(Dom.event -> unit) ->
       ?style:Css_Property.Override.flex Style.t ->
       ?cssModule:Css_Property.Override.flex Css_Module.t ->
-      Html_Node.flex_item Html_Node.t array ->
+      _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div] Html_Node.t
     val inline_flex :
       ?aria_atomic:string ->
@@ -206,7 +206,7 @@ module Div :
       ?onWaiting:(Dom.event -> unit) ->
       ?style:Css_Property.Override.inline_flex Style.t ->
       ?cssModule:Css_Property.Override.inline_flex Css_Module.t ->
-      Html_Node.flex_item Html_Node.t array ->
+      _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div] Html_Node.t
     val inline_block :
       ?aria_atomic:string ->
@@ -306,7 +306,7 @@ module Div :
       ?onWaiting:(Dom.event -> unit) ->
       ?style:Css_Property.Override.inline_block Style.t ->
       ?cssModule:Css_Property.Override.inline_block Css_Module.t ->
-      Html_Nodes.Div.child array ->
+      _ Html_Nodes.Div.child array ->
       [> Html_Node.div] Html_Node.t
     module Jsx :
       sig
@@ -408,7 +408,7 @@ module Div :
           ?onWaiting:(Dom.event -> unit) ->
           ?style:Css_Property.Override.flex Style.t ->
           ?cssModule:Css_Property.Override.flex Css_Module.t ->
-          ?children:Html_Node.flex_item Html_Node.t Js.List.t ->
+          ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div] Html_Node.t
         val inline_flex :
           ?aria_atomic:string ->
@@ -508,7 +508,7 @@ module Div :
           ?onWaiting:(Dom.event -> unit) ->
           ?style:Css_Property.Override.inline_flex Style.t ->
           ?cssModule:Css_Property.Override.inline_flex Css_Module.t ->
-          ?children:Html_Node.flex_item Html_Node.t Js.List.t ->
+          ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div] Html_Node.t
         val inline_block :
           ?aria_atomic:string ->
@@ -608,7 +608,7 @@ module Div :
           ?onWaiting:(Dom.event -> unit) ->
           ?style:Css_Property.Override.inline_block Style.t ->
           ?cssModule:Css_Property.Override.inline_block Css_Module.t ->
-          ?children:Html_Nodes.Div.child Js.List.t ->
+          ?children:_ Html_Nodes.Div.child Js.List.t ->
           unit -> [> Html_Node.div] Html_Node.t
       end
   end
@@ -712,7 +712,7 @@ module Span :
       ?onWaiting:(Dom.event -> unit) ->
       ?style:Css_Property.Override.inline_block Style.t ->
       ?cssModule:Css_Property.Override.inline_block Css_Module.t ->
-      Html_Nodes.Span.child array ->
+      _ Html_Nodes.Span.child array ->
       [> Html_Node.span] Html_Node.t
     module Jsx :
       sig
@@ -814,10 +814,10 @@ module Span :
           ?onWaiting:(Dom.event -> unit) ->
           ?style:Css_Property.Override.inline_block Style.t ->
           ?cssModule:Css_Property.Override.inline_block Css_Module.t ->
-          ?children:Html_Nodes.Span.child Js.List.t ->
+          ?children:_ Html_Nodes.Span.child Js.List.t ->
           unit -> [> Html_Node.span] Html_Node.t
       end
   end
 val flex_module :
   Css_Property.flex_item Css_Module.t ->
-  Html_Node.flex_item Html_Node.t -> Html_Node.flex_item Html_Node.t
+  'a Html_Node.flex_item Html_Node.t -> 'a Html_Node.flex_item Html_Node.t

@@ -2,7 +2,7 @@ module Internal = struct
   external source: Dom.node -> Dom.node Callbag.t -> unit = "source" [@@bs.send]
 end
 
-type +'a t = ([> Html_Node.custom ] as 'a) Html_Node.t
+type +'a t = ([> [> `callbag] Html_Node.custom ] as 'a) Html_Node.t
 
 let make
   ?aria_atomic ?aria_busy ?aria_controls ?aria_current

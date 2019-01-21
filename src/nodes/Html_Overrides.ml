@@ -15,7 +15,7 @@ module Internal = struct
 
   module Node = struct
     external to_any:
-      [< Html_Node.content] Html_Node.t array ->
+      [< _ Html_Node.content] Html_Node.t array ->
       [> Html_Node.fragment] Html_Node.t array = "%identity"
   end
 end
@@ -48,7 +48,7 @@ module Div = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.Override.flex Style.t option)
     ?(cssModule:Css_Property.Override.flex Css_Module.t option)
-    (children:Html_Node.flex_item Html_Node.t array) =
+    (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Div.make
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -92,7 +92,7 @@ module Div = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.Override.inline_flex Style.t option)
     ?(cssModule:Css_Property.Override.inline_flex Css_Module.t option)
-    (children:Html_Node.flex_item Html_Node.t array) =
+    (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Div.make
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -369,9 +369,9 @@ end
 
 (** Sets a css module for a flex item *)
 let flex_module
-  (cssModule: Css_Property.flex_item Css_Module.t)
-  (value: Html_Node.flex_item Html_Node.t):
-  Html_Node.flex_item Html_Node.t =
+  (cssModule:Css_Property.flex_item Css_Module.t)
+  (value:'a Html_Node.flex_item Html_Node.t):
+  'a Html_Node.flex_item Html_Node.t =
   match (
     value |> Html_Node.to_node |> Webapi.Dom.Element.ofNode,
     Css_Module.get_class ~cssModule ()

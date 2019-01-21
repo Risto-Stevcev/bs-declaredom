@@ -32,7 +32,7 @@ module A = struct
 
   type +'a t = ([> Html_Node.a ] as 'a) Html_Node.t
 
-  type child = Html_Node.transparent Html_Node.t
+  type +'a child = 'a Html_Node.transparent Html_Node.t
 
   module Attributes = struct
     module Target = struct
@@ -98,7 +98,7 @@ module A = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
-    (children:child array): _ t
+    (children:_ child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -271,7 +271,7 @@ module Div = struct
 
   type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
 
-  type child = Html_Node.flow Html_Node.t
+  type +'a child = 'a Html_Node.flow Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -292,7 +292,7 @@ module Div = struct
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
-    (children:child array): _ t
+    (children:_ child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -368,7 +368,7 @@ module Span = struct
 
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
-  type child = Html_Node.phrasing Html_Node.t
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
 
   let make
     ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -390,7 +390,7 @@ module Span = struct
     ?onVolumeChange ?onWaiting
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
-    (children:child array): _ t
+    (children:_ child array): _ t
     =
     let className = Css_Module.get_class ?className ?cssModule ()
     in
@@ -569,10 +569,10 @@ end
 module Fragment = struct
   type +'a t = ([> Html_Node.fragment ] as 'a) Html_Node.t
 
-  type +'a child =
-    ([< Html_Node.content > `fragment ] as 'a) Html_Node.t
+  type (+'a, +'b) child =
+    ([< 'b Html_Node.content > `fragment ] as 'a) Html_Node.t
 
-  let make (children:'a child array): 'a child = 
+  let make (children:('a, 'b) child array): ('a, 'b) child = 
     Declaredom.make "fragment"
       (Js.Obj.empty () |> Obj.magic)
       (children |> Js.Array.map Html_Node.to_node)
