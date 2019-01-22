@@ -28,12 +28,7 @@ end
 
 
 module Div = struct
-  let flex
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let flex ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -49,12 +44,7 @@ module Div = struct
     ?(style:Css_Property.Override.flex Style.t option)
     ?(cssModule:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
-    Html_Nodes.Div.make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    Html_Nodes.Div.make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -72,12 +62,7 @@ module Div = struct
       (Internal.Node.to_any children)
 
 
-  let inline_flex
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let inline_flex ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -93,12 +78,7 @@ module Div = struct
     ?(style:Css_Property.Override.inline_flex Style.t option)
     ?(cssModule:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
-    Html_Nodes.Div.make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    Html_Nodes.Div.make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -116,12 +96,7 @@ module Div = struct
       (Internal.Node.to_any children)
 
 
-  let inline_block
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let inline_block ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -137,12 +112,7 @@ module Div = struct
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Div.make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    Html_Nodes.Div.make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -161,12 +131,7 @@ module Div = struct
 
 
   module Jsx = struct
-    let flex
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    let flex ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -179,12 +144,7 @@ module Div = struct
       ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      flex
-        ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-        ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-        ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-        ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-        ?aria_owns ?aria_relevant ?aria_roledescription
+      flex ?aria
         ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
         ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
         ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -200,12 +160,7 @@ module Div = struct
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_flex
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    let inline_flex ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -218,12 +173,7 @@ module Div = struct
       ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_flex
-        ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-        ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-        ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-        ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-        ?aria_owns ?aria_relevant ?aria_roledescription
+      inline_flex ?aria
         ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
         ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
         ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -239,12 +189,7 @@ module Div = struct
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_block
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    let inline_block ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -257,12 +202,7 @@ module Div = struct
       ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_block
-        ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-        ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-        ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-        ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-        ?aria_owns ?aria_relevant ?aria_roledescription
+      inline_block ?aria
         ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
         ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
         ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -281,12 +221,7 @@ end
 
 
 module Span = struct
-  let inline_block
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let inline_block ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -302,12 +237,7 @@ module Span = struct
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Span.make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    Html_Nodes.Span.make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -326,12 +256,7 @@ module Span = struct
 
 
   module Jsx = struct
-    let inline_block
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    let inline_block ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -344,12 +269,7 @@ module Span = struct
       ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_block  
-        ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-        ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-        ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-        ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-        ?aria_owns ?aria_relevant ?aria_roledescription
+      inline_block ?aria
         ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
         ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
         ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough

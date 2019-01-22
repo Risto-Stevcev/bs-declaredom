@@ -9,27 +9,7 @@
 module Div :
   sig
     val flex :
-      ?aria_atomic:string ->
-      ?aria_busy:unit ->
-      ?aria_controls:string ->
-      ?aria_current:unit ->
-      ?aria_describedby:string ->
-      ?aria_details:string ->
-      ?aria_disabled:unit ->
-      ?aria_dropeffect:string ->
-      ?aria_errormessage:string ->
-      ?aria_flowto:string ->
-      ?aria_grabbed:unit ->
-      ?aria_haspopup:string ->
-      ?aria_hidden:unit ->
-      ?aria_invalid:unit ->
-      ?aria_keyshortcuts:string ->
-      ?aria_label:string ->
-      ?aria_labelledby:string ->
-      ?aria_live:string ->
-      ?aria_owns:string ->
-      ?aria_relevant:string ->
-      ?aria_roledescription:string ->
+      ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
       ?accessKey:string ->
       ?className:string ->
       ?classSet:bool Js.Dict.t ->
@@ -109,27 +89,7 @@ module Div :
       _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div] Html_Node.t
     val inline_flex :
-      ?aria_atomic:string ->
-      ?aria_busy:unit ->
-      ?aria_controls:string ->
-      ?aria_current:unit ->
-      ?aria_describedby:string ->
-      ?aria_details:string ->
-      ?aria_disabled:unit ->
-      ?aria_dropeffect:string ->
-      ?aria_errormessage:string ->
-      ?aria_flowto:string ->
-      ?aria_grabbed:unit ->
-      ?aria_haspopup:string ->
-      ?aria_hidden:unit ->
-      ?aria_invalid:unit ->
-      ?aria_keyshortcuts:string ->
-      ?aria_label:string ->
-      ?aria_labelledby:string ->
-      ?aria_live:string ->
-      ?aria_owns:string ->
-      ?aria_relevant:string ->
-      ?aria_roledescription:string ->
+      ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
       ?accessKey:string ->
       ?className:string ->
       ?classSet:bool Js.Dict.t ->
@@ -209,27 +169,7 @@ module Div :
       _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div] Html_Node.t
     val inline_block :
-      ?aria_atomic:string ->
-      ?aria_busy:unit ->
-      ?aria_controls:string ->
-      ?aria_current:unit ->
-      ?aria_describedby:string ->
-      ?aria_details:string ->
-      ?aria_disabled:unit ->
-      ?aria_dropeffect:string ->
-      ?aria_errormessage:string ->
-      ?aria_flowto:string ->
-      ?aria_grabbed:unit ->
-      ?aria_haspopup:string ->
-      ?aria_hidden:unit ->
-      ?aria_invalid:unit ->
-      ?aria_keyshortcuts:string ->
-      ?aria_label:string ->
-      ?aria_labelledby:string ->
-      ?aria_live:string ->
-      ?aria_owns:string ->
-      ?aria_relevant:string ->
-      ?aria_roledescription:string ->
+      ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
       ?accessKey:string ->
       ?className:string ->
       ?classSet:bool Js.Dict.t ->
@@ -311,27 +251,7 @@ module Div :
     module Jsx :
       sig
         val flex :
-          ?aria_atomic:string ->
-          ?aria_busy:unit ->
-          ?aria_controls:string ->
-          ?aria_current:unit ->
-          ?aria_describedby:string ->
-          ?aria_details:string ->
-          ?aria_disabled:unit ->
-          ?aria_dropeffect:string ->
-          ?aria_errormessage:string ->
-          ?aria_flowto:string ->
-          ?aria_grabbed:unit ->
-          ?aria_haspopup:string ->
-          ?aria_hidden:unit ->
-          ?aria_invalid:unit ->
-          ?aria_keyshortcuts:string ->
-          ?aria_label:string ->
-          ?aria_labelledby:string ->
-          ?aria_live:string ->
-          ?aria_owns:string ->
-          ?aria_relevant:string ->
-          ?aria_roledescription:string ->
+          ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
           ?accessKey:string ->
           ?className:string ->
           ?classSet:bool Js.Dict.t ->
@@ -411,27 +331,7 @@ module Div :
           ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div] Html_Node.t
         val inline_flex :
-          ?aria_atomic:string ->
-          ?aria_busy:unit ->
-          ?aria_controls:string ->
-          ?aria_current:unit ->
-          ?aria_describedby:string ->
-          ?aria_details:string ->
-          ?aria_disabled:unit ->
-          ?aria_dropeffect:string ->
-          ?aria_errormessage:string ->
-          ?aria_flowto:string ->
-          ?aria_grabbed:unit ->
-          ?aria_haspopup:string ->
-          ?aria_hidden:unit ->
-          ?aria_invalid:unit ->
-          ?aria_keyshortcuts:string ->
-          ?aria_label:string ->
-          ?aria_labelledby:string ->
-          ?aria_live:string ->
-          ?aria_owns:string ->
-          ?aria_relevant:string ->
-          ?aria_roledescription:string ->
+          ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
           ?accessKey:string ->
           ?className:string ->
           ?classSet:bool Js.Dict.t ->
@@ -511,27 +411,7 @@ module Div :
           ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div] Html_Node.t
         val inline_block :
-          ?aria_atomic:string ->
-          ?aria_busy:unit ->
-          ?aria_controls:string ->
-          ?aria_current:unit ->
-          ?aria_describedby:string ->
-          ?aria_details:string ->
-          ?aria_disabled:unit ->
-          ?aria_dropeffect:string ->
-          ?aria_errormessage:string ->
-          ?aria_flowto:string ->
-          ?aria_grabbed:unit ->
-          ?aria_haspopup:string ->
-          ?aria_hidden:unit ->
-          ?aria_invalid:unit ->
-          ?aria_keyshortcuts:string ->
-          ?aria_label:string ->
-          ?aria_labelledby:string ->
-          ?aria_live:string ->
-          ?aria_owns:string ->
-          ?aria_relevant:string ->
-          ?aria_roledescription:string ->
+          ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
           ?accessKey:string ->
           ?className:string ->
           ?classSet:bool Js.Dict.t ->
@@ -615,27 +495,7 @@ module Div :
 module Span :
   sig
     val inline_block :
-      ?aria_atomic:string ->
-      ?aria_busy:unit ->
-      ?aria_controls:string ->
-      ?aria_current:unit ->
-      ?aria_describedby:string ->
-      ?aria_details:string ->
-      ?aria_disabled:unit ->
-      ?aria_dropeffect:string ->
-      ?aria_errormessage:string ->
-      ?aria_flowto:string ->
-      ?aria_grabbed:unit ->
-      ?aria_haspopup:string ->
-      ?aria_hidden:unit ->
-      ?aria_invalid:unit ->
-      ?aria_keyshortcuts:string ->
-      ?aria_label:string ->
-      ?aria_labelledby:string ->
-      ?aria_live:string ->
-      ?aria_owns:string ->
-      ?aria_relevant:string ->
-      ?aria_roledescription:string ->
+      ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
       ?accessKey:string ->
       ?className:string ->
       ?classSet:bool Js.Dict.t ->
@@ -717,27 +577,7 @@ module Span :
     module Jsx :
       sig
         val inline_block :
-          ?aria_atomic:string ->
-          ?aria_busy:unit ->
-          ?aria_controls:string ->
-          ?aria_current:unit ->
-          ?aria_describedby:string ->
-          ?aria_details:string ->
-          ?aria_disabled:unit ->
-          ?aria_dropeffect:string ->
-          ?aria_errormessage:string ->
-          ?aria_flowto:string ->
-          ?aria_grabbed:unit ->
-          ?aria_haspopup:string ->
-          ?aria_hidden:unit ->
-          ?aria_invalid:unit ->
-          ?aria_keyshortcuts:string ->
-          ?aria_label:string ->
-          ?aria_labelledby:string ->
-          ?aria_live:string ->
-          ?aria_owns:string ->
-          ?aria_relevant:string ->
-          ?aria_roledescription:string ->
+          ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
           ?accessKey:string ->
           ?className:string ->
           ?classSet:bool Js.Dict.t ->

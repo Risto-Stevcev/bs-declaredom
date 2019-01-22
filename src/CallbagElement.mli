@@ -3,27 +3,7 @@
 type +'a t = ([> [> `callbag] Html_Node.custom ] as 'a) Html_Node.t
 
 val make :
-  ?aria_atomic:string ->
-  ?aria_busy:unit ->
-  ?aria_controls:string ->
-  ?aria_current:unit ->
-  ?aria_describedby:string ->
-  ?aria_details:string ->
-  ?aria_disabled:unit ->
-  ?aria_dropeffect:string ->
-  ?aria_errormessage:string ->
-  ?aria_flowto:string ->
-  ?aria_grabbed:unit ->
-  ?aria_haspopup:string ->
-  ?aria_hidden:unit ->
-  ?aria_invalid:unit ->
-  ?aria_keyshortcuts:string ->
-  ?aria_label:string ->
-  ?aria_labelledby:string ->
-  ?aria_live:string ->
-  ?aria_owns:string ->
-  ?aria_relevant:string ->
-  ?aria_roledescription:string ->
+  ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
   ?accessKey:string ->
   ?className:string ->
   ?classSet:bool Js.Dict.t ->
@@ -101,27 +81,7 @@ val make :
   [< _ Html_Node.content] Html_Node.t Callbag.t -> _ t
 
 val jsx :
-  ?aria_atomic:string ->
-  ?aria_busy:unit ->
-  ?aria_controls:string ->
-  ?aria_current:unit ->
-  ?aria_describedby:string ->
-  ?aria_details:string ->
-  ?aria_disabled:unit ->
-  ?aria_dropeffect:string ->
-  ?aria_errormessage:string ->
-  ?aria_flowto:string ->
-  ?aria_grabbed:unit ->
-  ?aria_haspopup:string ->
-  ?aria_hidden:unit ->
-  ?aria_invalid:unit ->
-  ?aria_keyshortcuts:string ->
-  ?aria_label:string ->
-  ?aria_labelledby:string ->
-  ?aria_live:string ->
-  ?aria_owns:string ->
-  ?aria_relevant:string ->
-  ?aria_roledescription:string ->
+  ?aria:[< Html_Attributes.Aria.roletype] Html_Attributes.Aria.t ->
   ?accessKey:string ->
   ?className:string ->
   ?classSet:bool Js.Dict.t ->

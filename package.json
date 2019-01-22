@@ -40,6 +40,6 @@
     "bs-webapi": "^0.13.0",
     "callbag-element": "^1.0.0",
     "callbag-html": "^0.1.0",
-    "declaredom": "^1.1.0"
+    "declaredom": "^1.2.0"
   }
 }

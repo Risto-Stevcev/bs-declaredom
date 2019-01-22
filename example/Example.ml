@@ -90,6 +90,10 @@ let _ =
         span [|text "flexbox"|];
       |];
       fragment [|
+        a ~id:"link" ~href:"#"
+          ~aria:(Html_Attributes.Aria.link ~aria_hidden:true ~aria_label:"foo" ())
+          [|text "some link"|];
+        br ();
         span [|text "foo"|];
         br ();
         span [|text "bar"|];

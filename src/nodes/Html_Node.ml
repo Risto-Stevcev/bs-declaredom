@@ -12,6 +12,9 @@ type +'node t
 
 module Node = struct
   type a = [ `a ]
+   and abbr = [ `abbr ]
+   and address = [ `address ]
+   and area = [ `area ]
    and br = [ `br ]
    and div = [ `div ]
    and span = [ `span ]
@@ -35,11 +38,11 @@ module ContentCategory = struct
   type metadata = title
   type script_supporting (* = [ script | template ] *)
   type 'a flow =
-    [ a | div | span | br | 'a custom | fragment ]
+    [ a | abbr | address | area | br | div | span | 'a custom | fragment ]
   type sectioning = fragment
   type heading = fragment
   type 'a phrasing =
-    [ span | br | 'a custom  | other ]
+    [ abbr | area | br | span | 'a custom  | other ]
   type embedded = fragment
   type interactive = [ a | fragment ]
   type form = fragment

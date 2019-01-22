@@ -1,6 +1,7 @@
 open BsTape
 open Test
-open Html_Nodes;;
+open Html_Nodes
+module Aria = Html_Attributes.Aria;;
 
 (* TODO: don't use Jsdom, use headless karma? or something else instead *)
 let _ = Jsdom.init () [@bs]
@@ -17,6 +18,7 @@ let to_element x =
 test ~name:"node - a" @@ fun t -> begin
   let element =
     A.make
+      ~aria:(Aria.link ~aria_label:"foo" ())
       ~href:"http://www.w3.org"
       ~target:`blank
       ~download:()
@@ -31,7 +33,8 @@ test ~name:"node - a" @@ fun t -> begin
   t |> T.equal (tagName element) "A";
   t |> T.equal (outerHTML element) @@
     "<a href=\"http://www.w3.org\" target=\"blank\" download=\"\" "^
-    "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\"></a>";
+    "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\" "^
+    "referrerpolicy=\"no-referrer\" aria-label=\"foo\"></a>";
   t |> T.end_
 end;
 

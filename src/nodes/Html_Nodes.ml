@@ -78,12 +78,14 @@ module A = struct
 
   let make
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?aria_expanded
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?(aria:[< Html_Attributes.Aria.link
+           | Html_Attributes.Aria.button
+           | Html_Attributes.Aria.checkbox
+           | Html_Attributes.Aria.radio
+           | Html_Attributes.Aria.switch
+           | Html_Attributes.Aria.tab
+           | Html_Attributes.Aria.treeitem
+           ] Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -106,13 +108,7 @@ module A = struct
       (Util.merge_all [|
         Attributes.make ?href ?target ?download ?rel ?rev ?hreflang ?_type
           ?referrerpolicy ();
-        Html_Attributes.Aria.Expanded.make ?aria_expanded ();
-        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-          ?aria_roledescription ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
@@ -133,13 +129,7 @@ module A = struct
 
 
   let jsx
-    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?aria_expanded
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -153,13 +143,7 @@ module A = struct
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
     make
-      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-      ?aria_expanded
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -176,17 +160,164 @@ module A = struct
 end
 
 
-module Br = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} Br} *)
+module Abbr = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-abbr} Abbr} *)
 
-  type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
+  type +'a t = ([> Html_Node.abbr ] as 'a) Html_Node.t
 
-  let make
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
+
+  let make ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "abbr"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Address = struct
+  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-address} Address} *)
+
+  type +'a t = ([> Html_Node.address ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.flow Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "address"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Area = struct
+  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-area} Area} *)
+
+  type +'a t = ([> Html_Node.area ] as 'a) Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -201,14 +332,9 @@ module Br = struct
     ?onVolumeChange ?onWaiting
     (): _ t
     =
-    Declaredom.make_empty "br"
+    Declaredom.make_empty "area"
       (Util.merge_all [|
-        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-          ?aria_roledescription ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
@@ -227,12 +353,7 @@ module Br = struct
       ()
     |> Internal.make
 
-  let jsx
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let jsx ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -245,12 +366,77 @@ module Br = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?children:_ () =
-    make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ()
+end
+
+
+module Br = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} Br} *)
+
+  type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
+
+  let make ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
+    (): _ t
+    =
+    Declaredom.make_empty "br"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      ()
+    |> Internal.make
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?children:_ () =
+    make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -273,12 +459,7 @@ module Div = struct
 
   type +'a child = 'a Html_Node.flow Html_Node.t
 
-  let make
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let make ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -298,12 +479,7 @@ module Div = struct
     in
     Declaredom.make "div"
       (Util.merge_all [|
-        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-          ?aria_roledescription ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
@@ -323,12 +499,7 @@ module Div = struct
     |> Internal.make
 
 
-  let jsx
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let jsx ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -341,12 +512,7 @@ module Div = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -370,12 +536,7 @@ module Span = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let make ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -396,12 +557,7 @@ module Span = struct
     in
     Declaredom.make "span"
       (Util.merge_all [|
-        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-          ?aria_roledescription ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
@@ -421,12 +577,7 @@ module Span = struct
     |> Internal.make
 
 
-  let jsx
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let jsx ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -439,12 +590,7 @@ module Span = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -468,12 +614,7 @@ module Title = struct
 
   type child = Html_Node.text Html_Node.t
 
-  let make
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -490,12 +631,7 @@ module Title = struct
     =
     Declaredom.make "title"
       (Util.merge_all [|
-        Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-          ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-          ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-          ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-          ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-          ?aria_roledescription ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
@@ -515,12 +651,7 @@ module Title = struct
     |> Internal.make
 
 
-  let jsx
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  let jsx ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -533,12 +664,7 @@ module Title = struct
     ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
     ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
     ?onVolumeChange ?onWaiting ?(children=[]) () =
-    make
-      ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-      ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-      ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-      ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-      ?aria_owns ?aria_relevant ?aria_roledescription
+    make ?aria
       ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
       ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
       ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough

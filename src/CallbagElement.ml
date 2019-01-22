@@ -4,12 +4,7 @@ end
 
 type +'a t = ([> [> `callbag] Html_Node.custom ] as 'a) Html_Node.t
 
-let make
-  ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-  ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-  ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-  ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-  ?aria_owns ?aria_relevant ?aria_roledescription
+let make ?aria
   ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
   ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
   ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -27,12 +22,7 @@ let make
   let callbag_element =
     Declaredom.make_empty "x-callbag"
     (Util.merge_all [|
-      Html_Attributes.Aria.Global.make ?aria_atomic ?aria_busy ?aria_controls
-        ?aria_current ?aria_describedby ?aria_details ?aria_disabled
-        ?aria_dropeffect ?aria_errormessage ?aria_flowto ?aria_grabbed
-        ?aria_haspopup ?aria_hidden ?aria_invalid ?aria_keyshortcuts
-        ?aria_label ?aria_labelledby ?aria_live ?aria_owns ?aria_relevant
-        ?aria_roledescription ();
+      Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
       Html_Attributes.Global.make ?accessKey ?className ?classSet
         ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
         ?spellCheck ?tabIndex ?title ?translate ();
@@ -56,12 +46,7 @@ let make
   Obj.magic callbag_element
 
 
-let jsx
-  ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-  ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-  ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-  ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-  ?aria_owns ?aria_relevant ?aria_roledescription
+let jsx ?aria
   ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
   ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
   ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -74,12 +59,7 @@ let jsx
   ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
   ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
   ?onVolumeChange ?onWaiting ?callbag () =
-  make
-    ?aria_atomic ?aria_busy ?aria_controls ?aria_current
-    ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
-    ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
-    ?aria_invalid ?aria_keyshortcuts ?aria_label ?aria_labelledby ?aria_live
-    ?aria_owns ?aria_relevant ?aria_roledescription
+  make ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
