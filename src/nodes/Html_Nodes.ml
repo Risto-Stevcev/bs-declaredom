@@ -35,21 +35,6 @@ module A = struct
   type +'a child = 'a Html_Node.transparent Html_Node.t
 
   module Attributes = struct
-    module Target = struct
-      (** {{: https://www.w3.org/TR/html52/browsers.html#browsing-context-names} Browsing context} *)
-
-      type value =
-        [ `blank | `self | `parent | `top ] [@@bs.deriving jsConverter]
-
-      type t = [ value | `browsing_context of string ]
-
-      let show: t -> string = function
-      | #value as value ->
-        valueToJs value
-      | `browsing_context name ->
-        name
-    end
-
     external _make:
       ?href:string ->
       ?target:string ->
@@ -65,7 +50,7 @@ module A = struct
     let make ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
       () =
       _make ?href
-        ?target:(Belt.Option.map target Target.show)
+        ?target:(Belt.Option.map target Html_Attributes.Target.show)
         ?download:(Belt.Option.map download Util.string_of_unit)
         ?rel:(Belt.Option.map rel Html_Attributes.LinkType.Hyperlink.show)
         ?rev:(Belt.Option.map rev Html_Attributes.LinkType.Hyperlink.show)
@@ -317,7 +302,44 @@ module Area = struct
 
   type +'a t = ([> Html_Node.area ] as 'a) Html_Node.t
 
-  let make ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
+  module Attributes = struct
+    type shape = [ `rect | `circle | `poly ] [@@bs.deriving jsConverter]
+
+    let from_coords value =
+      value |. Belt.List.map string_of_int |. Util.join_with ","
+
+    external _make:
+      ?alt:string ->
+      ?coords:string ->
+      ?download:string ->
+      ?href:string ->
+      ?hreflang:string ->
+      ?rel:string ->
+      ?shape:string ->
+      ?target:string ->
+      ?_type:string ->
+      ?referrerpolicy:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj] 
+
+    let make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
+      ?referrerpolicy () =
+      _make ?alt
+        ?coords:(Belt.Option.map coords from_coords)
+        ?download:(Belt.Option.map download Util.string_of_unit)
+        ?href ?hreflang
+        ?rel:(Belt.Option.map rel Html_Attributes.LinkType.Hyperlink.show)
+        ?shape:(Belt.Option.map shape shapeToJs)
+        ?target:(Belt.Option.map target Html_Attributes.Target.show)
+        ?_type
+        ?referrerpolicy:
+          (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
+        ()
+  end
+
+  let make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
+    ?referrerpolicy 
+    ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
     ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
@@ -334,6 +356,8 @@ module Area = struct
     =
     Declaredom.make_empty "area"
       (Util.merge_all [|
+        Attributes.make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
+          ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
@@ -380,6 +404,780 @@ module Area = struct
       ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
       ?onVolumeChange ?onWaiting ()
 end
+
+
+module Article = struct
+  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-article} Article} *)
+
+  type +'a t = ([> Html_Node.article ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.flow Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.article
+           | Html_Attributes.Aria.application
+           | Html_Attributes.Aria.document
+           | Html_Attributes.Aria.feed
+           | Html_Attributes.Aria.main
+           | Html_Attributes.Aria.region
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "article"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Aside = struct
+  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-aside} Aside} *)
+
+  type +'a t = ([> Html_Node.aside ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.flow Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.complementary
+           | Html_Attributes.Aria.feed
+           | Html_Attributes.Aria.note
+           | Html_Attributes.Aria.search
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "aside"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Audio = struct
+  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-audio} Audio} *)
+
+  type +'a t = ([> Html_Node.audio ] as 'a) Html_Node.t
+
+  type +'a child = [Html_Node.source | 'a Html_Node.transparent] Html_Node.t
+
+  module Attributes = struct
+    type crossorigin =
+      [ `anonymous | `use_credentials [@bs.as "use-credentials"] ]
+      [@@bs.deriving jsConverter]
+
+    type preload =
+      [ `none | `metadata | `auto ] [@@bs.deriving jsConverter]
+
+    external _make:
+      ?src:string ->
+      ?crossorigin:string ->
+      ?preload:string ->
+      ?autoplay:string ->
+      ?loop:string ->
+      ?muted:string ->
+      ?controls:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj] 
+
+    let make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls () =
+      _make ?src ?crossorigin:(Belt.Option.map crossorigin crossoriginToJs)
+        ?preload:(Belt.Option.map preload preloadToJs)
+        ?autoplay:(Belt.Option.map autoplay string_of_bool)
+        ?loop:(Belt.Option.map loop string_of_bool)
+        ?muted:(Belt.Option.map muted string_of_bool)
+        ?controls:(Belt.Option.map controls Util.string_of_unit)
+        ()
+  end
+
+  let make
+    ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
+    ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
+    (children:_ child array): _ t
+    =
+    Declaredom.make "audio"
+      (Util.merge_all [|
+        Attributes.make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module B = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-b} B} *)
+
+  type +'a t = ([> Html_Node.b ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
+
+  let make ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "b"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Base = struct
+  (** {{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-base} Base} *)
+
+  type +'a t = ([> Html_Node.base ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external _make:
+      ?href:string -> ?target:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?href ?target () =
+      _make ?href ?target:(Belt.Option.map target Html_Attributes.Target.show) ()
+  end
+
+  let make ?href ?target
+    ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting
+    (): _ t
+    =
+    Declaredom.make_empty "base"
+      (Util.merge_all [|
+        Attributes.make ?href ?target ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      ()
+    |> Internal.make
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?children:_ () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ()
+end
+
+
+module Bdi = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdi} Bdi} *)
+
+  type +'a t = ([> Html_Node.bdi ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
+
+  let make ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "bdi"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Bdo = struct
+  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdo} Bdo} *)
+
+  type +'a t = ([> Html_Node.bdo ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
+
+  let make ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "bdo"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+
+module Blockquote = struct
+  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-blockquote} Blockquote} *)
+
+  type +'a t = ([> Html_Node.blockquote ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.flow Html_Node.t
+
+  module Attributes = struct
+    external make: ?cite:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?cite ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "blockquote"
+      (Util.merge_all [|
+        Attributes.make ?cite ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Body = struct
+  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-body} Body} *)
+
+  type +'a t = ([> Html_Node.body ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.flow Html_Node.t
+
+  module Attributes = struct
+    external make:
+      ?onAfterPrint:(Dom.event -> unit) ->
+      ?onBeforePrint:(Dom.event -> unit) ->
+      ?onBeforeUnload:(Dom.event -> unit) ->
+      ?onHashChange:(Dom.event -> unit) ->
+      ?onLanguageChange:(Dom.event -> unit) ->
+      ?onMessage:(Dom.event -> unit) ->
+      ?onOffline:(Dom.event -> unit) ->
+      ?onOnline:(Dom.event -> unit) ->
+      ?onPageHide:(Dom.event -> unit) ->
+      ?onPageShow:(Dom.event -> unit) ->
+      ?onPopState:(Dom.event -> unit) ->
+      ?onRejectionHandled:(Dom.event -> unit) ->
+      ?onStorage:(Dom.event -> unit) ->
+      ?onUnhandledRejection:(Dom.event -> unit) ->
+      ?onUnload:(Dom.event -> unit) ->
+      unit -> Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
+    ?onLanguageChange ?onMessage ?onOffline ?onOnline ?onPageHide ?onPageShow 
+    ?onPopState ?onRejectionHandled ?onStorage ?onUnhandledRejection ?onUnload 
+    ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "body"
+      (Util.merge_all [|
+        Attributes.make ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
+          ?onLanguageChange ?onMessage ?onOffline ?onOnline ?onPageHide ?onPageShow 
+          ?onPopState ?onRejectionHandled ?onStorage ?onUnhandledRejection ?onUnload 
+          ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make ?accessKey ?className ?classSet
+          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
+          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
+          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
+          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
+          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
+          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
+          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
+          ?onToggle ?onVolumeChange ?onWaiting ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
+      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
+      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
+      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
+      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
+      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
+      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
+      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
+      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
+      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
+      ?onVolumeChange ?onWaiting ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+
 
 
 module Br = struct

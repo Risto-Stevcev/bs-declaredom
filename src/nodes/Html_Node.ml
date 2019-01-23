@@ -15,8 +15,18 @@ module Node = struct
    and abbr = [ `abbr ]
    and address = [ `address ]
    and area = [ `area ]
+   and article = [ `article ]
+   and aside = [ `aside ]
+   and audio = [ `audio ]
+   and b = [ `b ]
+   and base = [ `base ]
+   and bdi = [ `bdi ]
+   and bdo = [ `bdo ]
+   and blockquote = [ `blockquote ]
+   and body = [ `body ]
    and br = [ `br ]
    and div = [ `div ]
+   and source = [ `source ]
    and span = [ `span ]
    and title = [ `title ]
 
@@ -35,22 +45,29 @@ include Node
 
 
 module ContentCategory = struct
-  type metadata = title
+  type none = source
+  type metadata = [ base | title ]
   type script_supporting (* = [ script | template ] *)
   type 'a flow =
-    [ a | abbr | address | area | br | div | span | 'a custom | fragment ]
+    [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
+    | blockquote
+    | br | div | span | 'a custom | fragment ]
   type sectioning = fragment
+  type sectioning_root = [ blockquote | body | fragment ]
   type heading = fragment
   type 'a phrasing =
-    [ abbr | area | br | span | 'a custom  | other ]
-  type embedded = fragment
-  type interactive = [ a | fragment ]
+    [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | span
+    | 'a custom  | other ]
+  type embedded = [ audio | fragment ]
+  type interactive = [ a | audio | fragment ]
   type form = fragment
-  type palpable = fragment
+  type palpable =
+    [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
+    | fragment ]
 
   type 'a content =
-    [ 'a flow | sectioning | heading | 'a phrasing | embedded
-    | interactive | form | palpable | metadata | other ]
+    [ 'a flow | sectioning | sectioning_root | heading | 'a phrasing | embedded
+    | interactive | form | palpable | metadata | none | other ]
 
   type 'a flex_item = 'a content
 

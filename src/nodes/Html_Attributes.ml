@@ -27,6 +27,22 @@ module LinkType = struct
 end
 
 
+module Target = struct
+  (** {{: https://www.w3.org/TR/html52/browsers.html#browsing-context-names} Browsing context} *)
+
+  type value =
+    [ `blank | `self | `parent | `top ] [@@bs.deriving jsConverter]
+
+  type t = [ value | `browsing_context of string ]
+
+  let show: t -> string = function
+  | #value as value ->
+    valueToJs value
+  | `browsing_context name ->
+    name
+end
+
+
 module ReferrerPolicy = struct
   (** {{: https://www.w3.org/TR/referrer-policy/#referrer-policies} Referrer Policies} *)
 
