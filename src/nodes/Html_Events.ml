@@ -105,8 +105,10 @@ end
 
 
 module Media = struct
-  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#media-elements-event-summary} Media Events} *)
-  (** ({{: https://dev.w3.org/html5/pf-summary/video.html} additional info}) *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/media.html#mediaevents} Media Events}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#media-elements-event-summary} W3C})
+   *)
 
   external make:
     ?onLoadStart:(Dom.progressEvent -> unit) ->
@@ -176,6 +178,7 @@ module Form = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events} *)
 
   external make:
+    ?onFormData:(Dom.event -> unit) ->
     ?onReset:(Dom.event -> unit) ->
     ?onSubmit:(Dom.event -> unit) ->
     unit ->
@@ -233,8 +236,11 @@ module TextTrack = struct
 end
 
 
-module Drag = struct
-  (** {{: https://www.w3.org/TR/html52/editing.html#events-summary} Drag Events} *)
+module DragDrop = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/dnd.html#dndevents} Drag And Drop Events}
+   ({{: https://www.w3.org/TR/html52/editing.html#events-summary} W3C})
+   *)
 
   external make:
     ?onDragStart:(Dom.dragEvent -> unit) ->
@@ -255,19 +261,20 @@ module Global = struct
   (* TODO: Some of these events are only meaningful for certain elements *)
 
   let make ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting () =
+    ?onChange ?onClick ?onClose ?onCopy ?onCueChange ?onCut ?onDblClick ?onDrag
+    ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart
+    ?onDrop ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput
+    ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData
+    ?onLoadedMetaData ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter
+    ?onMouseLeave ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel
+    ?onPaste ?onPause ?onPlay ?onPlaying ?onProgress ?onRateChange ?onReset
+    ?onResize ?onScroll ?onSeeked ?onSeeking ?onSelect ?onStalled ?onSubmit
+    ?onSuspend ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting () =
     Util.merge_all [|
+      Clipboard.make ?onCopy ?onCut ?onPaste ();
       Details.make ?onToggle ();
       Dialog.make ?onCancel ?onClose ();
-      Drag.make ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+      DragDrop.make ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
         ?onDragOver ?onDragStart ?onDrop ();
       Form.make ?onReset ?onSubmit ();
       FormControls.make ?onChange ?onInvalid ();

@@ -3,20 +3,11 @@
  
  Includes nodes like text nodes and fragments.
 
- See the {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} full element table} 
- and {{: https://www.w3.org/TR/html52/fullindex.html#events-table} events table} 
+ See the {{: https://html.spec.whatwg.org/multipage/indices.html#elements-3} full element table}
+ ({{: https://www.w3.org/TR/html52/fullindex.html#index-elements} W3C}) 
+ and the {{: https://html.spec.whatwg.org/multipage/indices.html#events-2} events table}
+ ({{: https://www.w3.org/TR/html52/fullindex.html#events-table} W3C})
  for reference.
-
- {e NOTE}: If you create a node outside of a specific context, like for example 
- some top-level declaration of an element, you need to annotate it's type.
- 
- For example:
-
- {[
- let hello: Html_Node.div = Node.div ~id:"foo" [|
-   Node.span [|Node.text "Hello World!"|]
- |]
- ]}
  *)
 
 
@@ -27,12 +18,17 @@ end
 
 
 module A = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-a} A} *)
-  (** ({{: https://www.w3.org/TR/wai-aria-1.1/#link} aria}) *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element} The A Element} 
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-a} W3C}) 
+   ({{: https://www.w3.org/TR/wai-aria-1.1/#link} aria})
+   *)
 
   type +'a t = ([> Html_Node.a ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.transparent Html_Node.t
+  type +'a child =
+    [ 'a Html_Node.flow | 'a Html_Node.phrasing | Html_Node.interactive
+    | 'a Html_Node.palpable ] Html_Node.t
 
   module Attributes = struct
     external _make:
@@ -146,7 +142,10 @@ end
 
 
 module Abbr = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-abbr} Abbr} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element} The Abbr Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-abbr} W3C})
+   *)
 
   type +'a t = ([> Html_Node.abbr ] as 'a) Html_Node.t
 
@@ -222,7 +221,10 @@ end
 
 
 module Address = struct
-  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-address} Address} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-address-element} The Address Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-address} W3C})
+   *)
 
   type +'a t = ([> Html_Node.address ] as 'a) Html_Node.t
 
@@ -298,7 +300,10 @@ end
 
 
 module Area = struct
-  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-area} Area} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element} The Area Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-area} W3C})
+   *)
 
   type +'a t = ([> Html_Node.area ] as 'a) Html_Node.t
 
@@ -407,7 +412,10 @@ end
 
 
 module Article = struct
-  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-article} Article} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-article-element} The Article Element}
+   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-article} W3C})
+   *)
 
   type +'a t = ([> Html_Node.article ] as 'a) Html_Node.t
 
@@ -491,7 +499,10 @@ end
 
 
 module Aside = struct
-  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-aside} Aside} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-aside-element} The Aside Element}
+   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-aside} W3C})
+   *)
 
   type +'a t = ([> Html_Node.aside ] as 'a) Html_Node.t
 
@@ -574,11 +585,17 @@ end
 
 
 module Audio = struct
-  (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-audio} Audio} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/media.html#the-audio-element} The Audio Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-audio} W3C})
+   *)
+  (* TODO: add Media events *)
 
   type +'a t = ([> Html_Node.audio ] as 'a) Html_Node.t
 
-  type +'a child = [Html_Node.source | 'a Html_Node.transparent] Html_Node.t
+  type +'a child =
+    [ Html_Node.source | 'a Html_Node.flow | 'a Html_Node.phrasing
+    | Html_Node.interactive | Html_Node.embedded ] Html_Node.t
 
   module Attributes = struct
     type crossorigin =
@@ -680,7 +697,10 @@ end
 
 
 module B = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-b} B} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element} The B Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-b} W3C})
+   *)
 
   type +'a t = ([> Html_Node.b ] as 'a) Html_Node.t
 
@@ -757,7 +777,10 @@ end
 
 
 module Base = struct
-  (** {{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-base} Base} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-base-element} The Base Element}
+   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-base} W3C})
+   *)
 
   type +'a t = ([> Html_Node.base ] as 'a) Html_Node.t
 
@@ -837,7 +860,10 @@ end
 
 
 module Bdi = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdi} Bdi} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element} The Bdi Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdi} W3C})
+   *)
 
   type +'a t = ([> Html_Node.bdi ] as 'a) Html_Node.t
 
@@ -914,7 +940,10 @@ end
 
 
 module Bdo = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdo} Bdo} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element} The Bdo Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdo} W3C})
+   *)
 
   type +'a t = ([> Html_Node.bdo ] as 'a) Html_Node.t
 
@@ -992,7 +1021,10 @@ end
 
 
 module Blockquote = struct
-  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-blockquote} Blockquote} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-blockquote-element} The Blockquote Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-blockquote} W3C})
+   *)
 
   type +'a t = ([> Html_Node.blockquote ] as 'a) Html_Node.t
 
@@ -1074,7 +1106,10 @@ end
 
 
 module Body = struct
-  (** {{: https://www.w3.org/TR/html52/sections.html#elementdef-body} Body} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-body-element} The Body Element}
+   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-body} W3C})
+   *)
 
   type +'a t = ([> Html_Node.body ] as 'a) Html_Node.t
 
@@ -1177,11 +1212,11 @@ module Body = struct
 end
 
 
-
-
-
 module Br = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} Br} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element} The Br Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} W3C})
+   *)
 
   type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
@@ -1251,7 +1286,10 @@ end
 
 
 module Div = struct
-  (** {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-div} Div} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element} The Div Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-div} W3C})
+   *)
 
   type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
 
@@ -1328,7 +1366,10 @@ end
 
 
 module Span = struct
-  (** {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-span} Span} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element} The Span Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-span} W3C})
+   *)
 
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
@@ -1406,7 +1447,10 @@ end
 
 
 module Title = struct
-  (** {{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-title} Title} *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-title-element} The Title Element}
+   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-title} W3C})
+   *)
 
   type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
@@ -1480,7 +1524,10 @@ end
 
 
 module Text = struct
-  (** {{: https://www.w3.org/TR/dom/#interface-text} Text node} *)
+  (**
+   {{: https://dom.spec.whatwg.org/#interface-text} The Text Node}
+   ({{: https://www.w3.org/TR/dom/#interface-text} W3C})
+   *)
 
   type +'a t = ([> Html_Node.text ] as 'a) Html_Node.t
 
@@ -1491,6 +1538,11 @@ end
 
 
 module Fragment = struct
+  (**
+   {{: https://dom.spec.whatwg.org/#interface-documentfragment} Docuemnt Fragment}
+   ({{: https://www.w3.org/TR/dom/#interface-documentfragment} W3C})
+   *)
+
   type +'a t = ([> Html_Node.fragment ] as 'a) Html_Node.t
 
   type (+'a, +'b) child =
