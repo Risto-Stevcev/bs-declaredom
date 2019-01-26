@@ -67,8 +67,10 @@ module A = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.treeitem
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -85,9 +87,11 @@ module A = struct
         Attributes.make ?href ?target ?download ?rel ?rev ?hreflang ?_type
           ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make 
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -101,8 +105,10 @@ module A = struct
 
   let jsx
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable
+    ?dataSet ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId
+    ?itemProp ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -111,8 +117,10 @@ module A = struct
     ?style ?cssModule ?children () =
     make
       ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable
+      ?dataSet ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId
+      ?itemProp ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -133,9 +141,11 @@ module Abbr = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -150,9 +160,11 @@ module Abbr = struct
     Declaredom.make "abbr"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -163,18 +175,22 @@ module Abbr = struct
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
-  let jsx
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?style ?cssModule ?children () =
-    make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -195,10 +211,11 @@ module Address = struct
 
   type +'a child = 'a Html_Node.flow Html_Node.t
 
-  let make
-    ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -213,9 +230,11 @@ module Address = struct
     Declaredom.make "address"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -226,18 +245,22 @@ module Address = struct
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
-  let jsx
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?style ?cssModule ?children () =
-    make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -294,8 +317,10 @@ module Area = struct
   let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
     ?referrerpolicy 
     ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -306,9 +331,11 @@ module Area = struct
         Attributes.make ?alt ?coords ?download ?href ?hreflang ?rel ?shape
           ?target ?_type ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -322,8 +349,11 @@ module Area = struct
 
   let jsx ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
     ?referrerpolicy 
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -332,8 +362,11 @@ module Area = struct
     ?children:_ () =
     make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
       ?referrerpolicy 
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -360,8 +393,10 @@ module Article = struct
            | Html_Attributes.Aria.main
            | Html_Attributes.Aria.region
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -376,9 +411,11 @@ module Article = struct
     Declaredom.make "article"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -390,18 +427,22 @@ module Article = struct
     |> Internal.make
 
 
-  let jsx
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -429,8 +470,10 @@ module Aside = struct
            | Html_Attributes.Aria.search
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -445,9 +488,11 @@ module Aside = struct
     Declaredom.make "aside"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -460,8 +505,10 @@ module Aside = struct
 
 
   let jsx
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -469,8 +516,10 @@ module Aside = struct
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
     make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -515,9 +564,9 @@ module Audio = struct
     let make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls () =
       _make ?src ?crossorigin:(Belt.Option.map crossorigin crossoriginToJs)
         ?preload:(Belt.Option.map preload preloadToJs)
-        ?autoplay:(Belt.Option.map autoplay string_of_bool)
-        ?loop:(Belt.Option.map loop string_of_bool)
-        ?muted:(Belt.Option.map muted string_of_bool)
+        ?autoplay:(Belt.Option.map autoplay Util.string_of_unit)
+        ?loop:(Belt.Option.map loop Util.string_of_unit)
+        ?muted:(Belt.Option.map muted Util.string_of_unit)
         ?controls:(Belt.Option.map controls Util.string_of_unit)
         ()
   end
@@ -525,8 +574,10 @@ module Audio = struct
   let make
     ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
     ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onLoad ?onLoadEnd ?onSecurityPolicyViolation
     ?onAbort ?onCanPlay ?onCanPlayThrough ?onCueChange ?onDurationChange
     ?onEmptied ?onEnded ?onError ?onLoadedMetaData ?onLoadedData ?onLoadStart
@@ -543,9 +594,11 @@ module Audio = struct
       (Util.merge_all [|
         Attributes.make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?title ?translate ();
         Html_Events.Resource.make ?onLoad ?onLoadEnd ?onSecurityPolicyViolation ();
         Html_Events.Media.make ?onAbort ?onCanPlay ?onCanPlayThrough
           ?onCueChange ?onDurationChange ?onEmptied ?onEnded ?onError
@@ -564,8 +617,10 @@ module Audio = struct
 
 
   let jsx ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
     ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
     ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
@@ -577,8 +632,10 @@ module Audio = struct
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?children () =
     make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
       ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
       ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
@@ -602,8 +659,11 @@ module B = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -618,9 +678,11 @@ module B = struct
     Declaredom.make "b"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -632,16 +694,22 @@ module B = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -670,8 +738,10 @@ module Base = struct
 
   let make ?href ?target
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -682,9 +752,11 @@ module Base = struct
       (Util.merge_all [|
         Attributes.make ?href ?target ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -696,8 +768,10 @@ module Base = struct
     |> Internal.make
 
   let jsx ?href ?target
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -705,8 +779,10 @@ module Base = struct
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?children:_ () =
     make ?href ?target
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -725,8 +801,11 @@ module Bdi = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -741,9 +820,11 @@ module Bdi = struct
     Declaredom.make "bdi"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -755,16 +836,22 @@ module Bdi = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -785,8 +872,10 @@ module Bdo = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -801,9 +890,11 @@ module Bdo = struct
     Declaredom.make "bdo"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -815,16 +906,21 @@ module Bdo = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -851,8 +947,10 @@ module Blockquote = struct
   end
 
   let make ?cite
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -868,9 +966,11 @@ module Blockquote = struct
       (Util.merge_all [|
         Attributes.make ?cite ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -883,8 +983,10 @@ module Blockquote = struct
 
 
   let jsx ?cite
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -892,8 +994,10 @@ module Blockquote = struct
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
     make ?cite
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -937,8 +1041,10 @@ module Body = struct
   end
 
   let make ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange
     ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
     ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled ?onStorage
@@ -961,9 +1067,11 @@ module Body = struct
           ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
           ?onStorage ?onUnhandledRejection ?onUnload ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -975,8 +1083,10 @@ module Body = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
     ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
     ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
@@ -987,8 +1097,10 @@ module Body = struct
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
       ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
       ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
@@ -1011,8 +1123,10 @@ module Br = struct
 
   type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1022,9 +1136,11 @@ module Br = struct
     Declaredom.make_empty "br"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -1053,6 +1169,97 @@ module Br = struct
 end
 
 
+module Button = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element} The Button Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-button} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.button ] as 'a) Html_Node.t
+
+  type +'a child = 'a Html_Node.phrasing Html_Node.t
+
+  module Attributes = struct
+    type formmethod = [ `get | `post | `dialog ] [@@bs.deriving jsConverter]
+
+    external make:
+      ?autofocus:string ->
+      ?disabled:string ->
+      ?form:string ->
+      ?formaction:string ->
+      ?formenctype:string ->
+      ?formmethod:string ->
+      ?formvalidate:string ->
+      unit -> Html_Attributes.t = "" [@@bs.obj]
+
+    let _make ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
+      ?formvalidate () =
+      make ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
+        ?disabled:(Belt.Option.map disabled Util.string_of_unit)
+        ?form ?formaction ?formenctype
+        ?formmethod:(Belt.Option.map formmethod formmethodToJs)
+        ?formvalidate:(Belt.Option.map formvalidate Util.string_of_unit)
+        ()
+  end
+
+  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline_block Style.t option)
+    ?(cssModule:Css_Property.inline_block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "button"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
 module Div = struct
   (**
    {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element} The Div Element}
@@ -1063,8 +1270,10 @@ module Div = struct
 
   type +'a child = 'a Html_Node.flow Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1079,9 +1288,11 @@ module Div = struct
     Declaredom.make "div"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -1093,16 +1304,20 @@ module Div = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1123,8 +1338,10 @@ module Span = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1139,9 +1356,11 @@ module Span = struct
     Declaredom.make "span"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?style ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -1153,16 +1372,20 @@ module Span = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1182,8 +1405,10 @@ module Title = struct
   type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -1194,9 +1419,11 @@ module Title = struct
     Declaredom.make "title"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make ?accessKey ?className ?classSet
-          ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
-          ?spellCheck ?tabIndex ?title ?translate ();
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
         Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
           ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
@@ -1208,16 +1435,22 @@ module Title = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?(children=[]) () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp

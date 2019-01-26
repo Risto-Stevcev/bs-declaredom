@@ -28,8 +28,11 @@ end
 
 
 module Div = struct
-  let flex ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let flex ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -39,8 +42,11 @@ module Div = struct
     ?(cssModule:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Div.make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -51,9 +57,11 @@ module Div = struct
       (Internal.Node.to_any children)
 
 
-  let inline_flex
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let inline_flex ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -62,9 +70,11 @@ module Div = struct
     ?(style:Css_Property.Override.inline_flex Style.t option)
     ?(cssModule:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
-    Html_Nodes.Div.make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    Html_Nodes.Div.make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -75,9 +85,11 @@ module Div = struct
       (Internal.Node.to_any children)
 
 
-  let inline_block
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let inline_block ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -86,9 +98,11 @@ module Div = struct
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Div.make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    Html_Nodes.Div.make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -100,18 +114,22 @@ module Div = struct
 
 
   module Jsx = struct
-    let flex
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    let flex ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
       ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
       ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style ?cssModule ?children () =
-      flex
-        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      flex ?aria
+        ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+        ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+        ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+        ?title ?translate
         ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
         ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
         ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -121,18 +139,22 @@ module Div = struct
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_flex
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    let inline_flex ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
       ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
       ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style ?cssModule ?children () =
-      inline_flex
-        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      inline_flex ?aria
+        ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+        ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+        ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+        ?title ?translate
         ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
         ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
         ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -142,18 +164,22 @@ module Div = struct
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_block
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    let inline_block ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
       ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
       ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style ?cssModule ?children () =
-      inline_block
-        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      inline_block ?aria
+        ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+        ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+        ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+        ?title ?translate
         ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
         ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
         ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -166,9 +192,11 @@ end
 
 
 module Span = struct
-  let inline_block
-    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+  let inline_block ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
     ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
     ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
     ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -177,9 +205,11 @@ module Span = struct
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Span.make
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    Html_Nodes.Span.make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
@@ -191,18 +221,22 @@ module Span = struct
 
 
   module Jsx = struct
-    let inline_block
-      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    let inline_block ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
       ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
       ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
       ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
       ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
       ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style ?cssModule ?children () =
-      inline_block
-        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      inline_block ?aria
+        ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+        ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+        ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+        ?title ?translate
         ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
         ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
         ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp

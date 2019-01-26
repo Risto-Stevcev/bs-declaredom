@@ -1572,34 +1572,51 @@ end
 
 
 module Global = struct
-  (** {{: https://www.w3.org/TR/html52/dom.html#global-attributes} Global Attributes} *)
-  (* TODO: Some of these attributes are only meaningful for certain elements *)
+  (**
+   {{: https://html.spec.whatwg.org/multipage/dom.html#global-attributes} Global Attributes}
+   ({{: https://www.w3.org/TR/html52/dom.html#global-attributes} W3C})
+   *)
 
   module Value = struct
-    module Dir = struct
-      type t = [ `rtl | `ltr | `auto ] [@@bs.deriving jsConverter]
+    type autocapitalize =
+      [ `off | `none | `on | `sentences | `words | `characters ]
+      [@@bs.deriving jsConverter]
 
-      let show = tToJs
-    end
+    type dir = [ `rtl | `ltr | `auto ] [@@bs.deriving jsConverter]
 
-    module Translate = struct
-      type t = [ `yes | `no ] [@@bs.deriving jsConverter]
+    type translate = [ `yes | `no ] [@@bs.deriving jsConverter]
 
-      let show = tToJs
-    end
+    type enterkeyhint =
+      [ `enter | `done_ [@bs.as "done"] | `go | `next | `previous | `search
+      | `send ]
+      [@@bs.deriving jsConverter]
+
+    type inputmode =
+      [ `none | `text | `tel | `url | `email | `numeric | `decimal | `search ]
+      [@@bs.deriving jsConverter]
   end
 
   external _make:
     ?accessKey:string ->
+    ?autoCapitalize:string ->
     ?className:string ->
     ?classSet:bool Js.Dict.t ->
     ?contentEditable:string ->
     ?dataSet:string Js.Dict.t ->
     ?dir:string ->
     ?draggable:string ->
+    ?enterKeyHint:string ->
     ?hidden:string ->
     ?id:string ->
+    ?inputMode:string ->
+    ?is:string ->
+    ?itemId:string ->
+    ?itemProp:string ->
+    ?itemRef:string ->
+    ?itemScope:string ->
+    ?itemType:string ->
     ?lang:string ->
+    ?nonce:string ->
     ?spellCheck:string ->
     ?style:string Js.Dict.t ->
     ?tabIndex:string ->
@@ -1609,17 +1626,30 @@ module Global = struct
     t = "" [@@bs.obj]
 
   let make
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?style ?tabIndex ?title ?translate
-    () =
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?title ?translate () =
     _make
-      ?accessKey ?className ?classSet
-      ?contentEditable:(Belt.Option.map contentEditable string_of_bool) ?dataSet
-      ?dir:(Belt.Option.map dir Value.Dir.show)
-      ?draggable:(Belt.Option.map draggable string_of_bool)
-      ?hidden:(Belt.Option.map hidden Util.string_of_unit) ?id ?lang ?spellCheck
+      ?accessKey
+      ?autoCapitalize:(Belt.Option.map autoCapitalize Value.autocapitalizeToJs)
+      ?className ?classSet
+      ?contentEditable:(Belt.Option.map contentEditable Util.string_of_unit)
+      ?dataSet
+      ?dir:(Belt.Option.map dir Value.dirToJs)
+      ?draggable:(Belt.Option.map draggable Util.string_of_unit)
+      ?enterKeyHint:(Belt.Option.map enterKeyHint Value.enterkeyhintToJs)
+      ?hidden:(Belt.Option.map hidden Util.string_of_unit)
+      ?id
+      ?inputMode:(Belt.Option.map inputMode Value.inputmodeToJs)
+      ?is
+      ?itemId ?itemProp ?itemRef
+      ?itemScope:(Belt.Option.map itemScope Util.string_of_unit)
+      ?itemType
+      ?lang ?nonce ?spellCheck
       ?style:(Belt.Option.map style Style.show_dict)
-      ?tabIndex:(Belt.Option.map tabIndex string_of_int) ?title
-      ?translate:(Belt.Option.map translate Value.Translate.show)
+      ?tabIndex:(Belt.Option.map tabIndex string_of_int)
+      ?title
+      ?translate:(Belt.Option.map translate Value.translateToJs)
       ()
 end

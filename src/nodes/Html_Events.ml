@@ -292,7 +292,7 @@ module Global = struct
    - <script>: error
    - <img>: progress
    - <form> ({!Form}): formdata, reset, submit
-   - <button> <fieldset> <input> <object> <output> <select> <textarea> ({!FormControls}):
+   - <fieldset> <input> <object> <output> <select> <textarea> ({!FormControls}):
      change, input, invalid
    - {!Html_Nodes.Audio} <embed> <iframe> <img> <link> <script> <style> <video> ({!Resource}):
      load, loadstart, loadend, securitypolicyviolation
