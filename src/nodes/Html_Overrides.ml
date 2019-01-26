@@ -16,7 +16,7 @@ module Internal = struct
   module Node = struct
     external to_any:
       [< _ Html_Node.content] Html_Node.t array ->
-      [> Html_Node.fragment] Html_Node.t array = "%identity"
+      [< _ Html_Node.content] Html_Node.t array = "%identity"
   end
 end
 

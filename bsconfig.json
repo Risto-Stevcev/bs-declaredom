@@ -25,6 +25,7 @@
   "bs-dependencies": [
     "@ristostevcev/bs-callbag",
     "@ristostevcev/bs-callbag-basics",
+    "@ristostevcev/bs-callbag-from-event",
     "bs-webapi"
   ],
   "bs-dev-dependencies": [

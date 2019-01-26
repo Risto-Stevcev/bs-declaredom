@@ -28,7 +28,7 @@ module A = struct
 
   type +'a child =
     [ 'a Html_Node.flow | 'a Html_Node.phrasing | Html_Node.interactive
-    | 'a Html_Node.palpable ] Html_Node.t
+    | 'a Html_Node.palpable | Html_Node.other ] Html_Node.t
 
   module Attributes = struct
     external _make:
@@ -139,7 +139,7 @@ module Abbr = struct
 
   type +'a t = ([> Html_Node.abbr ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
     ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
@@ -209,7 +209,7 @@ module Address = struct
 
   type +'a t = ([> Html_Node.address ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
     ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
@@ -383,7 +383,7 @@ module Article = struct
 
   type +'a t = ([> Html_Node.article ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make
     ?(aria:[< Html_Attributes.Aria.article
@@ -461,7 +461,7 @@ module Aside = struct
 
   type +'a t = ([> Html_Node.aside ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make
     ?(aria:[< Html_Attributes.Aria.complementary
@@ -540,7 +540,7 @@ module Audio = struct
 
   type +'a child =
     [ Html_Node.source | 'a Html_Node.flow | 'a Html_Node.phrasing
-    | Html_Node.interactive | Html_Node.embedded ] Html_Node.t
+    | Html_Node.interactive | Html_Node.embedded | Html_Node.other ] Html_Node.t
 
   module Attributes = struct
     type crossorigin =
@@ -657,7 +657,7 @@ module B = struct
 
   type +'a t = ([> Html_Node.b ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make
     ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
@@ -799,7 +799,7 @@ module Bdi = struct
 
   type +'a t = ([> Html_Node.bdi ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make
     ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
@@ -870,7 +870,7 @@ module Bdo = struct
 
   type +'a t = ([> Html_Node.bdo ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
@@ -940,7 +940,7 @@ module Blockquote = struct
 
   type +'a t = ([> Html_Node.blockquote ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   module Attributes = struct
     external make: ?cite:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
@@ -1016,7 +1016,7 @@ module Body = struct
 
   type +'a t = ([> Html_Node.body ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   module Attributes = struct
     external make:
@@ -1177,7 +1177,7 @@ module Button = struct
 
   type +'a t = ([> Html_Node.button ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   module Attributes = struct
     type formmethod = [ `get | `post | `dialog ] [@@bs.deriving jsConverter]
@@ -1273,7 +1273,7 @@ module Div = struct
 
   type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.flow Html_Node.t
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
@@ -1341,7 +1341,7 @@ module Span = struct
 
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
-  type +'a child = 'a Html_Node.phrasing Html_Node.t
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp

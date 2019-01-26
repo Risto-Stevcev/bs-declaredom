@@ -62,20 +62,19 @@ module ContentCategory = struct
   type metadata = [ base | title ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
-    | blockquote | br | button | div | span | 'a custom | fragment ]
-  type sectioning = fragment
-  type sectioning_root = [ blockquote | body | fragment ]
+    | blockquote | br | button | div | span | 'a custom ]
+  type sectioning
+  type sectioning_root = [ blockquote | body ]
   type heading = fragment
-  (* TODO: does custom need to be phrasing as well? *)
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
-    | span | 'a custom  | other ]
-  type embedded = [ audio | fragment ]
-  type interactive = [ a | audio | button | fragment ]
+    | span | 'a custom | other ]
+  type embedded = audio
+  type interactive = [ a | audio | button ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button
-    | 'a custom | fragment ]
+    | 'a custom ]
 
 
   module Element = struct
@@ -86,17 +85,21 @@ module ContentCategory = struct
      and autocapitalizable = button
      and labelable = button
      and script_supporting (* [ script | template ] *)
+     and media = audio
 
      type category =
         [ form_associated | listed | submittable (*| resettable*)
-        | autocapitalizable | labelable (*| script_supporting*) ]
+        | autocapitalizable | labelable (*| script_supporting*) | media ]
   end
 
-  type 'a content =
+  type 'a element =
     [ embedded | 'a flow | heading | interactive | metadata | 'a palpable
-    | 'a phrasing | sectioning | sectioning_root
+    | 'a phrasing (*| sectioning*)| sectioning_root
     | Element.category
-    | none | other ]
+    | none ]
+
+  type 'a content =
+    [ 'a element | other ]
 
   type 'a flex_item = [ 'a flow | 'a phrasing ]
 
@@ -110,3 +113,4 @@ include ContentCategory
 
 
 external to_node: [< _ content] t -> Dom.node = "%identity"
+external to_element: [< _ element] t -> Dom.element = "%identity"

@@ -82,6 +82,19 @@ let _ =
     let _ = f' custom_foo
     in
 
+    let anchor = 
+      a ~id:"link" ~href:"#"
+        ~aria:(Html_Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
+        [|text "some link"|]
+    in
+
+    (* TODO: remove *)
+    let anchor' =
+      CallbagBasics.combine (anchor |> CallbagEvents.click) (CallbagBasics.interval 1000)
+      |> map (fun (_, i) -> span [|text @@ string_of_int i ^"seconds since click"|])
+      |> CallbagElement.make
+    in
+
     div ~cssModule:Modules.container [|
       TryJsx.foo;
       Div.flex ~cssModule:Modules.flex [|
@@ -90,9 +103,8 @@ let _ =
         span [|text "flexbox"|];
       |];
       fragment [|
-        a ~id:"link" ~href:"#"
-          ~aria:(Html_Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
-          [|text "some link"|];
+        anchor;
+        anchor';
         br ();
         span [|text "foo"|];
         br ();
