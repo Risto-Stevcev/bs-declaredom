@@ -69,16 +69,11 @@ module A = struct
            ] Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -93,50 +88,37 @@ module A = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx
-    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?style ?cssModule ?children () =
     make
-      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -151,19 +133,15 @@ module Abbr = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+  let make
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -175,47 +153,34 @@ module Abbr = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?style ?cssModule ?children () =
+    make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -230,19 +195,16 @@ module Address = struct
 
   type +'a child = 'a Html_Node.flow Html_Node.t
 
-  let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
+  let make
+    ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -254,47 +216,34 @@ module Address = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?style ?cssModule ?children () =
+    make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -327,7 +276,7 @@ module Area = struct
       unit ->
       Html_Attributes.t = "" [@@bs.obj] 
 
-    let make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
+    let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
       ?referrerpolicy () =
       _make ?alt
         ?coords:(Belt.Option.map coords from_coords)
@@ -342,72 +291,54 @@ module Area = struct
         ()
   end
 
-  let make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
+  let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
     ?referrerpolicy 
     ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
-    (): _ t
-    =
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t =
     Declaredom.make_empty "area"
       (Util.merge_all [|
-        Attributes.make ?alt ?coords  ?download ?href ?hreflang ?rel ?shape ?target ?_type
-          ?referrerpolicy ();
+        Attributes.make ?alt ?coords ?download ?href ?hreflang ?rel ?shape
+          ?target ?_type ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       ()
     |> Internal.make
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?children:_ () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ()
+
+  let jsx ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
+    ?referrerpolicy 
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?children:_ () =
+    make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
+      ?referrerpolicy 
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
 end
 
 
@@ -431,16 +362,12 @@ module Article = struct
            ] Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -452,48 +379,35 @@ module Article = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -517,16 +431,12 @@ module Aside = struct
            ] Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -538,48 +448,35 @@ module Aside = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -589,7 +486,6 @@ module Audio = struct
    {{: https://html.spec.whatwg.org/multipage/media.html#the-audio-element} The Audio Element}
    ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-audio} W3C})
    *)
-  (* TODO: add Media events *)
 
   type +'a t = ([> Html_Node.audio ] as 'a) Html_Node.t
 
@@ -631,16 +527,16 @@ module Audio = struct
     ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+    ?onLoad ?onLoadEnd ?onSecurityPolicyViolation
+    ?onAbort ?onCanPlay ?onCanPlayThrough ?onCueChange ?onDurationChange
+    ?onEmptied ?onEnded ?onError ?onLoadedMetaData ?onLoadedData ?onLoadStart
+    ?onPause ?onPlay ?onPlaying ?onProgress ?onRateChange ?onResize ?onSeeked
+    ?onSeeking ?onSuspend ?onStalled ?onTimeUpdate ?onVolumeChange ?onWaiting 
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     (children:_ child array): _ t
     =
     Declaredom.make "audio"
@@ -650,48 +546,48 @@ module Audio = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Resource.make ?onLoad ?onLoadEnd ?onSecurityPolicyViolation ();
+        Html_Events.Media.make ?onAbort ?onCanPlay ?onCanPlayThrough
+          ?onCueChange ?onDurationChange ?onEmptied ?onEnded ?onError
+          ?onLoadedMetaData ?onLoadedData ?onLoadStart ?onPause ?onPlay
+          ?onPlaying ?onProgress ?onRateChange ?onResize ?onSeeked ?onSeeking
+          ?onSuspend ?onStalled ?onTimeUpdate ?onVolumeChange ?onWaiting ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+  let jsx ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
+    ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
+    ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
+    ?onPlay ?onPause ?onRateChange ?onResize ?onVolumeChange
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?children () =
+    make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
+      ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
+      ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
+      ?onPlay ?onPause ?onRateChange ?onResize ?onVolumeChange
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -706,19 +602,14 @@ module B = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -730,48 +621,33 @@ module B = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -796,17 +672,11 @@ module Base = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
-    (): _ t
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t
     =
     Declaredom.make_empty "base"
       (Util.merge_all [|
@@ -815,47 +685,33 @@ module Base = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       ()
     |> Internal.make
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?children:_ () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ()
+  let jsx ?href ?target
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?children:_ () =
+    make ?href ?target
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
 end
 
 
@@ -869,19 +725,14 @@ module Bdi = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -893,48 +744,33 @@ module Bdi = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -949,19 +785,14 @@ module Bdo = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.inline Style.t option)
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -973,48 +804,33 @@ module Bdo = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1034,19 +850,15 @@ module Blockquote = struct
     external make: ?cite:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
   end
 
-  let make ?cite ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+  let make ?cite
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1059,48 +871,35 @@ module Blockquote = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?cite
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?cite
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1123,11 +922,13 @@ module Body = struct
       ?onHashChange:(Dom.event -> unit) ->
       ?onLanguageChange:(Dom.event -> unit) ->
       ?onMessage:(Dom.event -> unit) ->
+      ?onMessageError:(Dom.event -> unit) ->
       ?onOffline:(Dom.event -> unit) ->
       ?onOnline:(Dom.event -> unit) ->
       ?onPageHide:(Dom.event -> unit) ->
       ?onPageShow:(Dom.event -> unit) ->
       ?onPopState:(Dom.event -> unit) ->
+      ?onResize:(Dom.event -> unit) ->
       ?onRejectionHandled:(Dom.event -> unit) ->
       ?onStorage:(Dom.event -> unit) ->
       ?onUnhandledRejection:(Dom.event -> unit) ->
@@ -1135,22 +936,19 @@ module Body = struct
       unit -> Html_Attributes.t = "" [@@bs.obj]
   end
 
-  let make ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
-    ?onLanguageChange ?onMessage ?onOffline ?onOnline ?onPageHide ?onPageShow 
-    ?onPopState ?onRejectionHandled ?onStorage ?onUnhandledRejection ?onUnload 
-    ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
+  let make ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+    ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange
+    ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
+    ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled ?onStorage
+    ?onUnhandledRejection ?onUnload
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1159,55 +957,48 @@ module Body = struct
     Declaredom.make "body"
       (Util.merge_all [|
         Attributes.make ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
-          ?onLanguageChange ?onMessage ?onOffline ?onOnline ?onPageHide ?onPageShow 
-          ?onPopState ?onRejectionHandled ?onStorage ?onUnhandledRejection ?onUnload 
-          ();
+          ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
+          ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
+          ?onStorage ?onUnhandledRejection ?onUnload ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
+    ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
+    ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
+    ?onStorage ?onUnhandledRejection ?onUnload
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
+      ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
+      ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
+      ?onStorage ?onUnhandledRejection ?onUnload
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1220,20 +1011,13 @@ module Br = struct
 
   type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
-    (): _ t
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t
     =
     Declaredom.make_empty "br"
       (Util.merge_all [|
@@ -1241,47 +1025,31 @@ module Br = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       ()
     |> Internal.make
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?children:_ () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ()
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?children:_ () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
 end
 
 
@@ -1295,19 +1063,14 @@ module Div = struct
 
   type +'a child = 'a Html_Node.flow Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(style:Css_Property.block Style.t option)
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
     ?(cssModule:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1319,48 +1082,33 @@ module Div = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1375,19 +1123,13 @@ module Span = struct
 
   type +'a child = 'a Html_Node.phrasing Html_Node.t
 
-  let make ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+  let make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?(style:Css_Property.inline Style.t option)
     ?(cssModule:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -1400,48 +1142,33 @@ module Span = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?style ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1454,21 +1181,14 @@ module Title = struct
 
   type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
-  type child = Html_Node.text Html_Node.t
-
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     child: _ t
     =
     Declaredom.make "title"
@@ -1477,48 +1197,32 @@ module Title = struct
         Html_Attributes.Global.make ?accessKey ?className ?classSet
           ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
           ?spellCheck ?tabIndex ?title ?translate ();
-        Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-          ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
           ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-          ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-          ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-          ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-          ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-          ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-          ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-          ?onToggle ?onVolumeChange ?onWaiting ()
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
       |])
       (Declaredom.make_text child)
     |> Internal.make
 
 
-  let jsx ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting ?(children=[]) () =
-    make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?(children=[]) () =
+    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
       (List.fold_left (fun acc e -> acc ^ e) "" children)
 end
 

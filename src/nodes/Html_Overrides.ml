@@ -28,260 +28,187 @@ end
 
 
 module Div = struct
-  let flex ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+  let flex ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?(style:Css_Property.Override.flex Style.t option)
     ?(cssModule:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
-    Html_Nodes.Div.make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+    Html_Nodes.Div.make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?cssModule:(Belt.Option.map cssModule Internal.CssModule.to_any)
       (Internal.Node.to_any children)
 
 
-  let inline_flex ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+  let inline_flex
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
     ?(style:Css_Property.Override.inline_flex Style.t option)
     ?(cssModule:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
-    Html_Nodes.Div.make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+    Html_Nodes.Div.make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?cssModule:(Belt.Option.map cssModule Internal.CssModule.to_any)
       (Internal.Node.to_any children)
 
 
-  let inline_block ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+  let inline_block
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Div.make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+    Html_Nodes.Div.make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?cssModule:(Belt.Option.map cssModule Internal.CssModule.to_any)
       children
 
 
   module Jsx = struct
-    let flex ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      flex ?aria
-        ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-        ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-        ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-        ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-        ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-        ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-        ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-        ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-        ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-        ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-        ?onVolumeChange ?onWaiting ?style ?cssModule 
+    let flex
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule ?children () =
+      flex
+        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+        ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+        ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+        ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+        ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+        ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+        ?style ?cssModule 
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_flex ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_flex ?aria
-        ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-        ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-        ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-        ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-        ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-        ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-        ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-        ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-        ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-        ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-        ?onVolumeChange ?onWaiting ?style ?cssModule 
+    let inline_flex
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule ?children () =
+      inline_flex
+        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+        ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+        ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+        ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+        ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+        ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+        ?style ?cssModule 
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
-    let inline_block ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_block ?aria
-        ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-        ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-        ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-        ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-        ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-        ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-        ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-        ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-        ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-        ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-        ?onVolumeChange ?onWaiting ?style ?cssModule 
+    let inline_block
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule ?children () =
+      inline_block
+        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+        ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+        ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+        ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+        ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+        ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+        ?style ?cssModule 
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
   end
 end
 
 
 module Span = struct
-  let inline_block ?aria
-    ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-    ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+  let inline_block
+    ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?(style:Css_Property.Override.inline_block Style.t option)
     ?(cssModule:Css_Property.Override.inline_block Css_Module.t option)
     children =
-    Html_Nodes.Span.make ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting
+    Html_Nodes.Span.make
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?cssModule:(Belt.Option.map cssModule Internal.CssModule.to_any)
       children
 
 
   module Jsx = struct
-    let inline_block ?aria
-      ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-      ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-      ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-      ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-      ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-      ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-      ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-      ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-      ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-      ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-      ?onVolumeChange ?onWaiting ?style ?cssModule ?children () =
-      inline_block ?aria
-        ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
-        ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-        ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-        ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-        ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-        ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-        ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-        ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-        ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-        ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-        ?onVolumeChange ?onWaiting ?style ?cssModule
+    let inline_block
+      ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?style ?cssModule ?children () =
+      inline_block
+        ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
+        ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
+        ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+        ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+        ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+        ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+        ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+        ?style ?cssModule
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
   end
 end

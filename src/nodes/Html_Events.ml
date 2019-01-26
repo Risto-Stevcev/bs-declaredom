@@ -111,29 +111,30 @@ module Media = struct
    *)
 
   external make:
-    ?onLoadStart:(Dom.progressEvent -> unit) ->
-    ?onProgress:(Dom.progressEvent -> unit) ->
-    ?onSuspend:(Dom.progressEvent -> unit) ->
     ?onAbort:(Dom.progressEvent -> unit) ->
-    ?onError:(Dom.progressEvent -> unit) ->
-    ?onEmptied:(Dom.event -> unit) ->
-    ?onStalled:(Dom.progressEvent -> unit) ->
-    ?onLoadedMetaData:(Dom.event -> unit) ->
-    ?onLoadedData:(Dom.event -> unit) ->
     ?onCanPlay:(Dom.event -> unit) ->
     ?onCanPlayThrough:(Dom.event -> unit) ->
-    ?onPlaying:(Dom.event -> unit) ->
-    ?onWaiting:(Dom.event -> unit) ->
-    ?onSeeking:(Dom.event -> unit) ->
-    ?onSeeked:(Dom.event -> unit) ->
-    ?onEnded:(Dom.event -> unit) ->
+    ?onCueChange:(Dom.event -> unit) ->
     ?onDurationChange:(Dom.event -> unit) ->
-    ?onTimeUpdate:(Dom.event -> unit) ->
-    ?onPlay:(Dom.event -> unit) ->
+    ?onEmptied:(Dom.event -> unit) ->
+    ?onEnded:(Dom.event -> unit) ->
+    ?onError:(Dom.progressEvent -> unit) ->
+    ?onLoadedMetaData:(Dom.event -> unit) ->
+    ?onLoadedData:(Dom.event -> unit) ->
+    ?onLoadStart:(Dom.progressEvent -> unit) ->
     ?onPause:(Dom.event -> unit) ->
+    ?onPlay:(Dom.event -> unit) ->
+    ?onPlaying:(Dom.event -> unit) ->
+    ?onProgress:(Dom.progressEvent -> unit) ->
     ?onRateChange:(Dom.event -> unit) ->
     ?onResize:(Dom.event -> unit) ->
+    ?onSeeked:(Dom.event -> unit) ->
+    ?onSeeking:(Dom.event -> unit) ->
+    ?onSuspend:(Dom.progressEvent -> unit) ->
+    ?onStalled:(Dom.progressEvent -> unit) ->
+    ?onTimeUpdate:(Dom.event -> unit) ->
     ?onVolumeChange:(Dom.event -> unit) ->
+    ?onWaiting:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -174,18 +175,6 @@ module Dialog = struct
 end
 
 
-module Form = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events} *)
-
-  external make:
-    ?onFormData:(Dom.event -> unit) ->
-    ?onReset:(Dom.event -> unit) ->
-    ?onSubmit:(Dom.event -> unit) ->
-    unit ->
-    t = "" [@@bs.obj]
-end
-
-
 module Img = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Img Events} *)
 
@@ -208,8 +197,23 @@ module Details = struct
 end
 
 
+module Form = struct
+  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events} *)
+
+  external make:
+    ?onFormData:(Dom.event -> unit) ->
+    ?onReset:(Dom.event -> unit) ->
+    ?onSubmit:(Dom.event -> unit) ->
+    unit ->
+    t = "" [@@bs.obj]
+end
+
+
 module FormControls = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Control Events} *)
+  (**
+   {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Control Events}
+   ({{: https://html.spec.whatwg.org/multipage/forms.html#form-associated-element} Form-Associated Elements})
+   *)
 
   external make:
     ?onChange:(Dom.event -> unit) ->
@@ -256,41 +260,60 @@ module DragDrop = struct
 end
 
 
-module Global = struct
-  (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Global Events} *)
-  (* TODO: Some of these events are only meaningful for certain elements *)
+module Resource = struct
+  external make:
+    ?onLoad:(Dom.event -> unit) ->
+    ?onLoadStart:(Dom.event -> unit) ->
+    ?onLoadEnd:(Dom.event -> unit) ->
+    ?onSecurityPolicyViolation:(Dom.event -> unit) ->
+    unit ->
+    t = "" [@@bs.obj]
+end
 
-  let make ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCopy ?onCueChange ?onCut ?onDblClick ?onDrag
-    ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart
-    ?onDrop ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput
-    ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData
-    ?onLoadedMetaData ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter
-    ?onMouseLeave ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel
-    ?onPaste ?onPause ?onPlay ?onPlaying ?onProgress ?onRateChange ?onReset
-    ?onResize ?onScroll ?onSeeked ?onSeeking ?onSelect ?onStalled ?onSubmit
-    ?onSuspend ?onTimeUpdate ?onToggle ?onVolumeChange ?onWaiting () =
+
+module Global = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/indices.html#ix-event-handlers} Global Events}
+   ({{: https://www.w3.org/TR/html52/fullindex.html#events-table} W3C})
+
+   {e NOTE}: According to the specs the global event handlers are valid for all
+   html elements, but in practice only a subset of them are truly global. The
+   remaining handlers are only included for elements that apply to them:
+
+   - {!Html_Nodes.Audio} <video> ({!Media}):
+     abort, canplay, canplaythrough, cuechange, durationchange, emptied, error,
+     loadeddata, loadedmetadata, play, playing, progress, ratechange, seeked,
+     seeking, stalled, suspend, timeupdate, volumechange, waiting
+   - {!Html_Nodes.Body}:
+     languagechange, message, messageerror, online, offline, pageshow, pagehide,
+     popstate, resize, rejectionhandled, storage, unhandledrejection, unload
+   - <details>: toggle
+   - <dialog>: cancel, close
+   - <script>: error
+   - <img>: progress
+   - <form> ({!Form}): formdata, reset, submit
+   - <button> <fieldset> <input> <object> <output> <select> <textarea> ({!FormControls}):
+     change, input, invalid
+   - {!Html_Nodes.Audio} <embed> <iframe> <img> <link> <script> <style> <video> ({!Resource}):
+     load, loadstart, loadend, securitypolicyviolation
+   *)
+
+  let make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll () =
     Util.merge_all [|
       Clipboard.make ?onCopy ?onCut ?onPaste ();
-      Details.make ?onToggle ();
-      Dialog.make ?onCancel ?onClose ();
       DragDrop.make ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
         ?onDragOver ?onDragStart ?onDrop ();
-      Form.make ?onReset ?onSubmit ();
-      FormControls.make ?onChange ?onInvalid ();
-      Img.make ?onLoadEnd ?onLoadStart ();
-      Media.make ?onCanPlay ?onCanPlayThrough ?onDurationChange ?onEmptied
-        ?onEnded ?onLoadedData ?onLoadedMetaData ?onPause ?onPlay ?onPlaying
-        ?onProgress ?onRateChange ?onResize ?onSeeked ?onSeeking ?onStalled
-        ?onSuspend ?onTimeUpdate ?onVolumeChange ?onWaiting ();
-      TextTrack.make ?onCueChange ();
       UIEvent.Focus.make ?onBlur ?onFocus ();
       UIEvent.Input.make ?onInput ();
       UIEvent.Keyboard.make ?onKeyDown ?onKeyPress ?onKeyUp ();
       UIEvent.Mouse.make ?onAuxClick ?onClick ?onDblClick ?onMouseDown
         ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut ?onMouseOver
         ?onMouseUp ();
-      UIEvent.UI.make ?onAbort ?onError ?onLoad ?onSelect ?onScroll ();
+      UIEvent.UI.make ?onScroll ();
       UIEvent.Wheel.make ?onWheel ();
     |]
 end

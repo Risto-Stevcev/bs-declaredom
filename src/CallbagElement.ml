@@ -7,16 +7,11 @@ type +'a t = ([> [> `callbag] Html_Node.custom ] as 'a) Html_Node.t
 let make ?aria
   ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
   ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-  ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-  ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-  ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-  ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-  ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-  ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-  ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-  ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-  ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-  ?onVolumeChange ?onWaiting
+  ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+  ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+  ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+  ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+  ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
   callbag: _ t
   =
   let callbag_element =
@@ -26,17 +21,12 @@ let make ?aria
       Html_Attributes.Global.make ?accessKey ?className ?classSet
         ?contentEditable ?dataSet ?dir ?draggable ?hidden ?id ?lang
         ?spellCheck ?tabIndex ?title ?translate ();
-      Html_Events.Global.make ?onAbort ?onAuxClick ?onBlur ?onCancel
-        ?onCanPlay ?onCanPlayThrough ?onChange ?onClick ?onClose ?onCueChange
-        ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-        ?onDragOver ?onDragStart ?onDrop ?onDurationChange ?onEmptied ?onEnded
-        ?onError ?onFocus ?onInput ?onInvalid ?onKeyDown ?onKeyPress ?onKeyUp
-        ?onLoad ?onLoadedData ?onLoadedMetaData ?onLoadEnd ?onLoadStart
-        ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-        ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay ?onPlaying
-        ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-        ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate
-        ?onToggle ?onVolumeChange ?onWaiting ()
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
     |])
     ()
   in
@@ -49,27 +39,18 @@ let make ?aria
 let jsx ?aria
   ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
   ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-  ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-  ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-  ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-  ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-  ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-  ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-  ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-  ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-  ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-  ?onVolumeChange ?onWaiting ?callbag () =
+  ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+  ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+  ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+  ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+  ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+  ?callbag () =
   make ?aria
     ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir ?draggable
     ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAbort ?onAuxClick ?onBlur ?onCancel ?onCanPlay ?onCanPlayThrough
-    ?onChange ?onClick ?onClose ?onCueChange ?onDblClick ?onDrag ?onDragEnd
-    ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver ?onDragStart ?onDrop
-    ?onDurationChange ?onEmptied ?onEnded ?onError ?onFocus ?onInput ?onInvalid
-    ?onKeyDown ?onKeyPress ?onKeyUp ?onLoad ?onLoadedData ?onLoadedMetaData
-    ?onLoadEnd ?onLoadStart ?onMouseDown ?onMouseEnter ?onMouseLeave
-    ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPause ?onPlay
-    ?onPlaying ?onProgress ?onRateChange ?onReset ?onResize ?onScroll ?onSeeked
-    ?onSeeking ?onSelect ?onStalled ?onSubmit ?onSuspend ?onTimeUpdate ?onToggle
-    ?onVolumeChange ?onWaiting
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     (Js.Option.getWithDefault (CallbagBasics.from_array [||]) callbag)
