@@ -1189,16 +1189,21 @@ module Button = struct
       ?formaction:string ->
       ?formenctype:string ->
       ?formmethod:string ->
-      ?formvalidate:string ->
+      ?formnovalidate:string ->
+      ?formtarget:string ->
+      ?name:string ->
+      ?type_:string ->
+      ?value: string ->
       unit -> Html_Attributes.t = "" [@@bs.obj]
 
     let _make ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-      ?formvalidate () =
+      ?formvalidate ?formtarget ?name ?type_ ?value () =
       make ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
         ?disabled:(Belt.Option.map disabled Util.string_of_unit)
         ?form ?formaction ?formenctype
         ?formmethod:(Belt.Option.map formmethod formmethodToJs)
-        ?formvalidate:(Belt.Option.map formvalidate Util.string_of_unit)
+        ?formnovalidate:(Belt.Option.map formvalidate Util.string_of_unit)
+        ?formtarget ?name ?type_ ?value
         ()
   end
 
