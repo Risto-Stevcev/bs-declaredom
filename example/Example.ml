@@ -91,7 +91,7 @@ let _ =
       |];
       fragment [|
         a ~id:"link" ~href:"#"
-          ~aria:(Html_Attributes.Aria.link ~aria_hidden:true ~aria_label:"foo" ())
+          ~aria:(Html_Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
           [|text "some link"|];
         br ();
         span [|text "foo"|];

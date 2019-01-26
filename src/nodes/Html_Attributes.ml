@@ -280,7 +280,7 @@ module Aria = struct
         ?aria_atomic
         ?aria_autocomplete:(Belt.Option.map aria_autocomplete Value.autocompleteToJs)
         ?aria_busy:(Belt.Option.map aria_busy Util.string_of_unit)
-        ?aria_checked:(Belt.Option.map aria_checked string_of_bool)
+        ?aria_checked:(Belt.Option.map aria_checked Util.string_of_unit)
         ?aria_colcount:(Belt.Option.map aria_colcount string_of_int)
         ?aria_colindex:(Belt.Option.map aria_colindex string_of_int)
         ?aria_colspan:(Belt.Option.map aria_colspan string_of_int)
@@ -288,36 +288,36 @@ module Aria = struct
         ?aria_current:(Belt.Option.map aria_current Value.currentToJs)
         ?aria_describedby
         ?aria_details
-        ?aria_disabled:(Belt.Option.map aria_disabled string_of_bool)
+        ?aria_disabled:(Belt.Option.map aria_disabled Util.string_of_unit)
         ?aria_dropeffect:(Belt.Option.map aria_dropeffect Value.dropeffects)
         ?aria_errormessage
-        ?aria_expanded:(Belt.Option.map aria_expanded string_of_bool)
+        ?aria_expanded:(Belt.Option.map aria_expanded Util.string_of_unit)
         ?aria_flowto
-        ?aria_grabbed:(Belt.Option.map aria_grabbed string_of_bool)
+        ?aria_grabbed:(Belt.Option.map aria_grabbed Util.string_of_unit)
         ?aria_haspopup:(Belt.Option.map aria_haspopup Value.haspopupToJs)
-        ?aria_hidden:(Belt.Option.map aria_hidden string_of_bool)
+        ?aria_hidden:(Belt.Option.map aria_hidden Util.string_of_unit)
         ?aria_invalid:(Belt.Option.map aria_invalid Value.invalidToJs)
         ?aria_keyshortcuts
         ?aria_label
         ?aria_labelledby
         ?aria_level:(Belt.Option.map aria_level string_of_int)
         ?aria_live:(Belt.Option.map aria_live Value.liveToJs)
-        ?aria_modal:(Belt.Option.map aria_modal string_of_bool)
-        ?aria_multiline:(Belt.Option.map aria_multiline string_of_bool)
-        ?aria_multiselectable:(Belt.Option.map aria_multiselectable string_of_bool)
+        ?aria_modal:(Belt.Option.map aria_modal Util.string_of_unit)
+        ?aria_multiline:(Belt.Option.map aria_multiline Util.string_of_unit)
+        ?aria_multiselectable:(Belt.Option.map aria_multiselectable Util.string_of_unit)
         ?aria_orientation:(Belt.Option.map aria_orientation Value.orientationToJs)
         ?aria_owns
         ?aria_placeholder
         ?aria_posinset:(Belt.Option.map aria_posinset string_of_int)
-        ?aria_pressed:(Belt.Option.map aria_pressed string_of_bool)
-        ?aria_readonly:(Belt.Option.map aria_readonly string_of_bool)
+        ?aria_pressed:(Belt.Option.map aria_pressed Util.string_of_unit)
+        ?aria_readonly:(Belt.Option.map aria_readonly Util.string_of_unit)
         ?aria_relevant:(Belt.Option.map aria_relevant Value.relevants)
-        ?aria_required:(Belt.Option.map aria_required string_of_bool)
+        ?aria_required:(Belt.Option.map aria_required Util.string_of_unit)
         ?aria_roledescription
         ?aria_rowcount:(Belt.Option.map aria_rowcount string_of_int)
         ?aria_rowindex:(Belt.Option.map aria_rowindex string_of_int)
         ?aria_rowspan:(Belt.Option.map aria_rowspan string_of_int)
-        ?aria_selected:(Belt.Option.map aria_selected string_of_bool)
+        ?aria_selected:(Belt.Option.map aria_selected Util.string_of_unit)
         ?aria_setsize:(Belt.Option.map aria_setsize string_of_int)
         ?aria_sort:(Belt.Option.map aria_sort Value.sortToJs)
         ?aria_valuemax:(Belt.Option.map aria_valuemax string_of_float)
