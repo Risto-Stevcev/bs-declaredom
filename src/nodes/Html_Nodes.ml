@@ -1180,6 +1180,7 @@ module Button = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   module Attributes = struct
+    type type_ = [ `submit | `reset | `button ] [@@bs.deriving jsConverter]
     type formmethod = [ `get | `post | `dialog ] [@@bs.deriving jsConverter]
 
     external make:
@@ -1191,23 +1192,32 @@ module Button = struct
       ?formmethod:string ->
       ?formnovalidate:string ->
       ?formtarget:string ->
+      ?formelements:string ->
       ?name:string ->
       ?type_:string ->
       ?value: string ->
       unit -> Html_Attributes.t = "" [@@bs.obj]
 
     let _make ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-      ?formvalidate ?formtarget ?name ?type_ ?value () =
+      ?formvalidate ?formtarget ?name ?formelements ?type_ ?value () =
       make ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
         ?disabled:(Belt.Option.map disabled Util.string_of_unit)
         ?form ?formaction ?formenctype
         ?formmethod:(Belt.Option.map formmethod formmethodToJs)
         ?formnovalidate:(Belt.Option.map formvalidate Util.string_of_unit)
-        ?formtarget ?name ?type_ ?value
+        ?formtarget ?name ?formelements
+        ?type_:(Belt.Option.map type_ type_ToJs)
+        ?value
         ()
   end
 
-  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+  let make
+    ?(aria:[< Html_Attributes.Aria.link
+           | Html_Attributes.Aria.button
+           | Html_Attributes.Aria.radio
+           | Html_Attributes.Aria.switch
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
     ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
     ?title ?translate
@@ -1265,6 +1275,977 @@ module Button = struct
 end
 
 
+module Canvas = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element} The Canvas Element}
+   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-canvas} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.canvas ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ 'a Html_Node.flow | 'a Html_Node.phrasing | Html_Node.embedded
+    | 'a Html_Node.palpable | Html_Node.other
+    ] Html_Node.t
+
+  module Attributes = struct
+    external make:
+      ?width:string -> ?height:string -> unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?aria ?height ?width
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "canvas"
+      (Util.merge_all [|
+        Attributes.make ?height ?width ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?height ?width
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?height ?width
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Caption = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/tables.html#the-caption-element} The Caption Element}
+   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-caption} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.caption ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.table_caption Style.t option)
+    ?(cssModule:Css_Property.table_caption Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "caption"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Cite = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element} The Cite Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-cite} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.cite ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "cite"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Code = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element} The Code Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-code} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.code ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "code"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Col = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/tables.html#the-col-element} The Col Element}
+   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-col} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.col ] as 'a) Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make_empty "col"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children:_ () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      ()
+end
+
+
+module Colgroup = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/tables.html#the-colgroup-element} The Colgroup Element}
+   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-colgroup} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.colgroup ] as 'a) Html_Node.t
+
+  type child =
+    [Html_Node.col | Html_Node.template | Html_Node.fragment] Html_Node.t
+
+  module Attributes = struct
+    external _make: ?span:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?span () = _make ?span:(Belt.Option.map span string_of_int) ()
+  end
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?span
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.table_column_group Style.t option)
+    ?(cssModule:Css_Property.table_column_group Css_Module.t option)
+    (children:child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "colgroup"
+      (Util.merge_all [|
+        Attributes.make ?span ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?span
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?span
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Data = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-data-element} The Data Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-data} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.data ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external make: ?value:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?aria ?value
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "data"
+      (Util.merge_all [|
+        Attributes.make ?value ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?value
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?value
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Datalist = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element} The Datalist Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-datalist} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.datalist ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ 'a Html_Node.phrasing | Html_Node.option
+    | Html_Node.Element.script_supporting | Html_Node.other ] Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.listbox Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    (children:_ child array): _ t
+    =
+    Declaredom.make "datalist"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Dd = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dd-element} The Dd Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dd} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.dd ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "dd"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Del = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/edits.html#the-del-element} The Del Element}
+   ({{: https://www.w3.org/TR/html52/edits.html#elementdef-del} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.del ] as 'a) Html_Node.t
+
+  type +'a child =
+    ['a Html_Node.flow | 'a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external _make: ?cite:string -> ?datetime:string -> unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?cite ?datetime () =
+      _make ?cite ?datetime:(Belt.Option.map datetime Js.Date.toISOString) ()
+  end
+
+  let make ?aria ?cite ?datetime
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "del"
+      (Util.merge_all [|
+        Attributes.make ?cite ?datetime ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?cite ?datetime
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?cite ?datetime
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Details = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element} The Details Element}
+   ({{: https://www.w3.org/TR/html52/interactive-elements.html#elementdef-details} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.details ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.summary | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external _make: ?open_:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+    let make ?open_ () =
+      _make ?open_:(Belt.Option.map open_ Util.string_of_unit) ()
+  end
+
+  let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
+    ?open_
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "details"
+      (Util.merge_all [|
+        Attributes.make ?open_ ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?open_
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?open_
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Dfn = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-dfn-element} The Dfn Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-dfn} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.dfn ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "dfn"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Dialog = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element} The Dialog Element}
+   ({{: https://www.w3.org/TR/html52/interactive-elements.html#elementdef-dialog} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.dialog ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external _make: ?open_:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+    let make ?open_ () =
+      _make ?open_:(Belt.Option.map open_ Util.string_of_unit) ()
+  end
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.dialog
+           | Html_Attributes.Aria.alertdialog
+           ] Html_Attributes.Aria.t option)
+    ?open_
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "dialog"
+      (Util.merge_all [|
+        Attributes.make ?open_ ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?open_
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria ?open_
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
 module Div = struct
   (**
    {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element} The Div Element}
@@ -1275,7 +2256,8 @@ module Div = struct
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
-  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
     ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
     ?title ?translate
@@ -1309,7 +2291,8 @@ module Div = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
     ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
     ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
     ?title ?translate
@@ -1319,7 +2302,8 @@ module Div = struct
     ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
     ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
     ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
       ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
       ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
       ?title ?translate
@@ -1331,6 +2315,625 @@ module Div = struct
       ?style ?cssModule
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
+
+
+module Dl = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element} The Dl Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dl} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.dl ] as 'a) Html_Node.t
+
+  type child =
+    [ Html_Node.dd | Html_Node.dt | Html_Node.Element.script_supporting
+    | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.list
+           | Html_Attributes.Aria.group
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "dl"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Dt = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dt-element} The Dt Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dt} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.dt ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "dt"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Em = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element} The Em Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-em} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.em ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "em"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Embed = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-embed-element} The Embed Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-embed} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.embed ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external _make:
+      ?src:string -> ?type_:string -> ?width:string -> ?height:string -> unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?src ?type_ ?width ?height () =
+      _make ?src ?type_
+        ?width:(Belt.Option.map width string_of_int)
+        ?height:(Belt.Option.map height string_of_int) ()
+  end
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.application
+           | Html_Attributes.Aria.document
+           | Html_Attributes.Aria.img
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?src ?type_ ?width ?height
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make_empty "embed"
+      (Util.merge_all [|
+        Attributes.make ?src ?type_ ?width ?height ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx ?aria ?src ?type_ ?width ?height
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children:_ () =
+    make ?aria ?src ?type_ ?width ?height
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      ()
+end
+
+
+module Fieldset = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element} The Fieldset Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-fieldset} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.fieldset ] as 'a) Html_Node.t
+
+  type +'a child =
+    ['a Html_Node.flow | Html_Node.legend | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external _make: ?disabled:string -> ?form:string -> ?name:string -> unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?form ?name ?disabled () =
+      _make ?form ?name
+        ?disabled:(Belt.Option.map disabled Util.string_of_unit) ()
+  end
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.group
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "fieldset"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+
+module Figcaption = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-figcaption-element} The Figcaption Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-figcaption} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.figcaption ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.group
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "figcaption"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Figure = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-figure-element} The Figure Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-figure} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.figure ] as 'a) Html_Node.t
+
+  type +'a child =
+    ['a Html_Node.flow | Html_Node.figcaption | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.figure
+           | Html_Attributes.Aria.group
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "figure"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Footer = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-footer-element} The Footer Element}
+   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-footer} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.footer ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.contentinfo
+           | Html_Attributes.Aria.group
+           | Html_Attributes.Aria.presentation
+           ] Html_Attributes.Aria.t option)
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(cssModule:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make "footer"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children () =
+    make ?aria
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
 
 
 module Span = struct

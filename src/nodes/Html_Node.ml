@@ -32,9 +32,35 @@ module Node = struct
    and body = [ `body ]
    and br = [ `br ]
    and button = [ `button ]
+   and canvas = [ `canvas ]
+   and caption = [ `caption ]
+   and cite = [ `cite ]
+   and code = [ `code ]
+   and col = [ `col ]
+   and colgroup = [ `colgroup ]
+   and data = [ `data ]
+   and datalist = [ `datalist ]
+   and dd = [ `dd ]
+   and del = [ `del ]
+   and details = [ `details ]
+   and dfn = [ `dfn ]
+   and dialog = [ `dialog ]
    and div = [ `div ]
+   and dl = [ `dl ]
+   and dt = [ `dt ]
+   and em = [ `em ]
+   and embed = [ `embed ]
+   and fieldset = [ `fieldset ]
+   and figcaption = [ `figcaption ]
+   and figure = [ `figure ]
+   and footer = [ `footer ]
+   and form = [ `form ]
+   and legend = [ `legend ]
+   and option = [ `option ]
    and source = [ `source ]
    and span = [ `span ]
+   and summary = [ `summary ]
+   and template = [ `template ]
    and title = [ `title ]
 
    and text = [ `text ]
@@ -58,33 +84,39 @@ module ContentCategory = struct
    ({{: https://www.w3.org/TR/html52/dom.html#kinds-of-content} W3C})
    *)
 
-  type none = source
-  type metadata = [ base | title ]
+  type none =
+    [ caption | col | colgroup | dd | dt | figcaption | legend | option
+    | source | summary ]
+  type metadata = [ base | template | title ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
-    | blockquote | br | button | div | span | 'a custom ]
-  type sectioning
-  type sectioning_root = [ blockquote | body ]
+    | blockquote | br | button | canvas | cite | code | data | datalist | del
+    | details | dfn | dialog | div | dl | em | embed | fieldset | figure
+    | footer | span | template | 'a custom ]
+  type sectioning = [ article | aside ]
+  type sectioning_root =
+    [ blockquote | body | details | dialog | fieldset | figure ]
   type heading = fragment
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
-    | span | 'a custom | other ]
-  type embedded = audio
-  type interactive = [ a | audio | button ]
+    | canvas | cite | code | data | datalist | del | dfn | em | embed | span
+    | template | 'a custom | other ]
+  type embedded = [ audio | canvas | em ]
+  type interactive = [ a | audio | button | details | em ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
-    | button
-    | 'a custom ]
+    | button | canvas | cite | code | data | details | dfn | em | figure
+    | footer | 'a custom ]
 
 
   module Element = struct
-    type form_associated = button
-     and listed = button
+    type form_associated = [ button | fieldset ]
+     and listed = [ button | fieldset ]
      and submittable = button
      and resettable
-     and autocapitalizable = button
+     and autocapitalizable = [ button | fieldset ]
      and labelable = button
-     and script_supporting (* [ script | template ] *)
+     and script_supporting = template (* [ script | template ] *)
      and media = audio
 
      type category =
