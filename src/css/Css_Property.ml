@@ -447,5 +447,5 @@ let show_properties ?(indent=0) properties: string =
   |> Js.Dict.map (fun [@bs] e -> (e :> display t))
   |> Js.Dict.entries
   |. Belt.Array.map (fun (key, value) ->
-       indent' ^ Util.camel_to_dash key ^": "^ show value ^";")
+       indent' ^ Util.underscore_to_dash key ^": "^ show value ^";")
   |> Js.Array.joinWith "\n"

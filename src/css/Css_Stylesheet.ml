@@ -35,12 +35,12 @@ module PageRule = struct
   type t =
     [ `page of Selector.t option * Css_Property.MediaGroup.paged Style.t ]
 
-  let make ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
-    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () =
+  let make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+    ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () =
     `page
       ( page
-      , Style.MediaGroup.paged ?margin ?marginTop ?marginRight ?marginBottom
-          ?marginLeft ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans 
+      , Style.MediaGroup.paged ?margin ?margin_top ?margin_right ?margin_bottom
+          ?margin_left ?page_break_before ?page_break_after ?page_break_inside ?orphans 
           ?widows ()
       )
 
@@ -166,10 +166,10 @@ and style selector properties: Rule.t =
 	(StyleRule.make selector properties :> Rule.t)
 and css_module x: Rule.t = (CssModuleRule.make x :> Rule.t)
 and font_face ~family ~src = (FontFaceRule.make ~family ~src :> Rule.t)
-and page ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
-    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows (): Rule.t =
-	(PageRule.make ?page ?margin ?marginTop ?marginRight ?marginBottom ?marginLeft
-    ?pageBreakBefore ?pageBreakAfter ?pageBreakInside ?orphans ?widows () :> Rule.t)
+and page ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+    ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows (): Rule.t =
+	(PageRule.make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+    ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () :> Rule.t)
 
 type t = CharsetRule.t * Rule.t list
 

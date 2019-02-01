@@ -25,7 +25,7 @@ test ~name:"@media functions" @@ fun t -> begin
         (`class_name "foo") 
         (Style.MediaGroup.visual
           ~color:`red
-          ~backgroundColor:`blue ())
+          ~background_color:`blue ())
     ; style
         (`class_name "bar")
         (Style.block ~color:`red ())
@@ -33,7 +33,7 @@ test ~name:"@media functions" @@ fun t -> begin
         (`class_name "display-override-test")
         (Css_Properties.Display.inline_block @@ Style.inline_block ~color:`blue ())
     ; Css_Module.make @@
-      Style.positioned ~top:(`px 40.) ~zIndex:3 ()
+      Style.positioned ~top:(`px 40.) ~z_index:3 ()
       |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)
       |> Css_Module.merge (Css_Module.make @@ Style.block ~color:`red ())
       |> css_module

@@ -1,9 +1,9 @@
 module Modules = struct
   let container = Css_Module.make @@
-    Style.block ~textAlign:`center ~clear:`both ~color:`darkcyan ()
+    Style.block ~text_align:`center ~clear:`both ~color:`darkcyan ()
 
   let title = Css_Module.make @@
-    Style.inline ~verticalAlign:`initial ~color:`black ()
+    Style.inline ~vertical_align:`initial ~color:`black ()
 
   let flex = Css_Module.make @@ Css_Properties.Display.flex @@
     Style.flexbox ~flexDirection:`column ~color:`coral
