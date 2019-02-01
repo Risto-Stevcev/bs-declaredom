@@ -5,15 +5,15 @@ end
 type +'a t = ([> [> `callbag] Html_Node.custom ] as 'a) Html_Node.t
 
 let make ?aria
-  ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-  ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-  ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+  ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+  ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
   ?title ?translate
-  ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-  ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-  ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-  ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-  ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+  ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+  ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+  ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+  ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+  ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
   callbag: _ t
   =
   let callbag_element =
@@ -21,16 +21,16 @@ let make ?aria
     (Util.merge_all [|
       Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
       Html_Attributes.Global.make
-        ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-        ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-        ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+        ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+        ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+        ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
         ?title ?translate ();
-      Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-        ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-        ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-        ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-        ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-        ?onScroll ()
+      Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+        ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+        ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+        ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+        ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+        ?on_scroll ()
     |])
     ()
   in
@@ -41,24 +41,24 @@ let make ?aria
 
 
 let jsx ?aria
-  ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-  ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-  ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+  ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+  ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
   ?title ?translate
-  ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-  ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-  ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-  ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-  ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+  ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+  ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+  ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+  ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+  ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
   ?callbag () =
   make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (Js.Option.getWithDefault (CallbagBasics.from_array [||]) callbag)

@@ -1,8 +1,3 @@
-(**
- Creates CSS modules -- styles that are scoped by components and identified 
- by a uniquely generated class name
- *)
-
 type 'a t
 
 module Internal = struct
@@ -23,11 +18,10 @@ module Internal = struct
     |> Convert.to_module
 end
 
-(** Gets a class name from the className and/or cssModule if provided *)
-let get_class ?className ?cssModule () =
-  match (className, Belt.Option.map cssModule Internal.Convert.to_value) with
-  | (Some className', Some {name}) -> className' ^" "^ name |. Some
-  | (Some _, None) -> className
+let get_class ?class_name ?css_module () =
+  match (class_name, Belt.Option.map css_module Internal.Convert.to_value) with
+  | (Some class_name', Some {name}) -> class_name' ^" "^ name |. Some
+  | (Some _, None) -> class_name
   | (None, Some {name}) -> Some name
   | _ -> None
 

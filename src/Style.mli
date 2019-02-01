@@ -78,9 +78,9 @@ val padding :
 module Group :
   sig
     val aligns :
-      ?alignContent:Css_Properties.AlignContent.Value.t ->
-      ?alignItems:Css_Properties.AlignItems.Value.t ->
-      ?alignSelf:Css_Properties.AlignSelf.Value.t ->
+      ?align_content:Css_Properties.AlignContent.Value.t ->
+      ?align_items:Css_Properties.AlignItems.Value.t ->
+      ?align_self:Css_Properties.AlignSelf.Value.t ->
       unit -> Css_Property.aligns t
     val backgrounds :
       ?background_attachment:Css_Value.Background.Attachment.t ->
@@ -128,12 +128,12 @@ module Group :
       ?cue:Css_Properties.Cue.Value.t -> unit -> Css_Property.cues t
     val flexs :
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Value.LengthPercent.t ->
-      ?flexDirection:Css_Value.Flex.Direction.t ->
-      ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-      ?flexGrow:float ->
-      ?flexShrink:float ->
-      ?flexWrap:Css_Value.Flex.Wrap.t -> unit -> Css_Property.flexs t
+      ?flex_basis:Css_Value.LengthPercent.t ->
+      ?flex_direction:Css_Value.Flex.Direction.t ->
+      ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+      ?flex_grow:float ->
+      ?flex_shrink:float ->
+      ?flex_wrap:Css_Value.Flex.Wrap.t -> unit -> Css_Property.flexs t
     val fonts :
       ?font_family:Css_Value.Font.Family.t ->
       ?font_size:Css_Value.Font.Size.t ->
@@ -231,9 +231,9 @@ module MediaGroup :
       ?outline:Css_Property.outline Css_Property.t ->
       unit -> Css_Property.MediaGroup.interactive t
     val visual :
-      ?alignContent:Css_Properties.AlignContent.Value.t ->
-      ?alignItems:Css_Properties.AlignItems.Value.t ->
-      ?alignSelf:Css_Properties.AlignSelf.Value.t ->
+      ?align_content:Css_Properties.AlignContent.Value.t ->
+      ?align_items:Css_Properties.AlignItems.Value.t ->
+      ?align_self:Css_Properties.AlignSelf.Value.t ->
       ?background_attachment:Css_Value.Background.Attachment.t ->
       ?background_color:Css_Value.Background.Color.t ->
       ?background_image:Css_Value.Background.Image.t ->
@@ -270,12 +270,12 @@ module MediaGroup :
       ?direction:Css_Properties.Direction.Value.t ->
       ?empty_cells:Css_Properties.EmptyCells.Value.t ->
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Value.LengthPercent.t ->
-      ?flexDirection:Css_Value.Flex.Direction.t ->
-      ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-      ?flexGrow:float ->
-      ?flexShrink:float ->
-      ?flexWrap:Css_Value.Flex.Wrap.t ->
+      ?flex_basis:Css_Value.LengthPercent.t ->
+      ?flex_direction:Css_Value.Flex.Direction.t ->
+      ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+      ?flex_grow:float ->
+      ?flex_shrink:float ->
+      ?flex_wrap:Css_Value.Flex.Wrap.t ->
       ?float:Css_Properties.Float.Value.t ->
       ?font_family:Css_Value.Font.Family.t ->
       ?font_size:Css_Value.Font.Size.t ->
@@ -286,7 +286,7 @@ module MediaGroup :
       ?height:Css_Value.LengthPercent.t ->
       ?min_height:Css_Value.LengthPercent.t ->
       ?max_height:Css_Value.LengthPercent.t ->
-      ?justifyContent:Css_Properties.JustifyContent.Value.t ->
+      ?justify_content:Css_Properties.JustifyContent.Value.t ->
       ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
       ?line_height:Css_Value.LineHeight.t ->
       ?list_style_image:Css_Value.ListStyle.Image.t ->
@@ -509,15 +509,15 @@ val block :
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.block t
 val flexbox :
-  ?alignContent:Css_Properties.AlignContent.Value.t ->
-  ?alignItems:Css_Properties.AlignItems.Value.t ->
-  ?flexDirection:Css_Value.Flex.Direction.t ->
-  ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-  ?flexWrap:Css_Value.Flex.Wrap.t ->
+  ?align_content:Css_Properties.AlignContent.Value.t ->
+  ?align_items:Css_Properties.AlignItems.Value.t ->
+  ?flex_direction:Css_Value.Flex.Direction.t ->
+  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+  ?flex_wrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?min_height:Css_Value.LengthPercent.t ->
   ?max_height:Css_Value.LengthPercent.t ->
-  ?justifyContent:Css_Properties.JustifyContent.Value.t ->
+  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?margin:Css_Property.margin Css_Property.t ->
   ?margin_top:Css_Value.LengthPercent.t ->
   ?margin_right:Css_Value.LengthPercent.t ->
@@ -601,11 +601,11 @@ val flexbox :
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.flexbox t
 val flex_item :
-  ?alignSelf:Css_Properties.AlignSelf.Value.t ->
+  ?align_self:Css_Properties.AlignSelf.Value.t ->
   ?flex:Css_Property.flex Css_Property.t ->
-  ?flexBasis:Css_Value.LengthPercent.t ->
-  ?flexGrow:float ->
-  ?flexShrink:float ->
+  ?flex_basis:Css_Value.LengthPercent.t ->
+  ?flex_grow:float ->
+  ?flex_shrink:float ->
   ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?background_attachment:Css_Value.Background.Attachment.t ->
   ?background_color:Css_Value.Background.Color.t ->
@@ -1107,16 +1107,16 @@ val inline :
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.inline t
 val inline_flex :
-  ?alignContent:Css_Properties.AlignContent.Value.t ->
-  ?alignItems:Css_Properties.AlignItems.Value.t ->
+  ?align_content:Css_Properties.AlignContent.Value.t ->
+  ?align_items:Css_Properties.AlignItems.Value.t ->
   ?flex:Css_Property.flex Css_Property.t ->
-  ?flexDirection:Css_Value.Flex.Direction.t ->
-  ?flexFlow:Css_Properties.FlexFlow.Value.t ->
-  ?flexWrap:Css_Value.Flex.Wrap.t ->
+  ?flex_direction:Css_Value.Flex.Direction.t ->
+  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+  ?flex_wrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?min_height:Css_Value.LengthPercent.t ->
   ?max_height:Css_Value.LengthPercent.t ->
-  ?justifyContent:Css_Properties.JustifyContent.Value.t ->
+  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?margin:Css_Property.margin Css_Property.t ->
   ?margin_top:Css_Value.LengthPercent.t ->
   ?margin_right:Css_Value.LengthPercent.t ->

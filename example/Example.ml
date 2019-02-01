@@ -6,11 +6,11 @@ module Modules = struct
     Style.inline ~vertical_align:`initial ~color:`black ()
 
   let flex = Css_Module.make @@ Css_Properties.Display.flex @@
-    Style.flexbox ~flexDirection:`column ~color:`coral
+    Style.flexbox ~flex_direction:`column ~color:`coral
       ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
   let flex_item = Css_Module.make @@
-    Style.flex_item ~alignSelf:`flex_start ~color:`red ()
+    Style.flex_item ~align_self:`flex_start ~color:`red ()
 
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the
@@ -70,7 +70,7 @@ let _ =
     (* Add custom types. Here the children are parameterized by `callbag and `foo *)
     let custom_foo: [> [> `foo] Html_Node.custom] Html_Node.t = Obj.magic () in
     let _: [`callbag | `foo] Html_Nodes.Div.child array = [|
-      span ~cssModule:Modules.title [|text "The time is:"|];
+      span ~css_module:Modules.title [|text "The time is:"|];
       br ();
       custom_foo;
       clock;
@@ -95,9 +95,9 @@ let _ =
       |> CallbagElement.make
     in
 
-    div ~cssModule:Modules.container [|
+    div ~css_module:Modules.container [|
       TryJsx.foo;
-      Div.flex ~cssModule:Modules.flex [|
+      Div.flex ~css_module:Modules.flex [|
         span [|text "this"|] |> Html_Overrides.flex_module Modules.flex_item;
         span [|text "is"|];
         span [|text "flexbox"|];
@@ -117,7 +117,7 @@ let _ =
         |];
         br ();
       |];
-      span ~cssModule:Modules.title [|text "The time is:"|];
+      span ~css_module:Modules.title [|text "The time is:"|];
       br ();
       clock;
     |]

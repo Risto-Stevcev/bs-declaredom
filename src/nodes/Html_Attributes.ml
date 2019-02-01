@@ -1617,58 +1617,58 @@ module Global = struct
   end
 
   external _make:
-    ?accessKey:string ->
-    ?autoCapitalize:string ->
-    ?className:string ->
-    ?classSet:bool Js.Dict.t ->
-    ?contentEditable:string ->
-    ?dataSet:string Js.Dict.t ->
+    ?accesskey:string ->
+    ?autocapitalize:string ->
+    ?class_name:string ->
+    ?class_set:bool Js.Dict.t ->
+    ?contenteditable:string ->
+    ?dataset:string Js.Dict.t ->
     ?dir:string ->
     ?draggable:string ->
-    ?enterKeyHint:string ->
+    ?enterkeyhint:string ->
     ?hidden:string ->
     ?id:string ->
-    ?inputMode:string ->
+    ?inputmode:string ->
     ?is:string ->
-    ?itemId:string ->
-    ?itemProp:string ->
-    ?itemRef:string ->
-    ?itemScope:string ->
-    ?itemType:string ->
+    ?itemid:string ->
+    ?itemprop:string ->
+    ?itemref:string ->
+    ?itemscope:string ->
+    ?itemtype:string ->
     ?lang:string ->
     ?nonce:string ->
-    ?spellCheck:string ->
+    ?spellcheck:string ->
     ?style:string Js.Dict.t ->
-    ?tabIndex:string ->
+    ?tabindex:string ->
     ?title:string ->
     ?translate:string ->
     unit ->
     t = "" [@@bs.obj]
 
   let make
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
     ?title ?translate () =
     _make
-      ?accessKey
-      ?autoCapitalize:(Belt.Option.map autoCapitalize Value.autocapitalizeToJs)
-      ?className ?classSet
-      ?contentEditable:(Belt.Option.map contentEditable Util.string_of_unit)
-      ?dataSet
+      ?accesskey
+      ?autocapitalize:(Belt.Option.map autocapitalize Value.autocapitalizeToJs)
+      ?class_name ?class_set
+      ?contenteditable:(Belt.Option.map contenteditable Util.string_of_unit)
+      ?dataset
       ?dir:(Belt.Option.map dir Value.dirToJs)
       ?draggable:(Belt.Option.map draggable Util.string_of_unit)
-      ?enterKeyHint:(Belt.Option.map enterKeyHint Value.enterkeyhintToJs)
+      ?enterkeyhint:(Belt.Option.map enterkeyhint Value.enterkeyhintToJs)
       ?hidden:(Belt.Option.map hidden Util.string_of_unit)
       ?id
-      ?inputMode:(Belt.Option.map inputMode Value.inputmodeToJs)
+      ?inputmode:(Belt.Option.map inputmode Value.inputmodeToJs)
       ?is
-      ?itemId ?itemProp ?itemRef
-      ?itemScope:(Belt.Option.map itemScope Util.string_of_unit)
-      ?itemType
-      ?lang ?nonce ?spellCheck
+      ?itemid ?itemprop ?itemref
+      ?itemscope:(Belt.Option.map itemscope Util.string_of_unit)
+      ?itemtype
+      ?lang ?nonce ?spellcheck
       ?style:(Belt.Option.map style Style.show_dict)
-      ?tabIndex:(Belt.Option.map tabIndex string_of_int)
+      ?tabindex:(Belt.Option.map tabindex string_of_int)
       ?title
       ?translate:(Belt.Option.map translate Value.translateToJs)
       ()

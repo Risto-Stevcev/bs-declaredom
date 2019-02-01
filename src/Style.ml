@@ -17,9 +17,9 @@ let merge (style_a: [< Css_Property.display] t) style_b =
 module Internal = struct
   module Group = struct
     external aligns:
-      ?alignContent:Css_Property.align_content Css_Property.t ->
-      ?alignItems:Css_Property.align_items Css_Property.t ->
-      ?alignSelf:Css_Property.align_self Css_Property.t ->
+      ?align_content:Css_Property.align_content Css_Property.t ->
+      ?align_items:Css_Property.align_items Css_Property.t ->
+      ?align_self:Css_Property.align_self Css_Property.t ->
       unit ->
       Css_Property.aligns t = "" [@@bs.obj]
 
@@ -78,12 +78,12 @@ module Internal = struct
 
     external flexs:
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
-      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
-      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
-      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
-      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
-      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?flex_basis:Css_Property.flex_basis Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_grow:Css_Property.flex_grow Css_Property.t ->
+      ?flex_shrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
       unit ->
       Css_Property.flexs t = "" [@@bs.obj]
 
@@ -226,9 +226,9 @@ module Internal = struct
       Css_Property.MediaGroup.interactive t = "" [@@bs.obj]
 
     external visual:
-      ?alignContent:Css_Property.align_content Css_Property.t ->
-      ?alignItems:Css_Property.align_items Css_Property.t ->
-      ?alignSelf:Css_Property.align_self Css_Property.t ->
+      ?align_content:Css_Property.align_content Css_Property.t ->
+      ?align_items:Css_Property.align_items Css_Property.t ->
+      ?align_self:Css_Property.align_self Css_Property.t ->
       ?background_attachment:Css_Property.background_attachment Css_Property.t ->
       ?background_color:Css_Property.background_color Css_Property.t ->
       ?background_image:Css_Property.background_image Css_Property.t ->
@@ -265,12 +265,12 @@ module Internal = struct
       ?direction:Css_Property.direction Css_Property.t ->
       ?empty_cells:Css_Property.empty_cells Css_Property.t ->
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
-      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
-      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
-      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
-      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
-      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?flex_basis:Css_Property.flex_basis Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_grow:Css_Property.flex_grow Css_Property.t ->
+      ?flex_shrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
       ?float:Css_Property.float_ Css_Property.t ->
       ?font_family:Css_Property.font_family Css_Property.t ->
       ?font_size:Css_Property.font_size Css_Property.t ->
@@ -281,7 +281,7 @@ module Internal = struct
       ?height:Css_Property.height Css_Property.t ->
       ?min_height:Css_Property.min_height Css_Property.t ->
       ?max_height:Css_Property.max_height Css_Property.t ->
-      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
       ?list_style_image:Css_Property.list_style_image Css_Property.t ->
@@ -517,15 +517,15 @@ module Internal = struct
 
 
     external flexbox:
-      ?alignContent:Css_Property.align_content Css_Property.t ->
-      ?alignItems:Css_Property.align_items Css_Property.t ->
-      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
-      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
-      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?align_content:Css_Property.align_content Css_Property.t ->
+      ?align_items:Css_Property.align_items Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
       ?height:Css_Property.height Css_Property.t ->
       ?min_height:Css_Property.min_height Css_Property.t ->
       ?max_height:Css_Property.max_height Css_Property.t ->
-      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Property.margin_top Css_Property.t ->
       ?margin_right:Css_Property.margin_right Css_Property.t ->
@@ -612,11 +612,11 @@ module Internal = struct
 
 
     external flex_item:
-      ?alignSelf:Css_Property.align_self Css_Property.t ->
+      ?align_self:Css_Property.align_self Css_Property.t ->
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
-      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
-      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flex_basis:Css_Property.flex_basis Css_Property.t ->
+      ?flex_grow:Css_Property.flex_grow Css_Property.t ->
+      ?flex_shrink:Css_Property.flex_shrink Css_Property.t ->
       ?azimuth:Css_Property.azimuth Css_Property.t ->
       ?background_attachment:Css_Property.background_attachment Css_Property.t ->
       ?background_color:Css_Property.background_color Css_Property.t ->
@@ -1136,19 +1136,19 @@ module Internal = struct
 
 
     external inline_flex:
-      ?alignContent:Css_Property.align_content Css_Property.t ->
-      ?alignItems:Css_Property.align_items Css_Property.t ->
+      ?align_content:Css_Property.align_content Css_Property.t ->
+      ?align_items:Css_Property.align_items Css_Property.t ->
       ?flex:Css_Property.flex Css_Property.t ->
-      ?flexBasis:Css_Property.flex_basis Css_Property.t ->
-      ?flexDirection:Css_Property.flex_direction Css_Property.t ->
-      ?flexFlow:Css_Property.flex_flow Css_Property.t ->
-      ?flexGrow:Css_Property.flex_grow Css_Property.t ->
-      ?flexShrink:Css_Property.flex_shrink Css_Property.t ->
-      ?flexWrap:Css_Property.flex_wrap Css_Property.t ->
+      ?flex_basis:Css_Property.flex_basis Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_grow:Css_Property.flex_grow Css_Property.t ->
+      ?flex_shrink:Css_Property.flex_shrink Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
       ?height:Css_Property.height Css_Property.t ->
       ?min_height:Css_Property.min_height Css_Property.t ->
       ?max_height:Css_Property.max_height Css_Property.t ->
-      ?justifyContent:Css_Property.justify_content Css_Property.t ->
+      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Property.margin_top Css_Property.t ->
       ?margin_right:Css_Property.margin_right Css_Property.t ->
@@ -2169,11 +2169,11 @@ include Shorthand
 
 
 module Group = struct
-  let aligns ?alignContent ?alignItems ?alignSelf () =
+  let aligns ?align_content ?align_items ?align_self () =
     Internal.Group.aligns
-      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
-      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
-      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
+      ?align_content:(Belt.Option.map align_content AlignContent.make)
+      ?align_items:(Belt.Option.map align_items AlignItems.make)
+      ?align_self:(Belt.Option.map align_self AlignSelf.make)
       ()
 
   let backgrounds ?background_attachment ?background_color ?background_image
@@ -2246,16 +2246,16 @@ module Group = struct
       ?cue:(Belt.Option.map cue Cue.make)
       ()
 
-  let flexs ?flex ?flexBasis ?flexDirection ?flexFlow ?flexGrow ?flexShrink
-    ?flexWrap () =
+  let flexs ?flex ?flex_basis ?flex_direction ?flex_flow ?flex_grow ?flex_shrink
+    ?flex_wrap () =
     Internal.Group.flexs
       ?flex
-      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
-      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
-      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
-      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
-      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ?flex_basis:(Belt.Option.map flex_basis FlexBasis.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_grow:(Belt.Option.map flex_grow FlexGrow.make)
+      ?flex_shrink:(Belt.Option.map flex_shrink FlexShrink.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ()
 
   let fonts ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
@@ -2397,7 +2397,7 @@ module MediaGroup = struct
       ?outline
       ()
 
-  let visual ?alignContent ?alignItems ?alignSelf ?background_attachment
+  let visual ?align_content ?align_items ?align_self ?background_attachment
     ?background_color ?background_image ?background_position ?background_repeat
     ?background ?border_collapse ?border_top_color ?border_right_color
     ?border_bottom_color ?border_left_color ?border_color ?border_spacing
@@ -2405,9 +2405,9 @@ module MediaGroup = struct
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?caption_side ?clear ?clip ?color ?cursor ?direction
-    ?empty_cells ?flex ?flexBasis ?flexDirection ?flexFlow ?flexGrow
-    ?flexShrink ?flexWrap ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?height ?min_height ?max_height ?justifyContent
+    ?empty_cells ?flex ?flex_basis ?flex_direction ?flex_flow ?flex_grow
+    ?flex_shrink ?flex_wrap ?float ?font_family ?font_size ?font_style ?font_variant
+    ?font_weight ?font ?height ?min_height ?max_height ?justify_content
     ?letter_spacing ?line_height ?list_style_image ?list_style_position
     ?list_style_type ?list_style ?margin ?margin_top ?margin_right ?margin_bottom
     ?margin_left ?order ?outline_color ?outline_style ?outline_width ?outline
@@ -2417,9 +2417,9 @@ module MediaGroup = struct
     ?text_indent ?unicode_bidi ?vertical_align ?visibility ?white_space ?width
     ?min_width ?max_width ?word_spacing ?z_index () =
     Internal.MediaGroup.visual
-      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
-      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
-      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
+      ?align_content:(Belt.Option.map align_content AlignContent.make)
+      ?align_items:(Belt.Option.map align_items AlignItems.make)
+      ?align_self:(Belt.Option.map align_self AlignSelf.make)
       ?background_attachment:
         (Belt.Option.map background_attachment BackgroundAttachment.make)
       ?background_color:(Belt.Option.map background_color BackgroundColor.make)
@@ -2461,12 +2461,12 @@ module MediaGroup = struct
       ?direction:(Belt.Option.map direction Direction.make)
       ?empty_cells:(Belt.Option.map empty_cells EmptyCells.make)
       ?flex
-      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
-      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
-      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
-      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
-      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ?flex_basis:(Belt.Option.map flex_basis FlexBasis.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_grow:(Belt.Option.map flex_grow FlexGrow.make)
+      ?flex_shrink:(Belt.Option.map flex_shrink FlexShrink.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ?float:(Belt.Option.map float Float.make)
       ?font_family:(Belt.Option.map font_family FontFamily.make)
       ?font_size:(Belt.Option.map font_size FontSize.make)
@@ -2477,7 +2477,7 @@ module MediaGroup = struct
       ?height:(Belt.Option.map height Height.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?max_height:(Belt.Option.map max_height MaxHeight.make)
-      ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
+      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
       ?list_style_image:(Belt.Option.map list_style_image ListStyleImage.make)
@@ -2751,9 +2751,9 @@ module AppliesTo = struct
       ()
 
 
-  let flexbox ?alignContent ?alignItems ?flexDirection ?flexFlow
-    ?flexWrap ?height ?min_height ?max_height
-    ?justifyContent ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+  let flexbox ?align_content ?align_items ?flex_direction ?flex_flow
+    ?flex_wrap ?height ?min_height ?max_height
+    ?justify_content ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?order ?padding ?padding_top ?padding_right ?padding_bottom ?padding_left
     ?width ?min_width ?max_width ?azimuth ?background_attachment ?background_color
     ?background_image ?background_position ?background_repeat ?background
@@ -2770,15 +2770,15 @@ module AppliesTo = struct
     ?text_transform ?unicode_bidi ?visibility ?voice_family ?volume
     ?white_space ?word_spacing () =
     Internal.AppliesTo.flexbox
-      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
-      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
-      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
-      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ?align_content:(Belt.Option.map align_content AlignContent.make)
+      ?align_items:(Belt.Option.map align_items AlignItems.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?max_height:(Belt.Option.map max_height MaxHeight.make)
-      ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
+      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?margin
       ?margin_top:(Belt.Option.map margin_top MarginTop.make)
       ?margin_right:(Belt.Option.map margin_right MarginRight.make)
@@ -2873,7 +2873,7 @@ module AppliesTo = struct
       ()
 
 
-  let flex_item ?alignSelf ?flex ?flexBasis ?flexGrow ?flexShrink
+  let flex_item ?align_self ?flex ?flex_basis ?flex_grow ?flex_shrink
     ?azimuth ?background_attachment ?background_color
     ?background_image ?background_position ?background_repeat ?background
     ?border_top_color ?border_right_color ?border_bottom_color ?border_left_color
@@ -2889,11 +2889,11 @@ module AppliesTo = struct
     ?text_transform ?unicode_bidi ?visibility ?voice_family ?volume
     ?white_space ?word_spacing () =
     Internal.AppliesTo.flex_item
-      ?alignSelf:(Belt.Option.map alignSelf AlignSelf.make)
+      ?align_self:(Belt.Option.map align_self AlignSelf.make)
       ?flex
-      ?flexBasis:(Belt.Option.map flexBasis FlexBasis.make)
-      ?flexGrow:(Belt.Option.map flexGrow FlexGrow.make)
-      ?flexShrink:(Belt.Option.map flexShrink FlexShrink.make)
+      ?flex_basis:(Belt.Option.map flex_basis FlexBasis.make)
+      ?flex_grow:(Belt.Option.map flex_grow FlexGrow.make)
+      ?flex_shrink:(Belt.Option.map flex_shrink FlexShrink.make)
       ?azimuth:(Belt.Option.map azimuth Azimuth.make)
       ?background_attachment:
         (Belt.Option.map background_attachment BackgroundAttachment.make)
@@ -3540,9 +3540,9 @@ module AppliesTo = struct
       ()
 
 
-  let inline_flex ?alignContent ?alignItems ?flex ?flexDirection
-    ?flexFlow ?flexWrap ?height
-    ?min_height ?max_height ?justifyContent ?margin ?margin_top ?margin_right
+  let inline_flex ?align_content ?align_items ?flex ?flex_direction
+    ?flex_flow ?flex_wrap ?height
+    ?min_height ?max_height ?justify_content ?margin ?margin_top ?margin_right
     ?margin_bottom ?margin_left ?order ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?width ?min_width ?max_width ?vertical_align 
     ?azimuth ?background_attachment ?background_color ?background_image
@@ -3559,16 +3559,16 @@ module AppliesTo = struct
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
     ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.inline_flex
-      ?alignContent:(Belt.Option.map alignContent AlignContent.make)
-      ?alignItems:(Belt.Option.map alignItems AlignItems.make)
+      ?align_content:(Belt.Option.map align_content AlignContent.make)
+      ?align_items:(Belt.Option.map align_items AlignItems.make)
       ?flex
-      ?flexDirection:(Belt.Option.map flexDirection FlexDirection.make)
-      ?flexFlow:(Belt.Option.map flexFlow FlexFlow.make)
-      ?flexWrap:(Belt.Option.map flexWrap FlexWrap.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?max_height:(Belt.Option.map max_height MaxHeight.make)
-      ?justifyContent:(Belt.Option.map justifyContent JustifyContent.make)
+      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?margin
       ?margin_top:(Belt.Option.map margin_top MarginTop.make)
       ?margin_right:(Belt.Option.map margin_right MarginRight.make)

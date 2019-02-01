@@ -67,20 +67,20 @@ module A = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.treeitem
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "a"
       (Util.merge_all [|
@@ -88,16 +88,16 @@ module A = struct
           ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make 
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
@@ -105,28 +105,28 @@ module A = struct
 
   let jsx
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable
-    ?dataSet ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId
-    ?itemProp ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
+    ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
+    ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?style ?css_module ?children () =
     make
       ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable
-      ?dataSet ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId
-      ?itemProp ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
+      ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
+      ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -142,61 +142,61 @@ module Abbr = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "abbr"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -212,61 +212,61 @@ module Address = struct
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "address"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -317,31 +317,31 @@ module Area = struct
   let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
     ?referrerpolicy 
     ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll (): _ t =
     Declaredom.make_empty "area"
       (Util.merge_all [|
         Attributes.make ?alt ?coords ?download ?href ?hreflang ?rel ?shape
           ?target ?_type ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
@@ -350,28 +350,28 @@ module Area = struct
   let jsx ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
     ?referrerpolicy 
     ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
     make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
       ?referrerpolicy 
       ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
 end
 
 
@@ -393,62 +393,62 @@ module Article = struct
            | Html_Attributes.Aria.main
            | Html_Attributes.Aria.region
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "article"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -470,62 +470,62 @@ module Aside = struct
            | Html_Attributes.Aria.search
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "aside"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -574,20 +574,20 @@ module Audio = struct
   let make
     ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
     ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onLoad ?onLoadEnd ?onSecurityPolicyViolation
-    ?onAbort ?onCanPlay ?onCanPlayThrough ?onCueChange ?onDurationChange
-    ?onEmptied ?onEnded ?onError ?onLoadedMetaData ?onLoadedData ?onLoadStart
-    ?onPause ?onPlay ?onPlaying ?onProgress ?onRateChange ?onResize ?onSeeked
-    ?onSeeking ?onSuspend ?onStalled ?onTimeUpdate ?onVolumeChange ?onWaiting 
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_load ?on_loadend ?on_securitypolicyviolation
+    ?on_abort ?on_canplay ?on_canplaythrough ?on_cuechange ?on_durationchange
+    ?on_emptied ?on_ended ?on_error ?on_loadedmetadata ?on_loadeddata ?on_loadstart
+    ?on_pause ?on_play ?on_playing ?on_progress ?on_ratechange ?on_resize ?on_seeked
+    ?on_seeking ?on_suspend ?on_stalled ?on_timeupdate ?on_volumechange ?on_waiting 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:_ child array): _ t
     =
     Declaredom.make "audio"
@@ -595,56 +595,56 @@ module Audio = struct
         Attributes.make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Resource.make ?onLoad ?onLoadEnd ?onSecurityPolicyViolation ();
-        Html_Events.Media.make ?onAbort ?onCanPlay ?onCanPlayThrough
-          ?onCueChange ?onDurationChange ?onEmptied ?onEnded ?onError
-          ?onLoadedMetaData ?onLoadedData ?onLoadStart ?onPause ?onPlay
-          ?onPlaying ?onProgress ?onRateChange ?onResize ?onSeeked ?onSeeking
-          ?onSuspend ?onStalled ?onTimeUpdate ?onVolumeChange ?onWaiting ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Resource.make ?on_load ?on_loadend ?on_securitypolicyviolation ();
+        Html_Events.Media.make ?on_abort ?on_canplay ?on_canplaythrough
+          ?on_cuechange ?on_durationchange ?on_emptied ?on_ended ?on_error
+          ?on_loadedmetadata ?on_loadeddata ?on_loadstart ?on_pause ?on_play
+          ?on_playing ?on_progress ?on_ratechange ?on_resize ?on_seeked ?on_seeking
+          ?on_suspend ?on_stalled ?on_timeupdate ?on_volumechange ?on_waiting ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
-    ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
-    ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
-    ?onPlay ?onPause ?onRateChange ?onResize ?onVolumeChange
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
+    ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
+    ?on_waiting ?on_seeking ?on_seeked ?on_ended ?on_durationchange ?on_timeupdate
+    ?on_play ?on_pause ?on_ratechange ?on_resize ?on_volumechange
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children () =
     make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onLoadStart ?onProgress ?onSuspend ?onAbort ?onError ?onEmptied ?onStalled
-      ?onLoadedMetaData ?onLoadedData ?onCanPlay ?onCanPlayThrough ?onPlaying
-      ?onWaiting ?onSeeking ?onSeeked ?onEnded ?onDurationChange ?onTimeUpdate
-      ?onPlay ?onPause ?onRateChange ?onResize ?onVolumeChange
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+      ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
+      ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
+      ?on_waiting ?on_seeking ?on_seeked ?on_ended ?on_durationchange ?on_timeupdate
+      ?on_play ?on_pause ?on_ratechange ?on_resize ?on_volumechange
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -660,62 +660,62 @@ module B = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "b"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -738,56 +738,56 @@ module Base = struct
 
   let make ?href ?target
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll (): _ t
     =
     Declaredom.make_empty "base"
       (Util.merge_all [|
         Attributes.make ?href ?target ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
 
   let jsx ?href ?target
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
     make ?href ?target
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
 end
 
 
@@ -802,62 +802,62 @@ module Bdi = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "bdi"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -872,61 +872,61 @@ module Bdo = struct
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
-  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "bdo"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -947,63 +947,63 @@ module Blockquote = struct
   end
 
   let make ?cite
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "blockquote"
       (Util.merge_all [|
         Attributes.make ?cite ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?cite
-    ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?cite
-      ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1020,97 +1020,97 @@ module Body = struct
 
   module Attributes = struct
     external make:
-      ?onAfterPrint:(Dom.event -> unit) ->
-      ?onBeforePrint:(Dom.event -> unit) ->
-      ?onBeforeUnload:(Dom.event -> unit) ->
-      ?onHashChange:(Dom.event -> unit) ->
-      ?onLanguageChange:(Dom.event -> unit) ->
-      ?onMessage:(Dom.event -> unit) ->
-      ?onMessageError:(Dom.event -> unit) ->
-      ?onOffline:(Dom.event -> unit) ->
-      ?onOnline:(Dom.event -> unit) ->
-      ?onPageHide:(Dom.event -> unit) ->
-      ?onPageShow:(Dom.event -> unit) ->
-      ?onPopState:(Dom.event -> unit) ->
-      ?onResize:(Dom.event -> unit) ->
-      ?onRejectionHandled:(Dom.event -> unit) ->
-      ?onStorage:(Dom.event -> unit) ->
-      ?onUnhandledRejection:(Dom.event -> unit) ->
-      ?onUnload:(Dom.event -> unit) ->
+      ?on_afterprint:(Dom.event -> unit) ->
+      ?on_beforeprint:(Dom.event -> unit) ->
+      ?on_beforeunload:(Dom.event -> unit) ->
+      ?on_hashchange:(Dom.event -> unit) ->
+      ?on_languagechange:(Dom.event -> unit) ->
+      ?on_message:(Dom.event -> unit) ->
+      ?on_messageerror:(Dom.event -> unit) ->
+      ?on_offline:(Dom.event -> unit) ->
+      ?on_online:(Dom.event -> unit) ->
+      ?on_pagehide:(Dom.event -> unit) ->
+      ?on_pageshow:(Dom.event -> unit) ->
+      ?on_popstate:(Dom.event -> unit) ->
+      ?on_resize:(Dom.event -> unit) ->
+      ?on_rejectionhandled:(Dom.event -> unit) ->
+      ?on_storage:(Dom.event -> unit) ->
+      ?on_unhandledrejection:(Dom.event -> unit) ->
+      ?on_unload:(Dom.event -> unit) ->
       unit -> Html_Attributes.t = "" [@@bs.obj]
   end
 
   let make ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange
-    ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
-    ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled ?onStorage
-    ?onUnhandledRejection ?onUnload
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
+    ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
+    ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled ?on_storage
+    ?on_unhandledrejection ?on_unload
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "body"
       (Util.merge_all [|
-        Attributes.make ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
-          ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
-          ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
-          ?onStorage ?onUnhandledRejection ?onUnload ();
+        Attributes.make ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+          ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
+          ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
+          ?on_storage ?on_unhandledrejection ?on_unload ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
-    ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
-    ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
-    ?onStorage ?onUnhandledRejection ?onUnload
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+    ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
+    ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
+    ?on_storage ?on_unhandledrejection ?on_unload
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAfterPrint ?onBeforePrint ?onBeforeUnload ?onHashChange 
-      ?onLanguageChange ?onMessage ?onMessageError ?onOffline ?onOnline
-      ?onPageHide ?onPageShow ?onPopState ?onResize ?onRejectionHandled
-      ?onStorage ?onUnhandledRejection ?onUnload
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-      ?style ?cssModule
+      ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+      ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
+      ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
+      ?on_storage ?on_unhandledrejection ?on_unload
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1123,49 +1123,49 @@ module Br = struct
 
   type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
-  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll (): _ t
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll (): _ t
     =
     Declaredom.make_empty "br"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
 
-  let jsx ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-    ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+  let jsx ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
+    ?draggable ?hidden ?id ?lang ?spellcheck ?tabindex ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
-    make ?aria ?accessKey ?className ?classSet ?contentEditable ?dataSet ?dir
-      ?draggable ?hidden ?id ?lang ?spellCheck ?tabIndex ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll ()
+    make ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
+      ?draggable ?hidden ?id ?lang ?spellcheck ?tabindex ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
 end
 
 
@@ -1217,60 +1217,60 @@ module Button = struct
            | Html_Attributes.Aria.radio
            | Html_Attributes.Aria.switch
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline_block Style.t option)
-    ?(cssModule:Css_Property.inline_block Css_Module.t option)
+    ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "button"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1295,63 +1295,63 @@ module Canvas = struct
   end
 
   let make ?aria ?height ?width
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "canvas"
       (Util.merge_all [|
         Attributes.make ?height ?width ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?height ?width
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?height ?width
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1367,62 +1367,62 @@ module Caption = struct
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.table_caption Style.t option)
-    ?(cssModule:Css_Property.table_caption Css_Module.t option)
+    ?(css_module:Css_Property.table_caption Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "caption"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1438,62 +1438,62 @@ module Cite = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "cite"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1509,62 +1509,62 @@ module Code = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "code"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1578,62 +1578,62 @@ module Col = struct
   type +'a t = ([> Html_Node.col ] as 'a) Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make_empty "col"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children:_ () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children:_ () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       ()
 end
 
@@ -1657,63 +1657,63 @@ module Colgroup = struct
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?span
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.table_column_group Style.t option)
-    ?(cssModule:Css_Property.table_column_group Css_Module.t option)
+    ?(css_module:Css_Property.table_column_group Css_Module.t option)
     (children:child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "colgroup"
       (Util.merge_all [|
         Attributes.make ?span ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?span
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?span
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1733,63 +1733,63 @@ module Data = struct
   end
 
   let make ?aria ?value
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "data"
       (Util.merge_all [|
         Attributes.make ?value ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?value
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?value
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1807,57 +1807,57 @@ module Datalist = struct
     | Html_Node.Element.script_supporting | Html_Node.other ] Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.listbox Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     (children:_ child array): _ t
     =
     Declaredom.make "datalist"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1873,62 +1873,62 @@ module Dd = struct
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "dd"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1953,63 +1953,63 @@ module Del = struct
   end
 
   let make ?aria ?cite ?datetime
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "del"
       (Util.merge_all [|
         Attributes.make ?cite ?datetime ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?cite ?datetime
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?cite ?datetime
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2032,63 +2032,63 @@ module Details = struct
 
   let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
     ?open_
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "details"
       (Util.merge_all [|
         Attributes.make ?open_ ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?open_
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?open_
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2104,62 +2104,62 @@ module Dfn = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "dfn"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2185,63 +2185,63 @@ module Dialog = struct
            | Html_Attributes.Aria.alertdialog
            ] Html_Attributes.Aria.t option)
     ?open_
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "dialog"
       (Util.merge_all [|
         Attributes.make ?open_ ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?open_
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?open_
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2257,62 +2257,62 @@ module Div = struct
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "div"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2334,62 +2334,62 @@ module Dl = struct
            | Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "dl"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2406,62 +2406,62 @@ module Dt = struct
 
   let make
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "dt"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2477,62 +2477,62 @@ module Em = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "em"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2563,63 +2563,63 @@ module Embed = struct
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
     ?src ?type_ ?width ?height
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make_empty "embed"
       (Util.merge_all [|
         Attributes.make ?src ?type_ ?width ?height ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
 
 
   let jsx ?aria ?src ?type_ ?width ?height
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children:_ () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children:_ () =
     make ?aria ?src ?type_ ?width ?height
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       ()
 end
 
@@ -2648,62 +2648,62 @@ module Fieldset = struct
     ?(aria:[< Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "fieldset"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2723,62 +2723,62 @@ module Figcaption = struct
     ?(aria:[< Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "figcaption"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2799,62 +2799,62 @@ module Figure = struct
            | Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "figure"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2874,62 +2874,62 @@ module Footer = struct
            | Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "footer"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -2979,20 +2979,20 @@ module Form = struct
            ] Html_Attributes.Aria.t option)
     ?accept_charset ?action ?autoComplete ?encType ?_method ?name ?noValidate
     ?target
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "form"
       (Util.merge_all [|
@@ -3000,16 +3000,16 @@ module Form = struct
           ?name ?noValidate ?target ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
@@ -3017,28 +3017,28 @@ module Form = struct
 
   let jsx ?aria ?accept_charset ?action ?autoComplete ?encType ?_method ?name
     ?noValidate ?target
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria ?accept_charset ?action ?autoComplete ?encType ?_method ?name
       ?noValidate ?target
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3058,62 +3058,62 @@ module H1 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h1"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3133,62 +3133,62 @@ module H2 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h2"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3208,62 +3208,62 @@ module H3 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h3"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3283,62 +3283,62 @@ module H4 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h4"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3358,62 +3358,62 @@ module H5 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h5"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3433,62 +3433,62 @@ module H6 = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "h6"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3505,57 +3505,57 @@ module Head = struct
 
   let make
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     (children:child array): _ t
     =
     Declaredom.make "head"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3575,62 +3575,62 @@ module Header = struct
            | Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "header"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3648,62 +3648,62 @@ module Hgroup = struct
     ] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "hgroup"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3720,62 +3720,62 @@ module Hr = struct
     ?(aria:[< Html_Attributes.Aria.separator
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.block Style.t option)
-    ?(cssModule:Css_Property.block Css_Module.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make_empty "hr"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children:_ () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children:_ () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       ()
 end
 
@@ -3797,15 +3797,15 @@ module Html = struct
   let make
     ?manifest
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     (children:child array): _ t
     =
     Declaredom.make "html"
@@ -3813,42 +3813,42 @@ module Html = struct
         Attributes.make ?manifest ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria ?manifest
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children () =
     make ?aria ?manifest
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3864,62 +3864,62 @@ module I = struct
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   let make ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "i"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 end
@@ -3983,20 +3983,20 @@ module Iframe = struct
            ] Html_Attributes.Aria.t option)
     ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
     ?width ?height ?referrerPolicy
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make_empty "iframe"
       (Util.merge_all [|
@@ -4004,16 +4004,16 @@ module Iframe = struct
           ?allowPaymentRequest ?width ?height ?referrerPolicy ();    
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       ()
     |> Internal.make
@@ -4022,29 +4022,29 @@ module Iframe = struct
   let jsx ?aria
     ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
     ?width ?height ?referrerPolicy
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children:_ () =
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children:_ () =
     make ?aria
       ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
       ?width ?height ?referrerPolicy
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       ()
 end
 
@@ -4060,60 +4060,62 @@ module Span = struct
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
-  let make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?(style:Css_Property.inline Style.t option)
-    ?(cssModule:Css_Property.inline Css_Module.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
-    let className = Css_Module.get_class ?className ?cssModule ()
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
     in
     Declaredom.make "span"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
 
 
-  let jsx ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
-    ?style ?cssModule ?children () =
-    make ?aria ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
-      ?style ?cssModule
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -4127,57 +4129,57 @@ module Title = struct
   type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     child: _ t
     =
     Declaredom.make "title"
       (Util.merge_all [|
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
-          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
           ?title ?translate ();
-        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
-          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
-          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
-          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
-          ?onScroll ()
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
       |])
       (Declaredom.make_text child)
     |> Internal.make
 
 
   let jsx ?aria
-    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
     ?title ?translate
-    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(children=[]) () =
     make ?aria
-      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
-      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
-      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
       ?title ?translate
-      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
       (List.fold_left (fun acc e -> acc ^ e) "" children)
 end
 

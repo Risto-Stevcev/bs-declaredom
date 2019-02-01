@@ -29,18 +29,18 @@
     "@ristostevcev/bs-tape": "^0.1.0",
     "bs-dependency-graph": "^2.0.0",
     "bs-platform": "^4.0.3",
-    "jsdom": "^13.0.0",
+    "jsdom": "^13.2.0",
     "json-to-dot": "^1.1.0",
-    "parcel-bundler": "^1.10.3",
+    "parcel-bundler": "^1.11.0",
     "tap-spec": "^5.0.0"
   },
   "dependencies": {
     "@ristostevcev/bs-callbag": "^1.1.0",
     "@ristostevcev/bs-callbag-from-event": "^1.2.0",
-    "@webcomponents/webcomponentsjs": "^2.1.3",
-    "bs-webapi": "^0.13.0",
+    "@webcomponents/webcomponentsjs": "^2.2.5",
+    "bs-webapi": "^0.13.2",
     "callbag-element": "^1.0.0",
     "callbag-html": "^0.1.0",
-    "declaredom": "^1.2.0"
+    "declaredom": "^1.3.1"
   }
 }

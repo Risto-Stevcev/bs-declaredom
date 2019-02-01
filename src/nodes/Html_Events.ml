@@ -8,19 +8,19 @@ module UIEvent = struct
   module UI = struct
     (** {{: https://www.w3.org/TR/uievents/#events-uievent-types} UI Events} *)
     (**
-     * - onScroll has not been described in the WD yet, see this older
+     * - on_scroll has not been described in the WD yet, see this older
      *   {{: https://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#interface-UIEvent} spec}
-     * - onShow has not been described in the WD yet, see the
+     * - on_show has not been described in the WD yet, see the
      *   {{: https://developer.mozilla.org/en-US/docs/Web/Events/show} MDN doc}
      *)
 
     external make:
-      ?onLoad:(Dom.uiEvent -> unit) ->
-      ?onUnload:(Dom.uiEvent -> unit) ->
-      ?onAbort:(Dom.uiEvent -> unit) ->
-      ?onError:(Dom.uiEvent -> unit) ->
-      ?onSelect:(Dom.uiEvent -> unit) ->
-      ?onScroll:(Dom.uiEvent -> unit) ->
+      ?on_load:(Dom.uiEvent -> unit) ->
+      ?on_unload:(Dom.uiEvent -> unit) ->
+      ?on_abort:(Dom.uiEvent -> unit) ->
+      ?on_error:(Dom.uiEvent -> unit) ->
+      ?on_select:(Dom.uiEvent -> unit) ->
+      ?on_scroll:(Dom.uiEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -30,10 +30,10 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-focus-types} Focus Events} *)
 
     external make:
-      ?onBlur:(Dom.focusEvent -> unit) ->
-      ?onFocus:(Dom.focusEvent -> unit) ->
-      ?onFocusIn:(Dom.focusEvent -> unit) ->
-      ?onFocusOut:(Dom.focusEvent -> unit) ->
+      ?on_blur:(Dom.focusEvent -> unit) ->
+      ?on_focus:(Dom.focusEvent -> unit) ->
+      ?on_focusin:(Dom.focusEvent -> unit) ->
+      ?on_focusout:(Dom.focusEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -43,16 +43,16 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-mouseevents} Mouse Events} *)
 
     external make:
-      ?onAuxClick:(Dom.mouseEvent -> unit) ->
-      ?onClick:(Dom.mouseEvent -> unit) ->
-      ?onDblClick:(Dom.mouseEvent -> unit) ->
-      ?onMouseDown:(Dom.mouseEvent -> unit) ->
-      ?onMouseEnter:(Dom.mouseEvent -> unit) ->
-      ?onMouseLeave:(Dom.mouseEvent -> unit) ->
-      ?onMouseMove:(Dom.mouseEvent -> unit) ->
-      ?onMouseOut:(Dom.mouseEvent -> unit) ->
-      ?onMouseOver:(Dom.mouseEvent -> unit) ->
-      ?onMouseUp:(Dom.mouseEvent -> unit) ->
+      ?on_auxclick:(Dom.mouseEvent -> unit) ->
+      ?on_click:(Dom.mouseEvent -> unit) ->
+      ?on_dblclick:(Dom.mouseEvent -> unit) ->
+      ?on_mousedown:(Dom.mouseEvent -> unit) ->
+      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
+      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
+      ?on_mousemove:(Dom.mouseEvent -> unit) ->
+      ?on_mouseout:(Dom.mouseEvent -> unit) ->
+      ?on_mouseover:(Dom.mouseEvent -> unit) ->
+      ?on_mouseup:(Dom.mouseEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -62,7 +62,7 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-wheelevents} Wheel Events} *)
 
     external make:
-      ?onWheel:(Dom.wheelEvent -> unit) ->
+      ?on_wheel:(Dom.wheelEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -72,8 +72,8 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-inputevents} Input Events} *)
 
     external make:
-      ?onBeforeInput:(Dom.inputEvent -> unit) ->
-      ?onInput:(Dom.inputEvent -> unit) ->
+      ?on_beforeinput:(Dom.inputEvent -> unit) ->
+      ?on_input:(Dom.inputEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -83,9 +83,9 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-keyboardevents} Keyboard Events} *)
 
     external make:
-      ?onKeyDown:(Dom.keyboardEvent -> unit) ->
-      ?onKeyPress:(Dom.keyboardEvent -> unit) ->
-      ?onKeyUp:(Dom.keyboardEvent -> unit) ->
+      ?on_keydown:(Dom.keyboardEvent -> unit) ->
+      ?on_keypress:(Dom.keyboardEvent -> unit) ->
+      ?on_keyup:(Dom.keyboardEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -95,9 +95,9 @@ module UIEvent = struct
     (** {{: https://www.w3.org/TR/uievents/#events-compositionevents} Composition Events} *)
 
     external make:
-      ?onCompositionStart:(Dom.compositionEvent -> unit) ->
-      ?onCompositionUpdate:(Dom.compositionEvent -> unit) ->
-      ?onCompositionEnd:(Dom.compositionEvent -> unit) ->
+      ?on_compositionstart:(Dom.compositionEvent -> unit) ->
+      ?on_compositionupdate:(Dom.compositionEvent -> unit) ->
+      ?on_compositionend:(Dom.compositionEvent -> unit) ->
       unit ->
       t = "" [@@bs.obj]
   end
@@ -111,30 +111,30 @@ module Media = struct
    *)
 
   external make:
-    ?onAbort:(Dom.progressEvent -> unit) ->
-    ?onCanPlay:(Dom.event -> unit) ->
-    ?onCanPlayThrough:(Dom.event -> unit) ->
-    ?onCueChange:(Dom.event -> unit) ->
-    ?onDurationChange:(Dom.event -> unit) ->
-    ?onEmptied:(Dom.event -> unit) ->
-    ?onEnded:(Dom.event -> unit) ->
-    ?onError:(Dom.progressEvent -> unit) ->
-    ?onLoadedMetaData:(Dom.event -> unit) ->
-    ?onLoadedData:(Dom.event -> unit) ->
-    ?onLoadStart:(Dom.progressEvent -> unit) ->
-    ?onPause:(Dom.event -> unit) ->
-    ?onPlay:(Dom.event -> unit) ->
-    ?onPlaying:(Dom.event -> unit) ->
-    ?onProgress:(Dom.progressEvent -> unit) ->
-    ?onRateChange:(Dom.event -> unit) ->
-    ?onResize:(Dom.event -> unit) ->
-    ?onSeeked:(Dom.event -> unit) ->
-    ?onSeeking:(Dom.event -> unit) ->
-    ?onSuspend:(Dom.progressEvent -> unit) ->
-    ?onStalled:(Dom.progressEvent -> unit) ->
-    ?onTimeUpdate:(Dom.event -> unit) ->
-    ?onVolumeChange:(Dom.event -> unit) ->
-    ?onWaiting:(Dom.event -> unit) ->
+    ?on_abort:(Dom.progressEvent -> unit) ->
+    ?on_canplay:(Dom.event -> unit) ->
+    ?on_canplaythrough:(Dom.event -> unit) ->
+    ?on_cuechange:(Dom.event -> unit) ->
+    ?on_durationchange:(Dom.event -> unit) ->
+    ?on_emptied:(Dom.event -> unit) ->
+    ?on_ended:(Dom.event -> unit) ->
+    ?on_error:(Dom.progressEvent -> unit) ->
+    ?on_loadedmetadata:(Dom.event -> unit) ->
+    ?on_loadeddata:(Dom.event -> unit) ->
+    ?on_loadstart:(Dom.progressEvent -> unit) ->
+    ?on_pause:(Dom.event -> unit) ->
+    ?on_play:(Dom.event -> unit) ->
+    ?on_playing:(Dom.event -> unit) ->
+    ?on_progress:(Dom.progressEvent -> unit) ->
+    ?on_ratechange:(Dom.event -> unit) ->
+    ?on_resize:(Dom.event -> unit) ->
+    ?on_seeked:(Dom.event -> unit) ->
+    ?on_seeking:(Dom.event -> unit) ->
+    ?on_suspend:(Dom.progressEvent -> unit) ->
+    ?on_stalled:(Dom.progressEvent -> unit) ->
+    ?on_timeupdate:(Dom.event -> unit) ->
+    ?on_volumechange:(Dom.event -> unit) ->
+    ?on_waiting:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -144,10 +144,10 @@ module Clipboard = struct
   (** {{: https://www.w3.org/TR/clipboard-apis/#clipboard-event-definitions} Clipboard Events} *)
 
   external make:
-    ?onClipboardChange:(Dom.clipboardEvent -> unit) ->
-    ?onCopy:(Dom.clipboardEvent -> unit) ->
-    ?onCut:(Dom.clipboardEvent -> unit) ->
-    ?onPaste:(Dom.clipboardEvent -> unit) ->
+    ?on_clipboardchange:(Dom.clipboardEvent -> unit) ->
+    ?on_copy:(Dom.clipboardEvent -> unit) ->
+    ?on_cut:(Dom.clipboardEvent -> unit) ->
+    ?on_paste:(Dom.clipboardEvent -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -157,8 +157,8 @@ module Script = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Script Events} *)
 
   external make:
-    ?onAfterScriptExecute:(Dom.event -> unit) ->
-    ?onBeforeScriptExecute:(Dom.event -> unit) ->
+    ?on_afterscriptexecute:(Dom.event -> unit) ->
+    ?on_beforescriptexecute:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -168,8 +168,8 @@ module Dialog = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Dialog Events} *)
 
   external make:
-    ?onCancel:(Dom.event -> unit) ->
-    ?onClose:(Dom.event -> unit) ->
+    ?on_cancel:(Dom.event -> unit) ->
+    ?on_close:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -179,9 +179,9 @@ module Img = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Img Events} *)
 
   external make:
-    ?onLoadStart:(Dom.progressEvent -> unit) ->
-    ?onLoadEnd:(Dom.progressEvent -> unit) ->
-    ?onProgress:(Dom.progressEvent -> unit) ->
+    ?on_loadstart:(Dom.progressEvent -> unit) ->
+    ?on_loadend:(Dom.progressEvent -> unit) ->
+    ?on_progress:(Dom.progressEvent -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -191,7 +191,7 @@ module Details = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Details Events} *)
 
   external make:
-    ?onToggle:(Dom.event -> unit) ->
+    ?on_toggle:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -201,9 +201,9 @@ module Form = struct
   (** {{: https://www.w3.org/TR/html52/fullindex.html#events-table} Form Events} *)
 
   external make:
-    ?onFormData:(Dom.event -> unit) ->
-    ?onReset:(Dom.event -> unit) ->
-    ?onSubmit:(Dom.event -> unit) ->
+    ?on_formdata:(Dom.event -> unit) ->
+    ?on_reset:(Dom.event -> unit) ->
+    ?on_submit:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -216,10 +216,10 @@ module FormControls = struct
    *)
 
   external make:
-    ?onChange:(Dom.event -> unit) ->
-    ?onInput:(Dom.event -> unit) ->
-    ?onInvalid:(Dom.event -> unit) ->
-    ?onSelect:(Dom.event -> unit) ->
+    ?on_change:(Dom.event -> unit) ->
+    ?on_input:(Dom.event -> unit) ->
+    ?on_invalid:(Dom.event -> unit) ->
+    ?on_select:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -229,12 +229,12 @@ module TextTrack = struct
   (** {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#event-handlers-for-objects-of-the-text-track-apis} Text Track Events} *)
 
   external make:
-    ?onChange:(Dom.event -> unit) ->
-    ?onAddTrack:(Dom.event -> unit) ->
-    ?onRemoveTrack:(Dom.event -> unit) ->
-    ?onCueChange:(Dom.event -> unit) ->
-    ?onEnter:(Dom.event -> unit) ->
-    ?onExit:(Dom.event -> unit) ->
+    ?on_change:(Dom.event -> unit) ->
+    ?on_addtrack:(Dom.event -> unit) ->
+    ?on_removetrack:(Dom.event -> unit) ->
+    ?on_cuechange:(Dom.event -> unit) ->
+    ?on_enter:(Dom.event -> unit) ->
+    ?on_exit:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -247,14 +247,14 @@ module DragDrop = struct
    *)
 
   external make:
-    ?onDragStart:(Dom.dragEvent -> unit) ->
-    ?onDrag:(Dom.dragEvent -> unit) ->
-    ?onDragEnter:(Dom.dragEvent -> unit) ->
-    ?onDragExit:(Dom.dragEvent -> unit) ->
-    ?onDragLeave:(Dom.dragEvent -> unit) ->
-    ?onDragOver:(Dom.dragEvent -> unit) ->
-    ?onDrop:(Dom.dragEvent -> unit) ->
-    ?onDragEnd:(Dom.dragEvent -> unit) ->
+    ?on_dragstart:(Dom.dragEvent -> unit) ->
+    ?on_drag:(Dom.dragEvent -> unit) ->
+    ?on_dragenter:(Dom.dragEvent -> unit) ->
+    ?on_dragexit:(Dom.dragEvent -> unit) ->
+    ?on_dragleave:(Dom.dragEvent -> unit) ->
+    ?on_dragover:(Dom.dragEvent -> unit) ->
+    ?on_drop:(Dom.dragEvent -> unit) ->
+    ?on_dragend:(Dom.dragEvent -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -262,10 +262,10 @@ end
 
 module Resource = struct
   external make:
-    ?onLoad:(Dom.event -> unit) ->
-    ?onLoadStart:(Dom.event -> unit) ->
-    ?onLoadEnd:(Dom.event -> unit) ->
-    ?onSecurityPolicyViolation:(Dom.event -> unit) ->
+    ?on_load:(Dom.event -> unit) ->
+    ?on_loadstart:(Dom.event -> unit) ->
+    ?on_loadend:(Dom.event -> unit) ->
+    ?on_securitypolicyviolation:(Dom.event -> unit) ->
     unit ->
     t = "" [@@bs.obj]
 end
@@ -298,22 +298,22 @@ module Global = struct
      load, loadstart, loadend, securitypolicyviolation
    *)
 
-  let make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
-    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
-    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
-    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
-    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll () =
+  let make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll () =
     Util.merge_all [|
-      Clipboard.make ?onCopy ?onCut ?onPaste ();
-      DragDrop.make ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
-        ?onDragOver ?onDragStart ?onDrop ();
-      UIEvent.Focus.make ?onBlur ?onFocus ();
-      UIEvent.Input.make ?onInput ();
-      UIEvent.Keyboard.make ?onKeyDown ?onKeyPress ?onKeyUp ();
-      UIEvent.Mouse.make ?onAuxClick ?onClick ?onDblClick ?onMouseDown
-        ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut ?onMouseOver
-        ?onMouseUp ();
-      UIEvent.UI.make ?onScroll ();
-      UIEvent.Wheel.make ?onWheel ();
+      Clipboard.make ?on_copy ?on_cut ?on_paste ();
+      DragDrop.make ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+        ?on_dragover ?on_dragstart ?on_drop ();
+      UIEvent.Focus.make ?on_blur ?on_focus ();
+      UIEvent.Input.make ?on_input ();
+      UIEvent.Keyboard.make ?on_keydown ?on_keypress ?on_keyup ();
+      UIEvent.Mouse.make ?on_auxclick ?on_click ?on_dblclick ?on_mousedown
+        ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout ?on_mouseover
+        ?on_mouseup ();
+      UIEvent.UI.make ?on_scroll ();
+      UIEvent.Wheel.make ?on_wheel ();
     |]
 end
