@@ -3925,6 +3925,129 @@ module I = struct
 end
 
 
+module Iframe = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element} The Iframe Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-iframe} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.iframe ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    type sandbox =
+      [ `allow_forms [@bs.as "allow-forms"]
+      | `allow_modals [@bs.as "allow-modals"]
+      | `allow_orientation_lock [@bs.as "allow-orientation-lock"]
+      | `allow_pointer_lock [@bs.as "allow-pointer-lock"]
+      | `allow_popups [@bs.as "allow-popups"]
+      | `allow_popups_to_escape_sandbox [@bs.as "allow-popups-to-escape-sandbox"]
+      | `allow_presentation [@bs.as "allow-presentation"]
+      | `allow_same_origin [@bs.as "allow-same-origin"]
+      | `allow_scripts [@bs.as "allow-scripts"]
+      | `allow_top_navigation [@bs.as "allow-top-navigation"]
+      | `allow_top_navigation_by_user_activation [@bs.as "allow-top-navigation-by-user-activation"]
+      ] [@@bs.deriving jsConverter]
+
+    external _make:
+      ?src:string ->
+      ?srcDoc:string ->
+      ?name:string ->
+      ?sandbox:string ->
+      ?allow:string ->
+      ?allowFullscreen:string ->
+      ?allowPaymentRequest:string ->
+      ?width:string ->
+      ?height:string ->
+      ?referrerPolicy:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen
+      ?allowPaymentRequest ?width ?height ?referrerPolicy () =
+      _make ?src ?srcDoc ?name
+        ?sandbox:(Belt.Option.map sandbox sandboxToJs)
+        ?allow
+        ?allowFullscreen:(Belt.Option.map allowFullscreen Util.string_of_unit)
+        ?allowPaymentRequest:(Belt.Option.map allowPaymentRequest Util.string_of_unit)
+        ?width:(Belt.Option.map width string_of_int)
+        ?height:(Belt.Option.map height string_of_int)
+        ?referrerPolicy:
+          (Belt.Option.map referrerPolicy Html_Attributes.ReferrerPolicy.show)
+        ()
+  end
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.application
+           | Html_Attributes.Aria.document
+           | Html_Attributes.Aria.img
+           ] Html_Attributes.Aria.t option)
+    ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
+    ?width ?height ?referrerPolicy
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(cssModule:Css_Property.inline Css_Module.t option)
+    (): _ t
+    =
+    let className = Css_Module.get_class ?className ?cssModule ()
+    in
+    Declaredom.make_empty "iframe"
+      (Util.merge_all [|
+        Attributes.make ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen
+          ?allowPaymentRequest ?width ?height ?referrerPolicy ();    
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+          ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+          ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?style ?tabIndex
+          ?title ?translate ();
+        Html_Events.Global.make ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut
+          ?onDblClick ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave
+          ?onDragOver ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown
+          ?onKeyPress ?onKeyUp ?onMouseDown ?onMouseEnter ?onMouseLeave
+          ?onMouseMove ?onMouseOut ?onMouseOver ?onMouseUp ?onWheel ?onPaste
+          ?onScroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
+    ?width ?height ?referrerPolicy
+    ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+    ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+    ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+    ?title ?translate
+    ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+    ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+    ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+    ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+    ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll
+    ?style ?cssModule ?children:_ () =
+    make ?aria
+      ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
+      ?width ?height ?referrerPolicy
+      ?accessKey ?autoCapitalize ?className ?classSet ?contentEditable ?dataSet
+      ?dir ?draggable ?enterKeyHint ?hidden ?id ?inputMode ?is ?itemId ?itemProp
+      ?itemRef ?itemScope ?itemType ?lang ?nonce ?spellCheck ?tabIndex
+      ?title ?translate
+      ?onAuxClick ?onBlur ?onClick ?onCopy ?onCut ?onDblClick
+      ?onDrag ?onDragEnd ?onDragEnter ?onDragExit ?onDragLeave ?onDragOver
+      ?onDragStart ?onDrop ?onFocus ?onInput ?onKeyDown ?onKeyPress ?onKeyUp
+      ?onMouseDown ?onMouseEnter ?onMouseLeave ?onMouseMove ?onMouseOut
+      ?onMouseOver ?onMouseUp ?onWheel ?onPaste ?onScroll 
+      ?style ?cssModule
+      ()
+end
+
 
 
 module Span = struct

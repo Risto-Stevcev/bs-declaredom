@@ -67,6 +67,7 @@ module Node = struct
    and hr = [ `hr ]
    and html = [ `html ]
    and i = [ `i ]
+   and iframe = [ `iframe ]
    and legend = [ `legend ]
    and option = [ `option ]
    and source = [ `source ]
@@ -105,6 +106,7 @@ module ContentCategory = struct
     | blockquote | br | button | canvas | cite | code | data | datalist | del
     | details | dfn | dialog | div | dl | em | embed | fieldset | figure
     | footer | form | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | header | hr | i
+    | iframe
     | span | template | 'a custom ]
   type sectioning = [ article | aside ]
   type sectioning_root =
@@ -113,13 +115,15 @@ module ContentCategory = struct
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
+    | iframe
     | span | template | 'a custom | other ]
-  type embedded = [ audio | canvas | em ]
-  type interactive = [ a | audio | button | details | em ]
+  type embedded = [ audio | canvas | em | iframe ]
+  type interactive = [ a | audio | button | details | em | iframe ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | header | i
+    | iframe
     | 'a custom ]
 
 
