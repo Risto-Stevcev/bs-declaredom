@@ -2950,24 +2950,24 @@ module Form = struct
     external _make:
       ?accept_charset:string ->
       ?action:string ->
-      ?autoComplete:string ->
-      ?encType:string ->
+      ?autocomplete:string ->
+      ?enctype:string ->
       ?_method:string ->
       ?name:string ->
-      ?noValidate:string ->
+      ?novalidate:string ->
       ?target:string ->
       unit ->
       Html_Attributes.t = "" [@@bs.obj]
 
-    let make ?accept_charset ?action ?autoComplete ?encType ?_method ?name
-      ?noValidate ?target ()
+    let make ?accept_charset ?action ?autocomplete ?enctype ?_method ?name
+      ?novalidate ?target ()
       =
       _make ?accept_charset ?action
-        ?autoComplete:(Belt.Option.map autoComplete autocompleteToJs)
-        ?encType:(Belt.Option.map encType Html_Attributes.Form.Enctype.show)
+        ?autocomplete:(Belt.Option.map autocomplete autocompleteToJs)
+        ?enctype:(Belt.Option.map enctype Html_Attributes.Form.Enctype.show)
         ?_method:(Belt.Option.map _method Html_Attributes.Form.Method.show)
         ?name
-        ?noValidate:(Belt.Option.map noValidate Util.string_of_unit)
+        ?novalidate:(Belt.Option.map novalidate Util.string_of_unit)
         ?target:(Belt.Option.map target Html_Attributes.Target.show)
         ()
   end
@@ -2977,7 +2977,7 @@ module Form = struct
            | Html_Attributes.Aria.search
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?accept_charset ?action ?autoComplete ?encType ?_method ?name ?noValidate
+    ?accept_charset ?action ?autocomplete ?enctype ?_method ?name ?novalidate
     ?target
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
@@ -2996,8 +2996,8 @@ module Form = struct
     in
     Declaredom.make "form"
       (Util.merge_all [|
-        Attributes.make ?accept_charset ?action ?autoComplete ?encType ?_method
-          ?name ?noValidate ?target ();
+        Attributes.make ?accept_charset ?action ?autocomplete ?enctype ?_method
+          ?name ?novalidate ?target ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -3015,8 +3015,8 @@ module Form = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accept_charset ?action ?autoComplete ?encType ?_method ?name
-    ?noValidate ?target
+  let jsx ?aria ?accept_charset ?action ?autocomplete ?enctype ?_method ?name
+    ?novalidate ?target
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
@@ -3027,8 +3027,8 @@ module Form = struct
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
-    make ?aria ?accept_charset ?action ?autoComplete ?encType ?_method ?name
-      ?noValidate ?target
+    make ?aria ?accept_charset ?action ?autocomplete ?enctype ?_method ?name
+      ?novalidate ?target
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
@@ -3950,29 +3950,29 @@ module Iframe = struct
 
     external _make:
       ?src:string ->
-      ?srcDoc:string ->
+      ?srcdoc:string ->
       ?name:string ->
       ?sandbox:string ->
       ?allow:string ->
-      ?allowFullscreen:string ->
-      ?allowPaymentRequest:string ->
+      ?allowfullscreen:string ->
+      ?allowpaymentrequest:string ->
       ?width:string ->
       ?height:string ->
-      ?referrerPolicy:string ->
+      ?referrerpolicy:string ->
       unit ->
       Html_Attributes.t = "" [@@bs.obj]
 
-    let make ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen
-      ?allowPaymentRequest ?width ?height ?referrerPolicy () =
-      _make ?src ?srcDoc ?name
+    let make ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen
+      ?allowpaymentrequest ?width ?height ?referrerpolicy () =
+      _make ?src ?srcdoc ?name
         ?sandbox:(Belt.Option.map sandbox sandboxToJs)
         ?allow
-        ?allowFullscreen:(Belt.Option.map allowFullscreen Util.string_of_unit)
-        ?allowPaymentRequest:(Belt.Option.map allowPaymentRequest Util.string_of_unit)
+        ?allowfullscreen:(Belt.Option.map allowfullscreen Util.string_of_unit)
+        ?allowpaymentrequest:(Belt.Option.map allowpaymentrequest Util.string_of_unit)
         ?width:(Belt.Option.map width string_of_int)
         ?height:(Belt.Option.map height string_of_int)
-        ?referrerPolicy:
-          (Belt.Option.map referrerPolicy Html_Attributes.ReferrerPolicy.show)
+        ?referrerpolicy:
+          (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
         ()
   end
 
@@ -3981,8 +3981,8 @@ module Iframe = struct
            | Html_Attributes.Aria.document
            | Html_Attributes.Aria.img
            ] Html_Attributes.Aria.t option)
-    ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
-    ?width ?height ?referrerPolicy
+    ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen ?allowpaymentrequest
+    ?width ?height ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
@@ -4000,8 +4000,8 @@ module Iframe = struct
     in
     Declaredom.make_empty "iframe"
       (Util.merge_all [|
-        Attributes.make ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen
-          ?allowPaymentRequest ?width ?height ?referrerPolicy ();    
+        Attributes.make ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen
+          ?allowpaymentrequest ?width ?height ?referrerpolicy ();    
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -4020,8 +4020,8 @@ module Iframe = struct
 
 
   let jsx ?aria
-    ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
-    ?width ?height ?referrerPolicy
+    ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen ?allowpaymentrequest
+    ?width ?height ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
@@ -4033,8 +4033,8 @@ module Iframe = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children:_ () =
     make ?aria
-      ?src ?srcDoc ?name ?sandbox ?allow ?allowFullscreen ?allowPaymentRequest
-      ?width ?height ?referrerPolicy
+      ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen ?allowpaymentrequest
+      ?width ?height ?referrerpolicy
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
@@ -4047,7 +4047,6 @@ module Iframe = struct
       ?style ?css_module
       ()
 end
-
 
 
 module Span = struct
