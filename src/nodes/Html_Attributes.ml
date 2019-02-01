@@ -62,6 +62,26 @@ module ReferrerPolicy = struct
 end
 
 
+module Form = struct
+  module Enctype = struct
+    (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype} Form Enctype} *)
+
+    type t =
+      [ `x_www_form_urlencoded | `form_data | `plain ]
+      [@@bs.deriving jsConverter]
+
+    let show = tToJs
+  end
+
+  module Method = struct
+    (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method} Form Method} *)
+    type t = [ `get | `post | `dialog ] [@@bs.deriving jsConverter]
+
+    let show = tToJs
+  end
+end
+
+
 module Aria = struct
   (**
     {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria Roles} 

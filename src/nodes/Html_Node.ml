@@ -55,6 +55,18 @@ module Node = struct
    and figure = [ `figure ]
    and footer = [ `footer ]
    and form = [ `form ]
+   and h1 = [ `h1 ]
+   and h2 = [ `h2 ]
+   and h3 = [ `h3 ]
+   and h4 = [ `h4 ]
+   and h5 = [ `h5 ]
+   and h6 = [ `h6 ]
+   and head = [ `head ]
+   and header = [ `header ]
+   and hgroup = [ `hgroup ]
+   and hr = [ `hr ]
+   and html = [ `html ]
+   and i = [ `i ]
    and legend = [ `legend ]
    and option = [ `option ]
    and source = [ `source ]
@@ -85,28 +97,30 @@ module ContentCategory = struct
    *)
 
   type none =
-    [ caption | col | colgroup | dd | dt | figcaption | legend | option
-    | source | summary ]
+    [ caption | col | colgroup | dd | dt | figcaption | head | html 
+    | legend | option | source | summary ]
   type metadata = [ base | template | title ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
     | blockquote | br | button | canvas | cite | code | data | datalist | del
     | details | dfn | dialog | div | dl | em | embed | fieldset | figure
-    | footer | span | template | 'a custom ]
+    | footer | form | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | header | hr | i
+    | span | template | 'a custom ]
   type sectioning = [ article | aside ]
   type sectioning_root =
     [ blockquote | body | details | dialog | fieldset | figure ]
-  type heading = fragment
+  type heading = [ fragment | h1 | h2 | h3 | h4 | h5 | h6 | hgroup ]
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
-    | canvas | cite | code | data | datalist | del | dfn | em | embed | span
-    | template | 'a custom | other ]
+    | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
+    | span | template | 'a custom | other ]
   type embedded = [ audio | canvas | em ]
   type interactive = [ a | audio | button | details | em ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
-    | footer | 'a custom ]
+    | footer | form | h1 | h2 | h3 | h4 | h5 | h6 | hgroup | header | i
+    | 'a custom ]
 
 
   module Element = struct
