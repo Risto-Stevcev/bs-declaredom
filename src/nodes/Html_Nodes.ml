@@ -74,7 +74,7 @@ module A = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -95,7 +95,7 @@ module A = struct
         Html_Attributes.Global.make 
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -112,7 +112,7 @@ module A = struct
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
     ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
-    ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -124,7 +124,7 @@ module A = struct
       ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
       ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
-      ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -149,7 +149,7 @@ module Abbr = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -168,7 +168,7 @@ module Abbr = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -183,7 +183,7 @@ module Abbr = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -194,7 +194,7 @@ module Abbr = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -219,7 +219,7 @@ module Address = struct
   let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -238,7 +238,7 @@ module Address = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -253,7 +253,7 @@ module Address = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -264,7 +264,7 @@ module Address = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -324,7 +324,7 @@ module Area = struct
     ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -339,7 +339,7 @@ module Area = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -357,7 +357,7 @@ module Area = struct
     ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -370,7 +370,7 @@ module Area = struct
       ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -400,7 +400,7 @@ module Article = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -419,7 +419,7 @@ module Article = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -435,7 +435,7 @@ module Article = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -446,7 +446,7 @@ module Article = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -477,7 +477,7 @@ module Aside = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -496,7 +496,7 @@ module Aside = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -512,7 +512,7 @@ module Aside = struct
   let jsx
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -523,7 +523,7 @@ module Aside = struct
     make
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -578,7 +578,7 @@ module Audio = struct
     ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_load ?on_loadend ?on_securitypolicyviolation
     ?on_abort ?on_canplay ?on_canplaythrough ?on_cuechange ?on_durationchange
@@ -599,7 +599,7 @@ module Audio = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Resource.make ?on_load ?on_loadend ?on_securitypolicyviolation ();
         Html_Events.Media.make ?on_abort ?on_canplay ?on_canplaythrough
@@ -621,7 +621,7 @@ module Audio = struct
   let jsx ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
     ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
@@ -636,7 +636,7 @@ module Audio = struct
     make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
       ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
@@ -664,7 +664,7 @@ module B = struct
   let make
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -683,7 +683,7 @@ module B = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -699,7 +699,7 @@ module B = struct
   let jsx
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -710,7 +710,7 @@ module B = struct
     make
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -742,7 +742,7 @@ module Base = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -757,7 +757,7 @@ module Base = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -772,7 +772,7 @@ module Base = struct
   let jsx ?href ?target
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -783,7 +783,7 @@ module Base = struct
     make ?href ?target
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -806,7 +806,7 @@ module Bdi = struct
   let make
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -825,7 +825,7 @@ module Bdi = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -841,7 +841,7 @@ module Bdi = struct
   let jsx
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -852,7 +852,7 @@ module Bdi = struct
     make
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -876,7 +876,7 @@ module Bdo = struct
 
   let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -895,7 +895,7 @@ module Bdo = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -911,7 +911,7 @@ module Bdo = struct
   let jsx
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -921,7 +921,7 @@ module Bdo = struct
     ?style ?css_module ?children () =
     make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -951,7 +951,7 @@ module Blockquote = struct
   let make ?cite
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -971,7 +971,7 @@ module Blockquote = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -987,7 +987,7 @@ module Blockquote = struct
   let jsx ?cite
     ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -998,7 +998,7 @@ module Blockquote = struct
     make ?cite
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1045,7 +1045,7 @@ module Body = struct
   let make ?(aria:Html_Attributes.Aria.document Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
     ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
@@ -1072,7 +1072,7 @@ module Body = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1087,7 +1087,7 @@ module Body = struct
 
   let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
     ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
@@ -1101,7 +1101,7 @@ module Body = struct
     ?style ?css_module ?children () =
     make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
       ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
@@ -1127,7 +1127,7 @@ module Br = struct
 
   let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1141,7 +1141,7 @@ module Br = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1154,7 +1154,7 @@ module Br = struct
     |> Internal.make
 
   let jsx ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
-    ?draggable ?hidden ?id ?lang ?spellcheck ?tabindex ?title ?translate
+    ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
@@ -1162,7 +1162,7 @@ module Br = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
     make ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
-      ?draggable ?hidden ?id ?lang ?spellcheck ?tabindex ?title ?translate
+      ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
@@ -1223,7 +1223,7 @@ module Button = struct
     ?formnovalidate ?formtarget ?name ?formelements ?type_ ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1245,7 +1245,7 @@ module Button = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1260,7 +1260,7 @@ module Button = struct
 
   let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1270,7 +1270,7 @@ module Button = struct
     ?style ?css_module ?children () =
     make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1304,7 +1304,7 @@ module Canvas = struct
   let make ?aria ?height ?width
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1324,7 +1324,7 @@ module Canvas = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1340,7 +1340,7 @@ module Canvas = struct
   let jsx ?aria ?height ?width
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1351,7 +1351,7 @@ module Canvas = struct
     make ?aria ?height ?width
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1376,7 +1376,7 @@ module Caption = struct
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1395,7 +1395,7 @@ module Caption = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1411,7 +1411,7 @@ module Caption = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1422,7 +1422,7 @@ module Caption = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1447,7 +1447,7 @@ module Cite = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1466,7 +1466,7 @@ module Cite = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1482,7 +1482,7 @@ module Cite = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1493,7 +1493,7 @@ module Cite = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1518,7 +1518,7 @@ module Code = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1537,7 +1537,7 @@ module Code = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1553,7 +1553,7 @@ module Code = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1564,7 +1564,7 @@ module Code = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1587,7 +1587,7 @@ module Col = struct
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1606,7 +1606,7 @@ module Col = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1622,7 +1622,7 @@ module Col = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1633,7 +1633,7 @@ module Col = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1666,7 +1666,7 @@ module Colgroup = struct
     ?span
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1686,7 +1686,7 @@ module Colgroup = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1702,7 +1702,7 @@ module Colgroup = struct
   let jsx ?aria ?span
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1713,7 +1713,7 @@ module Colgroup = struct
     make ?aria ?span
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1742,7 +1742,7 @@ module Data = struct
   let make ?aria ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1762,7 +1762,7 @@ module Data = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1778,7 +1778,7 @@ module Data = struct
   let jsx ?aria ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1789,7 +1789,7 @@ module Data = struct
     make ?aria ?value
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1816,7 +1816,7 @@ module Datalist = struct
   let make ?(aria:Html_Attributes.Aria.listbox Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1831,7 +1831,7 @@ module Datalist = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1847,7 +1847,7 @@ module Datalist = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1858,7 +1858,7 @@ module Datalist = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1882,7 +1882,7 @@ module Dd = struct
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1901,7 +1901,7 @@ module Dd = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1917,7 +1917,7 @@ module Dd = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1928,7 +1928,7 @@ module Dd = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1962,7 +1962,7 @@ module Del = struct
   let make ?aria ?cite ?datetime
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -1982,7 +1982,7 @@ module Del = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -1998,7 +1998,7 @@ module Del = struct
   let jsx ?aria ?cite ?datetime
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2009,7 +2009,7 @@ module Del = struct
     make ?aria ?cite ?datetime
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2041,7 +2041,7 @@ module Details = struct
     ?open_
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2061,7 +2061,7 @@ module Details = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2077,7 +2077,7 @@ module Details = struct
   let jsx ?aria ?open_
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2088,7 +2088,7 @@ module Details = struct
     make ?aria ?open_
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2113,7 +2113,7 @@ module Dfn = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2132,7 +2132,7 @@ module Dfn = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2148,7 +2148,7 @@ module Dfn = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2159,7 +2159,7 @@ module Dfn = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2194,7 +2194,7 @@ module Dialog = struct
     ?open_
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2214,7 +2214,7 @@ module Dialog = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2230,7 +2230,7 @@ module Dialog = struct
   let jsx ?aria ?open_
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2241,7 +2241,7 @@ module Dialog = struct
     make ?aria ?open_
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2266,7 +2266,7 @@ module Div = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2285,7 +2285,7 @@ module Div = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2301,7 +2301,7 @@ module Div = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2312,7 +2312,7 @@ module Div = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2343,7 +2343,7 @@ module Dl = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2362,7 +2362,7 @@ module Dl = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2378,7 +2378,7 @@ module Dl = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2389,7 +2389,7 @@ module Dl = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2415,7 +2415,7 @@ module Dt = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2434,7 +2434,7 @@ module Dt = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2450,7 +2450,7 @@ module Dt = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2461,7 +2461,7 @@ module Dt = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2486,7 +2486,7 @@ module Em = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2505,7 +2505,7 @@ module Em = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2521,7 +2521,7 @@ module Em = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2532,7 +2532,7 @@ module Em = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2572,7 +2572,7 @@ module Embed = struct
     ?src ?type_ ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2592,7 +2592,7 @@ module Embed = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2608,7 +2608,7 @@ module Embed = struct
   let jsx ?aria ?src ?type_ ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2619,7 +2619,7 @@ module Embed = struct
     make ?aria ?src ?type_ ?width ?height
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2657,7 +2657,7 @@ module Fieldset = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2676,7 +2676,7 @@ module Fieldset = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2692,7 +2692,7 @@ module Fieldset = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2703,7 +2703,7 @@ module Fieldset = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2732,7 +2732,7 @@ module Figcaption = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2751,7 +2751,7 @@ module Figcaption = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2767,7 +2767,7 @@ module Figcaption = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2778,7 +2778,7 @@ module Figcaption = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2808,7 +2808,7 @@ module Figure = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2827,7 +2827,7 @@ module Figure = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2843,7 +2843,7 @@ module Figure = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2854,7 +2854,7 @@ module Figure = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2883,7 +2883,7 @@ module Footer = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2902,7 +2902,7 @@ module Footer = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -2918,7 +2918,7 @@ module Footer = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2929,7 +2929,7 @@ module Footer = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -2986,7 +2986,7 @@ module Form = struct
     ?target
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3007,7 +3007,7 @@ module Form = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3024,7 +3024,7 @@ module Form = struct
     ?novalidate ?target
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3036,7 +3036,7 @@ module Form = struct
       ?novalidate ?target
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3065,7 +3065,7 @@ module H1 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3084,7 +3084,7 @@ module H1 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3100,7 +3100,7 @@ module H1 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3111,7 +3111,7 @@ module H1 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3140,7 +3140,7 @@ module H2 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3159,7 +3159,7 @@ module H2 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3175,7 +3175,7 @@ module H2 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3186,7 +3186,7 @@ module H2 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3215,7 +3215,7 @@ module H3 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3234,7 +3234,7 @@ module H3 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3250,7 +3250,7 @@ module H3 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3261,7 +3261,7 @@ module H3 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3290,7 +3290,7 @@ module H4 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3309,7 +3309,7 @@ module H4 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3325,7 +3325,7 @@ module H4 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3336,7 +3336,7 @@ module H4 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3365,7 +3365,7 @@ module H5 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3384,7 +3384,7 @@ module H5 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3400,7 +3400,7 @@ module H5 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3411,7 +3411,7 @@ module H5 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3440,7 +3440,7 @@ module H6 = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3459,7 +3459,7 @@ module H6 = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3475,7 +3475,7 @@ module H6 = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3486,7 +3486,7 @@ module H6 = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3512,7 +3512,7 @@ module Head = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3527,7 +3527,7 @@ module Head = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3543,7 +3543,7 @@ module Head = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3554,7 +3554,7 @@ module Head = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3582,7 +3582,7 @@ module Header = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3601,7 +3601,7 @@ module Header = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3617,7 +3617,7 @@ module Header = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3628,7 +3628,7 @@ module Header = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3654,7 +3654,7 @@ module Hgroup = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3673,7 +3673,7 @@ module Hgroup = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3689,7 +3689,7 @@ module Hgroup = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3700,7 +3700,7 @@ module Hgroup = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3726,7 +3726,7 @@ module Hr = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3745,7 +3745,7 @@ module Hr = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3761,7 +3761,7 @@ module Hr = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3772,7 +3772,7 @@ module Hr = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3803,7 +3803,7 @@ module Html = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3819,7 +3819,7 @@ module Html = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3835,7 +3835,7 @@ module Html = struct
   let jsx ?aria ?manifest
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3846,7 +3846,7 @@ module Html = struct
     make ?aria ?manifest
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3870,7 +3870,7 @@ module I = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3889,7 +3889,7 @@ module I = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -3905,7 +3905,7 @@ module I = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3916,7 +3916,7 @@ module I = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -3989,7 +3989,7 @@ module Iframe = struct
     ?width ?height ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4010,7 +4010,7 @@ module Iframe = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4028,7 +4028,7 @@ module Iframe = struct
     ?width ?height ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4041,7 +4041,7 @@ module Iframe = struct
       ?width ?height ?referrerpolicy
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4099,7 +4099,7 @@ module Img = struct
     ?referrerpolicy ?decoding
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4120,7 +4120,7 @@ module Img = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4137,7 +4137,7 @@ module Img = struct
     ?height ?referrerpolicy ?decoding
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4149,7 +4149,7 @@ module Img = struct
       ?height ?referrerpolicy ?decoding
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4270,7 +4270,7 @@ module Input = struct
     ?placeholder ?readonly ?required ?size ?src ?step ?_type ?value ?width
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4294,7 +4294,7 @@ module Input = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4313,7 +4313,7 @@ module Input = struct
     ?placeholder ?readonly ?required ?size ?src ?step ?_type ?value ?width
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4327,7 +4327,7 @@ module Input = struct
       ?placeholder ?readonly ?required ?size ?src ?step ?_type ?value ?width
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4362,7 +4362,7 @@ module Ins = struct
   let make ?aria ?cite ?datetime
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4382,7 +4382,7 @@ module Ins = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4398,7 +4398,7 @@ module Ins = struct
   let jsx ?aria ?cite ?datetime
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4409,7 +4409,7 @@ module Ins = struct
     make ?aria ?cite ?datetime
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4434,7 +4434,7 @@ module Kbd = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4453,7 +4453,7 @@ module Kbd = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4469,7 +4469,7 @@ module Kbd = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4480,7 +4480,7 @@ module Kbd = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4509,7 +4509,7 @@ module Label = struct
   let make ?aria ?_for
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4529,7 +4529,7 @@ module Label = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4545,7 +4545,7 @@ module Label = struct
   let jsx ?aria ?_for
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4556,7 +4556,7 @@ module Label = struct
     make ?aria ?_for
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4583,7 +4583,7 @@ module Legend = struct
     ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4602,7 +4602,7 @@ module Legend = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4618,7 +4618,7 @@ module Legend = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4629,7 +4629,7 @@ module Legend = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4662,7 +4662,7 @@ module Li = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4681,7 +4681,7 @@ module Li = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4697,7 +4697,7 @@ module Li = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4708,7 +4708,7 @@ module Li = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4763,7 +4763,7 @@ module Link = struct
     ?sizes ?_as ?color
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     (): _ t
     =
@@ -4774,7 +4774,7 @@ module Link = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ()
       |])
       ()
@@ -4786,7 +4786,7 @@ module Link = struct
     ?sizes ?_as ?color
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?children:_ () =
     make
@@ -4794,7 +4794,7 @@ module Link = struct
       ?sizes ?_as ?color
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ()
 end
@@ -4816,7 +4816,7 @@ module Main = struct
            ] Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4835,7 +4835,7 @@ module Main = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4851,7 +4851,7 @@ module Main = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4862,7 +4862,7 @@ module Main = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4895,7 +4895,7 @@ module Map = struct
     ?name
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4915,7 +4915,7 @@ module Map = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -4931,7 +4931,7 @@ module Map = struct
   let jsx ?aria ?name
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4942,7 +4942,7 @@ module Map = struct
     make ?aria ?name
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4967,7 +4967,7 @@ module Mark = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -4986,7 +4986,7 @@ module Mark = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5002,7 +5002,7 @@ module Mark = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5013,7 +5013,7 @@ module Mark = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5061,7 +5061,7 @@ module Meta = struct
     ?name ?http_equiv ?content ?charset
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5077,7 +5077,7 @@ module Meta = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5093,7 +5093,7 @@ module Meta = struct
   let jsx ?aria ?name ?http_equiv ?content ?charset
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5104,7 +5104,7 @@ module Meta = struct
     make ?aria ?name ?http_equiv ?content ?charset
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5141,7 +5141,7 @@ module Meter = struct
     ?value ?min ?max ?low ?high ?optimum
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5161,7 +5161,7 @@ module Meter = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5177,7 +5177,7 @@ module Meter = struct
   let jsx ?aria ?value ?min ?max ?low ?high ?optimum
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5188,7 +5188,7 @@ module Meter = struct
     make ?aria ?value ?min ?max ?low ?high ?optimum
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5213,7 +5213,7 @@ module Nav = struct
   let make ?(aria:Html_Attributes.Aria.navigation Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5232,7 +5232,7 @@ module Nav = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5248,7 +5248,7 @@ module Nav = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5259,7 +5259,7 @@ module Nav = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5286,7 +5286,7 @@ module Noscript = struct
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5301,7 +5301,7 @@ module Noscript = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5317,7 +5317,7 @@ module Noscript = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5328,7 +5328,7 @@ module Noscript = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5381,7 +5381,7 @@ module Object = struct
     ?data ?_type ?typemustmatch ?name ?usemap ?form ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5402,7 +5402,7 @@ module Object = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5419,7 +5419,7 @@ module Object = struct
     ?data ?_type ?typemustmatch ?name ?usemap ?form ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5431,7 +5431,7 @@ module Object = struct
       ?data ?_type ?typemustmatch ?name ?usemap ?form ?width ?height
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5491,7 +5491,7 @@ module Ol = struct
     ?reversed ?start ?_type
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5511,7 +5511,7 @@ module Ol = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5528,7 +5528,7 @@ module Ol = struct
     ?reversed ?start ?_type
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5540,7 +5540,7 @@ module Ol = struct
       ?reversed ?start ?_type
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5579,7 +5579,7 @@ module Optgroup = struct
     ?disabled ~label
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5599,7 +5599,7 @@ module Optgroup = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5616,7 +5616,7 @@ module Optgroup = struct
     ?disabled ~label
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5628,7 +5628,7 @@ module Optgroup = struct
       ?disabled ~label
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5672,7 +5672,7 @@ module Option = struct
     ?disabled ?label ?selected ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5692,7 +5692,7 @@ module Option = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5709,7 +5709,7 @@ module Option = struct
     ?disabled ?label ?selected ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5721,7 +5721,7 @@ module Option = struct
       ?disabled ?label ?selected ?value
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5756,7 +5756,7 @@ module Output = struct
     ?_for ?form ?name
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5776,7 +5776,7 @@ module Output = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5793,7 +5793,7 @@ module Output = struct
     ?_for ?form ?name
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5805,7 +5805,7 @@ module Output = struct
       ?_for ?form ?name
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5830,7 +5830,7 @@ module P = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5849,7 +5849,7 @@ module P = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5865,7 +5865,7 @@ module P = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5876,7 +5876,7 @@ module P = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5908,7 +5908,7 @@ module Param = struct
     ?name ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5924,7 +5924,7 @@ module Param = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -5941,7 +5941,7 @@ module Param = struct
     ?name ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5953,7 +5953,7 @@ module Param = struct
       ?name ?value
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5979,7 +5979,7 @@ module Picture = struct
   let make
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -5997,7 +5997,7 @@ module Picture = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6013,7 +6013,7 @@ module Picture = struct
   let jsx
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6024,7 +6024,7 @@ module Picture = struct
     make
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6049,7 +6049,7 @@ module Pre = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6068,7 +6068,7 @@ module Pre = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6084,7 +6084,7 @@ module Pre = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6095,7 +6095,7 @@ module Pre = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6129,7 +6129,7 @@ module Progress = struct
     ?value ?max
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6149,7 +6149,7 @@ module Progress = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6165,7 +6165,7 @@ module Progress = struct
   let jsx ?aria ?value ?max
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6176,7 +6176,7 @@ module Progress = struct
     make ?aria ?value ?max
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6205,7 +6205,7 @@ module Q = struct
   let make ?aria ?cite
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6225,7 +6225,7 @@ module Q = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6241,7 +6241,7 @@ module Q = struct
   let jsx ?aria ?cite
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6252,7 +6252,7 @@ module Q = struct
     make ?aria ?cite
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6276,7 +6276,7 @@ module Rb = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6295,7 +6295,7 @@ module Rb = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6311,7 +6311,7 @@ module Rb = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6322,7 +6322,7 @@ module Rb = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6347,7 +6347,7 @@ module Rp = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6362,7 +6362,7 @@ module Rp = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6378,7 +6378,7 @@ module Rp = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6389,7 +6389,7 @@ module Rp = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6413,7 +6413,7 @@ module Rt = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6432,7 +6432,7 @@ module Rt = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6448,7 +6448,7 @@ module Rt = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6459,7 +6459,7 @@ module Rt = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6485,7 +6485,7 @@ module Rtc = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6504,7 +6504,7 @@ module Rtc = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6520,7 +6520,7 @@ module Rtc = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6531,7 +6531,7 @@ module Rtc = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6558,7 +6558,7 @@ module Ruby = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6577,7 +6577,7 @@ module Ruby = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6593,7 +6593,7 @@ module Ruby = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6604,7 +6604,7 @@ module Ruby = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6629,7 +6629,7 @@ module S = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6648,7 +6648,7 @@ module S = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6664,7 +6664,7 @@ module S = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6675,7 +6675,7 @@ module S = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6700,7 +6700,7 @@ module Samp = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6719,7 +6719,7 @@ module Samp = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6735,7 +6735,7 @@ module Samp = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6746,7 +6746,7 @@ module Samp = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6795,7 +6795,7 @@ module Script = struct
     ?src ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6811,7 +6811,7 @@ module Script = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6827,7 +6827,7 @@ module Script = struct
   let jsx
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6838,7 +6838,7 @@ module Script = struct
     make
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6855,7 +6855,7 @@ module Script = struct
       ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6871,7 +6871,7 @@ module Script = struct
           Html_Attributes.Global.make
             ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
             ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-            ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+            ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
             ?title ?translate ();
           Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
             ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6888,7 +6888,7 @@ module Script = struct
       ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6900,7 +6900,7 @@ module Script = struct
         ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
         ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
         ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-        ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+        ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
         ?title ?translate
         ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
         ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6912,6 +6912,420 @@ module Script = struct
 end
 
 
+module Section = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/sections.html#the-section-element} The Section Element}
+   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-section} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.section ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.region
+           | Html_Attributes.Aria.alert
+           | Html_Attributes.Aria.alertdialog
+           | Html_Attributes.Aria.application
+           | Html_Attributes.Aria.contentinfo
+           | Html_Attributes.Aria.dialog
+           | Html_Attributes.Aria.document
+           | Html_Attributes.Aria.feed
+           | Html_Attributes.Aria.log
+           | Html_Attributes.Aria.main
+           | Html_Attributes.Aria.marquee
+           | Html_Attributes.Aria.presentation
+           | Html_Attributes.Aria.region
+           | Html_Attributes.Aria.search
+           | Html_Attributes.Aria.status
+           | Html_Attributes.Aria.tabpanel
+           ] Html_Attributes.Aria.t option)
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "section"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Select = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-select-element} The Select Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-select} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.select ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ Html_Node.option | Html_Node.optgroup
+    | Html_Node.Element.script_supporting | Html_Node.other ] Html_Node.t
+
+  module Attributes = struct
+    external _make:
+      ?autocomplete:string ->
+      ?autofocus:string ->
+      ?disabled:string ->
+      ?form:string ->
+      ?multiple:string ->
+      ?name:string ->
+      ?required:string ->
+      ?size:int ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required
+      ?size () =
+      _make 
+        ?autocomplete:(Belt.Option.map autocomplete Html_Attributes.AutoComplete.show)
+        ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
+        ?disabled:(Belt.Option.map disabled Util.string_of_unit) ?form
+        ?multiple:(Belt.Option.map multiple Util.string_of_unit) ?name
+        ?required:(Belt.Option.map required Util.string_of_unit) ?size () 
+  end
+
+  let make
+    ?(aria:[< Html_Attributes.Aria.combobox
+           | Html_Attributes.Aria.listbox
+           ] Html_Attributes.Aria.t option)
+    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline_block Style.t option)
+    ?(css_module:Css_Property.inline_block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "select"
+      (Util.merge_all [|
+        Attributes.make ?autocomplete ?autofocus ?disabled ?form ?multiple ?name
+          ?required ?size ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Slot = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-slot-element} The Slot Element}
+   *)
+
+  type +'a t = ([> Html_Node.slot ] as 'a) Html_Node.t
+
+  type +'a child =
+    ['a Html_Node.flow | 'a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external make: ?name:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?name
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    (children:_ child array): _ t
+    =
+    Declaredom.make "slot"
+      (Util.merge_all [|
+        Attributes.make ?name ();
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?children () =
+    make
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Small = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-small-element} The Small Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-small} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.small ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "small"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Source = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element} The Source Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-source} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.source ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external _make:
+      ?src:string -> ?_type:string -> ?srcset:string -> ?sizes:string ->
+      ?media:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?src ?_type ?srcset ?sizes ?media () =
+      _make ?src ?_type ?srcset ?sizes
+        ?media:(Belt.Option.map media Css_Media.show) ()
+  end
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?src ?_type ?srcset ?sizes ?media
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make_empty "source"
+      (Util.merge_all [|
+        Attributes.make ?src ?_type ?srcset ?sizes ?media ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?src ?_type ?srcset ?sizes ?media
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children:_ () =
+    make ?aria
+      ?src ?_type ?srcset ?sizes ?media
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      ()
+end
 
 
 module Span = struct
@@ -6927,7 +7341,7 @@ module Span = struct
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6946,7 +7360,7 @@ module Span = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -6962,7 +7376,7 @@ module Span = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6973,7 +7387,7 @@ module Span = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -6983,6 +7397,226 @@ module Span = struct
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
+
+
+module Strong = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element} The Strong Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-strong} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.strong ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "strong"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Style = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-style-element} The Style Element}
+   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-style} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.style ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external _make: ?media:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?media () =
+      _make ?media:(Belt.Option.map media Css_Media.show) ()
+  end
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?media
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    contents: _ t
+    =
+    Declaredom.make_with_text "style"
+      (Util.merge_all [|
+        Attributes.make ?media ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      contents
+    |> Internal.make
+
+
+  let jsx ?aria ?media
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?(children=[]) () =
+    make ?aria ?media
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      (List.fold_left (^) "" children)
+end
+
+
+module Sub = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements} The Sub Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-sub} W3C})
+   *)
+
+  (*
+  type +'a t = ([> Html_Node.sub ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "sub"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+    *)
+end
+
+
+
 
 
 module Title = struct
@@ -6996,7 +7630,7 @@ module Title = struct
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -7011,7 +7645,7 @@ module Title = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -7027,7 +7661,7 @@ module Title = struct
   let jsx ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
     ?title ?translate
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
@@ -7038,7 +7672,7 @@ module Title = struct
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
       ?title ?translate
       ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover

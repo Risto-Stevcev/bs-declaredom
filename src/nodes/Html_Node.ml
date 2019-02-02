@@ -102,9 +102,17 @@ module Node = struct
    and s = [ `s ]
    and samp = [ `samp ]
    and script = [ `script ]
+   and section = [ `section ]
+   and select = [ `select ]
    and source = [ `source ]
    and span = [ `span ]
+   and slot = [ `slot ]
+   and small = [ `small ]
+   and strong = [ `strong ]
+   and style = [ `style ]
+   and sub = [ `sub ]
    and summary = [ `summary ]
+   and sup = [ `sup ]
    and template = [ `template ]
    and title = [ `title ]
 
@@ -134,7 +142,8 @@ module ContentCategory = struct
   type none =
     [ caption | col | colgroup | dd | dt | figcaption | head | html | legend
     | li | optgroup | option | param | rb | rp | rt | rtc | source | summary ]
-  type metadata = [ base | template | title | link | meta | noscript | script ]
+  type metadata =
+    [ base | template | title | link | meta | noscript | script | style ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
     | blockquote | br | button | canvas | cite | code | data | datalist | del
@@ -142,9 +151,10 @@ module ContentCategory = struct
     | footer | form | headings | hgroup | header | hr | i | iframe | img | input
     | ins | kbd | label | link | main | map | mark | meta | meter | nav
     | noscript | object_ | ol | output | p | picture | pre | progress | q | ruby
-    | s | samp | script
-    | span | template | 'a custom ]
-  type sectioning = [ article | aside | nav ]
+    | s | samp | script | section | select | slot | small | span | strong | sub
+    | sup
+    | template | 'a custom ]
+  type sectioning = [ article | aside | nav | section ]
   type sectioning_root =
     [ blockquote | body | details | dialog | fieldset | figure ]
   type heading = [ fragment | headings | hgroup ]
@@ -153,28 +163,29 @@ module ContentCategory = struct
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
     | iframe | img | input | ins | kbd | label | link | map | mark | meta
     | meter | noscript | object_ | output | picture | progress | q | ruby | s
-    | samp | script
-    | span | template | 'a custom | other ]
+    | samp | script | select | slot | small | span | strong | sub | sup
+    | template | 'a custom | other ]
   type embedded = [ audio | canvas | em | iframe | img | object_ | picture ]
   type interactive =
     [ a | audio | button | details | em | iframe | img | input | label
-    | object_ ]
+    | object_ | select ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | headings | hgroup | header | i | iframe | img | input
     | ins | kbd | label | main | map | mark | meter | nav | object_ | ol
-    | output | p | pre | progress | q | ruby | s | samp
+    | output | p | pre | progress | q | ruby | s | samp | section | select
+    | small | strong | sub | sup
     | 'a custom ]
 
 
   module Element = struct
     type form_associated = [ button | fieldset | img | input | label ]
-     and listed = [ button | fieldset | input | object_ | output ]
-     and submittable = [ button | input | object_ ]
-     and resettable = [ input | output ]
-     and autocapitalizable = [ button | fieldset | input | output ]
-     and labelable = [ button | input | meta | output | progress ]
+     and listed = [ button | fieldset | input | object_ | output | select ]
+     and submittable = [ button | input | object_ | select ]
+     and resettable = [ input | output | select ]
+     and autocapitalizable = [ button | fieldset | input | output | select ]
+     and labelable = [ button | input | meta | output | progress | select ]
      and script_supporting = [ script | template ]
      and media = audio
 

@@ -1698,6 +1698,7 @@ module Global = struct
     ?itemtype:string ->
     ?lang:string ->
     ?nonce:string ->
+    ?slot:string ->
     ?spellcheck:string ->
     ?style:string Js.Dict.t ->
     ?tabindex:string ->
@@ -1709,7 +1710,7 @@ module Global = struct
   let make
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
     ?title ?translate () =
     _make
       ?accesskey
@@ -1727,7 +1728,7 @@ module Global = struct
       ?itemid ?itemprop ?itemref
       ?itemscope:(Belt.Option.map itemscope Util.string_of_unit)
       ?itemtype
-      ?lang ?nonce ?spellcheck
+      ?lang ?nonce ?slot ?spellcheck
       ?style:(Belt.Option.map style Style.show_dict)
       ?tabindex:(Belt.Option.map tabindex string_of_int)
       ?title
