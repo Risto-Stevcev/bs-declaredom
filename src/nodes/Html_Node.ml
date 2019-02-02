@@ -79,7 +79,15 @@ module Node = struct
    and main = [ `main ]
    and map = [ `map ]
    and mark = [ `mark ]
+   and meta = [ `meta ]
+   and meter = [ `meter ]
+   and nav = [ `nav ]
+   and noscript = [ `noscript ]
    and option = [ `option ]
+   and object_ = [ `object_ ]
+   and ol = [ `ol ]
+   and optgroup = [ `optgroup ]
+   and param = [ `param ]
    and source = [ `source ]
    and span = [ `span ]
    and summary = [ `summary ]
@@ -111,42 +119,45 @@ module ContentCategory = struct
 
   type none =
     [ caption | col | colgroup | dd | dt | figcaption | head | html | legend
-    | li | option | source | summary ]
-  type metadata = [ base | template | title | link ]
+    | li | optgroup | option | param | source | summary ]
+  type metadata = [ base | template | title | link | meta | noscript ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
     | blockquote | br | button | canvas | cite | code | data | datalist | del
     | details | dfn | dialog | div | dl | em | embed | fieldset | figure
     | footer | form | headings | hgroup | header | hr | i | iframe | img | input
-    | ins | kbd | label | link | main | map | mark
+    | ins | kbd | label | link | main | map | mark | meta | meter | nav
+    | noscript | object_ | ol
     | span | template | 'a custom ]
-  type sectioning = [ article | aside ]
+  type sectioning = [ article | aside | nav ]
   type sectioning_root =
     [ blockquote | body | details | dialog | fieldset | figure ]
   type heading = [ fragment | headings | hgroup ]
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
-    | iframe | img | input | ins | kbd | label | link | map | mark
+    | iframe | img | input | ins | kbd | label | link | map | mark | meta
+    | meter | noscript | object_
     | span | template | 'a custom | other ]
-  type embedded = [ audio | canvas | em | iframe | img ]
+  type embedded = [ audio | canvas | em | iframe | img | object_ ]
   type interactive =
-    [ a | audio | button | details | em | iframe | img | input | label ]
+    [ a | audio | button | details | em | iframe | img | input | label
+    | object_ ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | headings | hgroup | header | i | iframe | img | input
-    | ins | kbd | label | main | map | mark
+    | ins | kbd | label | main | map | mark | meter | nav | object_ | ol
     | 'a custom ]
 
 
   module Element = struct
     type form_associated = [ button | fieldset | img | input | label ]
-     and listed = [ button | fieldset | input ]
-     and submittable = [ button | input ]
+     and listed = [ button | fieldset | input | object_ ]
+     and submittable = [ button | input | object_ ]
      and resettable = input
      and autocapitalizable = [ button | fieldset | input ]
-     and labelable = [ button | input ]
+     and labelable = [ button | input | meta ]
      and script_supporting = template (* [ script | template ] *)
      and media = audio
 
