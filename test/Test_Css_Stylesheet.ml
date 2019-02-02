@@ -23,22 +23,22 @@ test ~name:"@media functions" @@ fun t -> begin
       media_print
         ~condition:(width @@ `px 1024.)
         (`class_name "foo") 
-        (Style.MediaGroup.visual
+        (Css_Style.MediaGroup.visual
           ~color:`red
           ~background_color:`blue ())
     ; style
         (`class_name "bar")
-        (Style.block ~color:`red ())
+        (Css_Style.block ~color:`red ())
     ; style
         (`class_name "display-override-test")
-        (Css_Properties.Display.inline_block @@ Style.inline_block ~color:`blue ())
+        (Css_Properties.Display.inline_block @@ Css_Style.inline_block ~color:`blue ())
     ; Css_Module.make @@
-      Style.positioned ~top:(`px 40.) ~z_index:3 ()
+      Css_Style.positioned ~top:(`px 40.) ~z_index:3 ()
       |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)
-      |> Css_Module.merge (Css_Module.make @@ Style.block ~color:`red ())
+      |> Css_Module.merge (Css_Module.make @@ Css_Style.block ~color:`red ())
       |> css_module
     ; css_module @@ Css_Module.make @@
-        Style.flexbox ~color:`blue ()
+        Css_Style.flexbox ~color:`blue ()
     ]
   in
   Js.log (Css_Stylesheet.show x);

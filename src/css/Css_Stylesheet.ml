@@ -33,13 +33,13 @@ module PageRule = struct
   end
 
   type t =
-    [ `page of Selector.t option * Css_Property.MediaGroup.paged Style.t ]
+    [ `page of Selector.t option * Css_Property.MediaGroup.paged Css_Style.t ]
 
   let make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () =
     `page
       ( page
-      , Style.MediaGroup.paged ?margin ?margin_top ?margin_right ?margin_bottom
+      , Css_Style.MediaGroup.paged ?margin ?margin_top ?margin_right ?margin_bottom
           ?margin_left ?page_break_before ?page_break_after ?page_break_inside ?orphans 
           ?widows ()
       )
@@ -55,7 +55,7 @@ end
 
 module MediaRule = struct
   type t =
-    [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Style.t ]
+    [ `media of Css_Media.t * Css_Selector.t * Css_Property.display Css_Style.t ]
 
   let print
     ?(only=false) ?condition selector properties: t =
@@ -101,12 +101,12 @@ module MediaRule = struct
 
   let show (`media (media, selector, properties): t): string =
     Css_Media.show media ^" {\n"^
-      Style.show ~indent:1 selector properties ^"\n"^
+      Css_Style.show ~indent:1 selector properties ^"\n"^
     "}"
 end
 
 module StyleRule = struct
-  type t = [ `style of Css_Selector.t * Css_Property.display Style.t ]
+  type t = [ `style of Css_Selector.t * Css_Property.display Css_Style.t ]
 
   let make
     selector properties: t =

@@ -62,7 +62,7 @@ module Div :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.Override.flex Style.t ->
+      ?style:Css_Property.Override.flex Css_Style.t ->
       ?css_module:Css_Property.Override.flex Css_Module.t ->
       _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div ] Html_Node.t
@@ -121,7 +121,7 @@ module Div :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.Override.inline_flex Style.t ->
+      ?style:Css_Property.Override.inline_flex Css_Style.t ->
       ?css_module:Css_Property.Override.inline_flex Css_Module.t ->
       _ Html_Node.flex_item Html_Node.t array ->
       [> Html_Node.div ] Html_Node.t
@@ -180,7 +180,7 @@ module Div :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.Override.inline_block Style.t ->
+      ?style:Css_Property.Override.inline_block Css_Style.t ->
       ?css_module:Css_Property.Override.inline_block Css_Module.t ->
       _ Html_Nodes.Div.child array -> [> Html_Node.div ] Html_Node.t
     module Jsx :
@@ -240,7 +240,7 @@ module Div :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.Override.flex Style.t ->
+          ?style:Css_Property.Override.flex Css_Style.t ->
           ?css_module:Css_Property.Override.flex Css_Module.t ->
           ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div ] Html_Node.t
@@ -299,7 +299,7 @@ module Div :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.Override.inline_flex Style.t ->
+          ?style:Css_Property.Override.inline_flex Css_Style.t ->
           ?css_module:Css_Property.Override.inline_flex Css_Module.t ->
           ?children:_ Html_Node.flex_item Html_Node.t Js.List.t ->
           unit -> [> Html_Node.div ] Html_Node.t
@@ -358,7 +358,7 @@ module Div :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.Override.inline_block Style.t ->
+          ?style:Css_Property.Override.inline_block Css_Style.t ->
           ?css_module:Css_Property.Override.inline_block Css_Module.t ->
           ?children:_ Html_Nodes.Div.child Js.List.t ->
           unit -> [> Html_Node.div ] Html_Node.t
@@ -421,7 +421,7 @@ module Span :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.Override.inline_block Style.t ->
+      ?style:Css_Property.Override.inline_block Css_Style.t ->
       ?css_module:Css_Property.Override.inline_block Css_Module.t ->
       _ Html_Nodes.Span.child array -> [> Html_Node.span ] Html_Node.t
     module Jsx :
@@ -481,7 +481,7 @@ module Span :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.Override.inline_block Style.t ->
+          ?style:Css_Property.Override.inline_block Css_Style.t ->
           ?css_module:Css_Property.Override.inline_block Css_Module.t ->
           ?children:_ Html_Nodes.Span.child Js.List.t ->
           unit -> [> Html_Node.span ] Html_Node.t

@@ -1,16 +1,16 @@
 module Modules = struct
   let container = Css_Module.make @@
-    Style.block ~text_align:`center ~clear:`both ~color:`darkcyan ()
+    Css_Style.block ~text_align:`center ~clear:`both ~color:`darkcyan ()
 
   let title = Css_Module.make @@
-    Style.inline ~vertical_align:`initial ~color:`black ()
+    Css_Style.inline ~vertical_align:`initial ~color:`black ()
 
   let flex = Css_Module.make @@ Css_Properties.Display.flex @@
-    Style.flexbox ~flex_direction:`column ~color:`coral
+    Css_Style.flexbox ~flex_direction:`column ~color:`coral
       ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
   let flex_item = Css_Module.make @@
-    Style.flex_item ~align_self:`flex_start ~color:`red ()
+    Css_Style.flex_item ~align_self:`flex_start ~color:`red ()
 
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the

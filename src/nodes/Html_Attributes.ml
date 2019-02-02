@@ -63,6 +63,7 @@ end
 
 
 module CrossOrigin = struct
+  (* TODO: add spec reference *)
   type t =
     [ `anonymous | `use_credentials [@bs.as "use-credentials"] ]
     [@@bs.deriving jsConverter]
@@ -140,6 +141,15 @@ module Form = struct
 
     let show = tToJs
   end
+end
+
+
+module Dirname = struct
+  (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-dirname} Dirname} *)
+
+  type t = [ `ltr | `rtl ] [@@bs.deriving jsConverter] 
+
+  let show = tToJs
 end
 
 
@@ -1729,7 +1739,7 @@ module Global = struct
       ?itemscope:(Belt.Option.map itemscope Util.string_of_unit)
       ?itemtype
       ?lang ?nonce ?slot ?spellcheck
-      ?style:(Belt.Option.map style Style.show_dict)
+      ?style:(Belt.Option.map style Css_Style.show_dict)
       ?tabindex:(Belt.Option.map tabindex string_of_int)
       ?title
       ?translate:(Belt.Option.map translate Value.translateToJs)
