@@ -12,5 +12,11 @@ external make_empty:
   property Js.Dict.t ->
   unit -> Dom.node = "element" [@@bs.module "declaredom"]
 
+external make_with_text:
+  string ->
+  property Js.Dict.t ->
+  string -> Dom.node = "element" [@@bs.module "declaredom"]
+
+(** Makes a text node *)
 external make_text:
-  (_ [@bs.as "text"]) -> string -> 'a = "element" [@@bs.module "declaredom"]
+  (_ [@bs.as "text"]) -> string -> Dom.node = "element" [@@bs.module "declaredom"]

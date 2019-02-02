@@ -1507,3 +1507,69 @@ module ZIndex :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.z_index ]
     val make : int -> [> Css_Property.z_index ] t
   end
+module Ruby :
+  sig
+    module RubyPosition :
+      sig
+        type +'a t = 'a Css_Property.t
+          constraint 'a = [> Css_Property.ruby_position ]
+        module Value :
+          sig
+            type vertical = [ `inter_character | `over | `under ]
+            val verticalToJs : vertical -> string
+            val verticalFromJs : string -> vertical option
+            type horizontal = [ `left | `right ]
+            val horizontalToJs : horizontal -> string
+            val horizontalFromJs : string -> horizontal option
+            type t =
+                [ `inherit_
+                | `initial
+                | `position of vertical * horizontal
+                | `unset ]
+            val show : t -> string
+          end
+        val make : Value.t -> [> Css_Property.ruby_position ] t
+      end
+    module RubyMerge :
+      sig
+        type +'a t = 'a Css_Property.t
+          constraint 'a = [> Css_Property.ruby_merge ]
+        module Value :
+          sig
+            type value = [ `auto | `collapse | `separate ]
+            val valueToJs : value -> string
+            val valueFromJs : string -> value option
+            type t =
+                [ `auto
+                | `collapse
+                | `inherit_
+                | `initial
+                | `separate
+                | `unset ]
+            val show : t -> string
+          end
+        val make : Value.t -> [> Css_Property.ruby_merge ] t
+      end
+    module RubyAlign :
+      sig
+        type +'a t = 'a Css_Property.t
+          constraint 'a = [> Css_Property.ruby_align ]
+        module Value :
+          sig
+            type value =
+                [ `center | `space_around | `space_between | `start ]
+            val valueToJs : value -> string
+            val valueFromJs : string -> value option
+            type t =
+                [ `center
+                | `inherit_
+                | `initial
+                | `space_around
+                | `space_between
+                | `start
+                | `unset ]
+            val show : t -> string
+          end
+        val make : Value.t -> [> Css_Property.ruby_align ] t
+      end
+  end

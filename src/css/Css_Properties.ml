@@ -1870,3 +1870,71 @@ module ZIndex = struct
 
   let make value: 'a t = Internal.make @@ Js.Int.toString value
 end
+
+
+module Ruby = struct
+  (** {{: https://www.w3.org/TR/css-ruby-1/#ruby-props} Ruby Properties} *)
+
+  module RubyPosition = struct
+    type +'a t = ([> Css_Property.ruby_position ] as 'a) Css_Property.t
+
+    module Value = struct
+      type vertical =
+        [ `over | `under | `inter_character [@bs.as "inter-character"] ]
+        [@@bs.deriving jsConverter]
+
+      type horizontal = [ `right | `left ] [@@bs.deriving jsConverter]
+
+      type t = [ Css_Value.Global.t | `position of vertical * horizontal ]
+
+      let show: t -> string = function
+      | #Css_Value.Global.t as global ->
+        Css_Value.Global.show global
+      | `position (vertical, horizontal) ->
+        verticalToJs vertical ^" "^ horizontalToJs horizontal
+    end
+
+    let make value: 'a t = Internal.make @@ Value.show value
+  end
+
+
+  module RubyMerge = struct
+    type +'a t = ([> Css_Property.ruby_merge ] as 'a) Css_Property.t
+
+    module Value = struct
+      type value = [ `separate | `collapse | `auto ] [@@bs.deriving jsConverter]
+
+      type t = [ Css_Value.Global.t | value ]
+
+      let show: t -> string = function
+      | #Css_Value.Global.t as global ->
+        Css_Value.Global.show global
+      | #value as value ->
+        valueToJs value
+    end
+
+    let make value: 'a t = Internal.make @@ Value.show value
+  end
+
+
+  module RubyAlign = struct
+    type +'a t = ([> Css_Property.ruby_align ] as 'a) Css_Property.t
+
+    module Value = struct
+      type value =
+        [ `start | `center | `space_between [@bs.as "space-between"]
+        | `space_around [@bs.as "space-around"]
+        ] [@@bs.deriving jsConverter]
+
+      type t = [ Css_Value.Global.t | value ]
+
+      let show: t -> string = function
+      | #Css_Value.Global.t as global ->
+        Css_Value.Global.show global
+      | #value as value ->
+        valueToJs value
+    end
+
+    let make value: 'a t = Internal.make @@ Value.show value
+  end
+end

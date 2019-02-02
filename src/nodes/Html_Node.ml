@@ -87,7 +87,21 @@ module Node = struct
    and object_ = [ `object_ ]
    and ol = [ `ol ]
    and optgroup = [ `optgroup ]
+   and output = [ `output ]
+   and p = [ `p ]
    and param = [ `param ]
+   and picture = [ `picture ]
+   and pre = [ `pre ]
+   and progress = [ `progress ]
+   and q = [ `q ]
+   and rb = [ `rb ]
+   and rp = [ `rp ]
+   and rt = [ `rt ]
+   and rtc = [ `rtc ]
+   and ruby = [ `ruby ]
+   and s = [ `s ]
+   and samp = [ `samp ]
+   and script = [ `script ]
    and source = [ `source ]
    and span = [ `span ]
    and summary = [ `summary ]
@@ -119,15 +133,16 @@ module ContentCategory = struct
 
   type none =
     [ caption | col | colgroup | dd | dt | figcaption | head | html | legend
-    | li | optgroup | option | param | source | summary ]
-  type metadata = [ base | template | title | link | meta | noscript ]
+    | li | optgroup | option | param | rb | rp | rt | rtc | source | summary ]
+  type metadata = [ base | template | title | link | meta | noscript | script ]
   type 'a flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
     | blockquote | br | button | canvas | cite | code | data | datalist | del
     | details | dfn | dialog | div | dl | em | embed | fieldset | figure
     | footer | form | headings | hgroup | header | hr | i | iframe | img | input
     | ins | kbd | label | link | main | map | mark | meta | meter | nav
-    | noscript | object_ | ol
+    | noscript | object_ | ol | output | p | picture | pre | progress | q | ruby
+    | s | samp | script
     | span | template | 'a custom ]
   type sectioning = [ article | aside | nav ]
   type sectioning_root =
@@ -137,9 +152,10 @@ module ContentCategory = struct
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
     | iframe | img | input | ins | kbd | label | link | map | mark | meta
-    | meter | noscript | object_
+    | meter | noscript | object_ | output | picture | progress | q | ruby | s
+    | samp | script
     | span | template | 'a custom | other ]
-  type embedded = [ audio | canvas | em | iframe | img | object_ ]
+  type embedded = [ audio | canvas | em | iframe | img | object_ | picture ]
   type interactive =
     [ a | audio | button | details | em | iframe | img | input | label
     | object_ ]
@@ -148,17 +164,18 @@ module ContentCategory = struct
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | headings | hgroup | header | i | iframe | img | input
     | ins | kbd | label | main | map | mark | meter | nav | object_ | ol
+    | output | p | pre | progress | q | ruby | s | samp
     | 'a custom ]
 
 
   module Element = struct
     type form_associated = [ button | fieldset | img | input | label ]
-     and listed = [ button | fieldset | input | object_ ]
+     and listed = [ button | fieldset | input | object_ | output ]
      and submittable = [ button | input | object_ ]
-     and resettable = input
-     and autocapitalizable = [ button | fieldset | input ]
-     and labelable = [ button | input | meta ]
-     and script_supporting = template (* [ script | template ] *)
+     and resettable = [ input | output ]
+     and autocapitalizable = [ button | fieldset | input | output ]
+     and labelable = [ button | input | meta | output | progress ]
+     and script_supporting = [ script | template ]
      and media = audio
 
      type category =

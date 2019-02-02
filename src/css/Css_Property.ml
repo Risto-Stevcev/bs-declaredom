@@ -137,6 +137,11 @@ module Style = struct
    and word_spacing = [ `word_spacing ]
    and z_index = [ `z_index ]
 
+  (** {{: https://www.w3.org/TR/css-ruby-1/#ruby-props} Ruby Properties} *)
+  type ruby_position = [ `ruby_position ]
+   and ruby_merge = [ `ruby_merge ]
+   and ruby_align = [ `ruby_align ]
+
 
   type aligns =
     [ align_content | align_items | align_self ]
@@ -287,6 +292,17 @@ module AppliesTo = struct
 
     type table_row_group =
       [ heights | any ]
+
+    (** {{: https://www.w3.org/TR/css-ruby-1/#ruby-display} Ruby Display} *)
+    type ruby = ruby_align
+     and ruby_base = ruby_align
+     and ruby_text = ruby_align
+     and ruby_base_container = ruby_align
+     and ruby_text_container = [ ruby_position | ruby_merge ]
+
+    type ruby_display =
+      [ ruby | ruby_base | ruby_text | ruby_base_container
+      | ruby_text_container ]
   end
 
   include Display
@@ -324,7 +340,7 @@ module AppliesTo = struct
     [ block | flexbox | list_item | positioned | inline
     | inline_block | inline_flex | table_header_group | table_footer_group
     | table_caption | table | inline_table | table_cell | table_column
-    | table_column_group | table_row | table_row_group ]
+    | table_column_group | table_row | table_row_group | ruby_display ]
 
   (**
    A flex item is defined as a child of a flex container ([display: flex]), it 

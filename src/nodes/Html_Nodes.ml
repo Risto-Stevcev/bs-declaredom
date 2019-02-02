@@ -5733,6 +5733,1185 @@ module Option = struct
 end
 
 
+module Output = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-output-element} The Output Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-output} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.output ] as 'a) Html_Node.t
+
+  type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
+
+  module Attributes = struct
+    external make:
+      ?_for:string ->
+      ?form:string ->
+      ?name:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?aria
+    ?_for ?form ?name
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "output"
+      (Util.merge_all [|
+        Attributes.make ?_for ?form ?name ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?_for ?form ?name
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?_for ?form ?name
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module P = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element} The P Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-p} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.p ] as 'a) Html_Node.t
+
+  type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "p"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Param = struct
+  (**
+   {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-param} The Param Element}
+   ({{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-param-element} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.param ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external make:
+      ?name:string ->
+      ?value:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
+    ?name ?value
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    (): _ t
+    =
+    Declaredom.make_empty "param"
+      (Util.merge_all [|
+        Attributes.make ?name ?value ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?name ?value
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?children:_ () =
+    make ?aria
+      ?name ?value
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ()
+end
+
+
+module Picture = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element} The Picture Element}
+   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-picture} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.picture ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ Html_Node.img | Html_Node.source
+    | Html_Node.Element.script_supporting | Html_Node.other] Html_Node.t
+
+  let make
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "picture"
+      (Util.merge_all [|
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Pre = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element} The Pre Element}
+   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-pre} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.pre ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.block Style.t option)
+    ?(css_module:Css_Property.block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "pre"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Progress = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-progress-element} The Progress Element}
+   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-progress} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.progress ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external make:
+      ?value:float ->
+      ?max:float ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?(aria:Html_Attributes.Aria.progressbar Html_Attributes.Aria.t option)
+    ?value ?max
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline_block Style.t option)
+    ?(css_module:Css_Property.inline_block Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "progress"
+      (Util.merge_all [|
+        Attributes.make ?value ?max ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?value ?max
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria ?value ?max
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Q = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-q-element} The Q Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-q} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.q ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  module Attributes = struct
+    external make: ?cite:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+  end
+
+  let make ?aria ?cite
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "q"
+      (Util.merge_all [|
+        Attributes.make ?cite ();
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria ?cite
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria ?cite
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Rb = struct
+  (**
+   {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rb} The Rb Element}
+   *)
+
+  type +'a t = ([> Html_Node.rb ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.ruby_base Style.t option)
+    ?(css_module:Css_Property.ruby_base Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "rb"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Rp = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rp-element} The Rp Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rp} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.rp ] as 'a) Html_Node.t
+
+  type child = Html_Node.other Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    (children:child array): _ t
+    =
+    Declaredom.make "rp"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Rt = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rt-element} The Rt Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rt} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.rt ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.ruby_text Style.t option)
+    ?(css_module:Css_Property.ruby_text Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "rt"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Rtc = struct
+  (**
+   {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rtc} The Rtc Element}
+   *)
+
+  type +'a t = ([> Html_Node.rtc ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ 'a Html_Node.phrasing | Html_Node.rt | Html_Node.rp
+    | Html_Node.other ] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.ruby_text_container Style.t option)
+    ?(css_module:Css_Property.ruby_text_container Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "rtc"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Ruby = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-ruby-element} The Ruby Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-ruby} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.ruby ] as 'a) Html_Node.t
+
+  type +'a child =
+    [ 'a Html_Node.phrasing | Html_Node.rp | Html_Node.rt | Html_Node.rb
+    | Html_Node.rtc | Html_Node.other ] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.ruby Style.t option)
+    ?(css_module:Css_Property.ruby Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "ruby"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module S = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-s-element} The S Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-s} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.s ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "s"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Samp = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-samp-element} The Samp Element}
+   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-samp} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.samp ] as 'a) Html_Node.t
+
+  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+
+  let make ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
+    (children:_ child array): _ t
+    =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
+    Declaredom.make "samp"
+      (Util.merge_all [|
+        Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?style ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      (children |> Js.Array.map Html_Node.to_node)
+    |> Internal.make
+
+
+  let jsx ?aria
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?style ?css_module ?children () =
+    make ?aria
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
+      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
+end
+
+
+module Script = struct
+  (**
+   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-script-element} The Script Element}
+   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-script} W3C})
+   *)
+
+  type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
+
+  module Attributes = struct
+    external _make:
+      ?src:string ->
+      ?_type:string ->
+      ?nomodule:string ->
+      ?async:string ->
+      ?defer:string ->
+      ?crossorigin:string ->
+      ?integrity:string ->
+      ?referrerpolicy:string ->
+      unit ->
+      Html_Attributes.t = "" [@@bs.obj]
+
+    let make ?src ?_type ?nomodule ?async ?defer ?crossorigin ?integrity
+      ?referrerpolicy () =
+      _make ?src ?_type
+        ?nomodule:(Belt.Option.map nomodule Util.string_of_unit)
+        ?async:(Belt.Option.map async Util.string_of_unit)
+        ?defer:(Belt.Option.map defer Util.string_of_unit)
+        ?crossorigin:(Belt.Option.map crossorigin Html_Attributes.CrossOrigin.show)
+        ?integrity
+        ?referrerpolicy:(Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
+        ()
+  end
+
+  let make
+    ?src ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    (): _ t
+    =
+    Declaredom.make_empty "script"
+      (Util.merge_all [|
+        Attributes.make ?src ?_type ?nomodule ?async ?defer ?crossorigin
+          ?integrity ?referrerpolicy ();
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      ()
+    |> Internal.make
+
+
+  let jsx
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+    ?title ?translate
+    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+    ?children:_ () =
+    make
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ()
+
+
+  module Inline = struct
+    (** An inline script element *)
+
+    let make
+      ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      contents: _ t
+      =
+      Declaredom.make_with_text "script"
+        (Util.merge_all [|
+          Attributes.make ?_type ?nomodule ?async ?defer ?crossorigin
+            ?integrity ?referrerpolicy ();
+          Html_Attributes.Global.make
+            ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+            ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+            ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+            ?title ?translate ();
+          Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+            ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+            ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+            ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+            ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+            ?on_scroll ()
+        |])
+        contents
+      |> Internal.make
+
+
+    let jsx
+      ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+      ?title ?translate
+      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
+      ?(children=[]) () =
+      make
+        ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
+        ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+        ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+        ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
+        ?title ?translate
+        ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
+        ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
+        ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
+        ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
+        ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+        (List.fold_left (^) "" children)
+  end
+end
+
+
 
 
 module Span = struct
@@ -5841,7 +7020,7 @@ module Title = struct
           ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
           ?on_scroll ()
       |])
-      (Declaredom.make_text child)
+      [|Declaredom.make_text child|]
     |> Internal.make
 
 
@@ -5878,7 +7057,7 @@ module Text = struct
 
   type +'a t = ([> Html_Node.text ] as 'a) Html_Node.t
 
-  let make (text: string): _ t = Declaredom.make_text text
+  let make (text: string): _ t = Internal.make @@ Declaredom.make_text text
 
   let jsx ?(children=[]) () = make @@ List.fold_left (^) "" children
 end

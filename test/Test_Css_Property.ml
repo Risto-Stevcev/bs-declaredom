@@ -1721,3 +1721,49 @@ test ~name:"css property - width" @@ fun t -> begin
   t |> equal (`percent 80.) "80%";
   t |> T.end_
 end;
+
+
+module Ruby = struct
+  test ~name:"css property - ruby-align" @@ fun t -> begin
+    let equal a b t =
+      t |> T.equal (a |> Ruby.RubyAlign.make |> Css_Property.show) b
+    in
+    t |> equal `inherit_ "inherit";
+    t |> equal `initial "initial";
+    t |> equal `unset "unset";
+    t |> equal `start "start";
+    t |> equal `center "center";
+    t |> equal `space_around "space-around";
+    t |> equal `space_between "space-between";
+    t |> T.end_
+  end;
+
+  test ~name:"css property - ruby-merge" @@ fun t -> begin
+    let equal a b t =
+      t |> T.equal (a |> Ruby.RubyMerge.make |> Css_Property.show) b
+    in
+    t |> equal `inherit_ "inherit";
+    t |> equal `initial "initial";
+    t |> equal `unset "unset";
+    t |> equal `separate "separate";
+    t |> equal `collapse "collapse";
+    t |> equal `auto "auto";
+    t |> T.end_
+  end;
+
+  test ~name:"css property - ruby-position" @@ fun t -> begin
+    let equal a b t =
+      t |> T.equal (a |> Ruby.RubyPosition.make |> Css_Property.show) b
+    in
+    t |> equal `inherit_ "inherit";
+    t |> equal `initial "initial";
+    t |> equal `unset "unset";
+    t |> equal (`position (`over, `left)) "over left";
+    t |> equal (`position (`under, `left)) "under left";
+    t |> equal (`position (`inter_character, `left)) "inter-character left";
+    t |> equal (`position (`over, `right)) "over right";
+    t |> equal (`position (`under, `right)) "under right";
+    t |> equal (`position (`inter_character, `right)) "inter-character right";
+    t |> T.end_
+  end;
+end
