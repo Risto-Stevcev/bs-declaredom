@@ -62,6 +62,67 @@ module ReferrerPolicy = struct
 end
 
 
+module CrossOrigin = struct
+  type t =
+    [ `anonymous | `use_credentials [@bs.as "use-credentials"] ]
+    [@@bs.deriving jsConverter]
+
+  let show = tToJs
+end
+
+
+module AutoComplete = struct
+  (** {{: https://www.w3.org/TR/html52/sec-forms.html#autofill-detail-tokens} Autofill detail tokens} *)
+
+  type t =
+    [ `on | `off | `name | `honorific_prefix [@bs.as "honorific-prefix"]
+    | `given_name [@bs.as "given-name"]
+    | `additional_name [@bs.as "additional-name"]
+    | `family_name [@bs.as "family-name"]
+    | `honorific_suffix [@bs.as "honorific-suffix"]
+    | `nickname | `organization_title [@bs.as "organization-title"]
+    | `username | `new_password [@bs.as "new-password"]
+    | `current_password [@bs.as "current-password"]
+    | `organization | `street_address [@bs.as "street-address"]
+    | `address_line1 [@bs.as "address-line1"]
+    | `address_line2 [@bs.as "address-line2"]
+    | `address_line3 [@bs.as "address-line3"]
+    | `address_level1 [@bs.as "address-level1"]
+    | `address_level2 [@bs.as "address-level2"]
+    | `address_level3 [@bs.as "address-level3"]
+    | `address_level4 [@bs.as "address-level4"]
+    | `country | `country_name [@bs.as "country-name"]
+    | `postal_code [@bs.as "postal-code"] | `cc_name [@bs.as "cc-name"]
+    | `cc_given_name [@bs.as "cc-given-name"]
+    | `cc_additional_name [@bs.as "cc-additional-name"]
+    | `cc_family_name [@bs.as "cc-family-name"]
+    | `cc_number [@bs.as "cc-number"]
+    | `cc_exp [@bs.as "cc-exp"]
+    | `cc_exp_month [@bs.as "cc-exp-month"]
+    | `cc_exp_year [@bs.as "cc-exp-year"]
+    | `cc_csc [@bs.as "cc-csc"]
+    | `cc_type [@bs.as "cc-type"]
+    | `transaction_currency [@bs.as "transaction-currency"]
+    | `transaction_amount [@bs.as "transaction-amount"]
+    | `language | `bday
+    | `bday_day [@bs.as "bday-day"]
+    | `bday_month [@bs.as "bday-month"]
+    | `bday_year [@bs.as "bday-year"]
+    | `sex | `url | `photo | `tel
+    | `tel_country_code [@bs.as "tel-country-code"]
+    | `tel_national [@bs.as "tel-national"]
+    | `tel_area_code [@bs.as "tel-area-code"]
+    | `tel_local [@bs.as "tel-local"]
+    | `tel_local_prefix [@bs.as "tel-local-prefix"]
+    | `tel_local_suffix [@bs.as "tel-local-suffix"]
+    | `tel_extension [@bs.as "tel-extension"]
+    | `email | `impp
+    ] [@@bs.deriving jsConverter]
+
+  let show = tToJs
+end
+
+
 module Form = struct
   module Enctype = struct
     (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype} Form Enctype} *)
