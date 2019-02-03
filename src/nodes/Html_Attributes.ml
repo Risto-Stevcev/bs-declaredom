@@ -153,6 +153,15 @@ module Dirname = struct
 end
 
 
+module Preload = struct
+  (** {{: https://html.spec.whatwg.org/multipage/media.html#attr-media-preload} Preload} *)
+
+  type t = [ `none | `metadata | `auto ] [@@bs.deriving jsConverter]
+
+  let show = tToJs
+end
+
+
 module Aria = struct
   (**
     {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria Roles} 

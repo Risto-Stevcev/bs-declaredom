@@ -119,9 +119,17 @@ module Node = struct
    and template = [ `template ]
    and textarea = [ `textarea ]
    and tfoot = [ `tfoot ]
+   and th = [ `th ]
    and thead = [ `thead ]
+   and time = [ `time ]
    and title = [ `title ]
    and tr = [ `tr ]
+   and track = [ `track ]
+   and u = [ `u ]
+   and ul = [ `ul ]
+   and var = [ `var ]
+   and video = [ `video ]
+   and wbr = [ `wbr ]
 
    and text = [ `text ]
    and fragment = [ `fragment ]
@@ -149,7 +157,7 @@ module ContentCategory = struct
   type none =
     [ caption | col | colgroup | dd | dt | figcaption | head | html | legend
     | li | optgroup | option | param | rb | rp | rt | rtc | source | summary
-    | tbody | tfoot | thead | tr ]
+    | tbody | tfoot | th | thead | tr | track ]
   type metadata =
     [ base | template | title | link | meta | noscript | script | style ]
   type 'a flow =
@@ -160,7 +168,7 @@ module ContentCategory = struct
     | ins | kbd | label | link | main | map | mark | meta | meter | nav
     | noscript | object_ | ol | output | p | picture | pre | progress | q | ruby
     | s | samp | script | section | select | slot | small | span | strong | sub
-    | sup | table | template | textarea
+    | sup | table | template | textarea | time | u | ul | var | video | wbr
     | 'a custom ]
   type sectioning = [ article | aside | nav | section ]
   type sectioning_root =
@@ -172,19 +180,21 @@ module ContentCategory = struct
     | iframe | img | input | ins | kbd | label | link | map | mark | meta
     | meter | noscript | object_ | output | picture | progress | q | ruby | s
     | samp | script | select | slot | small | span | strong | sub | sup
-    | template | textarea
+    | template | textarea | time | u | var | video | wbr
     | 'a custom | other ]
-  type embedded = [ audio | canvas | em | iframe | img | object_ | picture ]
+  type embedded =
+    [ audio | canvas | em | iframe | img | object_ | picture | video ]
   type interactive =
     [ a | audio | button | details | em | iframe | img | input | label
-    | object_ | select | textarea ]
+    | object_ | select | textarea | video ]
   type 'a palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | headings | hgroup | header | i | iframe | img | input
     | ins | kbd | label | main | map | mark | meter | nav | object_ | ol
     | output | p | pre | progress | q | ruby | s | samp | section | select
-    | small | strong | sub | sup | table | textarea
+    | small | strong | sub | sup | table | textarea | time | u | ul | var
+    | video
     | 'a custom ]
 
 
