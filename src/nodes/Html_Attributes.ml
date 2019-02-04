@@ -1,10 +1,6 @@
-(** HTML Attributes *)
-
 type t = Declaredom.property Js.Dict.t
 
 module LinkType = struct
-  (** {{: https://www.w3.org/TR/html52/links.html#sec-link-types} Link Types} *)
-
   module Link = struct
     type t =
       [ `alternate | `author | `help | `icon | `license | `next | `prev
@@ -28,8 +24,6 @@ end
 
 
 module Target = struct
-  (** {{: https://www.w3.org/TR/html52/browsers.html#browsing-context-names} Browsing context} *)
-
   type value =
     [ `blank | `self | `parent | `top ] [@@bs.deriving jsConverter]
 
@@ -44,8 +38,6 @@ end
 
 
 module ReferrerPolicy = struct
-  (** {{: https://www.w3.org/TR/referrer-policy/#referrer-policies} Referrer Policies} *)
-
   type t =
     [ `no_referrer [@bs.as "no-referrer"]
     | `no_referrer_when_downgrade [@bs.as "no-referrer-when-downgrade"]
@@ -63,7 +55,6 @@ end
 
 
 module CrossOrigin = struct
-  (* TODO: add spec reference *)
   type t =
     [ `anonymous | `use_credentials [@bs.as "use-credentials"] ]
     [@@bs.deriving jsConverter]
@@ -73,8 +64,6 @@ end
 
 
 module AutoComplete = struct
-  (** {{: https://www.w3.org/TR/html52/sec-forms.html#autofill-detail-tokens} Autofill detail tokens} *)
-
   type t =
     [ `on | `off | `name | `honorific_prefix [@bs.as "honorific-prefix"]
     | `given_name [@bs.as "given-name"]
@@ -126,8 +115,6 @@ end
 
 module Form = struct
   module Enctype = struct
-    (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype} Form Enctype} *)
-
     type t =
       [ `x_www_form_urlencoded | `form_data | `plain ]
       [@@bs.deriving jsConverter]
@@ -136,7 +123,6 @@ module Form = struct
   end
 
   module Method = struct
-    (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method} Form Method} *)
     type t = [ `get | `post | `dialog ] [@@bs.deriving jsConverter]
 
     let show = tToJs
@@ -145,8 +131,6 @@ end
 
 
 module Dirname = struct
-  (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-dirname} Dirname} *)
-
   type t = [ `ltr | `rtl ] [@@bs.deriving jsConverter] 
 
   let show = tToJs
@@ -154,8 +138,6 @@ end
 
 
 module Preload = struct
-  (** {{: https://html.spec.whatwg.org/multipage/media.html#attr-media-preload} Preload} *)
-
   type t = [ `none | `metadata | `auto ] [@@bs.deriving jsConverter]
 
   let show = tToJs
@@ -163,20 +145,10 @@ end
 
 
 module Aria = struct
-  (**
-    {{: https://www.w3.org/TR/html52/dom.html#allowed-aria-roles-states-and-properties} Aria Roles} 
-    and {{: https://www.w3.org/TR/wai-aria-1.1/#role_definitions} Role Definitions}
-  *)
-
   type +'a t
 
-  external merge: 'a t array -> 'a t = "assign"
-    [@@bs.scope ("Object")] [@@bs.splice] [@@bs.val]
-
-  (* Core role *)
   type roletype = [ `roletype ]
 
-  (* Abstract roles *)
   type structure = roletype
   type widget = roletype
    and window = roletype
@@ -305,7 +277,6 @@ module Aria = struct
       [@@bs.deriving jsConverter]
   end
 
-  (* TODO: hide, *)
   module Properties = struct
     (** {{: https://www.w3.org/TR/wai-aria-1.1/#state_prop_def} Properties} *)
 
@@ -429,8 +400,6 @@ module Aria = struct
 
 
   module Roletype = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#roletype} Roletype Role} *)
-
     let make ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
       ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
@@ -444,8 +413,6 @@ module Aria = struct
   end
 
   module Alert = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#alert} Alert Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -461,8 +428,6 @@ module Aria = struct
   end
 
   module AlertDialog = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#alertdialog} Alert Dialog Role} *)
-
     let make ?aria_expanded ?aria_modal
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -478,8 +443,6 @@ module Aria = struct
   end
 
   module Application = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#application} Application Role} *)
-
     let make ?aria_activedescendant
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -495,8 +458,6 @@ module Aria = struct
   end
 
   module Article = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#article} Article Role} *)
-
     let make ?aria_expanded ?aria_posinset ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -512,8 +473,6 @@ module Aria = struct
   end
 
   module Banner = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#banner} Banner Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -529,8 +488,6 @@ module Aria = struct
   end
 
   module Button = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#button} Button Role} *)
-
     let make ?aria_expanded ?aria_pressed
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -546,8 +503,6 @@ module Aria = struct
   end
 
   module Cell = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#cell} Cell Role} *)
-
     let make ?aria_expanded ?aria_colindex ?aria_colspan ?aria_rowindex
       ?aria_rowspan
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -565,8 +520,6 @@ module Aria = struct
   end
 
   module Checkbox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#checkbox} Checkbox Role} *)
-
     let make ~aria_checked ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -582,8 +535,6 @@ module Aria = struct
   end
 
   module Columnheader = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#columnheader} Columnheader Role} *)
-
     let make ?aria_sort ?aria_expanded ?aria_colindex ?aria_colspan
       ?aria_readonly ?aria_required ?aria_selected
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -601,8 +552,6 @@ module Aria = struct
   end
 
   module Combobox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#combobox} Combobox Role} *)
-
     let make ~aria_expanded ?aria_autocomplete ?aria_readonly ?aria_required
       ?aria_orientation ?aria_activedescendant
       ?aria_atomic ?aria_busy ~aria_controls ?aria_current
@@ -620,8 +569,6 @@ module Aria = struct
   end
 
   module Complementary = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#complementary} Complementary Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -637,8 +584,6 @@ module Aria = struct
   end
 
   module Contentinfo = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#contentinfo} Contentinfo Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -654,8 +599,6 @@ module Aria = struct
   end
 
   module Definition = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#definition} Definition Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -671,8 +614,6 @@ module Aria = struct
   end
 
   module Dialog = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#dialog} Dialog Role} *)
-
     let make ?aria_expanded ?aria_modal
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -688,8 +629,6 @@ module Aria = struct
   end
 
   module Directory = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#directory} Directory Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -705,8 +644,6 @@ module Aria = struct
   end
 
   module Document = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#document} Document Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -722,8 +659,6 @@ module Aria = struct
   end
 
   module Feed = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#feed} Feed Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -739,8 +674,6 @@ module Aria = struct
   end
 
   module Figure = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#figure} Figure Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -756,8 +689,6 @@ module Aria = struct
   end
 
   module Form = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#form} Form Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -773,8 +704,6 @@ module Aria = struct
   end
 
   module Grid = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#grid} Grid Role} *)
-
     let make ?aria_expanded ?aria_activedescendant ?aria_colcount ?aria_rowcount
       ?aria_level ?aria_multiselectable ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -792,8 +721,6 @@ module Aria = struct
   end
 
   module Gridcell = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#gridcell} Gridcell Role} *)
-
     let make ?aria_expanded ?aria_colindex ?aria_colspan ?aria_rowindex
       ?aria_rowspan ?aria_readonly ?aria_required ?aria_selected
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -811,8 +738,6 @@ module Aria = struct
   end
 
   module Heading = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#heading} Heading Role} *)
-
     let make ?aria_expanded ~aria_level
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -828,8 +753,6 @@ module Aria = struct
   end
 
   module Img = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#img} Img Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -845,8 +768,6 @@ module Aria = struct
   end
 
   module Link = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#link} Link Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -862,8 +783,6 @@ module Aria = struct
   end
 
   module List = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#list} List Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -879,8 +798,6 @@ module Aria = struct
   end
 
   module Listbox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#listbox} Listbox Role} *)
-
     let make ?aria_expanded ?aria_orientation ?aria_activedescendant
       ?aria_multiselectable ?aria_readonly ?aria_required
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -898,8 +815,6 @@ module Aria = struct
   end
 
   module Listitem = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#listitem} Listitem Role} *)
-
     let make ?aria_expanded ?aria_level ?aria_posinset ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -915,8 +830,6 @@ module Aria = struct
   end
 
   module Log = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#log} Log Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -932,8 +845,6 @@ module Aria = struct
   end
 
   module Main = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#main} Main Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -949,8 +860,6 @@ module Aria = struct
   end
 
   module Marquee = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#marquee} Marquee Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -966,8 +875,6 @@ module Aria = struct
   end
 
   module Math = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#math} Math Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -983,8 +890,6 @@ module Aria = struct
   end
 
   module Menu = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#menu} Menu Role} *)
-
     let make ?aria_expanded ?aria_orientation ?aria_activedescendant
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1000,8 +905,6 @@ module Aria = struct
   end
 
   module Menubar = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#menubar} Menubar Role} *)
-
     let make ?aria_expanded ?aria_orientation ?aria_activedescendant
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1017,8 +920,6 @@ module Aria = struct
   end
 
   module Menuitem = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#menuitem} Menuitem Role} *)
-
     let make ?aria_posinset ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1034,8 +935,6 @@ module Aria = struct
   end
 
   module Menuitemcheckbox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#menuitem} Menuitem Role} *)
-
     let make ?aria_posinset ?aria_setsize ?aria_checked ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1051,8 +950,6 @@ module Aria = struct
   end
 
   module Menuitemradio = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#menuitemradio} Menuitemradio Role} *)
-
     let make ?aria_posinset ?aria_setsize ?aria_checked ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1068,8 +965,6 @@ module Aria = struct
   end
 
   module Navigation = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#navigation} Navigation Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1085,8 +980,6 @@ module Aria = struct
   end
 
   module None = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#none} None Role} *)
-
     let make ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
       ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
@@ -1100,8 +993,6 @@ module Aria = struct
   end
 
   module Note = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#note} Note Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1117,8 +1008,6 @@ module Aria = struct
   end
 
   module Option = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#option} Option Role} *)
-
     let make ~aria_selected ?aria_checked ?aria_posinset ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1134,8 +1023,6 @@ module Aria = struct
   end
 
   module Progressbar = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#progressbar} Progressbar Role} *)
-
     let make ?aria_expanded ?aria_valuemax ?aria_valuemin ?aria_valuenow
       ?aria_valuetext
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1153,8 +1040,6 @@ module Aria = struct
   end
 
   module Radio = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#radio} Radio Role} *)
-
     let make ~aria_checked ?aria_posinset ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1170,8 +1055,6 @@ module Aria = struct
   end
 
   module Radiogroup = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#radiogroup} Radiogroup Role} *)
-
     let make ?aria_expanded ?aria_readonly ?aria_required ?aria_orientation
       ?aria_activedescendant
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1189,8 +1072,6 @@ module Aria = struct
   end
 
   module Region = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#region} Region Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1206,8 +1087,6 @@ module Aria = struct
   end
 
   module Row = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#row} Row Role} *)
-
     let make ?aria_expanded ?aria_activedescendant ?aria_colindex ?aria_level
       ?aria_rowindex ?aria_selected
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1225,8 +1104,6 @@ module Aria = struct
   end
 
   module Rowgroup = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#rowgroup} Rowgroup Role} *)
-
     let make ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
       ?aria_errormessage ?aria_flowto ?aria_grabbed ?aria_haspopup ?aria_hidden
@@ -1240,8 +1117,6 @@ module Aria = struct
   end
 
   module Rowheader = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#rowheader} Rowheader Role} *)
-
     let make ?aria_expanded ?aria_rowindex ?aria_rowspan ?aria_readonly
       ?aria_required ?aria_selected ?aria_sort
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1259,8 +1134,6 @@ module Aria = struct
   end
 
   module Scrollbar = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#scrollbar} Scrollbar Role} *)
-
     let make ?aria_orientation ?aria_valuemax ?aria_valuemin
       ?aria_valuenow ?aria_valuetext
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1278,8 +1151,6 @@ module Aria = struct
   end
 
   module Search = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#search} Search Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1295,8 +1166,6 @@ module Aria = struct
   end
 
   module Searchbox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#searchbox} Searchbox Role} *)
-
     let make ?aria_activedescendant ?aria_autocomplete ?aria_multiline
       ?aria_placeholder ?aria_readonly ?aria_required
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1314,8 +1183,6 @@ module Aria = struct
   end
 
   module Separator = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#separator} Separator Role} *)
-
     let make ~aria_valuemax ~aria_valuemin ~aria_valuenow ?aria_orientation
       ?aria_valuetext
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1333,8 +1200,6 @@ module Aria = struct
   end
 
   module Slider = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#slider} Slider Role} *)
-
     let make ~aria_valuemax ~aria_valuemin ~aria_valuenow ?aria_orientation
       ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1352,8 +1217,6 @@ module Aria = struct
   end
 
   module Spinbutton = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#spinbutton} Spinbutton Role} *)
-
     let make ~aria_valuemax ~aria_valuemin ~aria_valuenow ?aria_orientation
       ?aria_readonly ?aria_activedescendant
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1371,8 +1234,6 @@ module Aria = struct
   end
 
   module Status = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#status} Status Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1388,8 +1249,6 @@ module Aria = struct
   end
 
   module Switch = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#switch} Switch Role} *)
-
     let make ~aria_checked ?aria_readonly
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1405,8 +1264,6 @@ module Aria = struct
   end
 
   module Tab = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#tab} Tab Role} *)
-
     let make ?aria_expanded ?aria_posinset ?aria_selected ?aria_setsize
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1422,8 +1279,6 @@ module Aria = struct
   end
 
   module Table = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#table} Table Role} *)
-
     let make ?aria_expanded ?aria_colcount ?aria_rowcount
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1439,8 +1294,6 @@ module Aria = struct
   end
 
   module Tablist = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#tablist} Tablist Role} *)
-
     let make ?aria_level ?aria_multiselectable ?aria_orientation
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1456,8 +1309,6 @@ module Aria = struct
   end
 
   module Tabpanel = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#tabpanel} Tabpanel Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1473,8 +1324,6 @@ module Aria = struct
   end
 
   module Term = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#term} Term Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1490,8 +1339,6 @@ module Aria = struct
   end
 
   module Textbox = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#textbox} Textbox Role} *)
-
     let make ?aria_activedescendant ?aria_autocomplete ?aria_multiline
       ?aria_placeholder ?aria_readonly ?aria_required
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1509,8 +1356,6 @@ module Aria = struct
   end
 
   module Timer = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#timer} Timer Role} *)
-
     let make ?aria_expanded
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1526,8 +1371,6 @@ module Aria = struct
   end
 
   module Toolbar = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#toolbar} Toolbar Role} *)
-
     let make ?aria_expanded ?aria_activedescendant ?aria_orientation
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1543,8 +1386,6 @@ module Aria = struct
   end
 
   module Tree = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#tree} Tree Role} *)
-
     let make ?aria_expanded ?aria_orientation ?aria_multiselectable ?aria_required
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
       ?aria_describedby ?aria_details ?aria_disabled ?aria_dropeffect
@@ -1560,8 +1401,6 @@ module Aria = struct
   end
 
   module Treegrid = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#treegrid} Treegrid Role} *)
-
     let make ?aria_expanded ?aria_level ?aria_multiselectable ?aria_readonly
       ?aria_activedescendant ?aria_rowcount ?aria_colcount
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1579,8 +1418,6 @@ module Aria = struct
   end
 
   module Treeitem = struct
-    (** {{: https://www.w3.org/TR/wai-aria-1.1/#treeitem} Treeitem Role} *)
-
     let make ?aria_expanded ?aria_level ?aria_posinset ?aria_setsize
       ~aria_selected ?aria_checked
       ?aria_atomic ?aria_busy ?aria_controls ?aria_current
@@ -1672,11 +1509,6 @@ end
 
 
 module Global = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/dom.html#global-attributes} Global Attributes}
-   ({{: https://www.w3.org/TR/html52/dom.html#global-attributes} W3C})
-   *)
-
   module Value = struct
     type autocapitalize =
       [ `off | `none | `on | `sentences | `words | `characters ]

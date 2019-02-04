@@ -1,35 +1,9 @@
-(**
- HTML Elements
- 
- Includes nodes like text nodes and fragments.
-
- See the {{: https://html.spec.whatwg.org/multipage/indices.html#elements-3} full element table}
- ({{: https://www.w3.org/TR/html52/fullindex.html#index-elements} W3C}) 
- and the {{: https://html.spec.whatwg.org/multipage/indices.html#events-2} events table}
- ({{: https://www.w3.org/TR/html52/fullindex.html#events-table} W3C})
- for reference.
- *)
-
-(* TODO: check jsx attributes, attributes that take css or other values,
- * avoid extra processing for primitives like int, float, etc in attributes since it'll be coerced anyway
- * always hidden elements should take no events?
- * check that only elems that take phrasing and flow children include Html_Node.other, otherwise Html_Node.fragment
- * hidden elements should take no styles *)
-
-
-(* TODO: hide *)
 module Internal = struct
   external make: Dom.node -> _ Html_Node.t = "%identity"
 end
 
 
 module A = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element} The A Element} 
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-a} W3C}) 
-   ({{: https://www.w3.org/TR/wai-aria-1.1/#link} aria})
-   *)
-
   type +'a t = ([> Html_Node.a ] as 'a) Html_Node.t
 
   type +'a child =
@@ -64,7 +38,6 @@ module A = struct
 
 
   let make
-    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
     ?(aria:[< Html_Attributes.Aria.link
            | Html_Attributes.Aria.button
            | Html_Attributes.Aria.checkbox
@@ -73,6 +46,7 @@ module A = struct
            | Html_Attributes.Aria.tab
            | Html_Attributes.Aria.treeitem
            ] Html_Attributes.Aria.t option)
+    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -110,8 +84,9 @@ module A = struct
 
 
   let jsx
+    ?aria
     ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
     ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
     ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
@@ -122,8 +97,9 @@ module A = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     ?style ?css_module ?children () =
     make
+      ?aria
       ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
       ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
       ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
@@ -138,11 +114,6 @@ end
 
 
 module Abbr = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element} The Abbr Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-abbr} W3C})
-   *)
-
   type +'a t = ([> Html_Node.abbr ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -208,11 +179,6 @@ end
 
 
 module Address = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-address-element} The Address Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-address} W3C})
-   *)
-
   type +'a t = ([> Html_Node.address ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -278,11 +244,6 @@ end
 
 
 module Area = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/image-maps.html#the-area-element} The Area Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-area} W3C})
-   *)
-
   type +'a t = ([> Html_Node.area ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -382,11 +343,6 @@ end
 
 
 module Article = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-article-element} The Article Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-article} W3C})
-   *)
-
   type +'a t = ([> Html_Node.article ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -460,11 +416,6 @@ end
 
 
 module Aside = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-aside-element} The Aside Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-aside} W3C})
-   *)
-
   type +'a t = ([> Html_Node.aside ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -537,11 +488,6 @@ end
 
 
 module Audio = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/media.html#the-audio-element} The Audio Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-audio} W3C})
-   *)
-
   type +'a t = ([> Html_Node.audio ] as 'a) Html_Node.t
 
   type +'a child =
@@ -650,11 +596,6 @@ end
 
 
 module B = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-b-element} The B Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-b} W3C})
-   *)
-
   type +'a t = ([> Html_Node.b ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -721,11 +662,6 @@ end
 
 
 module Base = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-base-element} The Base Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-base} W3C})
-   *)
-
   type +'a t = ([> Html_Node.base ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -792,11 +728,6 @@ end
 
 
 module Bdi = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element} The Bdi Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdi} W3C})
-   *)
-
   type +'a t = ([> Html_Node.bdi ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -863,11 +794,6 @@ end
 
 
 module Bdo = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdo-element} The Bdo Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-bdo} W3C})
-   *)
-
   type +'a t = ([> Html_Node.bdo ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -933,11 +859,6 @@ end
 
 
 module Blockquote = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-blockquote-element} The Blockquote Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-blockquote} W3C})
-   *)
-
   type +'a t = ([> Html_Node.blockquote ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -1009,11 +930,6 @@ end
 
 
 module Body = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-body-element} The Body Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-body} W3C})
-   *)
-
   type +'a t = ([> Html_Node.body ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -1116,22 +1032,12 @@ end
 
 
 module Br = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element} The Br Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-br} W3C})
-   *)
-
   type +'a t = ([> Html_Node.br ] as 'a) Html_Node.t
 
   let make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll (): _ t
+    ?title ?translate (): _ t
     =
     Declaredom.make_empty "br"
       (Util.merge_all [|
@@ -1140,49 +1046,29 @@ module Br = struct
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
           ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-          ?title ?translate ();
-        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
-          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
-          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
-          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
-          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
-          ?on_scroll ()
+          ?title ?translate ()
       |])
       ()
     |> Internal.make
 
   let jsx ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
     ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
     make ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
       ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
+      ()
 end
 
 
 module Button = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element} The Button Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-button} W3C})
-   *)
-
   type +'a t = ([> Html_Node.button ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
 
   module Attributes = struct
-    type type_ = [ `submit | `reset | `button ] [@@bs.deriving jsConverter]
+    type _type = [ `submit | `reset | `button ] [@@bs.deriving jsConverter]
 
-    external make:
+    external _make:
       ?autofocus:string ->
       ?disabled:string ->
       ?form:string ->
@@ -1193,20 +1079,20 @@ module Button = struct
       ?formtarget:string ->
       ?formelements:string ->
       ?name:string ->
-      ?type_:string ->
+      ?_type:string ->
       ?value: string ->
       unit -> Html_Attributes.t = "" [@@bs.obj]
 
-    let _make ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-      ?formnovalidate ?formtarget ?name ?formelements ?type_ ?value () =
-      make ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
+    let make ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
+      ?formnovalidate ?formtarget ?formelements ?name ?_type ?value () =
+      _make ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
         ?disabled:(Belt.Option.map disabled Util.string_of_unit)
         ?form ?formaction
         ?formenctype:(Belt.Option.map formenctype Html_Attributes.Form.Enctype.show)
         ?formmethod:(Belt.Option.map formmethod Html_Attributes.Form.Method.show)
         ?formnovalidate:(Belt.Option.map formnovalidate Util.string_of_unit)
-        ?formtarget ?name ?formelements
-        ?type_:(Belt.Option.map type_ type_ToJs)
+        ?formtarget ?formelements ?name
+        ?_type:(Belt.Option.map _type _typeToJs)
         ?value
         ()
   end
@@ -1218,7 +1104,7 @@ module Button = struct
            | Html_Attributes.Aria.switch
            ] Html_Attributes.Aria.t option)
     ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-    ?formnovalidate ?formtarget ?name ?formelements ?type_ ?value
+    ?formnovalidate ?formtarget ?formelements ?name ?_type ?value
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -1237,7 +1123,7 @@ module Button = struct
     Declaredom.make "button"
       (Util.merge_all [|
         Attributes.make ?autofocus ?disabled ?form ?formaction ?formenctype
-          ?formmethod ?formnovalidate ?formtarget ?name ?formelements ?type_
+          ?formmethod ?formnovalidate ?formtarget ?formelements ?name ?_type
           ?value ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
@@ -1256,7 +1142,10 @@ module Button = struct
     |> Internal.make
 
 
-  let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+  let jsx ?aria
+    ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
+    ?formnovalidate ?formtarget ?formelements ?name ?_type ?value
+    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
@@ -1266,7 +1155,10 @@ module Button = struct
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
-    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+    make ?aria
+      ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
+      ?formnovalidate ?formtarget ?formelements ?name ?_type ?value
+      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
@@ -1281,11 +1173,6 @@ end
 
 
 module Canvas = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element} The Canvas Element}
-   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-canvas} W3C})
-   *)
-
   type +'a t = ([> Html_Node.canvas ] as 'a) Html_Node.t
 
   type +'a child =
@@ -1294,8 +1181,7 @@ module Canvas = struct
     ] Html_Node.t
 
   module Attributes = struct
-    external make:
-      ?width:string -> ?height:string -> unit ->
+    external make: ?width:int -> ?height:int -> unit ->
       Html_Attributes.t = "" [@@bs.obj]
   end
 
@@ -1362,11 +1248,6 @@ end
 
 
 module Caption = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-caption-element} The Caption Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-caption} W3C})
-   *)
-
   type +'a t = ([> Html_Node.caption ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -1433,11 +1314,6 @@ end
 
 
 module Cite = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element} The Cite Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-cite} W3C})
-   *)
-
   type +'a t = ([> Html_Node.cite ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -1504,11 +1380,6 @@ end
 
 
 module Code = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element} The Code Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-code} W3C})
-   *)
-
   type +'a t = ([> Html_Node.code ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -1575,11 +1446,6 @@ end
 
 
 module Col = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-col-element} The Col Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-col} W3C})
-   *)
-
   type +'a t = ([> Html_Node.col ] as 'a) Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
@@ -1644,20 +1510,13 @@ end
 
 
 module Colgroup = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-colgroup-element} The Colgroup Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-colgroup} W3C})
-   *)
-
   type +'a t = ([> Html_Node.colgroup ] as 'a) Html_Node.t
 
   type child =
     [Html_Node.col | Html_Node.template | Html_Node.fragment] Html_Node.t
 
   module Attributes = struct
-    external _make: ?span:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
-
-    let make ?span () = _make ?span:(Belt.Option.map span string_of_int) ()
+    external make: ?span:int -> unit -> Html_Attributes.t = "" [@@bs.obj]
   end
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
@@ -1724,11 +1583,6 @@ end
 
 
 module Data = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-data-element} The Data Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-data} W3C})
-   *)
-
   type +'a t = ([> Html_Node.data ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -1800,11 +1654,6 @@ end
 
 
 module Datalist = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element} The Datalist Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-datalist} W3C})
-   *)
-
   type +'a t = ([> Html_Node.datalist ] as 'a) Html_Node.t
 
   type +'a child =
@@ -1868,11 +1717,6 @@ end
 
 
 module Dd = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dd-element} The Dd Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dd} W3C})
-   *)
-
   type +'a t = ([> Html_Node.dd ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -1939,11 +1783,6 @@ end
 
 
 module Del = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/edits.html#the-del-element} The Del Element}
-   ({{: https://www.w3.org/TR/html52/edits.html#elementdef-del} W3C})
-   *)
-
   type +'a t = ([> Html_Node.del ] as 'a) Html_Node.t
 
   type +'a child =
@@ -2020,23 +1859,18 @@ end
 
 
 module Details = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element} The Details Element}
-   ({{: https://www.w3.org/TR/html52/interactive-elements.html#elementdef-details} W3C})
-   *)
-
   type +'a t = ([> Html_Node.details ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.summary | Html_Node.other] Html_Node.t
 
   module Attributes = struct
-    external _make: ?open_:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
-    let make ?open_ () =
-      _make ?open_:(Belt.Option.map open_ Util.string_of_unit) ()
+    external _make: ?_open:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+    let make ?_open () =
+      _make ?_open:(Belt.Option.map _open Util.string_of_unit) ()
   end
 
   let make ?(aria:Html_Attributes.Aria.group Html_Attributes.Aria.t option)
-    ?open_
+    ?_open
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2054,7 +1888,7 @@ module Details = struct
     in
     Declaredom.make "details"
       (Util.merge_all [|
-        Attributes.make ?open_ ();
+        Attributes.make ?_open ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -2072,7 +1906,7 @@ module Details = struct
     |> Internal.make
 
 
-  let jsx ?aria ?open_
+  let jsx ?aria ?_open
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2083,7 +1917,7 @@ module Details = struct
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
-    make ?aria ?open_
+    make ?aria ?_open
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2099,11 +1933,6 @@ end
 
 
 module Dfn = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-dfn-element} The Dfn Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-dfn} W3C})
-   *)
-
   type +'a t = ([> Html_Node.dfn ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -2170,26 +1999,21 @@ end
 
 
 module Dialog = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element} The Dialog Element}
-   ({{: https://www.w3.org/TR/html52/interactive-elements.html#elementdef-dialog} W3C})
-   *)
-
   type +'a t = ([> Html_Node.dialog ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   module Attributes = struct
-    external _make: ?open_:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
-    let make ?open_ () =
-      _make ?open_:(Belt.Option.map open_ Util.string_of_unit) ()
+    external _make: ?_open:string -> unit -> Html_Attributes.t = "" [@@bs.obj]
+    let make ?_open () =
+      _make ?_open:(Belt.Option.map _open Util.string_of_unit) ()
   end
 
   let make
     ?(aria:[< Html_Attributes.Aria.dialog
            | Html_Attributes.Aria.alertdialog
            ] Html_Attributes.Aria.t option)
-    ?open_
+    ?_open
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2207,7 +2031,7 @@ module Dialog = struct
     in
     Declaredom.make "dialog"
       (Util.merge_all [|
-        Attributes.make ?open_ ();
+        Attributes.make ?_open ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -2225,7 +2049,7 @@ module Dialog = struct
     |> Internal.make
 
 
-  let jsx ?aria ?open_
+  let jsx ?aria ?_open
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2236,7 +2060,7 @@ module Dialog = struct
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
-    make ?aria ?open_
+    make ?aria ?_open
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2252,11 +2076,6 @@ end
 
 
 module Div = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element} The Div Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-div} W3C})
-   *)
-
   type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -2323,16 +2142,11 @@ end
 
 
 module Dl = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element} The Dl Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dl} W3C})
-   *)
-
   type +'a t = ([> Html_Node.dl ] as 'a) Html_Node.t
 
   type child =
     [ Html_Node.dd | Html_Node.dt | Html_Node.Element.script_supporting
-    | Html_Node.other] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   let make
     ?(aria:[< Html_Attributes.Aria.list
@@ -2400,11 +2214,6 @@ end
 
 
 module Dt = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dt-element} The Dt Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-dt} W3C})
-   *)
-
   type +'a t = ([> Html_Node.dt ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -2472,11 +2281,6 @@ end
 
 
 module Em = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element} The Em Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-em} W3C})
-   *)
-
   type +'a t = ([> Html_Node.em ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -2543,22 +2347,12 @@ end
 
 
 module Embed = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-embed-element} The Embed Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-embed} W3C})
-   *)
-
   type +'a t = ([> Html_Node.embed ] as 'a) Html_Node.t
 
   module Attributes = struct
-    external _make:
-      ?src:string -> ?type_:string -> ?width:string -> ?height:string -> unit ->
+    external make:
+      ?src:string -> ?_type:string -> ?width:int -> ?height:int -> unit ->
       Html_Attributes.t = "" [@@bs.obj]
-
-    let make ?src ?type_ ?width ?height () =
-      _make ?src ?type_
-        ?width:(Belt.Option.map width string_of_int)
-        ?height:(Belt.Option.map height string_of_int) ()
   end
 
   let make
@@ -2567,7 +2361,7 @@ module Embed = struct
            | Html_Attributes.Aria.img
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
-    ?src ?type_ ?width ?height
+    ?src ?_type ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2585,7 +2379,7 @@ module Embed = struct
     in
     Declaredom.make_empty "embed"
       (Util.merge_all [|
-        Attributes.make ?src ?type_ ?width ?height ();
+        Attributes.make ?src ?_type ?width ?height ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -2603,7 +2397,7 @@ module Embed = struct
     |> Internal.make
 
 
-  let jsx ?aria ?src ?type_ ?width ?height
+  let jsx ?aria ?src ?_type ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2614,7 +2408,7 @@ module Embed = struct
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children:_ () =
-    make ?aria ?src ?type_ ?width ?height
+    make ?aria ?src ?_type ?width ?height
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2630,11 +2424,6 @@ end
 
 
 module Fieldset = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-fieldset-element} The Fieldset Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-fieldset} W3C})
-   *)
-
   type +'a t = ([> Html_Node.fieldset ] as 'a) Html_Node.t
 
   type +'a child =
@@ -2653,6 +2442,7 @@ module Fieldset = struct
     ?(aria:[< Html_Attributes.Aria.group
            | Html_Attributes.Aria.presentation
            ] Html_Attributes.Aria.t option)
+    ?form ?name ?disabled
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2670,6 +2460,7 @@ module Fieldset = struct
     in
     Declaredom.make "fieldset"
       (Util.merge_all [|
+        Attributes.make ?form ?name ?disabled ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -2688,6 +2479,7 @@ module Fieldset = struct
 
 
   let jsx ?aria
+    ?form ?name ?disabled
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2699,6 +2491,7 @@ module Fieldset = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
     make ?aria
+      ?form ?name ?disabled
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -2715,11 +2508,6 @@ end
 
 
 module Figcaption = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-figcaption-element} The Figcaption Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-figcaption} W3C})
-   *)
-
   type +'a t = ([> Html_Node.figcaption ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -2789,11 +2577,6 @@ end
 
 
 module Figure = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-figure-element} The Figure Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-figure} W3C})
-   *)
-
   type +'a t = ([> Html_Node.figure ] as 'a) Html_Node.t
 
   type +'a child =
@@ -2865,11 +2648,6 @@ end
 
 
 module Footer = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-footer-element} The Footer Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-footer} W3C})
-   *)
-
   type +'a t = ([> Html_Node.footer ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -2940,11 +2718,6 @@ end
 
 
 module Form = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/forms.html#the-form-element} The Form Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-form} W3C})
-   *)
-
   type +'a t = ([> Html_Node.form ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -3047,11 +2820,6 @@ end
 
 
 module H1 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H1 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h1} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h1 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3122,11 +2890,6 @@ end
 
 
 module H2 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H2 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h2} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h2 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3197,11 +2960,6 @@ end
 
 
 module H3 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H3 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h3} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h3 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3272,11 +3030,6 @@ end
 
 
 module H4 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H4 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h4} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h4 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3347,11 +3100,6 @@ end
 
 
 module H5 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H5 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h5} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h5 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3422,11 +3170,6 @@ end
 
 
 module H6 = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements} The H6 Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-h6} W3C})
-   *)
-
   type +'a t = ([> Html_Node.h6 ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3497,11 +3240,6 @@ end
 
 
 module Head = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-head-element} The Head Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-head} W3C})
-   *)
-
   type +'a t = ([> Html_Node.head ] as 'a) Html_Node.t
 
   type child = [ Html_Node.metadata | Html_Node.fragment ] Html_Node.t
@@ -3564,11 +3302,6 @@ end
 
 
 module Header = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-header-element} The Header Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-header} W3C})
-   *)
-
   type +'a t = ([> Html_Node.header ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -3639,10 +3372,6 @@ end
 
 
 module Hgroup = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element} The Hgroup Element}
-   *)
-
   type +'a t = ([> Html_Node.hgroup ] as 'a) Html_Node.t
 
   type child =
@@ -3711,11 +3440,6 @@ end
 
 
 module Hr = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element} The Hr Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-hr} W3C})
-   *)
-
   type +'a t = ([> Html_Node.hr ] as 'a) Html_Node.t
 
   let make
@@ -3783,11 +3507,6 @@ end
 
 
 module Html = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-html-element} The Html Element}
-   ({{: https://www.w3.org/TR/html52/semantics.html#elementdef-html} W3C})
-   *)
-
   type +'a t = ([> Html_Node.html ] as 'a) Html_Node.t
 
   type child = [Html_Node.head | Html_Node.body | Html_Node.fragment] Html_Node.t
@@ -3856,11 +3575,6 @@ end
 
 
 module I = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element} The I Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-i} W3C})
-   *)
-
   type +'a t = ([> Html_Node.i ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -3928,11 +3642,6 @@ end
 
 
 module Iframe = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element} The Iframe Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-iframe} W3C})
-   *)
-
   type +'a t = ([> Html_Node.iframe ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -3958,8 +3667,8 @@ module Iframe = struct
       ?allow:string ->
       ?allowfullscreen:string ->
       ?allowpaymentrequest:string ->
-      ?width:string ->
-      ?height:string ->
+      ?width:int ->
+      ?height:int ->
       ?referrerpolicy:string ->
       unit ->
       Html_Attributes.t = "" [@@bs.obj]
@@ -3971,8 +3680,7 @@ module Iframe = struct
         ?allow
         ?allowfullscreen:(Belt.Option.map allowfullscreen Util.string_of_unit)
         ?allowpaymentrequest:(Belt.Option.map allowpaymentrequest Util.string_of_unit)
-        ?width:(Belt.Option.map width string_of_int)
-        ?height:(Belt.Option.map height string_of_int)
+        ?width ?height
         ?referrerpolicy:
           (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
         ()
@@ -4052,11 +3760,6 @@ end
 
 
 module Img = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element} The Img Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-img} W3C})
-   *)
-
   type +'a t = ([> Html_Node.img ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -4070,8 +3773,8 @@ module Img = struct
       ?crossorigin:string ->
       ?usemap:string ->
       ?ismap:string ->
-      ?width:string ->
-      ?height:string ->
+      ?width:int ->
+      ?height:int ->
       ?referrerpolicy:string ->
       ?decoding:string ->
       unit ->
@@ -4084,8 +3787,7 @@ module Img = struct
           (Belt.Option.map crossorigin Html_Attributes.CrossOrigin.show)
         ?usemap
         ?ismap:(Belt.Option.map ismap Util.string_of_unit)
-        ?width:(Belt.Option.map width string_of_int)
-        ?height:(Belt.Option.map height string_of_int)
+        ?width ?height
         ?referrerpolicy:
           (Belt.Option.map referrerpolicy Html_Attributes.ReferrerPolicy.show)
         ?decoding:(Belt.Option.map decoding decodingToJs)
@@ -4160,13 +3862,6 @@ end
 
 
 module Input = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/input.html#the-input-element} The Input Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-input} W3C})
-
-   See also {{: https://www.w3.org/TR/html52/sec-forms.html#state-of-the-type-attribute} type attributes}
-   *)
-
   type +'a t = ([> Html_Node.input ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -4195,24 +3890,24 @@ module Input = struct
       ?formmethod:string ->
       ?formnovalidate:string ->
       ?formtarget:string ->
-      ?height:string ->
+      ?height:int ->
       ?list:string ->
       ?max:string ->
-      ?maxlength:string ->
+      ?maxlength:int ->
       ?min:string ->
-      ?minlength:string ->
+      ?minlength:int ->
       ?multiple:string ->
       ?name:string ->
       ?pattern:string ->
       ?placeholder:string ->
       ?readonly:string ->
       ?required:string ->
-      ?size:string ->
+      ?size:int ->
       ?src:string ->
       ?step:string ->
       ?_type:string ->
       ?value:'a ->
-      ?width:string ->
+      ?width:int ->
       unit ->
       Html_Attributes.t = "" [@@bs.obj]
 
@@ -4231,19 +3926,15 @@ module Input = struct
         ?formenctype:(Belt.Option.map formenctype Html_Attributes.Form.Enctype.show)
         ?formmethod:(Belt.Option.map formmethod Html_Attributes.Form.Method.show)
         ?formnovalidate:(Belt.Option.map formnovalidate Util.string_of_unit)
-        ?formtarget 
-        ?height:(Belt.Option.map height string_of_int)
-        ?list ?max
-        ?maxlength:(Belt.Option.map maxlength string_of_int) ?min
-        ?minlength:(Belt.Option.map minlength string_of_int)
+        ?formtarget ?height ?list ?max ?maxlength ?min ?minlength
         ?multiple:(Belt.Option.map multiple Util.string_of_unit) ?name
         ?pattern:(Belt.Option.map pattern Js.Re.source) ?placeholder
         ?readonly:(Belt.Option.map readonly Util.string_of_unit)
         ?required:(Belt.Option.map required Util.string_of_unit)
-        ?size:(Belt.Option.map size string_of_int) ?src
+        ?size ?src
         ?step:(Belt.Option.map step stepToJs)
         ?_type:(Belt.Option.map _type _typeToJs) ?value
-        ?width:(Belt.Option.map width string_of_int)
+        ?width
         ()
   end
 
@@ -4336,11 +4027,6 @@ end
 
 
 module Ins = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/edits.html#the-ins-element} The Ins Element}
-   ({{: https://www.w3.org/TR/html52/edits.html#elementdef-ins} W3C})
-   *)
-
   type +'a t = ([> Html_Node.ins ] as 'a) Html_Node.t
 
   type +'a child =
@@ -4418,11 +4104,6 @@ end
 
 
 module Kbd = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-kbd-element} The Kbd Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-kbd} W3C})
-   *)
-
   type +'a t = ([> Html_Node.kbd ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -4489,11 +4170,6 @@ end
 
 
 module Label = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/forms.html#the-label-element} The Label Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-label} W3C})
-   *)
-
   type +'a t = ([> Html_Node.label ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -4565,11 +4241,6 @@ end
 
 
 module Legend = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-legend-element} The Legend Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-legend} W3C})
-   *)
-
   type +'a t = ([> Html_Node.legend ] as 'a) Html_Node.t
 
   type +'a child =
@@ -4638,11 +4309,6 @@ end
 
 
 module Li = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element} The Li Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-li} W3C})
-   *)
-
   type +'a t = ([> Html_Node.li ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -4717,11 +4383,6 @@ end
 
 
 module Link = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-link-element} The Link Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-link} W3C})
-   *)
-
   type +'a t = ([> Html_Node.link ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -4797,11 +4458,6 @@ end
 
 
 module Main = struct
-  (**
-   {{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-main} The Main Element}
-   ({{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element} W3C})
-   *)
-
   type +'a t = ([> Html_Node.main ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -4871,11 +4527,6 @@ end
 
 
 module Map = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/image-maps.html#the-map-element} The Map Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-map} W3C})
-   *)
-
   type +'a t = ([> Html_Node.map ] as 'a) Html_Node.t
 
   type +'a child =
@@ -4951,11 +4602,6 @@ end
 
 
 module Mark = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-mark-element} The Mark Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-mark} W3C})
-   *)
-
   type +'a t = ([> Html_Node.mark ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -5022,11 +4668,6 @@ end
 
 
 module Meta = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element} The Meta Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-meta} W3C})
-   *)
-
   type +'a t = ([> Html_Node.meta ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -5112,11 +4753,6 @@ end
 
 
 module Meter = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-meter-element} The Meter Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-meter} W3C})
-   *)
-
   type +'a t = ([> Html_Node.meter ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -5197,11 +4833,6 @@ end
 
 
 module Nav = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-nav-element} The Nav Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-nav} W3C})
-   *)
-
   type +'a t = ([> Html_Node.nav ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -5268,11 +4899,6 @@ end
 
 
 module Noscript = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-noscript-element} The Noscript Element}
-   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-noscript} W3C})
-   *)
-
   type +'a t = ([> Html_Node.noscript ] as 'a) Html_Node.t
 
   type +'a child =
@@ -5336,11 +4962,6 @@ end
 
 
 module Object = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-object-element} The Object Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-object} W3C})
-   *)
-
   type +'a t = ([> Html_Node.object_ ] as 'a) Html_Node.t
 
   type +'a child =
@@ -5440,16 +5061,11 @@ end
 
 
 module Ol = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-ol-element} The Ol Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-ol} W3C})
-   *)
-
   type +'a t = ([> Html_Node.ol ] as 'a) Html_Node.t
 
   type +'a child =
     [ Html_Node.li | Html_Node.Element.script_supporting
-    | Html_Node.other ] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   module Attributes = struct
     type _type =
@@ -5549,16 +5165,11 @@ end
 
 
 module Optgroup = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-optgroup-element} The Optgroup Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-optgroup} W3C})
-   *)
-
   type +'a t = ([> Html_Node.optgroup ] as 'a) Html_Node.t
 
   type +'a child =
     [ Html_Node.option | Html_Node.Element.script_supporting
-    | Html_Node.other ] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   module Attributes = struct
     external _make:
@@ -5637,11 +5248,6 @@ end
 
 
 module Option = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-option-element} The Option Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-option} W3C})
-   *)
-
   type +'a t = ([> Html_Node.option ] as 'a) Html_Node.t
 
   type +'a child = Html_Node.other Html_Node.t
@@ -5730,11 +5336,6 @@ end
 
 
 module Output = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-output-element} The Output Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-output} W3C})
-   *)
-
   type +'a t = ([> Html_Node.output ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
@@ -5814,11 +5415,6 @@ end
 
 
 module P = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element} The P Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-p} W3C})
-   *)
-
   type +'a t = ([> Html_Node.p ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
@@ -5885,11 +5481,6 @@ end
 
 
 module Param = struct
-  (**
-   {{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-param} The Param Element}
-   ({{: https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-param-element} W3C})
-   *)
-
   type +'a t = ([> Html_Node.param ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -5961,16 +5552,11 @@ end
 
 
 module Picture = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element} The Picture Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-picture} W3C})
-   *)
-
   type +'a t = ([> Html_Node.picture ] as 'a) Html_Node.t
 
   type +'a child =
     [ Html_Node.img | Html_Node.source
-    | Html_Node.Element.script_supporting | Html_Node.other] Html_Node.t
+    | Html_Node.Element.script_supporting | Html_Node.fragment ] Html_Node.t
 
   let make
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -6033,11 +5619,6 @@ end
 
 
 module Pre = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element} The Pre Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-pre} W3C})
-   *)
-
   type +'a t = ([> Html_Node.pre ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6104,11 +5685,6 @@ end
 
 
 module Progress = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-progress-element} The Progress Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-progress} W3C})
-   *)
-
   type +'a t = ([> Html_Node.progress ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6185,11 +5761,6 @@ end
 
 
 module Q = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-q-element} The Q Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-q} W3C})
-   *)
-
   type +'a t = ([> Html_Node.q ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6261,10 +5832,6 @@ end
 
 
 module Rb = struct
-  (**
-   {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rb} The Rb Element}
-   *)
-
   type +'a t = ([> Html_Node.rb ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6331,11 +5898,6 @@ end
 
 
 module Rp = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rp-element} The Rp Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rp} W3C})
-   *)
-
   type +'a t = ([> Html_Node.rp ] as 'a) Html_Node.t
 
   type child = Html_Node.other Html_Node.t
@@ -6397,11 +5959,6 @@ end
 
 
 module Rt = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rt-element} The Rt Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rt} W3C})
-   *)
-
   type +'a t = ([> Html_Node.rt ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6468,10 +6025,6 @@ end
 
 
 module Rtc = struct
-  (**
-   {{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-rtc} The Rtc Element}
-   *)
-
   type +'a t = ([> Html_Node.rtc ] as 'a) Html_Node.t
 
   type +'a child =
@@ -6540,11 +6093,6 @@ end
 
 
 module Ruby = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-ruby-element} The Ruby Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-ruby} W3C})
-   *)
-
   type +'a t = ([> Html_Node.ruby ] as 'a) Html_Node.t
 
   type +'a child =
@@ -6613,11 +6161,6 @@ end
 
 
 module S = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-s-element} The S Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-s} W3C})
-   *)
-
   type +'a t = ([> Html_Node.s ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6684,11 +6227,6 @@ end
 
 
 module Samp = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-samp-element} The Samp Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-samp} W3C})
-   *)
-
   type +'a t = ([> Html_Node.samp ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -6755,11 +6293,6 @@ end
 
 
 module Script = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-script-element} The Script Element}
-   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-script} W3C})
-   *)
-
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -6909,11 +6442,6 @@ end
 
 
 module Section = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/sections.html#the-section-element} The Section Element}
-   ({{: https://www.w3.org/TR/html52/sections.html#elementdef-section} W3C})
-   *)
-
   type +'a t = ([> Html_Node.section ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -6997,16 +6525,11 @@ end
 
 
 module Select = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-select-element} The Select Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-select} W3C})
-   *)
-
   type +'a t = ([> Html_Node.select ] as 'a) Html_Node.t
 
   type +'a child =
     [ Html_Node.option | Html_Node.optgroup
-    | Html_Node.Element.script_supporting | Html_Node.other ] Html_Node.t
+    | Html_Node.Element.script_supporting | Html_Node.fragment ] Html_Node.t
 
   module Attributes = struct
     external _make:
@@ -7101,10 +6624,6 @@ end
 
 
 module Slot = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-slot-element} The Slot Element}
-   *)
-
   type +'a t = ([> Html_Node.slot ] as 'a) Html_Node.t
 
   type +'a child =
@@ -7171,11 +6690,6 @@ end
 
 
 module Small = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-small-element} The Small Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-small} W3C})
-   *)
-
   type +'a t = ([> Html_Node.small ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -7242,11 +6756,6 @@ end
 
 
 module Source = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element} The Source Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-source} W3C})
-   *)
-
   type +'a t = ([> Html_Node.source ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -7325,11 +6834,6 @@ end
 
 
 module Span = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element} The Span Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-span} W3C})
-   *)
-
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -7396,11 +6900,6 @@ end
 
 
 module Strong = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-strong-element} The Strong Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-strong} W3C})
-   *)
-
   type +'a t = ([> Html_Node.strong ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -7467,11 +6966,6 @@ end
 
 
 module Style = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-style-element} The Style Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-style} W3C})
-   *)
-
   type +'a t = ([> Html_Node.style ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -7540,11 +7034,6 @@ end
 
 
 module Sub = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements} The Sub Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-sub} W3C})
-   *)
-
   type +'a t = ([> Html_Node.sub ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -7611,11 +7100,6 @@ end
 
 
 module Summary = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/interactive-elements.html#the-summary-element} The Summary Element}
-   ({{: https://www.w3.org/TR/html52/interactive-elements.html#elementdef-summary} W3C})
-   *)
-
   type +'a t = ([> Html_Node.summary ] as 'a) Html_Node.t
 
   type +'a child =
@@ -7683,11 +7167,6 @@ end
 
 
 module Sup = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-sub-and-sup-elements} The Sub Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-sup} W3C})
-   *)
-
   type +'a t = ([> Html_Node.sup ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
@@ -7754,11 +7233,6 @@ end
 
 
 module Table = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-table-element} The Table Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-table} W3C})
-   *)
-
   type +'a t = ([> Html_Node.table ] as 'a) Html_Node.t
 
   type +'a child =
@@ -7828,11 +7302,6 @@ end
 
 
 module Tbody = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-tbody-element} The Tbody Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-tbody} W3C})
-   *)
-
   type +'a t = ([> Html_Node.tbody ] as 'a) Html_Node.t
 
   type +'a child =
@@ -7901,11 +7370,6 @@ end
 
 
 module Td = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-td-element} The Td Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-td} W3C})
-   *)
-
   type +'a t = ([> Html_Node.td ] as 'a) Html_Node.t
 
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
@@ -7925,7 +7389,7 @@ module Td = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_cell Css_Style.t option)
     ?(css_module:Css_Property.table_cell Css_Module.t option)
     (children:_ child array): _ t
@@ -7979,11 +7443,6 @@ end
 
 
 module Template = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/scripting.html#the-template-element} The Template Element}
-   ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-template} W3C})
-   *)
-
   type +'a t = ([> Html_Node.template ] as 'a) Html_Node.t
 
   type +'a child = 'a Html_Node.content Html_Node.t
@@ -7993,11 +7452,6 @@ module Template = struct
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
     (children:_ child array): _ t
     =
     Declaredom.make "template"
@@ -8006,13 +7460,7 @@ module Template = struct
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
           ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-          ?title ?translate ();
-        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
-          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
-          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
-          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
-          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
-          ?on_scroll ()
+          ?title ?translate ()
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
@@ -8023,32 +7471,17 @@ module Template = struct
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children () =
     make
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
 module Textarea = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element} The Textarea Element}
-   ({{: https://www.w3.org/TR/html52/sec-forms.html#elementdef-textarea} W3C})
-   *)
-
   type +'a t = ([> Html_Node.textarea ] as 'a) Html_Node.t
 
   type child = Html_Node.other Html_Node.t
@@ -8090,8 +7523,12 @@ module Textarea = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?(style:Css_Property.inline Css_Style.t option)
+    ?(css_module:Css_Property.inline Css_Module.t option)
     (children:child array): _ t
     =
+    let class_name = Css_Module.get_class ?class_name ?css_module ()
+    in
     Declaredom.make "textarea"
       (Util.merge_all [|
         Attributes.make ?autocomplete ?autofocus ?cols ?dirname ?disabled ?form
@@ -8101,7 +7538,7 @@ module Textarea = struct
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
           ?title ?translate ();
         Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
           ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
@@ -8126,7 +7563,7 @@ module Textarea = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
+    ?style ?css_module ?children () =
     make
       ?autocomplete ?autofocus ?cols ?dirname ?disabled ?form ?maxlength
       ?minlength ?name ?placeholder ?readonly ?required ?rows ?wrap
@@ -8139,20 +7576,16 @@ module Textarea = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
 module Tfoot = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-tfoot-element} The Tfoot Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-tfoot} W3C})
-   *)
-
   type +'a t = ([> Html_Node.tfoot ] as 'a) Html_Node.t
 
   type child =
-    [ Html_Node.tr | Html_Node.Element.script_supporting | Html_Node.other
+    [ Html_Node.tr | Html_Node.Element.script_supporting | Html_Node.fragment
     ] Html_Node.t
 
   let make ?aria
@@ -8217,11 +7650,6 @@ end
 
 
 module Th = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-th-element} The Th Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-th} W3C})
-   *)
-
   type +'a t = ([> Html_Node.th ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.flow | Html_Node.other ] Html_Node.t
@@ -8311,16 +7739,11 @@ end
 
 
 module Thead = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-thead-element} The Thead Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-thead} W3C})
-   *)
-
   type +'a t = ([> Html_Node.thead ] as 'a) Html_Node.t
 
   type +'a child =
     [ Html_Node.tr | Html_Node.Element.script_supporting
-    | Html_Node.other ] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -8384,11 +7807,6 @@ end
 
 
 module Time = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element} The Time Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-time} W3C})
-   *)
-
   type +'a t = ([> Html_Node.time ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
@@ -8464,11 +7882,6 @@ end
 
 
 module Title = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/semantics.html#the-title-element} The Title Element}
-   ({{: https://www.w3.org/TR/html52/document-metadata.html#elementdef-title} W3C})
-   *)
-
   type +'a t = ([> Html_Node.title ] as 'a) Html_Node.t
 
   let make ?(aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t option)
@@ -8528,16 +7941,11 @@ end
 
 
 module Tr = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/tables.html#the-tr-element} The Tr Element}
-   ({{: https://www.w3.org/TR/html52/tabular-data.html#elementdef-tr} W3C})
-   *)
-
   type +'a t = ([> Html_Node.tr ] as 'a) Html_Node.t
 
   type child =
     [ Html_Node.th | Html_Node.td | Html_Node.Element.script_supporting
-    | Html_Node.other ] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -8601,11 +8009,6 @@ end
 
 
 module Track = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/media.html#the-track-element} The Track Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-track} W3C})
-   *)
-
   type +'a t = ([> Html_Node.track ] as 'a) Html_Node.t
 
   module Attributes = struct
@@ -8667,11 +8070,6 @@ end
 
 
 module U = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-u-element} The U Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-u} W3C})
-   *)
-
   type +'a t = ([> Html_Node.u ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
@@ -8738,16 +8136,11 @@ end
 
 
 module Ul = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element} The Ul Element}
-   ({{: https://www.w3.org/TR/html52/grouping-content.html#elementdef-ul} W3C})
-   *)
-
   type +'a t = ([> Html_Node.ul ] as 'a) Html_Node.t
 
   type child =
     [ Html_Node.li | Html_Node.Element.script_supporting
-    | Html_Node.other ] Html_Node.t
+    | Html_Node.fragment ] Html_Node.t
 
   let make
     ?(aria:[< Html_Attributes.Aria.list
@@ -8822,11 +8215,6 @@ end
 
 
 module Var = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-var-element} The Var Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-var} W3C})
-   *)
-
   type +'a t = ([> Html_Node.var ] as 'a) Html_Node.t
 
   type +'a child = [ 'a Html_Node.phrasing | Html_Node.other ] Html_Node.t
@@ -8893,15 +8281,10 @@ end
 
 
 module Video = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/media.html#the-video-element} The Video Element}
-   ({{: https://www.w3.org/TR/html52/semantics-embedded-content.html#elementdef-video} W3C})
-   *)
-
   type +'a t = ([> Html_Node.video ] as 'a) Html_Node.t
 
   type +'a child =
-    [ Html_Node.track | Html_Node.source | Html_Node.other ] Html_Node.t
+    [ Html_Node.track | Html_Node.source | Html_Node.fragment ] Html_Node.t
 
   module Attributes = struct
     external _make:
@@ -9004,11 +8387,6 @@ end
 
 
 module Wbr = struct
-  (**
-   {{: https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-wbr-element} The Wbr Element}
-   ({{: https://www.w3.org/TR/html52/textlevel-semantics.html#elementdef-wbr} W3C})
-   *)
-
   type +'a t = ([> Html_Node.wbr ] as 'a) Html_Node.t
 
   let make ?aria
@@ -9047,11 +8425,6 @@ end
 
 
 module Text = struct
-  (**
-   {{: https://dom.spec.whatwg.org/#interface-text} The Text Node}
-   ({{: https://www.w3.org/TR/dom/#interface-text} W3C})
-   *)
-
   type +'a t = ([> Html_Node.text ] as 'a) Html_Node.t
 
   let make (text: string): _ t = Internal.make @@ Declaredom.make_text text
@@ -9061,11 +8434,6 @@ end
 
 
 module Fragment = struct
-  (**
-   {{: https://dom.spec.whatwg.org/#interface-documentfragment} Docuemnt Fragment}
-   ({{: https://www.w3.org/TR/dom/#interface-documentfragment} W3C})
-   *)
-
   type +'a t = ([> Html_Node.fragment ] as 'a) Html_Node.t
 
   type (+'a, +'b) child =

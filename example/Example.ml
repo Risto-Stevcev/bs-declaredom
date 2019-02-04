@@ -88,13 +88,6 @@ let _ =
         [|text "some link"|]
     in
 
-    (* TODO: remove *)
-    let anchor' =
-      CallbagBasics.combine (anchor |> CallbagEvents.click) (CallbagBasics.interval 1000)
-      |> map (fun (_, i) -> span [|text @@ string_of_int i ^"seconds since click"|])
-      |> CallbagElement.make
-    in
-
     div ~css_module:Modules.container [|
       TryJsx.foo;
       Div.flex ~css_module:Modules.flex [|
@@ -104,7 +97,6 @@ let _ =
       |];
       fragment [|
         anchor;
-        anchor';
         br ();
         span [|text "foo"|];
         br ();
