@@ -1,8 +1,8 @@
 open Html.Jsx;
 
-let foo: Html_Node.t([> Html_Node.div]) =
+let foo: Html.Node.t([> Html.Node.div]) =
   <div>
-    <span style=Css_Style.inline(~color=`green, ())>
+    <span style=Css.inline(~color=`green, ())>
       <text>"Hello, world!"</text>
     </span>
     <br/>

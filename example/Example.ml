@@ -39,81 +39,81 @@ let style =
   Element.setInnerHTML style (Css.Stylesheet.show stylesheet);
   style
 
-let _ =
+
+let body =
+  let open Webapi.Dom in
+  document
+  |> Document.asHtmlDocument
+  |> Js.Option.andThen (fun [@bs] e -> HtmlDocument.body e)
+  |> Js.Option.getExn
+
+let _ = Webapi.Dom.Element.appendChild style body
+
+
+(* Create a clock from the custom callbag element *)
+let clock =
+  let open Html in
   let open CallbagBasics in
+  interval 1000
+  |> map (fun _ -> span [|text @@ Js.Date.toString (Js.Date.make ())|])
+  |> CallbagElement.make
 
-  let body =
-    let open Webapi.Dom in
-    document
-    |> Document.asHtmlDocument
-    |> Js.Option.andThen (fun [@bs] e -> HtmlDocument.body e)
-    |> Js.Option.getExn
-  in
 
-  let _ =
-    Webapi.Dom.Element.appendChild style body
-  in
+(* Make functions that only take a specific kind of element or element group *)
+let f (_: Html.Node.span Html.Node.t): unit = ()
+let _ = let open Html in
+  f (span [|text "hello"|])
 
-  let example =
-    let open Html in
 
-    let clock =
-      interval 1000
-      |> map (fun _ -> span [|text @@ Js.Date.toString (Js.Date.make ())|])
-      |> CallbagElement.make
-    in
+(* Add custom types. Here the children are parameterized by `callbag and `foo *)
+let custom_foo: [> [> `foo] Html.Node.custom] Html.Node.t = Obj.magic ()
+let _: [`callbag | `foo] Html.Nodes.Div.child array =
+  let open Html in
+  [|
+    span ~css_module:Modules.title [|text "The time is:"|];
+    br ();
+    custom_foo;
+    clock;
+  |]
 
-    (* Make functions that only take a specific kind of element or element group *)
-    let f (_: Html_Node.span Html_Node.t): unit = () in
-    let _ = f (span [|text "hello"|]) in
+(* You can also typecheck based on your custom type *)
+let f' (_: [`foo] Html.Node.custom Html.Node.t): unit = ()
+let _ = f' custom_foo
 
-    (* Add custom types. Here the children are parameterized by `callbag and `foo *)
-    let custom_foo: [> [> `foo] Html_Node.custom] Html_Node.t = Obj.magic () in
-    let _: [`callbag | `foo] Html_Nodes.Div.child array = [|
-      span ~css_module:Modules.title [|text "The time is:"|];
+let anchor =
+  let open Html in
+  a ~id:"link" ~href:"#"
+    ~aria:(Html.Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
+    ~on_click:(fun _ -> Js.log "clicked!")
+    [|text "some link"|]
+
+let example =
+  let open Html in
+  div ~css_module:Modules.container [|
+    TryJsx.foo;
+    Div.flex ~css_module:Modules.flex [|
+      span [|text "this"|] |> Html.Overrides.flex_module Modules.flex_item;
+      span [|text "is"|];
+      span [|text "flexbox"|];
+    |];
+    fragment [|
+      anchor;
       br ();
-      custom_foo;
-      clock;
-    |]
-    in
-
-    (* You can also typecheck based on your custom type *)
-    let f' (_: [`foo] Html_Node.custom Html_Node.t): unit = () in
-    let _ = f' custom_foo
-    in
-
-    let anchor = 
-      a ~id:"link" ~href:"#"
-        ~aria:(Html_Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
-        ~on_click:(fun _ -> Js.log "clicked!")
-        [|text "some link"|]
-    in
-
-    div ~css_module:Modules.container [|
-      TryJsx.foo;
-      Div.flex ~css_module:Modules.flex [|
-        span [|text "this"|] |> Html_Overrides.flex_module Modules.flex_item;
-        span [|text "is"|];
-        span [|text "flexbox"|];
-      |];
+      span [|text "foo"|];
+      br ();
+      span [|text "bar"|];
       fragment [|
-        anchor;
-        br ();
-        span [|text "foo"|];
-        br ();
-        span [|text "bar"|];
-        fragment [|
-          span [|text "baz"|];
-          (* this correctly fails because <title> is metadata content:
-           * title "foo";
-           *)
-        |];
-        br ();
+        span [|text "baz"|];
+        (* this correctly fails because <title> is metadata content:
+         * title "foo";
+         *)
       |];
-      span ~css_module:Modules.title [|text "The time is:"|];
       br ();
-      clock;
-    |]
-  in
+    |];
+    span ~css_module:Modules.title [|text "The time is:"|];
+    br ();
+    clock;
+  |]
 
-  Webapi.Dom.Element.appendChild (Html_Node.to_node example) body
+let _ =
+  Webapi.Dom.Element.appendChild (Html.Node.to_node example) body

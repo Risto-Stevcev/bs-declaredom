@@ -1,5 +1,11 @@
 (** Provides shorthand functions to {!module:Html_Nodes} *)
 
+module Attributes = Html_Attributes
+module Events = Html_Events
+module Node = Html_Node
+module Nodes = Html_Nodes
+module Overrides = Html_Overrides
+
 let a = Html_Nodes.A.make
 let abbr = Html_Nodes.Abbr.make
 let address = Html_Nodes.Address.make
