@@ -1,6 +1,6 @@
 open BsTape
 open Test
-open! Node
+open! Html
 module Aria = Html_Attributes.Aria;;
 
 let _ = Jsdom.init () [@bs]

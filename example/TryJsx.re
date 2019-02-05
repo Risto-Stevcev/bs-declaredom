@@ -1,4 +1,4 @@
-open Node.Jsx;
+open Html.Jsx;
 
 let foo: Html_Node.t([> Html_Node.div]) =
   <div>

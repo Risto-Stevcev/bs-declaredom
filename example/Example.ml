@@ -1,16 +1,16 @@
 module Modules = struct
-  let container = Css_Module.make @@
-    Css_Style.block ~text_align:`center ~clear:`both ~color:`darkcyan ()
+  let container = Css.Module.make @@
+    Css.block ~text_align:`center ~clear:`both ~color:`darkcyan ()
 
-  let title = Css_Module.make @@
-    Css_Style.inline ~vertical_align:`initial ~color:`black ()
+  let title = Css.Module.make @@
+    Css.inline ~vertical_align:`initial ~color:`black ()
 
-  let flex = Css_Module.make @@ Css_Properties.Display.flex @@
-    Css_Style.flexbox ~flex_direction:`column ~color:`coral
-      ~border:(Css_Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
+  let flex = Css.Module.make @@ Css.Properties.Display.flex @@
+    Css.flexbox ~flex_direction:`column ~color:`coral
+      ~border:(Css.Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
-  let flex_item = Css_Module.make @@
-    Css_Style.flex_item ~align_self:`flex_start ~color:`red ()
+  let flex_item = Css.Module.make @@
+    Css.flex_item ~align_self:`flex_start ~color:`red ()
 
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the
@@ -19,12 +19,12 @@ module Modules = struct
    *)
   let foo =
     container
-    |> Css_Module.map @@
-       Js.Dict.map @@ fun [@bs] a -> (a :> Css_Property.display Css_Property.t)
+    |> Css.Module.map @@
+       Js.Dict.map @@ fun [@bs] a -> (a :> Css.Property.display Css.Property.t)
 end
 
 let stylesheet =
-  let open Css_Stylesheet in
+  let open Css.Stylesheet in
   make `utf_8
     [ css_module Modules.container
     ; css_module Modules.title
@@ -36,7 +36,7 @@ let style =
   let style =
     document |> Document.createElement "style"
   in
-  Element.setInnerHTML style (Css_Stylesheet.show stylesheet);
+  Element.setInnerHTML style (Css.Stylesheet.show stylesheet);
   style
 
 let _ =
@@ -55,7 +55,7 @@ let _ =
   in
 
   let example =
-    let open Node in
+    let open Html in
 
     let clock =
       interval 1000
