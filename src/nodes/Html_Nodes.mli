@@ -1938,7 +1938,7 @@ module Button :
       ?formenctype:Html_Attributes.Form.Enctype.t ->
       ?formmethod:Html_Attributes.Form.Method.t ->
       ?formnovalidate:unit ->
-      ?formtarget:string ->
+      ?formtarget:Html_Attributes.Target.t ->
       ?formelements:string ->
       ?name:string ->
       ?_type:Attributes._type ->
@@ -2013,7 +2013,7 @@ module Button :
       ?formenctype:Html_Attributes.Form.Enctype.t ->
       ?formmethod:Html_Attributes.Form.Method.t ->
       ?formnovalidate:unit ->
-      ?formtarget:string ->
+      ?formtarget:Html_Attributes.Target.t ->
       ?formelements:string ->
       ?name:string ->
       ?_type:Attributes._type ->
@@ -4996,6 +4996,11 @@ module Form :
     type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.form ]
     type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
+    module Attributes :
+      sig
+        type autocomplete = [ `on | `off ]  
+      end
+
     val make :
       ?aria:[< Html_Attributes.Aria.form
             | Html_Attributes.Aria.search
@@ -5003,7 +5008,7 @@ module Form :
             ] Html_Attributes.Aria.t ->
       ?accept_charset:string ->
       ?action:string ->
-      ?autocomplete:Html_Attributes.AutoComplete.t ->
+      ?autocomplete:Attributes.autocomplete ->
       ?enctype:Html_Attributes.Form.Enctype.t ->
       ?_method:Html_Attributes.Form.Method.t ->
       ?name:string ->
@@ -5073,7 +5078,7 @@ module Form :
             ] Html_Attributes.Aria.t ->
       ?accept_charset:string ->
       ?action:string ->
-      ?autocomplete:Html_Attributes.AutoComplete.t ->
+      ?autocomplete:Attributes.autocomplete ->
       ?enctype:Html_Attributes.Form.Enctype.t ->
       ?_method:Html_Attributes.Form.Method.t ->
       ?name:string ->
@@ -7107,7 +7112,7 @@ module Input :
       ?formenctype:Html_Attributes.Form.Enctype.t ->
       ?formmethod:Html_Attributes.Form.Method.t ->
       ?formnovalidate:unit ->
-      ?formtarget:string ->
+      ?formtarget:Html_Attributes.Target.t ->
       ?height:int ->
       ?list:string ->
       ?max:string ->
@@ -7208,7 +7213,7 @@ module Input :
       ?formenctype:Html_Attributes.Form.Enctype.t ->
       ?formmethod:Html_Attributes.Form.Method.t ->
       ?formnovalidate:unit ->
-      ?formtarget:string ->
+      ?formtarget:Html_Attributes.Target.t ->
       ?height:int ->
       ?list:string ->
       ?max:string ->
@@ -11390,7 +11395,7 @@ module Script :
      ({{: https://www.w3.org/TR/html52/semantics-scripting.html#elementdef-script} W3C})
      *)
 
-    type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.span ]
+    type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.script ]
 
     val make :
       ?src:string ->
@@ -11454,7 +11459,7 @@ module Script :
       ?on_mouseup:(Dom.mouseEvent -> unit) ->
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.span ] Html_Node.t
+      ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.script ] Html_Node.t
     val jsx :
       ?accesskey:string ->
       ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
@@ -11510,7 +11515,7 @@ module Script :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.span ] Html_Node.t
+      ?children:'a -> unit -> [> Html_Node.script ] Html_Node.t
     module Inline :
       sig
         val make :
@@ -11574,7 +11579,7 @@ module Script :
           ?on_mouseup:(Dom.mouseEvent -> unit) ->
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
-          ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.span ] Html_Node.t
+          ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.script ] Html_Node.t
         val jsx :
           ?_type:string ->
           ?nomodule:unit ->
@@ -11637,7 +11642,7 @@ module Script :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?children:string list -> unit -> [> Html_Node.span ] Html_Node.t
+          ?children:string list -> unit -> [> Html_Node.script ] Html_Node.t
       end
   end
 module Section :

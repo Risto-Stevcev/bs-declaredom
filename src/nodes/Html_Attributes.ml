@@ -256,7 +256,7 @@ module Aria = struct
       [@@bs.deriving jsConverter]
 
     type invalid =
-      [ `true_ [@bs.as "true"] | `false_ [@bs.as "false"] | `grammaer
+      [ `true_ [@bs.as "true"] | `false_ [@bs.as "false"] | `grammar
       | `spelling ]
       [@@bs.deriving jsConverter]
 

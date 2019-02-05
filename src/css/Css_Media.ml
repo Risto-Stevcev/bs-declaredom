@@ -332,6 +332,9 @@ module Fn = struct
     | Some modifier -> `media_query (modifier, condition)
     | None -> (condition :> MediaQuery.t)
 
+  let to_query (condition: MediaCondition.t): MediaQuery.t =
+    (condition :> MediaQuery.t)
+
   let media conditions = conditions |> List.map query 
 
   let modifier modifier: MediaQuery.t = `modifier modifier

@@ -1091,7 +1091,8 @@ module Button = struct
         ?formenctype:(Belt.Option.map formenctype Html_Attributes.Form.Enctype.show)
         ?formmethod:(Belt.Option.map formmethod Html_Attributes.Form.Method.show)
         ?formnovalidate:(Belt.Option.map formnovalidate Util.string_of_unit)
-        ?formtarget ?formelements ?name
+        ?formtarget:(Belt.Option.map formtarget Html_Attributes.Target.show)
+        ?formelements ?name
         ?_type:(Belt.Option.map _type _typeToJs)
         ?value
         ()
@@ -2723,6 +2724,8 @@ module Form = struct
   type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
 
   module Attributes = struct
+    type autocomplete = [ `on | `off ] [@@bs.deriving jsConverter]
+
     external _make:
       ?accept_charset:string ->
       ?action:string ->
@@ -2739,7 +2742,7 @@ module Form = struct
       ?novalidate ?target ()
       =
       _make ?accept_charset ?action
-        ?autocomplete:(Belt.Option.map autocomplete Html_Attributes.AutoComplete.show)
+        ?autocomplete:(Belt.Option.map autocomplete autocompleteToJs)
         ?enctype:(Belt.Option.map enctype Html_Attributes.Form.Enctype.show)
         ?_method:(Belt.Option.map _method Html_Attributes.Form.Method.show)
         ?name
@@ -3926,7 +3929,8 @@ module Input = struct
         ?formenctype:(Belt.Option.map formenctype Html_Attributes.Form.Enctype.show)
         ?formmethod:(Belt.Option.map formmethod Html_Attributes.Form.Method.show)
         ?formnovalidate:(Belt.Option.map formnovalidate Util.string_of_unit)
-        ?formtarget ?height ?list ?max ?maxlength ?min ?minlength
+        ?formtarget:(Belt.Option.map formtarget Html_Attributes.Target.show)
+        ?height ?list ?max ?maxlength ?min ?minlength
         ?multiple:(Belt.Option.map multiple Util.string_of_unit) ?name
         ?pattern:(Belt.Option.map pattern Js.Re.source) ?placeholder
         ?readonly:(Belt.Option.map readonly Util.string_of_unit)
@@ -6293,7 +6297,7 @@ end
 
 
 module Script = struct
-  type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
+  type +'a t = ([> Html_Node.script ] as 'a) Html_Node.t
 
   module Attributes = struct
     external _make:

@@ -85,6 +85,7 @@ let _ =
     let anchor = 
       a ~id:"link" ~href:"#"
         ~aria:(Html_Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
+        ~on_click:(fun _ -> Js.log "clicked!")
         [|text "some link"|]
     in
 

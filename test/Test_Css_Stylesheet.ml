@@ -3,17 +3,6 @@ open Test
 open Css_Properties
 ;;
 
-test ~name:"css property - azimuth" @@ fun t -> begin
-  let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
-  t |> equal `inherit_ "inherit";
-  t |> equal `initial "initial";
-  t |> equal `unset "unset";
-  t |> equal (`deg 90.) "90deg";
-  t |> equal (`rad 180.) "180rad";
-  t |> equal (`grad 60.5) "60.5grad";
-  t |> T.end_
-end; 
-
 test ~name:"@media functions" @@ fun t -> begin
   let open Css_Stylesheet in
   let width = Css_Media.Fn.width

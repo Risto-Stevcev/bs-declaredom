@@ -316,7 +316,7 @@ module Aria :
             [ `dialog | `false_ | `grid | `listbox | `menu | `tree | `true_ ]
         val haspopupToJs : haspopup -> string
         val haspopupFromJs : string -> haspopup Js.Option.t
-        type invalid = [ `false_ | `grammaer | `spelling | `true_ ]
+        type invalid = [ `false_ | `grammar | `spelling | `true_ ]
         val invalidToJs : invalid -> string
         val invalidFromJs : string -> invalid Js.Option.t
         type live = [ `assertive | `off | `polite ]
