@@ -1,11 +1,11 @@
 (** CSS Stylesheets *)
 
 module CharsetRule = struct
-	type t = [ `charset of Css_Charset.t ]
+  type t = [ `charset of Css_Charset.t ]
 
-	let make value: t = `charset value
+  let make value: t = `charset value
 
-	let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
+  let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
 end
 
 
@@ -42,12 +42,12 @@ module PageRule = struct
     `page
       ( page
       , Css_Style.MediaGroup.paged ?margin ?margin_top ?margin_right ?margin_bottom
-          ?margin_left ?page_break_before ?page_break_after ?page_break_inside ?orphans 
+          ?margin_left ?page_break_before ?page_break_after ?page_break_inside ?orphans
           ?widows ()
       )
 
   let show (`page (selector, properties): t): string =
-    let selector' = 
+    let selector' =
       selector |. Belt.Option.mapWithDefault "" (fun e -> " "^ Selector.show e)
     in
     "@page" ^ selector' ^" {\n"^
@@ -163,18 +163,18 @@ end
 
 
 let media_print ?only ?condition selector properties: Rule.t =
-	(MediaRule.print ?only ?condition selector properties :> Rule.t)
+  (MediaRule.print ?only ?condition selector properties :> Rule.t)
 and media_screen ?only ?condition selector properties: Rule.t =
-	(MediaRule.screen ?only ?condition selector properties :> Rule.t)
+  (MediaRule.screen ?only ?condition selector properties :> Rule.t)
 and media_speech ?only ?condition selector properties: Rule.t =
-	(MediaRule.speech ?only ?condition selector properties :> Rule.t)
+  (MediaRule.speech ?only ?condition selector properties :> Rule.t)
 and style selector properties: Rule.t =
-	(StyleRule.make selector properties :> Rule.t)
+  (StyleRule.make selector properties :> Rule.t)
 and css_module x: Rule.t = (CssModuleRule.make x :> Rule.t)
 and font_face ~family ~src = (FontFaceRule.make ~family ~src :> Rule.t)
 and page ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows (): Rule.t =
-	(PageRule.make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+  (PageRule.make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () :> Rule.t)
 
 type t = CharsetRule.t * Rule.t list
@@ -182,7 +182,7 @@ type t = CharsetRule.t * Rule.t list
 
 let make charset rules: t =
   (CharsetRule.make charset, rules |. Belt.List.map (fun e -> (e :> Rule.t)))
-  
+
 let show ((charset, rules): t): string =
-	CharsetRule.show charset ^";\n\n"^
-	(rules |. Belt.List.map Rule.show |. Util.join_with "\n")
+  CharsetRule.show charset ^";\n\n"^
+  (rules |. Belt.List.map Rule.show |. Util.join_with "\n")

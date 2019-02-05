@@ -149,7 +149,7 @@ module Percent = struct
 
   type t = [ `percent of float ]
 
-	let show: t -> string = function
+  let show: t -> string = function
   | `percent value -> Js.Float.toString value ^"%"
 end
 

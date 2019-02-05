@@ -7,9 +7,9 @@
  Due to some political differences, there are currently two organitzations that work on
  the HTML specs: WHATWG and W3C.
 
- The {{: https://html.spec.whatwg.org/multipage/} WHATWG HTML} spec is currently considered 
- the authoritative source. W3C also published the 
- {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} HTML 5.2} spec 
+ The {{: https://html.spec.whatwg.org/multipage/} WHATWG HTML} spec is currently considered
+ the authoritative source. W3C also published the
+ {{: https://www.w3.org/TR/html52/fullindex.html#index-elements} HTML 5.2} spec
  that will also be referenced in these docs.
  *)
 
@@ -150,7 +150,7 @@ include Node
 
 module ContentCategory = struct
   (**
-   {{: https://html.spec.whatwg.org/multipage/indices.html#element-content-categories} Content Categories} 
+   {{: https://html.spec.whatwg.org/multipage/indices.html#element-content-categories} Content Categories}
    ({{: https://www.w3.org/TR/html52/dom.html#kinds-of-content} W3C})
    *)
 
@@ -176,7 +176,7 @@ module ContentCategory = struct
   type heading = [ fragment | headings | hgroup ]
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
-    | canvas | cite | code | data | datalist | del | dfn | em | embed | i 
+    | canvas | cite | code | data | datalist | del | dfn | em | embed | i
     | iframe | img | input | ins | kbd | label | link | map | mark | meta
     | meter | noscript | object_ | output | picture | progress | q | ruby | s
     | samp | script | select | slot | small | span | strong | sub | sup

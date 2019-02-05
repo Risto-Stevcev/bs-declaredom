@@ -1,10 +1,10 @@
 (**
  This module defines the CSS properties
 
- The types correspond to the {{: https://www.w3.org/TR/CSS2/about.html#applies-to } applies to} 
+ The types correspond to the {{: https://www.w3.org/TR/CSS2/about.html#applies-to } applies to}
  description for styles for which display property is required for it to render.
 
- See the {{: https://www.w3.org/TR/CSS22/propidx.html } CSS 2.2 full property table} for reference, and 
+ See the {{: https://www.w3.org/TR/CSS22/propidx.html } CSS 2.2 full property table} for reference, and
  the {{: https://www.w3.org/TR/CSS22/sample.html } default styles}.
  *)
 
@@ -343,7 +343,7 @@ module AppliesTo = struct
     | table_column_group | table_row | table_row_group | ruby_display ]
 
   (**
-   A flex item is defined as a child of a flex container ([display: flex]), it 
+   A flex item is defined as a child of a flex container ([display: flex]), it
    can have any display type.
    *)
   type flex_item =
@@ -402,8 +402,8 @@ module MediaGroup = struct
     | z_index | any ]
 
   (**
-   {{: https://www.w3.org/TR/CSS22/page.html#page-margins } Page margins}, 
-   {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks}, and 
+   {{: https://www.w3.org/TR/CSS22/page.html#page-margins } Page margins},
+   {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks}, and
    {{: https://www.w3.org/TR/CSS22/page.html#break-inside } Breaks inside elements}
    *)
   type paged = [ margins | page_breaks | page_breaks_inside | any ]

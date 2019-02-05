@@ -55,7 +55,7 @@ module A = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -67,7 +67,7 @@ module A = struct
         Attributes.make ?href ?target ?download ?rel ?rev ?hreflang ?_type
           ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
-        Html_Attributes.Global.make 
+        Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
           ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
           ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
@@ -94,7 +94,7 @@ module A = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
     make
       ?aria
@@ -107,7 +107,7 @@ module A = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -127,7 +127,7 @@ module Abbr = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -161,7 +161,7 @@ module Abbr = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -192,7 +192,7 @@ module Address = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -226,7 +226,7 @@ module Address = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
     make ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -237,7 +237,7 @@ module Address = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -264,7 +264,7 @@ module Area = struct
       ?_type:string ->
       ?referrerpolicy:string ->
       unit ->
-      Html_Attributes.t = "" [@@bs.obj] 
+      Html_Attributes.t = "" [@@bs.obj]
 
     let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
       ?referrerpolicy () =
@@ -282,7 +282,7 @@ module Area = struct
   end
 
   let make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
-    ?referrerpolicy 
+    ?referrerpolicy
     ?(aria:Html_Attributes.Aria.link Html_Attributes.Aria.t option)
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
@@ -315,7 +315,7 @@ module Area = struct
 
 
   let jsx ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
-    ?referrerpolicy 
+    ?referrerpolicy
     ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
@@ -328,7 +328,7 @@ module Area = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?children:_ () =
     make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
-      ?referrerpolicy 
+      ?referrerpolicy
       ?aria
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
@@ -504,7 +504,7 @@ module Audio = struct
       ?muted:string ->
       ?controls:string ->
       unit ->
-      Html_Attributes.t = "" [@@bs.obj] 
+      Html_Attributes.t = "" [@@bs.obj]
 
     let make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls () =
       _make ?src
@@ -528,7 +528,7 @@ module Audio = struct
     ?on_abort ?on_canplay ?on_canplaythrough ?on_cuechange ?on_durationchange
     ?on_emptied ?on_ended ?on_error ?on_loadedmetadata ?on_loadeddata ?on_loadstart
     ?on_pause ?on_play ?on_playing ?on_progress ?on_ratechange ?on_resize ?on_seeked
-    ?on_seeking ?on_suspend ?on_stalled ?on_timeupdate ?on_volumechange ?on_waiting 
+    ?on_seeking ?on_suspend ?on_stalled ?on_timeupdate ?on_volumechange ?on_waiting
     ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
@@ -978,7 +978,7 @@ module Body = struct
     in
     Declaredom.make "body"
       (Util.merge_all [|
-        Attributes.make ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+        Attributes.make ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
           ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
           ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
           ?on_storage ?on_unhandledrejection ?on_unload ();
@@ -1003,7 +1003,7 @@ module Body = struct
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
     ?title ?translate
-    ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+    ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
     ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
     ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
     ?on_storage ?on_unhandledrejection ?on_unload
@@ -1017,7 +1017,7 @@ module Body = struct
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
       ?title ?translate
-      ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange 
+      ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
       ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
       ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
       ?on_storage ?on_unhandledrejection ?on_unload
@@ -1114,7 +1114,7 @@ module Button = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline_block Css_Style.t option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
@@ -1167,7 +1167,7 @@ module Button = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1195,7 +1195,7 @@ module Canvas = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -1242,7 +1242,7 @@ module Canvas = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1262,7 +1262,7 @@ module Caption = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_caption Css_Style.t option)
     ?(css_module:Css_Property.table_caption Css_Module.t option)
     (children:_ child array): _ t
@@ -1308,7 +1308,7 @@ module Caption = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1328,7 +1328,7 @@ module Cite = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -1374,7 +1374,7 @@ module Cite = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1394,7 +1394,7 @@ module Code = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -1440,7 +1440,7 @@ module Code = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1458,7 +1458,7 @@ module Col = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
@@ -1504,7 +1504,7 @@ module Col = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -1530,7 +1530,7 @@ module Colgroup = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_column_group Css_Style.t option)
     ?(css_module:Css_Property.table_column_group Css_Module.t option)
     (children:child array): _ t
@@ -1577,7 +1577,7 @@ module Colgroup = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1601,7 +1601,7 @@ module Data = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -1648,7 +1648,7 @@ module Data = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1670,7 +1670,7 @@ module Datalist = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:_ child array): _ t
     =
     Declaredom.make "datalist"
@@ -1712,7 +1712,7 @@ module Datalist = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -1731,7 +1731,7 @@ module Dd = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -1777,7 +1777,7 @@ module Dd = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1806,7 +1806,7 @@ module Del = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -1853,7 +1853,7 @@ module Del = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1880,7 +1880,7 @@ module Details = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -1927,7 +1927,7 @@ module Details = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -1947,7 +1947,7 @@ module Dfn = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -1993,7 +1993,7 @@ module Dfn = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2023,7 +2023,7 @@ module Dialog = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2070,7 +2070,7 @@ module Dialog = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2090,7 +2090,7 @@ module Div = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2136,7 +2136,7 @@ module Div = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2162,7 +2162,7 @@ module Dl = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
@@ -2208,7 +2208,7 @@ module Dl = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2229,7 +2229,7 @@ module Dt = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2275,7 +2275,7 @@ module Dt = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2295,7 +2295,7 @@ module Em = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -2341,7 +2341,7 @@ module Em = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2371,7 +2371,7 @@ module Embed = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.replaced_inline Css_Style.t option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
@@ -2418,7 +2418,7 @@ module Embed = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -2452,7 +2452,7 @@ module Fieldset = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2501,7 +2501,7 @@ module Fieldset = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2525,7 +2525,7 @@ module Figcaption = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2571,7 +2571,7 @@ module Figcaption = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2596,7 +2596,7 @@ module Figure = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2642,7 +2642,7 @@ module Figure = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2666,7 +2666,7 @@ module Footer = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2712,7 +2712,7 @@ module Footer = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2766,7 +2766,7 @@ module Form = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2816,7 +2816,7 @@ module Form = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2840,7 +2840,7 @@ module H1 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2886,7 +2886,7 @@ module H1 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2910,7 +2910,7 @@ module H2 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -2956,7 +2956,7 @@ module H2 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -2980,7 +2980,7 @@ module H3 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -3026,7 +3026,7 @@ module H3 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3050,7 +3050,7 @@ module H4 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -3096,7 +3096,7 @@ module H4 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3120,7 +3120,7 @@ module H5 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -3166,7 +3166,7 @@ module H5 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3190,7 +3190,7 @@ module H6 = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -3236,7 +3236,7 @@ module H6 = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3257,7 +3257,7 @@ module Head = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:child array): _ t
     =
     Declaredom.make "head"
@@ -3299,7 +3299,7 @@ module Head = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3322,7 +3322,7 @@ module Header = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -3368,7 +3368,7 @@ module Header = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3390,7 +3390,7 @@ module Hgroup = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
@@ -3436,7 +3436,7 @@ module Hgroup = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -3457,7 +3457,7 @@ module Hr = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
@@ -3503,7 +3503,7 @@ module Hr = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -3529,7 +3529,7 @@ module Html = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:child array): _ t
     =
     Declaredom.make "html"
@@ -3572,7 +3572,7 @@ module Html = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -3591,7 +3591,7 @@ module I = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -3637,7 +3637,7 @@ module I = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
@@ -3704,7 +3704,7 @@ module Iframe = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.replaced_inline Css_Style.t option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
@@ -3714,7 +3714,7 @@ module Iframe = struct
     Declaredom.make_empty "iframe"
       (Util.merge_all [|
         Attributes.make ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen
-          ?allowpaymentrequest ?width ?height ?referrerpolicy ();    
+          ?allowpaymentrequest ?width ?height ?referrerpolicy ();
         Belt.Option.mapWithDefault aria (Js.Dict.empty ()) Html_Attributes.Aria.from_aria;
         Html_Attributes.Global.make
           ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -3756,7 +3756,7 @@ module Iframe = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -3808,7 +3808,7 @@ module Img = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.replaced_inline Css_Style.t option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
@@ -3858,7 +3858,7 @@ module Img = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -3967,7 +3967,7 @@ module Input = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
@@ -3976,7 +3976,7 @@ module Input = struct
     in
     Declaredom.make_empty "input"
       (Util.merge_all [|
-        Attributes.make 
+        Attributes.make
           ?accept ?alt ?autocomplete ?autofocus ?checked ?dirname ?disabled
           ?form ?formaction ?formenctype ?formmethod ?formnovalidate ?formtarget
           ?height ?list ?max ?maxlength ?min ?minlength ?multiple ?name ?pattern
@@ -4024,7 +4024,7 @@ module Input = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -4054,7 +4054,7 @@ module Ins = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -4101,7 +4101,7 @@ module Ins = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4121,7 +4121,7 @@ module Kbd = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -4167,7 +4167,7 @@ module Kbd = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4191,7 +4191,7 @@ module Label = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -4238,7 +4238,7 @@ module Label = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4260,7 +4260,7 @@ module Legend = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -4306,7 +4306,7 @@ module Legend = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4334,7 +4334,7 @@ module Li = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -4380,7 +4380,7 @@ module Li = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4478,7 +4478,7 @@ module Main = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -4524,7 +4524,7 @@ module Main = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4552,7 +4552,7 @@ module Map = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -4599,7 +4599,7 @@ module Map = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4619,7 +4619,7 @@ module Mark = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -4665,7 +4665,7 @@ module Mark = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4708,7 +4708,7 @@ module Meta = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (): _ t
     =
     Declaredom.make_empty "meta"
@@ -4751,7 +4751,7 @@ module Meta = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ()
 end
 
@@ -4783,7 +4783,7 @@ module Meter = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline_block Css_Style.t option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
@@ -4830,7 +4830,7 @@ module Meter = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4850,7 +4850,7 @@ module Nav = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline_block Css_Style.t option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
@@ -4896,7 +4896,7 @@ module Nav = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -4960,7 +4960,7 @@ module Noscript = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -5058,7 +5058,7 @@ module Object = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5162,7 +5162,7 @@ module Ol = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5196,7 +5196,7 @@ module Optgroup = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -5245,7 +5245,7 @@ module Optgroup = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5284,7 +5284,7 @@ module Option = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -5333,7 +5333,7 @@ module Option = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5363,7 +5363,7 @@ module Output = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -5412,7 +5412,7 @@ module Output = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5432,7 +5432,7 @@ module P = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -5478,7 +5478,7 @@ module P = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5505,7 +5505,7 @@ module Param = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (): _ t
     =
     Declaredom.make_empty "param"
@@ -5550,7 +5550,7 @@ module Param = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ()
 end
 
@@ -5571,7 +5571,7 @@ module Picture = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -5616,7 +5616,7 @@ module Picture = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5636,7 +5636,7 @@ module Pre = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -5682,7 +5682,7 @@ module Pre = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5711,7 +5711,7 @@ module Progress = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline_block Css_Style.t option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
@@ -5758,7 +5758,7 @@ module Progress = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5782,7 +5782,7 @@ module Q = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -5829,7 +5829,7 @@ module Q = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5849,7 +5849,7 @@ module Rb = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.ruby_base Css_Style.t option)
     ?(css_module:Css_Property.ruby_base Css_Module.t option)
     (children:_ child array): _ t
@@ -5895,7 +5895,7 @@ module Rb = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -5915,7 +5915,7 @@ module Rp = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:child array): _ t
     =
     Declaredom.make "rp"
@@ -5957,7 +5957,7 @@ module Rp = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -5976,7 +5976,7 @@ module Rt = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.ruby_text Css_Style.t option)
     ?(css_module:Css_Property.ruby_text Css_Module.t option)
     (children:_ child array): _ t
@@ -6022,7 +6022,7 @@ module Rt = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6044,7 +6044,7 @@ module Rtc = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.ruby_text_container Css_Style.t option)
     ?(css_module:Css_Property.ruby_text_container Css_Module.t option)
     (children:_ child array): _ t
@@ -6090,7 +6090,7 @@ module Rtc = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6112,7 +6112,7 @@ module Ruby = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.ruby Css_Style.t option)
     ?(css_module:Css_Property.ruby Css_Module.t option)
     (children:_ child array): _ t
@@ -6158,7 +6158,7 @@ module Ruby = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6178,7 +6178,7 @@ module S = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -6224,7 +6224,7 @@ module S = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6244,7 +6244,7 @@ module Samp = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -6290,7 +6290,7 @@ module Samp = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6334,7 +6334,7 @@ module Script = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (): _ t
     =
     Declaredom.make_empty "script"
@@ -6377,7 +6377,7 @@ module Script = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ()
 
 
@@ -6394,7 +6394,7 @@ module Script = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       contents: _ t
       =
       Declaredom.make_with_text "script"
@@ -6439,7 +6439,7 @@ module Script = struct
         ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-        ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+        ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
         (List.fold_left (^) "" children)
   end
 end
@@ -6476,7 +6476,7 @@ module Section = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
@@ -6522,7 +6522,7 @@ module Section = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6550,19 +6550,19 @@ module Select = struct
 
     let make ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required
       ?size () =
-      _make 
+      _make
         ?autocomplete:(Belt.Option.map autocomplete Html_Attributes.AutoComplete.show)
         ?autofocus:(Belt.Option.map autofocus Util.string_of_unit)
         ?disabled:(Belt.Option.map disabled Util.string_of_unit) ?form
         ?multiple:(Belt.Option.map multiple Util.string_of_unit) ?name
-        ?required:(Belt.Option.map required Util.string_of_unit) ?size () 
+        ?required:(Belt.Option.map required Util.string_of_unit) ?size ()
   end
 
   let make
     ?(aria:[< Html_Attributes.Aria.combobox
            | Html_Attributes.Aria.listbox
            ] Html_Attributes.Aria.t option)
-    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -6571,7 +6571,7 @@ module Select = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline_block Css_Style.t option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
@@ -6600,7 +6600,7 @@ module Select = struct
 
 
   let jsx ?aria
-    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -6612,7 +6612,7 @@ module Select = struct
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?style ?css_module ?children () =
     make ?aria
-      ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size 
+      ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -6621,7 +6621,7 @@ module Select = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6646,7 +6646,7 @@ module Slot = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     (children:_ child array): _ t
     =
     Declaredom.make "slot"
@@ -6688,7 +6688,7 @@ module Slot = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
@@ -6707,7 +6707,7 @@ module Small = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -6753,7 +6753,7 @@ module Small = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6782,7 +6782,7 @@ module Source = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
@@ -6831,7 +6831,7 @@ module Source = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       ()
 end
@@ -6851,7 +6851,7 @@ module Span = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -6897,7 +6897,7 @@ module Span = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6917,7 +6917,7 @@ module Strong = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -6963,7 +6963,7 @@ module Strong = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -6989,7 +6989,7 @@ module Style = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     contents: _ t
     =
     Declaredom.make_with_text "style"
@@ -7032,7 +7032,7 @@ module Style = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (List.fold_left (^) "" children)
 end
 
@@ -7051,7 +7051,7 @@ module Sub = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -7097,7 +7097,7 @@ module Sub = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7118,7 +7118,7 @@ module Summary = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -7164,7 +7164,7 @@ module Summary = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7184,7 +7184,7 @@ module Sup = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -7230,7 +7230,7 @@ module Sup = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7253,7 +7253,7 @@ module Table = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table Css_Style.t option)
     ?(css_module:Css_Property.table Css_Module.t option)
     (children:_ child array): _ t
@@ -7299,7 +7299,7 @@ module Table = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7321,7 +7321,7 @@ module Tbody = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_row_group Css_Style.t option)
     ?(css_module:Css_Property.table_row_group Css_Module.t option)
     (children:_ child array): _ t
@@ -7367,7 +7367,7 @@ module Tbody = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7440,7 +7440,7 @@ module Td = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7526,7 +7526,7 @@ module Textarea = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:child array): _ t
@@ -7579,7 +7579,7 @@ module Textarea = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7601,7 +7601,7 @@ module Tfoot = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_footer_group Css_Style.t option)
     ?(css_module:Css_Property.table_footer_group Css_Module.t option)
     (children:child array): _ t
@@ -7647,7 +7647,7 @@ module Tfoot = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7687,7 +7687,7 @@ module Th = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_cell Css_Style.t option)
     ?(css_module:Css_Property.table_cell Css_Module.t option)
     (children:_ child array): _ t
@@ -7736,7 +7736,7 @@ module Th = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7804,7 +7804,7 @@ module Thead = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7832,7 +7832,7 @@ module Time = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -7879,7 +7879,7 @@ module Time = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -7897,7 +7897,7 @@ module Title = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     child: _ t
     =
     Declaredom.make "title"
@@ -7939,7 +7939,7 @@ module Title = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       (List.fold_left (fun acc e -> acc ^ e) "" children)
 end
 
@@ -7960,7 +7960,7 @@ module Tr = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.table_row Css_Style.t option)
     ?(css_module:Css_Property.table_row Css_Module.t option)
     (children:child array): _ t
@@ -8006,7 +8006,7 @@ module Tr = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -8087,7 +8087,7 @@ module U = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -8133,7 +8133,7 @@ module U = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -8166,7 +8166,7 @@ module Ul = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.block Css_Style.t option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
@@ -8212,7 +8212,7 @@ module Ul = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -8232,7 +8232,7 @@ module Var = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -8278,7 +8278,7 @@ module Var = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -8323,7 +8323,7 @@ module Video = struct
   let make
     ?(aria:Html_Attributes.Aria.application Html_Attributes.Aria.t option)
     ?src ?crossorigin ?poster ?preload ?autoplay ?playsinline ?loop ?muted
-    ?controls ?width ?height 
+    ?controls ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -8332,7 +8332,7 @@ module Video = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.inline Css_Style.t option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
@@ -8362,7 +8362,7 @@ module Video = struct
 
   let jsx ?aria
     ?src ?crossorigin ?poster ?preload ?autoplay ?playsinline ?loop ?muted
-    ?controls ?width ?height 
+    ?controls ?width ?height
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -8375,7 +8375,7 @@ module Video = struct
     ?style ?css_module ?children () =
     make ?aria
       ?src ?crossorigin ?poster ?preload ?autoplay ?playsinline ?loop ?muted
-      ?controls ?width ?height 
+      ?controls ?width ?height
       ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
       ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
       ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -8384,7 +8384,7 @@ module Video = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style ?css_module
       (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
@@ -8443,7 +8443,7 @@ module Fragment = struct
   type (+'a, +'b) child =
     ([< 'b Html_Node.content > `fragment ] as 'a) Html_Node.t
 
-  let make (children:('a, 'b) child array): ('a, 'b) child = 
+  let make (children:('a, 'b) child array): ('a, 'b) child =
     Declaredom.make "fragment"
       (Js.Obj.empty () |> Obj.magic)
       (children |> Js.Array.map Html_Node.to_node)

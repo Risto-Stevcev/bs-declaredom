@@ -124,7 +124,7 @@ module Range = struct
       "aspect-ratio" ^ compareToJs c ^ string_of_int a ^"/"^ string_of_int b
     | `color color ->
       "color" ^ compareToJs c ^ string_of_int color
-    | `color_index color_index -> 
+    | `color_index color_index ->
       "color-index" ^ compareToJs c ^ string_of_int color_index
     | `monochrome monochrome ->
       "monochrome" ^ compareToJs c ^ string_of_int monochrome
@@ -208,7 +208,7 @@ module Informative = struct
   module MediaFeatureGroup = struct
     (** {{: https://www.w3.org/TR/mediaqueries-4/#mf-dimensions } Dimensions} *)
     type dimension =
-      [ 
+      [
       | Range.width | Range.height | Range.aspect_ratio
       | Discrete.orientation
       ]
@@ -287,7 +287,7 @@ module Informative = struct
       | MediaType.tty | MediaType.tv
       ]
 
-    type t = [ continuous | paged | visual | audio | speech | tactile ] 
+    type t = [ continuous | paged | visual | audio | speech | tactile ]
   end
 end
 
@@ -335,7 +335,7 @@ module Fn = struct
   let to_query (condition: MediaCondition.t): MediaQuery.t =
     (condition :> MediaQuery.t)
 
-  let media conditions = conditions |> List.map query 
+  let media conditions = conditions |> List.map query
 
   let modifier modifier: MediaQuery.t = `modifier modifier
 

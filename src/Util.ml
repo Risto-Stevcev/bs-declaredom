@@ -7,7 +7,7 @@ let single_whitespace = Js.String.replaceByRe [%re "/\\s+/g"] " "
 let combine_styles styles =
   let styles' =
     styles
-    |> Js.Array.filter Js.Option.isSome 
+    |> Js.Array.filter Js.Option.isSome
     |> Js.Array.map Js.Option.getExn
     |> Js.Array.joinWith " "
   in

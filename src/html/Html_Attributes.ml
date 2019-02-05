@@ -131,7 +131,7 @@ end
 
 
 module Dirname = struct
-  type t = [ `ltr | `rtl ] [@@bs.deriving jsConverter] 
+  type t = [ `ltr | `rtl ] [@@bs.deriving jsConverter]
 
   let show = tToJs
 end

@@ -27,7 +27,7 @@ module Attribute = struct
     | `starts_with of string * string | `ends_with of string * string
     ]
 
-  let show: t -> string = function 
+  let show: t -> string = function
   | `has                  name -> "["^ name ^"]"
   | `equals      (name, value) -> "["^ name ^"=\""^  value ^"\"]"
   | `starts_with (name, value) -> "["^ name ^"^=\""^ value ^"\"]"
@@ -61,8 +61,8 @@ end
 
 module PseudoClass = struct
   (**
-   {{: https://www.w3.org/TR/selectors-3/#the-user-action-pseudo-classes-hover-act } User Action}, 
-   {{: https://www.w3.org/TR/selectors-3/#target-pseudo } Target}, 
+   {{: https://www.w3.org/TR/selectors-3/#the-user-action-pseudo-classes-hover-act } User Action},
+   {{: https://www.w3.org/TR/selectors-3/#target-pseudo } Target},
    {{: https://www.w3.org/TR/selectors-3/#lang-pseudo } Lang}, and
    {{: https://www.w3.org/TR/selectors-3/#UIstates } UI State} Pseudo-Classes
    *)
@@ -122,16 +122,16 @@ end
 
 module type Selector = sig
   (**
-   This module is for all CSS selectors. In addition to including all the 
+   This module is for all CSS selectors. In addition to including all the
    variants from {!Attribute.t}, {!Target.t}, {!PseudoClass.t},
-   {!StructuralPseudoClass.t}, and {!PseudoElement.t}, it includes the 
-   {{: https://www.w3.org/TR/selectors-3/#combinators } combinators}, 
-   {{: https://www.w3.org/TR/selectors-3/#negation } negation pseudo-class}, 
+   {!StructuralPseudoClass.t}, and {!PseudoElement.t}, it includes the
+   {{: https://www.w3.org/TR/selectors-3/#combinators } combinators},
+   {{: https://www.w3.org/TR/selectors-3/#negation } negation pseudo-class},
    {{: https://www.w3.org/TR/selectors-3/#the-link-pseudo-classes-link-and-visited } link pseudo-classes}, and the
    {{: https://www.w3.org/TR/selectors-3/#the-user-action-pseudo-classes-hover-act } hover pseudo-class}.
 
-   The {!Anchor} and {!Focusable} modules are for the special pseudo-classes 
-   [:link], [:visited], and [:hover], which match only specific selectors for 
+   The {!Anchor} and {!Focusable} modules are for the special pseudo-classes
+   [:link], [:visited], and [:hover], which match only specific selectors for
    a subset of elements.
    *)
 
@@ -143,7 +143,7 @@ module type Selector = sig
     | `not of t | `not' of t * t
     | `attribute of t * Attribute.t
     | `pseudo_class of t * PseudoClass.t
-    | `structural_pseudo_class of t * StructuralPseudoClass.t 
+    | `structural_pseudo_class of t * StructuralPseudoClass.t
     | `pseudo_element of t * PseudoElement.t
     | `descendant of t list | `child    of t list
     | `sibling    of t list | `adjacent of t list
@@ -156,7 +156,7 @@ end
 module type Anchor = sig
   (**
    Represents a selector that targets an anchor element. This is used for the
-   {{: https://www.w3.org/TR/selectors-3/#the-link-pseudo-classes-link-and-visited } link pseudo-classes} ([:link] and [:visited]), which only work on 
+   {{: https://www.w3.org/TR/selectors-3/#the-link-pseudo-classes-link-and-visited } link pseudo-classes} ([:link] and [:visited]), which only work on
    {{: https://www.w3.org/TR/html52/textlevel-semantics.html#the-a-element } anchor} tags
    *)
 
@@ -170,9 +170,9 @@ module type Focusable = sig
    This module captures selectors that target focusable elements.
 
    Elements that are focusable are either:
-    - Defined to have a [focus()] method in the 
+    - Defined to have a [focus()] method in the
       {{: https://www.w3.org/TR/DOM-Level-2-HTML/html.html} DOM Level 2} spec
-    - Any element with a [tabindex] 
+    - Any element with a [tabindex]
     - Any element that is [contenteditable]
    *)
 
@@ -191,7 +191,7 @@ module rec Selector: Selector with type anchor    = Anchor.t
     | `not of t | `not' of t * t
     | `attribute of t * Attribute.t
     | `pseudo_class of t * PseudoClass.t
-    | `structural_pseudo_class of t * StructuralPseudoClass.t 
+    | `structural_pseudo_class of t * StructuralPseudoClass.t
     | `pseudo_element of t * PseudoElement.t
     | `descendant of t list | `child    of t list
     | `sibling    of t list | `adjacent of t list
@@ -209,7 +209,7 @@ module rec Selector: Selector with type anchor    = Anchor.t
 
   | #PseudoClass.t as pseudo_class ->
     PseudoClass.show pseudo_class
-  
+
   | #StructuralPseudoClass.t as pseudo_class ->
     StructuralPseudoClass.show pseudo_class
 
@@ -225,7 +225,7 @@ module rec Selector: Selector with type anchor    = Anchor.t
   | `pseudo_element (s, attribute) ->
     show s ^ PseudoElement.show attribute
   | `not' (s1, s2) -> show s1 ^ show s2
- 
+
   | ( `descendant _ | `child _ | `sibling _ | `adjacent _ ) as combinator ->
     show_combinator combinator
 

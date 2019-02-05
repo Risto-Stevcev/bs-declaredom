@@ -91,7 +91,7 @@ module Azimuth = struct
     | #Css_Value.Angle.t as angle ->
       Css_Value.Angle.show angle
     | `behind' -> "behind"
-    | `behind value -> 
+    | `behind value ->
       "behind " ^ valueToJs value
     | #value as value ->
       valueToJs value
@@ -151,7 +151,7 @@ module Background = struct
           Css_Value.Background.Attachment.t option *
           Css_Value.Background.Position.t option ]
 
-    let show: t -> string = function 
+    let show: t -> string = function
     | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
     | `background (color, image, repeat, attachment, position) ->
@@ -497,7 +497,7 @@ module Clear = struct
     let show: t -> string = function
     | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | #value as value -> 
+    | #value as value ->
       valueToJs value
   end
 
@@ -827,7 +827,7 @@ module Float = struct
     let show: t -> string = function
     | #Css_Value.Global.t as value ->
       Css_Value.Global.show value
-    | #value as value -> 
+    | #value as value ->
       valueToJs value
   end
 
@@ -1606,7 +1606,7 @@ module TextAlign = struct
       [ `left | `right | `center | `justify ] [@@bs.deriving jsConverter]
 
     type t = [ Css_Value.Global.t | value ]
-     
+
     let show: t -> string = function
     | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
@@ -1627,7 +1627,7 @@ module TextDecoration = struct
       | `blink ] [@@bs.deriving jsConverter]
 
     type t = [ Css_Value.Global.t | value ]
- 
+
     let show: t -> string = function
     | #Css_Value.Global.t as global ->
       Css_Value.Global.show global

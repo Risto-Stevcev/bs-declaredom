@@ -5,7 +5,7 @@
  *)
 
 (* TODO: add all encodings *)
-type t = 
+type t =
   [
   | `big5 | `euc_kr | `iso_8859_1 | `iso_8859_2 | `iso_8859_3 | `iso_8859_4
   | `iso_8859_5 | `iso_8859_6 | `iso_8859_7 | `iso_8859_8 | `koi8_r

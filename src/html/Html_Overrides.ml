@@ -33,7 +33,7 @@ module Div = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.Override.flex Css_Style.t option)
     ?(css_module:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
@@ -47,7 +47,7 @@ module Div = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
       (Internal.Node.to_any children)
@@ -62,7 +62,7 @@ module Div = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.Override.inline_flex Css_Style.t option)
     ?(css_module:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
@@ -131,7 +131,7 @@ module Div = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
@@ -156,7 +156,7 @@ module Div = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
@@ -181,7 +181,7 @@ module Div = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
   end
 end
@@ -197,7 +197,7 @@ module Section = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.Override.flex Css_Style.t option)
     ?(css_module:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
@@ -211,7 +211,7 @@ module Section = struct
       ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style:(Belt.Option.map style Internal.Style.to_any)
       ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
       (Internal.Node.to_any children)
@@ -226,7 +226,7 @@ module Section = struct
     ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll 
+    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
     ?(style:Css_Property.Override.inline_flex Css_Style.t option)
     ?(css_module:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
@@ -295,7 +295,7 @@ module Section = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
@@ -320,7 +320,7 @@ module Section = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 
 
@@ -345,7 +345,7 @@ module Section = struct
         ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
         ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
         ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        ?style ?css_module 
+        ?style ?css_module
         (Belt.Option.mapWithDefault children [||] Js.List.toVector)
   end
 end
