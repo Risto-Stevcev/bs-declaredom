@@ -1,6 +1,5 @@
 open BsTape
 open Test
-open Css_Properties
 ;;
 
 test ~name:"@media functions" @@ fun t -> begin
@@ -30,6 +29,30 @@ test ~name:"@media functions" @@ fun t -> begin
         Css_Style.flexbox ~color:`blue ()
     ]
   in
-  Js.log (Css_Stylesheet.show x);
+    
+  t |> T.equal (Css_Stylesheet.show x) @@
+    "@charset utf-8;\n\n"^
+    "@media print and (width: 1024px) {\n"^
+    "  .foo {\n"^
+    "    background-color: blue;\n"^
+    "    color: red;\n"^
+    "  }\n"^
+    "}\n"^
+    ".bar {\n"^
+    "  color: red;\n"^
+    "}\n"^
+    ".display-override-test {\n"^
+    "  color: blue;\n"^
+    "  display: inline-block;\n"^
+    "}\n"^
+    ".m44dbac8b5208399177c6942a0e448d10 {\n"^
+    "  color: red;\n"^
+    "  top: 40px;\n"^
+    "  z-index: 3;\n"^
+    "  position: fixed;\n"^
+    "}\n"^
+    ".ma7988c6e19cdd470118f972110f5a9b4 {\n"^
+    "  color: blue;\n"^
+    "}";
   t |> T.end_
 end; 

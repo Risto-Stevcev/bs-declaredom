@@ -1,20 +1,15 @@
 {
   "name": "@ristostevcev/bs-declaredom",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "sources": [{
-    "dir" : "src"
-  }, {
-    "dir": "src/css"
-  }, {
-    "dir": "src/nodes"
+    "dir" : "src",
+		"subdirs": true
   }, {
     "dir": "example",
     "type": "dev"
   }, {
     "dir": "test",
-    "type": "dev"
-  }, {
-    "dir": "test/nodes",
+		"subdirs": true,
     "type": "dev"
   }],
   "package-specs": {

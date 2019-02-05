@@ -8,6 +8,7 @@ module CharsetRule = struct
 	let show (`charset charset: t): string = "@charset "^ Css_Charset.show charset
 end
 
+
 module FontFaceRule = struct
   (** {{: https://www.w3.org/TR/css-fonts-3/#font-face-rule } Font-face rule} *)
 
@@ -21,6 +22,7 @@ module FontFaceRule = struct
     "  src: "^ src ^"\n"^
     "}"
 end
+
 
 module PageRule = struct
   (** {{: https://www.w3.org/TR/CSS22/page.html#page-box } The \@page rule} *)
@@ -52,6 +54,7 @@ module PageRule = struct
       Css_Property.show_properties ~indent:1 properties ^
     "}"
 end
+
 
 module MediaRule = struct
   type t =
@@ -105,6 +108,7 @@ module MediaRule = struct
     "}"
 end
 
+
 module StyleRule = struct
   type t = [ `style of Css_Selector.t * Css_Property.display Css_Style.t ]
 
@@ -124,6 +128,7 @@ module StyleRule = struct
       Css_Property.show_properties ~indent:(indent + 1) properties ^"\n"^
     indent' ^"}"
 end
+
 
 module CssModuleRule = struct
   type t = [ `css_module of Css_Property.display Css_Module.t ]
@@ -156,6 +161,7 @@ module Rule = struct
     PageRule.show page_rule
 end
 
+
 let media_print ?only ?condition selector properties: Rule.t =
 	(MediaRule.print ?only ?condition selector properties :> Rule.t)
 and media_screen ?only ?condition selector properties: Rule.t =
@@ -172,6 +178,7 @@ and page ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () :> Rule.t)
 
 type t = CharsetRule.t * Rule.t list
+
 
 let make charset rules: t =
   (CharsetRule.make charset, rules |. Belt.List.map (fun e -> (e :> Rule.t)))

@@ -1,16 +1,18 @@
 {
   "name": "@ristostevcev/bs-declaredom",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
+    "test": "node lib/js/test/Test.bs.js | tap-spec",
+    "test:html": "node lib/js/test/Test_Html.bs.js | tap-spec",
     "test:html:node": "node lib/js/test/nodes/Test_Html_Node.bs.js | tap-spec",
-    "test:css": "node lib/js/test/TestCss.bs.js | tap-spec",
-    "test:css:media": "node lib/js/test/Test_Css_Media.bs.js | tap-spec",
-    "test:css:property": "node lib/js/test/Test_Css_Property.bs.js | tap-spec",
-    "test:css:stylesheet": "node lib/js/test/Test_Css_Stylesheet.bs.js | tap-spec",
-    "test": "npm run test:node && npm run test:css && npm run test:css:media && npm run test:css:property && npm run test:css:stylesheet",
+    "test:css": "node lib/js/test/Test_Css.bs.js | tap-spec",
+    "test:css:media": "node lib/js/test/css/Test_Css_Media.bs.js | tap-spec",
+    "test:css:property": "node lib/js/test/css/Test_Css_Property.bs.js | tap-spec",
+    "test:css:selector": "node lib/js/test/css/Test_Css_Selector.bs.js | tap-spec",
+    "test:css:stylesheet": "node lib/js/test/css/Test_Css_Stylesheet.bs.js | tap-spec",
     "graph:dot": "bs-dependency-graph | json-to-dot > graph.dot",
     "graph:image": "dot -Tpng graph.dot -o graph.png",
     "graph:view": "feh graph.png",
@@ -40,7 +42,6 @@
     "@webcomponents/webcomponentsjs": "^2.2.5",
     "bs-webapi": "^0.13.2",
     "callbag-element": "^1.0.0",
-    "callbag-html": "^0.1.0",
     "declaredom": "^1.3.1"
   }
 }
