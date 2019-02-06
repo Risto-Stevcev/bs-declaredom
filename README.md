@@ -1,7 +1,8 @@
 # bs-declaredom
 
-[![Latest release](https://img.shields.io/github/release/Risto-Stevcev/bs-declaredom.svg?style=flat)](https://github.com/Risto-Stevcev/bs-declaredom/releases)
 [![Build Status](https://travis-ci.org/Risto-Stevcev/bs-declaredom.svg?branch=master)](https://travis-ci.org/Risto-Stevcev/bs-declaredom)
+[![Latest release](https://img.shields.io/npm/v/@ristostevcev/bs-declaredom.svg?style=flat)](https://www.npmjs.com/package/@ristostevcev/bs-declaredom)
+[![License](https://img.shields.io/npm/l/@ristostevcev/bs-declaredom.svg?style=flat)](https://github.com/Risto-Stevcev/bs-declaredom/blob/master/LICENSE)
 
 Strongly typed declarative markup for the DOM and CSS
 

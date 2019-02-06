@@ -1,5 +1,12 @@
 {
   "name": "@ristostevcev/bs-declaredom",
+  "description": "Strongly typed declarative markup for the DOM and CSS",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Risto-Stevcev/bs-declaredom.git"
+  },
+  "homepage": "https://github.com/Risto-Stevcev/bs-declaredom",
+  "bugs": "https://github.com/Risto-Stevcev/bs-declaredom/issues",
   "version": "0.1.0",
   "scripts": {
     "clean": "bsb -clean-world",
@@ -23,10 +30,10 @@
     "example": "parcel example/example.html"
   },
   "keywords": [
-    "BuckleScript"
+    "BuckleScript", "reason"
   ],
   "author": "Risto Stevcev",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "@ristostevcev/bs-odoc": "^1.3.0",
     "@ristostevcev/bs-tape": "^0.1.0",
