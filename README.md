@@ -140,12 +140,15 @@ let _ = f' custom_foo
 
 ## CSS Modules
 
-
 CSS modules deal with a lot of the pitfalls of CSS in a large scale app. Provide one CSS module per component and no longer worry about precedence rules, or enforcing conventions like BEM, or applying silly hacks and refactoring if the dev team painted themselves into a corner. Keep it simple.
 ```ocaml
 let my_title = Css.Module.make @@
   Css.block ~color:`coral ~font_size:(`em 24.) ()
 ```
+
+Instead of mucking around with inheritance using CSS's inheritance model, you can build up 
+abstractions using composition instead by merging rulesets, which is more explicit and easier 
+to understand and predict.
 
 You can then apply these to your elements, but make sure you serve the CSS module in a stylesheet (inline or served as a CSS file)
 ```ocaml
