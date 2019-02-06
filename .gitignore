@@ -28,5 +28,4 @@ node_modules
 *.bs.js
 .cache
 dist/
-docs/
 Session.vim
