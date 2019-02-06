@@ -18,9 +18,8 @@
     "graph:image": "dot -Tpng graph.dot -o graph.png",
     "graph:view": "feh graph.png",
     "graph": "npm run graph:dot && npm run graph:image",
-    "docs": "bs-odoc && npm run docs:index && npm run docs:redirect",
+    "docs": "bs-odoc && npm run docs:index",
     "docs:index": "./index-docs.sh > ./docs/bs-declaredom/index.html",
-    "docs:redirect": "cp redirect.html ./docs/index.html",
     "example": "parcel example/example.html"
   },
   "keywords": [
