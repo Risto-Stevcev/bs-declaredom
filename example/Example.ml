@@ -50,15 +50,6 @@ let body =
 let _ = Webapi.Dom.Element.appendChild style body
 
 
-(* Create a clock from the custom callbag element *)
-let clock =
-  let open Html in
-  let open CallbagBasics in
-  interval 1000
-  |> map (fun _ -> span [|text @@ Js.Date.toString (Js.Date.make ())|])
-  |> CallbagElement.make
-
-
 (* Make functions that only take a specific kind of element or element group *)
 let f (_: Html.Node.span Html.Node.t): unit = ()
 let _ = let open Html in
@@ -73,7 +64,6 @@ let _: [`callbag | `foo] Html.Nodes.Div.child array =
     span ~css_module:Modules.title [|text "The time is:"|];
     br ();
     custom_foo;
-    clock;
   |]
 
 (* You can also typecheck based on your custom type *)
@@ -110,9 +100,6 @@ let example =
       |];
       br ();
     |];
-    span ~css_module:Modules.title [|text "The time is:"|];
-    br ();
-    clock;
   |]
 
 let _ =

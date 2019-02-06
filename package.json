@@ -26,7 +26,6 @@
   "author": "Risto Stevcev",
   "license": "MIT",
   "devDependencies": {
-    "@ristostevcev/bs-callbag-basics": "^1.2.0",
     "@ristostevcev/bs-odoc": "^1.3.0",
     "@ristostevcev/bs-tape": "^0.1.0",
     "bs-dependency-graph": "^2.0.0",
@@ -37,11 +36,7 @@
     "tap-spec": "^5.0.0"
   },
   "dependencies": {
-    "@ristostevcev/bs-callbag": "^1.1.0",
-    "@ristostevcev/bs-callbag-from-event": "^1.2.0",
-    "@webcomponents/webcomponentsjs": "^2.2.5",
     "bs-webapi": "^0.13.2",
-    "callbag-element": "^1.0.0",
     "declaredom": "^1.3.1"
   }
 }
