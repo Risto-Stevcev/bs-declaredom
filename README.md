@@ -29,7 +29,7 @@ using `Html.Node.to_node` if it's a text node or document fragment.
 ## Documentation
 
 See the [docs](https://risto-stevcev.github.io/bs-declaredom/bs-declaredom/) and 
-[dependency graph](https://raw.githubusercontent.com/Risto-Stevcev/bs-declaredom/master/graph.png
+[dependency graph](https://raw.githubusercontent.com/Risto-Stevcev/bs-declaredom/master/graph.png)
 
 
 ## JSX (Reason) or Ocaml
