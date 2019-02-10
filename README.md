@@ -21,7 +21,8 @@ The examples in this README can be found in the [example/](https://github.com/Ri
 ## Introduction
 
 This library provides sound static typing guarantees for HTML and CSS. It ensures that you
-write correct HTML and CSS in your app with good conventions like CSS modules.
+write correct HTML and CSS in your app with good conventions like CSS modules. This library is
+based off of and fully compliant with the HTML and CSS specs (see docs).
 
 The HTML that's generated are actual DOM nodes that can be converted into [bs-webapi-incubator's](https://github.com/reasonml-community/bs-webapi-incubator/) `Dom.element` types using `Html.Node.to_element`, or to a `Dom.node` 
 using `Html.Node.to_node` if it's a text node or document fragment.
