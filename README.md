@@ -176,6 +176,23 @@ strong, sound, and flexible. Speficially, it's Ocaml's module system and polymor
 variants that make this library possible.
 
 
+## Differences from tyxml
+
+Declaredom take a different approach to tyxml over a few area:
+
+- Declaredom supports CSS and CSS modules. Since HTML and CSS are
+  interconnected (ex. HTML elements have default styles), it makes sense that 
+  the static analysis should be for both so that it's well typed.
+- Declaredom's children are an `array`, tyxml uses `list`s. The reasoning is 
+  that you'll most likely work with `array`s because it's JSON and the frontend 
+  usually fetches it's data from endpoints. 
+  ReasonML's JSX uses `list`s, so if you want to use `list` instead you can 
+  use the JSX version.
+- Declaredom uses optional arguments and tyxml takes a list of attributes 
+  instead. It's to avoid the possibility of accidentally duplicating attributes 
+  (like multiple `href` or `value` attributes).
+
+
 ## License
 
 See LICENSE
