@@ -1,4 +1,4 @@
-open Html.Jsx;
+open Html_Jsx;
 
 /* Use either JSX or vanilla Ocaml */
 let foo: Html.Node.t([> Html.Node.div]) =

@@ -8,12 +8,19 @@
   "homepage": "https://github.com/Risto-Stevcev/bs-declaredom",
   "bugs": "https://github.com/Risto-Stevcev/bs-declaredom/issues",
   "version": "0.1.1",
+  "sideEffects": false,
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "pretest": "bsb -make-world",
-    "test": "node lib/js/test/Test_All.bs.js | tap-spec",
+    "bundle:webpack": "webpack",
+    "bundle:parcel": "parcel build lib/es6/example/Example.bs.js",
+    "bundle:rollup": "rollup lib/es6/example/Example.bs.js --file dist/bundle.rollup.js --output.name foo --format umd",
+    "bundle": "npm run bundle:webpack && npm run bundle:parcel && npm run bundle:rollup",
+    "test": "npm run bundle && npm run test:unit && npm run test:tree-shaking",
+    "test:unit": "node -r esm lib/es6/test/Test_All.bs.js | tap-spec",
+    "test:tree-shaking": "bats ./test-tree-shaking.bats | tap-spec",
     "test:html": "node lib/js/test/Test_Html.bs.js | tap-spec",
     "test:html:node": "node lib/js/test/nodes/Test_Html_Node.bs.js | tap-spec",
     "test:css": "node lib/js/test/Test_Css.bs.js | tap-spec",
@@ -30,22 +37,32 @@
     "example": "parcel example/example.html"
   },
   "keywords": [
-    "BuckleScript", "reason"
+    "BuckleScript",
+    "reason"
   ],
   "author": "Risto Stevcev",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "@ristostevcev/bs-odoc": "^1.3.0",
-    "@ristostevcev/bs-tape": "^0.1.0",
-    "bs-dependency-graph": "^2.0.0",
-    "bs-platform": "^4.0.3",
-    "jsdom": "^13.2.0",
-    "json-to-dot": "^1.1.0",
-    "parcel-bundler": "^1.11.0",
-    "tap-spec": "^5.0.0"
+    "@babel/core": "7.3.3",
+    "@babel/preset-env": "7.3.1",
+    "@ristostevcev/bs-odoc": "1.3.0",
+    "@ristostevcev/bs-tape": "0.2.0",
+    "babel-loader": "8.0.5",
+    "bats": "1.1.0",
+    "bs-dependency-graph": "2.1.0",
+    "bs-platform": "4.0.3",
+    "core-js": "3",
+    "esm": "3.2.5",
+    "jsdom": "13.2.0",
+    "json-to-dot": "1.1.0",
+    "parcel-bundler": "1.11.0",
+    "rollup": "1.1.2",
+    "tap-spec": "5.0.0",
+    "webpack": "4.29.4",
+    "webpack-cli": "3.2.3"
   },
   "dependencies": {
-    "bs-webapi": "^0.13.2",
-    "declaredom": "^1.3.1"
+    "bs-webapi": "0.13.2",
+    "declaredom": "2.0.0"
   }
 }

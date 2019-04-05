@@ -3,17 +3,17 @@
   "version": "0.1.1",
   "sources": [{
     "dir" : "src",
-		"subdirs": true
+    "subdirs": true
   }, {
     "dir": "example",
     "type": "dev"
   }, {
     "dir": "test",
-		"subdirs": true,
+    "subdirs": true,
     "type": "dev"
   }],
   "package-specs": {
-    "module": "commonjs",
+    "module": "es6",
     "in-source": false
   },
   "suffix": ".bs.js",
