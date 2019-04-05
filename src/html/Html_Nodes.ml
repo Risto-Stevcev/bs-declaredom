@@ -1,7 +1,9 @@
+(* Use this instead of Css_Style.t for tree-shaking *)
+type 'a style = 'a Css_Property.t Js.Dict.t
+
 module Internal = struct
   external make: Dom.node -> _ Html_Node.t = "%identity"
 end
-
 
 module A = struct
   type +'a t = ([> Html_Node.a ] as 'a) Html_Node.t
@@ -56,7 +58,7 @@ module A = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -128,7 +130,7 @@ module Abbr = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -193,7 +195,7 @@ module Address = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -364,7 +366,7 @@ module Article = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -436,7 +438,7 @@ module Aside = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -610,7 +612,7 @@ module B = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -742,7 +744,7 @@ module Bdi = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -807,7 +809,7 @@ module Bdo = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -877,7 +879,7 @@ module Blockquote = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -970,7 +972,7 @@ module Body = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1115,7 +1117,7 @@ module Button = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline_block Css_Style.t option)
+    ?(style:Css_Property.inline_block style option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1196,7 +1198,7 @@ module Canvas = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1263,7 +1265,7 @@ module Caption = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_caption Css_Style.t option)
+    ?(style:Css_Property.table_caption style option)
     ?(css_module:Css_Property.table_caption Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1329,7 +1331,7 @@ module Cite = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1395,7 +1397,7 @@ module Code = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1459,7 +1461,7 @@ module Col = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
     =
@@ -1531,7 +1533,7 @@ module Colgroup = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_column_group Css_Style.t option)
+    ?(style:Css_Property.table_column_group style option)
     ?(css_module:Css_Property.table_column_group Css_Module.t option)
     (children:child array): _ t
     =
@@ -1602,7 +1604,7 @@ module Data = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1732,7 +1734,7 @@ module Dd = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1807,7 +1809,7 @@ module Del = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1881,7 +1883,7 @@ module Details = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -1948,7 +1950,7 @@ module Dfn = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2024,7 +2026,7 @@ module Dialog = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2091,7 +2093,7 @@ module Div = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2163,7 +2165,7 @@ module Dl = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
     =
@@ -2230,7 +2232,7 @@ module Dt = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2296,7 +2298,7 @@ module Em = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2372,7 +2374,7 @@ module Embed = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.replaced_inline Css_Style.t option)
+    ?(style:Css_Property.replaced_inline style option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
     =
@@ -2453,7 +2455,7 @@ module Fieldset = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2526,7 +2528,7 @@ module Figcaption = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2597,7 +2599,7 @@ module Figure = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2667,7 +2669,7 @@ module Footer = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2767,7 +2769,7 @@ module Form = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2841,7 +2843,7 @@ module H1 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2911,7 +2913,7 @@ module H2 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -2981,7 +2983,7 @@ module H3 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3051,7 +3053,7 @@ module H4 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3121,7 +3123,7 @@ module H5 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3191,7 +3193,7 @@ module H6 = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3323,7 +3325,7 @@ module Header = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3391,7 +3393,7 @@ module Hgroup = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
     =
@@ -3458,7 +3460,7 @@ module Hr = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (): _ t
     =
@@ -3592,7 +3594,7 @@ module I = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -3705,7 +3707,7 @@ module Iframe = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.replaced_inline Css_Style.t option)
+    ?(style:Css_Property.replaced_inline style option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
     =
@@ -3809,7 +3811,7 @@ module Img = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.replaced_inline Css_Style.t option)
+    ?(style:Css_Property.replaced_inline style option)
     ?(css_module:Css_Property.replaced_inline Css_Module.t option)
     (): _ t
     =
@@ -3968,7 +3970,7 @@ module Input = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
     =
@@ -4055,7 +4057,7 @@ module Ins = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4122,7 +4124,7 @@ module Kbd = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4192,7 +4194,7 @@ module Label = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4261,7 +4263,7 @@ module Legend = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4335,7 +4337,7 @@ module Li = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4479,7 +4481,7 @@ module Main = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4553,7 +4555,7 @@ module Map = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4620,7 +4622,7 @@ module Mark = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4784,7 +4786,7 @@ module Meter = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline_block Css_Style.t option)
+    ?(style:Css_Property.inline_block style option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -4851,7 +4853,7 @@ module Nav = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline_block Css_Style.t option)
+    ?(style:Css_Property.inline_block style option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5009,7 +5011,7 @@ module Object = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5114,7 +5116,7 @@ module Ol = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5197,7 +5199,7 @@ module Optgroup = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5285,7 +5287,7 @@ module Option = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5364,7 +5366,7 @@ module Output = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5433,7 +5435,7 @@ module P = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5572,7 +5574,7 @@ module Picture = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5637,7 +5639,7 @@ module Pre = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5712,7 +5714,7 @@ module Progress = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline_block Css_Style.t option)
+    ?(style:Css_Property.inline_block style option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5783,7 +5785,7 @@ module Q = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5850,7 +5852,7 @@ module Rb = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.ruby_base Css_Style.t option)
+    ?(style:Css_Property.ruby_base style option)
     ?(css_module:Css_Property.ruby_base Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -5977,7 +5979,7 @@ module Rt = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.ruby_text Css_Style.t option)
+    ?(style:Css_Property.ruby_text style option)
     ?(css_module:Css_Property.ruby_text Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6045,7 +6047,7 @@ module Rtc = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.ruby_text_container Css_Style.t option)
+    ?(style:Css_Property.ruby_text_container style option)
     ?(css_module:Css_Property.ruby_text_container Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6113,7 +6115,7 @@ module Ruby = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.ruby Css_Style.t option)
+    ?(style:Css_Property.ruby style option)
     ?(css_module:Css_Property.ruby Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6179,7 +6181,7 @@ module S = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6245,7 +6247,7 @@ module Samp = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6477,7 +6479,7 @@ module Section = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6572,7 +6574,7 @@ module Select = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline_block Css_Style.t option)
+    ?(style:Css_Property.inline_block style option)
     ?(css_module:Css_Property.inline_block Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6708,7 +6710,7 @@ module Small = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6783,7 +6785,7 @@ module Source = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (): _ t
     =
@@ -6852,7 +6854,7 @@ module Span = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -6918,7 +6920,7 @@ module Strong = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7052,7 +7054,7 @@ module Sub = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7119,7 +7121,7 @@ module Summary = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7185,7 +7187,7 @@ module Sup = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7254,7 +7256,7 @@ module Table = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table Css_Style.t option)
+    ?(style:Css_Property.table style option)
     ?(css_module:Css_Property.table Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7322,7 +7324,7 @@ module Tbody = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_row_group Css_Style.t option)
+    ?(style:Css_Property.table_row_group style option)
     ?(css_module:Css_Property.table_row_group Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7394,7 +7396,7 @@ module Td = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_cell Css_Style.t option)
+    ?(style:Css_Property.table_cell style option)
     ?(css_module:Css_Property.table_cell Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7527,7 +7529,7 @@ module Textarea = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:child array): _ t
     =
@@ -7602,7 +7604,7 @@ module Tfoot = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_footer_group Css_Style.t option)
+    ?(style:Css_Property.table_footer_group style option)
     ?(css_module:Css_Property.table_footer_group Css_Module.t option)
     (children:child array): _ t
     =
@@ -7688,7 +7690,7 @@ module Th = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_cell Css_Style.t option)
+    ?(style:Css_Property.table_cell style option)
     ?(css_module:Css_Property.table_cell Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7759,7 +7761,7 @@ module Thead = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_header_group Css_Style.t option)
+    ?(style:Css_Property.table_header_group style option)
     ?(css_module:Css_Property.table_header_group Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7833,7 +7835,7 @@ module Time = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -7961,7 +7963,7 @@ module Tr = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.table_row Css_Style.t option)
+    ?(style:Css_Property.table_row style option)
     ?(css_module:Css_Property.table_row Css_Module.t option)
     (children:child array): _ t
     =
@@ -8088,7 +8090,7 @@ module U = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -8167,7 +8169,7 @@ module Ul = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block Css_Style.t option)
+    ?(style:Css_Property.block style option)
     ?(css_module:Css_Property.block Css_Module.t option)
     (children:child array): _ t
     =
@@ -8233,7 +8235,7 @@ module Var = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =
@@ -8333,7 +8335,7 @@ module Video = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.inline Css_Style.t option)
+    ?(style:Css_Property.inline style option)
     ?(css_module:Css_Property.inline Css_Module.t option)
     (children:_ child array): _ t
     =

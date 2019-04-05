@@ -1,12 +1,15 @@
 (* TODO: add grid layout *)
 
+(* Use this instead of Css_Style.t for tree-shaking *)
+type 'a style = 'a Css_Property.t Js.Dict.t
+
 module Internal = struct
   (* Erases type information *)
 
   module Style = struct
     external to_any:
-      [< Css_Property.display] Css_Style.t ->
-      [> Css_Property.any] Css_Style.t = "%identity"
+      [< Css_Property.display] style ->
+      [> Css_Property.any] style = "%identity"
   end
 
   module CssModule = struct
@@ -34,7 +37,7 @@ module Div = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.flex Css_Style.t option)
+    ?(style:Css_Property.Override.flex style option)
     ?(css_module:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Div.make
@@ -63,7 +66,7 @@ module Div = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.inline_flex Css_Style.t option)
+    ?(style:Css_Property.Override.inline_flex style option)
     ?(css_module:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Div.make ?aria
@@ -91,7 +94,7 @@ module Div = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.inline_block Css_Style.t option)
+    ?(style:Css_Property.Override.inline_block style option)
     ?(css_module:Css_Property.Override.inline_block Css_Module.t option)
     children =
     Html_Nodes.Div.make ?aria
@@ -198,7 +201,7 @@ module Section = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.flex Css_Style.t option)
+    ?(style:Css_Property.Override.flex style option)
     ?(css_module:Css_Property.Override.flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Section.make
@@ -227,7 +230,7 @@ module Section = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.inline_flex Css_Style.t option)
+    ?(style:Css_Property.Override.inline_flex style option)
     ?(css_module:Css_Property.Override.inline_flex Css_Module.t option)
     (children:_ Html_Node.flex_item Html_Node.t array) =
     Html_Nodes.Section.make ?aria
@@ -255,7 +258,7 @@ module Section = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.inline_block Css_Style.t option)
+    ?(style:Css_Property.Override.inline_block style option)
     ?(css_module:Css_Property.Override.inline_block Css_Module.t option)
     children =
     Html_Nodes.Section.make ?aria
@@ -362,7 +365,7 @@ module Span = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.Override.inline_block Css_Style.t option)
+    ?(style:Css_Property.Override.inline_block style option)
     ?(css_module:Css_Property.Override.inline_block Css_Module.t option)
     children =
     Html_Nodes.Span.make ?aria

@@ -1580,7 +1580,7 @@ module Global = struct
       ?itemscope:(Belt.Option.map itemscope Util.string_of_unit)
       ?itemtype
       ?lang ?nonce ?slot ?spellcheck
-      ?style:(Belt.Option.map style Css_Style.show_dict)
+      ?style:(Belt.Option.map style Css_Property.show_dict)
       ?tabindex:(Belt.Option.map tabindex string_of_int)
       ?title
       ?translate:(Belt.Option.map translate Value.translateToJs)

@@ -2,10 +2,6 @@ open Css_Properties
 
 type 'a t = 'a Css_Property.t Js.Dict.t
 
-let show_dict (styles: 'a t): string Js.Dict.t =
-  styles
-  |> Js.Dict.map (fun [@bs] e -> Css_Property.show e)
-
 let to_display styles: Css_Property.display t =
   styles
   |> Js.Dict.map (fun [@bs] e -> (e :> Css_Property.display Css_Property.t))

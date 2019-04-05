@@ -1,5 +1,4 @@
 type 'a t = 'a Css_Property.t Js.Dict.t
-val show_dict : [< Css_Property.display ] t -> string Js.Dict.t
 val to_display :
   [< Css_Property.display ] t ->
   Css_Property.display t

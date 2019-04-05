@@ -465,3 +465,8 @@ let show_properties ?(indent=0) properties: string =
   |. Belt.Array.map (fun (key, value) ->
        indent' ^ Util.underscore_to_dash key ^": "^ show value ^";")
   |> Js.Array.joinWith "\n"
+
+
+let show_dict (styles: 'a t Js.Dict.t): string Js.Dict.t =
+  styles
+  |> Js.Dict.map (fun [@bs] e -> show e)
