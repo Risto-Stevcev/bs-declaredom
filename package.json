@@ -1,5 +1,6 @@
 {
   "name": "@ristostevcev/bs-declaredom",
+  "version": "1.0.0",
   "description": "Strongly typed declarative markup for the DOM and CSS",
   "repository": {
     "type": "git",
@@ -7,7 +8,6 @@
   },
   "homepage": "https://github.com/Risto-Stevcev/bs-declaredom",
   "bugs": "https://github.com/Risto-Stevcev/bs-declaredom/issues",
-  "version": "0.1.1",
   "sideEffects": false,
   "scripts": {
     "clean": "bsb -clean-world",
