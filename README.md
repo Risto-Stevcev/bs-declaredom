@@ -6,6 +6,11 @@
 
 Strongly typed declarative markup for the DOM and CSS
 
+- **Complete** - HTML and CSS specifications are fully implemented!
+- **Strongly typed** - No more markup or styling silently failing without any guidance
+- **Custom Elements** - Create [custom][1] components that can leverage strong typing
+- **CSS Modules** - Builtin support for modular CSS with strong typing
+- **Tree Shaking** - Remove unused HTML and CSS from the final bundle with tree shaking
 
 ## Install
 
@@ -15,7 +20,7 @@ npm install --save @ristostevcev/bs-declaredom
 
 ## Examples
 
-The examples in this README can be found in the [example/](https://github.com/Risto-Stevcev/bs-declaredom/tree/master/example) folder.
+The examples in this README can be found in the [example/][2] folder.
 
 
 ## Introduction
@@ -24,19 +29,18 @@ This library provides sound static typing guarantees for HTML and CSS. It ensure
 write correct HTML and CSS in your app with good conventions like CSS modules. This library is
 based off of and fully compliant with the HTML and CSS specs (see docs).
 
-The HTML that's generated are actual DOM nodes that can be converted into [bs-webapi-incubator's](https://github.com/reasonml-community/bs-webapi-incubator/) `Dom.element` types using `Html.Node.to_element`, or to a `Dom.node` 
+The HTML that's generated are actual DOM nodes that can be converted into [bs-webapi-incubator's][3] `Dom.element` types using `Html.Node.to_element`, or to a `Dom.node` 
 using `Html.Node.to_node` if it's a text node or document fragment.
 
 
 ## Documentation
 
-See the [docs](https://risto-stevcev.github.io/bs-declaredom/bs-declaredom/) and 
-[dependency graph](https://raw.githubusercontent.com/Risto-Stevcev/bs-declaredom/master/graph.png)
+See the [Html][4] and [Css][5] module docs
 
 
 ## JSX (Reason) or Ocaml
 
-Use either JSX or vanilla Ocaml depending on which style you prefer
+Use either JSX or vanilla Ocaml depending on which style you prefer. Example JSX:
 
 ```reason
 let foo: Html.Node.t([> Html.Node.div]) =
@@ -47,6 +51,9 @@ let foo: Html.Node.t([> Html.Node.div]) =
     <br/>
   </div>
 ```
+
+The `<text>` markup refers to a [text node][6].
+
 
 ## Strongly typed CSS
 
@@ -146,6 +153,9 @@ let f' (_: [`foo] Html.Node.custom Html.Node.t): unit = ()
 let _ = f' custom_foo
 ```
 
+And since the markup produces real HTML elements, it works very well with [web components][1].
+
+
 ## CSS Modules
 
 CSS modules deal with a lot of the pitfalls of CSS in a large scale app. Provide one CSS module per component and no longer worry about precedence rules, or enforcing conventions like BEM, or applying silly hacks and refactoring if the dev team painted themselves into a corner. Keep it simple.
@@ -176,23 +186,24 @@ strong, sound, and flexible. Speficially, it's Ocaml's module system and polymor
 variants that make this library possible.
 
 
-## Differences from tyxml
+## Tree Shaking
 
-Declaredom take a different approach to tyxml over a few area:
+This library generates `es6` output, allowing you to leverage tree-shaking using rollup or webpack. 
+The resulting bundle won't include any exports that you aren't using, such as HTML nodes or CSS.
 
-- Declaredom supports CSS and CSS modules. Since HTML and CSS are
-  interconnected (ex. HTML elements have default styles), it makes sense that 
-  the static analysis should be for both so that it's well typed.
-- Declaredom's children are an `array`, tyxml uses `list`s. The reasoning is 
-  that you'll most likely work with `array`s because it's JSON and the frontend 
-  usually fetches it's data from endpoints. 
-  ReasonML's JSX uses `list`s, so if you want to use `list` instead you can 
-  use the JSX version.
-- Declaredom uses optional arguments and tyxml takes a list of attributes 
-  instead. It's to avoid the possibility of accidentally duplicating attributes 
-  (like multiple `href` or `value` attributes).
+Use rollup + google closure compiler on your final bundle if you want to get the most out of tree 
+shaking and dead code elimination.
 
 
 ## License
 
-See LICENSE
+See [LICENSE][7]
+
+
+[1]: https://wiki.whatwg.org/wiki/Custom_Elements
+[2]: https://github.com/Risto-Stevcev/bs-declaredom/tree/master/example
+[3]: https://github.com/reasonml-community/bs-webapi-incubator
+[4]: https://risto-stevcev.github.io/bs-declaredom/bs-declaredom/Html/index.html
+[5]: https://risto-stevcev.github.io/bs-declaredom/bs-declaredom/Css/index.html
+[6]: https://dom.spec.whatwg.org/#interface-text
+[7]: https://github.com/Risto-Stevcev/bs-declaredom/blob/master/LICENSE
