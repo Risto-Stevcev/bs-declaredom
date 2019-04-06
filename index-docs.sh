@@ -1,12 +1,6 @@
-#!/bin/bash
+function create_index_page {
+  echo "<meta http-equiv=\"refresh\" content=\"0;URL='$1'\"/>" > $2
+}
 
-doc="<html>\n<body>\n"
-
-for i in $(ls -1 docs/bs-declaredom/)
-do
-  doc+="<p><a href=\"./$i/index.html\">$i</a></p>\n"
-done
-
-doc+="</body>\n</html>"
-
-echo -e $doc
+create_index_page "bs-declaredom/BsDeclaredom" "docs/index.html"
+create_index_page "BsDeclaredom" "docs/bs-declaredom/index.html"
