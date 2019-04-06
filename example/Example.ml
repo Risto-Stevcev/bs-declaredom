@@ -172,7 +172,7 @@ let example =
       br ();
       span [|text "foo"|];
       br ();
-      span [|text "bar"|];
+      span ~style:(Css.inline ~font_weight:`bold ()) [|text "bar"|];
       fragment [|
         span [|text "baz"|];
         (* this correctly fails because <title> is metadata content:

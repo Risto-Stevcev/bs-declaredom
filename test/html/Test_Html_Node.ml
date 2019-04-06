@@ -641,7 +641,7 @@ test ~name:"node - style" @@ fun t -> begin
 		span ~style:(Css_Style.inline ~color:`red ~font_size:(`px 12.) ()) [||]
 		|> to_element
 	in
-  t |> T.equal (outerHTML element) "<span style=\"color: red;\"></span>";
+  t |> T.equal (outerHTML element) "<span style=\"color: red; font-size: 12px;\"></span>";
   t |> T.end_
 end;
 
