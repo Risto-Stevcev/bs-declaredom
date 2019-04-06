@@ -35,7 +35,7 @@ using `Html.Node.to_node` if it's a text node or document fragment.
 
 ## Documentation
 
-See the [Html][4] and [Css][5] module docs
+See the [Html][4] and [Css][5] module [docs][8]
 
 
 ## JSX (Reason) or Ocaml
@@ -207,3 +207,4 @@ See [LICENSE][7]
 [5]: https://risto-stevcev.github.io/bs-declaredom/bs-declaredom/Css/index.html
 [6]: https://dom.spec.whatwg.org/#interface-text
 [7]: https://github.com/Risto-Stevcev/bs-declaredom/blob/master/LICENSE
+[8]: https://risto-stevcev.github.io/bs-declaredom
