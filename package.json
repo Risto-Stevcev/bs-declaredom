@@ -62,7 +62,7 @@
     "webpack-cli": "3.2.3"
   },
   "dependencies": {
-    "bs-webapi": "0.13.2",
-    "declaredom": "2.0.0"
+    "bs-webapi": "^0.13.2",
+    "declaredom": "^2.0.0"
   }
 }
