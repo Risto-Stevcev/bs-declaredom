@@ -11,6 +11,8 @@ Strongly typed declarative markup for the DOM and CSS
 - **Custom Elements** - Create [custom][1] components that can leverage strong typing
 - **CSS Modules** - Builtin support for modular CSS with strong typing
 - **Tree Shaking** - Remove unused HTML and CSS from the final bundle with tree shaking
+- **MVC** - Combine with other tooling for get all of the functionality of frameworks without the headaches
+
 
 ## Install
 
@@ -18,9 +20,28 @@ Strongly typed declarative markup for the DOM and CSS
 npm install --save @ristostevcev/bs-declaredom
 ```
 
+Make sure to set `package-specs.module` to `es6` in your project's `bsconfig.json` to compile to ES modules.
+
+
 ## Examples
 
 The examples in this README can be found in the [example/][2] folder.
+
+
+## A Library Or A Framework
+
+Declaredom is intentionally simple. It's intended to do only one thing and one thing well, which is to provide good declarative markup for HTML and CSS.
+
+That being said, it's also intended to be combined with other tools so that you get all of the functionality that you would get from a framework.
+
+There are several advantages to combining several small libraries that only do one thing instead of a large monolithic framework:
+
+- **Only use what you need** - Keep things simple, only pull in extra functionality if it provides value.
+- **Highly customizable** - By separating concerns you can tailor everything to your needs, you aren't forced to follow any one specific pattern.
+- **Encourages open source contribution** - Callbag follows a similar philosophy and has arguably produced higher quality contributions compared to other js streaming libraries, because it's decentralized and there's no authority you have to get approval from. You can write your own callbag libraries and nobody can stop you.
+- **Easier to reason about** - By having several very small libraries instead of one very large one, it becomes much more tractable for developers to peek at the source code to understand what's going on under the hood.
+
+See the [example MVC todo app](https://github.com/Risto-Stevcev/bs-declaredom-mvc-example) for more details.
 
 
 ## Introduction
