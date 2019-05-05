@@ -391,9 +391,9 @@ module Aria = struct
         ?aria_selected:(Belt.Option.map aria_selected Util.string_of_unit)
         ?aria_setsize:(Belt.Option.map aria_setsize string_of_int)
         ?aria_sort:(Belt.Option.map aria_sort Value.sortToJs)
-        ?aria_valuemax:(Belt.Option.map aria_valuemax string_of_float)
-        ?aria_valuemin:(Belt.Option.map aria_valuemin string_of_float)
-        ?aria_valuenow:(Belt.Option.map aria_valuenow string_of_float)
+        ?aria_valuemax:(Belt.Option.map aria_valuemax Js.Float.toString)
+        ?aria_valuemin:(Belt.Option.map aria_valuemin Js.Float.toString)
+        ?aria_valuenow:(Belt.Option.map aria_valuenow Js.Float.toString)
         ?aria_valuetext
         ()
   end
