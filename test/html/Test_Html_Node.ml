@@ -321,6 +321,27 @@ test ~name:"node - label" @@ fun t -> begin
 end;
 
 
+test ~name:"node - link" @@ fun t -> begin
+  let element =
+    link ~rel:`nofollow ~href:"foobar.com" ()
+    |> to_element
+  (*
+  and element2 =
+    link ~rel:`stylesheet ~href:"foobar.com" ()
+    |> to_element
+  *)
+  in
+  t |> T.equal (tagName element) "LINK";
+  t |> T.equal (outerHTML element) @@
+    "<link href=\"foobar.com\" rel=\"nofollow\">";
+  (*
+  t |> T.equal (outerHTML element2) @@
+    "<link href=\"foobar.com\" rel=\"stylesheet\">";
+  *)
+  t |> T.end_;
+end;
+
+
 test ~name:"node - meta" @@ fun t -> begin
   let element =
     meta ~name:"foo" ~http_equiv:`set_cookie ~content:"bar" ~charset:"baz" ()
