@@ -32,8 +32,7 @@
     "graph:image": "dot -Tpng graph.dot -o graph.png",
     "graph:view": "feh graph.png",
     "graph": "npm run graph:dot && npm run graph:image",
-    "docs": "bs-odoc && npm run docs:index",
-    "docs:index": "./index-docs.sh",
+    "docs": "./docs.sh",
     "example": "parcel example/example.html"
   },
   "keywords": [
