@@ -7970,7 +7970,7 @@ module Link :
     val make :
       ?href:string ->
       ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?rel:Html_Attributes.LinkType.Hyperlink.t ->
+      ?rel:Html_Attributes.LinkType.t ->
       ?media:Css_Media.t ->
       ?integrity:string ->
       ?hreflang:string ->
@@ -8008,7 +8008,7 @@ module Link :
     val jsx :
       ?href:string ->
       ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?rel:Html_Attributes.LinkType.Hyperlink.t ->
+      ?rel:Html_Attributes.LinkType.t ->
       ?media:Css_Media.t ->
       ?integrity:string ->
       ?hreflang:string ->

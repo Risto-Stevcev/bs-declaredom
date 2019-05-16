@@ -20,6 +20,10 @@ module LinkType = struct
   end
 
   type t = [ Link.t | Hyperlink.t ]
+
+  let show: t -> string = function
+  | #Link.t as value -> Link.show value
+  | #Hyperlink.t as value -> Hyperlink.show value
 end
 
 

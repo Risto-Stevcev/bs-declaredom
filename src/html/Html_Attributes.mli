@@ -55,6 +55,7 @@ module LinkType :
         | `search
         | `stylesheet
         | `tag ]
+    val show : t -> string
   end
 module Target :
   sig

@@ -4411,7 +4411,7 @@ module Link = struct
       ?referrerpolicy ?sizes ?_as ?color () =
       _make ?href
         ?crossorigin:(Belt.Option.map crossorigin Html_Attributes.CrossOrigin.show)
-        ?rel:(Belt.Option.map rel Html_Attributes.LinkType.Hyperlink.show)
+        ?rel:(Belt.Option.map rel Html_Attributes.LinkType.show)
         ?media:(Belt.Option.map media Css_Media.show)
         ?integrity ?hreflang ?_type
         ?referrerpolicy:
