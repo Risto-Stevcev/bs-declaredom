@@ -14,6 +14,13 @@ let to_element x =
   |> ofNode
   |> Js.Option.getExn;;
 
+let tag_name x =
+  x
+  |. Html_Node.to_node
+  |. ofNode
+  |. Js.Option.getExn
+  |. Webapi.Dom.Element.tagName;;
+
 test ~name:"node - a" @@ fun t -> begin
   let element =
     a
@@ -27,10 +34,9 @@ test ~name:"node - a" @@ fun t -> begin
       ~_type:"html"
       ~referrerpolicy:`no_referrer
       [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "A";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "A";
+  t |> T.equal (Html_Node.show element) @@
     "<a href=\"http://www.w3.org\" target=\"blank\" download=\"\" "^
     "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\" "^
     "referrerpolicy=\"no-referrer\" aria-label=\"foo\"></a>";
@@ -53,10 +59,9 @@ test ~name:"node - area" @@ fun t -> begin
       ~_type:"html"
       ~referrerpolicy:`no_referrer
       ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "AREA";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "AREA";
+  t |> T.equal (Html_Node.show element) @@
     "<area alt=\"foobar\" coords=\"123,456\" download=\"\" "^
     "href=\"http://www.w3.org\" hreflang=\"en-US\" rel=\"nofollow\" "^
     "shape=\"circle\" target=\"blank\" type=\"html\" "^
@@ -77,10 +82,9 @@ test ~name:"node - audio" @@ fun t -> begin
       ~muted:()
       ~controls:()
       [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "AUDIO";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "AUDIO";
+  t |> T.equal (Html_Node.show element) @@
     "<audio src=\"foo.wav\" crossorigin=\"anonymous\" preload=\"metadata\" "^
     "autoplay=\"\" loop=\"\" muted=\"\" controls=\"\" role=\"application\" "^
     "aria-label=\"foo\"></audio>";
@@ -91,10 +95,9 @@ end;
 test ~name:"node - blockquote" @@ fun t -> begin
   let element =
     blockquote ~cite:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "BLOCKQUOTE";
-  t |> T.equal (outerHTML element) @@ "<blockquote cite=\"foo\"></blockquote>";
+  t |> T.equal (tag_name element) "BLOCKQUOTE";
+  t |> T.equal (Html_Node.show element) @@ "<blockquote cite=\"foo\"></blockquote>";
   t |> T.end_
 end;
 
@@ -115,10 +118,9 @@ test ~name:"node - button" @@ fun t -> begin
       ~_type:`submit
       ~value:"qux"
       [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "BUTTON";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "BUTTON";
+  t |> T.equal (Html_Node.show element) @@
     "<button autofocus=\"\" disabled=\"\" form=\"foo\" formaction=\"foo.com\" "^
     "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "^
     "formnovalidate=\"\" formtarget=\"blank\" formelements=\"bar\" "^
@@ -130,10 +132,9 @@ end;
 test ~name:"node - canvas" @@ fun t -> begin
   let element =
     canvas ~width:800 ~height:600 [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "CANVAS";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "CANVAS";
+  t |> T.equal (Html_Node.show element) @@
     "<canvas width=\"800\" height=\"600\"></canvas>";
   t |> T.end_
 end;
@@ -142,10 +143,9 @@ end;
 test ~name:"node - colgroup" @@ fun t -> begin
   let element =
     colgroup ~span:3 [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "COLGROUP";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "COLGROUP";
+  t |> T.equal (Html_Node.show element) @@
     "<colgroup span=\"3\"></colgroup>";
   t |> T.end_
 end;
@@ -154,10 +154,9 @@ end;
 test ~name:"node - data" @@ fun t -> begin
   let element =
     data ~value:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "DATA";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "DATA";
+  t |> T.equal (Html_Node.show element) @@
     "<data value=\"foo\"></data>";
   t |> T.end_
 end;
@@ -167,10 +166,9 @@ test ~name:"node - del" @@ fun t -> begin
   let date = Js.Date.make () in
   let element =
     del ~cite:"foo" ~datetime:date [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "DEL";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "DEL";
+  t |> T.equal (Html_Node.show element) @@
     "<del cite=\"foo\" datetime=\""^ Js.Date.toISOString date ^"\"></del>";
   t |> T.end_
 end;
@@ -179,10 +177,9 @@ end;
 test ~name:"node - details" @@ fun t -> begin
   let element =
     details ~_open:() [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "DETAILS";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "DETAILS";
+  t |> T.equal (Html_Node.show element) @@
     "<details open=\"\"></details>";
   t |> T.end_
 end;
@@ -191,10 +188,9 @@ end;
 test ~name:"node - dialog" @@ fun t -> begin
   let element =
     dialog ~_open:() [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "DIALOG";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "DIALOG";
+  t |> T.equal (Html_Node.show element) @@
     "<dialog open=\"\"></dialog>";
   t |> T.end_
 end;
@@ -203,10 +199,9 @@ end;
 test ~name:"node - fieldset" @@ fun t -> begin
   let element =
     fieldset ~form:"foo" ~name:"bar" ~disabled:() [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "FIELDSET";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "FIELDSET";
+  t |> T.equal (Html_Node.show element) @@
     "<fieldset disabled=\"\" form=\"foo\" name=\"bar\"></fieldset>";
   t |> T.end_
 end;
@@ -217,10 +212,9 @@ test ~name:"node - form" @@ fun t -> begin
     form ~accept_charset:"utf-8" ~action:"foo/" ~autocomplete:`off
       ~enctype:`x_www_form_urlencoded ~_method:`post ~name:"foo"
       ~novalidate:() ~target:`blank [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "FORM";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "FORM";
+  t |> T.equal (Html_Node.show element) @@
     "<form accept-charset=\"utf-8\" action=\"foo/\" autocomplete=\"off\" "^
     "enctype=\"x_www_form_urlencoded\" method=\"post\" name=\"foo\" "^
     "novalidate=\"\" target=\"blank\"></form>";
@@ -231,10 +225,9 @@ end;
 test ~name:"node - html" @@ fun t -> begin
   let element =
     html ~manifest:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "HTML";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "HTML";
+  t |> T.equal (Html_Node.show element) @@
     "<html manifest=\"foo\"></html>";
   t |> T.end_
 end;
@@ -245,10 +238,9 @@ test ~name:"node - iframe" @@ fun t -> begin
     iframe ~src:"foo" ~srcdoc:"bar" ~name:"baz" ~sandbox:`allow_forms
       ~allow:"qux" ~allowfullscreen:() ~allowpaymentrequest:() ~width:800
       ~height:600 ~referrerpolicy:`no_referrer ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "IFRAME";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "IFRAME";
+  t |> T.equal (Html_Node.show element) @@
     "<iframe src=\"foo\" srcdoc=\"bar\" name=\"baz\" sandbox=\"allow-forms\" "^
     "allow=\"qux\" allowfullscreen=\"\" allowpaymentrequest=\"\" width=\"800\" "^
     "height=\"600\" referrerpolicy=\"no-referrer\"></iframe>";
@@ -261,10 +253,9 @@ test ~name:"node - img" @@ fun t -> begin
     img ~alt:"foo" ~src:"bar" ~srcset:"baz" ~sizes:"norf"
       ~crossorigin:`anonymous ~usemap:"qux" ~ismap:() ~width:800 ~height:600
       ~referrerpolicy:`no_referrer ~decoding:`sync ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "IMG";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "IMG";
+  t |> T.equal (Html_Node.show element) @@
     "<img alt=\"foo\" src=\"bar\" srcset=\"baz\" sizes=\"norf\" "^
     "crossorigin=\"anonymous\" usemap=\"qux\" ismap=\"\" width=\"800\" "^
     "height=\"600\" referrerpolicy=\"no-referrer\" decoding=\"sync\">";
@@ -281,10 +272,9 @@ test ~name:"node - input" @@ fun t -> begin
       ~min:"0" ~minlength:0 ~multiple:() ~name:"qux" ~pattern:([%re "/[0-9]*/"])
       ~readonly:() ~required:() ~size:200 ~src:"worble" ~step:`any ~width:800
       ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "INPUT";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "INPUT";
+  t |> T.equal (Html_Node.show element) @@
    "<input alt=\"foo\" autocomplete=\"email\" autofocus=\"\" checked=\"\" "^
    "dirname=\"ltr\" disabled=\"\" form=\"foo\" formaction=\"bar\" "^
    "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "^
@@ -300,10 +290,9 @@ test ~name:"node - ins" @@ fun t -> begin
   let date = Js.Date.make () in
   let element =
     ins ~cite:"foo" ~datetime:date [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "INS";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "INS";
+  t |> T.equal (Html_Node.show element) @@
     "<ins cite=\"foo\" datetime=\""^ Js.Date.toISOString date ^"\"></ins>";
   t |> T.end_
 end;
@@ -312,10 +301,9 @@ end;
 test ~name:"node - label" @@ fun t -> begin
   let element =
     label ~_for:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "LABEL";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "LABEL";
+  t |> T.equal (Html_Node.show element) @@
     "<label for=\"foo\"></label>";
   t |> T.end_
 end;
@@ -324,15 +312,13 @@ end;
 test ~name:"node - link" @@ fun t -> begin
   let element =
     link ~rel:`nofollow ~href:"foobar.com" ()
-    |> to_element
   and element2 =
     link ~rel:`stylesheet ~href:"foobar.com" ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "LINK";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "LINK";
+  t |> T.equal (Html_Node.show element) @@
     "<link href=\"foobar.com\" rel=\"nofollow\">";
-  t |> T.equal (outerHTML element2) @@
+  t |> T.equal (Html_Node.show element2) @@
     "<link href=\"foobar.com\" rel=\"stylesheet\">";
   t |> T.end_;
 end;
@@ -341,10 +327,9 @@ end;
 test ~name:"node - meta" @@ fun t -> begin
   let element =
     meta ~name:"foo" ~http_equiv:`set_cookie ~content:"bar" ~charset:"baz" ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "META";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "META";
+  t |> T.equal (Html_Node.show element) @@
     "<meta name=\"foo\" http-equiv=\"set-cookie\" content=\"bar\" "^
     "charset=\"baz\">";
   t |> T.end_
@@ -353,11 +338,10 @@ end;
 
 test ~name:"node - meter" @@ fun t -> begin
   let element =
-    meter ~value:10. ~min:0. ~max:100. ~low:5. ~high:80. [||] 
-    |> to_element
+    meter ~value:10. ~min:0. ~max:100. ~low:5. ~high:80. [||]
   in
-  t |> T.equal (tagName element) "METER";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "METER";
+  t |> T.equal (Html_Node.show element) @@
     "<meter value=\"10\" min=\"0\" max=\"100\" low=\"5\" high=\"80\"></meter>";
   t |> T.end_
 end;
@@ -366,11 +350,10 @@ end;
 test ~name:"node - object" @@ fun t -> begin
   let element =
     object_ ~data:"foo" ~_type:"bar" ~typemustmatch:() ~name:"baz" ~usemap:"qux"
-      ~form:"norf" ~width:800 ~height:600 [||] 
-    |> to_element
+      ~form:"norf" ~width:800 ~height:600 [||]
   in
-  t |> T.equal (tagName element) "OBJECT";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "OBJECT";
+  t |> T.equal (Html_Node.show element) @@
     "<object data=\"foo\" type=\"bar\" typemustmatch=\"\" name=\"baz\" "^
     "usemap=\"qux\" form=\"norf\" width=\"800\" height=\"600\"></object>";
   t |> T.end_
@@ -379,11 +362,10 @@ end;
 
 test ~name:"node - ol" @@ fun t -> begin
   let element =
-    ol ~reversed:() ~start:3 ~_type:`upper_roman [||] 
-    |> to_element
+    ol ~reversed:() ~start:3 ~_type:`upper_roman [||]
   in
-  t |> T.equal (tagName element) "OL";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "OL";
+  t |> T.equal (Html_Node.show element) @@
     "<ol reversed=\"\" start=\"3\" type=\"upper-roman\"></ol>";
   t |> T.end_
 end;
@@ -391,11 +373,10 @@ end;
 
 test ~name:"node - optgroup" @@ fun t -> begin
   let element =
-    optgroup ~disabled:() ~label:"foo" [||] 
-    |> to_element
+    optgroup ~disabled:() ~label:"foo" [||]
   in
-  t |> T.equal (tagName element) "OPTGROUP";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "OPTGROUP";
+  t |> T.equal (Html_Node.show element) @@
     "<optgroup disabled=\"\" label=\"foo\"></optgroup>";
   t |> T.end_
 end;
@@ -403,11 +384,10 @@ end;
 
 test ~name:"node - option" @@ fun t -> begin
   let element =
-    option ~disabled:() ~label:"foo" ~selected:() ~value:"foo" [||] 
-    |> to_element
+    option ~disabled:() ~label:"foo" ~selected:() ~value:"foo" [||]
   in
-  t |> T.equal (tagName element) "OPTION";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "OPTION";
+  t |> T.equal (Html_Node.show element) @@
     "<option disabled=\"\" label=\"foo\" selected=\"\" value=\"foo\"></option>";
   t |> T.end_
 end;
@@ -415,11 +395,10 @@ end;
 
 test ~name:"node - output" @@ fun t -> begin
   let element =
-    output ~_for:"foo" ~form:"bar" ~name:"baz" [||] 
-    |> to_element
+    output ~_for:"foo" ~form:"bar" ~name:"baz" [||]
   in
-  t |> T.equal (tagName element) "OUTPUT";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "OUTPUT";
+  t |> T.equal (Html_Node.show element) @@
     "<output for=\"foo\" form=\"bar\" name=\"baz\"></output>";
   t |> T.end_
 end;
@@ -428,10 +407,9 @@ end;
 test ~name:"node - param" @@ fun t -> begin
   let element =
     param ~name:"foo" ~value:"bar" ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "PARAM";
-  t |> T.equal (outerHTML element) @@ "<param name=\"foo\" value=\"bar\">";
+  t |> T.equal (tag_name element) "PARAM";
+  t |> T.equal (Html_Node.show element) @@ "<param name=\"foo\" value=\"bar\">";
   t |> T.end_
 end;
 
@@ -439,10 +417,9 @@ end;
 test ~name:"node - progress" @@ fun t -> begin
   let element =
     progress ~value:10. ~max:100. [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "PROGRESS";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "PROGRESS";
+  t |> T.equal (Html_Node.show element) @@
     "<progress value=\"10\" max=\"100\"></progress>";
   t |> T.end_
 end;
@@ -451,10 +428,9 @@ end;
 test ~name:"node - q" @@ fun t -> begin
   let element =
     q ~cite:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "Q";
-  t |> T.equal (outerHTML element) @@ "<q cite=\"foo\"></q>";
+  t |> T.equal (tag_name element) "Q";
+  t |> T.equal (Html_Node.show element) @@ "<q cite=\"foo\"></q>";
   t |> T.end_
 end;
 
@@ -463,16 +439,15 @@ test ~name:"node - script" @@ fun t -> begin
   let element =
     script ~src:"foo" ~_type:"bar" ~nomodule:() ~async:() ~defer:()
      ~crossorigin:`anonymous ~integrity:"baz" ~referrerpolicy:`no_referrer ()
-    |> to_element
   and element' =
-    inline_script "var foo = 123" |> to_element
+    inline_script "var foo = 123"
   in
-  t |> T.equal (tagName element) "SCRIPT";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "SCRIPT";
+  t |> T.equal (Html_Node.show element) @@
     "<script src=\"foo\" type=\"bar\" nomodule=\"\" async=\"\" defer=\"\" "^
     "crossorigin=\"anonymous\" integrity=\"baz\" "^
     "referrerpolicy=\"no-referrer\"></script>";
-  t |> T.equal (outerHTML element') "<script>var foo = 123</script>";
+  t |> T.equal (Html_Node.show element') "<script>var foo = 123</script>";
   t |> T.end_
 end;
 
@@ -481,10 +456,9 @@ test ~name:"node - select" @@ fun t -> begin
   let element =
     select ~autocomplete:`email ~autofocus:() ~disabled:() ~form:"foo"
       ~multiple:() ~name:"bar" ~required:() ~size:10 [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "SELECT";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "SELECT";
+  t |> T.equal (Html_Node.show element) @@
     "<select autocomplete=\"email\" autofocus=\"\" disabled=\"\" form=\"foo\" "^
     "multiple=\"\" name=\"bar\" required=\"\" size=\"10\"></select>";
   t |> T.end_
@@ -494,10 +468,9 @@ end;
 test ~name:"node - slot" @@ fun t -> begin
   let element =
     slot ~name:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "SLOT";
-  t |> T.equal (outerHTML element) @@ "<slot name=\"foo\"></slot>";
+  t |> T.equal (tag_name element) "SLOT";
+  t |> T.equal (Html_Node.show element) @@ "<slot name=\"foo\"></slot>";
   t |> T.end_
 end;
 
@@ -506,10 +479,9 @@ test ~name:"node - style" @@ fun t -> begin
   let element =
     style ~media:[Css_Media.Fn.max_width (`px 200.) |> Css_Media.Fn.to_query]
       ".foo { color: red; }"
-    |> to_element
   in
-  t |> T.equal (tagName element) "STYLE";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "STYLE";
+  t |> T.equal (Html_Node.show element) @@
     "<style media=\"@media (max-width: 200px)\">.foo { color: red; }</style>";
   t |> T.end_
 end;
@@ -518,10 +490,9 @@ end;
 test ~name:"node - td" @@ fun t -> begin
   let element =
     td ~colspan:3 ~rowspan:2 ~headers:"foo" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "TD";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "TD";
+  t |> T.equal (Html_Node.show element) @@
 		"<td colspan=\"3\" rowspan=\"2\" headers=\"foo\"></td>";
   t |> T.end_
 end;
@@ -532,10 +503,9 @@ test ~name:"node - textarea" @@ fun t -> begin
     textarea ~autocomplete:`email ~autofocus:() ~dirname:`rtl
 			~disabled:() ~form:"foo" ~maxlength:100 ~minlength:0 ~name:"bar"
 			~placeholder:"baz" ~readonly:() ~required:() ~rows:4 ~wrap:`soft [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "TEXTAREA";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "TEXTAREA";
+  t |> T.equal (Html_Node.show element) @@
 		"<textarea autocomplete=\"email\" autofocus=\"\" dirname=\"rtl\" "^
 		"disabled=\"\" form=\"foo\" maxlength=\"100\" minlength=\"0\" name=\"bar\" "^
 		"placeholder=\"baz\" readonly=\"\" required=\"\" rows=\"4\" wrap=\"soft\">"^
@@ -547,10 +517,9 @@ end;
 test ~name:"node - th" @@ fun t -> begin
   let element =
     th ~colspan:3 ~rowspan:2 ~headers:"foo" ~scope:`row ~abbr:"baz" [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "TH";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "TH";
+  t |> T.equal (Html_Node.show element) @@
 		"<th colspan=\"3\" rowspan=\"2\" headers=\"foo\" scope=\"row\" "^
 		"abbr=\"baz\"></th>";
   t |> T.end_
@@ -562,10 +531,9 @@ test ~name:"node - time" @@ fun t -> begin
 	in
   let element =
     time ~datetime:date [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "TIME";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "TIME";
+  t |> T.equal (Html_Node.show element) @@
 		"<time datetime=\""^ Js.Date.toISOString date ^"\"></time>";
   t |> T.end_
 end;
@@ -574,10 +542,9 @@ end;
 test ~name:"node - track" @@ fun t -> begin
   let element =
     track ~kind:`subtitles ~src:"foo" ~srclang:"bar" ~label:"baz" ~default:() ()
-    |> to_element
   in
-  t |> T.equal (tagName element) "TRACK";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "TRACK";
+  t |> T.equal (Html_Node.show element) @@
 		"<track kind=\"subtitles\" src=\"foo\" srclang=\"bar\" label=\"baz\" "^
 		"default=\"\">";
   t |> T.end_
@@ -589,10 +556,9 @@ test ~name:"node - video" @@ fun t -> begin
 		video ~src:"foo" ~crossorigin:`anonymous ~poster:"bar" ~preload:`metadata
 			~autoplay:() ~playsinline:() ~loop:() ~muted:() ~controls:()
 			~width:800 ~height:600 [||]
-    |> to_element
   in
-  t |> T.equal (tagName element) "VIDEO";
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (tag_name element) "VIDEO";
+  t |> T.equal (Html_Node.show element) @@
 		"<video src=\"foo\" crossorigin=\"anonymous\" poster=\"bar\" "^
 		"preload=\"metadata\" autoplay=\"\" playsinline=\"\" loop=\"\" muted=\"\" "^
 		"controls=\"\" width=\"800\" height=\"600\"></video>";
@@ -611,9 +577,8 @@ test ~name:"node - global attributes" @@ fun t -> begin
 			~itemref:"wazzle" ~itemscope:() ~itemtype:"foos" ~lang:"bars"
 			~nonce:"bazs" ~slot:"quxs" ~spellcheck:"norfs" ~tabindex:(-1)
 			~title:"hello" ~translate:`yes [||]
-		|> to_element
 	in
-	t |> T.equal (outerHTML element) @@
+	t |> T.equal (Html_Node.show element) @@
 		"<span accesskey=\"foo\" autocapitalize=\"on\" class=\"bar baz\" "^
 		"contenteditable=\"\" data-a=\"norf\" data-b=\"worble\" dir=\"ltr\" "^
 		"draggable=\"\" enterkeyhint=\"search\" hidden=\"\" id=\"fizz\" "^
@@ -638,9 +603,8 @@ test ~name:"node - global aria attributes" @@ fun t -> begin
 				~aria_relevant:[`all;`text] ~aria_roledescription:"l"
 				()
 		) [||]
-		|> to_element
 	in
-  t |> T.equal (outerHTML element) @@
+  t |> T.equal (Html_Node.show element) @@
 		"<span aria-atomic=\"a\" aria-busy=\"\" aria-controls=\"c\" "^
 		"aria-current=\"date\" aria-describedby=\"d\" aria-details=\"e\" "^
 		"aria-disabled=\"\" aria-dropeffect=\"copy move\" aria-errormessage=\"f\" "^
@@ -656,9 +620,8 @@ end;
 test ~name:"node - style" @@ fun t -> begin
 	let element =
 		span ~style:(Css_Style.inline ~color:`red ~font_size:(`px 12.) ()) [||]
-		|> to_element
 	in
-  t |> T.equal (outerHTML element) "<span style=\"color: red; font-size: 12px;\"></span>";
+  t |> T.equal (Html_Node.show element) "<span style=\"color: red; font-size: 12px;\"></span>";
   t |> T.end_
 end;
 
@@ -668,9 +631,9 @@ test ~name:"node - css module" @@ fun t -> begin
     Css_Style.inline ~vertical_align:`initial ~color:`black ()
 	in
 	let element =
-		span ~css_module:title [||] |> to_element
+		span ~css_module:title [||]
 	in
-  t |> T.equal (outerHTML element) 
+  t |> T.equal (Html_Node.show element)
 		"<span class=\"m72adb46b0467f9510ed02cc8fe77c7dd\"></span>";
   t |> T.end_
 end;

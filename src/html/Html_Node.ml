@@ -238,3 +238,10 @@ include ContentCategory
 
 external to_node: [< _ content] t -> Dom.node = "%identity"
 external to_element: [< _ element] t -> Dom.element = "%identity"
+
+let show node =
+  node
+  |. to_node
+  |. Webapi.Dom.Element.ofNode
+  |. Belt.Option.map Webapi.Dom.Element.outerHTML
+  |. Belt.Option.getExn
