@@ -183,5 +183,4 @@ let example =
     |];
   |]
 
-let _ =
-  Webapi.Dom.Element.appendChild (Html.Node.to_node example) body
+let _ = Html_Node.append_to_body example

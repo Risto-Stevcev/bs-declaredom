@@ -270,3 +270,18 @@ and show node =
   | Text -> show_text (Obj.magic node)
   | DocumentFragment -> show_fragment (Obj.magic node)
   | _ -> ""
+
+let append_to selector element =
+  Webapi.Dom.window
+  |> Webapi.Dom.Window.document
+  |> Webapi.Dom.Document.querySelector selector
+  |> Js.Option.getExn
+  |> Webapi.Dom.Element.appendChild (to_node element)
+
+let append_to_body element =
+  Webapi.Dom.window
+  |> Webapi.Dom.Window.document
+  |> Webapi.Dom.Document.asHtmlDocument
+  |. Belt.Option.flatMap Webapi.Dom.HtmlDocument.body
+  |> Js.Option.getExn
+  |> Webapi.Dom.Element.appendChild (to_node element)
