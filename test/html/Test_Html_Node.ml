@@ -654,3 +654,15 @@ test ~name:"node - fragment node" @@ fun t -> begin
   t |> T.equal (Html_Node.show_fragment node) "<span>foo</span>\n<strong>bar</strong>";
   t |> T.end_
 end;
+
+
+test ~name:"node - show_doc" @@ fun t -> begin
+  let doc =
+    html [|
+      body [|text "hello world"|]
+    |]
+  in
+  t |> T.equal (Html_Node.show_doc doc)
+               "<!DOCTYPE html>\n<html><body>hello world</body></html>";
+  t |> T.end_
+end;

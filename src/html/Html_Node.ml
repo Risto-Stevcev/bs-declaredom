@@ -271,6 +271,8 @@ and show node =
   | DocumentFragment -> show_fragment (Obj.magic node)
   | _ -> ""
 
+let show_doc (html: html t) = "<!DOCTYPE html>\n" ^ show html
+
 let append_to selector element =
   Webapi.Dom.window
   |> Webapi.Dom.Window.document
