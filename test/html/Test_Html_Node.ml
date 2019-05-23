@@ -637,3 +637,20 @@ test ~name:"node - css module" @@ fun t -> begin
 		"<span class=\"m72adb46b0467f9510ed02cc8fe77c7dd\"></span>";
   t |> T.end_
 end;
+
+
+test ~name:"node - text node" @@ fun t -> begin
+  t |> T.equal (Html_Node.show_text @@ text "foo") "foo";
+  t |> T.end_
+end;
+
+
+test ~name:"node - fragment node" @@ fun t -> begin
+  let node = fragment [|
+    span [|text "foo"|];
+    strong [|text "bar"|]
+  |]
+  in
+  t |> T.equal (Html_Node.show_fragment node) "<span>foo</span>\n<strong>bar</strong>";
+  t |> T.end_
+end;

@@ -20,7 +20,13 @@ Strongly typed declarative markup for the DOM and CSS
 npm install --save @ristostevcev/bs-declaredom
 ```
 
-Make sure to set `package-specs.module` to `es6` in your project's `bsconfig.json` to compile to ES modules.
+Make sure to set `package-specs.module` in your project's `bsconfig.json` to 
+`es6-global` to compile to ES modules for the browser.
+
+If you're using declaredom to generate static HTML or CSS on the backend, add an 
+additional package-spec for `commonjs` in your `bsconfig.json`. If you're generating 
+static HTML on the backend, make sure to also install and initialize [jsdom][9] 
+and set `global.window` and `global.document`, [like so][10]. 
 
 
 ## Examples
@@ -209,7 +215,8 @@ variants that make this library possible.
 
 ## Tree Shaking
 
-This library generates `es6` output, allowing you to leverage tree-shaking using rollup or webpack. 
+This library generates `es6-global` and `commonjs` output so you can use the es6 
+output for tree-shaking using rollup or webpack and the commonjs output for a nodejs backend. 
 The resulting bundle won't include any exports that you aren't using, such as HTML nodes or CSS.
 
 Use rollup + google closure compiler on your final bundle if you want to get the most out of tree 
@@ -229,3 +236,5 @@ See [LICENSE][7]
 [6]: https://dom.spec.whatwg.org/#interface-text
 [7]: https://github.com/Risto-Stevcev/bs-declaredom/blob/master/LICENSE
 [8]: https://risto-stevcev.github.io/bs-declaredom
+[9]: https://github.com/jsdom/jsdom
+[10]: https://github.com/Risto-Stevcev/bs-declaredom/blob/master/test/html/Jsdom.ml

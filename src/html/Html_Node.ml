@@ -173,7 +173,7 @@ module ContentCategory = struct
   type sectioning = [ article | aside | nav | section ]
   type sectioning_root =
     [ blockquote | body | details | dialog | fieldset | figure | td ]
-  type heading = [ fragment | headings | hgroup ]
+  type heading = [ headings | hgroup ]
   type 'a phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i
@@ -181,7 +181,7 @@ module ContentCategory = struct
     | meter | noscript | object_ | output | picture | progress | q | ruby | s
     | samp | script | select | slot | small | span | strong | sub | sup
     | template | textarea | time | u | var | video | wbr
-    | 'a custom | other ]
+    | 'a custom ]
   type embedded =
     [ audio | canvas | em | iframe | img | object_ | picture | video ]
   type interactive =
@@ -225,7 +225,7 @@ module ContentCategory = struct
   type 'a content =
     [ 'a element | other ]
 
-  type 'a flex_item = [ 'a flow | 'a phrasing ]
+  type 'a flex_item = [ 'a flow | 'a phrasing | other ]
 
   (**
    {{: https://html.spec.whatwg.org/multipage/dom.html#transparent-content-models} Transparent content}
@@ -236,12 +236,37 @@ end
 include ContentCategory
 
 
+external to_text_node: ([> text] as 'a) t -> Dom.text = "%identity"
+external to_fragment: ([> fragment] as 'a) t -> Dom.documentFragment = "%identity"
 external to_node: [< _ content] t -> Dom.node = "%identity"
 external to_element: [< _ element] t -> Dom.element = "%identity"
 
-let show node =
-  node
-  |. to_node
-  |. Webapi.Dom.Element.ofNode
-  |. Belt.Option.map Webapi.Dom.Element.outerHTML
-  |. Belt.Option.getExn
+external from_node: Dom.node -> [< _ content] t = "%identity"
+
+let show_element element =
+  element
+  |> to_element
+  |> Webapi.Dom.Element.outerHTML
+
+let show_text text_node =
+  text_node
+  |> to_text_node
+  |> Webapi.Dom.Text.data
+
+external nodeList_to_array:
+Dom.nodeList -> Dom.node array = "Array.prototype.slice.call" [@@bs.val]
+
+let rec show_fragment fragment =
+  fragment |> to_fragment
+  |>
+  Webapi.Dom.DocumentFragment.childNodes
+  |> nodeList_to_array
+  |> Js.Array.map (fun e -> show @@ from_node e)
+  |> Js.Array.joinWith "\n"
+
+and show node =
+  match node |> to_node |> Webapi.Dom.Node.nodeType with
+  | Element -> show_element (Obj.magic node)
+  | Text -> show_text (Obj.magic node)
+  | DocumentFragment -> show_fragment (Obj.magic node)
+  | _ -> ""

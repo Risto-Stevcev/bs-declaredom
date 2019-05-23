@@ -8443,12 +8443,12 @@ module Fragment = struct
   type +'a t = ([> Html_Node.fragment ] as 'a) Html_Node.t
 
   type (+'a, +'b) child =
-    ([< 'b Html_Node.content > `fragment ] as 'a) Html_Node.t
+    ([< 'b Html_Node.content | Html_Node.other > `fragment ] as 'a) Html_Node.t
 
   let make (children:('a, 'b) child array): ('a, 'b) child =
-    Declaredom.make "fragment"
-      (Js.Obj.empty () |> Obj.magic)
-      (children |> Js.Array.map Html_Node.to_node)
+    children
+    |> Js.Array.map Html_Node.to_node
+    |> Declaredom.make_fragment
     |> Internal.make
 
   let jsx ?children () =

@@ -13,10 +13,13 @@
     "subdirs": true,
     "type": "dev"
   }],
-  "package-specs": {
-    "module": "es6",
+  "package-specs": [{
+    "module": "commonjs",
     "in-source": false
-  },
+  }, {
+    "module": "es6-global",
+    "in-source": false
+  }],
   "suffix": ".bs.js",
   "bs-dependencies": [
     "bs-webapi"

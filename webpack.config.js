@@ -3,7 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var dir_js = path.resolve(__dirname, 'lib/es6/example');
+var dir_js = path.resolve(__dirname, 'lib/es6_global/example');
 var dir_build = path.resolve(__dirname, 'dist');
 
 module.exports = {
