@@ -9,7 +9,7 @@ module Internal = struct
   end
 
   let make_name declaration =
-    "m"^ MD5.make @@ Css_Property.show_properties declaration
+    "m"^ Digest.to_hex @@ Digest.string @@ Css_Property.show_properties declaration
 
   let map fn css_module =
     css_module
