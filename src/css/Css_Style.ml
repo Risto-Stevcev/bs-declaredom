@@ -327,6 +327,7 @@ module Internal = struct
       Css_Property.MediaGroup.visual t = "" [@@bs.obj]
 
     external paged:
+      ?size:Css_Property.size Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Property.margin_top Css_Property.t ->
       ?margin_right:Css_Property.margin_right Css_Property.t ->
@@ -2522,9 +2523,10 @@ module MediaGroup = struct
       ?z_index:(Belt.Option.map z_index ZIndex.make)
       ()
 
-  let paged ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+  let paged ?size ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () =
     Internal.MediaGroup.paged
+      ?size
       ?margin
       ?margin_top:(Belt.Option.map margin_top MarginTop.make)
       ?margin_right:(Belt.Option.map margin_right MarginRight.make)

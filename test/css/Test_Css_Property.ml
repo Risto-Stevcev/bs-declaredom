@@ -1443,6 +1443,16 @@ test ~name:"css property - richness" @@ fun t -> begin
   t |> T.end_
 end;
 
+test ~name:"css property - size" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Size.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `auto "auto";
+  t |> equal (`length (`mm 0.5, `mm 1.0)) "0.5mm 1mm";
+  t |> T.end_
+end;
 
 test ~name:"css property - speak-header" @@ fun t -> begin
   let equal a b t =

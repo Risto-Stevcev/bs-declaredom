@@ -37,11 +37,11 @@ module PageRule = struct
   type t =
     [ `page of Selector.t option * Css_Property.MediaGroup.paged Css_Style.t ]
 
-  let make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+  let make ?size ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () =
     `page
       ( page
-      , Css_Style.MediaGroup.paged ?margin ?margin_top ?margin_right ?margin_bottom
+      , Css_Style.MediaGroup.paged ?size ?margin ?margin_top ?margin_right ?margin_bottom
           ?margin_left ?page_break_before ?page_break_after ?page_break_inside ?orphans
           ?widows ()
       )
@@ -51,7 +51,7 @@ module PageRule = struct
       selector |. Belt.Option.mapWithDefault "" (fun e -> " "^ Selector.show e)
     in
     "@page" ^ selector' ^" {\n"^
-      Css_Property.show_properties ~indent:1 properties ^
+      Css_Property.show_properties ~indent:1 properties ^"\n"^
     "}"
 end
 
@@ -172,9 +172,9 @@ and style selector properties: Rule.t =
   (StyleRule.make selector properties :> Rule.t)
 and css_module x: Rule.t = (CssModuleRule.make x :> Rule.t)
 and font_face ~family ~src = (FontFaceRule.make ~family ~src :> Rule.t)
-and page ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+and page ?size ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows (): Rule.t =
-  (PageRule.make ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+  (PageRule.make ?size ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () :> Rule.t)
 
 type t = CharsetRule.t * Rule.t list

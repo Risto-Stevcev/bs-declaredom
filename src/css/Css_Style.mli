@@ -332,6 +332,7 @@ module MediaGroup :
       ?word_spacing:Css_Properties.WordSpacing.Value.t ->
       ?z_index:int -> unit -> Css_Property.MediaGroup.visual t
     val paged :
+      ?size:Css_Property.size Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Value.LengthPercent.t ->
       ?margin_right:Css_Value.LengthPercent.t ->

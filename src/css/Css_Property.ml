@@ -114,6 +114,7 @@ module Style = struct
    (*and quotes*)
    and richness = [ `richness ]
    and right = [ `right ]
+   and size = [ `size ]
    and speak_header = [ `speak_header ]
    and speak_numeral = [ `speak_numeral ]
    and speak_punctuation = [ `speak_punctuation ]
@@ -350,7 +351,7 @@ module AppliesTo = struct
     [ align_self | flex | flex_basis | flex_grow | flex_shrink | displays ]
 
   type display =
-    [ displays | overrides | flex_item ]
+    [ displays | overrides | flex_item | size ]
 
 
   let to_block x = (x :> block t)
@@ -406,7 +407,7 @@ module MediaGroup = struct
    {{: https://www.w3.org/TR/CSS22/page.html#page-breaks } Page breaks}, and
    {{: https://www.w3.org/TR/CSS22/page.html#break-inside } Breaks inside elements}
    *)
-  type paged = [ margins | page_breaks | page_breaks_inside | any ]
+  type paged = [ size | margins | page_breaks | page_breaks_inside | any ]
 
   let to_aural x = (x :> aural t)
   and to_interactive x = (x :> interactive t)

@@ -8,9 +8,12 @@ test ~name:"@media functions" @@ fun t -> begin
   in
   let x = make `utf_8
     [
-      media_print
+      page
+        ~size:(Css_Properties.Size.make `auto)
+        ~margin:(Css.Properties.Margin.make_value (`mm 5.)) ()
+    ; media_print
         ~condition:(width @@ `px 1024.)
-        (`class_name "foo") 
+        (`class_name "foo")
         (Css_Style.MediaGroup.visual
           ~color:`red
           ~background_color:`blue ())
@@ -29,9 +32,12 @@ test ~name:"@media functions" @@ fun t -> begin
         Css_Style.flexbox ~color:`blue ()
     ]
   in
-    
   t |> T.equal (Css_Stylesheet.show x) @@
     "@charset utf-8;\n\n"^
+    "@page {\n"^
+    "  size: auto;\n"^
+    "  margin: 5mm;\n"^
+    "}\n"^
     "@media print and (width: 1024px) {\n"^
     "  .foo {\n"^
     "    background-color: blue;\n"^

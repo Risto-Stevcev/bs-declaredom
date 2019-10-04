@@ -1208,6 +1208,21 @@ module Right :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.right ]
     val make : Css_Value.LengthPercent.t -> [> Css_Property.right ] t
   end
+module Size :
+  sig
+    (** {{: https://drafts.csswg.org/css-page-3/#page-size-prop } Size} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.size ]
+    module Value :
+      sig
+        type t =
+          [ Css_Value.Global.t
+          | `length of Css_Value.LengthPercent.t * Css_Value.LengthPercent.t
+          | `auto ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.size ] t
+  end
 module SpeakHeader :
   sig
     (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-speak-header} Speak Header} *)

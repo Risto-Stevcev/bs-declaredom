@@ -1467,6 +1467,27 @@ module Right = struct
   let make value: 'a t = Internal.make @@ Css_Value.LengthPercent.show value
 end
 
+module Size = struct
+  type +'a t = ([> Css_Property.size ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | `length of Css_Value.LengthPercent.t * Css_Value.LengthPercent.t
+      | `auto ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `length (top_bottom, left_right) ->
+      Css_Value.LengthPercent.show top_bottom ^" "^
+      Css_Value.LengthPercent.show left_right
+    | `auto -> "auto"
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
 
 module SpeakHeader = struct
   type +'a t = ([> Css_Property.speak_header ] as 'a) Css_Property.t
