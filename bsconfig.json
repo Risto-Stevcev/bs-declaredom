@@ -1,6 +1,6 @@
 {
   "name": "@ristostevcev/bs-declaredom",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "namespace": true,
   "sources": [{
     "dir" : "src",
