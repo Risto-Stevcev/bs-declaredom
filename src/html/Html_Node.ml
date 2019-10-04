@@ -160,7 +160,7 @@ module ContentCategory = struct
     | tbody | tfoot | th | thead | tr | track ]
   type metadata =
     [ base | template | title | link | meta | noscript | script | style ]
-  type 'a flow =
+  type standard_flow =
     [ a | abbr | address | area | article | aside | audio | b | bdi | bdo
     | blockquote | br | button | canvas | cite | code | data | datalist | del
     | details | dfn | dialog | div | dl | em | embed | fieldset | figure
@@ -168,34 +168,37 @@ module ContentCategory = struct
     | ins | kbd | label | link | main | map | mark | meta | meter | nav
     | noscript | object_ | ol | output | p | picture | pre | progress | q | ruby
     | s | samp | script | section | select | slot | small | span | strong | sub
-    | sup | table | template | textarea | time | u | ul | var | video | wbr
-    | 'a custom ]
+    | sup | table | template | textarea | time | u | ul | var | video | wbr ]
+  type 'a flow =
+    [ standard_flow | 'a custom ]
   type sectioning = [ article | aside | nav | section ]
   type sectioning_root =
     [ blockquote | body | details | dialog | fieldset | figure | td ]
   type heading = [ headings | hgroup ]
-  type 'a phrasing =
+  type standard_phrasing =
     [ a | abbr | area | article | aside | audio | b | bdi | bdo | br | button
     | canvas | cite | code | data | datalist | del | dfn | em | embed | i
     | iframe | img | input | ins | kbd | label | link | map | mark | meta
     | meter | noscript | object_ | output | picture | progress | q | ruby | s
     | samp | script | select | slot | small | span | strong | sub | sup
-    | template | textarea | time | u | var | video | wbr
-    | 'a custom ]
+    | template | textarea | time | u | var | video | wbr ]
+  type 'a phrasing =
+    [ standard_phrasing | 'a custom ]
   type embedded =
     [ audio | canvas | em | iframe | img | object_ | picture | video ]
   type interactive =
     [ a | audio | button | details | em | iframe | img | input | label
     | object_ | select | textarea | video ]
-  type 'a palpable =
+  type standard_palpable =
     [ a | abbr | address | article | aside | audio | b | bdi | bdo | blockquote
     | button | canvas | cite | code | data | details | dfn | em | figure
     | footer | form | headings | hgroup | header | i | iframe | img | input
     | ins | kbd | label | main | map | mark | meter | nav | object_ | ol
     | output | p | pre | progress | q | ruby | s | samp | section | select
     | small | strong | sub | sup | table | textarea | time | u | ul | var
-    | video
-    | 'a custom ]
+    | video ]
+  type 'a palpable =
+    [ standard_palpable | 'a custom ]
 
 
   module Element = struct
@@ -215,6 +218,10 @@ module ContentCategory = struct
         [ form_associated | listed | submittable | resettable
         | autocapitalizable | labelable | script_supporting | media ]
   end
+
+  type standard_element =
+    [ embedded | standard_flow | heading | interactive | metadata | standard_palpable
+    | standard_phrasing | sectioning | sectioning_root ]
 
   type 'a element =
     [ embedded | 'a flow | heading | interactive | metadata | 'a palpable

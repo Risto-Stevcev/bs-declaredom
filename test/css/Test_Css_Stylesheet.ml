@@ -13,7 +13,7 @@ test ~name:"@media functions" @@ fun t -> begin
         ~margin:(Css.Properties.Margin.make_value (`mm 5.)) ()
     ; media_print
         ~condition:(width @@ `px 1024.)
-        (`class_name "foo")
+        `body
         (Css_Style.MediaGroup.visual
           ~color:`red
           ~background_color:`blue ())
@@ -39,7 +39,7 @@ test ~name:"@media functions" @@ fun t -> begin
     "  margin: 5mm;\n"^
     "}\n"^
     "@media print and (width: 1024px) {\n"^
-    "  .foo {\n"^
+    "  body {\n"^
     "    background-color: blue;\n"^
     "    color: red;\n"^
     "  }\n"^
@@ -61,4 +61,4 @@ test ~name:"@media functions" @@ fun t -> begin
     "  color: blue;\n"^
     "}";
   t |> T.end_
-end; 
+end;
