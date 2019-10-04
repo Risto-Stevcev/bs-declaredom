@@ -42,26 +42,26 @@
   "author": "Risto Stevcev",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "@babel/core": "7.4.4",
-    "@babel/preset-env": "7.4.4",
+    "@babel/core": "7.6.2",
+    "@babel/preset-env": "7.6.2",
     "@ristostevcev/bs-odoc": "1.3.0",
     "@ristostevcev/bs-tape": "0.2.0",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "bats": "1.1.0",
     "bs-dependency-graph": "2.1.0",
-    "bs-platform": "5.0.4",
-    "core-js": "3",
-    "esm": "3.2.22",
-    "jsdom": "15.0.0",
+    "bs-platform": "5.0.6",
+    "core-js": "3.2.1",
+    "esm": "3.2.25",
+    "jsdom": "15.1.1",
     "json-to-dot": "1.1.0",
     "parcel-bundler": "1.12.3",
-    "rollup": "1.11.3",
+    "rollup": "1.23.0",
     "tap-spec": "5.0.0",
-    "webpack": "4.30.0",
-    "webpack-cli": "3.3.2"
+    "webpack": "4.41.0",
+    "webpack-cli": "3.3.9"
   },
   "dependencies": {
-    "bs-webapi": "^0.14.4",
+    "bs-webapi": "^0.15.4",
     "declaredom": "^2.1.0"
   }
 }
