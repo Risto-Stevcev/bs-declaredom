@@ -141,24 +141,78 @@ module CssModuleRule = struct
     "}"
 end
 
+
+module KeyframesRule = struct
+  module Selector = struct
+    type keyframe_selector = [ `from | `to_ [@bs.as "to"] ] [@@bs.deriving jsConverter]
+    type t = [ keyframe_selector | Css_Value.Percent.t ]
+
+    let show = function
+    | #keyframe_selector as selector ->
+      keyframe_selectorToJs selector
+    | #Css_Value.Percent.t as percent ->
+      Css_Value.Percent.show percent
+  end
+
+  type keyframe_block = Selector.t * Css_Property.keyframe_block Css_Style.t
+
+  type t = [ `keyframes of string * keyframe_block list ]
+
+  let make name blocks: t =
+    let blocks' =
+      blocks
+      |> List.map (fun (selector, properties) -> begin
+           let properties' =
+             properties
+             |> Js.Dict.map
+               (fun [@bs] p -> (p :> Css_Property.keyframe_block Css_Property.t))
+           in
+           selector, properties'
+        end)
+    in
+    `keyframes (name, blocks')
+
+  let show (`keyframes (name, blocks): t): string =
+    let name' =
+      name |> Js.Json.string |> Js.Json.stringify
+    in
+    let blocks' =
+      blocks
+      |> List.map (fun (selector, properties) -> begin
+           let indent = 1 in
+           let indent' = Js.String.repeat indent "  " in
+           indent' ^ Selector.show selector ^" {\n"^
+             Css_Property.show_properties ~indent:(indent + 1) properties ^"\n"^
+           indent' ^ "}"
+         end)
+      |. Util.join_with "\n"
+    in
+    "@keyframes "^ name' ^" {\n"^
+      blocks' ^"\n"^
+    "}"
+end
+
+
 module Rule = struct
   type t =
     [ MediaRule.t | StyleRule.t | CssModuleRule.t | PageRule.t
-    | FontFaceRule.t ]
+    | FontFaceRule.t | KeyframesRule.t ]
 
   type ruleset = t list
 
   let show x: string = match (x :> t) with
-  | `media _ as media_rule ->
+  | #MediaRule.t as media_rule ->
     MediaRule.show media_rule
-  | `style _ as style_rule ->
+  | #StyleRule.t as style_rule ->
     StyleRule.show style_rule
-  | `css_module _ as css_module_rule ->
+  | #CssModuleRule.t as css_module_rule ->
     CssModuleRule.show css_module_rule
-  | `font_face _ as font_face ->
+  | #FontFaceRule.t as font_face ->
     FontFaceRule.show font_face
-  | `page _ as page_rule ->
+  | #PageRule.t as page_rule ->
     PageRule.show page_rule
+  | #KeyframesRule.t as keyframes_rule ->
+    KeyframesRule.show keyframes_rule
 end
 
 
@@ -176,6 +230,8 @@ and page ?size ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_le
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows (): Rule.t =
   (PageRule.make ?size ?page ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows () :> Rule.t)
+and keyframes name properties = (KeyframesRule.make name properties :> Rule.t)
+
 
 type t = CharsetRule.t * Rule.t list
 

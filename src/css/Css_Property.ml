@@ -240,8 +240,8 @@ module AppliesTo = struct
   (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
   type any =
-    [ azimuth | backgrounds | border_colors | border_styles | border_widths
-    | borders | color | cues | cursor | direction | display' | elevation
+    [ animation_timing_function | azimuth | backgrounds | border_colors | border_styles
+    | border_widths | borders | color | cues | cursor | direction | display' | elevation
     | float_ | fonts | letter_spacing | line_height | outlines | pauses
     | pitch_range | pitch | play_during | position | richness
     | speak_numeral | speak_punctuation | speak | speech_rate | stress

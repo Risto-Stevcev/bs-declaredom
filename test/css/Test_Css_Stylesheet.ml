@@ -8,7 +8,12 @@ test ~name:"@media functions" @@ fun t -> begin
   in
   let x = make `utf_8
     [
-      page
+      keyframes "foo" [
+        `from, Css_Style.any ~color:`red ~animation_timing_function:`ease_in_out ();
+        `percent 30., Css_Style.any ~color:`blue ();
+        `to_, Css_Style.any ~color:`green ();
+      ]
+    ; page
         ~size:(Css_Properties.Size.make `auto)
         ~margin:(Css.Properties.Margin.make_value (`mm 5.)) ()
     ; media_print
@@ -34,6 +39,18 @@ test ~name:"@media functions" @@ fun t -> begin
   in
   t |> T.equal (Css_Stylesheet.show x) @@
     "@charset utf-8;\n\n"^
+    "@keyframes \"foo\" {\n"^
+    "  from {\n"^
+    "    animation-timing-function: ease-in-out;\n"^
+    "    color: red;\n"^
+    "  }\n"^
+    "  30% {\n"^
+    "    color: blue;\n"^
+    "  }\n"^
+    "  to {\n"^
+    "    color: green;\n"^
+    "  }\n"^
+    "}\n"^
     "@page {\n"^
     "  size: auto;\n"^
     "  margin: 5mm;\n"^

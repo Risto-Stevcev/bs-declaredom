@@ -10,7 +10,7 @@ type 'a t
 (** Gets a class name from the class name and/or css module if provided *)
 val get_class : ?class_name:string -> ?css_module:'a t -> unit -> string option
 
-val map : 
+val map :
   ( ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t ->
     ([< Css_Property.display ] as 'b) Css_Property.t Js.Dict.t
   ) -> 'a t -> 'b t
