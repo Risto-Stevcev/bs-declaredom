@@ -14,6 +14,15 @@ module Style = struct
   type align_content = [ `align_content ]
    and align_items = [ `align_items ]
    and align_self = [ `align_self ]
+   and animation = [ `animation ]
+   and animation_name = [ `animation_name ]
+   and animation_duration = [ `animation_duration ]
+   and animation_timing_function = [ `animation_timing_function ]
+   and animation_iteration_count = [ `animation_iteration_count ]
+   and animation_direction = [ `animation_direction ]
+   and animation_play_state = [ `animation_play_state ]
+   and animation_delay = [ `animation_delay ]
+   and animation_fill_mode = [ `animation_fill_mode ]
    and azimuth = [ `azimuth ]
    and background_attachment = [ `background_attachment ]
    and background_color = [ `background_color ]
@@ -216,6 +225,11 @@ module Style = struct
 
   type widths =
     [ width | max_width | min_width ]
+
+  type animations =
+    [ animation | animation_name | animation_duration | animation_timing_function
+    | animation_iteration_count | animation_direction | animation_play_state | animation_delay
+    | animation_fill_mode ]
 end
 
 include Style
@@ -356,8 +370,11 @@ module AppliesTo = struct
   type flex_item =
     [ align_self | flex | flex_basis | flex_grow | flex_shrink | displays ]
 
+  type keyframe_block =
+    [ displays | overrides | flex_item | animation_timing_function ]
+
   type display =
-    [ displays | overrides | flex_item | size ]
+    [ keyframe_block | animations | size ]
 
 
   let to_block x = (x :> block t)

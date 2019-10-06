@@ -64,6 +64,116 @@ module AlignSelf :
       end
     val make : Value.t -> [> Css_Property.align_self ] t
   end
+module AnimationName :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-name} Animation Name} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_name ]
+    module Value :
+      sig
+        type t = [ Css_Value.Global.t | `name of string | `none ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_name ] t
+  end
+module AnimationDuration :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-duration} Animation Duration} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_duration ]
+    module Value :
+      sig
+        type t = [ Css_Value.Global.t | Css_Value.Time.t ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_duration ] t
+  end
+module AnimationTimingFunction :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-timing-function} Animation Timing Function} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_timing_function ]
+    val make : Css_Value.TimingFunction.t -> [> Css_Property.animation_timing_function ] t
+  end
+module AnimationIterationCount :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-iteration-count} Animation Iteration Count} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_iteration_count ]
+    module Value :
+      sig
+        type t = [ Css_Value.Global.t | `infinity | `repeat of int ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_iteration_count ] t
+  end
+module AnimationDirection :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-direction} Animation Direction} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_direction ]
+    module Value :
+      sig
+        type value = [ `alternate | `alternate_reverse | `normal | `reverse ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_direction ] t
+  end
+module AnimationPlayState :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-play-state} Animation Play State} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_play_state ]
+    module Value :
+      sig
+        type value = [ `paused | `running ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_play_state ] t
+  end
+module AnimationDelay :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-delay} Animation Delay} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_delay ]
+    module Value :
+      sig
+        type t = [ Css_Value.Global.t | Css_Value.Time.t ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_delay ] t
+  end
+module AnimationFillMode :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation-fill-mode} Animation Fill Mode} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_fill_mode ]
+    module Value :
+      sig
+        type value = [ `backwards | `both | `forwards | `none ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.animation_fill_mode ] t
+  end
+module Animation :
+  sig
+    (** {{: https://www.w3.org/TR/css-animations-1/#animation} Animation} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation ]
+    val make :
+      ?duration:Css_Value.Time.t ->
+      ?timing:Css_Value.TimingFunction.t ->
+      ?delay:Css_Value.Time.t ->
+      ?iterate:AnimationIterationCount.Value.t ->
+      ?direction:AnimationDirection.Value.t ->
+      ?fill_mode:AnimationFillMode.Value.t ->
+      ?play_state:AnimationPlayState.Value.t ->
+      unit ->
+      [> Css_Property.animation ] t
+  end
 module Azimuth :
   sig
     (** {{: https://www.w3.org/TR/CSS22/aural.html#propdef-azimuth } Azimuth} *)
@@ -1406,22 +1516,7 @@ module TransitionTimingFunction :
     (** {{: https://www.w3.org/TR/css-transitions-1/#transition-timing-function-property} Transition Timing Function Property} *)
 
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition_timing_function ]
-    module Value :
-      sig
-        type value =
-            [ `ease | `ease_in | `ease_in_out | `ease_out | `linear ]
-        type t =
-            [ `cubic_bezier of float * float * float * float
-            | `linear
-            | `ease
-            | `ease_in
-            | `ease_in_out
-            | `ease_out
-            | Css_Value.Global.t
-            ]
-        val show : t -> string
-      end
-    val make : Value.t -> [> Css_Property.transition_timing_function ] t
+    val make : Css_Value.TimingFunction.t -> [> Css_Property.transition_timing_function ] t
   end
 module Transition :
   sig
@@ -1431,7 +1526,7 @@ module Transition :
     val make :
       ?property:TransitionProperty.Value.t ->
       ?duration:Css_Value.Time.t ->
-      ?timing:TransitionTimingFunction.Value.t ->
+      ?timing:Css_Value.TimingFunction.t ->
       ?delay:Css_Value.Time.t ->
       unit ->
       [> Css_Property.transition ] t

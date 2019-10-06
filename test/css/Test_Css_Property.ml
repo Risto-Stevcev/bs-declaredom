@@ -53,6 +53,131 @@ test ~name:"css property - align-self" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - animation-name" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationName.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`name "foo") "\"foo\"";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-duration" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationDuration.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-timing-function" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationTimingFunction.make |> Css_Property.show) b
+  in
+  t |> equal `linear "linear";
+  t |> equal `ease "ease";
+  t |> equal `ease_in "ease-in";
+  t |> equal `ease_out "ease-out";
+  t |> equal `ease_in_out "ease-in-out";
+  t |> equal (`cubic_bezier (0.42, 0., 0.58, 1.)) "cubic-bezier(0.42, 0, 0.58, 1)";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-iteration-count" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationIterationCount.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `infinity "infinity";
+  t |> equal (`repeat 5) "5";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-direction" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationDirection.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `alternate "alternate";
+  t |> equal `alternate_reverse "alternate-reverse";
+  t |> equal `normal "normal";
+  t |> equal `reverse "reverse";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-play-state" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationPlayState.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `paused "paused";
+  t |> equal `running "running";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-delay" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationDelay.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation-fill-mode" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> AnimationFillMode.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `backwards "backwards";
+  t |> equal `both "both";
+  t |> equal `forwards "forwards";
+  t |> equal `none "none";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - animation" @@ fun t -> begin
+  let animation = Animation.make
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  in
+  t |> equal (animation ()) "initial";
+  t |> equal (animation ~duration:(`ms 0.) ~timing:`ease_in ()) "0ms ease-in";
+  t |> equal (animation ~duration:(`s 1.)
+                        ~timing:`ease_in_out
+                        ~iterate:`infinity
+                        ~direction:`alternate
+                        ~fill_mode:`forwards
+                        ~play_state:`running ())
+             "1s ease-in-out infinity alternate forwards running";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - azimuth" @@ fun t -> begin
   let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";

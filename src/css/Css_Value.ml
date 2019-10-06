@@ -504,3 +504,26 @@ module Flex = struct
       valueToJs value
   end
 end
+
+
+module TimingFunction = struct
+  type value =
+    [ `linear | `ease | `ease_in [@bs.as "ease-in"] | `ease_out [@bs.as "ease-out"]
+    | `ease_in_out [@bs.as "ease-in-out"]
+    ] [@@bs.deriving jsConverter]
+
+  type t = [ Global.t | value | `cubic_bezier of float * float * float * float ]
+
+  let show: t -> string = function
+  | #Global.t as global ->
+    Global.show global
+  | #value as value ->
+    valueToJs value
+  | `cubic_bezier (p0, p1, p2, p3) ->
+    let value =
+      [|p0; p1; p2; p3|]
+      |> Js.Array.map Js.Float.toString
+      |> Js.Array.joinWith ", "
+    in
+    "cubic-bezier("^ value ^")"
+end

@@ -3,6 +3,157 @@ module Internal = struct
 end
 
 
+module AnimationName = struct
+  type +'a t = ([> Css_Property.animation_name ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t = [ Css_Value.Global.t | `none | `name of string ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `none -> "none"
+    | `name name -> Js.Json.stringify (Js.Json.string name)
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationDuration = struct
+  type +'a t = ([> Css_Property.animation_duration ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t = [ Css_Value.Global.t | Css_Value.Time.t ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.Time.t as time ->
+      Css_Value.Time.show time
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationTimingFunction = struct
+  type +'a t = ([> Css_Property.animation_timing_function ] as 'a) Css_Property.t
+
+  let make value: 'a t = Internal.make @@ Css_Value.TimingFunction.show value
+end
+
+
+module AnimationIterationCount = struct
+  type +'a t = ([> Css_Property.animation_iteration_count ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t = [ Css_Value.Global.t | `infinity | `repeat of int ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | `infinity -> "infinity"
+    | `repeat count -> Js.Int.toString count
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationDirection = struct
+  type +'a t = ([> Css_Property.animation_direction ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value =
+      [ `normal | `reverse | `alternate | `alternate_reverse [@bs.as "alternate-reverse"] ]
+      [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationPlayState = struct
+  type +'a t = ([> Css_Property.animation_play_state ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value = [ `running | `paused ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationDelay = struct
+  type +'a t = ([> Css_Property.animation_delay ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t = [ Css_Value.Global.t | Css_Value.Time.t ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.Time.t as time ->
+      Css_Value.Time.show time
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module AnimationFillMode = struct
+  type +'a t = ([> Css_Property.animation_fill_mode ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value = [ `none | `forwards | `backwards | `both ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module Animation = struct
+  type +'a t = ([> Css_Property.animation ] as 'a) Css_Property.t
+
+  let make ?duration ?timing ?delay ?iterate ?direction ?fill_mode ?play_state (): 'a t =
+    Util.combine_styles [|
+      Belt.Option.map duration Css_Value.Time.show;
+      Belt.Option.map timing Css_Value.TimingFunction.show;
+      Belt.Option.map delay Css_Value.Time.show;
+      Belt.Option.map iterate AnimationIterationCount.Value.show;
+      Belt.Option.map direction AnimationDirection.Value.show;
+      Belt.Option.map fill_mode AnimationFillMode.Value.show;
+      Belt.Option.map play_state AnimationPlayState.Value.show;
+    |]
+    |> Internal.make
+end
+
+
 module AlignContent = struct
   type +'a t = ([> Css_Property.align_content ] as 'a) Css_Property.t
 
@@ -1731,29 +1882,7 @@ end
 module TransitionTimingFunction = struct
   type +'a t = ([> Css_Property.transition_timing_function ] as 'a) Css_Property.t
 
-  module Value = struct
-    type value =
-      [ `linear | `ease | `ease_in [@bs.as "ease-in"] | `ease_out [@bs.as "ease-out"]
-      | `ease_in_out [@bs.as "ease-in-out"]
-      ] [@@bs.deriving jsConverter]
-
-    type t = [ Css_Value.Global.t | value | `cubic_bezier of float * float * float * float ]
-
-    let show: t -> string = function
-    | #Css_Value.Global.t as global ->
-      Css_Value.Global.show global
-    | #value as value ->
-      valueToJs value
-    | `cubic_bezier (p0, p1, p2, p3) ->
-      let value =
-        [|p0; p1; p2; p3|]
-        |> Js.Array.map Js.Float.toString
-        |> Js.Array.joinWith ", "
-      in
-      "cubic-bezier("^ value ^")"
-  end
-
-  let make value: 'a t = Internal.make @@ Value.show value
+  let make value: 'a t = Internal.make @@ Css_Value.TimingFunction.show value
 end
 
 
@@ -1761,14 +1890,13 @@ module Transition = struct
   type +'a t = ([> Css_Property.transition ] as 'a) Css_Property.t
 
   let make ?property ?duration ?timing ?delay (): 'a t =
-    let transition = Util.combine_styles [|
+    Util.combine_styles [|
       Belt.Option.map property TransitionProperty.Value.show;
       Belt.Option.map duration Css_Value.Time.show;
-      Belt.Option.map timing TransitionTimingFunction.Value.show;
+      Belt.Option.map timing Css_Value.TimingFunction.show;
       Belt.Option.map delay Css_Value.Time.show;
     |]
-    in
-    Internal.make @@ transition
+    |> Internal.make
 end
 
 
