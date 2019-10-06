@@ -156,7 +156,7 @@ test ~name:"css property - background-repeat" @@ fun t -> begin
   t |> equal `repeat_y "repeat-y";
   t |> equal `no_repeat "no-repeat";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background" @@ fun t -> begin
@@ -1604,6 +1604,63 @@ test ~name:"css property - text-transform" @@ fun t -> begin
   t |> equal `uppercase "uppercase";
   t |> equal `lowercase "lowercase";
   t |> equal `none "none";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - transition-delay" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> TransitionDelay.make |> Css_Property.show) b
+  in
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - transition-duration" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> TransitionDuration.make |> Css_Property.show) b
+  in
+  t |> equal (`ms 125.) "125ms";
+  t |> equal (`s 5.) "5s";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - transition-property" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> TransitionProperty.make |> Css_Property.show) b
+  in
+  t |> equal `all "all";
+  t |> equal `none "none";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - transition-timing-function" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> TransitionTimingFunction.make |> Css_Property.show) b
+  in
+  t |> equal `linear "linear";
+  t |> equal `ease "ease";
+  t |> equal `ease_in "ease-in";
+  t |> equal `ease_out "ease-out";
+  t |> equal `ease_in_out "ease-in-out";
+  t |> equal (`cubic_bezier (0.42, 0., 0.58, 1.)) "cubic-bezier(0.42, 0, 0.58, 1)";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - transition" @@ fun t -> begin
+  let transition = Transition.make
+  and equal a b t = t |> T.equal (a |> Css_Property.show) b
+  in
+  t |> equal (transition ()) "initial";
+  t |> equal (transition ~property:`all ()) "all";
+  t |> equal (transition ~duration:(`ms 0.) ~timing:`ease_in ()) "0ms ease-in";
+  t |> equal (transition ~duration:(`s 1.) ~timing:`ease_in_out ~delay:(`ms 2.) ())
+             "1s ease-in-out 2ms";
   t |> T.end_
 end;
 

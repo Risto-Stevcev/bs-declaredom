@@ -1695,6 +1695,83 @@ module Top = struct
 end
 
 
+module TransitionDelay = struct
+  type +'a t = ([> Css_Property.transition_delay ] as 'a) Css_Property.t
+
+  let make value: 'a t = Internal.make @@ Css_Value.Time.show value
+end
+
+
+module TransitionDuration = struct
+  type +'a t = ([> Css_Property.transition_duration ] as 'a) Css_Property.t
+
+  let make value: 'a t = Internal.make @@ Css_Value.Time.show value
+end
+
+
+module TransitionProperty = struct
+  type +'a t = ([> Css_Property.transition_property ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value = [ `all | `none ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module TransitionTimingFunction = struct
+  type +'a t = ([> Css_Property.transition_timing_function ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value =
+      [ `linear | `ease | `ease_in [@bs.as "ease-in"] | `ease_out [@bs.as "ease-out"]
+      | `ease_in_out [@bs.as "ease-in-out"]
+      ] [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value | `cubic_bezier of float * float * float * float ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+    | `cubic_bezier (p0, p1, p2, p3) ->
+      let value =
+        [|p0; p1; p2; p3|]
+        |> Js.Array.map Js.Float.toString
+        |> Js.Array.joinWith ", "
+      in
+      "cubic-bezier("^ value ^")"
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
+module Transition = struct
+  type +'a t = ([> Css_Property.transition ] as 'a) Css_Property.t
+
+  let make ?property ?duration ?timing ?delay (): 'a t =
+    let transition = Util.combine_styles [|
+      Belt.Option.map property TransitionProperty.Value.show;
+      Belt.Option.map duration Css_Value.Time.show;
+      Belt.Option.map timing TransitionTimingFunction.Value.show;
+      Belt.Option.map delay Css_Value.Time.show;
+    |]
+    in
+    Internal.make @@ transition
+end
+
+
 module UnicodeBidi = struct
   type +'a t = ([> Css_Property.unicode_bidi ] as 'a) Css_Property.t
 

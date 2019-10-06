@@ -1374,6 +1374,68 @@ module Top :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.top ]
     val make : Css_Value.LengthPercent.t -> [> Css_Property.top ] t
   end
+module TransitionDelay :
+  sig
+    (** {{: https://www.w3.org/TR/css-transitions-1/#transition-delay-property} Transition Delay} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition_delay ]
+    val make : Css_Value.Time.t -> [> Css_Property.transition_delay ] t
+  end
+module TransitionDuration :
+  sig
+    (** {{: https://www.w3.org/TR/css-transitions-1/#transition-duration-property} Transition Duration} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition_duration ]
+    val make : Css_Value.Time.t -> [> Css_Property.transition_duration ] t
+  end
+module TransitionProperty :
+  sig
+    (** {{: https://www.w3.org/TR/css-transitions-1/#transition-property-property} Transition Property} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition_property ]
+    module Value :
+      sig
+        type value = [ `all | `none ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.transition_property ] t
+  end
+module TransitionTimingFunction :
+  sig
+    (** {{: https://www.w3.org/TR/css-transitions-1/#transition-timing-function-property} Transition Timing Function Property} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition_timing_function ]
+    module Value :
+      sig
+        type value =
+            [ `ease | `ease_in | `ease_in_out | `ease_out | `linear ]
+        type t =
+            [ `cubic_bezier of float * float * float * float
+            | `linear
+            | `ease
+            | `ease_in
+            | `ease_in_out
+            | `ease_out
+            | Css_Value.Global.t
+            ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.transition_timing_function ] t
+  end
+module Transition :
+  sig
+    (** {{: https://www.w3.org/TR/css-transitions-1/#transition-shorthand-property} Transition} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.transition ]
+    val make :
+      ?property:TransitionProperty.Value.t ->
+      ?duration:Css_Value.Time.t ->
+      ?timing:TransitionTimingFunction.Value.t ->
+      ?delay:Css_Value.Time.t ->
+      unit ->
+      [> Css_Property.transition ] t
+  end
 module UnicodeBidi :
   sig
     (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-unicode-bidi} Unicode Bidi} *)

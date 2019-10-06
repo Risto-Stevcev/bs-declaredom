@@ -127,6 +127,11 @@ module Style = struct
    and text_indent = [ `text_indent ]
    and text_transform = [ `text_transform ]
    and top = [ `top ]
+   and transition = [ `transition ]
+   and transition_delay = [ `transition_delay ]
+   and transition_property = [ `transition_property ]
+   and transition_duration = [ `transition_duration ]
+   and transition_timing_function = [ `transition_timing_function ]
    and unicode_bidi = [ `unicode_bidi ]
    and vertical_align = [ `vertical_align ]
    and visibility = [ `visibility ]
@@ -226,8 +231,9 @@ module AppliesTo = struct
     | float_ | fonts | letter_spacing | line_height | outlines | pauses
     | pitch_range | pitch | play_during | position | richness
     | speak_numeral | speak_punctuation | speak | speech_rate | stress
-    | text_decoration | text_transform | unicode_bidi | visibility
-    | voice_family | volume | white_space | word_spacing ]
+    | text_decoration | text_transform | transition | transition_delay
+    | transition_duration | transition_property | transition_timing_function
+    | unicode_bidi | visibility | voice_family | volume | white_space | word_spacing ]
 
   module Display = struct
     type block =
