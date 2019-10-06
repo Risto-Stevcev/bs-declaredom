@@ -1053,6 +1053,13 @@ module MinWidth :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.min_width ]
     val make : Css_Value.LengthPercent.t -> [> Css_Property.min_width ] t
   end
+module Opacity :
+  sig
+    (** {{: https://drafts.csswg.org/css-color-3/#opacity} Opacity} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.opacity ]
+    val make : float -> [> Css_Property.opacity ] t
+  end
 module Order :
   sig
     (** {{: https://www.w3.org/TR/CSS22/page.html#propdef-order } Order} *)

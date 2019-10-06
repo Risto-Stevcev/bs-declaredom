@@ -100,6 +100,7 @@ module Style = struct
    and min_width = [ `min_width ]
    and order = [ `order ]
    and orphans = [ `orphans ]
+   and opacity = [ `opacity ]
    and outline_color = [ `outline_color ]
    and outline_style = [ `outline_style ]
    and outline_width = [ `outline_width ]
@@ -242,7 +243,7 @@ module AppliesTo = struct
   type any =
     [ animation_timing_function | azimuth | backgrounds | border_colors | border_styles
     | border_widths | borders | color | cues | cursor | direction | display' | elevation
-    | float_ | fonts | letter_spacing | line_height | outlines | pauses
+    | float_ | fonts | letter_spacing | line_height | opacity | outlines | pauses
     | pitch_range | pitch | play_during | position | richness
     | speak_numeral | speak_punctuation | speak | speech_rate | stress
     | text_decoration | text_transform | transition | transition_delay

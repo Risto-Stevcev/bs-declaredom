@@ -408,6 +408,7 @@ val any :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -507,6 +508,7 @@ val block :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -599,6 +601,7 @@ val flexbox :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -673,6 +676,7 @@ val flex_item :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -764,6 +768,7 @@ val positioned :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -853,6 +858,7 @@ val list_item :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -939,6 +945,7 @@ val replaced_inline :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1019,6 +1026,7 @@ val non_replaced_inline :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1105,6 +1113,7 @@ val inline :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1199,6 +1208,7 @@ val inline_flex :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1294,6 +1304,7 @@ val inline_block :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1370,6 +1381,7 @@ val table_header_group :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1445,6 +1457,7 @@ val table_footer_group :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1531,6 +1544,7 @@ val table_caption :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1620,6 +1634,7 @@ val table :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1708,6 +1723,7 @@ val inline_table :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1791,6 +1807,7 @@ val table_cell :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1863,6 +1880,7 @@ val table_column :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -1935,6 +1953,7 @@ val table_column_group :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -2007,6 +2026,7 @@ val table_row :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -2079,6 +2099,7 @@ val table_row_group :
   ?font:Css_Property.font Css_Property.t ->
   ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
   ?line_height:Css_Value.LineHeight.t ->
+  ?opacity:float ->
   ?outline_color:Css_Value.Outline.Color.t ->
   ?outline_style:Css_Value.Outline.Style.t ->
   ?outline_width:Css_Value.Outline.Width.t ->
@@ -2190,6 +2211,7 @@ val display :
   ?max_width:Css_Value.LengthPercent.t ->
   ?min_height:Css_Value.LengthPercent.t ->
   ?min_width:Css_Value.LengthPercent.t ->
+  ?opacity:float ->
   ?order:int ->
   ?orphans:Css_Value.BreakInside.t ->
   ?outline_color:Css_Value.Outline.Color.t ->

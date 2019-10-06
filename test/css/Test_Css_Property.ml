@@ -1262,6 +1262,16 @@ test ~name:"css property - min-width" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - opacity" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> Opacity.make |> Css_Property.show) b
+  in
+  t |> equal 0. "0";
+  t |> equal 0.8 "0.8";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - order" @@ fun t -> begin
   let equal a b t =
     t |> T.equal (a |> Order.make |> Css_Property.show) b

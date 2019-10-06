@@ -1276,6 +1276,13 @@ module MinWidth = struct
 end
 
 
+module Opacity = struct
+  type +'a t = ([> Css_Property.opacity ] as 'a) Css_Property.t
+
+  let make value: 'a t = Internal.make @@ Js.Float.toString value
+end
+
+
 module Order = struct
   type +'a t = ([> Css_Property.order ] as 'a) Css_Property.t
 

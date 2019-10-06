@@ -389,6 +389,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -491,6 +492,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -586,6 +588,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -663,6 +666,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -755,6 +759,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -849,6 +854,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -938,6 +944,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1021,6 +1028,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1110,6 +1118,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1210,6 +1219,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1308,6 +1318,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1387,6 +1398,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1465,6 +1477,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1554,6 +1567,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1646,6 +1660,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1737,6 +1752,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1823,6 +1839,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1898,6 +1915,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -1973,6 +1991,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -2048,6 +2067,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -2123,6 +2143,7 @@ module Internal = struct
       ?font:Css_Property.font Css_Property.t ->
       ?letter_spacing:Css_Property.letter_spacing Css_Property.t ->
       ?line_height:Css_Property.line_height Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
       ?outline_width:Css_Property.outline_width Css_Property.t ->
@@ -2239,6 +2260,7 @@ module Internal = struct
       ?min_width:Css_Property.min_width Css_Property.t ->
       ?order:Css_Property.order Css_Property.t ->
       ?orphans:Css_Property.orphans Css_Property.t ->
+      ?opacity:Css_Property.opacity Css_Property.t ->
       ?outline_color:Css_Property.outline_color Css_Property.t ->
       ?outline:Css_Property.outline Css_Property.t ->
       ?outline_style:Css_Property.outline_style Css_Property.t ->
@@ -2700,7 +2722,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant ?font_weight
-    ?font ?letter_spacing ?line_height ?outline_color ?outline_style ?outline_width
+    ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration
@@ -2752,6 +2774,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -2797,7 +2820,7 @@ module AppliesTo = struct
     ?border_top ?border_right ?border_bottom ?border_left ?border ?color
     ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?float
     ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
-    ?letter_spacing ?line_height ?outline_color ?outline_style ?outline_width
+    ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?unicode_bidi ?visibility ?voice_family
@@ -2880,6 +2903,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -2920,7 +2944,7 @@ module AppliesTo = struct
     ?border_bottom_width ?border_left_width ?border_width ?border_top ?border_right
     ?border_bottom ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor
     ?direction ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color
     ?outline_style ?outline_width ?outline ?pause_after ?pause_before ?pause
     ?pitch_range ?pitch ?play_during ?richness ?speak_numeral
     ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration
@@ -3002,6 +3026,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3039,7 +3064,7 @@ module AppliesTo = struct
     ?border_bottom_width ?border_left_width ?border_width ?border_top ?border_right
     ?border_bottom ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor
     ?direction ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color
     ?outline_style ?outline_width ?outline ?pause_after ?pause_before ?pause
     ?pitch_range ?pitch ?play_during ?richness ?speak_numeral
     ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration
@@ -3103,6 +3128,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3145,7 +3171,7 @@ module AppliesTo = struct
     ?border_right ?border_bottom ?border_left ?border ?color ?cue_after
     ?cue_before ?cue ?cursor ?direction ?elevation ?float ?font_family ?font_size
     ?font_style ?font_variant ?font_weight ?font ?letter_spacing ?line_height
-    ?outline_color ?outline_style ?outline_width ?outline ?pause_after ?pause_before
+    ?opacity ?outline_color ?outline_style ?outline_width ?outline ?pause_after ?pause_before
     ?pause ?pitch_range ?pitch ?play_during ?richness ?speak_numeral
     ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration ?text_transform
     ?unicode_bidi ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
@@ -3215,6 +3241,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3254,7 +3281,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch
     ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate
     ?stress ?text_decoration ?text_transform ?unicode_bidi ?visibility
@@ -3333,6 +3360,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3372,7 +3400,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -3447,6 +3475,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3486,7 +3515,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -3555,6 +3584,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3594,7 +3624,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -3669,6 +3699,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3710,7 +3741,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -3793,6 +3824,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3834,7 +3866,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -3918,6 +3950,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -3956,7 +3989,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4021,6 +4054,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4059,7 +4093,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4123,6 +4157,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4162,7 +4197,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4237,6 +4272,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4277,7 +4313,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4355,6 +4391,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4395,7 +4432,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4472,6 +4509,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4511,7 +4549,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4583,6 +4621,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4620,7 +4659,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4681,6 +4720,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4718,7 +4758,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4779,6 +4819,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4816,7 +4857,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4877,6 +4918,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -4914,7 +4956,7 @@ module AppliesTo = struct
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
     ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?outline_color ?outline_style
+    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
@@ -4975,6 +5017,7 @@ module AppliesTo = struct
       ?font
       ?letter_spacing:(Belt.Option.map letter_spacing LetterSpacing.make)
       ?line_height:(Belt.Option.map line_height LineHeight.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)
       ?outline_style:(Belt.Option.map outline_style OutlineStyle.make)
       ?outline_width:(Belt.Option.map outline_width OutlineWidth.make)
@@ -5016,12 +5059,12 @@ module AppliesTo = struct
     ?flex_wrap ?float ?font ?font_family ?font_size ?font_style ?font_variant ?font_weight ?height
     ?justify_content ?left ?letter_spacing ?line_height ?list_style ?list_style_image
     ?list_style_position ?list_style_type ?margin_bottom ?margin ?margin_left ?margin_right
-    ?margin_top ?max_height ?max_width ?min_height ?min_width ?order ?orphans ?outline_color
-    ?outline ?outline_style ?outline_width ?overflow ?padding_bottom ?padding ?padding_left
-    ?padding_right ?padding_top ?page_break_after ?page_break_before ?page_break_inside
-    ?pause_after ?pause_before ?pause ?pitch ?pitch_range ?play_during ?richness ?right ?speak
-    ?speak_header ?speak_numeral ?speak_punctuation ?speech_rate ?stress ?table_layout ?text_align
-    ?text_decoration ?text_indent ?text_transform ?top ?transition ?transition_delay
+    ?margin_top ?max_height ?max_width ?min_height ?min_width ?opacity ?order ?orphans
+    ?outline_color ?outline ?outline_style ?outline_width ?overflow ?padding_bottom ?padding
+    ?padding_left ?padding_right ?padding_top ?page_break_after ?page_break_before
+    ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range ?play_during ?richness
+    ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation ?speech_rate ?stress ?table_layout
+    ?text_align ?text_decoration ?text_indent ?text_transform ?top ?transition ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?unicode_bidi
     ?vertical_align ?visibility ?voice_family ?volume ?white_space ?widows ?width ?word_spacing
     ?z_index () =
@@ -5111,6 +5154,7 @@ module AppliesTo = struct
       ?max_width:(Belt.Option.map max_width MaxWidth.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?min_width:(Belt.Option.map min_width MinWidth.make)
+      ?opacity:(Belt.Option.map opacity Opacity.make)
       ?order:(Belt.Option.map order Order.make)
       ?orphans:(Belt.Option.map orphans Orphans.make)
       ?outline_color:(Belt.Option.map outline_color OutlineColor.make)

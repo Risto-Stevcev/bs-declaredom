@@ -17,7 +17,7 @@
   run grep -q "[-866592054,\"span\"]" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
   # This is the constructor for span elements
-  run grep -q "kn(\"span\"" dist/bundle.webpack.js
+  run grep -q "\"span\",Object.assign" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
   run grep -q "hello" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
@@ -40,7 +40,7 @@
   run grep -q "[-866592054,\"span\"]" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
   # This is the constructor for span elements
-  run grep -q "kn(\"span\"" dist/bundle.webpack.js
+  run grep -q "\"span\",Object.assign" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
   run grep -q "hello" dist/bundle.webpack.js
   [ "$status" -eq 0 ]
@@ -53,6 +53,6 @@
   [ "$status" -eq 0 ]
 
   # This is the constructor for blockquote elements
-  run grep -q "kn(\"blockquote\"" dist/bundle.webpack.js
+  run grep -q "\"blockquote\",Object.assign" dist/bundle.webpack.js
   [ "$status" -eq 1 ]
 }
