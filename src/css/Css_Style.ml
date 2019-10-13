@@ -25,6 +25,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       unit ->
       Css_Property.backgrounds t = "" [@@bs.obj]
@@ -230,6 +231,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_collapse:Css_Property.border_collapse Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
@@ -360,6 +362,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -472,6 +475,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -577,6 +581,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -664,6 +669,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -766,6 +772,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -870,6 +877,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -969,6 +977,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1062,6 +1071,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1161,6 +1171,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1271,6 +1282,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1379,6 +1391,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1468,6 +1481,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1556,6 +1570,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1655,6 +1670,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1757,6 +1773,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1858,6 +1875,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -1954,6 +1972,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -2039,6 +2058,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -2124,6 +2144,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -2209,6 +2230,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -2294,6 +2316,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_top_color:Css_Property.border_top_color Css_Property.t ->
       ?border_right_color:Css_Property.border_right_color Css_Property.t ->
@@ -2380,6 +2403,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?border_bottom_color:Css_Property.border_bottom_color Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_bottom_style:Css_Property.border_bottom_style Css_Property.t ->
@@ -2513,6 +2537,7 @@ module Internal = struct
       ?background_image:Css_Property.background_image Css_Property.t ->
       ?background_position:Css_Property.background_position Css_Property.t ->
       ?background_repeat:Css_Property.background_repeat Css_Property.t ->
+      ?background_size:Css_Property.background_size Css_Property.t ->
       ?border_bottom_color:Css_Property.border_bottom_color Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_bottom_style:Css_Property.border_bottom_style Css_Property.t ->
@@ -2665,7 +2690,7 @@ module Group = struct
       ()
 
   let backgrounds ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background () =
+    ?background_position ?background_repeat ?background_size ?background () =
     Internal.Group.backgrounds
       ?background_attachment:
         (Belt.Option.map background_attachment BackgroundAttachment.make)
@@ -2674,6 +2699,7 @@ module Group = struct
       ?background_position:
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ()
 
@@ -2887,7 +2913,7 @@ module MediaGroup = struct
 
   let visual ?align_content ?align_items ?align_self ?background_attachment
     ?background_color ?background_image ?background_position ?background_repeat
-    ?background ?border_collapse ?border_top_color ?border_right_color
+    ?background_size ?background ?border_collapse ?border_top_color ?border_right_color
     ?border_bottom_color ?border_left_color ?border_color ?border_spacing
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -2915,6 +2941,7 @@ module MediaGroup = struct
       ?background_position:
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_collapse:(Belt.Option.map border_collapse BorderCollapse.make)
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
@@ -3038,7 +3065,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -3069,6 +3096,7 @@ module AppliesTo = struct
       ?background_image:(Belt.Option.map background_image BackgroundImage.make)
       ?background_position:(Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:(Belt.Option.map border_right_color BorderRightColor.make)
@@ -3147,7 +3175,7 @@ module AppliesTo = struct
     ?page_break_after ?page_break_inside ?orphans ?widows ?text_align ?text_indent
     ?width ?min_width ?max_width ?azimuth ?background_attachment
     ?background_color ?background_image ?background_position ?background_repeat
-    ?background ?border_top_color ?border_right_color ?border_bottom_color
+    ?background_size ?background ?border_top_color ?border_right_color ?border_bottom_color
     ?border_left_color ?border_color ?border_top_style ?border_right_style
     ?border_bottom_style ?border_left_style ?border_style ?border_top_width
     ?border_right_width ?border_bottom_width ?border_left_width ?border_width
@@ -3205,6 +3233,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -3284,7 +3313,7 @@ module AppliesTo = struct
     ?justify_content ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?order ?padding ?padding_top ?padding_right ?padding_bottom ?padding_left
     ?width ?min_width ?max_width ?azimuth ?background_attachment ?background_color
-    ?background_image ?background_position ?background_repeat ?background
+    ?background_image ?background_position ?background_repeat ?background_size ?background
     ?border_top_color ?border_right_color ?border_bottom_color ?border_left_color
     ?border_color ?border_top_style ?border_right_style ?border_bottom_style
     ?border_left_style ?border_style ?border_top_width ?border_right_width
@@ -3341,6 +3370,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -3417,7 +3447,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?flex ?flex_basis ?flex_grow
     ?flex_shrink ?azimuth ?background_attachment ?background_color
-    ?background_image ?background_position ?background_repeat ?background
+    ?background_image ?background_position ?background_repeat ?background_size ?background
     ?border_top_color ?border_right_color ?border_bottom_color ?border_left_color
     ?border_color ?border_top_style ?border_right_style ?border_bottom_style
     ?border_left_style ?border_style ?border_top_width ?border_right_width
@@ -3456,6 +3486,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -3536,7 +3567,7 @@ module AppliesTo = struct
     ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?top ?right ?bottom ?left ?width ?min_width
     ?max_width ?z_index ?azimuth ?background_attachment ?background_color
-    ?background_image ?background_position ?background_repeat ?background
+    ?background_image ?background_position ?background_repeat ?background_size ?background
     ?border_top_color ?border_right_color ?border_bottom_color ?border_left_color
     ?border_color ?border_top_style ?border_right_style ?border_bottom_style
     ?border_left_style ?border_style ?border_top_width ?border_right_width
@@ -3588,6 +3619,7 @@ module AppliesTo = struct
       ?background_image:(Belt.Option.map background_image BackgroundImage.make)
       ?background_position:(Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:(Belt.Option.map border_right_color BorderRightColor.make)
@@ -3660,7 +3692,7 @@ module AppliesTo = struct
     ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?width ?min_width ?max_width ?azimuth
     ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -3714,6 +3746,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -3792,7 +3825,7 @@ module AppliesTo = struct
     ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?vertical_align ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -3842,6 +3875,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -3920,7 +3954,7 @@ module AppliesTo = struct
     ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right ?padding_bottom
     ?padding_left ?vertical_align
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -3964,6 +3998,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4042,7 +4077,7 @@ module AppliesTo = struct
     ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?vertical_align ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4092,6 +4127,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4172,7 +4208,7 @@ module AppliesTo = struct
     ?margin_bottom ?margin_left ?order ?padding ?padding_top ?padding_right
     ?padding_bottom ?padding_left ?width ?min_width ?max_width ?vertical_align
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4230,6 +4266,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4310,7 +4347,7 @@ module AppliesTo = struct
     ?page_break_after ?page_break_inside ?orphans ?widows ?text_align ?text_indent
     ?width ?min_width ?max_width ?vertical_align
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4369,6 +4406,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4446,7 +4484,7 @@ module AppliesTo = struct
     ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?speak_header ?width
     ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4486,6 +4524,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4563,7 +4602,7 @@ module AppliesTo = struct
     ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?width ?min_width
     ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4602,6 +4641,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4676,11 +4716,11 @@ module AppliesTo = struct
 
   let table_caption ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?caption_side ?height ?min_height ?max_height ?margin
-    ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top
+    ?animation_play_state ?animation_timing_function ?caption_side ?height ?min_height ?max_height
+    ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding ?padding_top
     ?padding_right ?padding_bottom ?padding_left ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4730,6 +4770,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4804,12 +4845,12 @@ module AppliesTo = struct
 
   let table ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?border_collapse ?border_spacing ?height ?min_height ?max_height
-    ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding
+    ?animation_play_state ?animation_timing_function ?border_collapse ?border_spacing ?height
+    ?min_height ?max_height ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left ?padding
     ?padding_top ?padding_right ?padding_bottom ?padding_left ?speak_header
     ?table_layout ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4862,6 +4903,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -4936,12 +4978,12 @@ module AppliesTo = struct
 
   let inline_table ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?border_collapse ?border_spacing ?height ?min_height
-    ?max_height ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
+    ?animation_play_state ?animation_timing_function ?border_collapse ?border_spacing ?height
+    ?min_height ?max_height ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
     ?padding ?padding_top ?padding_right ?padding_bottom ?padding_left
     ?table_layout ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -4993,6 +5035,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5067,11 +5110,11 @@ module AppliesTo = struct
 
   let table_cell ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?empty_cells ?height ?min_height ?max_height ?padding
-    ?padding_top ?padding_right ?padding_bottom ?padding_left ?speak_header
+    ?animation_play_state ?animation_timing_function ?empty_cells ?height ?min_height ?max_height
+    ?padding ?padding_top ?padding_right ?padding_bottom ?padding_left ?speak_header
     ?vertical_align ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -5118,6 +5161,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5194,7 +5238,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -5230,6 +5274,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5306,7 +5351,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -5342,6 +5387,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5418,7 +5464,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -5454,6 +5500,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5530,7 +5577,7 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height
     ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background ?border_top_color
+    ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
@@ -5566,6 +5613,7 @@ module AppliesTo = struct
         (Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:
         (Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?background
       ?border_top_color:(Belt.Option.map border_top_color BorderTopColor.make)
       ?border_right_color:
@@ -5642,16 +5690,16 @@ module AppliesTo = struct
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?azimuth ?background_attachment
     ?background_color ?background ?background_image ?background_position ?background_repeat
-    ?border_bottom_color ?border_bottom ?border_bottom_style ?border_bottom_width ?border_collapse
-    ?border_color ?border ?border_left_color ?border_left ?border_left_style ?border_left_width
-    ?border_right_color ?border_right ?border_right_style ?border_right_width ?border_spacing
-    ?border_style ?border_top_color ?border_top ?border_top_style ?border_top_width ?border_width
-    ?bottom ?caption_side ?clear ?clip ?color ?cue_after ?cue_before ?cue ?cursor ?direction
-    ?elevation ?empty_cells ?flex_basis ?flex ?flex_direction ?flex_flow ?flex_grow ?flex_shrink
-    ?flex_wrap ?float ?font ?font_family ?font_size ?font_style ?font_variant ?font_weight ?height
-    ?justify_content ?left ?letter_spacing ?line_height ?list_style ?list_style_image
-    ?list_style_position ?list_style_type ?margin_bottom ?margin ?margin_left ?margin_right
-    ?margin_top ?max_height ?max_width ?min_height ?min_width ?opacity ?order ?orphans
+    ?background_size ?border_bottom_color ?border_bottom ?border_bottom_style ?border_bottom_width
+    ?border_collapse ?border_color ?border ?border_left_color ?border_left ?border_left_style
+    ?border_left_width ?border_right_color ?border_right ?border_right_style ?border_right_width
+    ?border_spacing ?border_style ?border_top_color ?border_top ?border_top_style ?border_top_width
+    ?border_width ?bottom ?caption_side ?clear ?clip ?color ?cue_after ?cue_before ?cue ?cursor
+    ?direction ?elevation ?empty_cells ?flex_basis ?flex ?flex_direction ?flex_flow ?flex_grow
+    ?flex_shrink ?flex_wrap ?float ?font ?font_family ?font_size ?font_style ?font_variant
+    ?font_weight ?height ?justify_content ?left ?letter_spacing ?line_height ?list_style
+    ?list_style_image ?list_style_position ?list_style_type ?margin_bottom ?margin ?margin_left
+    ?margin_right ?margin_top ?max_height ?max_width ?min_height ?min_width ?opacity ?order ?orphans
     ?outline_color ?outline ?outline_style ?outline_width ?overflow ?padding_bottom ?padding
     ?padding_left ?padding_right ?padding_top ?page_break_after ?page_break_before
     ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range ?play_during ?richness
@@ -5682,6 +5730,7 @@ module AppliesTo = struct
       ?background_image:(Belt.Option.map background_image BackgroundImage.make)
       ?background_position:(Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?border_bottom_color:(Belt.Option.map border_bottom_color BorderBottomColor.make)
       ?border_bottom
       ?border_bottom_style:(Belt.Option.map border_bottom_style BorderBottomStyle.make)
@@ -5804,24 +5853,24 @@ module AppliesTo = struct
   let keyframe_block
     ?align_content ?align_items ?align_self ?animation_timing_function ?azimuth
     ?background_attachment ?background_color ?background ?background_image ?background_position
-    ?background_repeat ?border_bottom_color ?border_bottom ?border_bottom_style ?border_bottom_width
-    ?border_collapse ?border_color ?border ?border_left_color ?border_left ?border_left_style
-    ?border_left_width ?border_right_color ?border_right ?border_right_style ?border_right_width
-    ?border_spacing ?border_style ?border_top_color ?border_top ?border_top_style ?border_top_width
-    ?border_width ?bottom ?caption_side ?clear ?clip ?color ?cue_after ?cue_before ?cue ?cursor
-    ?direction ?elevation ?empty_cells ?flex_basis ?flex ?flex_direction ?flex_flow ?flex_grow
-    ?flex_shrink ?flex_wrap ?float ?font ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?height ?justify_content ?left ?letter_spacing ?line_height ?list_style
-    ?list_style_image ?list_style_position ?list_style_type ?margin_bottom ?margin ?margin_left
-    ?margin_right ?margin_top ?max_height ?max_width ?min_height ?min_width ?opacity ?order ?orphans
-    ?outline_color ?outline ?outline_style ?outline_width ?overflow ?padding_bottom ?padding
-    ?padding_left ?padding_right ?padding_top ?page_break_after ?page_break_before
-    ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range ?play_during ?richness
-    ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation ?speech_rate ?stress ?table_layout
-    ?text_align ?text_decoration ?text_indent ?text_transform ?top ?transition ?transition_delay
-    ?transition_duration ?transition_property ?transition_timing_function ?unicode_bidi
-    ?vertical_align ?visibility ?voice_family ?volume ?white_space ?widows ?width ?word_spacing
-    ?z_index () =
+    ?background_repeat ?background_size ?border_bottom_color ?border_bottom ?border_bottom_style
+    ?border_bottom_width ?border_collapse ?border_color ?border ?border_left_color ?border_left
+    ?border_left_style ?border_left_width ?border_right_color ?border_right ?border_right_style
+    ?border_right_width ?border_spacing ?border_style ?border_top_color ?border_top
+    ?border_top_style ?border_top_width ?border_width ?bottom ?caption_side ?clear ?clip ?color
+    ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?empty_cells ?flex_basis ?flex
+    ?flex_direction ?flex_flow ?flex_grow ?flex_shrink ?flex_wrap ?float ?font ?font_family
+    ?font_size ?font_style ?font_variant ?font_weight ?height ?justify_content ?left ?letter_spacing
+    ?line_height ?list_style ?list_style_image ?list_style_position ?list_style_type ?margin_bottom
+    ?margin ?margin_left ?margin_right ?margin_top ?max_height ?max_width ?min_height ?min_width
+    ?opacity ?order ?orphans ?outline_color ?outline ?outline_style ?outline_width ?overflow
+    ?padding_bottom ?padding ?padding_left ?padding_right ?padding_top ?page_break_after
+    ?page_break_before ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range
+    ?play_during ?richness ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation
+    ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
+    ?top ?transition ?transition_delay ?transition_duration ?transition_property
+    ?transition_timing_function ?unicode_bidi ?vertical_align ?visibility ?voice_family ?volume
+    ?white_space ?widows ?width ?word_spacing ?z_index () =
     Internal.AppliesTo.keyframe_block
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -5835,6 +5884,7 @@ module AppliesTo = struct
       ?background_image:(Belt.Option.map background_image BackgroundImage.make)
       ?background_position:(Belt.Option.map background_position BackgroundPosition.make)
       ?background_repeat:(Belt.Option.map background_repeat BackgroundRepeat.make)
+      ?background_size:(Belt.Option.map background_size BackgroundSize.make)
       ?border_bottom_color:(Belt.Option.map border_bottom_color BorderBottomColor.make)
       ?border_bottom
       ?border_bottom_style:(Belt.Option.map border_bottom_style BorderBottomStyle.make)

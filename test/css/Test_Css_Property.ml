@@ -284,6 +284,22 @@ test ~name:"css property - background-repeat" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - background-size" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> BackgroundSize.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `auto "auto";
+  t |> equal `contain "contain";
+  t |> equal `cover "cover";
+  t |> equal (`px 24.) "24px";
+  t |> equal (`size (`percent 0., `percent 50.)) "0% 50%";
+  t |> T.end_
+end; 
+
+
 test ~name:"css property - background" @@ fun t -> begin
   let background = Background.make
   and equal a b t = t |> T.equal (a |> Css_Property.show) b

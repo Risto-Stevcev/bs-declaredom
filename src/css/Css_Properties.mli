@@ -244,6 +244,23 @@ module BackgroundRepeat :
     val make :
       Css_Value.Background.Repeat.t -> [> Css_Property.background_repeat ] t
   end
+module BackgroundSize :
+  sig
+    (** {{: https://www.w3.org/TR/css-backgrounds-3/#the-background-size} Background Size} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.background_size ]
+    module Value :
+      sig
+        type t =
+            [ Css_Value.Global.t
+            | Css_Value.LengthPercent.t
+            | `contain
+            | `cover
+            | `size of Css_Value.LengthPercent.t * Css_Value.LengthPercent.t ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.background_size ] t
+  end
 module Background :
   sig
     (** {{: https://www.w3.org/TR/CSS22/colors.html#propdef-background } Background} *)

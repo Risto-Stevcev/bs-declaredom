@@ -289,6 +289,30 @@ module BackgroundRepeat = struct
 end
 
 
+module BackgroundSize = struct
+  type +'a t = ([> Css_Property.background_size ] as 'a) Css_Property.t
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | Css_Value.LengthPercent.t
+      | `cover | `contain
+      | `size of Css_Value.LengthPercent.t * Css_Value.LengthPercent.t ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.LengthPercent.t as length ->
+      Css_Value.LengthPercent.show length
+    | `cover -> "cover" | `contain -> "contain"
+    | `size (top_bottom, left_right) ->
+      Css_Value.LengthPercent.show top_bottom ^" "^ Css_Value.LengthPercent.show left_right
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
 module Background = struct
   type +'a t = ([> Css_Property.background ] as 'a) Css_Property.t
 

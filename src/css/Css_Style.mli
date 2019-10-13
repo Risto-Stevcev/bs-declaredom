@@ -105,6 +105,7 @@ module Group :
       ?background_image:Css_Value.Background.Image.t ->
       ?background_position:Css_Value.Background.Position.t ->
       ?background_repeat:Css_Value.Background.Repeat.t ->
+      ?background_size:Css_Properties.BackgroundSize.Value.t ->
       ?background:Css_Property.background Css_Property.t ->
       unit -> Css_Property.backgrounds t
     val borders :
@@ -256,6 +257,7 @@ module MediaGroup :
       ?background_image:Css_Value.Background.Image.t ->
       ?background_position:Css_Value.Background.Position.t ->
       ?background_repeat:Css_Value.Background.Repeat.t ->
+      ?background_size:Css_Properties.BackgroundSize.Value.t ->
       ?background:Css_Property.background Css_Property.t ->
       ?border_collapse:Css_Properties.BorderCollapse.Value.t ->
       ?border_top_color:Css_Value.Border.Color.t ->
@@ -379,6 +381,7 @@ val any :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -488,6 +491,7 @@ val block :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -590,6 +594,7 @@ val flexbox :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -674,6 +679,7 @@ val flex_item :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -775,6 +781,7 @@ val positioned :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -874,6 +881,7 @@ val list_item :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -970,6 +978,7 @@ val replaced_inline :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1060,6 +1069,7 @@ val non_replaced_inline :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1156,6 +1166,7 @@ val inline :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1260,6 +1271,7 @@ val inline_flex :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1365,6 +1377,7 @@ val inline_block :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1451,6 +1464,7 @@ val table_header_group :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1536,6 +1550,7 @@ val table_footer_group :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1632,6 +1647,7 @@ val table_caption :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1731,6 +1747,7 @@ val table :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1829,6 +1846,7 @@ val inline_table :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -1922,6 +1940,7 @@ val table_cell :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -2004,6 +2023,7 @@ val table_column :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -2086,6 +2106,7 @@ val table_column_group :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -2168,6 +2189,7 @@ val table_row :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -2250,6 +2272,7 @@ val table_row_group :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?background:Css_Property.background Css_Property.t ->
   ?border_top_color:Css_Value.Border.Color.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
@@ -2333,6 +2356,7 @@ val display :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?border_bottom_color:Css_Value.Border.Color.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_bottom_style:Css_Value.Border.Style.t ->
@@ -2463,6 +2487,7 @@ val keyframe_block :
   ?background_image:Css_Value.Background.Image.t ->
   ?background_position:Css_Value.Background.Position.t ->
   ?background_repeat:Css_Value.Background.Repeat.t ->
+  ?background_size:Css_Properties.BackgroundSize.Value.t ->
   ?border_bottom_color:Css_Value.Border.Color.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_bottom_style:Css_Value.Border.Style.t ->

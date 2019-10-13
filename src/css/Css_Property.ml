@@ -29,6 +29,7 @@ module Style = struct
    and background_image = [ `background_image ]
    and background_position = [ `background_position ]
    and background_repeat = [ `background_repeat ]
+   and background_size = [ `background_size ]
    and background = [ `background ]
    and border_collapse = [ `border_collapse ]
    and border_color = [ `border_color ]
@@ -164,7 +165,7 @@ module Style = struct
 
   type backgrounds =
     [ background_attachment | background_color | background_image
-    | background_position | background_repeat | background ]
+    | background_position | background_repeat | background_size | background ]
 
   type borders =
     [ border_top | border_right | border_bottom | border_left | border ]
