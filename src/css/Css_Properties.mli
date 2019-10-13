@@ -102,7 +102,7 @@ module AnimationIterationCount :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.animation_iteration_count ]
     module Value :
       sig
-        type t = [ Css_Value.Global.t | `infinity | `repeat of int ]
+        type t = [ Css_Value.Global.t | `infinite | `repeat of int ]
         val show : t -> string
       end
     val make : Value.t -> [> Css_Property.animation_iteration_count ] t

@@ -48,12 +48,12 @@ module AnimationIterationCount = struct
   type +'a t = ([> Css_Property.animation_iteration_count ] as 'a) Css_Property.t
 
   module Value = struct
-    type t = [ Css_Value.Global.t | `infinity | `repeat of int ]
+    type t = [ Css_Value.Global.t | `infinite | `repeat of int ]
 
     let show: t -> string = function
     | #Css_Value.Global.t as global ->
       Css_Value.Global.show global
-    | `infinity -> "infinity"
+    | `infinite -> "infinite"
     | `repeat count -> Js.Int.toString count
   end
 

@@ -99,7 +99,7 @@ test ~name:"css property - animation-iteration-count" @@ fun t -> begin
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
   t |> equal `unset "unset";
-  t |> equal `infinity "infinity";
+  t |> equal `infinite "infinite";
   t |> equal (`repeat 5) "5";
   t |> T.end_
 end;
@@ -169,11 +169,11 @@ test ~name:"css property - animation" @@ fun t -> begin
   t |> equal (animation ~duration:(`ms 0.) ~timing:`ease_in ()) "0ms ease-in";
   t |> equal (animation ~duration:(`s 1.)
                         ~timing:`ease_in_out
-                        ~iterate:`infinity
+                        ~iterate:`infinite
                         ~direction:`alternate
                         ~fill_mode:`forwards
                         ~play_state:`running ())
-             "1s ease-in-out infinity alternate forwards running";
+             "1s ease-in-out infinite alternate forwards running";
   t |> T.end_
 end;
 
