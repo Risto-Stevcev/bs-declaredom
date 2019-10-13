@@ -7,15 +7,12 @@ module Internal = struct
   (* Erases type information *)
 
   module Style = struct
-    external to_any:
-      [< Css_Property.display] style ->
-      [> Css_Property.any] style = "%identity"
+    external to_any: [< Css_Property.display] style -> [> Css_Property.any] style = "%identity"
   end
 
   module CssModule = struct
     external to_any:
-      [< Css_Property.display] Css_Module.t ->
-      [> Css_Property.any] Css_Module.t = "%identity"
+      [< Css_Property.display] Css_Module.t -> [> Css_Property.any] Css_Module.t = "%identity"
   end
 
   module Node = struct
