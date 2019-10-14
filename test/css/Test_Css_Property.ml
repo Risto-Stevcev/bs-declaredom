@@ -134,6 +134,7 @@ end;
 
 
 test ~name:"css property - animation-delay" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> AnimationDelay.make |> Css_Property.show) b
   in
@@ -142,6 +143,7 @@ test ~name:"css property - animation-delay" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`ms 125.) "125ms";
   t |> equal (`s 5.) "5s";
+  t |> equal (`s 5. |+| `ms 100.) "calc(5s + 100ms)";
   t |> T.end_
 end;
 
@@ -179,6 +181,7 @@ end;
 
 
 test ~name:"css property - azimuth" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t = t |> T.equal (a |> Azimuth.make |> Css_Property.show) b in
   t |> equal `inherit_ "inherit";
   t |> equal `initial "initial";
@@ -186,6 +189,7 @@ test ~name:"css property - azimuth" @@ fun t -> begin
   t |> equal (`deg 90.) "90deg";
   t |> equal (`rad 180.) "180rad";
   t |> equal (`grad 60.5) "60.5grad";
+  t |> equal (`grad 60.5 |*| `num 2.) "calc(60.5grad*2)";
   t |> equal `left_side "left-side";
   t |> equal `far_left "far-left";
   t |> equal `left "left";
@@ -340,6 +344,7 @@ end;
 
 
 test ~name:"css property - border-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderWidth.make |> Css_Property.show) b
   in
@@ -350,11 +355,13 @@ test ~name:"css property - border-width" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `thick "thick";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 12.5 |/| `num 2.) "calc(12.5px/2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-spacing" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderSpacing.make |> Css_Property.show) b
   in
@@ -362,6 +369,7 @@ test ~name:"css property - border-spacing" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 12.5 |/| `num 2.) "calc(12.5px/2)";
   t |> T.end_
 end;
 
@@ -544,6 +552,7 @@ end;
 
 
 test ~name:"css property - border-top-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderTopWidth.make |> Css_Property.show) b
   in
@@ -554,11 +563,13 @@ test ~name:"css property - border-top-width" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `thick "thick";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 80. |*| `num 2.) "calc(80px*2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-right-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderRightWidth.make |> Css_Property.show) b
   in
@@ -569,11 +580,13 @@ test ~name:"css property - border-right-width" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `thick "thick";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 80. |*| `num 2.) "calc(80px*2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-bottom-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderBottomWidth.make |> Css_Property.show) b
   in
@@ -584,11 +597,13 @@ test ~name:"css property - border-bottom-width" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `thick "thick";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 80. |*| `num 2.) "calc(80px*2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - border-left-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> BorderLeftWidth.make |> Css_Property.show) b
   in
@@ -599,11 +614,13 @@ test ~name:"css property - border-left-width" @@ fun t -> begin
   t |> equal `medium "medium";
   t |> equal `thick "thick";
   t |> equal (`px 12.5) "12.5px";
+  t |> equal (`px 80. |*| `num 2.) "calc(80px*2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - bottom" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Bottom.make |> Css_Property.show) b
   in
@@ -612,6 +629,7 @@ test ~name:"css property - bottom" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 20.) "calc(80% - 20px)";
   t |> T.end_
 end;
 
@@ -645,6 +663,7 @@ end;
 
 
 test ~name:"css property - clip" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Clip.make |> Css_Property.show) b
   in
@@ -652,6 +671,8 @@ test ~name:"css property - clip" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`rect (`px 20., `auto, `auto, `auto)) "rect(20px, auto, auto, auto)";
+  t |> equal (`rect (`px 20. |+| `vw 0.5, `auto, `auto, `auto))
+             "rect(calc(20px + 0.5vw), auto, auto, auto)";
   t |> T.end_
 end;
 
@@ -754,6 +775,7 @@ end;
 
 
 test ~name:"css property - elevation" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Elevation.make |> Css_Property.show) b
   in
@@ -768,6 +790,7 @@ test ~name:"css property - elevation" @@ fun t -> begin
   t |> equal (`deg 90.) "90deg";
   t |> equal (`rad 180.) "180rad";
   t |> equal (`grad 60.5) "60.5grad";
+  t |> equal (`grad 60.5 |*| `num 2.) "calc(60.5grad*2)";
   t |> T.end_
 end;
 
@@ -804,6 +827,7 @@ end;
 
 
 test ~name:"css property - flex-basis" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> FlexBasis.make |> Css_Property.show) b
   in
@@ -812,6 +836,7 @@ test ~name:"css property - flex-basis" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`percent 20.) "20%";
   t |> equal (`px 20.5) "20.5px";
+  t |> equal (`percent 80. |-| `px 10.) "calc(80% - 10px)";
   t |> T.end_
 end;
 
@@ -915,6 +940,7 @@ end;
 
 
 test ~name:"css property - font-size" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> FontSize.make |> Css_Property.show) b
   in
@@ -933,6 +959,7 @@ test ~name:"css property - font-size" @@ fun t -> begin
   t |> equal (`px 20.) "20px";
   t |> equal (`rem 0.8) "0.8rem";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 10.) "calc(80% - 10px)";
   t |> T.end_
 end;
 
@@ -1017,6 +1044,7 @@ end;
 
 
 test ~name:"css property - height" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Height.make |> Css_Property.show) b
   in
@@ -1025,6 +1053,7 @@ test ~name:"css property - height" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 10.) "calc(80% - 10px)";
   t |> T.end_
 end;
 
@@ -1046,6 +1075,7 @@ end;
 
 
 test ~name:"css property - left" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Left.make |> Css_Property.show) b
   in
@@ -1054,11 +1084,13 @@ test ~name:"css property - left" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 10.) "calc(80% - 10px)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - letter-spacing" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> LetterSpacing.make |> Css_Property.show) b
   in
@@ -1066,11 +1098,13 @@ test ~name:"css property - letter-spacing" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
+  t |> equal (`px 80. |*| `num 2.) "calc(80px*2)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - line-height" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> LineHeight.make |> Css_Property.show) b
   in
@@ -1079,6 +1113,7 @@ test ~name:"css property - line-height" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 10.) "calc(80% - 10px)";
   t |> T.end_
 end;
 
@@ -1156,6 +1191,7 @@ end;
 
 
 test ~name:"css property - margin" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Margin.make_value |> Css_Property.show) b
   and equal' a b t =
@@ -1165,6 +1201,7 @@ test ~name:"css property - margin" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`px 12.) "12px";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
   t |> equal' (Margin.make ~top:(`px 12.5)
                            ~right:`auto
                            ~bottom:(`px 14.)
@@ -1175,6 +1212,7 @@ end;
 
 
 test ~name:"css property - margin-top" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MarginTop.make |> Css_Property.show) b
   in
@@ -1183,11 +1221,13 @@ test ~name:"css property - margin-top" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - margin-right" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MarginRight.make |> Css_Property.show) b
   in
@@ -1196,11 +1236,13 @@ test ~name:"css property - margin-right" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - margin-bottom" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MarginBottom.make |> Css_Property.show) b
   in
@@ -1209,11 +1251,13 @@ test ~name:"css property - margin-bottom" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - margin-left" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MarginLeft.make |> Css_Property.show) b
   in
@@ -1222,11 +1266,13 @@ test ~name:"css property - margin-left" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - max-height" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MaxHeight.make |> Css_Property.show) b
   in
@@ -1235,11 +1281,13 @@ test ~name:"css property - max-height" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |-| `vh 10.) "calc(21% - 10vh)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - max-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MaxWidth.make |> Css_Property.show) b
   in
@@ -1248,11 +1296,13 @@ test ~name:"css property - max-width" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |-| `vw 10.) "calc(21% - 10vw)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - min-height" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MinHeight.make |> Css_Property.show) b
   in
@@ -1261,11 +1311,13 @@ test ~name:"css property - min-height" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |-| `vh 10.) "calc(21% - 10vh)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - min-width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> MinWidth.make |> Css_Property.show) b
   in
@@ -1274,6 +1326,7 @@ test ~name:"css property - min-width" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |+| `vw 10.) "calc(21% + 10vw)";
   t |> T.end_
 end;
 
@@ -1385,6 +1438,7 @@ end;
 
 
 test ~name:"css property - padding-top" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PaddingTop.make |> Css_Property.show) b
   in
@@ -1393,11 +1447,13 @@ test ~name:"css property - padding-top" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |/| `num 10.) "calc(21%/10)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - padding-right" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PaddingRight.make |> Css_Property.show) b
   in
@@ -1406,11 +1462,13 @@ test ~name:"css property - padding-right" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |/| `num 10.) "calc(21%/10)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - padding-bottom" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PaddingBottom.make |> Css_Property.show) b
   in
@@ -1419,11 +1477,13 @@ test ~name:"css property - padding-bottom" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |/| `num 10.) "calc(21%/10)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - padding-left" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PaddingLeft.make |> Css_Property.show) b
   in
@@ -1432,11 +1492,13 @@ test ~name:"css property - padding-left" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 21.) "21%";
+  t |> equal (`percent 21. |/| `num 10.) "calc(21%/10)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - padding" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Padding.make_value |> Css_Property.show) b
   and equal' a b t =
@@ -1446,6 +1508,7 @@ test ~name:"css property - padding" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`px 12.) "12px";
+  t |> equal (`px 12. |+| `vh 10.) "calc(12px + 10vh)";
   t |> equal' (Padding.make ~top:(`px 12.5)
                             ~right:`auto
                             ~bottom:(`px 14.)
@@ -1501,6 +1564,7 @@ end;
 
 
 test ~name:"css property - pause-after" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PauseAfter.make |> Css_Property.show) b
   in
@@ -1509,11 +1573,13 @@ test ~name:"css property - pause-after" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`ms 125.) "125ms";
   t |> equal (`s 5.) "5s";
+  t |> equal (`s 5. |+| `ms 100.) "calc(5s + 100ms)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - pause-before" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> PauseBefore.make |> Css_Property.show) b
   in
@@ -1522,11 +1588,13 @@ test ~name:"css property - pause-before" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`ms 125.) "125ms";
   t |> equal (`s 5.) "5s";
+  t |> equal (`s 5. |/| `num 10.) "calc(5s/10)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - pause" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Pause.make |> Css_Property.show) b
   in
@@ -1534,6 +1602,7 @@ test ~name:"css property - pause" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `unset "unset";
   t |> equal (`pause (`ms 125., `s 5.)) "125ms 5s";
+  t |> equal (`pause (`ms 125., `s 5. |*| `num 2.)) "125ms calc(5s*2)";
   t |> T.end_
 end;
 
@@ -1551,6 +1620,7 @@ end;
 
 
 test ~name:"css property - pitch" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Pitch.make |> Css_Property.show) b
   in
@@ -1563,6 +1633,7 @@ test ~name:"css property - pitch" @@ fun t -> begin
   t |> equal `high "high";
   t |> equal `x_high "x-high";
   t |> equal (`Hz 105.) "105Hz";
+  t |> equal (`Hz 105. |+| `Hz 10.) "calc(105Hz + 10Hz)";
   t |> T.end_
 end;
 
@@ -1595,6 +1666,7 @@ test ~name:"css property - richness" @@ fun t -> begin
 end;
 
 test ~name:"css property - size" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Size.make |> Css_Property.show) b
   in
@@ -1602,6 +1674,8 @@ test ~name:"css property - size" @@ fun t -> begin
   t |> equal `initial "initial";
   t |> equal `auto "auto";
   t |> equal (`length (`mm 0.5, `mm 1.0)) "0.5mm 1mm";
+  t |> equal (`length (`mm 0.5 |+| `mm 2. |*| `num 3. |-| `px 10., `mm 1.0))
+             "calc(0.5mm + 2mm*3 - 10px) 1mm";
   t |> T.end_
 end;
 
@@ -1732,6 +1806,7 @@ end;
 
 
 test ~name:"css property - text-indent" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> TextIndent.make |> Css_Property.show) b
   in
@@ -1740,6 +1815,7 @@ test ~name:"css property - text-indent" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 12.) "12%";
+  t |> equal (`percent 12. |-| `px 10.) "calc(12% - 10px)";
   t |> T.end_
 end;
 
@@ -1760,21 +1836,25 @@ end;
 
 
 test ~name:"css property - transition-delay" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> TransitionDelay.make |> Css_Property.show) b
   in
   t |> equal (`ms 125.) "125ms";
   t |> equal (`s 5.) "5s";
+  t |> equal (`s 5. |-| `ms 100.) "calc(5s - 100ms)";
   t |> T.end_
 end;
 
 
 test ~name:"css property - transition-duration" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> TransitionDuration.make |> Css_Property.show) b
   in
   t |> equal (`ms 125.) "125ms";
   t |> equal (`s 5.) "5s";
+  t |> equal (`s 5. |-| `ms 100.) "calc(5s - 100ms)";
   t |> T.end_
 end;
 
@@ -1831,6 +1911,7 @@ end;
 
 
 test ~name:"css property - vertical-align" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> VerticalAlign.make |> Css_Property.show) b
   in
@@ -1845,6 +1926,7 @@ test ~name:"css property - vertical-align" @@ fun t -> begin
   t |> equal `middle "middle";
   t |> equal (`px 12.5) "12.5px";
   t |> equal (`percent 12.) "12%";
+  t |> equal (`percent 12. |+| `px 10.) "calc(12% + 10px)";
   t |> equal `top "top";
   t |> equal `bottom "bottom";
   t |> T.end_
@@ -1929,6 +2011,7 @@ end;
 
 
 test ~name:"css property - width" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
   let equal a b t =
     t |> T.equal (a |> Width.make |> Css_Property.show) b
   in
@@ -1937,6 +2020,7 @@ test ~name:"css property - width" @@ fun t -> begin
   t |> equal `unset "unset";
   t |> equal (`px 20.) "20px";
   t |> equal (`percent 80.) "80%";
+  t |> equal (`percent 80. |-| `px 20.) "calc(80% - 20px)";
   t |> T.end_
 end;
 

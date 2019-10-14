@@ -1964,14 +1964,11 @@ module VerticalAlign = struct
         ]
         [@@bs.deriving jsConverter]
 
-      type t =
-        [ Css_Value.Length.t | Css_Value.Percent.t | value ]
+      type t = [ Css_Value.LengthPercent.t | value ]
 
       let show: t -> string = function
-      | #Css_Value.Length.t as length ->
-        Css_Value.Length.show length
-      | #Css_Value.Percent.t as percent ->
-        Css_Value.Percent.show percent
+      | #Css_Value.LengthPercent.t as value ->
+        Css_Value.LengthPercent.show value
       | #value as value ->
         valueToJs value
     end

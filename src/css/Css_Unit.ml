@@ -154,12 +154,41 @@ module Percent = struct
 end
 
 
-type t = [ Length.t | Percent.t | Other.t ]
+module Value = struct
+  type value = [ Length.t | Percent.t | Other.t ]
+
+  (** {{: https://www.w3.org/TR/css3-values/#calc-notation} Calc Notation} *)
+  type t =
+    [ value
+    | `num of float
+    | `add of t * t
+    | `subtract of t * t
+    | `multiply of t * t
+    | `divide of t * t ]
+
+  let rec show = function
+  | #Length.t as length ->
+    Length.show length
+  | #Percent.t as percent ->
+    Percent.show percent
+  | #Other.t as other ->
+    Other.show other
+  | `num number ->
+    Js.Float.toString number
+  | `add (value1, value2) ->
+    show value1 ^" + "^ show value2
+  | `subtract (value1, value2) ->
+    show value1 ^" - "^ show value2
+  | `multiply (value1, value2) ->
+    show value1 ^"*"^ show value2
+  | `divide (value1, value2) ->
+    show value1 ^"/"^ show value2
+end
+
+type t = Value.t
 
 let show: t -> string = function
-| #Length.t as length ->
-  Length.show length
-| #Percent.t as percent ->
-  Percent.show percent
-| #Other.t as other ->
-  Other.show other
+| `add _ | `subtract _ | `multiply _ | `divide _ as value ->
+  "calc("^ Value.show value ^")"
+| value ->
+  Value.show value

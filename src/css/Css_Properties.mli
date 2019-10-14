@@ -1591,7 +1591,7 @@ module VerticalAlign :
             val valueToJs : value -> string
             val valueFromJs : string -> value option
             type t =
-              [ Css_Value.Length.t | Css_Value.Percent.t | value ]
+              [ Css_Value.LengthPercent.t | value ]
             val show : t -> string
           end
         module LineRelative :

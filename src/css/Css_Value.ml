@@ -10,16 +10,43 @@ end
 
 (** CSS unit values (re-exports) *)
 
-module Angle = Css_Unit.Angle
-module Time = Css_Unit.Time
-module Frequency = Css_Unit.Frequency
-module Length = Css_Unit.Length
-module Percent = Css_Unit.Percent
-module Other = Css_Unit.Other
+module Angle = struct
+  type t =
+    [ Css_Unit.Angle.t | `num of float
+    | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+  let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+end
+
+module Time = struct
+  type t =
+    [ Css_Unit.Time.t | `num of float
+    | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+  let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+end
+
+module Frequency = struct
+  type t =
+    [ Css_Unit.Frequency.t | `num of float
+    | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+  let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+end
+
+module Length = struct
+  type t =
+    [ Css_Unit.Length.t | `num of float
+    | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+  let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+end
+
+module Percent = struct
+  type t =
+    [ Css_Unit.Percent.t | `num of float
+    | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+  let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+end
 
 
 (** Common value types for rules *)
-
 
 module Color = struct
   (** {{: https://www.w3.org/TR/css-color-3 } Color} *)
@@ -126,29 +153,39 @@ end
 
 
 module LengthPercent = struct
-  type t = [ Global.t | Length.t | Percent.t | `auto ]
+  module Value = struct
+    type t =
+      [ Css_Unit.Length.t | Css_Unit.Percent.t | `num of float
+      | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+    let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+  end
+
+  type t = [ Global.t | Value.t | `auto ]
 
   let show: t -> string = function
   | #Global.t as global ->
     Global.show global
-  | #Length.t as distance ->
-    Length.show distance
-  | #Percent.t as percent ->
-    Percent.show percent
+  | #Value.t as value ->
+    Value.show value
   | `auto -> "auto"
 end
 
 
 module TimePercent = struct
-  type t = [ Global.t | Time.t | Percent.t ]
+  module Value = struct
+    type t =
+      [ Css_Unit.Time.t | Css_Unit.Percent.t | `num of float
+      | `add of t * t | `subtract of t * t | `multiply of t * t | `divide of t * t ]
+    let show (value: t) = Css_Unit.show (value :> Css_Unit.t)
+  end
+
+  type t = [ Global.t | Value.t ]
 
   let show: t -> string = function
   | #Global.t as global ->
     Global.show global
-  | #Time.t as time ->
-    Time.show time
-  | #Percent.t as percent ->
-    Percent.show percent
+  | #Value.t as value ->
+    Value.show value
 end
 
 
@@ -163,18 +200,16 @@ module Background = struct
     type vertical = [ `top | `center | `bottom ] [@@bs.deriving jsConverter]
 
     type t =
-      [ Global.t | Length.t | Percent.t | horizontal | vertical
+      [ Global.t | LengthPercent.t | horizontal | vertical
       | `position of
-          [ Length.t | Percent.t | horizontal ] *
-          [ Length.t | Percent.t | vertical ] ]
+          [ LengthPercent.t | horizontal ] *
+          [ LengthPercent.t | vertical ] ]
 
     let rec show: t -> string = function
     | #Global.t as global ->
       Global.show global
-    | #Length.t as length ->
-      Length.show length
-    | #Percent.t as percent ->
-      Percent.show percent
+    | #LengthPercent.t as value ->
+      LengthPercent.show value
     | #horizontal as horizontal ->
       horizontalToJs horizontal
     | #vertical as vertical ->
@@ -299,15 +334,13 @@ module Font = struct
     type relative_size = [ `larger | `smaller ] [@@bs.deriving jsConverter]
 
     type t =
-      [ Global.t | Length.t | Percent.t | absolute_size | relative_size ]
+      [ Global.t | LengthPercent.t | absolute_size | relative_size ]
 
     let show: t -> string = function
     | #Global.t as value ->
       Global.show value
-    | #Length.t as length ->
-      Length.show length
-    | #Percent.t as percent ->
-      Percent.show percent
+    | #LengthPercent.t as value ->
+      LengthPercent.show value
     | #absolute_size as value ->
       absolute_sizeToJs value |> Util.underscore_to_dash
     | #relative_size as value ->
@@ -370,15 +403,13 @@ module LineHeight = struct
   (** {{: https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height } Line Height} *)
 
   (* NOTE: `<number>` is the same as using `em` so it's ommitted *)
-  type t = [ Global.t | Length.t | Percent.t | `normal ]
+  type t = [ Global.t | LengthPercent.t | `normal ]
 
   let show: t -> string = function
   | #Global.t as value ->
     Global.show value
-  | #Length.t as length ->
-    Length.show length
-  | #Percent.t as percent ->
-    Percent.show percent
+  | #LengthPercent.t as value ->
+    LengthPercent.show value
   | `normal -> "normal"
 end
 
@@ -527,3 +558,4 @@ module TimingFunction = struct
     in
     "cubic-bezier("^ value ^")"
 end
+

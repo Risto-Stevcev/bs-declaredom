@@ -117,9 +117,9 @@ module Range = struct
     | `resolution resolution ->
       "resolution" ^ compareToJs c ^ Css_Unit.Resolution.show resolution
     | `width width ->
-      "width" ^ compareToJs c ^ Css_Value.Length.show width
+      "width" ^ compareToJs c ^ Css_Unit.Length.show width
     | `height height ->
-      "height" ^ compareToJs c ^ Css_Value.Length.show height
+      "height" ^ compareToJs c ^ Css_Unit.Length.show height
     | `aspect_ratio (a, b) ->
       "aspect-ratio" ^ compareToJs c ^ string_of_int a ^"/"^ string_of_int b
     | `color color ->
@@ -130,10 +130,10 @@ module Range = struct
       "monochrome" ^ compareToJs c ^ string_of_int monochrome
     | `device_width device_width ->
       "device-width" ^
-      compareToJs c ^ Css_Value.Length.show device_width
+      compareToJs c ^ Css_Unit.Length.show device_width
     | `device_height device_height ->
       "device-height" ^
-      compareToJs c ^ Css_Value.Length.show device_height
+      compareToJs c ^ Css_Unit.Length.show device_height
     in
     let min_max' =
       min_max |. Belt.Option.mapWithDefault "" (fun m -> min_maxToJs m ^ "-")
