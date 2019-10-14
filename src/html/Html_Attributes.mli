@@ -17,8 +17,6 @@ module LinkType :
             | `prev
             | `search
             | `stylesheet ]
-        val tToJs : t -> string
-        val tFromJs : string -> t option
         val show : t -> string
       end
     module Hyperlink :
@@ -36,8 +34,6 @@ module LinkType :
             | `prev
             | `search
             | `tag ]
-        val tToJs : t -> string
-        val tFromJs : string -> t option
         val show : t -> string
       end
     type t =
@@ -62,8 +58,6 @@ module Target :
     (** {{: https://www.w3.org/TR/html52/browsers.html#browsing-context-names} Browsing context} *)
 
     type value = [ `blank | `parent | `self | `top ]
-    val valueToJs : value -> string
-    val valueFromJs : string -> value option
     type t =
         [ `blank | `browsing_context of string | `parent | `self | `top ]
     val show : t -> string
@@ -81,8 +75,6 @@ module ReferrerPolicy :
         | `strict_origin
         | `strict_origin_when_cross_origin
         | `unsafe_url ]
-    val tToJs : t -> string
-    val tFromJs : string -> t option
     val show : t -> string
   end
 module CrossOrigin :
@@ -90,8 +82,6 @@ module CrossOrigin :
     (** {{: https://html.spec.whatwg.org/multipage/media.html#attr-media-crossorigin} Crossorigin} *)
 
     type t = [ `anonymous | `use_credentials ]
-    val tToJs : t -> string
-    val tFromJs : string -> t option
     val show : t -> string
   end
 module AutoComplete :
@@ -154,8 +144,6 @@ module AutoComplete :
         | `transaction_currency
         | `url
         | `username ]
-    val tToJs : t -> string
-    val tFromJs : string -> t option
     val show : t -> string
   end
 module Form :
@@ -165,8 +153,6 @@ module Form :
         (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-enctype} Form Enctype} *)
 
         type t = [ `form_data | `plain | `x_www_form_urlencoded ]
-        val tToJs : t -> string
-        val tFromJs : string -> t option
         val show : t -> string
       end
     module Method :
@@ -174,8 +160,6 @@ module Form :
         (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method} Form Method} *)
 
         type t = [ `dialog | `get | `post ]
-        val tToJs : t -> string
-        val tFromJs : string -> t option
         val show : t -> string
       end
   end
@@ -184,8 +168,6 @@ module Dirname :
     (** {{: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-dirname} Dirname} *)
 
     type t = [ `ltr | `rtl ]
-    val tToJs : t -> string
-    val tFromJs : string -> t option
     val show : t -> string
   end
 module Preload :
@@ -193,8 +175,6 @@ module Preload :
     (** {{: https://html.spec.whatwg.org/multipage/media.html#attr-media-preload} Preload} *)
 
     type t = [ `auto | `metadata | `none ]
-    val tToJs : t -> string
-    val tFromJs : string -> t option
     val show : t -> string
   end
 module Aria :
@@ -302,37 +282,19 @@ module Aria :
     module Value :
       sig
         type autocomplete = [ `both | `inline | `list | `none ]
-        val autocompleteToJs : autocomplete -> string
-        val autocompleteFromJs : string -> autocomplete Js.Option.t
         type current =
             [ `date | `false_ | `location | `page | `step | `time | `true_ ]
-        val currentToJs : current -> string
-        val currentFromJs : string -> current Js.Option.t
         type dropeffect =
             [ `copy | `execute | `link | `move | `none | `popup ]
-        val dropeffectToJs : dropeffect -> string
-        val dropeffectFromJs : string -> dropeffect Js.Option.t
         val dropeffects : dropeffect Belt.List.t -> string
         type haspopup =
             [ `dialog | `false_ | `grid | `listbox | `menu | `tree | `true_ ]
-        val haspopupToJs : haspopup -> string
-        val haspopupFromJs : string -> haspopup Js.Option.t
         type invalid = [ `false_ | `grammar | `spelling | `true_ ]
-        val invalidToJs : invalid -> string
-        val invalidFromJs : string -> invalid Js.Option.t
         type live = [ `assertive | `off | `polite ]
-        val liveToJs : live -> string
-        val liveFromJs : string -> live Js.Option.t
         type orientation = [ `horizontal | `vertical ]
-        val orientationToJs : orientation -> string
-        val orientationFromJs : string -> orientation Js.Option.t
         type relevant = [ `additions | `all | `removals | `text ]
-        val relevantToJs : relevant -> string
-        val relevantFromJs : string -> relevant Js.Option.t
         val relevants : relevant Belt.List.t -> string
         type sort = [ `ascending | `descending | `none | `other ]
-        val sortToJs : sort -> string
-        val sortFromJs : string -> sort Js.Option.t
       end
     module Roletype :
       sig
@@ -4038,18 +4000,10 @@ module Global :
       sig
         type autocapitalize =
             [ `characters | `none | `off | `on | `sentences | `words ]
-        val autocapitalizeToJs : autocapitalize -> string
-        val autocapitalizeFromJs : string -> autocapitalize option
         type dir = [ `auto | `ltr | `rtl ]
-        val dirToJs : dir -> string
-        val dirFromJs : string -> dir option
         type translate = [ `no | `yes ]
-        val translateToJs : translate -> string
-        val translateFromJs : string -> translate option
         type enterkeyhint =
             [ `done_ | `enter | `go | `next | `previous | `search | `send ]
-        val enterkeyhintToJs : enterkeyhint -> string
-        val enterkeyhintFromJs : string -> enterkeyhint option
         type inputmode =
             [ `decimal
             | `email
@@ -4059,8 +4013,6 @@ module Global :
             | `tel
             | `text
             | `url ]
-        val inputmodeToJs : inputmode -> string
-        val inputmodeFromJs : string -> inputmode option
       end
     val _make :
       ?accesskey:string ->

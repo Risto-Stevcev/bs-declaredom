@@ -20,8 +20,6 @@ module AlignContent :
             | `space_around
             | `space_between
             | `stretch ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -36,8 +34,6 @@ module AlignItems :
       sig
         type value =
             [ `baseline | `center | `flex_end | `flex_start | `stretch ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -57,8 +53,6 @@ module AlignSelf :
             | `flex_end
             | `flex_start
             | `stretch ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -193,8 +187,6 @@ module Azimuth :
             | `right
             | `right_side
             | `rightwards ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t =
           [ Css_Value.Global.t | Css_Value.Angle.t | `behind' | `behind of value
           | value ]
@@ -564,8 +556,6 @@ module Clear :
     module Value :
       sig
         type value = [ `both | `left | `none | `right ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -650,8 +640,6 @@ module Cursor :
             | `text
             | `w_resize
             | `wait ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t =
           [ Css_Value.Global.t
           | `cursor_uri of Css_Value.Uri.t list * value | value ]
@@ -712,8 +700,6 @@ module Elevation :
     module Value :
       sig
         type value = [ `above | `below | `higher | `level | `lower ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | Css_Value.Angle.t | value ]
         val show : t -> string
       end
@@ -811,8 +797,6 @@ module Float :
     module Value :
       sig
         type value = [ `left | `none | `right ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -867,8 +851,6 @@ module Font :
             | `message_box
             | `small_caption
             | `status_bar ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type font =
             Css_Value.Font.Style.t option * Css_Value.Font.Variant.t option *
             Css_Value.Font.Weight.t option * Css_Value.Font.Size.t *
@@ -906,8 +888,6 @@ module JustifyContent :
             | `flex_start
             | `space_around
             | `space_between ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1142,8 +1122,6 @@ module Overflow :
     module Value :
       sig
         type value = [ `auto | `hidden | `scroll | `visible ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1272,8 +1250,6 @@ module Pitch :
     module Value :
       sig
         type value = [ `high | `low | `medium | `x_high | `x_low ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | Css_Value.Frequency.t | value ]
         val show : t -> string
       end
@@ -1287,8 +1263,6 @@ module PlayDuring :
     module Value :
       sig
         type value = [ `mix | `repeat ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t =
           [ Css_Value.Global.t | Css_Value.Uri.t | `sound of Css_Value.Uri.t * value
           | `auto | `none ]
@@ -1401,8 +1375,6 @@ module Speak :
     module Value :
       sig
         type value = [ `none | `normal | `spell_out ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1417,8 +1389,6 @@ module SpeechRate :
       sig
         type value =
             [ `fast | `faster | `medium | `slow | `slower | `x_fast | `x_slow ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value | `rate of float ]
         val show : t -> string
       end
@@ -1456,8 +1426,6 @@ module TextAlign :
     module Value :
       sig
         type value = [ `center | `justify | `left | `right ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1472,8 +1440,6 @@ module TextDecoration :
       sig
         type value =
             [ `blink | `line_through | `none | `overline | `underline ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1494,8 +1460,6 @@ module TextTransform :
     module Value :
       sig
         type value = [ `capitalize | `lowercase | `none | `uppercase ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1563,8 +1527,6 @@ module UnicodeBidi :
     module Value :
       sig
         type value = [ `bidi_override | `embed | `normal ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1588,8 +1550,6 @@ module VerticalAlign :
                 | `super
                 | `text_bottom
                 | `text_top ]
-            val valueToJs : value -> string
-            val valueFromJs : string -> value option
             type t =
               [ Css_Value.LengthPercent.t | value ]
             val show : t -> string
@@ -1597,8 +1557,6 @@ module VerticalAlign :
         module LineRelative :
           sig
             type t = [ `bottom | `top ]
-            val tToJs : t -> string
-            val tFromJs : string -> t option
             val show : t -> string
           end
         type t =
@@ -1615,8 +1573,6 @@ module Visibility :
     module Value :
       sig
         type value = [ `collapse | `hidden | `visible ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1630,8 +1586,6 @@ module VoiceFamily :
     module Value :
       sig
         type generic = [ `child | `female | `male ]
-        val genericToJs : generic -> string
-        val genericFromJs : string -> generic option
         type t = [ Css_Value.Global.t | generic | `specific of string ]
         val show : t -> string
       end
@@ -1646,8 +1600,6 @@ module Volume :
       sig
         type value =
             [ `loud | `medium | `silent | `soft | `x_loud | `x_soft ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t =
           [ Css_Value.Global.t | Css_Value.Percent.t | `volume of float
           | value ]
@@ -1663,8 +1615,6 @@ module WhiteSpace :
     module Value :
       sig
         type value = [ `normal | `nowrap | `pre | `pre_line | `pre_wrap ]
-        val valueToJs : value -> string
-        val valueFromJs : string -> value option
         type t = [ Css_Value.Global.t | value ]
         val show : t -> string
       end
@@ -1712,11 +1662,7 @@ module Ruby :
         module Value :
           sig
             type vertical = [ `inter_character | `over | `under ]
-            val verticalToJs : vertical -> string
-            val verticalFromJs : string -> vertical option
             type horizontal = [ `left | `right ]
-            val horizontalToJs : horizontal -> string
-            val horizontalFromJs : string -> horizontal option
             type t =
                 [ `inherit_
                 | `initial
@@ -1733,8 +1679,6 @@ module Ruby :
         module Value :
           sig
             type value = [ `auto | `collapse | `separate ]
-            val valueToJs : value -> string
-            val valueFromJs : string -> value option
             type t =
                 [ `auto
                 | `collapse
@@ -1754,8 +1698,6 @@ module Ruby :
           sig
             type value =
                 [ `center | `space_around | `space_between | `start ]
-            val valueToJs : value -> string
-            val valueFromJs : string -> value option
             type t =
                 [ `center
                 | `inherit_
