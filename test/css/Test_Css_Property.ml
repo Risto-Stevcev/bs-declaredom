@@ -217,7 +217,7 @@ test ~name:"css property - background-attachment" @@ fun t -> begin
   t |> equal `scroll "scroll";
   t |> equal `fixed "fixed";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background-image" @@ fun t -> begin
@@ -231,7 +231,7 @@ test ~name:"css property - background-image" @@ fun t -> begin
   t |> equal (`rgb (122, 231, 255)) "rgb(122, 231, 255)";
   t |> equal `transparent "transparent";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background-image" @@ fun t -> begin
@@ -245,7 +245,7 @@ test ~name:"css property - background-image" @@ fun t -> begin
              "url(\"http://wikipedia.org\")";
   t |> equal `none "none";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background-position" @@ fun t -> begin
@@ -270,7 +270,7 @@ test ~name:"css property - background-position" @@ fun t -> begin
   t |> equal (`position (`right, `bottom)) "right bottom";
   t |> equal (`position (`center, `bottom)) "center bottom";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background-repeat" @@ fun t -> begin
@@ -301,7 +301,7 @@ test ~name:"css property - background-size" @@ fun t -> begin
   t |> equal (`px 24.) "24px";
   t |> equal (`size (`percent 0., `percent 50.)) "0% 50%";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - background" @@ fun t -> begin
@@ -1802,7 +1802,7 @@ test ~name:"css property - text-decoration" @@ fun t -> begin
   t |> equal `line_through "line-through";
   t |> equal `blink "blink";
   t |> T.end_
-end; 
+end;
 
 
 test ~name:"css property - text-indent" @@ fun t -> begin
