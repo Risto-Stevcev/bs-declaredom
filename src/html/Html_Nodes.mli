@@ -1701,7 +1701,9 @@ module Body :
      *)
 
     type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.body ]
-    type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+    type +'a children = ['a Html_Node.flow | Html_Node.other]
+    type +'a child = 'a children Html_Node.t
 
     val make :
       ?aria:Html_Attributes.Aria.document Html_Attributes.Aria.t ->
@@ -3782,7 +3784,9 @@ module Div :
      *)
 
     type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.div ]
-    type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+
+    type +'a children = ['a Html_Node.flow | Html_Node.other]
+    type +'a child = 'a children Html_Node.t
 
     val make :
       ?aria:'a Html_Attributes.Aria.t ->
@@ -11653,7 +11657,8 @@ module Section :
      *)
 
     type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.section ]
-    type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+    type +'a children = ['a Html_Node.flow | Html_Node.other]
+    type +'a child = 'a children Html_Node.t
 
     val make :
       ?aria:[< Html_Attributes.Aria.region

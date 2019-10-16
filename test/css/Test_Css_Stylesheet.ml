@@ -66,8 +66,9 @@ test ~name:"@media functions" @@ fun t -> begin
   "  z-index: 3;\n"^
   "  position: fixed;\n"^
   "}\n"^
-  ".ma7988c6e19cdd470118f972110f5a9b4 {\n"^
+  ".m54b977e6455895da3b8081756436b4cb {\n"^
   "  color: blue;\n"^
+  "  display: flex;\n"^
   "}";
   t |> T.end_
   end;

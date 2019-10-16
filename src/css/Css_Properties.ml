@@ -849,19 +849,14 @@ module Display = struct
 
   let none (): [> Css_Property.display'] Css_Property.t = Internal.make `none
 
-  let flex (value: Css_Property.flexbox Css_Property.t Js.Dict.t):
-    Css_Property.Override.flex Css_Property.t Js.Dict.t =
+  let flex value =
     Js.Dict.fromList [("display", Internal.make `flex)] |> Util.merge value
 
-  let inline_block (value: Css_Property.inline_block Css_Property.t Js.Dict.t):
-    Css_Property.Override.inline_block Css_Property.t Js.Dict.t =
-    Js.Dict.fromList [("display", Internal.make `inline_block)]
-    |> Util.merge value
+  let inline_block value =
+    Js.Dict.fromList [("display", Internal.make `inline_block)] |> Util.merge value
 
-  let inline_flex (value: Css_Property.inline_flex Css_Property.t Js.Dict.t):
-    Css_Property.Override.inline_flex Css_Property.t Js.Dict.t =
-    Js.Dict.fromList [("display", Internal.make `inline_flex)]
-    |> Util.merge value
+  let inline_flex value =
+    Js.Dict.fromList [("display", Internal.make `inline_flex)] |> Util.merge value
 end
 
 

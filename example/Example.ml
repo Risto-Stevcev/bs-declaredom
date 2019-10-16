@@ -10,7 +10,7 @@ module Modules = struct
       ~border:(Css.Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
   let flex_item = Css.Module.make @@
-    Css.flex_item ~align_self:`flex_start ~color:`red ()
+    Css.flex_item ~align_self:`flex_start ()
 
   (* You can use `map` on a css module. Here it's just upcasting the type, so
    * the actual implementation hasn't changed and the module name will stay the
@@ -163,11 +163,15 @@ let example =
   div ~css_module:Modules.container [|
     TryJsx.foo;
     Div.flex ~css_module:Modules.flex [|
-      span [|text "this"|] |> Html.Overrides.flex_module Modules.flex_item;
+      span [|text "this"|] |> Html.Overrides.with_flex_css ~css_module:Modules.flex_item;
       span [|text "is"|];
       span [|text "flexbox"|];
     |];
     fragment [|
+      (* this correctly fails because this fragment isn't a flex item,
+       * so flex item styles don't apply:
+       * span [|text "this"|] |> Html.Overrides.with_flex_css ~css_module:Modules.flex_item;
+       *)
       anchor;
       br ();
       span [|text "foo"|];

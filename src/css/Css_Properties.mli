@@ -684,13 +684,13 @@ module Display :
     val none : unit -> [> Css_Property.display' ] t
     val flex :
       Css_Property.flexbox Css_Property.t Js.Dict.t ->
-      Css_Property.Override.flex Css_Property.t Js.Dict.t
+      Css_Property.flexbox Css_Property.t Js.Dict.t
     val inline_block :
       Css_Property.inline_block Css_Property.t Js.Dict.t ->
-      Css_Property.Override.inline_block Css_Property.t Js.Dict.t
+      Css_Property.inline_block Css_Property.t Js.Dict.t
     val inline_flex :
       Css_Property.inline_flex Css_Property.t Js.Dict.t ->
-      Css_Property.Override.inline_flex Css_Property.t Js.Dict.t
+      Css_Property.inline_flex Css_Property.t Js.Dict.t
   end
 module Elevation :
   sig

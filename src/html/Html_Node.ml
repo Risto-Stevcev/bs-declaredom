@@ -134,6 +134,8 @@ module Node = struct
    and text = [ `text ]
    and fragment = [ `fragment ]
 
+   and flex_item = [ `flex_item ]
+
    (** {{: https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements} Custom Elements} *)
    and +'a custom = [ `custom of 'a ]
 
@@ -230,9 +232,7 @@ module ContentCategory = struct
     | none ]
 
   type 'a content =
-    [ 'a element | other ]
-
-  type 'a flex_item = [ 'a flow | 'a phrasing | other ]
+    [ 'a element | other | flex_item ]
 
   (**
    {{: https://html.spec.whatwg.org/multipage/dom.html#transparent-content-models} Transparent content}

@@ -579,7 +579,6 @@ val flexbox :
   ?margin_right:Css_Value.LengthPercent.t ->
   ?margin_bottom:Css_Value.LengthPercent.t ->
   ?margin_left:Css_Value.LengthPercent.t ->
-  ?order:int ->
   ?padding:Css_Property.padding Css_Property.t ->
   ?padding_top:Css_Value.LengthPercent.t ->
   ?padding_right:Css_Value.LengthPercent.t ->
@@ -660,88 +659,11 @@ val flexbox :
   unit -> Css_Property.flexbox t
 val flex_item :
   ?align_self:Css_Properties.AlignSelf.Value.t ->
-  ?animation:Css_Property.animation Css_Property.t ->
-  ?animation_delay:Css_Properties.AnimationDelay.Value.t ->
-  ?animation_direction:Css_Properties.AnimationDirection.Value.t ->
-  ?animation_duration:Css_Properties.AnimationDuration.Value.t ->
-  ?animation_fill_mode:Css_Properties.AnimationFillMode.Value.t ->
-  ?animation_iteration_count:Css_Properties.AnimationIterationCount.Value.t ->
-  ?animation_name:Css_Properties.AnimationName.Value.t ->
-  ?animation_play_state:Css_Properties.AnimationPlayState.Value.t ->
-  ?animation_timing_function:Css_Value.TimingFunction.t ->
   ?flex:Css_Property.flex Css_Property.t ->
   ?flex_basis:Css_Value.LengthPercent.t ->
   ?flex_grow:float ->
   ?flex_shrink:float ->
-  ?azimuth:Css_Properties.Azimuth.Value.t ->
-  ?background_attachment:Css_Value.Background.Attachment.t ->
-  ?background_color:Css_Value.Background.Color.t ->
-  ?background_image:Css_Value.Background.Image.t ->
-  ?background_position:Css_Value.Background.Position.t ->
-  ?background_repeat:Css_Value.Background.Repeat.t ->
-  ?background_size:Css_Properties.BackgroundSize.Value.t ->
-  ?background:Css_Property.background Css_Property.t ->
-  ?border_top_color:Css_Value.Border.Color.t ->
-  ?border_right_color:Css_Value.Border.Color.t ->
-  ?border_bottom_color:Css_Value.Border.Color.t ->
-  ?border_left_color:Css_Value.Border.Color.t ->
-  ?border_color:Css_Value.Border.Color.t ->
-  ?border_top_style:Css_Value.Border.Style.t ->
-  ?border_right_style:Css_Value.Border.Style.t ->
-  ?border_bottom_style:Css_Value.Border.Style.t ->
-  ?border_left_style:Css_Value.Border.Style.t ->
-  ?border_style:Css_Value.Border.Style.t ->
-  ?border_top_width:Css_Value.Border.Width.t ->
-  ?border_right_width:Css_Value.Border.Width.t ->
-  ?border_bottom_width:Css_Value.Border.Width.t ->
-  ?border_left_width:Css_Value.Border.Width.t ->
-  ?border_width:Css_Value.Border.Width.t ->
-  ?border_top:Css_Property.border_top Css_Property.t ->
-  ?border_right:Css_Property.border_right Css_Property.t ->
-  ?border_bottom:Css_Property.border_bottom Css_Property.t ->
-  ?border_left:Css_Property.border_left Css_Property.t ->
-  ?border:Css_Property.border Css_Property.t ->
-  ?color:Css_Properties.Color.Value.t ->
-  ?cue_after:Css_Value.UriOrNone.t ->
-  ?cue_before:Css_Value.UriOrNone.t ->
-  ?cue:Css_Properties.Cue.Value.t ->
-  ?cursor:Css_Properties.Cursor.Value.t ->
-  ?direction:Css_Properties.Direction.Value.t ->
-  ?elevation:Css_Properties.Elevation.Value.t ->
-  ?float:Css_Properties.Float.Value.t ->
-  ?font_family:Css_Value.Font.Family.t ->
-  ?font_size:Css_Value.Font.Size.t ->
-  ?font_style:Css_Value.Font.Style.t ->
-  ?font_variant:Css_Value.Font.Variant.t ->
-  ?font_weight:Css_Value.Font.Weight.t ->
-  ?font:Css_Property.font Css_Property.t ->
-  ?letter_spacing:Css_Properties.LetterSpacing.Value.t ->
-  ?line_height:Css_Value.LineHeight.t ->
-  ?opacity:float ->
-  ?outline_color:Css_Value.Outline.Color.t ->
-  ?outline_style:Css_Value.Outline.Style.t ->
-  ?outline_width:Css_Value.Outline.Width.t ->
-  ?outline:Css_Property.outline Css_Property.t ->
-  ?pause_after:Css_Value.TimePercent.t ->
-  ?pause_before:Css_Value.TimePercent.t ->
-  ?pause:Css_Properties.Pause.Value.t ->
-  ?pitch_range:Css_Properties.PitchRange.Value.t ->
-  ?pitch:Css_Properties.Pitch.Value.t ->
-  ?play_during:Css_Properties.PlayDuring.Value.t ->
-  ?richness:Css_Properties.Richness.Value.t ->
-  ?speak_numeral:Css_Properties.SpeakNumeral.Value.t ->
-  ?speak_punctuation:Css_Properties.SpeakPunctuation.Value.t ->
-  ?speak:Css_Properties.Speak.Value.t ->
-  ?speech_rate:Css_Properties.SpeechRate.Value.t ->
-  ?stress:Css_Properties.Stress.Value.t ->
-  ?text_decoration:Css_Properties.TextDecoration.Value.t ->
-  ?text_transform:Css_Properties.TextTransform.Value.t ->
-  ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
-  ?visibility:Css_Properties.Visibility.Value.t ->
-  ?voice_family:Css_Properties.VoiceFamily.Value.t ->
-  ?volume:Css_Properties.Volume.Value.t ->
-  ?white_space:Css_Properties.WhiteSpace.Value.t ->
-  ?word_spacing:Css_Properties.WordSpacing.Value.t ->
+  ?order:int ->
   unit -> Css_Property.flex_item t
 val positioned :
   ?animation:Css_Property.animation Css_Property.t ->
@@ -1242,7 +1164,6 @@ val inline_flex :
   ?animation_name:Css_Properties.AnimationName.Value.t ->
   ?animation_play_state:Css_Properties.AnimationPlayState.Value.t ->
   ?animation_timing_function:Css_Value.TimingFunction.t ->
-  ?flex:Css_Property.flex Css_Property.t ->
   ?flex_direction:Css_Value.Flex.Direction.t ->
   ?flex_flow:Css_Properties.FlexFlow.Value.t ->
   ?flex_wrap:Css_Value.Flex.Wrap.t ->
@@ -1255,7 +1176,6 @@ val inline_flex :
   ?margin_right:Css_Value.LengthPercent.t ->
   ?margin_bottom:Css_Value.LengthPercent.t ->
   ?margin_left:Css_Value.LengthPercent.t ->
-  ?order:int ->
   ?padding:Css_Property.padding Css_Property.t ->
   ?padding_top:Css_Value.LengthPercent.t ->
   ?padding_right:Css_Value.LengthPercent.t ->
@@ -1405,6 +1325,7 @@ val inline_block :
   ?cue:Css_Properties.Cue.Value.t ->
   ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
+  ?display:unit ->
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?float:Css_Properties.Float.Value.t ->
   ?font_family:Css_Value.Font.Family.t ->

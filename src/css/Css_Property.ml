@@ -242,6 +242,9 @@ module AppliesTo = struct
   (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
   module KeyframeBlock = struct
+    (* Keyframe blocks accept all properties but the animation styles, with the only
+       exception being animation_timing_function *)
+
     type any =
       [ animation_timing_function | azimuth | backgrounds | border_colors | border_styles
       | border_widths | borders | color | cues | cursor | direction | display' | elevation
@@ -310,10 +313,13 @@ module AppliesTo = struct
       | table_caption | table | inline_table | table_cell | table_column
       | table_column_group | table_row | table_row_group ]
 
-    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink | displays ]
+    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink ]
   end
 
+
   module Display = struct
+    (* Includes all the same styles as keyframe blocks and includes animation styles *)
+
     type any = [ KeyframeBlock.any | animations ]
 
     type block = [ KeyframeBlock.block | animations ]
@@ -378,65 +384,14 @@ module AppliesTo = struct
     A flex item is defined as a child of a flex container ([display: flex]), it
     can have any display type.
     *)
-    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink | displays ]
+    type flex_item = KeyframeBlock.flex_item
   end
 
   include Display
 
-  module KeyframeOverride = struct
-    type block = [ KeyframeBlock.block | KeyframeBlock.any ]
-    type flex = [ KeyframeBlock.flexbox | KeyframeBlock.any ]
-    type list_item = [ KeyframeBlock.list_item | KeyframeBlock.any ]
-    type inline = [ KeyframeBlock.inline | KeyframeBlock.any ]
-    type inline_block = [ KeyframeBlock.inline_block | KeyframeBlock.any ]
-    type inline_flex = [ KeyframeBlock.inline_flex | KeyframeBlock.any ]
-    type table_header_group = [ KeyframeBlock.table_header_group | KeyframeBlock.any ]
-    type table_footer_group = [ KeyframeBlock.table_footer_group | KeyframeBlock.any ]
-    type table_caption = [ KeyframeBlock.table_caption | KeyframeBlock.any ]
-    type table = [ KeyframeBlock.table | KeyframeBlock.any ]
-    type inline_table = [ KeyframeBlock.inline_table | KeyframeBlock.any ]
-    type table_cell = [ KeyframeBlock.table_cell | KeyframeBlock.any ]
-    type table_column = [ KeyframeBlock.table_column | KeyframeBlock.any ]
-    type table_column_group = [ KeyframeBlock.table_column_group | KeyframeBlock.any ]
-    type table_row = [ KeyframeBlock.table_row | KeyframeBlock.any ]
-    type table_row_group = [ KeyframeBlock.table_row_group | KeyframeBlock.any ]
+  type keyframe_block = [ KeyframeBlock.displays | KeyframeBlock.flex_item ]
 
-    type t =
-      [ block | flex | list_item | inline | inline_block | inline_flex | table_header_group
-      | table_footer_group | table_caption | table | inline_table | table_cell | table_column
-      | table_column_group | table_row | table_row_group ]
-  end
-
-  module Override = struct
-    (** Display overrides (for the [display] css property) *)
-
-    type block = [ KeyframeOverride.block | any ]
-    type flex = [ KeyframeOverride.flex | any ]
-    type list_item = [ KeyframeOverride.list_item | any ]
-    type inline = [ KeyframeOverride.inline | any ]
-    type inline_block = [ KeyframeOverride.inline_block | any ]
-    type inline_flex = [ KeyframeOverride.inline_flex | any ]
-    type table_header_group = [ KeyframeOverride.table_header_group | any ]
-    type table_footer_group = [ KeyframeOverride.table_footer_group | any ]
-    type table_caption = [ KeyframeOverride.table_caption | any ]
-    type table = [ KeyframeOverride.table | any ]
-    type inline_table = [ KeyframeOverride.inline_table | any ]
-    type table_cell = [ KeyframeOverride.table_cell | any ]
-    type table_column = [ KeyframeOverride.table_column | any ]
-    type table_column_group = [ KeyframeOverride.table_column_group | any ]
-    type table_row = [ KeyframeOverride.table_row | any ]
-    type table_row_group = [ KeyframeOverride.table_row_group | any ]
-
-    type t =
-      [ block | flex | list_item | inline | inline_block | inline_flex | table_header_group
-      | table_footer_group | table_caption | table | inline_table | table_cell | table_column
-      | table_column_group | table_row | table_row_group ]
-  end
-
-  type keyframe_block =
-    [ KeyframeBlock.displays | KeyframeBlock.flex_item | KeyframeOverride.t ]
-
-  type display = [ displays | flex_item | Override.t | size ]
+  type display = [ displays | flex_item | size ]
 
 
   let to_block x = (x :> block t)

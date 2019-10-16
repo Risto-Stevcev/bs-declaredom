@@ -934,7 +934,8 @@ end
 module Body = struct
   type +'a t = ([> Html_Node.body ] as 'a) Html_Node.t
 
-  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+  type +'a children = ['a Html_Node.flow | Html_Node.other]
+  type +'a child = 'a children Html_Node.t
 
   module Attributes = struct
     external make:
@@ -2080,8 +2081,8 @@ end
 
 module Div = struct
   type +'a t = ([> Html_Node.div ] as 'a) Html_Node.t
-
-  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+  type +'a children = ['a Html_Node.flow | Html_Node.other]
+  type +'a child = 'a children Html_Node.t
 
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -6450,7 +6451,8 @@ end
 module Section = struct
   type +'a t = ([> Html_Node.section ] as 'a) Html_Node.t
 
-  type +'a child = ['a Html_Node.flow | Html_Node.other] Html_Node.t
+  type +'a children = ['a Html_Node.flow | Html_Node.other]
+  type +'a child = 'a children Html_Node.t
 
   let make
     ?(aria:[< Html_Attributes.Aria.region
@@ -6842,7 +6844,8 @@ end
 module Span = struct
   type +'a t = ([> Html_Node.span ] as 'a) Html_Node.t
 
-  type +'a child = ['a Html_Node.phrasing | Html_Node.other] Html_Node.t
+  type +'a children = ['a Html_Node.phrasing | Html_Node.other]
+  type +'a child = 'a children Html_Node.t
 
   let make ?aria
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
