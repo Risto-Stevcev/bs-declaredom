@@ -6,7 +6,7 @@ module Modules = struct
     Css.inline ~vertical_align:`initial ~color:`black ()
 
   let flex = Css.Module.make @@
-    Css.flexbox ~flex_direction:`column ~color:`coral
+    Css.flex ~flex_direction:`column ~color:`coral
       ~border:(Css.Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 
   let flex_item = Css.Module.make @@
@@ -69,7 +69,7 @@ let _ =
  * (`<span>`) and sectioning (`<section>`) containers as other use cases are 
  * usually a CSS antipattern *)
 let _ =
-  Div.flex ~style:(Css.flexbox ~justify_content:`center ()) [|
+  Div.flex ~style:(Css.flex ~justify_content:`center ()) [|
     Span.inline_block ~style:(Css.inline_block ~color:`blue ()) [|text "foo"|];
     Section.inline_flex [|text "bar"|]
   |]

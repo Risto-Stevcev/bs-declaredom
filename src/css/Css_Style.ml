@@ -74,7 +74,7 @@ module Internal = struct
       Css_Property.cues t = "" [@@bs.obj]
 
     external flexs:
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_basis:Css_Property.flex_basis Css_Property.t ->
       ?flex_direction:Css_Property.flex_direction Css_Property.t ->
       ?flex_flow:Css_Property.flex_flow Css_Property.t ->
@@ -262,7 +262,7 @@ module Internal = struct
       ?cursor:Css_Property.cursor Css_Property.t ->
       ?direction:Css_Property.direction Css_Property.t ->
       ?empty_cells:Css_Property.empty_cells Css_Property.t ->
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_basis:Css_Property.flex_basis Css_Property.t ->
       ?flex_direction:Css_Property.flex_direction Css_Property.t ->
       ?flex_flow:Css_Property.flex_flow Css_Property.t ->
@@ -542,7 +542,7 @@ module Internal = struct
       Css_Property.block t = "" [@@bs.obj]
 
 
-    external flexbox:
+    external flex:
       ?align_content:Css_Property.align_content Css_Property.t ->
       ?align_items:Css_Property.align_items Css_Property.t ->
       ?flex_direction:Css_Property.flex_direction Css_Property.t ->
@@ -653,13 +653,13 @@ module Internal = struct
       ?white_space:Css_Property.white_space Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
-      Css_Property.flexbox t = "" [@@bs.obj]
+      Css_Property.flex t = "" [@@bs.obj]
 
 
     (* https://www.w3.org/TR/css-flexbox-1/#property-index *)
     external flex_item:
       ?align_self:Css_Property.align_self Css_Property.t ->
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_basis:Css_Property.flex_basis Css_Property.t ->
       ?flex_grow:Css_Property.flex_grow Css_Property.t ->
       ?flex_shrink:Css_Property.flex_shrink Css_Property.t ->
@@ -2374,7 +2374,7 @@ module Internal = struct
       ?elevation:Css_Property.elevation Css_Property.t ->
       ?empty_cells:Css_Property.empty_cells Css_Property.t ->
       ?flex_basis:Css_Property.flex_basis Css_Property.t ->
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_direction:Css_Property.flex_direction Css_Property.t ->
       ?flex_flow:Css_Property.flex_flow Css_Property.t ->
       ?flex_grow:Css_Property.flex_grow Css_Property.t ->
@@ -2508,7 +2508,7 @@ module Internal = struct
       ?elevation:Css_Property.elevation Css_Property.t ->
       ?empty_cells:Css_Property.empty_cells Css_Property.t ->
       ?flex_basis:Css_Property.flex_basis Css_Property.t ->
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_direction:Css_Property.flex_direction Css_Property.t ->
       ?flex_flow:Css_Property.flex_flow Css_Property.t ->
       ?flex_grow:Css_Property.flex_grow Css_Property.t ->
@@ -2605,7 +2605,7 @@ module Shorthand = struct
   let border_left = Css_Properties.BorderLeft.make
   let border = Css_Properties.Border.make
   let font = Css_Properties.Font.make
-  let flex = Css_Properties.Flex.make
+  let flex' = Css_Properties.Flex.make
   let list_style = Css_Properties.ListStyle.make
   let margin = Css_Properties.Margin.make
   let outline = Css_Properties.Outline.make
@@ -3241,7 +3241,7 @@ module AppliesTo = struct
       ()
 
 
-  let flexbox ?align_content ?align_items ?flex_direction ?flex_flow ?flex_wrap ?justify_content
+  let flex ?align_content ?align_items ?flex_direction ?flex_flow ?flex_wrap ?justify_content
     ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
     ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?margin
@@ -3262,7 +3262,7 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?unicode_bidi ?visibility ?voice_family
     ?volume ?white_space ?word_spacing () =
-    Internal.AppliesTo.flexbox
+    Internal.AppliesTo.flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
       ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)

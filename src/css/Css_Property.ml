@@ -67,7 +67,7 @@ module Style = struct
    and display' = [ `display ]
    and elevation = [ `elevation ]
    and empty_cells = [ `empty_cells ]
-   and flex = [ `flex ]
+   and flex' = [ `flex ]
    and flex_basis = [ `flex_basis ]
    and flex_direction = [ `flex_direction ]
    and flex_flow = [ `flex_flow ]
@@ -189,7 +189,7 @@ module Style = struct
     [ cue_after | cue_before | cue ]
 
   type flexs =
-    [ flex | flex_basis | flex_direction | flex_flow | flex_grow
+    [ flex' | flex_basis | flex_direction | flex_flow | flex_grow
     | flex_shrink | flex_wrap ]
 
   type fonts =
@@ -261,9 +261,9 @@ module AppliesTo = struct
     type flex_container =
       [ align_content | align_items | flex_direction | flex_flow | flex_wrap | justify_content ]
 
-    type flexbox = [ flex_container | block ]
+    type flex = [ flex_container | block ]
 
-    type inline_flex = [ inline | flexbox ]
+    type inline_flex = [ inline | flex ]
   end
 
   module KeyframeBlock = struct
@@ -276,7 +276,7 @@ module AppliesTo = struct
     type block =
       [ Flexbox.block | clear ]
 
-    type flexbox = Flexbox.flexbox
+    type flex = Flexbox.flex
 
     type list_item = [ heights | list_styles | margins | paddings | widths | any ]
 
@@ -323,12 +323,12 @@ module AppliesTo = struct
     type table_row_group = [ heights | any ]
 
     type displays =
-      [ block | flexbox | list_item | positioned | inline
+      [ block | flex | list_item | positioned | inline
       | inline_block | inline_flex | table_header_group | table_footer_group
       | table_caption | table | inline_table | table_cell | table_column
       | table_column_group | table_row | table_row_group ]
 
-    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink | order ]
+    type flex_item = [ align_self | flex' | flex_basis | flex_grow | flex_shrink | order ]
   end
 
 
@@ -339,7 +339,7 @@ module AppliesTo = struct
 
     type block = [ KeyframeBlock.block | animations ]
 
-    type flexbox = [ KeyframeBlock.flexbox | animations ]
+    type flex = [ KeyframeBlock.flex | animations ]
 
     type list_item = [ KeyframeBlock.list_item | animations ]
 
@@ -390,7 +390,7 @@ module AppliesTo = struct
     type ruby_display = [ ruby | ruby_base | ruby_text | ruby_base_container | ruby_text_container ]
 
     type displays =
-      [ block | flexbox | list_item | positioned | inline
+      [ block | flex | list_item | positioned | inline
       | inline_block | inline_flex | table_header_group | table_footer_group
       | table_caption | table | inline_table | table_cell | table_column
       | table_column_group | table_row | table_row_group | ruby_display ]
@@ -410,7 +410,7 @@ module AppliesTo = struct
 
 
   let to_block x = (x :> block t)
-  and to_flex x = (x :> flexbox t)
+  and to_flex x = (x :> flex t)
   and to_list_item x = (x :> list_item t)
   and to_positioned x = (x :> positioned t)
   and to_replaced_inline x = (x :> replaced_inline t)

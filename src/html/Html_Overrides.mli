@@ -94,8 +94,8 @@ module Body :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.flexbox Css_Style.t ->
-      ?css_module:Css_Property.flexbox Css_Module.t ->
+      ?style:Css_Property.flex Css_Style.t ->
+      ?css_module:Css_Property.flex Css_Module.t ->
       'a child array ->
       [> Html_Node.body ] Html_Node.t
     val inline_flex :
@@ -250,8 +250,8 @@ module Body :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.flexbox Css_Style.t ->
-          ?css_module:Css_Property.flexbox Css_Module.t ->
+          ?style:Css_Property.flex Css_Style.t ->
+          ?css_module:Css_Property.flex Css_Module.t ->
           ?children:'a child Js.List.t ->
           unit ->
           [> Html_Node.body ] Html_Node.t
@@ -396,8 +396,8 @@ module Div :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.flexbox Css_Style.t ->
-      ?css_module:Css_Property.flexbox Css_Module.t ->
+      ?style:Css_Property.flex Css_Style.t ->
+      ?css_module:Css_Property.flex Css_Module.t ->
       'a child array ->
       [> Html_Node.div ] Html_Node.t
     val inline_flex :
@@ -575,8 +575,8 @@ module Div :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.flexbox Css_Style.t ->
-          ?css_module:Css_Property.flexbox Css_Module.t ->
+          ?style:Css_Property.flex Css_Style.t ->
+          ?css_module:Css_Property.flex Css_Module.t ->
           ?children:'a child Js.List.t ->
           unit ->
           [> Html_Node.div ] Html_Node.t
@@ -761,8 +761,8 @@ module Section :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.flexbox Css_Style.t ->
-      ?css_module:Css_Property.flexbox Css_Module.t ->
+      ?style:Css_Property.flex Css_Style.t ->
+      ?css_module:Css_Property.flex Css_Module.t ->
       'a child array ->
       [> Html_Node.section ] Html_Node.t
     val inline_flex :
@@ -940,8 +940,8 @@ module Section :
           ?on_wheel:(Dom.wheelEvent -> unit) ->
           ?on_paste:(Dom.clipboardEvent -> unit) ->
           ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?style:Css_Property.flexbox Css_Style.t ->
-          ?css_module:Css_Property.flexbox Css_Module.t ->
+          ?style:Css_Property.flex Css_Style.t ->
+          ?css_module:Css_Property.flex Css_Module.t ->
           ?children:_ child Js.List.t ->
           unit ->
           [> Html_Node.section ] Html_Node.t

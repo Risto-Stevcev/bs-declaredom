@@ -60,8 +60,8 @@ module Body = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.flexbox style option)
-    ?(css_module:Css_Property.flexbox Css_Module.t option)
+    ?(style:Css_Property.flex style option)
+    ?(css_module:Css_Property.flex Css_Module.t option)
     (children:'a child array) =
     Html_Nodes.Body.make
       ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
@@ -181,8 +181,8 @@ module Div = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.flexbox style option)
-    ?(css_module:Css_Property.flexbox Css_Module.t option)
+    ?(style:Css_Property.flex style option)
+    ?(css_module:Css_Property.flex Css_Module.t option)
     (children:'a child array) =
     Html_Nodes.Div.make
       ?aria
@@ -347,8 +347,8 @@ module Section = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.flexbox style option)
-    ?(css_module:Css_Property.flexbox Css_Module.t option)
+    ?(style:Css_Property.flex style option)
+    ?(css_module:Css_Property.flex Css_Module.t option)
     (children:'a child array) =
     Html_Nodes.Section.make
       ?aria

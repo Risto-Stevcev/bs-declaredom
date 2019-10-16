@@ -26,7 +26,7 @@ test ~name:"@media functions" @@ fun t -> begin
       |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)
       |> Css_Module.merge (Css_Module.make @@ Css_Style.block ~color:`red ())
       |> css_module;
-    css_module @@ Css_Module.make @@ Css_Style.flexbox ~color:`blue ()
+    css_module @@ Css_Module.make @@ Css_Style.flex ~color:`blue ()
   ]
   in
   t |> T.equal (Css_Stylesheet.show x) @@

@@ -57,11 +57,11 @@ val font :
   Css_Value.Font.Size.t ->
   Css_Value.Font.Family.t ->
   [> Css_Property.font] Css_Property.t
-val flex :
+val flex' :
   ?grow:float ->
   ?shrink:float ->
   ?basis:Css_Value.LengthPercent.t ->
-  unit -> [> Css_Property.flex ] Css_Property.t
+  unit -> [> Css_Property.flex' ] Css_Property.t
 val list_style :
   ?type_:Css_Value.ListStyle.Type.t ->
   ?position:Css_Value.ListStyle.Position.t ->
@@ -145,7 +145,7 @@ module Group :
       ?cue_before:Css_Value.UriOrNone.t ->
       ?cue:Css_Properties.Cue.Value.t -> unit -> Css_Property.cues t
     val flexs :
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_basis:Css_Value.LengthPercent.t ->
       ?flex_direction:Css_Value.Flex.Direction.t ->
       ?flex_flow:Css_Properties.FlexFlow.Value.t ->
@@ -288,7 +288,7 @@ module MediaGroup :
       ?cursor:Css_Properties.Cursor.Value.t ->
       ?direction:Css_Properties.Direction.Value.t ->
       ?empty_cells:Css_Properties.EmptyCells.Value.t ->
-      ?flex:Css_Property.flex Css_Property.t ->
+      ?flex:Css_Property.flex' Css_Property.t ->
       ?flex_basis:Css_Value.LengthPercent.t ->
       ?flex_direction:Css_Value.Flex.Direction.t ->
       ?flex_flow:Css_Properties.FlexFlow.Value.t ->
@@ -555,7 +555,7 @@ val block :
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.block t
-val flexbox :
+val flex :
   ?align_content:Css_Properties.AlignContent.Value.t ->
   ?align_items:Css_Properties.AlignItems.Value.t ->
   ?flex_direction:Css_Value.Flex.Direction.t ->
@@ -663,10 +663,10 @@ val flexbox :
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
-  unit -> Css_Property.flexbox t
+  unit -> Css_Property.flex t
 val flex_item :
   ?align_self:Css_Properties.AlignSelf.Value.t ->
-  ?flex:Css_Property.flex Css_Property.t ->
+  ?flex:Css_Property.flex' Css_Property.t ->
   ?flex_basis:Css_Value.LengthPercent.t ->
   ?flex_grow:float ->
   ?flex_shrink:float ->
@@ -2326,7 +2326,7 @@ val display :
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?empty_cells:Css_Properties.EmptyCells.Value.t ->
   ?flex_basis:Css_Value.LengthPercent.t ->
-  ?flex:Css_Property.flex Css_Property.t ->
+  ?flex:Css_Property.flex' Css_Property.t ->
   ?flex_direction:Css_Value.Flex.Direction.t ->
   ?flex_flow:Css_Properties.FlexFlow.Value.t ->
   ?flex_grow:float ->
@@ -2457,7 +2457,7 @@ val keyframe_block :
   ?elevation:Css_Properties.Elevation.Value.t ->
   ?empty_cells:Css_Properties.EmptyCells.Value.t ->
   ?flex_basis:Css_Value.LengthPercent.t ->
-  ?flex:Css_Property.flex Css_Property.t ->
+  ?flex:Css_Property.flex' Css_Property.t ->
   ?flex_direction:Css_Value.Flex.Direction.t ->
   ?flex_flow:Css_Properties.FlexFlow.Value.t ->
   ?flex_grow:float ->

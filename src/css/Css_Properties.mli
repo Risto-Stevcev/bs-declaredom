@@ -683,8 +683,8 @@ module Display :
 
     val none : unit -> [> Css_Property.display' ] t
     val flex :
-      Css_Property.flexbox Css_Property.t Js.Dict.t ->
-      Css_Property.flexbox Css_Property.t Js.Dict.t
+      Css_Property.flex Css_Property.t Js.Dict.t ->
+      Css_Property.flex Css_Property.t Js.Dict.t
     val inline_block :
       Css_Property.inline_block Css_Property.t Js.Dict.t ->
       Css_Property.inline_block Css_Property.t Js.Dict.t
@@ -722,7 +722,7 @@ module Flex :
   sig
     (** {{: https://www.w3.org/TR/css-flexbox-1/#flex-property} Flex} *)
 
-    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.flex ]
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.flex' ]
     module Value :
       sig
         type t =
@@ -735,9 +735,9 @@ module Flex :
     val make :
       ?grow:float ->
       ?shrink:float ->
-      ?basis:Css_Value.LengthPercent.t -> unit -> [> Css_Property.flex ] t
+      ?basis:Css_Value.LengthPercent.t -> unit -> [> Css_Property.flex' ] t
     val make_value :
-      [ Css_Value.Global.t | `none ] -> [> Css_Property.flex ] t
+      [ Css_Value.Global.t | `none ] -> [> Css_Property.flex' ] t
   end
 module FlexBasis :
   sig

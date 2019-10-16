@@ -901,7 +901,7 @@ end
 
 
 module Flex = struct
-  type +'a t = ([> Css_Property.flex ] as 'a) Css_Property.t
+  type +'a t = ([> Css_Property.flex' ] as 'a) Css_Property.t
 
   module Value = struct
     type t =
