@@ -7,17 +7,26 @@ module Internal = struct
   (* Erases type information *)
 
   module Style = struct
-    external to_any: [< Css_Property.display] style -> [> Css_Property.any] style = "%identity"
+    external to_inline: [< Css_Property.display] style -> Css_Property.inline style = "%identity"
+    external to_block: [< Css_Property.display] style -> Css_Property.block style = "%identity"
 
     let display_inline_block style =
       style
       |> Css_Properties.Display.inline_block
-      |> to_any
+      |> to_block
+
+    let display_inline_block' style =
+      style
+      |> Css_Properties.Display.inline_block
+      |> to_inline
   end
 
   module CssModule = struct
-    external to_any:
-      [< Css_Property.display] Css_Module.t -> [> Css_Property.any] Css_Module.t = "%identity"
+    external to_inline:
+      [< Css_Property.display] Css_Module.t -> Css_Property.inline Css_Module.t = "%identity"
+
+    external to_block:
+      [< Css_Property.display] Css_Module.t -> Css_Property.block Css_Module.t = "%identity"
   end
 
   module Node = struct
@@ -66,8 +75,8 @@ module Body = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -97,8 +106,8 @@ module Body = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -186,8 +195,8 @@ module Div = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -214,8 +223,8 @@ module Div = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -243,7 +252,7 @@ module Div = struct
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style:(Belt.Option.map style Internal.Style.display_inline_block)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       children
 
 
@@ -352,8 +361,8 @@ module Section = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -380,8 +389,8 @@ module Section = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.to_any)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.to_block)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       (Internal.Node.to_any children)
 
 
@@ -409,7 +418,7 @@ module Section = struct
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
       ?style:(Belt.Option.map style Internal.Style.display_inline_block)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_block)
       children
 
 
@@ -515,8 +524,8 @@ module Span = struct
       ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
       ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
       ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style:(Belt.Option.map style Internal.Style.display_inline_block)
-      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_any)
+      ?style:(Belt.Option.map style Internal.Style.display_inline_block')
+      ?css_module:(Belt.Option.map css_module Internal.CssModule.to_inline)
       children
 
 

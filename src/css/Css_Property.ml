@@ -241,14 +241,11 @@ module AppliesTo = struct
   (** {{: https://www.w3.org/TR/CSS22/about.html#applies-to } Applies to} *)
   (** {{: https://www.w3.org/TR/CSS22/sample.html } Default styles} *)
 
-  module KeyframeBlock = struct
-    (* Keyframe blocks accept all properties but the animation styles, with the only
-       exception being animation_timing_function *)
-
+  module Flexbox = struct
     type any =
       [ animation_timing_function | azimuth | backgrounds | border_colors | border_styles
       | border_widths | borders | color | cues | cursor | direction | display' | elevation
-      | float_ | fonts | letter_spacing | line_height | opacity | outlines | pauses
+      | fonts | letter_spacing | line_height | opacity | outlines | pauses
       | pitch_range | pitch | play_during | position | richness
       | speak_numeral | speak_punctuation | speak | speech_rate | stress
       | text_decoration | text_transform | transition | transition_delay
@@ -256,12 +253,30 @@ module AppliesTo = struct
       | unicode_bidi | visibility | voice_family | volume | white_space | word_spacing ]
 
     type block =
-      [ clear | heights | margins | overflow | paddings | page_breaks
+      [ heights | margins | overflow | paddings | page_breaks
       | page_breaks_inside | text_align | text_indent | widths | any ]
 
-    type flexbox =
-      [ align_content | align_items | flex_direction | flex_flow | flex_wrap
-      | heights | justify_content | margins | order | paddings | widths | any ]
+    type inline = [ heights | margins | paddings | widths | any ]
+
+    type flex_container =
+      [ align_content | align_items | flex_direction | flex_flow | flex_wrap | justify_content ]
+
+    type flexbox = [ flex_container | block ]
+
+    type inline_flex = [ inline | flexbox ]
+  end
+
+  module KeyframeBlock = struct
+    (* Keyframe blocks accept all properties but the animation styles, with the only
+       exception being animation_timing_function *)
+
+    type any =
+      [ Flexbox.any | float_ ]
+
+    type block =
+      [ Flexbox.block | clear ]
+
+    type flexbox = Flexbox.flexbox
 
     type list_item = [ heights | list_styles | margins | paddings | widths | any ]
 
@@ -280,7 +295,7 @@ module AppliesTo = struct
 
     type inline_block = [ inline | block ]
 
-    type inline_flex = [ inline | flexbox ]
+    type inline_flex = Flexbox.inline_flex
 
     type table_header_group = [ heights | speak_header | widths | any ]
 
@@ -313,7 +328,7 @@ module AppliesTo = struct
       | table_caption | table | inline_table | table_cell | table_column
       | table_column_group | table_row | table_row_group ]
 
-    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink ]
+    type flex_item = [ align_self | flex | flex_basis | flex_grow | flex_shrink | order ]
   end
 
 

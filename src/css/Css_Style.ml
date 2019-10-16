@@ -545,6 +545,10 @@ module Internal = struct
     external flexbox:
       ?align_content:Css_Property.align_content Css_Property.t ->
       ?align_items:Css_Property.align_items Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
+      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?animation:Css_Property.animation Css_Property.t ->
       ?animation_delay:Css_Property.animation_delay Css_Property.t ->
       ?animation_direction:Css_Property.animation_direction Css_Property.t ->
@@ -554,23 +558,28 @@ module Internal = struct
       ?animation_name:Css_Property.animation_name Css_Property.t ->
       ?animation_play_state:Css_Property.animation_play_state Css_Property.t ->
       ?animation_timing_function:Css_Property.animation_timing_function Css_Property.t ->
-      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
-      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
-      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
+      ?clear:Css_Property.clear Css_Property.t ->
       ?height:Css_Property.height Css_Property.t ->
       ?min_height:Css_Property.min_height Css_Property.t ->
       ?max_height:Css_Property.max_height Css_Property.t ->
-      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Property.margin_top Css_Property.t ->
       ?margin_right:Css_Property.margin_right Css_Property.t ->
       ?margin_bottom:Css_Property.margin_bottom Css_Property.t ->
       ?margin_left:Css_Property.margin_left Css_Property.t ->
+      ?overflow:Css_Property.overflow Css_Property.t ->
       ?padding:Css_Property.padding Css_Property.t ->
       ?padding_top:Css_Property.padding_top Css_Property.t ->
       ?padding_right:Css_Property.padding_right Css_Property.t ->
       ?padding_bottom:Css_Property.padding_bottom Css_Property.t ->
       ?padding_left:Css_Property.padding_left Css_Property.t ->
+      ?page_break_before:Css_Property.page_break_before Css_Property.t ->
+      ?page_break_after:Css_Property.page_break_after Css_Property.t ->
+      ?page_break_inside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
+      ?text_align:Css_Property.text_align Css_Property.t ->
+      ?text_indent:Css_Property.text_indent Css_Property.t ->
       ?width:Css_Property.width Css_Property.t ->
       ?min_width:Css_Property.min_width Css_Property.t ->
       ?max_width:Css_Property.max_width Css_Property.t ->
@@ -1164,6 +1173,10 @@ module Internal = struct
     external inline_flex:
       ?align_content:Css_Property.align_content Css_Property.t ->
       ?align_items:Css_Property.align_items Css_Property.t ->
+      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
+      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
+      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
+      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?animation:Css_Property.animation Css_Property.t ->
       ?animation_delay:Css_Property.animation_delay Css_Property.t ->
       ?animation_direction:Css_Property.animation_direction Css_Property.t ->
@@ -1173,27 +1186,31 @@ module Internal = struct
       ?animation_name:Css_Property.animation_name Css_Property.t ->
       ?animation_play_state:Css_Property.animation_play_state Css_Property.t ->
       ?animation_timing_function:Css_Property.animation_timing_function Css_Property.t ->
-      ?flex_direction:Css_Property.flex_direction Css_Property.t ->
-      ?flex_flow:Css_Property.flex_flow Css_Property.t ->
-      ?flex_wrap:Css_Property.flex_wrap Css_Property.t ->
+      ?clear:Css_Property.clear Css_Property.t ->
       ?height:Css_Property.height Css_Property.t ->
       ?min_height:Css_Property.min_height Css_Property.t ->
       ?max_height:Css_Property.max_height Css_Property.t ->
-      ?justify_content:Css_Property.justify_content Css_Property.t ->
       ?margin:Css_Property.margin Css_Property.t ->
       ?margin_top:Css_Property.margin_top Css_Property.t ->
       ?margin_right:Css_Property.margin_right Css_Property.t ->
       ?margin_bottom:Css_Property.margin_bottom Css_Property.t ->
       ?margin_left:Css_Property.margin_left Css_Property.t ->
+      ?overflow:Css_Property.overflow Css_Property.t ->
       ?padding:Css_Property.padding Css_Property.t ->
       ?padding_top:Css_Property.padding_top Css_Property.t ->
       ?padding_right:Css_Property.padding_right Css_Property.t ->
       ?padding_bottom:Css_Property.padding_bottom Css_Property.t ->
       ?padding_left:Css_Property.padding_left Css_Property.t ->
+      ?page_break_before:Css_Property.page_break_before Css_Property.t ->
+      ?page_break_after:Css_Property.page_break_after Css_Property.t ->
+      ?page_break_inside:Css_Property.page_break_inside Css_Property.t ->
+      ?orphans:Css_Property.orphans Css_Property.t ->
+      ?widows:Css_Property.widows Css_Property.t ->
+      ?text_align:Css_Property.text_align Css_Property.t ->
+      ?text_indent:Css_Property.text_indent Css_Property.t ->
       ?width:Css_Property.width Css_Property.t ->
       ?min_width:Css_Property.min_width Css_Property.t ->
       ?max_width:Css_Property.max_width Css_Property.t ->
-      ?vertical_align:Css_Property.vertical_align Css_Property.t ->
       ?azimuth:Css_Property.azimuth Css_Property.t ->
       ?background_attachment:Css_Property.background_attachment Css_Property.t ->
       ?background_color:Css_Property.background_color Css_Property.t ->
@@ -3224,34 +3241,34 @@ module AppliesTo = struct
       ()
 
 
-  (* TODO:
-     - Rename to flex to be succinct
-     - Which block styles apply? consult resource and test:
-       https://www.w3.org/TR/css-flexbox-1/#flex-containers
-  *)
-  let flexbox ?align_content ?align_items ?animation ?animation_delay ?animation_direction
+  let flexbox ?align_content ?align_items ?flex_direction ?flex_flow ?flex_wrap ?justify_content
+    ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?flex_direction
-    ?flex_flow ?flex_wrap ?height ?min_height ?max_height
-    ?justify_content ?margin ?margin_top ?margin_right ?margin_bottom ?margin_left
-    ?padding ?padding_top ?padding_right ?padding_bottom ?padding_left
-    ?width ?min_width ?max_width ?azimuth ?background_attachment ?background_color
-    ?background_image ?background_position ?background_repeat ?background_size ?background
-    ?border_top_color ?border_right_color ?border_bottom_color ?border_left_color
-    ?border_color ?border_top_style ?border_right_style ?border_bottom_style
-    ?border_left_style ?border_style ?border_top_width ?border_right_width
-    ?border_bottom_width ?border_left_width ?border_width ?border_top ?border_right
-    ?border_bottom ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor
-    ?direction ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color
-    ?outline_style ?outline_width ?outline ?pause_after ?pause_before ?pause
-    ?pitch_range ?pitch ?play_during ?richness ?speak_numeral
-    ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration
-    ?text_transform ?unicode_bidi ?visibility ?voice_family ?volume
-    ?white_space ?word_spacing () =
+    ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?margin
+    ?margin_top ?margin_right ?margin_bottom ?margin_left ?overflow ?padding ?padding_top
+    ?padding_right ?padding_bottom ?padding_left ?page_break_before
+    ?page_break_after ?page_break_inside ?orphans ?widows ?text_align ?text_indent
+    ?width ?min_width ?max_width ?azimuth ?background_attachment
+    ?background_color ?background_image ?background_position ?background_repeat
+    ?background_size ?background ?border_top_color ?border_right_color ?border_bottom_color
+    ?border_left_color ?border_color ?border_top_style ?border_right_style
+    ?border_bottom_style ?border_left_style ?border_style ?border_top_width
+    ?border_right_width ?border_bottom_width ?border_left_width ?border_width
+    ?border_top ?border_right ?border_bottom ?border_left ?border ?color
+    ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation
+    ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
+    ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
+    ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
+    ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
+    ?text_decoration ?text_transform ?unicode_bidi ?visibility ?voice_family
+    ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.flexbox
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
+      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
       ?animation_direction:(Belt.Option.map animation_direction AnimationDirection.make)
@@ -3263,23 +3280,27 @@ module AppliesTo = struct
       ?animation_play_state:(Belt.Option.map animation_play_state AnimationPlayState.make)
       ?animation_timing_function:
         (Belt.Option.map animation_timing_function AnimationTimingFunction.make)
-      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
-      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
-      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?max_height:(Belt.Option.map max_height MaxHeight.make)
-      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?margin
       ?margin_top:(Belt.Option.map margin_top MarginTop.make)
       ?margin_right:(Belt.Option.map margin_right MarginRight.make)
       ?margin_bottom:(Belt.Option.map margin_bottom MarginBottom.make)
       ?margin_left:(Belt.Option.map margin_left MarginLeft.make)
+      ?overflow:(Belt.Option.map overflow Overflow.make)
       ?padding
       ?padding_top:(Belt.Option.map padding_top PaddingTop.make)
       ?padding_right:(Belt.Option.map padding_right PaddingRight.make)
       ?padding_bottom:(Belt.Option.map padding_bottom PaddingBottom.make)
       ?padding_left:(Belt.Option.map padding_left PaddingLeft.make)
+      ?page_break_before:(Belt.Option.map page_break_before PageBreakBefore.make)
+      ?page_break_after:(Belt.Option.map page_break_after PageBreakAfter.make)
+      ?page_break_inside:(Belt.Option.map page_break_inside PageBreakInside.make)
+      ?orphans:(Belt.Option.map orphans Orphans.make)
+      ?widows:(Belt.Option.map widows Widows.make)
+      ?text_align:(Belt.Option.map text_align TextAlign.make)
+      ?text_indent:(Belt.Option.map text_indent TextIndent.make)
       ?width:(Belt.Option.map width Width.make)
       ?min_width:(Belt.Option.map min_width MinWidth.make)
       ?max_width:(Belt.Option.map max_width MaxWidth.make)
@@ -3327,7 +3348,6 @@ module AppliesTo = struct
       ?cursor:(Belt.Option.map cursor Cursor.make)
       ?direction:(Belt.Option.map direction Direction.make)
       ?elevation:(Belt.Option.map elevation Elevation.make)
-      ?float:(Belt.Option.map float Float.make)
       ?font_family:(Belt.Option.map font_family FontFamily.make)
       ?font_size:(Belt.Option.map font_size FontSize.make)
       ?font_style:(Belt.Option.map font_style FontStyle.make)
@@ -4016,29 +4036,34 @@ module AppliesTo = struct
       ()
 
 
-  let inline_flex ?align_content ?align_items ?animation ?animation_delay ?animation_direction
+  let inline_flex ?align_content ?align_items ?flex_direction ?flex_flow ?flex_wrap ?justify_content
+    ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?flex_direction
-    ?flex_flow ?flex_wrap ?height
-    ?min_height ?max_height ?justify_content ?margin ?margin_top ?margin_right
-    ?margin_bottom ?margin_left ?padding ?padding_top ?padding_right
-    ?padding_bottom ?padding_left ?width ?min_width ?max_width ?vertical_align
-    ?azimuth ?background_attachment ?background_color ?background_image
-    ?background_position ?background_repeat ?background_size ?background ?border_top_color
-    ?border_right_color ?border_bottom_color ?border_left_color ?border_color
-    ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
-    ?border_style ?border_top_width ?border_right_width ?border_bottom_width
-    ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
-    ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
-    ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
-    ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
-    ?speech_rate ?stress ?text_decoration ?text_transform ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?margin
+    ?margin_top ?margin_right ?margin_bottom ?margin_left ?overflow ?padding ?padding_top
+    ?padding_right ?padding_bottom ?padding_left ?page_break_before
+    ?page_break_after ?page_break_inside ?orphans ?widows ?text_align ?text_indent
+    ?width ?min_width ?max_width ?azimuth ?background_attachment
+    ?background_color ?background_image ?background_position ?background_repeat
+    ?background_size ?background ?border_top_color ?border_right_color ?border_bottom_color
+    ?border_left_color ?border_color ?border_top_style ?border_right_style
+    ?border_bottom_style ?border_left_style ?border_style ?border_top_width
+    ?border_right_width ?border_bottom_width ?border_left_width ?border_width
+    ?border_top ?border_right ?border_bottom ?border_left ?border ?color
+    ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation
+    ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
+    ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
+    ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
+    ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
+    ?text_decoration ?text_transform ?unicode_bidi ?visibility ?voice_family
+    ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.inline_flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
+      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
+      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
+      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
+      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
       ?animation_direction:(Belt.Option.map animation_direction AnimationDirection.make)
@@ -4050,27 +4075,30 @@ module AppliesTo = struct
       ?animation_play_state:(Belt.Option.map animation_play_state AnimationPlayState.make)
       ?animation_timing_function:
         (Belt.Option.map animation_timing_function AnimationTimingFunction.make)
-      ?flex_direction:(Belt.Option.map flex_direction FlexDirection.make)
-      ?flex_flow:(Belt.Option.map flex_flow FlexFlow.make)
-      ?flex_wrap:(Belt.Option.map flex_wrap FlexWrap.make)
       ?height:(Belt.Option.map height Height.make)
       ?min_height:(Belt.Option.map min_height MinHeight.make)
       ?max_height:(Belt.Option.map max_height MaxHeight.make)
-      ?justify_content:(Belt.Option.map justify_content JustifyContent.make)
       ?margin
       ?margin_top:(Belt.Option.map margin_top MarginTop.make)
       ?margin_right:(Belt.Option.map margin_right MarginRight.make)
       ?margin_bottom:(Belt.Option.map margin_bottom MarginBottom.make)
       ?margin_left:(Belt.Option.map margin_left MarginLeft.make)
+      ?overflow:(Belt.Option.map overflow Overflow.make)
       ?padding
       ?padding_top:(Belt.Option.map padding_top PaddingTop.make)
       ?padding_right:(Belt.Option.map padding_right PaddingRight.make)
       ?padding_bottom:(Belt.Option.map padding_bottom PaddingBottom.make)
       ?padding_left:(Belt.Option.map padding_left PaddingLeft.make)
+      ?page_break_before:(Belt.Option.map page_break_before PageBreakBefore.make)
+      ?page_break_after:(Belt.Option.map page_break_after PageBreakAfter.make)
+      ?page_break_inside:(Belt.Option.map page_break_inside PageBreakInside.make)
+      ?orphans:(Belt.Option.map orphans Orphans.make)
+      ?widows:(Belt.Option.map widows Widows.make)
+      ?text_align:(Belt.Option.map text_align TextAlign.make)
+      ?text_indent:(Belt.Option.map text_indent TextIndent.make)
       ?width:(Belt.Option.map width Width.make)
       ?min_width:(Belt.Option.map min_width MinWidth.make)
       ?max_width:(Belt.Option.map max_width MaxWidth.make)
-      ?vertical_align:(Belt.Option.map vertical_align VerticalAlign.make)
       ?azimuth:(Belt.Option.map azimuth Azimuth.make)
       ?background_attachment:
         (Belt.Option.map background_attachment BackgroundAttachment.make)
@@ -4115,7 +4143,6 @@ module AppliesTo = struct
       ?cursor:(Belt.Option.map cursor Cursor.make)
       ?direction:(Belt.Option.map direction Direction.make)
       ?elevation:(Belt.Option.map elevation Elevation.make)
-      ?float:(Belt.Option.map float Float.make)
       ?font_family:(Belt.Option.map font_family FontFamily.make)
       ?font_size:(Belt.Option.map font_size FontSize.make)
       ?font_style:(Belt.Option.map font_style FontStyle.make)

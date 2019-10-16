@@ -558,6 +558,10 @@ val block :
 val flexbox :
   ?align_content:Css_Properties.AlignContent.Value.t ->
   ?align_items:Css_Properties.AlignItems.Value.t ->
+  ?flex_direction:Css_Value.Flex.Direction.t ->
+  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+  ?flex_wrap:Css_Value.Flex.Wrap.t ->
+  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?animation:Css_Property.animation Css_Property.t ->
   ?animation_delay:Css_Properties.AnimationDelay.Value.t ->
   ?animation_direction:Css_Properties.AnimationDirection.Value.t ->
@@ -567,23 +571,27 @@ val flexbox :
   ?animation_name:Css_Properties.AnimationName.Value.t ->
   ?animation_play_state:Css_Properties.AnimationPlayState.Value.t ->
   ?animation_timing_function:Css_Value.TimingFunction.t ->
-  ?flex_direction:Css_Value.Flex.Direction.t ->
-  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
-  ?flex_wrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?min_height:Css_Value.LengthPercent.t ->
   ?max_height:Css_Value.LengthPercent.t ->
-  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?margin:Css_Property.margin Css_Property.t ->
   ?margin_top:Css_Value.LengthPercent.t ->
   ?margin_right:Css_Value.LengthPercent.t ->
   ?margin_bottom:Css_Value.LengthPercent.t ->
   ?margin_left:Css_Value.LengthPercent.t ->
+  ?overflow:Css_Properties.Overflow.Value.t ->
   ?padding:Css_Property.padding Css_Property.t ->
   ?padding_top:Css_Value.LengthPercent.t ->
   ?padding_right:Css_Value.LengthPercent.t ->
   ?padding_bottom:Css_Value.LengthPercent.t ->
   ?padding_left:Css_Value.LengthPercent.t ->
+  ?page_break_before:Css_Value.PageBreak.t ->
+  ?page_break_after:Css_Value.PageBreak.t ->
+  ?page_break_inside:Css_Value.PageBreak.inside ->
+  ?orphans:Css_Value.BreakInside.t ->
+  ?widows:Css_Value.BreakInside.t ->
+  ?text_align:Css_Properties.TextAlign.Value.t ->
+  ?text_indent:Css_Value.LengthPercent.t ->
   ?width:Css_Value.LengthPercent.t ->
   ?min_width:Css_Value.LengthPercent.t ->
   ?max_width:Css_Value.LengthPercent.t ->
@@ -622,7 +630,6 @@ val flexbox :
   ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
-  ?float:Css_Properties.Float.Value.t ->
   ?font_family:Css_Value.Font.Family.t ->
   ?font_size:Css_Value.Font.Size.t ->
   ?font_style:Css_Value.Font.Style.t ->
@@ -1155,6 +1162,10 @@ val inline :
 val inline_flex :
   ?align_content:Css_Properties.AlignContent.Value.t ->
   ?align_items:Css_Properties.AlignItems.Value.t ->
+  ?flex_direction:Css_Value.Flex.Direction.t ->
+  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
+  ?flex_wrap:Css_Value.Flex.Wrap.t ->
+  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?animation:Css_Property.animation Css_Property.t ->
   ?animation_delay:Css_Properties.AnimationDelay.Value.t ->
   ?animation_direction:Css_Properties.AnimationDirection.Value.t ->
@@ -1164,27 +1175,30 @@ val inline_flex :
   ?animation_name:Css_Properties.AnimationName.Value.t ->
   ?animation_play_state:Css_Properties.AnimationPlayState.Value.t ->
   ?animation_timing_function:Css_Value.TimingFunction.t ->
-  ?flex_direction:Css_Value.Flex.Direction.t ->
-  ?flex_flow:Css_Properties.FlexFlow.Value.t ->
-  ?flex_wrap:Css_Value.Flex.Wrap.t ->
   ?height:Css_Value.LengthPercent.t ->
   ?min_height:Css_Value.LengthPercent.t ->
   ?max_height:Css_Value.LengthPercent.t ->
-  ?justify_content:Css_Properties.JustifyContent.Value.t ->
   ?margin:Css_Property.margin Css_Property.t ->
   ?margin_top:Css_Value.LengthPercent.t ->
   ?margin_right:Css_Value.LengthPercent.t ->
   ?margin_bottom:Css_Value.LengthPercent.t ->
   ?margin_left:Css_Value.LengthPercent.t ->
+  ?overflow:Css_Properties.Overflow.Value.t ->
   ?padding:Css_Property.padding Css_Property.t ->
   ?padding_top:Css_Value.LengthPercent.t ->
   ?padding_right:Css_Value.LengthPercent.t ->
   ?padding_bottom:Css_Value.LengthPercent.t ->
   ?padding_left:Css_Value.LengthPercent.t ->
+  ?page_break_before:Css_Value.PageBreak.t ->
+  ?page_break_after:Css_Value.PageBreak.t ->
+  ?page_break_inside:Css_Value.PageBreak.inside ->
+  ?orphans:Css_Value.BreakInside.t ->
+  ?widows:Css_Value.BreakInside.t ->
+  ?text_align:Css_Properties.TextAlign.Value.t ->
+  ?text_indent:Css_Value.LengthPercent.t ->
   ?width:Css_Value.LengthPercent.t ->
   ?min_width:Css_Value.LengthPercent.t ->
   ?max_width:Css_Value.LengthPercent.t ->
-  ?vertical_align:Css_Properties.VerticalAlign.Value.t ->
   ?azimuth:Css_Properties.Azimuth.Value.t ->
   ?background_attachment:Css_Value.Background.Attachment.t ->
   ?background_color:Css_Value.Background.Color.t ->
@@ -1220,7 +1234,6 @@ val inline_flex :
   ?cursor:Css_Properties.Cursor.Value.t ->
   ?direction:Css_Properties.Direction.Value.t ->
   ?elevation:Css_Properties.Elevation.Value.t ->
-  ?float:Css_Properties.Float.Value.t ->
   ?font_family:Css_Value.Font.Family.t ->
   ?font_size:Css_Value.Font.Size.t ->
   ?font_style:Css_Value.Font.Style.t ->

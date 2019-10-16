@@ -5,7 +5,7 @@ module Modules = struct
   let title = Css.Module.make @@
     Css.inline ~vertical_align:`initial ~color:`black ()
 
-  let flex = Css.Module.make @@ Css.Properties.Display.flex @@
+  let flex = Css.Module.make @@
     Css.flexbox ~flex_direction:`column ~color:`coral
       ~border:(Css.Properties.Border.make ~width:(`px 2.) ~style:`dotted ()) ()
 

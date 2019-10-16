@@ -126,6 +126,11 @@ let fragment = Html_Nodes.Fragment.make
 
 
 (* Override nodes *)
+module Body = struct
+  let flex = Html_Overrides.Body.flex
+  let inline_flex = Html_Overrides.Body.inline_flex
+end
+
 module Div = struct
   let flex = Html_Overrides.Div.flex
   let inline_flex = Html_Overrides.Div.inline_flex
@@ -141,5 +146,3 @@ end
 module Span = struct
   let inline_block = Html_Overrides.Span.inline_block
 end
-
-
