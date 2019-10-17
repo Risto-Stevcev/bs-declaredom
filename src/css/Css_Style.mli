@@ -68,10 +68,14 @@ val list_style :
   ?image:Css_Value.ListStyle.Image.t ->
   unit -> [> Css_Property.list_style ] Css_Property.t
 val margin :
-  top:Css_Value.LengthPercent.t ->
-  right:Css_Value.LengthPercent.t ->
-  bottom:Css_Value.LengthPercent.t ->
-  left:Css_Value.LengthPercent.t ->
+  [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
+  [> Css_Property.margin ] Css_Property.t
+val margin' :
+  ?top:Css_Value.LengthPercent.t ->
+  ?right:Css_Value.LengthPercent.t ->
+  ?bottom:Css_Value.LengthPercent.t ->
+  ?left:Css_Value.LengthPercent.t ->
+  unit ->
   [> Css_Property.margin ] Css_Property.t
 val outline :
   ?color:Css_Value.Outline.Color.t ->
@@ -79,11 +83,18 @@ val outline :
   ?width:Css_Value.Outline.Width.t ->
   unit -> [> Css_Property.outline ] Css_Property.t
 val padding :
-  top:Css_Value.LengthPercent.t ->
-  right:Css_Value.LengthPercent.t ->
-  bottom:Css_Value.LengthPercent.t ->
-  left:Css_Value.LengthPercent.t ->
+  [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
   [> Css_Property.padding ] Css_Property.t
+val padding' :
+  ?top:Css_Value.LengthPercent.t ->
+  ?right:Css_Value.LengthPercent.t ->
+  ?bottom:Css_Value.LengthPercent.t ->
+  ?left:Css_Value.LengthPercent.t ->
+  unit ->
+  [> Css_Property.padding ] Css_Property.t
+val size :
+  Css_Properties.Size.Value.t ->
+  [> Css_Property.size ] Css_Property.t
 val transition :
   ?property:Css_Properties.TransitionProperty.Value.t ->
   ?duration:Css_Value.Time.t ->

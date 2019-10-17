@@ -1230,7 +1230,7 @@ module Margin = struct
       Css_Value.LengthPercent.show left
   end
 
-  let make ~top ~right ~bottom ~left : 'a t =
+  let make ?(top=`px 0.) ?(right=`px 0.) ?(bottom=`px 0.) ?(left=`px 0.) () : 'a t =
     Internal.make @@ Value.show (`margin (top, right, bottom, left))
 
   let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
@@ -1440,7 +1440,7 @@ module Padding = struct
       Css_Value.LengthPercent.show left
   end
 
-  let make ~top ~right ~bottom ~left : 'a t =
+  let make ?(top=`px 0.) ?(right=`px 0.) ?(bottom=`px 0.) ?(left=`px 0.) (): 'a t =
     Internal.make @@ Value.show (`padding (top, right, bottom, left))
 
   let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):

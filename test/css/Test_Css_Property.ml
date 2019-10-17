@@ -1205,8 +1205,11 @@ test ~name:"css property - margin" @@ fun t -> begin
   t |> equal' (Margin.make ~top:(`px 12.5)
                            ~right:`auto
                            ~bottom:(`px 14.)
-                           ~left:`auto)
+                           ~left:`auto ())
               "12.5px auto 14px auto";
+  t |> equal' (Margin.make ~top:(`px 12.5)
+                            ~left:`auto ())
+              "12.5px 0px 0px auto";
   t |> T.end_
 end;
 
@@ -1512,8 +1515,11 @@ test ~name:"css property - padding" @@ fun t -> begin
   t |> equal' (Padding.make ~top:(`px 12.5)
                             ~right:`auto
                             ~bottom:(`px 14.)
-                            ~left:`auto)
+                            ~left:`auto ())
               "12.5px auto 14px auto";
+  t |> equal' (Padding.make ~top:(`px 12.5)
+                            ~left:`auto ())
+              "12.5px 0px 0px auto";
   t |> T.end_
 end;
 

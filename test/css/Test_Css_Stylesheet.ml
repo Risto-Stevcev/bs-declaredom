@@ -15,18 +15,22 @@ test ~name:"@media functions" @@ fun t -> begin
     page ~size:(Css_Properties.Size.make `auto)
          ~margin:(Css.Properties.Margin.make_value (`mm 5.)) ();
     media_print ~condition:(width @@ `px 1024.) `body
-      (Css_Style.MediaGroup.visual
+      (Css.MediaGroup.visual
       ~color:`red
       ~background_color:`blue ());
-    style (`class_name "bar") (Css_Style.block ~color:`red ());
+    style (`class_name "bar") (Css.block ~color:`red ());
+    style (`class_name "baz")
+          (Css.inline_block ~padding:(Css.padding' ~left:(`em 0.8) ~top:(`em 1.2) ()) ());
+    style (`class_name "norf")
+          (Css.block ~margin:(Css.margin @@ `px 12.) ~padding:(Css.padding @@ `em 1.5) ());
     style (`class_name "display-override-test")
-          (Css_Properties.Display.inline_block @@ Css_Style.inline_block ~color:`blue ());
+          (Css_Properties.Display.inline_block @@ Css.inline_block ~color:`blue ());
     Css_Module.make @@
-      Css_Style.positioned ~top:(`px 40.) ~z_index:3 ()
+      Css.positioned ~top:(`px 40.) ~z_index:3 ()
       |> Css_Module.map (fun e -> Css_Properties.Position.make @@ `fixed e)
-      |> Css_Module.merge (Css_Module.make @@ Css_Style.block ~color:`red ())
+      |> Css_Module.merge (Css_Module.make @@ Css.block ~color:`red ())
       |> css_module;
-    css_module @@ Css_Module.make @@ Css_Style.flex ~color:`blue ()
+    css_module @@ Css_Module.make @@ Css.flex ~color:`blue ()
   ]
   in
   t |> T.equal (Css_Stylesheet.show x) @@
@@ -55,6 +59,13 @@ test ~name:"@media functions" @@ fun t -> begin
   "}\n"^
   ".bar {\n"^
   "  color: red;\n"^
+  "}\n"^
+  ".baz {\n"^
+  "  padding: 1.2em 0px 0px 0.8em;\n"^
+  "}\n"^
+  ".norf {\n"^
+  "  margin: 12px;\n"^
+  "  padding: 1.5em;\n"^
   "}\n"^
   ".display-override-test {\n"^
   "  color: blue;\n"^

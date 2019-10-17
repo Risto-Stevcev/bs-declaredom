@@ -2607,9 +2607,12 @@ module Shorthand = struct
   let font = Css_Properties.Font.make
   let flex' = Css_Properties.Flex.make
   let list_style = Css_Properties.ListStyle.make
-  let margin = Css_Properties.Margin.make
+  let margin = Css_Properties.Margin.make_value
+  let margin' = Css_Properties.Margin.make
   let outline = Css_Properties.Outline.make
-  let padding = Css_Properties.Padding.make
+  let padding = Css_Properties.Padding.make_value
+  let padding' = Css_Properties.Padding.make
+  let size = Css_Properties.Size.make
   let transition = Css_Properties.Transition.make
 end
 

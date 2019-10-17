@@ -987,10 +987,12 @@ module Margin :
       end
 
     val make :
-      top:Css_Value.LengthPercent.t ->
-      right:Css_Value.LengthPercent.t ->
-      bottom:Css_Value.LengthPercent.t ->
-      left:Css_Value.LengthPercent.t -> [> Css_Property.margin ] t
+      ?top:Css_Value.LengthPercent.t ->
+      ?right:Css_Value.LengthPercent.t ->
+      ?bottom:Css_Value.LengthPercent.t ->
+      ?left:Css_Value.LengthPercent.t ->
+      unit ->
+      [> Css_Property.margin ] t
     val make_value : [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
       [> Css_Property.margin ] t
   end
@@ -1174,10 +1176,12 @@ module Padding :
       end
 
     val make :
-      top:Css_Value.LengthPercent.t ->
-      right:Css_Value.LengthPercent.t ->
-      bottom:Css_Value.LengthPercent.t ->
-      left:Css_Value.LengthPercent.t -> [> Css_Property.padding ] t
+      ?top:Css_Value.LengthPercent.t ->
+      ?right:Css_Value.LengthPercent.t ->
+      ?bottom:Css_Value.LengthPercent.t ->
+      ?left:Css_Value.LengthPercent.t ->
+      unit ->
+      [> Css_Property.padding ] t
     val make_value : [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
       [> Css_Property.padding ] t
   end
