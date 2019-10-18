@@ -559,6 +559,11 @@ val block :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -668,6 +673,11 @@ val flex :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -778,6 +788,11 @@ val positioned :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -878,6 +893,11 @@ val list_item :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -975,6 +995,11 @@ val replaced_inline :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1066,6 +1091,11 @@ val non_replaced_inline :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1163,6 +1193,11 @@ val inline :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1272,6 +1307,11 @@ val inline_flex :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1379,6 +1419,11 @@ val inline_block :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1466,6 +1511,11 @@ val table_header_group :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1552,6 +1602,11 @@ val table_footer_group :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1649,6 +1704,11 @@ val table_caption :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1749,6 +1809,11 @@ val table :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1848,6 +1913,11 @@ val inline_table :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -1942,6 +2012,11 @@ val table_cell :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -2025,6 +2100,11 @@ val table_column :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -2108,6 +2188,11 @@ val table_column_group :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -2191,6 +2276,11 @@ val table_row :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -2274,6 +2364,11 @@ val table_row_group :
   ?stress:Css_Properties.Stress.Value.t ->
   ?text_decoration:Css_Properties.TextDecoration.Value.t ->
   ?text_transform:Css_Properties.TextTransform.Value.t ->
+  ?transition_delay:Css_Value.Time.t ->
+  ?transition_duration:Css_Value.Time.t ->
+  ?transition_property:Css_Properties.TransitionProperty.Value.t ->
+  ?transition_timing_function:Css_Value.TimingFunction.t ->
+  ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
