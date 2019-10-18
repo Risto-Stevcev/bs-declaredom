@@ -82,4 +82,117 @@ test ~name:"@media functions" @@ fun t -> begin
   "  display: flex;\n"^
   "}";
   t |> T.end_
-  end;
+end;
+
+
+test ~name:"css modules with @media and pseudo-classes" @@ fun t -> begin
+  let open Css_Stylesheet in
+  let x = make `utf_8 [
+    css_module @@
+      Css_Module.make
+        ~media:[
+          Css_Media.Fn.media [Css_Media.Fn.width @@ `px 1024.], Css.block ~width:(`percent 100.) ()
+        ] @@
+        Css.block ~width:(`percent 80.) ();
+    css_module @@
+      Css_Module.make' ~media:[
+        Css_Media.Fn.media [Css_Media.Fn.width @@ `px 1024.], [`hover], Css.flex ~color:`red ();
+        Css_Media.Fn.media [Css.Media.Fn.height @@ `px 768.], [], Css.flex ~color:`green ();
+      ] [
+        [`target; `hover], Css.flex ~color:`blue ();
+        [], Css.flex ~color:`yellow ()
+      ];
+    ]
+  in
+  t |> T.equal (Css_Stylesheet.show x) @@
+  "@charset utf-8;\n\n" ^
+  ".m08858ce050ecbf74d72f539078943034 {\n" ^
+  "  width: 80%;\n" ^
+  "}\n" ^
+  "@media (width: 1024px) {\n" ^
+  "  .m08858ce050ecbf74d72f539078943034 {\n" ^
+  "    width: 100%;\n" ^
+  "  }\n" ^
+  "}\n" ^
+  ".m1a77c4a1ff3133d9f3b04350c5eb33a2:target:hover {\n" ^
+  "  color: blue;\n" ^
+  "  display: flex;\n" ^
+  "}\n" ^
+  ".m1a77c4a1ff3133d9f3b04350c5eb33a2 {\n" ^
+  "  color: yellow;\n" ^
+  "  display: flex;\n" ^
+  "}\n" ^
+  "@media (width: 1024px) {\n" ^
+  "  .m1a77c4a1ff3133d9f3b04350c5eb33a2:hover {\n" ^
+  "    color: red;\n" ^
+  "    display: flex;\n" ^
+  "  }\n" ^
+  "}\n" ^
+  "@media (height: 768px) {\n" ^
+  "  .m1a77c4a1ff3133d9f3b04350c5eb33a2 {\n" ^
+  "    color: green;\n" ^
+  "    display: flex;\n" ^
+  "  }\n" ^
+  "}";
+  t |> T.end_
+end;
+
+test ~name:"merging css modules" @@ fun t -> begin
+  let module_a =
+    Css.Module.make' ~media:[
+      Css_Media.Fn.media [Css_Media.Fn.width @@ `px 1024.], [`hover], Css.flex ~color:`red ();
+      Css_Media.Fn.media [Css.Media.Fn.height @@ `px 768.], [], Css.flex ~color:`green ();
+    ] [
+      [`target; `hover], Css.flex ~color:`blue ();
+      [], Css.flex ~color:`yellow ()
+    ]
+  and module_b =
+    Css.Module.make' ~media:[
+      Css_Media.Fn.media [Css_Media.Fn.width @@ `px 1024.], [], Css.flex ~color:`white ();
+      Css_Media.Fn.media [Css.Media.Fn.height @@ `px 768.], [], Css.flex ~width:(`percent 85.) ();
+    ] [
+      [`target; `hover], Css.flex ~padding_top:(`em 2.) ();
+      [`hover], Css.flex ~color:`orange ()
+    ]
+  in
+  let open Css.Stylesheet in
+  let x = make `utf_8 [
+    css_module @@ Css.Module.merge module_a module_b
+  ]
+  in
+  t |> T.equal (Css_Stylesheet.show x) @@
+  "@charset utf-8;\n\n" ^
+  ".m33bd81b59be91501db16cb2081666c97:target:hover {\n" ^
+  "  color: blue;\n" ^
+  "  display: flex;\n" ^
+  "  padding-top: 2em;\n" ^
+  "}\n" ^
+  ".m33bd81b59be91501db16cb2081666c97 {\n" ^
+  "  color: yellow;\n" ^
+  "  display: flex;\n" ^
+  "}\n" ^
+  ".m33bd81b59be91501db16cb2081666c97:hover {\n" ^
+  "  color: orange;\n" ^
+  "  display: flex;\n" ^
+  "}\n" ^
+  "@media (width: 1024px) {\n" ^
+  "  .m33bd81b59be91501db16cb2081666c97:hover {\n" ^
+  "    color: red;\n" ^
+  "    display: flex;\n" ^
+  "  }\n" ^
+  "}\n" ^
+  "@media (height: 768px) {\n" ^
+  "  .m33bd81b59be91501db16cb2081666c97 {\n" ^
+  "    color: green;\n" ^
+  "    display: flex;\n" ^
+  "    width: 85%;\n" ^
+  "  }\n" ^
+  "}\n" ^
+  "@media (width: 1024px) {\n" ^
+  "  .m33bd81b59be91501db16cb2081666c97 {\n" ^
+  "    color: white;\n" ^
+  "    display: flex;\n" ^
+  "  }\n" ^
+  "}";
+  t |> T.end_
+end;

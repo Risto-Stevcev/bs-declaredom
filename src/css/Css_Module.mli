@@ -22,8 +22,25 @@ val merge :
 
 val to_display : [< Css_Property.display ] t -> Css_Property.display t
 
-val make : ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t -> 'a t
+val make :
+  ?media:( Css_Media.t
+         * ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t
+         ) list ->
+  ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t ->
+  'a t
+
+val make' :
+  ?media:( Css_Media.t
+         * Css_Selector.PseudoClass.any list
+         * ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t
+         ) list ->
+  ( Css_Selector.PseudoClass.any list
+  * ([< Css_Property.display ] as 'a) Css_Property.t Js.Dict.t
+  ) list ->
+  'a t
 
 val class_name : 'a t -> string
 
 val show : ?indent:int -> [< Css_Property.display ] t -> string
+
+val show_media : ?indent:int -> [< Css_Property.display ] t -> string

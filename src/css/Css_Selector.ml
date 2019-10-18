@@ -76,15 +76,17 @@ module PseudoClass = struct
    {{: https://www.w3.org/TR/selectors-3/#UIstates } UI State} Pseudo-Classes
    *)
 
-  type pseudo_class =
-    [ `hover | `active | `target | `enabled | `disabled | `checked ]
-    [@@bs.deriving jsConverter]
+  type any = [ `hover | `target ]
+  type disableable = [ `enabled | `disabled ]
+  type checkable = [ `checked ]
+
+  type pseudo_class = [ any | disableable | checkable | `active ]
 
   type t = [ pseudo_class | `lang of string ]
 
   let show: t -> string = function
-  | #pseudo_class as pseudo_class ->
-    ":" ^ pseudo_classToJs pseudo_class
+  | `hover -> ":hover" | `target -> ":target" | `enabled -> ":enabled"
+  | `disabled -> ":disabled" | `checked -> ":checked" | `active -> ":active"
   | `lang language -> ":lang("^ language ^")"
 end
 
