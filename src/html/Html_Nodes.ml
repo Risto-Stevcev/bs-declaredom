@@ -4338,8 +4338,8 @@ module Li = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(style:Css_Property.block style option)
-    ?(css_module:Css_Property.block Css_Module.t option)
+    ?(style:Css_Property.list_item style option)
+    ?(css_module:Css_Property.list_item Css_Module.t option)
     (children:_ child array): _ t
     =
     let class_name = Css_Module.get_class ?class_name ?css_module ()

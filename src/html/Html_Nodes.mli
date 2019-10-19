@@ -7892,8 +7892,8 @@ module Li :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
+      ?style:Css_Property.list_item Css_Style.t ->
+      ?css_module:Css_Property.list_item Css_Module.t ->
       'a child array -> [> Html_Node.li ] Html_Node.t
     val jsx :
       ?aria:[< Html_Attributes.Aria.listitem
@@ -7958,8 +7958,8 @@ module Li :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
+      ?style:Css_Property.list_item Css_Style.t ->
+      ?css_module:Css_Property.list_item Css_Module.t ->
       ?children:'a child Js.List.t -> unit -> [> Html_Node.li ] Html_Node.t
   end
 module Link :
