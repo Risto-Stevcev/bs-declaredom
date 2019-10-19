@@ -291,6 +291,7 @@ digraph G {
   "Test_Css_Property" -> "BorderLeftColor"
   "Test_Css_Property" -> "BorderLeftStyle"
   "Test_Css_Property" -> "BorderLeftWidth"
+  "Test_Css_Property" -> "BorderRadius"
   "Test_Css_Property" -> "BorderRight"
   "Test_Css_Property" -> "BorderRightColor"
   "Test_Css_Property" -> "BorderRightStyle"
