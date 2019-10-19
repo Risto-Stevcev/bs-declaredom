@@ -37,7 +37,7 @@ test ~name:"node - a" @@ fun t -> begin
   in
   t |> T.equal (tag_name element) "A";
   t |> T.equal (Html_Node.show element) @@
-    "<a href=\"http://www.w3.org\" target=\"blank\" download=\"\" "^
+    "<a href=\"http://www.w3.org\" target=\"_blank\" download=\"\" "^
     "rel=\"nofollow\" rev=\"bookmark\" hreflang=\"en-US\" type=\"html\" "^
     "referrerpolicy=\"no-referrer\" aria-label=\"foo\"></a>";
   t |> T.end_
@@ -64,7 +64,7 @@ test ~name:"node - area" @@ fun t -> begin
   t |> T.equal (Html_Node.show element) @@
     "<area alt=\"foobar\" coords=\"123,456\" download=\"\" "^
     "href=\"http://www.w3.org\" hreflang=\"en-US\" rel=\"nofollow\" "^
-    "shape=\"circle\" target=\"blank\" type=\"html\" "^
+    "shape=\"circle\" target=\"_blank\" type=\"html\" "^
     "referrerpolicy=\"no-referrer\" aria-label=\"foo\">";
   t |> T.end_
 end;
@@ -123,7 +123,7 @@ test ~name:"node - button" @@ fun t -> begin
   t |> T.equal (Html_Node.show element) @@
     "<button autofocus=\"\" disabled=\"\" form=\"foo\" formaction=\"foo.com\" "^
     "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "^
-    "formnovalidate=\"\" formtarget=\"blank\" formelements=\"bar\" "^
+    "formnovalidate=\"\" formtarget=\"_blank\" formelements=\"bar\" "^
     "name=\"baz\" type=\"submit\" value=\"qux\"></button>";
   t |> T.end_
 end;
@@ -217,7 +217,7 @@ test ~name:"node - form" @@ fun t -> begin
   t |> T.equal (Html_Node.show element) @@
     "<form accept-charset=\"utf-8\" action=\"foo/\" autocomplete=\"off\" "^
     "enctype=\"x_www_form_urlencoded\" method=\"post\" name=\"foo\" "^
-    "novalidate=\"\" target=\"blank\"></form>";
+    "novalidate=\"\" target=\"_blank\"></form>";
   t |> T.end_
 end;
 
@@ -278,7 +278,7 @@ test ~name:"node - input" @@ fun t -> begin
    "<input alt=\"foo\" autocomplete=\"email\" autofocus=\"\" checked=\"\" "^
    "dirname=\"ltr\" disabled=\"\" form=\"foo\" formaction=\"bar\" "^
    "formenctype=\"x_www_form_urlencoded\" formmethod=\"post\" "^
-   "formnovalidate=\"\" formtarget=\"blank\" height=\"600\" list=\"baz\" "^
+   "formnovalidate=\"\" formtarget=\"_blank\" height=\"600\" list=\"baz\" "^
    "max=\"100\" maxlength=\"100\" min=\"0\" minlength=\"0\" multiple=\"\" "^
    "name=\"qux\" pattern=\"[0-9]*\" readonly=\"\" required=\"\" size=\"200\" "^
    "src=\"worble\" step=\"any\" type=\"text\" width=\"800\">";

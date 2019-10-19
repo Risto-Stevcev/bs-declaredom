@@ -35,7 +35,7 @@ module Target = struct
 
   let show: t -> string = function
   | #value as value ->
-    valueToJs value
+    "_" ^ valueToJs value
   | `browsing_context name ->
     name
 end
