@@ -254,6 +254,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?caption_side:Css_Property.caption_side Css_Property.t ->
       ?clear:Css_Property.clear Css_Property.t ->
@@ -383,6 +384,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -496,6 +498,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -615,6 +618,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -735,6 +739,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -845,6 +850,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -950,6 +956,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1049,6 +1056,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1154,6 +1162,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1273,6 +1282,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1387,6 +1397,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1482,6 +1493,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1576,6 +1588,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1681,6 +1694,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1789,6 +1803,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1896,6 +1911,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -1998,6 +2014,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -2089,6 +2106,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -2180,6 +2198,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -2271,6 +2290,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -2362,6 +2382,7 @@ module Internal = struct
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?color:Css_Property.color Css_Property.t ->
       ?cue_after:Css_Property.cue_after Css_Property.t ->
@@ -2440,6 +2461,7 @@ module Internal = struct
       ?border_bottom_width:Css_Property.border_bottom_width Css_Property.t ->
       ?border_collapse:Css_Property.border_collapse Css_Property.t ->
       ?border_color:Css_Property.border_color Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?border_left_color:Css_Property.border_left_color Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
@@ -2574,6 +2596,7 @@ module Internal = struct
       ?border_bottom_width:Css_Property.border_bottom_width Css_Property.t ->
       ?border_collapse:Css_Property.border_collapse Css_Property.t ->
       ?border_color:Css_Property.border_color Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?border_left_color:Css_Property.border_left_color Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
@@ -2699,6 +2722,8 @@ module Shorthand = struct
   let border_bottom = Css_Properties.BorderBottom.make
   let border_left = Css_Properties.BorderLeft.make
   let border = Css_Properties.Border.make
+  let border_radius = Css_Properties.BorderRadius.make_value
+  let border_radius' = Css_Properties.BorderRadius.make
   let font = Css_Properties.Font.make
   let flex' = Css_Properties.Flex.make
   let list_style = Css_Properties.ListStyle.make
@@ -2951,7 +2976,7 @@ module MediaGroup = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?caption_side ?clear ?clip ?color ?cursor ?direction
+    ?border_left ?border_radius ?border ?caption_side ?clear ?clip ?color ?cursor ?direction
     ?empty_cells ?flex ?flex_basis ?flex_direction ?flex_flow ?flex_grow
     ?flex_shrink ?flex_wrap ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?height ?min_height ?max_height ?justify_content
@@ -3000,6 +3025,7 @@ module MediaGroup = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?caption_side:(Belt.Option.map caption_side CaptionSide.make)
       ?clear:(Belt.Option.map clear Clear.make)
@@ -3103,7 +3129,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant ?font_weight
     ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
@@ -3150,6 +3176,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3212,7 +3239,7 @@ module AppliesTo = struct
     ?border_left_color ?border_color ?border_top_style ?border_right_style
     ?border_bottom_style ?border_left_style ?border_style ?border_top_width
     ?border_right_width ?border_bottom_width ?border_left_width ?border_width
-    ?border_top ?border_right ?border_bottom ?border_left ?border ?color
+    ?border_top ?border_right ?border_bottom ?border_left ?border_radius ?border ?color
     ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?float
     ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
     ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
@@ -3294,6 +3321,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3359,7 +3387,7 @@ module AppliesTo = struct
     ?border_left_color ?border_color ?border_top_style ?border_right_style
     ?border_bottom_style ?border_left_style ?border_style ?border_top_width
     ?border_right_width ?border_bottom_width ?border_left_width ?border_width
-    ?border_top ?border_right ?border_bottom ?border_left ?border ?color
+    ?border_top ?border_right ?border_bottom ?border_left ?border_radius ?border ?color
     ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation
     ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
     ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
@@ -3446,6 +3474,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3520,7 +3549,7 @@ module AppliesTo = struct
     ?border_color ?border_top_style ?border_right_style ?border_bottom_style
     ?border_left_style ?border_style ?border_top_width ?border_right_width
     ?border_bottom_width ?border_left_width ?border_width ?border_top
-    ?border_right ?border_bottom ?border_left ?border ?color ?cue_after
+    ?border_right ?border_bottom ?border_left ?border_radius ?border ?color ?cue_after
     ?cue_before ?cue ?cursor ?direction ?elevation ?float ?font_family ?font_size
     ?font_style ?font_variant ?font_weight ?font ?letter_spacing ?line_height
     ?opacity ?outline_color ?outline_style ?outline_width ?outline ?pause_after ?pause_before
@@ -3589,6 +3618,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3652,7 +3682,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch
@@ -3729,6 +3759,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3792,7 +3823,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -3865,6 +3896,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -3928,7 +3960,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -3995,6 +4027,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4058,7 +4091,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -4131,6 +4164,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4196,7 +4230,7 @@ module AppliesTo = struct
     ?border_left_color ?border_color ?border_top_style ?border_right_style
     ?border_bottom_style ?border_left_style ?border_style ?border_top_width
     ?border_right_width ?border_bottom_width ?border_left_width ?border_width
-    ?border_top ?border_right ?border_bottom ?border_left ?border ?color
+    ?border_top ?border_right ?border_bottom ?border_left ?border_radius ?border ?color
     ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation
     ?font_family ?font_size ?font_style ?font_variant ?font_weight ?font
     ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style ?outline_width
@@ -4283,6 +4317,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4348,8 +4383,8 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction ?display
-    ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?display ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
@@ -4430,6 +4465,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4488,15 +4524,15 @@ module AppliesTo = struct
 
   let table_header_group ?animation ?animation_delay ?animation_direction
     ?animation_duration ?animation_fill_mode ?animation_iteration_count ?animation_name
-    ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?speak_header ?width
-    ?min_width ?max_width
+    ?animation_play_state ?animation_timing_function ?height ?min_height ?max_height ?speak_header
+    ?width ?min_width ?max_width
     ?azimuth ?background_attachment ?background_color ?background_image
     ?background_position ?background_repeat ?background_size ?background ?border_top_color
     ?border_right_color ?border_bottom_color ?border_left_color ?border_color
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -4559,6 +4595,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4621,7 +4658,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -4683,6 +4720,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4746,7 +4784,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -4819,6 +4857,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -4883,7 +4922,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -4959,6 +4998,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5023,7 +5063,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5098,6 +5138,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5161,7 +5202,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5231,6 +5272,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5292,7 +5334,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5351,6 +5393,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5412,7 +5455,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5471,6 +5514,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5532,7 +5576,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5591,6 +5635,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5652,7 +5697,7 @@ module AppliesTo = struct
     ?border_top_style ?border_right_style ?border_bottom_style ?border_left_style
     ?border_style ?border_top_width ?border_right_width ?border_bottom_width
     ?border_left_width ?border_width ?border_top ?border_right ?border_bottom
-    ?border_left ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
+    ?border_left ?border_radius ?border ?color ?cue_after ?cue_before ?cue ?cursor ?direction
     ?elevation ?float ?font_family ?font_size ?font_style ?font_variant
     ?font_weight ?font ?letter_spacing ?line_height ?opacity ?outline_color ?outline_style
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range
@@ -5711,6 +5756,7 @@ module AppliesTo = struct
       ?border_right
       ?border_bottom
       ?border_left
+      ?border_radius
       ?border
       ?color:(Belt.Option.map color Color.make)
       ?cue_after:(Belt.Option.map cue_after CueAfter.make)
@@ -5769,22 +5815,22 @@ module AppliesTo = struct
     ?background_color ?background ?background_image ?background_position ?background_repeat
     ?background_size ?border_bottom_color ?border_bottom ?border_bottom_style ?border_bottom_width
     ?border_collapse ?border_color ?border ?border_left_color ?border_left ?border_left_style
-    ?border_left_width ?border_right_color ?border_right ?border_right_style ?border_right_width
-    ?border_spacing ?border_style ?border_top_color ?border_top ?border_top_style ?border_top_width
-    ?border_width ?bottom ?caption_side ?clear ?clip ?color ?cue_after ?cue_before ?cue ?cursor
-    ?direction ?elevation ?empty_cells ?flex_basis ?flex ?flex_direction ?flex_flow ?flex_grow
-    ?flex_shrink ?flex_wrap ?float ?font ?font_family ?font_size ?font_style ?font_variant
-    ?font_weight ?height ?justify_content ?left ?letter_spacing ?line_height ?list_style
-    ?list_style_image ?list_style_position ?list_style_type ?margin_bottom ?margin ?margin_left
-    ?margin_right ?margin_top ?max_height ?max_width ?min_height ?min_width ?opacity ?order ?orphans
-    ?outline_color ?outline ?outline_style ?outline_width ?overflow ?padding_bottom ?padding
-    ?padding_left ?padding_right ?padding_top ?page_break_after ?page_break_before
-    ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range ?play_during ?richness
-    ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation ?speech_rate ?stress ?table_layout
-    ?text_align ?text_decoration ?text_indent ?text_transform ?top ?transition ?transition_delay
-    ?transition_duration ?transition_property ?transition_timing_function ?unicode_bidi
-    ?vertical_align ?visibility ?voice_family ?volume ?white_space ?widows ?width ?word_spacing
-    ?z_index () =
+    ?border_left_width ?border_radius ?border_right_color ?border_right ?border_right_style
+    ?border_right_width ?border_spacing ?border_style ?border_top_color ?border_top
+    ?border_top_style ?border_top_width ?border_width ?bottom ?caption_side ?clear ?clip ?color
+    ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?empty_cells ?flex_basis ?flex
+    ?flex_direction ?flex_flow ?flex_grow ?flex_shrink ?flex_wrap ?float ?font ?font_family
+    ?font_size ?font_style ?font_variant ?font_weight ?height ?justify_content ?left ?letter_spacing
+    ?line_height ?list_style ?list_style_image ?list_style_position ?list_style_type ?margin_bottom
+    ?margin ?margin_left ?margin_right ?margin_top ?max_height ?max_width ?min_height ?min_width
+    ?opacity ?order ?orphans ?outline_color ?outline ?outline_style ?outline_width ?overflow
+    ?padding_bottom ?padding ?padding_left ?padding_right ?padding_top ?page_break_after
+    ?page_break_before ?page_break_inside ?pause_after ?pause_before ?pause ?pitch ?pitch_range
+    ?play_during ?richness ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation
+    ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
+    ?top ?transition ?transition_delay ?transition_duration ?transition_property
+    ?transition_timing_function ?unicode_bidi ?vertical_align ?visibility ?voice_family ?volume
+    ?white_space ?widows ?width ?word_spacing ?z_index () =
     Internal.AppliesTo.display
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -5819,6 +5865,7 @@ module AppliesTo = struct
       ?border_left
       ?border_left_style:(Belt.Option.map border_left_style BorderLeftStyle.make)
       ?border_left_width:(Belt.Option.map border_left_width BorderLeftWidth.make)
+      ?border_radius
       ?border_right_color:(Belt.Option.map border_right_color BorderRightColor.make)
       ?border_right
       ?border_right_style:(Belt.Option.map border_right_style BorderRightStyle.make)
@@ -5932,10 +5979,10 @@ module AppliesTo = struct
     ?background_attachment ?background_color ?background ?background_image ?background_position
     ?background_repeat ?background_size ?border_bottom_color ?border_bottom ?border_bottom_style
     ?border_bottom_width ?border_collapse ?border_color ?border ?border_left_color ?border_left
-    ?border_left_style ?border_left_width ?border_right_color ?border_right ?border_right_style
-    ?border_right_width ?border_spacing ?border_style ?border_top_color ?border_top
-    ?border_top_style ?border_top_width ?border_width ?bottom ?caption_side ?clear ?clip ?color
-    ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?empty_cells ?flex_basis ?flex
+    ?border_left_style ?border_left_width ?border_radius ?border_right_color ?border_right
+    ?border_right_style ?border_right_width ?border_spacing ?border_style ?border_top_color
+    ?border_top ?border_top_style ?border_top_width ?border_width ?bottom ?caption_side ?clear ?clip
+    ?color ?cue_after ?cue_before ?cue ?cursor ?direction ?elevation ?empty_cells ?flex_basis ?flex
     ?flex_direction ?flex_flow ?flex_grow ?flex_shrink ?flex_wrap ?float ?font ?font_family
     ?font_size ?font_style ?font_variant ?font_weight ?height ?justify_content ?left ?letter_spacing
     ?line_height ?list_style ?list_style_image ?list_style_position ?list_style_type ?margin_bottom
@@ -5973,6 +6020,7 @@ module AppliesTo = struct
       ?border_left
       ?border_left_style:(Belt.Option.map border_left_style BorderLeftStyle.make)
       ?border_left_width:(Belt.Option.map border_left_width BorderLeftWidth.make)
+      ?border_radius
       ?border_right_color:(Belt.Option.map border_right_color BorderRightColor.make)
       ?border_right
       ?border_right_style:(Belt.Option.map border_right_style BorderRightStyle.make)

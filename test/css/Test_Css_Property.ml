@@ -619,6 +619,30 @@ test ~name:"css property - border-left-width" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - border-radius" @@ fun t -> begin
+  let open Css_Function.Infix.Calc in
+  let equal a b t =
+    t |> T.equal (a |> BorderRadius.make_value |> Css_Property.show) b
+  and equal' a b t =
+    t |> T.equal (a |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal (`px 12.) "12px";
+  t |> equal (`percent 21. |+| `px 10.) "calc(21% + 10px)";
+  t |> equal' (BorderRadius.make ~top:(`px 12.5)
+                                 ~right:`auto
+                                 ~bottom:(`px 14.)
+                                 ~left:`auto ())
+              "12.5px auto 14px auto";
+  t |> equal' (BorderRadius.make ~top:(`px 12.5)
+                                 ~left:`auto ())
+              "12.5px 0px 0px auto";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - bottom" @@ fun t -> begin
   let open Css_Function.Infix.Calc in
   let equal a b t =

@@ -52,6 +52,7 @@ module Style = struct
    and border_bottom_width = [ `border_bottom_width ]
    and border_left_width = [ `border_left_width ]
    and border_width = [ `border_width ]
+   and border_radius = [ `border_radius ]
    and border = [ `border ]
    and bottom = [ `bottom ]
    and caption_side = [ `caption_side ]
@@ -244,8 +245,8 @@ module AppliesTo = struct
   module Flexbox = struct
     type any =
       [ animation_timing_function | azimuth | backgrounds | border_colors | border_styles
-      | border_widths | borders | color | cues | cursor | direction | display' | elevation
-      | fonts | letter_spacing | line_height | opacity | outlines | pauses
+      | border_widths | border_radius | borders | color | cues | cursor | direction | display'
+      | elevation | fonts | letter_spacing | line_height | opacity | outlines | pauses
       | pitch_range | pitch | play_during | position | richness
       | speak_numeral | speak_punctuation | speak | speech_rate | stress
       | text_decoration | text_transform | transition | transition_delay

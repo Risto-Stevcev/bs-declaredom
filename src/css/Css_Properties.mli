@@ -529,6 +529,34 @@ module BorderLeftWidth :
     val make :
       Css_Value.Border.Width.t -> [> Css_Property.border_left_width ] t
   end
+module BorderRadius :
+  sig
+    (** {{: https://www.w3.org/TR/css-backgrounds-3/#the-border-radius } Border radius} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.border_radius ]
+    module Value :
+      sig
+        type t =
+          [ Css_Value.Global.t
+          | Css_Value.LengthPercent.t
+          | `border_radius of
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t *
+              Css_Value.LengthPercent.t ]
+        val show : t -> string
+      end
+
+    val make :
+      ?top:Css_Value.LengthPercent.t ->
+      ?right:Css_Value.LengthPercent.t ->
+      ?bottom:Css_Value.LengthPercent.t ->
+      ?left:Css_Value.LengthPercent.t ->
+      unit ->
+      [> Css_Property.border_radius ] t
+    val make_value : [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
+      [> Css_Property.border_radius ] t
+  end
 module Bottom :
   sig
     (** {{: https://www.w3.org/TR/CSS22/visuren.html#propdef-bottom } Bottom} *)

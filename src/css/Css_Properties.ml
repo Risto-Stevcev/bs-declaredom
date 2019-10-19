@@ -637,6 +637,41 @@ module BorderLeftWidth = struct
 end
 
 
+module BorderRadius = struct
+  type +'a t = ([> Css_Property.border_radius ] as 'a) Css_Property.t
+
+
+  module Value = struct
+    type t =
+      [ Css_Value.Global.t
+      | Css_Value.LengthPercent.t
+      | `border_radius of
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t *
+          Css_Value.LengthPercent.t ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #Css_Value.LengthPercent.t as length ->
+      Css_Value.LengthPercent.show length
+    | `border_radius (top, right, bottom, left) ->
+      Css_Value.LengthPercent.show top ^" "^
+      Css_Value.LengthPercent.show right ^" "^
+      Css_Value.LengthPercent.show bottom ^" "^
+      Css_Value.LengthPercent.show left
+  end
+
+  let make ?(top=`px 0.) ?(right=`px 0.) ?(bottom=`px 0.) ?(left=`px 0.) () : 'a t =
+    Internal.make @@ Value.show (`border_radius (top, right, bottom, left))
+
+  let make_value (value: [ Css_Value.Global.t | Css_Value.LengthPercent.t ]):
+    'a t =
+    Internal.make @@ Value.show (value :> Value.t)
+end
+
+
 module Bottom = struct
   type +'a t = ([> Css_Property.bottom ] as 'a) Css_Property.t
 

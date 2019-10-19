@@ -49,6 +49,16 @@ val border :
   ?style:Css_Value.Border.Style.t ->
   ?color:Css_Value.Border.Color.t ->
   unit -> [> Css_Property.border ] Css_Property.t
+val border_radius :
+  [ Css_Value.Global.t | Css_Value.LengthPercent.t ] ->
+  [> Css_Property.border_radius ] Css_Property.t
+val border_radius' :
+  ?top:Css_Value.LengthPercent.t ->
+  ?right:Css_Value.LengthPercent.t ->
+  ?bottom:Css_Value.LengthPercent.t ->
+  ?left:Css_Value.LengthPercent.t ->
+  unit ->
+  [> Css_Property.border_radius ] Css_Property.t
 val font :
   ?style:Css_Value.Font.Style.t ->
   ?variant:Css_Value.Font.Variant.t ->
@@ -291,6 +301,7 @@ module MediaGroup :
       ?border_right:Css_Property.border_right Css_Property.t ->
       ?border_bottom:Css_Property.border_bottom Css_Property.t ->
       ?border_left:Css_Property.border_left Css_Property.t ->
+      ?border_radius:Css_Property.border_radius Css_Property.t ->
       ?border:Css_Property.border Css_Property.t ->
       ?caption_side:Css_Properties.CaptionSide.Value.t ->
       ?clear:Css_Properties.Clear.Value.t ->
@@ -413,6 +424,7 @@ val any :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -523,6 +535,7 @@ val block :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -638,6 +651,7 @@ val flex :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -752,6 +766,7 @@ val positioned :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -857,6 +872,7 @@ val list_item :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -959,6 +975,7 @@ val replaced_inline :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1055,6 +1072,7 @@ val non_replaced_inline :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1157,6 +1175,7 @@ val inline :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1272,6 +1291,7 @@ val inline_flex :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1382,6 +1402,7 @@ val inline_block :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1475,6 +1496,7 @@ val table_header_group :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1566,6 +1588,7 @@ val table_footer_group :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1668,6 +1691,7 @@ val table_caption :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1773,6 +1797,7 @@ val table :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1877,6 +1902,7 @@ val inline_table :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -1976,6 +2002,7 @@ val table_cell :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -2064,6 +2091,7 @@ val table_column :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -2152,6 +2180,7 @@ val table_column_group :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -2240,6 +2269,7 @@ val table_row :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -2328,6 +2358,7 @@ val table_row_group :
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_bottom:Css_Property.border_bottom Css_Property.t ->
   ?border_left:Css_Property.border_left Css_Property.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border:Css_Property.border Css_Property.t ->
   ?color:Css_Properties.Color.Value.t ->
   ?cue_after:Css_Value.UriOrNone.t ->
@@ -2408,6 +2439,7 @@ val display :
   ?border_left:Css_Property.border_left Css_Property.t ->
   ?border_left_style:Css_Value.Border.Style.t ->
   ?border_left_width:Css_Value.Border.Width.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_right_style:Css_Value.Border.Style.t ->
@@ -2539,6 +2571,7 @@ val keyframe_block :
   ?border_left:Css_Property.border_left Css_Property.t ->
   ?border_left_style:Css_Value.Border.Style.t ->
   ?border_left_width:Css_Value.Border.Width.t ->
+  ?border_radius:Css_Property.border_radius Css_Property.t ->
   ?border_right_color:Css_Value.Border.Color.t ->
   ?border_right:Css_Property.border_right Css_Property.t ->
   ?border_right_style:Css_Value.Border.Style.t ->
