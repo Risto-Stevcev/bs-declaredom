@@ -393,3 +393,11 @@ end
 
 type t = Selector.t
 let show = Selector.show
+
+
+let show_style ?(indent=0) selector properties =
+  let indent' = Js.String.repeat indent "  "
+  in
+  indent' ^ show selector ^" {\n"^
+    Css_Property.show_properties ~indent:(indent + 1) properties ^"\n"^
+  indent' ^"}"

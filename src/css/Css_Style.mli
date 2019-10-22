@@ -2679,8 +2679,3 @@ val keyframe_block :
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   ?z_index:int ->
   unit -> Css_Property.keyframe_block t
-
-val show :
-  ?indent:int ->
-  Css_Selector.Selector.t ->
-  [< Css_Property.display ] t -> string

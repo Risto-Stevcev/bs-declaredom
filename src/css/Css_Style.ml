@@ -6131,11 +6131,3 @@ module AppliesTo = struct
 end
 
 include AppliesTo
-
-
-let show ?(indent=0) selector properties =
-  let indent' = Js.String.repeat indent "  "
-  in
-  indent' ^ Css_Selector.show selector ^" {\n"^
-    Css_Property.show_properties ~indent:(indent + 1) properties ^"\n"^
-  indent' ^"}"

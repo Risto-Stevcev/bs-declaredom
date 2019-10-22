@@ -91,7 +91,7 @@ let _ =
 let anchor =
   a ~id:"link" ~href:"#"
     (* Anchor elements can accept the `link` aria role *)
-    ~aria:(Html.Attributes.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
+    ~aria:(Html.Aria.link ~aria_hidden:() ~aria_label:"foo" ())
     ~on_click:(fun _ -> Js.log "clicked!")
     [|text "some link"|]
 

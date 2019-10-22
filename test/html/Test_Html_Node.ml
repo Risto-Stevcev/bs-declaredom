@@ -1,7 +1,7 @@
 open BsTape
 open Test
 open! Html
-module Aria = Html_Attributes.Aria;;
+;;
 
 let _ = Jsdom.init () [@bs]
 
@@ -24,7 +24,7 @@ let tag_name x =
 test ~name:"node - a" @@ fun t -> begin
   let element =
     a
-      ~aria:(Aria.link ~aria_label:"foo" ())
+      ~aria:(Html.Aria.link ~aria_label:"foo" ())
       ~href:"http://www.w3.org"
       ~target:`blank
       ~download:()
@@ -593,7 +593,7 @@ end;
 test ~name:"node - global aria attributes" @@ fun t -> begin
 	let element =
 		span ~aria:(
-			Html_Attributes.Aria.roletype
+			Html.Aria.roletype
 				~aria_atomic:"a" ~aria_busy:() ~aria_controls:"c" ~aria_current:`date
 				~aria_describedby:"d" ~aria_details:"e" ~aria_disabled:()
 				~aria_dropeffect:[`copy;`move] ~aria_errormessage:"f" ~aria_flowto:"g"

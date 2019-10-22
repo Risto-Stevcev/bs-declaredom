@@ -1,6 +1,8 @@
 type property
 type args = { attributes: property Js.Dict.t; children: Dom.node array }
 
+external set_content_editable: Dom.htmlElement -> bool -> unit = "contentEditable" [@@bs.set]
+
 external as_node: _ Dom.node_like -> Dom.node = "%identity"
 
 module DomTokenList = struct
@@ -14,7 +16,9 @@ end
 module Case = struct
   let snake_to_title: (string -> string [@bs]) = [%raw {|
     function(text) {
-      return text.replace(/_([a-z]{1})/g, (_, c) => c.toUpperCase())
+      return text.replace(/_([a-z]{1})/g, function(_, c) {
+        return c.toUpperCase()
+      })
     }|}]
 
   let snake_to_spinal text = Js.String.replaceByRe [%re "/_/g"] "-" text
@@ -60,8 +64,6 @@ module HtmlElement = struct
         |> DomTokenList.to_string
       in
       Js.Array.concat class_set class_names
-      |> Belt.Set.String.fromArray
-      |> Belt.Set.String.toArray
       |> Js.Array.joinWith " "
       |> Webapi.Dom.HtmlElement.setClassName element
     | "dataset" ->
@@ -82,11 +84,9 @@ module HtmlElement = struct
     | "contentEditable" ->
       let content_editable =
         (Obj.magic value : bool)
-        |> string_of_bool
-        |> Webapi.Dom.decodeContentEditable
       in
       element
-      |. Webapi.Dom.HtmlElement.setContentEditable content_editable
+      |. set_content_editable content_editable
     | attribute when attribute |> Js.String.startsWith "on" ->
       let callback: Dom.event -> unit = Obj.magic value
       and event_name =

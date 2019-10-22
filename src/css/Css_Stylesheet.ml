@@ -104,7 +104,7 @@ module MediaRule = struct
 
   let show (`media (media, selector, properties): t): string =
     Css_Media.show media ^" {\n"^
-      Css_Style.show ~indent:1 selector properties ^"\n"^
+      Css_Selector.show_style ~indent:1 selector properties ^"\n"^
     "}"
 end
 

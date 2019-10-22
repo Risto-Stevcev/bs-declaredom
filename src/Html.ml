@@ -5,6 +5,7 @@ module Events = Html_Events
 module Node = Html_Node
 module Nodes = Html_Nodes
 module Overrides = Html_Overrides
+module Aria = Html_Aria
 
 let a = Html_Nodes.A.make
 let abbr = Html_Nodes.Abbr.make

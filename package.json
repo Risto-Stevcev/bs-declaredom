@@ -17,6 +17,7 @@
     "bundle:webpack": "webpack",
     "bundle:parcel": "parcel build lib/es6_global/example/Example.bs.js",
     "bundle:rollup": "rollup lib/es6_global/example/Example.bs.js --file dist/bundle.rollup.js --output.name foo --format umd",
+    "bundle:rollup2": "rollup --config rollup.config.js",
     "bundle": "npm run bundle:webpack && npm run bundle:parcel && npm run bundle:rollup",
     "test": "npm run bundle && npm run test:unit && npm run test:tree-shaking",
     "test:unit": "node lib/js/test/Test_All.bs.js | tap-spec",
@@ -56,12 +57,15 @@
     "json-to-dot": "1.1.0",
     "parcel-bundler": "1.12.3",
     "rollup": "1.23.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "tap-spec": "5.0.0",
+    "uglify-js": "2",
     "webpack": "4.41.0",
     "webpack-cli": "3.3.9"
   },
   "dependencies": {
-    "bs-webapi": "^0.15.4",
-    "declaredom": "^2.1.0"
+    "bs-webapi": "^0.15.4"
   }
 }
