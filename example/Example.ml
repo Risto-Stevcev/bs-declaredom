@@ -161,7 +161,6 @@ let _ =
 (* Example *)
 let example =
   div ~css_module:Modules.container [|
-    TryJsx.foo;
     Div.flex ~css_module:Modules.flex [|
       span [|text "this"|] |> Html.Overrides.with_flex_css ~css_module:Modules.flex_item;
       span [|text "is"|];

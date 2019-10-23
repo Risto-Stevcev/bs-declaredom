@@ -97,80 +97,6 @@ module A :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.a ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.link
-            | Html_Attributes.Aria.button
-            | Html_Attributes.Aria.checkbox
-            | Html_Attributes.Aria.radio
-            | Html_Attributes.Aria.switch
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.treeitem
-            ] Html_Attributes.Aria.t ->
-      ?href:string ->
-      ?target:Html_Attributes.Target.t ->
-      ?download:unit ->
-      ?rel:Html_Attributes.LinkType.Hyperlink.t ->
-      ?rev:Html_Attributes.LinkType.Hyperlink.t ->
-      ?hreflang:string ->
-      ?_type:string ->
-      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.a ] Html_Node.t
   end
 module Abbr :
   sig
@@ -242,65 +168,6 @@ module Abbr :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.abbr ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.abbr ] Html_Node.t
   end
 module Address :
   sig
@@ -371,65 +238,6 @@ module Address :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.address ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.group Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.address ] Html_Node.t
   end
 module Area :
   sig
@@ -509,73 +317,6 @@ module Area :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.area ] Html_Node.t
-    val jsx :
-      ?alt:string ->
-      ?coords:int Belt.List.t ->
-      ?download:unit ->
-      ?href:string ->
-      ?hreflang:string ->
-      ?rel:Html_Attributes.LinkType.Hyperlink.t ->
-      ?shape:Attributes.shape ->
-      ?target:Html_Attributes.Target.t ->
-      ?_type:string ->
-      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-      ?aria:Html_Attributes.Aria.link Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.area ] Html_Node.t
   end
 module Article :
   sig
@@ -652,71 +393,6 @@ module Article :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.article ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.article
-            | Html_Attributes.Aria.application
-            | Html_Attributes.Aria.document
-            | Html_Attributes.Aria.feed
-            | Html_Attributes.Aria.main
-            | Html_Attributes.Aria.region
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.article ] Html_Node.t
   end
 module Aside :
   sig
@@ -792,70 +468,6 @@ module Aside :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.aside ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.complementary
-            | Html_Attributes.Aria.feed
-            | Html_Attributes.Aria.note
-            | Html_Attributes.Aria.search
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.aside ] Html_Node.t
   end
 module Audio :
   sig
@@ -960,93 +572,6 @@ module Audio :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       'a child array -> [> Html_Node.audio ] Html_Node.t
-    val jsx :
-      ?src:string ->
-      ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?preload:Html_Attributes.Preload.t ->
-      ?autoplay:unit ->
-      ?loop:unit ->
-      ?muted:unit ->
-      ?controls:unit ->
-      ?aria:Html_Attributes.Aria.application Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_loadstart:(Dom.progressEvent -> unit) ->
-      ?on_progress:(Dom.progressEvent -> unit) ->
-      ?on_suspend:(Dom.progressEvent -> unit) ->
-      ?on_abort:(Dom.progressEvent -> unit) ->
-      ?on_error:(Dom.progressEvent -> unit) ->
-      ?on_emptied:(Dom.event -> unit) ->
-      ?on_stalled:(Dom.progressEvent -> unit) ->
-      ?on_loadedmetadata:(Dom.event -> unit) ->
-      ?on_loadeddata:(Dom.event -> unit) ->
-      ?on_canplay:(Dom.event -> unit) ->
-      ?on_canplaythrough:(Dom.event -> unit) ->
-      ?on_playing:(Dom.event -> unit) ->
-      ?on_waiting:(Dom.event -> unit) ->
-      ?on_seeking:(Dom.event -> unit) ->
-      ?on_seeked:(Dom.event -> unit) ->
-      ?on_ended:(Dom.event -> unit) ->
-      ?on_durationchange:(Dom.event -> unit) ->
-      ?on_timeupdate:(Dom.event -> unit) ->
-      ?on_play:(Dom.event -> unit) ->
-      ?on_pause:(Dom.event -> unit) ->
-      ?on_ratechange:(Dom.event -> unit) ->
-      ?on_resize:(Dom.event -> unit) ->
-      ?on_volumechange:(Dom.event -> unit) ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.audio ] Html_Node.t
   end
 module B :
   sig
@@ -1117,65 +642,6 @@ module B :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.b ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.b ] Html_Node.t
   end
 module Base :
   sig
@@ -1244,65 +710,6 @@ module Base :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.base ] Html_Node.t
-    val jsx :
-      ?href:string ->
-      ?target:Html_Attributes.Target.t ->
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.base ] Html_Node.t
   end
 module Bdi :
   sig
@@ -1373,65 +780,6 @@ module Bdi :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.bdi ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.bdi ] Html_Node.t
   end
 module Bdo :
   sig
@@ -1502,65 +850,6 @@ module Bdo :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.bdo ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.bdo ] Html_Node.t
   end
 module Blockquote :
   sig
@@ -1632,66 +921,6 @@ module Blockquote :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.blockquote ] Html_Node.t
-    val jsx :
-      ?cite:string ->
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.blockquote ] Html_Node.t
   end
 module Body :
   sig
@@ -1781,82 +1010,6 @@ module Body :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.body ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.document Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_afterprint:(Dom.event -> unit) ->
-      ?on_beforeprint:(Dom.event -> unit) ->
-      ?on_beforeunload:(Dom.event -> unit) ->
-      ?on_hashchange:(Dom.event -> unit) ->
-      ?on_languagechange:(Dom.event -> unit) ->
-      ?on_message:(Dom.event -> unit) ->
-      ?on_messageerror:(Dom.event -> unit) ->
-      ?on_offline:(Dom.event -> unit) ->
-      ?on_online:(Dom.event -> unit) ->
-      ?on_pagehide:(Dom.event -> unit) ->
-      ?on_pageshow:(Dom.event -> unit) ->
-      ?on_popstate:(Dom.event -> unit) ->
-      ?on_resize:(Dom.event -> unit) ->
-      ?on_rejectionhandled:(Dom.event -> unit) ->
-      ?on_storage:(Dom.event -> unit) ->
-      ?on_unhandledrejection:(Dom.event -> unit) ->
-      ?on_unload:(Dom.event -> unit) ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.body ] Html_Node.t
   end
 module Br :
   sig
@@ -1894,24 +1047,6 @@ module Br :
       ?title:string ->
       ?translate:Html_Attributes.Global.Value.translate ->
       unit -> [> Html_Node.br ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?lang:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?children:'b -> unit -> [> Html_Node.br ] Html_Node.t
   end
 module Button :
   sig
@@ -2002,81 +1137,6 @@ module Button :
       ?style:Css_Property.inline_block Css_Style.t ->
       ?css_module:Css_Property.inline_block Css_Module.t ->
       'a child array -> [> Html_Node.button ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.link
-            | Html_Attributes.Aria.button
-            | Html_Attributes.Aria.radio
-            | Html_Attributes.Aria.switch
-            ] Html_Attributes.Aria.t ->
-      ?autofocus:unit ->
-      ?disabled:unit ->
-      ?form:string ->
-      ?formaction:string ->
-      ?formenctype:Html_Attributes.Form.Enctype.t ->
-      ?formmethod:Html_Attributes.Form.Method.t ->
-      ?formnovalidate:unit ->
-      ?formtarget:Html_Attributes.Target.t ->
-      ?formelements:string ->
-      ?name:string ->
-      ?_type:Attributes._type ->
-      ?value:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline_block Css_Style.t ->
-      ?css_module:Css_Property.inline_block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.button ] Html_Node.t
   end
 module Canvas :
   sig
@@ -2152,67 +1212,6 @@ module Canvas :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.canvas ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?height:int ->
-      ?width:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.canvas ] Html_Node.t
   end
 module Caption :
   sig
@@ -2283,65 +1282,6 @@ module Caption :
       ?style:Css_Property.table_caption Css_Style.t ->
       ?css_module:Css_Property.table_caption Css_Module.t ->
       'a child array -> [> Html_Node.caption ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_caption Css_Style.t ->
-      ?css_module:Css_Property.table_caption Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.caption ] Html_Node.t
   end
 module Cite :
   sig
@@ -2412,65 +1352,6 @@ module Cite :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.cite ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.cite ] Html_Node.t
   end
 module Code :
   sig
@@ -2541,65 +1422,6 @@ module Code :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.code ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.code ] Html_Node.t
   end
 module Col :
   sig
@@ -2668,65 +1490,6 @@ module Col :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       unit -> [> Html_Node.col ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a -> unit -> [> Html_Node.col ] Html_Node.t
   end
 module Colgroup :
   sig
@@ -2799,66 +1562,6 @@ module Colgroup :
       ?style:Css_Property.table_column_group Css_Style.t ->
       ?css_module:Css_Property.table_column_group Css_Module.t ->
       child array -> [> Html_Node.colgroup ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?span:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_column_group Css_Style.t ->
-      ?css_module:Css_Property.table_column_group Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.colgroup ] Html_Node.t
   end
 module Data :
   sig
@@ -2930,66 +1633,6 @@ module Data :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.data ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?value:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.data ] Html_Node.t
   end
 module Datalist :
   sig
@@ -3060,63 +1703,6 @@ module Datalist :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       'a child array -> [> Html_Node.datalist ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.listbox Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.datalist ] Html_Node.t
   end
 module Dd :
   sig
@@ -3187,65 +1773,6 @@ module Dd :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.dd ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.dd ] Html_Node.t
   end
 module Del :
   sig
@@ -3319,67 +1846,6 @@ module Del :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.del ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?cite:string ->
-      ?datetime:Js.Date.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.del ] Html_Node.t
   end
 module Details :
   sig
@@ -3451,66 +1917,6 @@ module Details :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.details ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.group Html_Attributes.Aria.t ->
-      ?_open:unit ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.details ] Html_Node.t
   end
 module Dfn :
   sig
@@ -3581,65 +1987,6 @@ module Dfn :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.dfn ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.dfn ] Html_Node.t
   end
 module Dialog :
   sig
@@ -3713,68 +2060,6 @@ module Dialog :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.dialog ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.dialog
-            | Html_Attributes.Aria.alertdialog
-            ] Html_Attributes.Aria.t ->
-      ?_open:unit ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.dialog ] Html_Node.t
   end
 module Div :
   sig
@@ -3847,65 +2132,6 @@ module Div :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.div ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.div ] Html_Node.t
   end
 module Dl :
   sig
@@ -3981,68 +2207,6 @@ module Dl :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       child array -> [> Html_Node.dl ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.list
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.dl ] Html_Node.t
   end
 module Dt :
   sig
@@ -4113,65 +2277,6 @@ module Dt :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.dt ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.dt ] Html_Node.t
   end
 module Em :
   sig
@@ -4242,65 +2347,6 @@ module Em :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.em ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.em ] Html_Node.t
   end
 module Embed :
   sig
@@ -4378,73 +2424,6 @@ module Embed :
       ?style:Css_Property.replaced_inline Css_Style.t ->
       ?css_module:Css_Property.replaced_inline Css_Module.t ->
       unit -> [> Html_Node.embed ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.application
-            | Html_Attributes.Aria.document
-            | Html_Attributes.Aria.img
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?src:string ->
-      ?_type:string ->
-      ?width:int ->
-      ?height:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.replaced_inline Css_Style.t ->
-      ?css_module:Css_Property.replaced_inline Css_Module.t ->
-      ?children:'a -> unit -> [> Html_Node.embed ] Html_Node.t
   end
 module Fieldset :
   sig
@@ -4521,70 +2500,6 @@ module Fieldset :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.fieldset ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?form:string ->
-      ?name:string ->
-      ?disabled:unit ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.fieldset ] Html_Node.t
   end
 module Figcaption :
   sig
@@ -4657,67 +2572,6 @@ module Figcaption :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.figcaption ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.figcaption ] Html_Node.t
   end
 module Figure :
   sig
@@ -4792,68 +2646,6 @@ module Figure :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.figure ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.figure
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.figure ] Html_Node.t
   end
 module Footer :
   sig
@@ -4927,68 +2719,6 @@ module Footer :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.footer ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.contentinfo
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.footer ] Html_Node.t
   end
 module Form :
   sig
@@ -5075,76 +2805,6 @@ module Form :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.form ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.form
-            | Html_Attributes.Aria.search
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accept_charset:string ->
-      ?action:string ->
-      ?autocomplete:Attributes.autocomplete ->
-      ?enctype:Html_Attributes.Form.Enctype.t ->
-      ?_method:Html_Attributes.Form.Method.t ->
-      ?name:string ->
-      ?novalidate:unit ->
-      ?target:Html_Attributes.Target.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.form ] Html_Node.t
   end
 module H1 :
   sig
@@ -5218,68 +2878,6 @@ module H1 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h1 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h1 ] t
   end
 module H2 :
   sig
@@ -5353,68 +2951,6 @@ module H2 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h2 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h2 ] t
   end
 module H3 :
   sig
@@ -5488,68 +3024,6 @@ module H3 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h3 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h3 ] t
   end
 module H4 :
   sig
@@ -5623,68 +3097,6 @@ module H4 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h4 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h4 ] t
   end
 module H5 :
   sig
@@ -5758,68 +3170,6 @@ module H5 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h5 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h5 ] t
   end
 module H6 :
   sig
@@ -5893,68 +3243,6 @@ module H6 :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.h6 ] t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.heading
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.h6 ] t
   end
 module Head :
   sig
@@ -6023,63 +3311,6 @@ module Head :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       child array -> [> Html_Node.head ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.head ] Html_Node.t
   end
 module Header :
   sig
@@ -6153,68 +3384,6 @@ module Header :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.header ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.banner
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.header ] Html_Node.t
   end
 module Hgroup :
   sig
@@ -6286,65 +3455,6 @@ module Hgroup :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       child array -> [> Html_Node.hgroup ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.hgroup ] Html_Node.t
   end
 module Hr :
   sig
@@ -6415,67 +3525,6 @@ module Hr :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       unit -> [> Html_Node.hr ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.separator
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a -> unit -> [> Html_Node.hr ] Html_Node.t
   end
 module Html :
   sig
@@ -6545,64 +3594,6 @@ module Html :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       child array -> [> Html_Node.html ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?manifest:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.html ] Html_Node.t
   end
 module I :
   sig
@@ -6673,65 +3664,6 @@ module I :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.i ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.i ] Html_Node.t
   end
 module Iframe :
   sig
@@ -6828,78 +3760,6 @@ module Iframe :
       ?style:Css_Property.replaced_inline Css_Style.t ->
       ?css_module:Css_Property.replaced_inline Css_Module.t ->
       unit -> [> Html_Node.iframe ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.application
-            | Html_Attributes.Aria.document
-            | Html_Attributes.Aria.img
-            ] Html_Attributes.Aria.t ->
-      ?src:string ->
-      ?srcdoc:string ->
-      ?name:string ->
-      ?sandbox:Attributes.sandbox ->
-      ?allow:string ->
-      ?allowfullscreen:unit ->
-      ?allowpaymentrequest:unit ->
-      ?width:int ->
-      ?height:int ->
-      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.replaced_inline Css_Style.t ->
-      ?css_module:Css_Property.replaced_inline Css_Module.t ->
-      ?children:'a -> unit -> [> Html_Node.iframe ] Html_Node.t
   end
 module Img :
   sig
@@ -6983,76 +3843,6 @@ module Img :
       ?style:Css_Property.replaced_inline Css_Style.t ->
       ?css_module:Css_Property.replaced_inline Css_Module.t ->
       unit -> [> Html_Node.img ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?alt:string ->
-      ?src:string ->
-      ?srcset:string ->
-      ?sizes:string ->
-      ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?usemap:string ->
-      ?ismap:unit ->
-      ?width:int ->
-      ?height:int ->
-      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-      ?decoding:Attributes.decoding ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.replaced_inline Css_Style.t ->
-      ?css_module:Css_Property.replaced_inline Css_Module.t ->
-      ?children:'b -> unit -> [> Html_Node.img ] Html_Node.t
   end
 module Input :
   sig
@@ -7192,107 +3982,6 @@ module Input :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       unit -> [> Html_Node.input ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.textbox
-            | Html_Attributes.Aria.searchbox
-            | Html_Attributes.Aria.combobox
-            | Html_Attributes.Aria.spinbutton
-            | Html_Attributes.Aria.slider
-            | Html_Attributes.Aria.checkbox
-            | Html_Attributes.Aria.option
-            | Html_Attributes.Aria.switch
-            | Html_Attributes.Aria.radio
-            | Html_Attributes.Aria.button
-            | Html_Attributes.Aria.link
-            ] Html_Attributes.Aria.t ->
-      ?accept:string ->
-      ?alt:string ->
-      ?autocomplete:Html_Attributes.AutoComplete.t ->
-      ?autofocus:unit ->
-      ?checked:unit ->
-      ?dirname:Html_Attributes.Dirname.t ->
-      ?disabled:unit ->
-      ?form:string ->
-      ?formaction:string ->
-      ?formenctype:Html_Attributes.Form.Enctype.t ->
-      ?formmethod:Html_Attributes.Form.Method.t ->
-      ?formnovalidate:unit ->
-      ?formtarget:Html_Attributes.Target.t ->
-      ?height:int ->
-      ?list:string ->
-      ?max:string ->
-      ?maxlength:int ->
-      ?min:string ->
-      ?minlength:int ->
-      ?multiple:unit ->
-      ?name:string ->
-      ?pattern:Js.Re.t ->
-      ?placeholder:string ->
-      ?readonly:unit ->
-      ?required:unit ->
-      ?size:int ->
-      ?src:string ->
-      ?step:Attributes.step ->
-      ?_type:Attributes._type ->
-      ?value:'a ->
-      ?width:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b -> unit -> [> Html_Node.input ] Html_Node.t
   end
 module Ins :
   sig
@@ -7367,67 +4056,6 @@ module Ins :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.ins ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?cite:string ->
-      ?datetime:Js.Date.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.ins ] Html_Node.t
   end
 module Kbd :
   sig
@@ -7498,65 +4126,6 @@ module Kbd :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.kbd ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.kbd ] Html_Node.t
   end
 module Label :
   sig
@@ -7628,66 +4197,6 @@ module Label :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.label ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?_for:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.label ] Html_Node.t
   end
 module Legend :
   sig
@@ -7759,65 +4268,6 @@ module Legend :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.legend ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.legend ] Html_Node.t
   end
 module Li :
   sig
@@ -7895,72 +4345,6 @@ module Li :
       ?style:Css_Property.list_item Css_Style.t ->
       ?css_module:Css_Property.list_item Css_Module.t ->
       'a child array -> [> Html_Node.li ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.listitem
-            | Html_Attributes.Aria.option
-            | Html_Attributes.Aria.presentation
-            | Html_Attributes.Aria.radio
-            | Html_Attributes.Aria.separator
-            | Html_Attributes.Aria.tab
-            | Html_Attributes.Aria.treeitem
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.list_item Css_Style.t ->
-      ?css_module:Css_Property.list_item Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.li ] Html_Node.t
   end
 module Link :
   sig
@@ -8009,44 +4393,6 @@ module Link :
       ?title:string ->
       ?translate:Html_Attributes.Global.Value.translate ->
       unit -> [> Html_Node.link ] Html_Node.t
-    val jsx :
-      ?href:string ->
-      ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?rel:Html_Attributes.LinkType.t ->
-      ?media:Css_Media.t ->
-      ?integrity:string ->
-      ?hreflang:string ->
-      ?_type:string ->
-      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-      ?sizes:string ->
-      ?_as:string ->
-      ?color:Css_Value.Color.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?children:'a -> unit -> [> Html_Node.link ] Html_Node.t
   end
 module Main :
   sig
@@ -8119,67 +4465,6 @@ module Main :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.main ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.main
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.main ] Html_Node.t
   end
 module Map :
   sig
@@ -8253,66 +4538,6 @@ module Map :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.map ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?name:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.map ] Html_Node.t
   end
 module Mark :
   sig
@@ -8383,65 +4608,6 @@ module Mark :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.mark ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.mark ] Html_Node.t
   end
 module Meta :
   sig
@@ -8522,67 +4688,6 @@ module Meta :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.meta ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?name:string ->
-      ?http_equiv:Attributes.http_equiv ->
-      ?content:string ->
-      ?charset:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.meta ] Html_Node.t
   end
 module Meter :
   sig
@@ -8659,71 +4764,6 @@ module Meter :
       ?style:Css_Property.inline_block Css_Style.t ->
       ?css_module:Css_Property.inline_block Css_Module.t ->
       'a child array -> [> Html_Node.meter ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?value:float ->
-      ?min:float ->
-      ?max:float ->
-      ?low:float ->
-      ?high:float ->
-      ?optimum:float ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline_block Css_Style.t ->
-      ?css_module:Css_Property.inline_block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.meter ] Html_Node.t
   end
 module Nav :
   sig
@@ -8794,65 +4834,6 @@ module Nav :
       ?style:Css_Property.inline_block Css_Style.t ->
       ?css_module:Css_Property.inline_block Css_Module.t ->
       'a child array -> [> Html_Node.nav ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.navigation Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline_block Css_Style.t ->
-      ?css_module:Css_Property.inline_block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.nav ] Html_Node.t
   end
 module Noscript :
   sig
@@ -8923,63 +4904,6 @@ module Noscript :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       'a child array -> [> Html_Node.noscript ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.noscript ] Html_Node.t
   end
 module Object :
   sig
@@ -9066,77 +4990,6 @@ module Object :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.object_ ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.application
-            | Html_Attributes.Aria.document
-            | Html_Attributes.Aria.img
-            | Html_Attributes.Aria.presentation
-            ] Html_Attributes.Aria.t ->
-      ?data:string ->
-      ?_type:string ->
-      ?typemustmatch:unit ->
-      ?name:string ->
-      ?usemap:string ->
-      ?form:string ->
-      ?width:int ->
-      ?height:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.object_ ] Html_Node.t
   end
 module Ol :
   sig
@@ -9231,78 +5084,6 @@ module Ol :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.ol ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.list
-            | Html_Attributes.Aria.directory
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.listbox
-            | Html_Attributes.Aria.menubar
-            | Html_Attributes.Aria.presentation
-            | Html_Attributes.Aria.radiogroup
-            | Html_Attributes.Aria.tablist
-            | Html_Attributes.Aria.toolbar
-            | Html_Attributes.Aria.tree
-            ] Html_Attributes.Aria.t ->
-      ?reversed:unit ->
-      ?start:int ->
-      ?_type:Attributes._type ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.ol ] Html_Node.t
   end
 module Optgroup :
   sig
@@ -9377,67 +5158,6 @@ module Optgroup :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.optgroup ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?disabled:unit ->
-      label:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.optgroup ] Html_Node.t
   end
 module Option :
   sig
@@ -9514,71 +5234,6 @@ module Option :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.option ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.option
-            | Html_Attributes.Aria.separator
-            ] Html_Attributes.Aria.t ->
-      ?disabled:unit ->
-      ?label:string ->
-      ?selected:unit ->
-      ?value:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.option ] Html_Node.t
   end
 module Output :
   sig
@@ -9652,68 +5307,6 @@ module Output :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.output ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?_for:string ->
-      ?form:string ->
-      ?name:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.output ] Html_Node.t
   end
 module P :
   sig
@@ -9784,65 +5377,6 @@ module P :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.p ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.p ] Html_Node.t
   end
 module Param :
   sig
@@ -9911,65 +5445,6 @@ module Param :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.param ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?name:string ->
-      ?value:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.param ] Html_Node.t
   end
 module Picture :
   sig
@@ -10041,64 +5516,6 @@ module Picture :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.picture ] Html_Node.t
-    val jsx :
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.picture ] Html_Node.t
   end
 module Pre :
   sig
@@ -10169,65 +5586,6 @@ module Pre :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'b child array -> [> Html_Node.pre ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.pre ] Html_Node.t
   end
 module Progress :
   sig
@@ -10300,67 +5658,6 @@ module Progress :
       ?style:Css_Property.inline_block Css_Style.t ->
       ?css_module:Css_Property.inline_block Css_Module.t ->
       'a child array -> [> Html_Node.progress ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.progressbar Html_Attributes.Aria.t ->
-      ?value:float ->
-      ?max:float ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline_block Css_Style.t ->
-      ?css_module:Css_Property.inline_block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.progress ] Html_Node.t
   end
 module Q :
   sig
@@ -10432,66 +5729,6 @@ module Q :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.q ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?cite:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.q ] Html_Node.t
   end
 module Rb :
   sig
@@ -10561,65 +5798,6 @@ module Rb :
       ?style:Css_Property.ruby_base Css_Style.t ->
       ?css_module:Css_Property.ruby_base Css_Module.t ->
       'b child array -> [> Html_Node.rb ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.ruby_base Css_Style.t ->
-      ?css_module:Css_Property.ruby_base Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.rb ] Html_Node.t
   end
 module Rp :
   sig
@@ -10686,63 +5864,6 @@ module Rp :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> child array -> [> Html_Node.rp ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.rp ] Html_Node.t
   end
 module Rt :
   sig
@@ -10813,65 +5934,6 @@ module Rt :
       ?style:Css_Property.ruby_text Css_Style.t ->
       ?css_module:Css_Property.ruby_text Css_Module.t ->
       'b child array -> [> Html_Node.rt ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.ruby_text Css_Style.t ->
-      ?css_module:Css_Property.ruby_text Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.rt ] Html_Node.t
   end
 module Rtc :
   sig
@@ -10943,65 +6005,6 @@ module Rtc :
       ?style:Css_Property.ruby_text_container Css_Style.t ->
       ?css_module:Css_Property.ruby_text_container Css_Module.t ->
       'b child array -> [> Html_Node.rtc ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.ruby_text_container Css_Style.t ->
-      ?css_module:Css_Property.ruby_text_container Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.rtc ] Html_Node.t
   end
 module Ruby :
   sig
@@ -11074,65 +6077,6 @@ module Ruby :
       ?style:Css_Property.ruby Css_Style.t ->
       ?css_module:Css_Property.ruby Css_Module.t ->
       'b child array -> [> Html_Node.ruby ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.ruby Css_Style.t ->
-      ?css_module:Css_Property.ruby Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.ruby ] Html_Node.t
   end
 module S :
   sig
@@ -11203,65 +6147,6 @@ module S :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.s ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.s ] Html_Node.t
   end
 module Samp :
   sig
@@ -11332,65 +6217,6 @@ module Samp :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.samp ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.samp ] Html_Node.t
   end
 module Script :
   sig
@@ -11464,7 +6290,14 @@ module Script :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> unit -> [> Html_Node.script ] Html_Node.t
-    val jsx :
+    val make_inline :
+      ?_type:string ->
+      ?nomodule:unit ->
+      ?async:unit ->
+      ?defer:unit ->
+      ?crossorigin:Html_Attributes.CrossOrigin.t ->
+      ?integrity:string ->
+      ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
       ?accesskey:string ->
       ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
       ?class_name:string ->
@@ -11518,136 +6351,7 @@ module Script :
       ?on_mouseup:(Dom.mouseEvent -> unit) ->
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a -> unit -> [> Html_Node.script ] Html_Node.t
-    module Inline :
-      sig
-        val make :
-          ?_type:string ->
-          ?nomodule:unit ->
-          ?async:unit ->
-          ?defer:unit ->
-          ?crossorigin:Html_Attributes.CrossOrigin.t ->
-          ?integrity:string ->
-          ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-          ?accesskey:string ->
-          ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-          ?class_name:string ->
-          ?class_set:bool Js.Dict.t ->
-          ?contenteditable:unit ->
-          ?dataset:string Js.Dict.t ->
-          ?dir:Html_Attributes.Global.Value.dir ->
-          ?draggable:unit ->
-          ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-          ?hidden:unit ->
-          ?id:string ->
-          ?inputmode:Html_Attributes.Global.Value.inputmode ->
-          ?is:string ->
-          ?itemid:string ->
-          ?itemprop:string ->
-          ?itemref:string ->
-          ?itemscope:unit ->
-          ?itemtype:string ->
-          ?lang:string ->
-          ?nonce:string ->
-          ?slot:string ->
-          ?spellcheck:string ->
-          ?tabindex:int ->
-          ?title:string ->
-          ?translate:Html_Attributes.Global.Value.translate ->
-          ?on_auxclick:(Dom.mouseEvent -> unit) ->
-          ?on_blur:(Dom.focusEvent -> unit) ->
-          ?on_click:(Dom.mouseEvent -> unit) ->
-          ?on_copy:(Dom.clipboardEvent -> unit) ->
-          ?on_cut:(Dom.clipboardEvent -> unit) ->
-          ?on_dblclick:(Dom.mouseEvent -> unit) ->
-          ?on_drag:(Dom.dragEvent -> unit) ->
-          ?on_dragend:(Dom.dragEvent -> unit) ->
-          ?on_dragenter:(Dom.dragEvent -> unit) ->
-          ?on_dragexit:(Dom.dragEvent -> unit) ->
-          ?on_dragleave:(Dom.dragEvent -> unit) ->
-          ?on_dragover:(Dom.dragEvent -> unit) ->
-          ?on_dragstart:(Dom.dragEvent -> unit) ->
-          ?on_drop:(Dom.dragEvent -> unit) ->
-          ?on_focus:(Dom.focusEvent -> unit) ->
-          ?on_input:(Dom.inputEvent -> unit) ->
-          ?on_keydown:(Dom.keyboardEvent -> unit) ->
-          ?on_keypress:(Dom.keyboardEvent -> unit) ->
-          ?on_keyup:(Dom.keyboardEvent -> unit) ->
-          ?on_mousedown:(Dom.mouseEvent -> unit) ->
-          ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-          ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-          ?on_mousemove:(Dom.mouseEvent -> unit) ->
-          ?on_mouseout:(Dom.mouseEvent -> unit) ->
-          ?on_mouseover:(Dom.mouseEvent -> unit) ->
-          ?on_mouseup:(Dom.mouseEvent -> unit) ->
-          ?on_wheel:(Dom.wheelEvent -> unit) ->
-          ?on_paste:(Dom.clipboardEvent -> unit) ->
-          ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.script ] Html_Node.t
-        val jsx :
-          ?_type:string ->
-          ?nomodule:unit ->
-          ?async:unit ->
-          ?defer:unit ->
-          ?crossorigin:Html_Attributes.CrossOrigin.t ->
-          ?integrity:string ->
-          ?referrerpolicy:Html_Attributes.ReferrerPolicy.t ->
-          ?accesskey:string ->
-          ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-          ?class_name:string ->
-          ?class_set:bool Js.Dict.t ->
-          ?contenteditable:unit ->
-          ?dataset:string Js.Dict.t ->
-          ?dir:Html_Attributes.Global.Value.dir ->
-          ?draggable:unit ->
-          ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-          ?hidden:unit ->
-          ?id:string ->
-          ?inputmode:Html_Attributes.Global.Value.inputmode ->
-          ?is:string ->
-          ?itemid:string ->
-          ?itemprop:string ->
-          ?itemref:string ->
-          ?itemscope:unit ->
-          ?itemtype:string ->
-          ?lang:string ->
-          ?nonce:string ->
-          ?slot:string ->
-          ?spellcheck:string ->
-          ?tabindex:int ->
-          ?title:string ->
-          ?translate:Html_Attributes.Global.Value.translate ->
-          ?on_auxclick:(Dom.mouseEvent -> unit) ->
-          ?on_blur:(Dom.focusEvent -> unit) ->
-          ?on_click:(Dom.mouseEvent -> unit) ->
-          ?on_copy:(Dom.clipboardEvent -> unit) ->
-          ?on_cut:(Dom.clipboardEvent -> unit) ->
-          ?on_dblclick:(Dom.mouseEvent -> unit) ->
-          ?on_drag:(Dom.dragEvent -> unit) ->
-          ?on_dragend:(Dom.dragEvent -> unit) ->
-          ?on_dragenter:(Dom.dragEvent -> unit) ->
-          ?on_dragexit:(Dom.dragEvent -> unit) ->
-          ?on_dragleave:(Dom.dragEvent -> unit) ->
-          ?on_dragover:(Dom.dragEvent -> unit) ->
-          ?on_dragstart:(Dom.dragEvent -> unit) ->
-          ?on_drop:(Dom.dragEvent -> unit) ->
-          ?on_focus:(Dom.focusEvent -> unit) ->
-          ?on_input:(Dom.inputEvent -> unit) ->
-          ?on_keydown:(Dom.keyboardEvent -> unit) ->
-          ?on_keypress:(Dom.keyboardEvent -> unit) ->
-          ?on_keyup:(Dom.keyboardEvent -> unit) ->
-          ?on_mousedown:(Dom.mouseEvent -> unit) ->
-          ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-          ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-          ?on_mousemove:(Dom.mouseEvent -> unit) ->
-          ?on_mouseout:(Dom.mouseEvent -> unit) ->
-          ?on_mouseover:(Dom.mouseEvent -> unit) ->
-          ?on_mouseup:(Dom.mouseEvent -> unit) ->
-          ?on_wheel:(Dom.wheelEvent -> unit) ->
-          ?on_paste:(Dom.clipboardEvent -> unit) ->
-          ?on_scroll:(Dom.uiEvent -> unit) ->
-          ?children:string list -> unit -> [> Html_Node.script ] Html_Node.t
-      end
+      ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.script ] Html_Node.t
   end
 module Section :
   sig
@@ -11735,81 +6439,6 @@ module Section :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       'a child array -> [> Html_Node.section ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.region
-            | Html_Attributes.Aria.alert
-            | Html_Attributes.Aria.alertdialog
-            | Html_Attributes.Aria.application
-            | Html_Attributes.Aria.contentinfo
-            | Html_Attributes.Aria.dialog
-            | Html_Attributes.Aria.document
-            | Html_Attributes.Aria.feed
-            | Html_Attributes.Aria.log
-            | Html_Attributes.Aria.main
-            | Html_Attributes.Aria.marquee
-            | Html_Attributes.Aria.presentation
-            | Html_Attributes.Aria.region
-            | Html_Attributes.Aria.search
-            | Html_Attributes.Aria.status
-            | Html_Attributes.Aria.tabpanel
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.section ] Html_Node.t
   end
 module Select :
   sig
@@ -11892,75 +6521,6 @@ module Select :
       ?style:Css_Property.inline_block Css_Style.t ->
       ?css_module:Css_Property.inline_block Css_Module.t ->
       'a child array -> [> Html_Node.select ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.combobox
-            | Html_Attributes.Aria.listbox
-            ] Html_Attributes.Aria.t ->
-      ?autocomplete:Html_Attributes.AutoComplete.t ->
-      ?autofocus:unit ->
-      ?disabled:unit ->
-      ?form:string ->
-      ?multiple:unit ->
-      ?name:string ->
-      ?required:unit ->
-      ?size:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline_block Css_Style.t ->
-      ?css_module:Css_Property.inline_block Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.select ] Html_Node.t
   end
 module Slot :
   sig
@@ -12028,61 +6588,6 @@ module Slot :
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) ->
       'a child array -> [> Html_Node.slot ] Html_Node.t
-    val jsx :
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.slot ] Html_Node.t
   end
 module Small :
   sig
@@ -12153,65 +6658,6 @@ module Small :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.small ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.small ] Html_Node.t
   end
 module Source :
   sig
@@ -12286,70 +6732,6 @@ module Source :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       unit -> [> Html_Node.source ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?src:string ->
-      ?_type:string ->
-      ?srcset:string ->
-      ?sizes:string ->
-      ?media:Css_Media.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a -> unit -> [> Html_Node.source ] Html_Node.t
   end
 module Span :
   sig
@@ -12420,65 +6802,6 @@ module Span :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.span ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.span ] Html_Node.t
   end
 module Strong :
   sig
@@ -12549,65 +6872,6 @@ module Strong :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.strong ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.strong ] Html_Node.t
   end
 module Style :
   sig
@@ -12675,64 +6939,6 @@ module Style :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.style ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?media:Css_Media.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:string list -> unit -> [> Html_Node.style ] Html_Node.t
   end
 module Sub :
   sig
@@ -12803,65 +7009,6 @@ module Sub :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.sub ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.sub ] Html_Node.t
   end
 module Summary :
   sig
@@ -12933,65 +7080,6 @@ module Summary :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.summary ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.button Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.summary ] Html_Node.t
   end
 module Sup :
   sig
@@ -13062,65 +7150,6 @@ module Sup :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.sup ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.sup ] Html_Node.t
   end
 module Table :
   sig
@@ -13194,65 +7223,6 @@ module Table :
       ?style:Css_Property.table Css_Style.t ->
       ?css_module:Css_Property.table Css_Module.t ->
       'b child array -> [> Html_Node.table ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table Css_Style.t ->
-      ?css_module:Css_Property.table Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.table ] Html_Node.t
   end
 module Tbody :
   sig
@@ -13325,65 +7295,6 @@ module Tbody :
       ?style:Css_Property.table_row_group Css_Style.t ->
       ?css_module:Css_Property.table_row_group Css_Module.t ->
       'b child array -> [> Html_Node.tbody ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_row_group Css_Style.t ->
-      ?css_module:Css_Property.table_row_group Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.tbody ] Html_Node.t
   end
 module Td :
   sig
@@ -13457,68 +7368,6 @@ module Td :
       ?style:Css_Property.table_cell Css_Style.t ->
       ?css_module:Css_Property.table_cell Css_Module.t ->
       'b child array -> [> Html_Node.td ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?colspan:int ->
-      ?rowspan:int ->
-      ?headers:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_cell Css_Style.t ->
-      ?css_module:Css_Property.table_cell Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.td ] Html_Node.t
   end
 module Template :
   sig
@@ -13557,33 +7406,6 @@ module Template :
       ?title:string ->
       ?translate:Html_Attributes.Global.Value.translate ->
       'a child array -> [> Html_Node.template ] Html_Node.t
-    val jsx :
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.template ] Html_Node.t
   end
 module Textarea :
   sig
@@ -13671,78 +7493,6 @@ module Textarea :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       child array -> [> Html_Node.textarea ] Html_Node.t
-    val jsx :
-      ?autocomplete:Html_Attributes.AutoComplete.t ->
-      ?autofocus:unit ->
-      ?cols:int ->
-      ?dirname:Html_Attributes.Dirname.t ->
-      ?disabled:unit ->
-      ?form:string ->
-      ?maxlength:int ->
-      ?minlength:int ->
-      ?name:string ->
-      ?placeholder:string ->
-      ?readonly:unit ->
-      ?required:unit ->
-      ?rows:int ->
-      ?wrap:Attributes.wrap ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.textarea ] Html_Node.t
   end
 module Tfoot :
   sig
@@ -13815,65 +7565,6 @@ module Tfoot :
       ?style:Css_Property.table_footer_group Css_Style.t ->
       ?css_module:Css_Property.table_footer_group Css_Module.t ->
       child array -> [> Html_Node.tfoot ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_footer_group Css_Style.t ->
-      ?css_module:Css_Property.table_footer_group Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.tfoot ] Html_Node.t
   end
 module Th :
   sig
@@ -13953,70 +7644,6 @@ module Th :
       ?style:Css_Property.table_cell Css_Style.t ->
       ?css_module:Css_Property.table_cell Css_Module.t ->
       'b child array -> [> Html_Node.th ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?colspan:int ->
-      ?rowspan:int ->
-      ?headers:string ->
-      ?scope:Attributes.scope ->
-      ?abbr:string ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_cell Css_Style.t ->
-      ?css_module:Css_Property.table_cell Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.th ] Html_Node.t
   end
 module Thead :
   sig
@@ -14089,65 +7716,6 @@ module Thead :
       ?style:Css_Property.table_header_group Css_Style.t ->
       ?css_module:Css_Property.table_header_group Css_Module.t ->
       'b child array -> [> Html_Node.thead ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_header_group Css_Style.t ->
-      ?css_module:Css_Property.table_header_group Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.thead ] Html_Node.t
   end
 module Time :
   sig
@@ -14219,66 +7787,6 @@ module Time :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.time ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      datetime:Js.Date.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.time ] Html_Node.t
   end
 module Title :
   sig
@@ -14345,64 +7853,6 @@ module Title :
       ?on_wheel:(Dom.wheelEvent -> unit) ->
       ?on_paste:(Dom.clipboardEvent -> unit) ->
       ?on_scroll:(Dom.uiEvent -> unit) -> string -> [> Html_Node.title ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?style:[< Css_Property.display ] Css_Style.t ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?children:string list -> unit -> [> Html_Node.title ] Html_Node.t
   end
 module Tr :
   sig
@@ -14475,65 +7925,6 @@ module Tr :
       ?style:Css_Property.table_row Css_Style.t ->
       ?css_module:Css_Property.table_row Css_Module.t ->
       child array -> [> Html_Node.tr ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.table_row Css_Style.t ->
-      ?css_module:Css_Property.table_row Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.tr ] Html_Node.t
   end
 module Track :
   sig
@@ -14581,39 +7972,6 @@ module Track :
       ?title:string ->
       ?translate:Html_Attributes.Global.Value.translate ->
       unit -> [> Html_Node.track ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.roletype Html_Attributes.Aria.t ->
-      ?kind:Attributes.kind ->
-      src:string ->
-      ?srclang:string ->
-      ?label:string ->
-      ?default:unit ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?children:'a -> unit -> [> Html_Node.track ] Html_Node.t
   end
 module U :
   sig
@@ -14684,65 +8042,6 @@ module U :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.u ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.u ] Html_Node.t
   end
 module Ul :
   sig
@@ -14825,75 +8124,6 @@ module Ul :
       ?style:Css_Property.block Css_Style.t ->
       ?css_module:Css_Property.block Css_Module.t ->
       child array -> [> Html_Node.ul ] Html_Node.t
-    val jsx :
-      ?aria:[< Html_Attributes.Aria.list
-            | Html_Attributes.Aria.directory
-            | Html_Attributes.Aria.group
-            | Html_Attributes.Aria.listbox
-            | Html_Attributes.Aria.presentation
-            | Html_Attributes.Aria.menubar
-            | Html_Attributes.Aria.radiogroup
-            | Html_Attributes.Aria.tablist
-            | Html_Attributes.Aria.toolbar
-            | Html_Attributes.Aria.tree
-            ] Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.block Css_Style.t ->
-      ?css_module:Css_Property.block Css_Module.t ->
-      ?children:child Js.List.t -> unit -> [> Html_Node.ul ] Html_Node.t
   end
 module Var :
   sig
@@ -14964,65 +8194,6 @@ module Var :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'b child array -> [> Html_Node.var ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'b child Js.List.t -> unit -> [> Html_Node.var ] Html_Node.t
   end
 module Video :
   sig
@@ -15105,76 +8276,6 @@ module Video :
       ?style:Css_Property.inline Css_Style.t ->
       ?css_module:Css_Property.inline Css_Module.t ->
       'a child array -> [> Html_Node.video ] Html_Node.t
-    val jsx :
-      ?aria:Html_Attributes.Aria.application Html_Attributes.Aria.t ->
-      ?src:string ->
-      ?crossorigin:Html_Attributes.CrossOrigin.t ->
-      ?poster:string ->
-      ?preload:Html_Attributes.Preload.t ->
-      ?autoplay:unit ->
-      ?playsinline:unit ->
-      ?loop:unit ->
-      ?muted:unit ->
-      ?controls:unit ->
-      ?width:int ->
-      ?height:int ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?on_auxclick:(Dom.mouseEvent -> unit) ->
-      ?on_blur:(Dom.focusEvent -> unit) ->
-      ?on_click:(Dom.mouseEvent -> unit) ->
-      ?on_copy:(Dom.clipboardEvent -> unit) ->
-      ?on_cut:(Dom.clipboardEvent -> unit) ->
-      ?on_dblclick:(Dom.mouseEvent -> unit) ->
-      ?on_drag:(Dom.dragEvent -> unit) ->
-      ?on_dragend:(Dom.dragEvent -> unit) ->
-      ?on_dragenter:(Dom.dragEvent -> unit) ->
-      ?on_dragexit:(Dom.dragEvent -> unit) ->
-      ?on_dragleave:(Dom.dragEvent -> unit) ->
-      ?on_dragover:(Dom.dragEvent -> unit) ->
-      ?on_dragstart:(Dom.dragEvent -> unit) ->
-      ?on_drop:(Dom.dragEvent -> unit) ->
-      ?on_focus:(Dom.focusEvent -> unit) ->
-      ?on_input:(Dom.inputEvent -> unit) ->
-      ?on_keydown:(Dom.keyboardEvent -> unit) ->
-      ?on_keypress:(Dom.keyboardEvent -> unit) ->
-      ?on_keyup:(Dom.keyboardEvent -> unit) ->
-      ?on_mousedown:(Dom.mouseEvent -> unit) ->
-      ?on_mouseenter:(Dom.mouseEvent -> unit) ->
-      ?on_mouseleave:(Dom.mouseEvent -> unit) ->
-      ?on_mousemove:(Dom.mouseEvent -> unit) ->
-      ?on_mouseout:(Dom.mouseEvent -> unit) ->
-      ?on_mouseover:(Dom.mouseEvent -> unit) ->
-      ?on_mouseup:(Dom.mouseEvent -> unit) ->
-      ?on_wheel:(Dom.wheelEvent -> unit) ->
-      ?on_paste:(Dom.clipboardEvent -> unit) ->
-      ?on_scroll:(Dom.uiEvent -> unit) ->
-      ?style:Css_Property.inline Css_Style.t ->
-      ?css_module:Css_Property.inline Css_Module.t ->
-      ?children:'a child Js.List.t -> unit -> [> Html_Node.video ] Html_Node.t
   end
 module Wbr :
   sig
@@ -15212,34 +8313,6 @@ module Wbr :
       ?title:string ->
       ?translate:Html_Attributes.Global.Value.translate ->
       unit -> [> Html_Node.wbr ] Html_Node.t
-    val jsx :
-      ?aria:'a Html_Attributes.Aria.t ->
-      ?accesskey:string ->
-      ?autocapitalize:Html_Attributes.Global.Value.autocapitalize ->
-      ?class_name:string ->
-      ?class_set:bool Js.Dict.t ->
-      ?contenteditable:unit ->
-      ?dataset:string Js.Dict.t ->
-      ?dir:Html_Attributes.Global.Value.dir ->
-      ?draggable:unit ->
-      ?enterkeyhint:Html_Attributes.Global.Value.enterkeyhint ->
-      ?hidden:unit ->
-      ?id:string ->
-      ?inputmode:Html_Attributes.Global.Value.inputmode ->
-      ?is:string ->
-      ?itemid:string ->
-      ?itemprop:string ->
-      ?itemref:string ->
-      ?itemscope:unit ->
-      ?itemtype:string ->
-      ?lang:string ->
-      ?nonce:string ->
-      ?slot:string ->
-      ?spellcheck:string ->
-      ?tabindex:int ->
-      ?title:string ->
-      ?translate:Html_Attributes.Global.Value.translate ->
-      ?children:'b -> unit -> [> Html_Node.wbr ] Html_Node.t
   end
 module Text :
   sig
@@ -15250,7 +8323,6 @@ module Text :
 
     type +'a t = 'a Html_Node.t constraint 'a = [> Html_Node.text ]
     val make : string -> [> Html_Node.text ] Html_Node.t
-    val jsx : ?children:string list -> unit -> [> Html_Node.text ] Html_Node.t
   end
 module Fragment :
   sig
@@ -15264,7 +8336,4 @@ module Fragment :
       ([< 'b Html_Node.content > `fragment ] as 'a) Html_Node.t
 
     val make : ('a, 'b) child array -> ('a, 'b) child
-    val jsx :
-      ?children:('a, 'b) child Js.List.t ->
-      unit -> ('a, 'b) child
   end

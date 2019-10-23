@@ -83,35 +83,6 @@ module A = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?aria
-    ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
-    ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
-    ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?aria
-      ?href ?target ?download ?rel ?rev ?hreflang ?_type ?referrerpolicy
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable
-      ?dataset ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid
-      ?itemprop ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -153,30 +124,6 @@ module Abbr = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -218,30 +165,6 @@ module Address = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -314,33 +237,6 @@ module Area = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
-    ?referrerpolicy
-    ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children:_ () =
-    make ?alt ?coords ?download ?href ?hreflang ?rel ?shape ?target ?_type
-      ?referrerpolicy
-      ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
 end
 
 
@@ -389,31 +285,6 @@ module Article = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -461,31 +332,6 @@ module Aside = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -562,38 +408,6 @@ module Audio = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
-    ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
-    ?on_waiting ?on_seeking ?on_seeked ?on_ended ?on_durationchange ?on_timeupdate
-    ?on_play ?on_pause ?on_ratechange ?on_resize ?on_volumechange
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?src ?crossorigin ?preload ?autoplay ?loop ?muted ?controls
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_loadstart ?on_progress ?on_suspend ?on_abort ?on_error ?on_emptied ?on_stalled
-      ?on_loadedmetadata ?on_loadeddata ?on_canplay ?on_canplaythrough ?on_playing
-      ?on_waiting ?on_seeking ?on_seeked ?on_ended ?on_durationchange ?on_timeupdate
-      ?on_play ?on_pause ?on_ratechange ?on_resize ?on_volumechange
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -635,31 +449,6 @@ module B = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -704,28 +493,6 @@ module Base = struct
       |])
       ()
     |> Internal.make
-
-  let jsx ?href ?target
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children:_ () =
-    make ?href ?target
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll ()
 end
 
 
@@ -767,31 +534,6 @@ module Bdi = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -832,30 +574,6 @@ module Bdo = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -903,31 +621,6 @@ module Blockquote = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?cite
-    ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?cite
-      ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1000,37 +693,6 @@ module Body = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
-    ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
-    ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
-    ?on_storage ?on_unhandledrejection ?on_unload
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_afterprint ?on_beforeprint ?on_beforeunload ?on_hashchange
-      ?on_languagechange ?on_message ?on_messageerror ?on_offline ?on_online
-      ?on_pagehide ?on_pageshow ?on_popstate ?on_resize ?on_rejectionhandled
-      ?on_storage ?on_unhandledrejection ?on_unload
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1053,13 +715,6 @@ module Br = struct
       |])
       ()
     |> Internal.make
-
-  let jsx ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
-    ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
-    ?children:_ () =
-    make ?aria ?accesskey ?class_name ?class_set ?contenteditable ?dataset ?dir
-      ?draggable ?hidden ?id ?lang ?slot ?spellcheck ?tabindex ?title ?translate
-      ()
 end
 
 
@@ -1144,35 +799,6 @@ module Button = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-    ?formnovalidate ?formtarget ?formelements ?name ?_type ?value
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?autofocus ?disabled ?form ?formaction ?formenctype ?formmethod
-      ?formnovalidate ?formtarget ?formelements ?name ?_type ?value
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1223,31 +849,6 @@ module Canvas = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?height ?width
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?height ?width
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1289,31 +890,6 @@ module Caption = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1355,31 +931,6 @@ module Cite = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1421,31 +972,6 @@ module Code = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1485,31 +1011,6 @@ module Col = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -1558,31 +1059,6 @@ module Colgroup = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?span
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?span
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1629,31 +1105,6 @@ module Data = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?value
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?value
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1693,30 +1144,6 @@ module Datalist = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1758,31 +1185,6 @@ module Dd = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1834,31 +1236,6 @@ module Del = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?cite ?datetime
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?cite ?datetime
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1908,31 +1285,6 @@ module Details = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?_open
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?_open
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -1974,31 +1326,6 @@ module Dfn = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2051,31 +1378,6 @@ module Dialog = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?_open
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?_open
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2117,31 +1419,6 @@ module Div = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2189,31 +1466,6 @@ module Dl = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2256,31 +1508,6 @@ module Dt = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2322,31 +1549,6 @@ module Em = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2399,31 +1601,6 @@ module Embed = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria ?src ?_type ?width ?height
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria ?src ?_type ?width ?height
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -2480,33 +1657,6 @@ module Fieldset = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?form ?name ?disabled
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?form ?name ?disabled
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2552,31 +1702,6 @@ module Figcaption = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2623,31 +1748,6 @@ module Figure = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2693,31 +1793,6 @@ module Footer = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2795,33 +1870,6 @@ module Form = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?accept_charset ?action ?autocomplete ?enctype ?_method ?name
-    ?novalidate ?target
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?accept_charset ?action ?autocomplete ?enctype ?_method ?name
-      ?novalidate ?target
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2867,31 +1915,6 @@ module H1 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -2937,31 +1960,6 @@ module H2 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3007,31 +2005,6 @@ module H3 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3077,31 +2050,6 @@ module H4 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3147,31 +2095,6 @@ module H5 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3217,31 +2140,6 @@ module H6 = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3280,30 +2178,6 @@ module Head = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3349,31 +2223,6 @@ module Header = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3417,31 +2266,6 @@ module Hgroup = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3484,31 +2308,6 @@ module Hr = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -3553,30 +2352,6 @@ module Html = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?manifest
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?aria ?manifest
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -3618,32 +2393,6 @@ module I = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
-
 end
 
 
@@ -3733,35 +2482,6 @@ module Iframe = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen ?allowpaymentrequest
-    ?width ?height ?referrerpolicy
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria
-      ?src ?srcdoc ?name ?sandbox ?allow ?allowfullscreen ?allowpaymentrequest
-      ?width ?height ?referrerpolicy
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -3837,33 +2557,6 @@ module Img = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria ?alt ?src ?srcset ?sizes ?crossorigin ?usemap ?ismap ?width
-    ?height ?referrerpolicy ?decoding
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria ?alt ?src ?srcset ?sizes ?crossorigin ?usemap ?ismap ?width
-      ?height ?referrerpolicy ?decoding
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -3999,37 +2692,6 @@ module Input = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria ?accept ?alt ?autocomplete ?autofocus ?checked ?dirname ?disabled
-    ?form ?formaction ?formenctype ?formmethod ?formnovalidate ?formtarget
-    ?height ?list ?max ?maxlength ?min ?minlength ?multiple ?name ?pattern
-    ?placeholder ?readonly ?required ?size ?src ?step ?_type ?value ?width
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria ?accept ?alt ?autocomplete ?autofocus ?checked ?dirname ?disabled
-      ?form ?formaction ?formenctype ?formmethod ?formnovalidate ?formtarget
-      ?height ?list ?max ?maxlength ?min ?minlength ?multiple ?name ?pattern
-      ?placeholder ?readonly ?required ?size ?src ?step ?_type ?value ?width
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -4082,31 +2744,6 @@ module Ins = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?cite ?datetime
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?cite ?datetime
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4148,31 +2785,6 @@ module Kbd = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4219,31 +2831,6 @@ module Label = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?_for
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?_for
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4287,31 +2874,6 @@ module Legend = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4361,31 +2923,6 @@ module Li = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4443,24 +2980,6 @@ module Link = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx
-    ?href ?crossorigin ?rel ?media ?integrity ?hreflang ?_type ?referrerpolicy
-    ?sizes ?_as ?color
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?children:_ () =
-    make
-      ?href ?crossorigin ?rel ?media ?integrity ?hreflang ?_type ?referrerpolicy
-      ?sizes ?_as ?color
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ()
 end
 
 
@@ -4505,31 +3024,6 @@ module Main = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4580,31 +3074,6 @@ module Map = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?name
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?name
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4646,31 +3115,6 @@ module Mark = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4732,30 +3176,6 @@ module Meta = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria ?name ?http_equiv ?content ?charset
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children:_ () =
-    make ?aria ?name ?http_equiv ?content ?charset
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ()
 end
 
 
@@ -4811,31 +3231,6 @@ module Meter = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?value ?min ?max ?low ?high ?optimum
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?value ?min ?max ?low ?high ?optimum
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4877,31 +3272,6 @@ module Nav = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -4941,30 +3311,6 @@ module Noscript = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5037,33 +3383,6 @@ module Object = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?data ?_type ?typemustmatch ?name ?usemap ?form ?width ?height
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?data ?_type ?typemustmatch ?name ?usemap ?form ?width ?height
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5141,33 +3460,6 @@ module Ol = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?reversed ?start ?_type
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?reversed ?start ?_type
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5224,33 +3516,6 @@ module Optgroup = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?disabled ~label
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?disabled ~label
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5312,33 +3577,6 @@ module Option = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?disabled ?label ?selected ?value
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?disabled ?label ?selected ?value
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5391,33 +3629,6 @@ module Output = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?_for ?form ?name
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?_for ?form ?name
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5459,31 +3670,6 @@ module P = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5529,32 +3715,6 @@ module Param = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?name ?value
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children:_ () =
-    make ?aria
-      ?name ?value
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ()
 end
 
 
@@ -5597,31 +3757,6 @@ module Picture = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5663,31 +3798,6 @@ module Pre = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5739,31 +3849,6 @@ module Progress = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?value ?max
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?value ?max
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5810,31 +3895,6 @@ module Q = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?cite
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?cite
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5876,31 +3936,6 @@ module Rb = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -5938,30 +3973,6 @@ module Rp = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6003,31 +4014,6 @@ module Rt = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6071,31 +4057,6 @@ module Rtc = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6139,31 +4100,6 @@ module Ruby = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6205,31 +4141,6 @@ module S = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6271,31 +4182,6 @@ module Samp = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6360,7 +4246,9 @@ module Script = struct
     |> Internal.make
 
 
-  let jsx
+  (** An inline script element *)
+  let make_inline
+    ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
     ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
     ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
     ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
@@ -6370,81 +4258,26 @@ module Script = struct
     ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
     ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
     ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children:_ () =
-    make
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ()
-
-
-  module Inline = struct
-    (** An inline script element *)
-
-    let make
-      ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      contents: _ t
-      =
-      Declaredom.make_with_text "script"
-        (Util.merge_all [|
-          Attributes.make ?_type ?nomodule ?async ?defer ?crossorigin
-            ?integrity ?referrerpolicy ();
-          Html_Attributes.Global.make
-            ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-            ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-            ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-            ?title ?translate ();
-          Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
-            ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
-            ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
-            ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
-            ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
-            ?on_scroll ()
-        |])
-        contents
-      |> Internal.make
-
-
-    let jsx
-      ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?(children=[]) () =
-      make
-        ?_type ?nomodule ?async ?defer ?crossorigin ?integrity ?referrerpolicy
-        ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-        ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-        ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-        ?title ?translate
-        ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-        ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-        ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-        ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-        ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-        (List.fold_left (^) "" children)
-  end
+    contents: _ t
+    =
+    Declaredom.make_with_text "script"
+      (Util.merge_all [|
+        Attributes.make ?_type ?nomodule ?async ?defer ?crossorigin
+          ?integrity ?referrerpolicy ();
+        Html_Attributes.Global.make
+          ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
+          ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
+          ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
+          ?title ?translate ();
+        Html_Events.Global.make ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut
+          ?on_dblclick ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave
+          ?on_dragover ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown
+          ?on_keypress ?on_keyup ?on_mousedown ?on_mouseenter ?on_mouseleave
+          ?on_mousemove ?on_mouseout ?on_mouseover ?on_mouseup ?on_wheel ?on_paste
+          ?on_scroll ()
+      |])
+      contents
+    |> Internal.make
 end
 
 
@@ -6504,31 +4337,6 @@ module Section = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6601,33 +4409,6 @@ module Select = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?autocomplete ?autofocus ?disabled ?form ?multiple ?name ?required ?size
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6670,30 +4451,6 @@ module Slot = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?children () =
-    make
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6735,31 +4492,6 @@ module Small = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6811,33 +4543,6 @@ module Source = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?src ?_type ?srcset ?sizes ?media
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children:_ () =
-    make ?aria
-      ?src ?_type ?srcset ?sizes ?media
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      ()
 end
 
 
@@ -6880,31 +4585,6 @@ module Span = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -6946,31 +4626,6 @@ module Strong = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7015,30 +4670,6 @@ module Style = struct
       |])
       contents
     |> Internal.make
-
-
-  let jsx ?aria ?media
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(children=[]) () =
-    make ?aria ?media
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (List.fold_left (^) "" children)
 end
 
 
@@ -7080,31 +4711,6 @@ module Sub = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7147,31 +4753,6 @@ module Summary = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7213,31 +4794,6 @@ module Sup = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7282,31 +4838,6 @@ module Table = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7350,31 +4881,6 @@ module Tbody = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7423,31 +4929,6 @@ module Td = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ?colspan ?rowspan ?headers
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ?colspan ?rowspan ?headers
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7473,20 +4954,6 @@ module Template = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?children () =
-    make
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7558,35 +5025,6 @@ module Textarea = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx
-    ?autocomplete ?autofocus ?cols ?dirname ?disabled ?form ?maxlength
-    ?minlength ?name ?placeholder ?readonly ?required ?rows ?wrap
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make
-      ?autocomplete ?autofocus ?cols ?dirname ?disabled ?form ?maxlength
-      ?minlength ?name ?placeholder ?readonly ?required ?rows ?wrap
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7630,31 +5068,6 @@ module Tfoot = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7717,33 +5130,6 @@ module Th = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?colspan ?rowspan ?headers ?scope ?abbr
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?colspan ?rowspan ?headers ?scope ?abbr
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7787,31 +5173,6 @@ module Thead = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7862,31 +5223,6 @@ module Time = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria ~datetime
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria ~datetime
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -7922,30 +5258,6 @@ module Title = struct
       |])
       [|Declaredom.make_text child|]
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?(children=[]) () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?style ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      (List.fold_left (fun acc e -> acc ^ e) "" children)
 end
 
 
@@ -7989,31 +5301,6 @@ module Tr = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -8060,21 +5347,6 @@ module Track = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?kind ~src ?srclang ?label ?default
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?children:_ () =
-    make ?aria
-      ?kind ~src ?srclang ?label ?default
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate ()
 end
 
 
@@ -8116,31 +5388,6 @@ module U = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -8195,31 +5442,6 @@ module Ul = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -8261,31 +5483,6 @@ module Var = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -8363,35 +5560,6 @@ module Video = struct
       |])
       (children |> Js.Array.map Html_Node.to_node)
     |> Internal.make
-
-
-  let jsx ?aria
-    ?src ?crossorigin ?poster ?preload ?autoplay ?playsinline ?loop ?muted
-    ?controls ?width ?height
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-    ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-    ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-    ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-    ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-    ?style ?css_module ?children () =
-    make ?aria
-      ?src ?crossorigin ?poster ?preload ?autoplay ?playsinline ?loop ?muted
-      ?controls ?width ?height
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ?on_auxclick ?on_blur ?on_click ?on_copy ?on_cut ?on_dblclick
-      ?on_drag ?on_dragend ?on_dragenter ?on_dragexit ?on_dragleave ?on_dragover
-      ?on_dragstart ?on_drop ?on_focus ?on_input ?on_keydown ?on_keypress ?on_keyup
-      ?on_mousedown ?on_mouseenter ?on_mouseleave ?on_mousemove ?on_mouseout
-      ?on_mouseover ?on_mouseup ?on_wheel ?on_paste ?on_scroll
-      ?style ?css_module
-      (Belt.Option.mapWithDefault children [||] Js.List.toVector)
 end
 
 
@@ -8416,20 +5584,6 @@ module Wbr = struct
       |])
       ()
     |> Internal.make
-
-
-  let jsx ?aria
-    ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-    ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-    ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-    ?title ?translate
-    ?children:_ () =
-    make ?aria
-      ?accesskey ?autocapitalize ?class_name ?class_set ?contenteditable ?dataset
-      ?dir ?draggable ?enterkeyhint ?hidden ?id ?inputmode ?is ?itemid ?itemprop
-      ?itemref ?itemscope ?itemtype ?lang ?nonce ?slot ?spellcheck ?tabindex
-      ?title ?translate
-      ()
 end
 
 
@@ -8437,8 +5591,6 @@ module Text = struct
   type +'a t = ([> Html_Node.text ] as 'a) Html_Node.t
 
   let make (text: string): _ t = Internal.make @@ Declaredom.make_text text
-
-  let jsx ?(children=[]) () = make @@ List.fold_left (^) "" children
 end
 
 
@@ -8453,7 +5605,4 @@ module Fragment = struct
     |> Js.Array.map Html_Node.to_node
     |> Declaredom.make_fragment
     |> Internal.make
-
-  let jsx ?children () =
-    make @@ Belt.Option.mapWithDefault children [||] Js.List.toVector
 end
