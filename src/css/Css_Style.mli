@@ -467,6 +467,7 @@ val any :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -578,6 +579,7 @@ val block :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -693,6 +695,7 @@ val flex :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -809,6 +812,7 @@ val positioned :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -915,6 +919,7 @@ val list_item :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1018,6 +1023,7 @@ val replaced_inline :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1115,6 +1121,7 @@ val non_replaced_inline :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1218,6 +1225,7 @@ val inline :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1333,6 +1341,7 @@ val inline_flex :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1446,6 +1455,7 @@ val inline_block :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1539,6 +1549,7 @@ val table_header_group :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1631,6 +1642,7 @@ val table_footer_group :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1734,6 +1746,7 @@ val table_caption :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1840,6 +1853,7 @@ val table :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -1945,6 +1959,7 @@ val inline_table :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2045,6 +2060,7 @@ val table_cell :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2134,6 +2150,7 @@ val table_column :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2223,6 +2240,7 @@ val table_column_group :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2312,6 +2330,7 @@ val table_row :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2401,6 +2420,7 @@ val table_row_group :
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?transition:Css_Property.transition Css_Property.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
@@ -2537,6 +2557,7 @@ val display :
   ?transition_property:Css_Properties.TransitionProperty.Value.t ->
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?vertical_align:Css_Properties.VerticalAlign.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
@@ -2669,6 +2690,7 @@ val keyframe_block :
   ?transition_property:Css_Properties.TransitionProperty.Value.t ->
   ?transition_timing_function:Css_Value.TimingFunction.t ->
   ?unicode_bidi:Css_Properties.UnicodeBidi.Value.t ->
+  ?user_select:Css_Properties.UserSelect.Value.t ->
   ?vertical_align:Css_Properties.VerticalAlign.Value.t ->
   ?visibility:Css_Properties.Visibility.Value.t ->
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->

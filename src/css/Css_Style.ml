@@ -427,6 +427,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -541,6 +542,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -661,6 +663,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -782,6 +785,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -893,6 +897,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -999,6 +1004,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1099,6 +1105,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1205,6 +1212,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1325,6 +1333,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1440,6 +1449,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1536,6 +1546,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1631,6 +1642,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1737,6 +1749,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1846,6 +1859,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -1954,6 +1968,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2057,6 +2072,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2149,6 +2165,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2241,6 +2258,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2333,6 +2351,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2425,6 +2444,7 @@ module Internal = struct
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?transition:Css_Property.transition Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
@@ -2564,6 +2584,7 @@ module Internal = struct
       ?transition_property:Css_Property.transition_property Css_Property.t ->
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?vertical_align:Css_Property.vertical_align Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
@@ -2699,6 +2720,7 @@ module Internal = struct
       ?transition_property:Css_Property.transition_property Css_Property.t ->
       ?transition_timing_function: Css_Property.transition_timing_function Css_Property.t ->
       ?unicode_bidi:Css_Property.unicode_bidi Css_Property.t ->
+      ?user_select:Css_Property.user_select Css_Property.t ->
       ?vertical_align:Css_Property.vertical_align Css_Property.t ->
       ?visibility:Css_Property.visibility Css_Property.t ->
       ?voice_family:Css_Property.voice_family Css_Property.t ->
@@ -3135,7 +3157,7 @@ module AppliesTo = struct
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration
-    ?transition_property ?transition_timing_function ?transition ?unicode_bidi
+    ?transition_property ?transition_timing_function ?transition ?unicode_bidi ?user_select
     ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.any
       ?animation
@@ -3220,6 +3242,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3246,7 +3269,7 @@ module AppliesTo = struct
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration ?transition_property
-    ?transition_timing_function ?transition ?unicode_bidi ?visibility ?voice_family
+    ?transition_timing_function ?transition ?unicode_bidi ?user_select ?visibility ?voice_family
     ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.block
       ?animation
@@ -3366,6 +3389,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3394,7 +3418,7 @@ module AppliesTo = struct
     ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch ?play_during
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration ?transition_property
-    ?transition_timing_function ?transition ?unicode_bidi ?visibility ?voice_family
+    ?transition_timing_function ?transition ?unicode_bidi ?user_select ?visibility ?voice_family
     ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
@@ -3518,6 +3542,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3556,7 +3581,8 @@ module AppliesTo = struct
     ?pause ?pitch_range ?pitch ?play_during ?richness ?speak_numeral
     ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration ?text_transform
     ?transition_delay ?transition_duration ?transition_property ?transition_timing_function
-    ?transition ?unicode_bidi ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?transition ?unicode_bidi ?user_select ?visibility ?voice_family ?volume ?white_space
+    ?word_spacing () =
     Internal.AppliesTo.positioned
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3662,6 +3688,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3688,8 +3715,8 @@ module AppliesTo = struct
     ?outline_width ?outline ?pause_after ?pause_before ?pause ?pitch_range ?pitch
     ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate
     ?stress ?text_decoration ?text_transform ?transition_delay ?transition_duration
-    ?transition_property ?transition_timing_function ?transition ?unicode_bidi ?visibility
-    ?voice_family ?volume ?white_space ?word_spacing () =
+    ?transition_property ?transition_timing_function ?transition ?unicode_bidi ?user_select
+    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.list_item
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3804,6 +3831,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3830,7 +3858,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.replaced_inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3941,6 +3969,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -3967,7 +3996,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.non_replaced_inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4072,6 +4101,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4098,7 +4128,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4209,6 +4239,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4238,7 +4269,7 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition
-    ?unicode_bidi ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?unicode_bidi ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.inline_flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -4361,6 +4392,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4390,7 +4422,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     let style = Internal.AppliesTo.inline_block
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4510,6 +4542,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4539,7 +4572,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_header_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4640,6 +4673,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4665,7 +4699,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_footer_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4765,6 +4799,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4791,7 +4826,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_caption
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4902,6 +4937,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -4929,7 +4965,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5043,6 +5079,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5070,7 +5107,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.inline_table
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5183,6 +5220,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5209,7 +5247,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_cell
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5317,6 +5355,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5341,7 +5380,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_column
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5438,6 +5477,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5462,7 +5502,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_column_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5559,6 +5599,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5583,7 +5624,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_row
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5680,6 +5721,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5704,7 +5746,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
     Internal.AppliesTo.table_row_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5801,6 +5843,7 @@ module AppliesTo = struct
         (Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?transition
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
@@ -5829,8 +5872,8 @@ module AppliesTo = struct
     ?play_during ?richness ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation
     ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
     ?top ?transition ?transition_delay ?transition_duration ?transition_property
-    ?transition_timing_function ?unicode_bidi ?vertical_align ?visibility ?voice_family ?volume
-    ?white_space ?widows ?width ?word_spacing ?z_index () =
+    ?transition_timing_function ?unicode_bidi ?user_select ?vertical_align ?visibility ?voice_family
+    ?volume ?white_space ?widows ?width ?word_spacing ?z_index () =
     Internal.AppliesTo.display
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -5963,6 +6006,7 @@ module AppliesTo = struct
       ?transition_property:(Belt.Option.map transition_property TransitionProperty.make)
       ?transition_timing_function:(Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?vertical_align:(Belt.Option.map vertical_align VerticalAlign.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
@@ -5993,8 +6037,8 @@ module AppliesTo = struct
     ?play_during ?richness ?right ?speak ?speak_header ?speak_numeral ?speak_punctuation
     ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
     ?top ?transition ?transition_delay ?transition_duration ?transition_property
-    ?transition_timing_function ?unicode_bidi ?vertical_align ?visibility ?voice_family ?volume
-    ?white_space ?widows ?width ?word_spacing ?z_index () =
+    ?transition_timing_function ?unicode_bidi ?user_select ?vertical_align ?visibility ?voice_family
+    ?volume ?white_space ?widows ?width ?word_spacing ?z_index () =
     Internal.AppliesTo.keyframe_block
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -6118,6 +6162,7 @@ module AppliesTo = struct
       ?transition_property:(Belt.Option.map transition_property TransitionProperty.make)
       ?transition_timing_function:(Belt.Option.map transition_timing_function TransitionTimingFunction.make)
       ?unicode_bidi:(Belt.Option.map unicode_bidi UnicodeBidi.make)
+      ?user_select:(Belt.Option.map user_select UserSelect.make)
       ?vertical_align:(Belt.Option.map vertical_align VerticalAlign.make)
       ?visibility:(Belt.Option.map visibility Visibility.make)
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)

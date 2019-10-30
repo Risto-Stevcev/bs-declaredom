@@ -1982,6 +1982,27 @@ module UnicodeBidi = struct
 end
 
 
+module UserSelect = struct
+  type +'a t = ([> Css_Property.user_select ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value =
+      [ `auto | `text | `none | `contain | `all ]
+      [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
 module VerticalAlign = struct
   type +'a t = ([> Css_Property.vertical_align ] as 'a) Css_Property.t
 

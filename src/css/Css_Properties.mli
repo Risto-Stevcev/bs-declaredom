@@ -1564,7 +1564,19 @@ module UnicodeBidi :
       end
     val make : Value.t -> [> Css_Property.unicode_bidi ] t
   end
+module UserSelect :
+  sig
+    (** {{: https://drafts.csswg.org/css-ui-4/#propdef-user-select } User Select} *)
 
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.user_select ]
+    module Value :
+      sig
+        type value = [ `all | `auto | `contain | `none | `text ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.user_select ] t
+  end
 module VerticalAlign :
   sig
     (** {{: https://www.w3.org/TR/CSS22/visudet.html#line-height } Vertical Align} *)

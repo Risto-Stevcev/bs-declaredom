@@ -1940,6 +1940,22 @@ test ~name:"css property - unicode-bidi" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - user-select" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> UserSelect.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `all "all";
+  t |> equal `auto "auto";
+  t |> equal `contain "contain";
+  t |> equal `none "none";
+  t |> equal `text "text";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - vertical-align" @@ fun t -> begin
   let open Css_Function.Infix.Calc in
   let equal a b t =

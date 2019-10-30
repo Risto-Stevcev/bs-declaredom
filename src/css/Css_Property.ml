@@ -145,6 +145,7 @@ module Style = struct
    and transition_duration = [ `transition_duration ]
    and transition_timing_function = [ `transition_timing_function ]
    and unicode_bidi = [ `unicode_bidi ]
+   and user_select = [ `user_select ]
    and vertical_align = [ `vertical_align ]
    and visibility = [ `visibility ]
    and voice_family = [ `voice_family ]
@@ -250,7 +251,7 @@ module AppliesTo = struct
       | pitch_range | pitch | play_during | position | richness
       | speak_numeral | speak_punctuation | speak | speech_rate | stress
       | text_decoration | text_transform | transition | transition_delay
-      | transition_duration | transition_property | transition_timing_function
+      | transition_duration | transition_property | transition_timing_function | user_select
       | unicode_bidi | visibility | voice_family | volume | white_space | word_spacing ]
 
     type block =
