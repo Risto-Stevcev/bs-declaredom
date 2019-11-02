@@ -1678,6 +1678,19 @@ module Width :
     type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.width ]
     val make : Css_Value.LengthPercent.t -> [> Css_Property.width ] t
   end
+module WordBreak :
+  sig
+    (** {{: https://drafts.csswg.org/css-text-3/#word-break-property} Word Break} *)
+
+    type +'a t = 'a Css_Property.t constraint 'a = [> Css_Property.word_break ]
+    module Value :
+      sig
+        type value = [ `break_all | `break_word | `keep_all | `normal ]
+        type t = [ Css_Value.Global.t | value ]
+        val show : t -> string
+      end
+    val make : Value.t -> [> Css_Property.word_break ] t
+  end
 module WordSpacing :
   sig
     (** {{: https://www.w3.org/TR/CSS22/text.html#propdef-word-spacing} Word Spacing} *)

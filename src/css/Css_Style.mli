@@ -371,6 +371,7 @@ module MediaGroup :
       ?width:Css_Value.LengthPercent.t ->
       ?min_width:Css_Value.LengthPercent.t ->
       ?max_width:Css_Value.LengthPercent.t ->
+      ?word_break:Css_Properties.WordBreak.Value.t ->
       ?word_spacing:Css_Properties.WordSpacing.Value.t ->
       ?z_index:int -> unit -> Css_Property.MediaGroup.visual t
     val paged :
@@ -472,6 +473,7 @@ val any :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.any t
 val block :
@@ -584,6 +586,7 @@ val block :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.block t
 val flex :
@@ -700,6 +703,7 @@ val flex :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.flex t
 val flex_item :
@@ -817,6 +821,7 @@ val positioned :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.positioned t
 val list_item :
@@ -924,6 +929,7 @@ val list_item :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.list_item t
 val replaced_inline :
@@ -1028,6 +1034,7 @@ val replaced_inline :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.replaced_inline t
 val non_replaced_inline :
@@ -1126,6 +1133,7 @@ val non_replaced_inline :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.non_replaced_inline t
 val inline :
@@ -1230,6 +1238,7 @@ val inline :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.inline t
 val inline_flex :
@@ -1346,6 +1355,7 @@ val inline_flex :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.inline_flex t
 val inline_block :
@@ -1460,6 +1470,7 @@ val inline_block :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.inline_block t
 val table_header_group :
@@ -1554,6 +1565,7 @@ val table_header_group :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_header_group t
 val table_footer_group :
@@ -1647,6 +1659,7 @@ val table_footer_group :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_footer_group t
 val table_caption :
@@ -1751,6 +1764,7 @@ val table_caption :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_caption t
 val table :
@@ -1858,6 +1872,7 @@ val table :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table t
 val inline_table :
@@ -1964,6 +1979,7 @@ val inline_table :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.inline_table t
 val table_cell :
@@ -2065,6 +2081,7 @@ val table_cell :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_cell t
 val table_column :
@@ -2155,6 +2172,7 @@ val table_column :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_column t
 val table_column_group :
@@ -2245,6 +2263,7 @@ val table_column_group :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_column_group t
 val table_row :
@@ -2335,6 +2354,7 @@ val table_row :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_row t
 val table_row_group :
@@ -2425,6 +2445,7 @@ val table_row_group :
   ?voice_family:Css_Properties.VoiceFamily.Value.t ->
   ?volume:Css_Properties.Volume.Value.t ->
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   unit -> Css_Property.table_row_group t
 val display :
@@ -2565,6 +2586,7 @@ val display :
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
   ?widows:Css_Value.BreakInside.t ->
   ?width:Css_Value.LengthPercent.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   ?z_index:int ->
   unit -> Css_Property.display t
@@ -2698,6 +2720,7 @@ val keyframe_block :
   ?white_space:Css_Properties.WhiteSpace.Value.t ->
   ?widows:Css_Value.BreakInside.t ->
   ?width:Css_Value.LengthPercent.t ->
+  ?word_break:Css_Properties.WordBreak.Value.t ->
   ?word_spacing:Css_Properties.WordSpacing.Value.t ->
   ?z_index:int ->
   unit -> Css_Property.keyframe_block t

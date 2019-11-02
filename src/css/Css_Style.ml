@@ -324,6 +324,7 @@ module Internal = struct
       ?width:Css_Property.width Css_Property.t ->
       ?min_width:Css_Property.min_width Css_Property.t ->
       ?max_width:Css_Property.max_width Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       ?z_index:Css_Property.z_index Css_Property.t ->
       unit ->
@@ -432,6 +433,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.any t = "" [@@bs.obj]
@@ -547,6 +549,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.block t = "" [@@bs.obj]
@@ -668,6 +671,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.flex t = "" [@@bs.obj]
@@ -790,6 +794,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.list_item t = "" [@@bs.obj]
@@ -902,6 +907,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.positioned t = "" [@@bs.obj]
@@ -1009,6 +1015,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.replaced_inline t = "" [@@bs.obj]
@@ -1110,6 +1117,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.non_replaced_inline t = "" [@@bs.obj]
@@ -1217,6 +1225,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.inline t = "" [@@bs.obj]
@@ -1338,6 +1347,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.inline_flex t = "" [@@bs.obj]
@@ -1454,6 +1464,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.inline_block t = "" [@@bs.obj]
@@ -1551,6 +1562,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_header_group t = "" [@@bs.obj]
@@ -1647,6 +1659,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_footer_group t = "" [@@bs.obj]
@@ -1754,6 +1767,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_caption t = "" [@@bs.obj]
@@ -1864,6 +1878,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table t = "" [@@bs.obj]
@@ -1973,6 +1988,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.inline_table t = "" [@@bs.obj]
@@ -2077,6 +2093,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_cell t = "" [@@bs.obj]
@@ -2170,6 +2187,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_column t = "" [@@bs.obj]
@@ -2263,6 +2281,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_column_group t = "" [@@bs.obj]
@@ -2356,6 +2375,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_row t = "" [@@bs.obj]
@@ -2449,6 +2469,7 @@ module Internal = struct
       ?voice_family:Css_Property.voice_family Css_Property.t ->
       ?volume:Css_Property.volume Css_Property.t ->
       ?white_space:Css_Property.white_space Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       unit ->
       Css_Property.table_row_group t = "" [@@bs.obj]
@@ -2592,6 +2613,7 @@ module Internal = struct
       ?white_space:Css_Property.white_space Css_Property.t ->
       ?widows:Css_Property.widows Css_Property.t ->
       ?width:Css_Property.width Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       ?z_index:Css_Property.z_index Css_Property.t ->
       unit ->
@@ -2728,6 +2750,7 @@ module Internal = struct
       ?white_space:Css_Property.white_space Css_Property.t ->
       ?widows:Css_Property.widows Css_Property.t ->
       ?width:Css_Property.width Css_Property.t ->
+      ?word_break:Css_Property.word_break Css_Property.t ->
       ?word_spacing:Css_Property.word_spacing Css_Property.t ->
       ?z_index:Css_Property.z_index Css_Property.t ->
       unit ->
@@ -3009,7 +3032,7 @@ module MediaGroup = struct
     ?page_break_before ?page_break_after ?page_break_inside ?orphans ?widows ?top
     ?right ?bottom ?left ?table_layout ?text_decoration ?text_transform ?text_align
     ?text_indent ?unicode_bidi ?vertical_align ?visibility ?white_space ?width
-    ?min_width ?max_width ?word_spacing ?z_index () =
+    ?min_width ?max_width ?word_break ?word_spacing ?z_index () =
     Internal.MediaGroup.visual
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -3118,6 +3141,7 @@ module MediaGroup = struct
       ?width:(Belt.Option.map width Width.make)
       ?min_width:(Belt.Option.map min_width MinWidth.make)
       ?max_width:(Belt.Option.map max_width MaxWidth.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ?z_index:(Belt.Option.map z_index ZIndex.make)
       ()
@@ -3158,7 +3182,7 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration
     ?transition_property ?transition_timing_function ?transition ?unicode_bidi ?user_select
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.any
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3247,6 +3271,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -3270,7 +3295,7 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration ?transition_property
     ?transition_timing_function ?transition ?unicode_bidi ?user_select ?visibility ?voice_family
-    ?volume ?white_space ?word_spacing () =
+    ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.block
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3394,6 +3419,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -3419,7 +3445,7 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay ?transition_duration ?transition_property
     ?transition_timing_function ?transition ?unicode_bidi ?user_select ?visibility ?voice_family
-    ?volume ?white_space ?word_spacing () =
+    ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -3547,6 +3573,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
     |> Css_Properties.Display.flex
@@ -3582,7 +3609,7 @@ module AppliesTo = struct
     ?speak_punctuation ?speak ?speech_rate ?stress ?text_decoration ?text_transform
     ?transition_delay ?transition_duration ?transition_property ?transition_timing_function
     ?transition ?unicode_bidi ?user_select ?visibility ?voice_family ?volume ?white_space
-    ?word_spacing () =
+    ?word_break ?word_spacing () =
     Internal.AppliesTo.positioned
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3693,6 +3720,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -3716,7 +3744,7 @@ module AppliesTo = struct
     ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate
     ?stress ?text_decoration ?text_transform ?transition_delay ?transition_duration
     ?transition_property ?transition_timing_function ?transition ?unicode_bidi ?user_select
-    ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.list_item
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3836,6 +3864,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -3858,7 +3887,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.replaced_inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -3974,6 +4003,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -3996,7 +4026,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.non_replaced_inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4106,6 +4136,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -4128,7 +4159,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.inline
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4244,6 +4275,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -4269,7 +4301,8 @@ module AppliesTo = struct
     ?richness ?speak_numeral ?speak_punctuation ?speak ?speech_rate ?stress
     ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition
-    ?unicode_bidi ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?unicode_bidi ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break
+    ?word_spacing () =
     Internal.AppliesTo.inline_flex
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -4397,6 +4430,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
     |> Css_Properties.Display.inline_flex
@@ -4422,7 +4456,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     let style = Internal.AppliesTo.inline_block
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4547,6 +4581,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
     in
@@ -4572,7 +4607,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_header_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4678,6 +4713,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -4699,7 +4735,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_footer_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4804,6 +4840,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -4826,7 +4863,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_caption
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -4942,6 +4979,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -4965,7 +5003,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5084,6 +5122,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5107,7 +5146,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.inline_table
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5225,6 +5264,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5247,7 +5287,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_cell
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5360,6 +5400,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5380,7 +5421,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_column
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5482,6 +5523,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5502,7 +5544,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_column_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5604,6 +5646,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5624,7 +5667,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_row
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5726,6 +5769,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5746,7 +5790,7 @@ module AppliesTo = struct
     ?pitch ?play_during ?richness ?speak_numeral ?speak_punctuation ?speak
     ?speech_rate ?stress ?text_decoration ?text_transform ?transition_delay
     ?transition_duration ?transition_property ?transition_timing_function ?transition ?unicode_bidi
-    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_spacing () =
+    ?user_select ?visibility ?voice_family ?volume ?white_space ?word_break ?word_spacing () =
     Internal.AppliesTo.table_row_group
       ?animation
       ?animation_delay:(Belt.Option.map animation_delay AnimationDelay.make)
@@ -5848,6 +5892,7 @@ module AppliesTo = struct
       ?voice_family:(Belt.Option.map voice_family VoiceFamily.make)
       ?volume:(Belt.Option.map volume Volume.make)
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ()
 
@@ -5873,7 +5918,7 @@ module AppliesTo = struct
     ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
     ?top ?transition ?transition_delay ?transition_duration ?transition_property
     ?transition_timing_function ?unicode_bidi ?user_select ?vertical_align ?visibility ?voice_family
-    ?volume ?white_space ?widows ?width ?word_spacing ?z_index () =
+    ?volume ?white_space ?widows ?width ?word_break ?word_spacing ?z_index () =
     Internal.AppliesTo.display
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -6014,6 +6059,7 @@ module AppliesTo = struct
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
       ?widows:(Belt.Option.map widows Widows.make)
       ?width:(Belt.Option.map width Width.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ?z_index:(Belt.Option.map z_index ZIndex.make)
       ()
@@ -6038,7 +6084,7 @@ module AppliesTo = struct
     ?speech_rate ?stress ?table_layout ?text_align ?text_decoration ?text_indent ?text_transform
     ?top ?transition ?transition_delay ?transition_duration ?transition_property
     ?transition_timing_function ?unicode_bidi ?user_select ?vertical_align ?visibility ?voice_family
-    ?volume ?white_space ?widows ?width ?word_spacing ?z_index () =
+    ?volume ?white_space ?widows ?width ?word_break ?word_spacing ?z_index () =
     Internal.AppliesTo.keyframe_block
       ?align_content:(Belt.Option.map align_content AlignContent.make)
       ?align_items:(Belt.Option.map align_items AlignItems.make)
@@ -6170,6 +6216,7 @@ module AppliesTo = struct
       ?white_space:(Belt.Option.map white_space WhiteSpace.make)
       ?widows:(Belt.Option.map widows Widows.make)
       ?width:(Belt.Option.map width Width.make)
+      ?word_break:(Belt.Option.map word_break WordBreak.make)
       ?word_spacing:(Belt.Option.map word_spacing WordSpacing.make)
       ?z_index:(Belt.Option.map z_index ZIndex.make)
       ()

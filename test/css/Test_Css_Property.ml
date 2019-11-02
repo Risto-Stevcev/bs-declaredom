@@ -2028,6 +2028,34 @@ test ~name:"css property - volume" @@ fun t -> begin
 end;
 
 
+test ~name:"css property - word-break" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> WordBreak.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `normal "normal";
+  t |> equal `keep_all "keep-all";
+  t |> equal `break_all "break-all";
+  t |> equal `break_word "break-word";
+  t |> T.end_
+end;
+
+
+test ~name:"css property - word-spacing" @@ fun t -> begin
+  let equal a b t =
+    t |> T.equal (a |> WordSpacing.make |> Css_Property.show) b
+  in
+  t |> equal `inherit_ "inherit";
+  t |> equal `initial "initial";
+  t |> equal `unset "unset";
+  t |> equal `normal "normal";
+  t |> equal (`px 5.) "5px";
+  t |> T.end_
+end;
+
+
 test ~name:"css property - white-space" @@ fun t -> begin
   let equal a b t =
     t |> T.equal (a |> WhiteSpace.make |> Css_Property.show) b

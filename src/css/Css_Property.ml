@@ -153,6 +153,7 @@ module Style = struct
    and white_space = [ `white_space ]
    and widows = [ `widows ]
    and width = [ `width ]
+   and word_break = [ `word_break ]
    and word_spacing = [ `word_spacing ]
    and z_index = [ `z_index ]
 
@@ -252,7 +253,8 @@ module AppliesTo = struct
       | speak_numeral | speak_punctuation | speak | speech_rate | stress
       | text_decoration | text_transform | transition | transition_delay
       | transition_duration | transition_property | transition_timing_function | user_select
-      | unicode_bidi | visibility | voice_family | volume | white_space | word_spacing ]
+      | unicode_bidi | visibility | voice_family | volume | white_space | word_break | word_spacing
+      ]
 
     type block =
       [ heights | margins | overflow | paddings | page_breaks
@@ -431,7 +433,7 @@ module AppliesTo = struct
     type display = [ `display of display_outside * display_inside ]
 
     type t =
-      [ display_outside | display_inside | display
+      [ display_outside  | display_inside   | display
       | display_listitem | display_internal | display_box | display_legacy ]
   end
 

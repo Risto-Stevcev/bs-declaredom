@@ -2152,6 +2152,28 @@ module Width = struct
 end
 
 
+module WordBreak = struct
+  type +'a t = ([> Css_Property.word_break ] as 'a) Css_Property.t
+
+  module Value = struct
+    type value =
+      [ `normal | `keep_all [@bs.as "keep-all"] | `break_all [@bs.as "break-all"]
+      | `break_word [@bs.as "break-word"] ]
+      [@@bs.deriving jsConverter]
+
+    type t = [ Css_Value.Global.t | value ]
+
+    let show: t -> string = function
+    | #Css_Value.Global.t as global ->
+      Css_Value.Global.show global
+    | #value as value ->
+      valueToJs value
+  end
+
+  let make value: 'a t = Internal.make @@ Value.show value
+end
+
+
 module WordSpacing = struct
   type +'a t = ([> Css_Property.word_spacing ] as 'a) Css_Property.t
 
