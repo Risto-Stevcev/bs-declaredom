@@ -406,6 +406,36 @@ module AppliesTo = struct
 
   include Display
 
+
+  (* WIP *)
+  module Display3 = struct
+    (* Draft: https://drafts.csswg.org/css-display-3/#display-value-summary *)
+
+    type flow = [ `flow | `flow_root ] and list_item = [ `list_item ]
+    type display_outside = [ `block | `inline | `run_in ]
+    type display_inside = [ `flow | `flow_root | `table | `flex | `grid | `ruby ]
+    type display_listitem =
+      [ `df of display_outside * flow
+      | `dl of display_outside * list_item
+      | `dfl of display_outside * flow * list_item
+      | `fl of flow * list_item ]
+    type display_internal =
+      [ `table_row_group | `table_header_group | `table_footer_group
+      | `table_row | `table_cell | `table_column_group | `table_column | `table_caption
+      | `ruby_base | `ruby_text | `ruby_base_container | `ruby_text_container ]
+    type display_box =
+      [ `contents | `none ]
+    type display_legacy =
+      [ `inline_block | `inline_table | `inline_flex | `inline_grid ]
+
+    type display = [ `display of display_outside * display_inside ]
+
+    type t =
+      [ display_outside | display_inside | display
+      | display_listitem | display_internal | display_box | display_legacy ]
+  end
+
+
   type keyframe_block = [ KeyframeBlock.displays | KeyframeBlock.flex_item ]
 
   type display = [ displays | flex_item | size ]
