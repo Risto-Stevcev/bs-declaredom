@@ -56,7 +56,6 @@
     "bs-platform": "5.2.1",
     "core-js": "3.3.6",
     "esm": "3.2.25",
-    "jsdom": "15.2.0",
     "json-to-dot": "1.1.0",
     "parcel-bundler": "1.12.4",
     "rollup": "1.26.3",
@@ -69,6 +68,7 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "bs-webapi": "^0.15.4"
+    "bs-webapi": "^0.15.4",
+    "jsdom": "^15.2.1"
   }
 }

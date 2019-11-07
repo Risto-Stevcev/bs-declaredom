@@ -3,7 +3,7 @@ open Test
 open! Html
 ;;
 
-let _ = Jsdom.init () [@bs]
+let _ = Jsdom.init ()
 
 let (tagName, outerHTML, ofNode) =
   Webapi.Dom.Element.(tagName, outerHTML, ofNode)
