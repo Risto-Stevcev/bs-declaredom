@@ -69,6 +69,6 @@
   },
   "dependencies": {
     "bs-webapi": "^0.15.4",
-    "jsdom": "^15.2.1"
+    "jsdom": "^16.5.0"
   }
 }
